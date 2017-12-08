@@ -1,7 +1,7 @@
 # 欢迎使用 AdminLTE 文档！
 
 > * 翻译采用第三方翻译工具和人工复核的方式进行。
-> * 目前已经完成，AdminLTE-2.3.11 翻译工作。
+> * 目前已经完成，AdminLTE-2.3.11、2.4.2 翻译工作。
 
 ----------
 当然，你也可以参与其中：
@@ -38,10 +38,10 @@ dict.txt 为其字典文件。
 
 你可以在本项目分支中找到，也可以直接访问地址：
 
-https://github.com/wangyouworld/AdminLTE_CN/tree/2.3.11
+https://github.com/wangyouworld/AdminLTE_CN/releases
 
 或者，线上查看：
-http://3vshej.cn/AdminLTE/AdminLTE-2.3.11/
+http://3vshej.cn/AdminLTE/
 
 ----------
 
