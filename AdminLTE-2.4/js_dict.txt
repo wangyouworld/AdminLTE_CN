@@ -1,0 +1,474 @@
++ "Layout Options"
++ "布局选项"
++ "Fixed layout"
++ "固定布局"
++ "<p>Activate the fixed layout. You can't use fixed and boxed layouts together</p>"
++ "<p>激活固定布局后，将不能使用固定和盒子布局</p>"
++ "Boxed Layout"
++ "盒子布局"
++ "<p>Activate the boxed layout</p>"
++ "<p>激活盒子布局</p>"
++ "Toggle Sidebar"
++ "切换侧边栏"
++ "<p>Toggle the left sidebar's state (open or collapse)</p>"
++ "<p>切换左侧边栏（打开或折叠）</p>"
++ "Sidebar Expand on Hover"
++ "左侧边栏悬停"
++ "<p>Let the sidebar mini expand on hover</p>"
++ "<p>让左侧边栏悬停时展开</p>"
++ "Toggle Right Sidebar Slide"
++ "右侧边栏占位"
++ "<p>Toggle between slide over content and push content effects</p>"
++ "<p>内容占位和切换效果</p>"
++ "Toggle Right Sidebar Skin"
++ "右侧边栏皮肤切换"
++ "<p>Toggle between dark and light skins for the right sidebar</p>"
++ "<p>右侧边栏深色、浅色皮肤切换</p>"
++ "<p class='text-center no-margin'>Blue</p>");
++ "<p class='text-center no-margin'>蓝色</p>");
++ "<p class='text-center no-margin'>Black</p>");
++ "<p class='text-center no-margin'>黑色</p>");
++ "<p class='text-center no-margin'>Purple</p>");
++ "<p class='text-center no-margin'>紫色</p>");
++ "<p class='text-center no-margin'>Green</p>");
++ "<p class='text-center no-margin'>绿色</p>");
++ "<p class='text-center no-margin'>Red</p>");
++ "<p class='text-center no-margin'>红色</p>");
++ "<p class='text-center no-margin'>Yellow</p>");
++ "<p class='text-center no-margin'>黄色</p>");
++ "<p class='text-center no-margin' style='font-size: 12px'>Blue Light</p>");
++ "<p class='text-center no-margin' style='font-size: 12px'>亮蓝</p>");
++ "<p class='text-center no-margin' style='font-size: 12px'>Black Light</p>");
++ "<p class='text-center no-margin' style='font-size: 12px'>亮黑</p>");
++ "<p class='text-center no-margin' style='font-size: 12px'>Purple Light</p>");
++ "<p class='text-center no-margin' style='font-size: 12px'>亮紫</p>");
++ "<p class='text-center no-margin' style='font-size: 12px'>Green Light</p>");
++ "<p class='text-center no-margin' style='font-size: 12px'>亮绿</p>");
++ "<p class='text-center no-margin' style='font-size: 12px'>Red Light</p>");
++ "<p class='text-center no-margin' style='font-size: 12px'>亮红</p>");
++ "<p class='text-center no-margin' style='font-size: 12px;'>Yellow Light</p>");
++ "<p class='text-center no-margin' style='font-size: 12px;'>亮黄</p>");
+demo_settings.append("<h4 class='control-sidebar-heading'>Skins</h4>");
+demo_settings.append("<h4 class='control-sidebar-heading'>皮肤</h4>");
+window.alert('Please use a modern browser to properly view this template!');
+window.alert('你的浏览器不支持查看此模板，请换一个！');
+* Main JS application file for AdminLTE v2. This file
+* AdminLTE v2 的主要 JS 应用程序文件。
+* should be included in all pages. It controls some layout
+* 此文件应该在所有页面引入。
+* options and implements exclusive AdminLTE plugins.
+* 它控制着某些布局选项，并实现了专属的 AdminLTE 插件。
+//Make sure jQuery has been loaded before app.js
+//确保jQuery已经在app.js之前加载
+* @description $.AdminLTE is the main object for the template's app.
+* @description $.AdminLTE 是模板程序的主要对象。
+*              It's used for implementing functions and options related
+*              它用于实现与模板相关的函数和选项。
+*              to the template. Keeping everything wrapped in an object
+*              将所有东西封装在一个对象中
+*              prevents conflict with other plugins and is a better
+*              可以防止与其他插件发生冲突，
+*              way to organize our code.
+*              并且是组织代码的最好方法。
+* - AdminLTE Options -
+* - AdminLTE 选项 -
+* Modify these options to suit your implementation
+* 修改这些选项以满足你的需要
+//Add slimscroll to navbar menus
+//将 slimscroll 添加到导航栏菜单
+//This requires you to load the slimscroll plugin
+//你需要加载 slimscroll 插件
+//in every page before app.js
+//在所有页面之前加载 app.js
+//The width of the scroll bar
+//滚动条的宽度
+//The height of the inner menu
+//内部菜单的高度
+//General animation speed for JS animated elements such as box collapse/expand and
+//一般为JS动画速度，如框折叠/展开和侧边栏向上/向下滑动。
+//sidebar treeview slide up/down. This options accepts an integer as milliseconds,
+//单位为毫秒，
+//'fast', 'normal', or 'slow'
+//或者使用 'fast', 'normal', 或 'slow'
+//Sidebar push menu toggle button selector
+//侧边栏菜单按钮选择器
+//Activate sidebar push menu
+// 激活侧边栏推菜单
+//Activate sidebar slimscroll if the fixed layout is set (requires SlimScroll Plugin)
+//激活边栏slimscroll如果固定的布局设置（需要SlimScroll插件）
+//Enable sidebar expand on hover effect for sidebar mini
+//启用迷你侧边栏并固定
+//This option is forced to true if both the fixed layout and sidebar mini
+//如果固定布局和迷你侧边栏启用，
+//are used together
+//则此选项被强制为真
+//BoxRefresh Plugin
+//BoxRefresh 插件
+//Bootstrap.js tooltip
+//Bootstrap.js 提示工具
+//Enable Fast Click. Fastclick.js creates a more
+//启用快速单击。
+//native touch experience with touch devices. If you
+Fastclick 让触摸设备拥有等同于本地的触摸体验。
+//choose to enable the plugin, make sure you load the script
+//如果您选择启用该插件，
+//before AdminLTE's app.js
+//请确保在 AdminLTE app.js 前加载了该脚本
+//Control Sidebar Tree views
+//控制栏树视图
+//Control Sidebar Options
+//控制栏配置
+//Which button should trigger the open/close event
+//哪个按钮触发打开/关闭事件
+//The sidebar selector
+//侧边栏选择器
+//Enable slide over content
+//启用幻灯片内容
+//Box Widget Plugin. Enable this plugin
+//Box 小部件插件。启用这个插件
+//to allow boxes to be collapsed and/or removed
+//允许折叠和（或）删除
+//Box Widget plugin options
+//Box 小部件配置
+//Collapse icon
+//折叠图标
+//Open icon
+//展开图标
+//Remove icon
+//删除图标
+//Remove button selector
+//删除按钮选择器
+//Collapse button selector
+//折叠按钮选择器
+//Direct Chat plugin options
+//聊天插件配置
+//Enable direct chat by default
+//默认启用聊天
+//The button to open and close the chat contacts pane
+//这个选择器用于控制打开或关闭联系人面板
+//Define the set of colors to use globally around the website
+//定义一组在网站上使用的颜色
+//The standard screen sizes that bootstrap uses.
+//bootstrap使用的标准屏幕大小。
+//如果你修改了variables.less 文件，
+//them here too.
+//需要同步修改这里。
+* - Implementation -
+* - 实现 -
+* The next block of code implements AdminLTE's
+* 下面的代码实现了
+* functions and plugins as specified by the
+* AdminLTE函数、插件
+* options above.
+* 配置
+//Fix for IE page transitions
+//修复IE过渡页
+//Extend options if external options exist
+//如果存在外部选项，则扩展选项
+//Easy access to options
+//轻松访问选项
+//Set up the object
+//设置对象
+//Activate the layout maker
+//激活布局
+//Enable sidebar tree view controls
+//激活侧边栏树视图
+//Enable control sidebar
+//激活控制侧边栏
+//Add slimscroll to navbar dropdown
+//添加 slimscroll 到导航栏下拉
+//Activate Bootstrap tooltip
+//激活 Bootstrap 提示工具
+//Activate box widget
+//激活 box 小部件
+//Activate fast click
+//激活快速点击
+//Activate direct chat widget
+//激活聊天部件
+* INITIALIZE BUTTON TOGGLE
+* 初始化按钮切换
+* - Initialize the AdminLTE Object -
+* - 初始化 AdminLTE 对象 -
+* All AdminLTE functions are implemented below.
+* 所有的AdminLTE功能都在下面实现。
+/* Layout
+/* 布局
+* Fixes the layout height in case min-height fails.
+* 修复布局高度，防止最小高度失效。
+// Remove overflow from .wrapper if layout-boxed exists
+// 如果layout-boxed存在，则从.wrapper中删除
+//Get window height and the wrapper height
+//获取窗口高度和wrapper高度
+//Set the min-height of the content and sidebar based on the
+//根据文档的高度
+//the height of the document.
+//设置内容和侧边栏的高度。
+//Fix for the control sidebar height
+//修复控制栏高度
+//Make sure the body tag has the .fixed class
+//确定body标签中包含 .fixed 类
+//Enable slimscroll for fixed layout
+//为固定布局启用 slimscroll
+//Destroy if it exists
+//如果存在则销毁它
+//Add slimscroll
+//添加 slimscroll
+* Adds the push menu functionality to the sidebar.
+* 将 push menu添加到侧边栏
+//Get the screen sizes
+//获取屏幕大小
+//Enable sidebar toggle
+//激活侧边栏切换
+//Handle sidebar push menu for small screens
+//处理小屏幕 push menu
+//Enable hide menu when clicking on the content-wrapper on small screens
+//当点击小屏幕上 content-wrapper 时隐藏菜单
+//Enable expand on hover for sidebar mini
+//在迷你侧边栏上启用扩展
+//Expand sidebar on hover
+//展开侧边栏
+* Converts the sidebar into a multilevel
+* 将侧边栏转换为
+* tree view menu.
+* 多级树菜单。
+//Get the clicked link and the next element
+//获取点击的链接和下一个元素
+//Check if the next element is a menu and is visible
+//检查下一个元素是否是菜单，并且是可见的
+//Close the menu
+//关闭菜单
+//Fix the layout in case the sidebar stretches over the height of the window
+//修复布局，以防侧边栏延伸过窗口的高度
+//If the menu is not visible
+//如果菜单不可见
+//Get the parent menu
+//获取父菜单
+//Close all open menus within the parent
+//关闭父级中的所有打开菜单
+//Remove the menu-open class from the parent
+//从父级中移除 menu-open 类
+//Get the parent li
+//获取父级 li
+//Open the target menu and add the menu-open class
+//打开目标菜单并添加 menu-open
+//Add the class active to the parent li
+//将active类添加到父级 li
+//if this isn't a link, prevent the page from being redirected
+//如果这不是一个链接，则阻止页面重定向
+/* ControlSidebar
+/* 控制栏
+* Adds functionality to the right sidebar
+* 添加功能到右侧边栏
+//instantiate the object
+//实例化对象
+//Get the object
+//获取对象
+//更新配置
+//Get the sidebar
+//获取侧边栏
+//The toggle button
+//切换按钮
+//Listen to the click event
+//监听点击事件
+//If the sidebar is not open
+//如果侧边栏没打开
+//Open the sidebar
+//打开侧边栏
+//If the body has a boxed layout, fix the sidebar bg position
+//如果页面使用 boxed 布局，则固定侧边栏位置
+//If the body has a fixed layout, make the control sidebar fixed
+//如果页面使用 boxed 布局，则固定控制栏
+//If the content height is less than the sidebar's height, force max height
+//如果内容高度小于侧边栏的高度，则强制最大高度
+//Open the control sidebar
+//打开控制栏
+//Slide over content
+//滑过内容
+//Push the content by adding the open class to the body instead
+//通过向body 中添加control-sidebar-open类
+//of the sidebar itself
+//而不是自身
+//Close the control sidebar
+//关闭控制栏
+/* BoxWidget
+/* Box 部件
+* BoxWidget is a plugin to handle collapsing and
+* BoxWidget 插件用来处理屏幕上的
+* removing boxes from the screen.
+* 折叠和移除框。
+*        Set all your options in the main $.AdminLTE.options object
+*        在$ .AdminLTE.options对象中设置所有选项
+// activate all boxes per default
+// 默认情况下激活所有Box
+//Listen for collapse event triggers
+//监听折叠事件
+//Listen for remove event triggers
+//监听删除事件
+//Find the box parent
+//查找 box 父级
+//Find the body and the footer
+//找到 body 和 footer
+//Convert minus into plus
+//转换减号为加号图标
+//Hide the content
+//隐藏内容
+//Convert plus into minus
+//转换加号为减号图标
+//Show the content
+//显示内容
+* - Custom Plugins -
+* - 自定义插件 -
+* All custom plugins are defined below.
+* 下面定义了所有自定义插件。
+* BOX REFRESH BUTTON
+* BOX 刷新按钮
+* This is a custom plugin to use with the component BOX. It allows you to add
+* 这是BOX的自定义插件。它允许您在BOX中添加一个刷新按钮。
+* a refresh button to the box. It converts the box's state to a loading state.
+* 将BOX状态转换为加载状态。
+// Render options
+// 渲染选项
+//Refresh button selector
+//刷新按钮选择器
+//File source to be loaded (e.g: ajax/src.php)
+//要加载的源文件 (如 ajax/src.php)
+//Callbacks
+//回调
+//Right after the button has been clicked
+//在按钮被点击之后
+//When the source has been loaded
+//当内容加载完毕
+//The overlay
+//覆盖层
+//if a source is specified
+//如果指定了源
+//the box
+//这个box
+//the button
+//这个按钮
+//On trigger click
+//触发点击
+//Add loading overlay
+//添加覆盖层
+//Perform ajax call
+//执行ajax调用
+//Add overlay and loading img
+//添加覆盖层和加载图片
+//Remove overlay and loading img
+//移除覆盖层和加载图片
+* EXPLICIT BOX CONTROLS
+* 显示 BOX 控制
+* This is a custom plugin to use with the component BOX. It allows you to activate
+* 这是和BOX一起使用的插件，
+* a box inserted in the DOM after the app.js was loaded, toggle and remove box.
+* 允许你在激活、删除BOX后，在DOM中插入 BOX。
+* TODO LIST CUSTOM PLUGIN
+* 待办事项自定义插件
+* This plugin depends on iCheck plugin for checkbox and radio inputs
+* 此插件依赖iCheck插件的单选、复选框
+//When the user checks the input
+//当选中时
+//When the user unchecks the input
+//当取消选中时
+* Documentation JS script
+* JS 脚本文档
+//Skin switcher
+//定义皮肤选择器
+labels: ['Item 1', 'Item 2'],
+labels: ['项目 1', '项目 2'],
+labels: ['Item 1'],
+labels: ['项目 1'],
+label: "Download Sales"
+label: "下载销售"
+label: "In-Store Sales"
+label: "店内销售"
+label: "Mail-Order Sales"
+label: "邮购销售"
+labels: ['CPU', 'DISK'],
+labels: ['CPU', '磁盘'],
+labels: ["January", "February", "March", "April", "May", "June", "July"],
+labels: ["一月", "二月", "三月", "四月", "五月", "六月", "七月"],
+label: "Electronics",
+label: "电子产品",
+label: "Digital Goods",
+label: "数码商品",
+data: [["January", 10], ["February", 8], ["March", 4], ["April", 13], ["May", 17], ["June", 9]],
+data: [["一月", 10], ["二月", 8], ["三月", 4], ["四月", 13], ["五月", 17], ["六月", 9]],
+window.console.log("The element has been checked");
+window.console.log("元素已被选中");
+window.console.log("The element has been unchecked");
+window.console.log("元素取消选中");
+name: 'Vatican City'
+name: '梵蒂冈'
+name: 'Monaco'
+name: '摩纳哥'
+name: 'Nauru'
+name: '瑙鲁'
+name: 'Tuvalu'
+name: '图瓦卢'
+name: 'San Marino'
+name: '圣马力诺'
+name: 'Liechtenstein'
+name: '列支敦士登'
+name: 'Marshall Islands'
+name: '马绍尔群岛'
+name: 'Saint Kitts and Nevis'
+name: '圣基茨和尼维斯'
+name: 'Maldives'
+name: '马尔代夫'
+name: 'Malta'
+name: '马耳他'
+name: 'Grenada'
+name: '格林纳达'
+name: 'Saint Vincent and the Grenadines'
+name: '圣文森特和格林纳丁斯'
+name: 'Barbados'
+name: '巴巴多斯'
+name: 'Antigua and Barbuda'
+name: '安提瓜和巴布达'
+name: 'Seychelles'
+name: '塞舌尔'
+name: 'Palau'
+name: '帕劳'
+name: 'Andorra'
+name: '安道尔'
+name: 'Saint Lucia'
+name: '圣卢西亚'
+name: 'Federated States of Micronesia'
+name: '密克罗尼西亚联邦'
+name: 'Singapore'
+name: '新加坡'
+name: 'Kiribati'
+name: '基里巴斯'
+name: 'Tonga'
+name: '汤加'
+name: 'Dominica'
+name: '多米尼加'
+name: 'Mauritius'
+name: '毛里求斯'
+name: 'Bahrain'
+name: '巴林'
+name: 'São Tomé and Príncipe'
+name: '圣多美和普林西比'
+'Today': [moment()
+'今天': [moment()
+'Yesterday': [moment()
+'昨天': [moment()
+'Last 7 Days': [moment()
+'近 7 天': [moment()
+'Last 30 Days': [moment()
+'近 30 天': [moment()
+'This Month': [moment()
+'本月': [moment()
+'Last Month': [moment()
+'上月': [moment()
+"You chose: "
+"你选择了： "
+el.html(el.html() + ': ' + visitorsData[code] + ' new visitors');
+el.html(el.html() + ': ' + visitorsData[code] + ' 新访客');
+applyLabel: 'Apply',
+applyLabel: '应用',
+cancelLabel: 'Cancel',
+cancelLabel: '取消',
+customRangeLabel: 'Custom Range',
+customRangeLabel: '自定义范围',

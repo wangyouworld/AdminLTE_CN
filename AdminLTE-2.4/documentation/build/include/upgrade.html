@@ -1,0 +1,26 @@
+<section id="upgrade">
+  <h2 class="page-header"><a href="#upgrade">升级指南</a></h2>
+  <p class="lead">要从1.x升级到最新版本，请遵循本指南。</p>
+  <h3>新文件</h3>
+  <p>确保更新所有与AdminLTE相关的CSS和JS文件。
+    否则，布局将正常使用。最重要的文件是AdminLTE.css，皮肤CSS文件和app.js。</p>
+  <h3>布局调整</h3>
+  <ol>
+    <li>.wrapper div必须放在 body 标签之后，而不是放在header之后</li>
+    <li>修改div .header 为 .main-header <code>&LT;div class="main-header"></code></li>
+    <li>修改 .right-side 类为 .content-wrapper <code>&LT;div class="content-wrapper"></code></li>
+    <li>修改 .left-side 类为 .main-sidebar <code>&LT;div class="main-sidebar"></code></li>
+    <li>在导航栏中，将 .navbar-right 修改为 .navbar-custom-menu <code>&LT;div class="navbar-custom-menu"></code></li>
+  </ol>
+  <h3>导航栏自定义下拉菜单</h3>
+  <ol>
+    <li>通知菜单中的图标不需要使用 bg-* 类。会使用当前颜色，例如text-aqua或text-red。</li>
+  </ol>
+  <h3>登录，注册和锁屏页面</h3>
+  <p>这些页面的HTML标记和样式有很大的变化。最好的方法是复制页面代码再修改它。</p>
+  <p>你该着手去做！</p>
+  <h3>邮箱</h3>
+  <p>邮箱升级包含了三个不同的页面。 分别是收件箱，阅读邮件和撰写新邮件。
+    要使用这些页面，你可以pages/mailbox目录下找到。</p>
+  <p><b class="text-red">提示：</b> 旧的邮箱布局已被弃用，为了便于使用新布局将在下一个版本中删除。</p>
+</section>
