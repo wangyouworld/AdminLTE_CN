@@ -1,0 +1,1545 @@
+<section id="components" data-spy="scroll" data-target="#scrollspy-components">
+  <h2 class="page-header"><a href="#components">组件</a></h2>
+  <div class="callout callout-info lead">
+    <h4>提醒！</h4>
+    <p>
+      AdminLTE使用所有Bootstrap 3组件。
+      查看<a href="http://getbootstrap.com">Bootstrap 文档</a>以了解本文档<b>不包含</b>的各种组件，
+      这将是个很好的开始。
+    </p>
+  </div>
+  <div class="callout callout-danger lead">
+    <h4>提示！</h4>
+    <p>
+      如果复制这些组件，
+      请右击组件，并选择“检查元素”
+      这将比查看源码要快得多。
+    </p>
+  </div>
+  <h3 id="component-main-header">主标题</h3>
+  <p class="lead">主标题包含LOGO导航。
+    导航栏与Bootstrap略有不同，它有Bootstrap不提供的组件。
+    导航栏有两种方式构建。这是一个正常的导航栏例子，
+    接下来我们将提供顶部导航布局的示例。
+  <div class="box box-solid">
+    <div class="box-body" style="position: relative;">
+      <span class="eg">主标题示例</span>
+      <header class="main-header" style="position: relative;">
+        <!-- Logo -->
+        <a href="index2.html" class="logo" style="position: relative;"><b>Admin</b>LTE</a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar" role="navigation" style="border: 0;max-height: 50px;">
+          <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" role="button">
+            <span class="sr-only">切换导航</span>
+          </a>
+          <!-- Navbar Right Menu -->
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- Messages: style can be found in dropdown.less-->
+              <li class="dropdown messages-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-envelope-o"></i>
+                  <span class="label label-success">4</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">你有 4 条消息</li>
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                      <li><!-- start message -->
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="用户图像">
+                          </div>
+                          <h4>
+                            支持团队
+                            <small><i class="fa fa-clock-o"></i> 5 分钟前</small>
+                          </h4>
+                          <p>为什么不购买一个高级模板主题？</p>
+                        </a>
+                      </li><!-- end message -->
+                    </ul>
+                  </li>
+                  <li class="footer"><a href="#">查看所有消息</a></li>
+                </ul>
+              </li>
+              <!-- Notifications: style can be found in dropdown.less -->
+              <li class="dropdown notifications-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-bell-o"></i>
+                  <span class="label label-warning">10</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">你有 10 条通知</li>
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-users text-aqua"></i> 今日 5 名新进会员加入
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="footer"><a href="#">查看所有</a></li>
+                </ul>
+              </li>
+              <!-- Tasks: style can be found in dropdown.less -->
+              <li class="dropdown tasks-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-flag-o"></i>
+                  <span class="label label-danger">9</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">你有 9 项任务</li>
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                      <li><!-- Task item -->
+                        <a href="#">
+                          <h3>
+                            设计一些按钮
+                            <small class="pull-right">20%</small>
+                          </h3>
+                          <div class="progress xs">
+                            <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <span class="sr-only">20% 完成</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li><!-- end task item -->
+                    </ul>
+                  </li>
+                  <li class="footer">
+                    <a href="#">查看所有任务</a>
+                  </li>
+                </ul>
+              </li>
+              <!-- User Account: style can be found in dropdown.less -->
+              <li class="dropdown user user-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="../dist/img/user2-160x160.jpg" class="user-image" alt="用户图像">
+                  <span class="hidden-xs">Alexander Pierce</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- User image -->
+                  <li class="user-header">
+                    <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="用户图像">
+                    <p>
+                      Alexander Pierce - Web 开发人员
+                      <small>注册于2012年11月</small>
+                    </p>
+                  </li>
+                  <!-- Menu Body -->
+                  <li class="user-body">
+                    <div class="col-xs-4 text-center">
+                      <a href="#">关注</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                      <a href="#">销售</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                      <a href="#">好友</a>
+                    </div>
+                  </li>
+                  <!-- Menu Footer-->
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <a href="#" class="btn btn-default btn-flat">资料</a>
+                    </div>
+                    <div class="pull-right">
+                      <a href="#" class="btn btn-default btn-flat">退出</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+    </div>
+  </div>
+  <pre class="prettyprint">&LT;header class="main-header">
+  &LT;a href="../../index2.html" class="logo">
+    &LT;!-- LOGO -->
+    AdminLTE
+  &LT;/a>
+  &LT;!-- Header Navbar: style can be found in header.less -->
+  &LT;nav class="navbar navbar-static-top" role="navigation">
+    &LT;!-- Navbar Right Menu -->
+    &LT;div class="navbar-custom-menu">
+      &LT;ul class="nav navbar-nav">
+        &LT;!-- Messages: style can be found in dropdown.less-->
+        &LT;li class="dropdown messages-menu">
+          &LT;a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            &LT;i class="fa fa-envelope-o">&LT;/i>
+            &LT;span class="label label-success">4&LT;/span>
+          &LT;/a>
+          &LT;ul class="dropdown-menu">
+            &LT;li class="header">You have 4 messages&LT;/li>
+            &LT;li>
+              &LT;!-- inner menu: contains the actual data -->
+              &LT;ul class="menu">
+                &LT;li>&LT;!-- start message -->
+                  &LT;a href="#">
+                    &LT;div class="pull-left">
+                      &LT;img src="dist/img/user2-160x160.jpg" class="img-circle" alt="用户图像">
+                    &LT;/div>
+                    &LT;h4>
+                      Sender Name
+                      &LT;small>&LT;i class="fa fa-clock-o">&LT;/i> 5 mins&LT;/small>
+                    &LT;/h4>
+                    &LT;p>Message Excerpt&LT;/p>
+                  &LT;/a>
+                &LT;/li>&LT;!-- end message -->
+                ...
+              &LT;/ul>
+            &LT;/li>
+            &LT;li class="footer">&LT;a href="#">See All Messages&LT;/a>&LT;/li>
+          &LT;/ul>
+        &LT;/li>
+        &LT;!-- Notifications: style can be found in dropdown.less -->
+        &LT;li class="dropdown notifications-menu">
+          &LT;a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            &LT;i class="fa fa-bell-o">&LT;/i>
+            &LT;span class="label label-warning">10&LT;/span>
+          &LT;/a>
+          &LT;ul class="dropdown-menu">
+            &LT;li class="header">You have 10 notifications&LT;/li>
+            &LT;li>
+              &LT;!-- inner menu: contains the actual data -->
+              &LT;ul class="menu">
+                &LT;li>
+                  &LT;a href="#">
+                    &LT;i class="ion ion-ios-people info">&LT;/i> Notification title
+                  &LT;/a>
+                &LT;/li>
+                ...
+              &LT;/ul>
+            &LT;/li>
+            &LT;li class="footer">&LT;a href="#">View all&LT;/a>&LT;/li>
+          &LT;/ul>
+        &LT;/li>
+        &LT;!-- Tasks: style can be found in dropdown.less -->
+        &LT;li class="dropdown tasks-menu">
+          &LT;a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            &LT;i class="fa fa-flag-o">&LT;/i>
+            &LT;span class="label label-danger">9&LT;/span>
+          &LT;/a>
+          &LT;ul class="dropdown-menu">
+            &LT;li class="header">You have 9 tasks&LT;/li>
+            &LT;li>
+              &LT;!-- inner menu: contains the actual data -->
+              &LT;ul class="menu">
+                &LT;li>&LT;!-- Task item -->
+                  &LT;a href="#">
+                    &LT;h3>
+                      设计一些按钮
+                      &LT;small class="pull-right">20%&LT;/small>
+                    &LT;/h3>
+                    &LT;div class="progress xs">
+                      &LT;div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                        &LT;span class="sr-only">20% Complete&LT;/span>
+                      &LT;/div>
+                    &LT;/div>
+                  &LT;/a>
+                &LT;/li>&LT;!-- end task item -->
+                ...
+              &LT;/ul>
+            &LT;/li>
+            &LT;li class="footer">
+              &LT;a href="#">查看所有任务&LT;/a>
+            &LT;/li>
+          &LT;/ul>
+        &LT;/li>
+        &LT;!-- User Account: style can be found in dropdown.less -->
+        &LT;li class="dropdown user user-menu">
+          &LT;a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            &LT;img src="dist/img/user2-160x160.jpg" class="user-image" alt="用户图像">
+            &LT;span class="hidden-xs">Alexander Pierce&LT;/span>
+          &LT;/a>
+          &LT;ul class="dropdown-menu">
+            &LT;!-- User image -->
+            &LT;li class="user-header">
+              &LT;img src="dist/img/user2-160x160.jpg" class="img-circle" alt="用户图像">
+              &LT;p>
+                Alexander Pierce - Web 开发人员
+                &LT;small>Member since Nov. 2012&LT;/small>
+              &LT;/p>
+            &LT;/li>
+            &LT;!-- Menu Body -->
+            &LT;li class="user-body">
+              &LT;div class="col-xs-4 text-center">
+                &LT;a href="#">Followers&LT;/a>
+              &LT;/div>
+              &LT;div class="col-xs-4 text-center">
+                &LT;a href="#">Sales&LT;/a>
+              &LT;/div>
+              &LT;div class="col-xs-4 text-center">
+                &LT;a href="#">Friends&LT;/a>
+              &LT;/div>
+            &LT;/li>
+            &LT;!-- Menu Footer-->
+            &LT;li class="user-footer">
+              &LT;div class="pull-left">
+                &LT;a href="#" class="btn btn-default btn-flat">Profile&LT;/a>
+              &LT;/div>
+              &LT;div class="pull-right">
+                &LT;a href="#" class="btn btn-default btn-flat">Sign out&LT;/a>
+              &LT;/div>
+            &LT;/li>
+          &LT;/ul>
+        &LT;/li>
+      &LT;/ul>
+    &LT;/div>
+  &LT;/nav>
+&LT;/header></pre>
+  <h4>顶部导航布局，主标题示例</h4>
+  <div class="callout callout-info lead">
+    <h4>提醒！</h4>
+    <p>要使用主标题而不是常规标题，需要将<code>layout-top-nav</code>类添加到body 标签中。</p>
+  </div>
+  <div class="box box-solid">
+    <div class="box-body layout-top-nav">
+      <span class="eg">顶部导航示例</span>
+      <header class="main-header">
+        <nav class="navbar navbar-static-top">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a href="../../index2.html" class="navbar-brand"><b>Admin</b>LTE</a>
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                <i class="fa fa-bars"></i>
+              </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">链接 <span class="sr-only">（当前）</span></a></li>
+                <li><a href="#">链接</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">下拉菜单 <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">操作</a></li>
+                    <li><a href="#">另一个操作</a></li>
+                    <li><a href="#">其他操作</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">分隔链接</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">分隔后的链接</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="navbar-search-input" placeholder="搜索">
+                </div>
+              </form>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">链接</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">下拉菜单 <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">操作</a></li>
+                    <li><a href="#">另一个操作</a></li>
+                    <li><a href="#">其他操作</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">分隔链接</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+      </header>
+    </div>
+  </div>
+  <pre class="prettyprint">
+&LT;header class="main-header">
+  &LT;nav class="navbar navbar-static-top">
+    &LT;div class="container-fluid">
+    &LT;div class="navbar-header">
+      &LT;a href="../../index2.html" class="navbar-brand">&LT;b>Admin&LT;/b>LTE&LT;/a>
+      &LT;button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+        &LT;i class="fa fa-bars">&LT;/i>
+      &LT;/button>
+    &LT;/div>
+
+    &LT;!-- Collect the nav links, forms, and other content for toggling -->
+    &LT;div class="collapse navbar-collapse" id="navbar-collapse">
+      &LT;ul class="nav navbar-nav">
+        &LT;li class="active">&LT;a href="#">Link &LT;span class="sr-only">(current)&LT;/span>&LT;/a>&LT;/li>
+        &LT;li>&LT;a href="#">Link&LT;/a>&LT;/li>
+        &LT;li class="dropdown">
+          &LT;a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown &LT;span class="caret">&LT;/span>&LT;/a>
+          &LT;ul class="dropdown-menu" role="menu">
+            &LT;li>&LT;a href="#">Action&LT;/a>&LT;/li>
+            &LT;li>&LT;a href="#">Another action&LT;/a>&LT;/li>
+            &LT;li>&LT;a href="#">Something else here&LT;/a>&LT;/li>
+            &LT;li class="divider">&LT;/li>
+            &LT;li>&LT;a href="#">Separated link&LT;/a>&LT;/li>
+            &LT;li class="divider">&LT;/li>
+            &LT;li>&LT;a href="#">One more separated link&LT;/a>&LT;/li>
+          &LT;/ul>
+        &LT;/li>
+      &LT;/ul>
+      &LT;form class="navbar-form navbar-left" role="search">
+        &LT;div class="form-group">
+          &LT;input type="text" class="form-control" id="navbar-search-input" placeholder="搜索">
+        &LT;/div>
+      &LT;/form>
+      &LT;ul class="nav navbar-nav navbar-right">
+        &LT;li>&LT;a href="#">Link&LT;/a>&LT;/li>
+        &LT;li class="dropdown">
+          &LT;a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown &LT;span class="caret">&LT;/span>&LT;/a>
+          &LT;ul class="dropdown-menu" role="menu">
+            &LT;li>&LT;a href="#">Action&LT;/a>&LT;/li>
+            &LT;li>&LT;a href="#">Another action&LT;/a>&LT;/li>
+            &LT;li>&LT;a href="#">Something else here&LT;/a>&LT;/li>
+            &LT;li class="divider">&LT;/li>
+            &LT;li>&LT;a href="#">Separated link&LT;/a>&LT;/li>
+          &LT;/ul>
+        &LT;/li>
+      &LT;/ul>
+    &LT;/div>&LT;!-- /.navbar-collapse -->
+    &LT;/div>&LT;!-- /.container-fluid -->
+  &LT;/nav>
+&LT;/header></pre>
+
+  <!-- ===================================================================== -->
+
+  <h3 id="component-sidebar">侧边栏</h3>
+  <p class="lead">
+    示例参见，页面左侧的侧边栏。
+    创建侧边栏
+  </p>
+  <pre class="prettyprint">
+&LT;div class="main-sidebar">
+  &LT;!-- Inner sidebar -->
+  &LT;div class="sidebar">
+    &LT;!-- user panel (Optional) -->
+    &LT;div class="user-panel">
+      &LT;div class="pull-left image">
+        &LT;img src="dist/img/user2-160x160.jpg" class="img-circle" alt="用户图像">
+      &LT;/div>
+      &LT;div class="pull-left info">
+        &LT;p>User Name&LT;/p>
+
+        &LT;a href="#">&LT;i class="fa fa-circle text-success">&LT;/i> Online&LT;/a>
+      &LT;/div>
+    &LT;/div>&LT;!-- /.user-panel -->
+
+    &LT;!-- Search Form (Optional) -->
+    &LT;form action="#" method="get" class="sidebar-form">
+      &LT;div class="input-group">
+        &LT;input type="text" name="q" class="form-control" placeholder="搜索...">
+        &LT;span class="input-group-btn">
+          &LT;button type="submit" name="search" id="search-btn" class="btn btn-flat">&LT;i class="fa fa-search">&LT;/i>&LT;/button>
+        &LT;/span>
+      &LT;/div>
+    &LT;/form>&LT;!-- /.sidebar-form -->
+
+    &LT;!-- Sidebar Menu -->
+    &LT;ul class="sidebar-menu">
+      &LT;li class="header">HEADER&LT;/li>
+      &LT;!-- Optionally, you can add icons to the links -->
+      &LT;li class="active">&LT;a href="#">&LT;span>Link&LT;/span>&LT;/a>&LT;&LT;/li>
+      &LT;li>&LT;a href="#">&LT;span>Another Link&LT;/span>&LT;/a>&LT;/li>
+      &LT;li class="treeview">
+        &LT;a href="#">&LT;span>Multilevel&LT;/span> &LT;i class="fa fa-angle-left pull-right">&LT;/i>&LT;/a>
+        &LT;ul class="treeview-menu">
+          &LT;li>&LT;a href="#">Link in level 2&LT;/a>&LT;/li>
+          &LT;li>&LT;a href="#">Link in level 2&LT;/a>&LT;/li>
+        &LT;/ul>
+      &LT;/li>
+    &LT;/ul>&LT;!-- /.sidebar-menu -->
+
+  &LT;/div>&LT;!-- /.sidebar -->
+&LT;/div>&LT;!-- /.main-sidebar --></pre>
+
+  <h3 id="component-control-sidebar">控制栏</h3>
+  <p class="lead">控制栏右侧。
+    它的用途很广且很容易创建。
+  侧边栏有显示/隐藏样式。对于第1个，是滑过内容，不占用空间。另外一个，将占用空间。
+  通过<a href="#adminlte-options">Javascript 选项</a>进行设置。</p>
+  <p class="lead">下面代码放在<code>.wrapper</code> div 中。
+  我喜欢放在页面底部。</p>
+  <p class="lead">暗色侧边栏标记</p>
+<pre class="prettyprint"><code class="lang-html">&LT;!-- The Right Sidebar -->
+&LT;aside class="control-sidebar control-sidebar-dark">
+  &LT;!-- Content of the sidebar goes here -->
+&LT;/aside>
+&LT;!-- The sidebar's background -->
+&LT;!-- This div must placed right after the sidebar for it to work-->
+&LT;div class="control-sidebar-bg">&LT;/div></code></pre>
+
+  <p class="lead">亮色侧边栏标记</p>
+<pre class="prettyprint"><code class="lang-html">&LT;!-- The Right Sidebar -->
+&LT;aside class="control-sidebar control-sidebar-light">
+  &LT;!-- Content of the sidebar goes here -->
+&LT;/aside>
+&LT;!-- The sidebar's background -->
+&LT;!-- This div must placed right after the sidebar for it to work-->
+&LT;div class="control-sidebar-bg">&LT;/div></code></pre>
+
+  <p class="lead">创建侧边栏后，
+  你需要一个通过按钮来控制打开或关闭它。
+  将属性<code>data-toggle="control-sidebar"</code> 添加到任何按钮上，将会自动实现控制操作。</p>
+
+  <p class="lead">切换按钮示例</p>
+  <button class="btn btn-primary" data-toggle="control-sidebar">切换右边栏</button><br><br>
+
+  <p class="lead">侧边栏切换标记</p>
+  <pre class="prettyprint"><code class="lang-html">&LT;button class="btn btn-default" data-toggle="control-sidebar">Toggle Right Sidebar&LT;/button></code></pre>
+  <!-- ===================================================================== -->
+
+  <h3 id="component-info-box">信息框</h3>
+  <p class="lead">信息框用于显示统计代码段。信息框有两种类型。</p>
+  <h4>第一种信息框</h4>
+  <!-- Info Boxes -->
+  <div class="row">
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-aqua"><i class="fa fa-envelope-o"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">消息</span>
+          <span class="info-box-number">1,410</span>
+        </div><!-- /.info-box-content -->
+      </div><!-- /.info-box -->
+    </div><!-- /.col -->
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-green"><i class="fa fa-flag-o"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">书签</span>
+          <span class="info-box-number">410</span>
+        </div><!-- /.info-box-content -->
+      </div><!-- /.info-box -->
+    </div><!-- /.col -->
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-yellow"><i class="fa fa-files-o"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">上传</span>
+          <span class="info-box-number">13,648</span>
+        </div><!-- /.info-box-content -->
+      </div><!-- /.info-box -->
+    </div><!-- /.col -->
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-red"><i class="fa fa-star-o"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">喜欢</span>
+          <span class="info-box-number">93,139</span>
+        </div><!-- /.info-box-content -->
+      </div><!-- /.info-box -->
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+  <p class="lead">标记</p>
+  <pre class="prettyprint"><code class="lang-html">&LT;div class="info-box">
+  &LT;!-- Apply any bg-* class to to the icon to color it -->
+  &LT;span class="info-box-icon bg-red">&LT;i class="fa fa-star-o">&LT;/i>&LT;/span>
+  &LT;div class="info-box-content">
+    &LT;span class="info-box-text">Likes&LT;/span>
+    &LT;span class="info-box-number">93,139&LT;/span>
+  &LT;/div>&LT;!-- /.info-box-content -->
+&LT;/div>&LT;!-- /.info-box --></code></pre>
+
+  <h4>第二种信息框</h4>
+  <div class="row">
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box bg-aqua">
+        <span class="info-box-icon"><i class="fa fa-bookmark-o"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">书签</span>
+          <span class="info-box-number">41,410</span>
+          <div class="progress">
+            <div class="progress-bar" style="width: 70%"></div>
+          </div>
+          <span class="progress-description">
+            30天内增加70%
+          </span>
+        </div><!-- /.info-box-content -->
+      </div><!-- /.info-box -->
+    </div><!-- /.col -->
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box bg-green">
+        <span class="info-box-icon"><i class="fa fa-thumbs-o-up"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">喜欢</span>
+          <span class="info-box-number">41,410</span>
+          <div class="progress">
+            <div class="progress-bar" style="width: 70%"></div>
+          </div>
+          <span class="progress-description">
+            30天内增加70%
+          </span>
+        </div><!-- /.info-box-content -->
+      </div><!-- /.info-box -->
+    </div><!-- /.col -->
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box bg-yellow">
+        <span class="info-box-icon"><i class="fa fa-calendar"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">活动</span>
+          <span class="info-box-number">41,410</span>
+          <div class="progress">
+            <div class="progress-bar" style="width: 70%"></div>
+          </div>
+          <span class="progress-description">
+            30天内增加70%
+          </span>
+        </div><!-- /.info-box-content -->
+      </div><!-- /.info-box -->
+    </div><!-- /.col -->
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box bg-red">
+        <span class="info-box-icon"><i class="fa fa-comments-o"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">评论</span>
+          <span class="info-box-number">41,410</span>
+          <div class="progress">
+            <div class="progress-bar" style="width: 70%"></div>
+          </div>
+          <span class="progress-description">
+            30天内增加70%
+          </span>
+        </div><!-- /.info-box-content -->
+      </div><!-- /.info-box -->
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+  <p class="lead">标记</p>
+  <pre class="prettyprint"><code class="lang-html">&LT;!-- Apply any bg-* class to to the info-box to color it -->
+&LT;div class="info-box bg-red">
+  &LT;span class="info-box-icon">&LT;i class="fa fa-comments-o">&LT;/i>&LT;/span>
+  &LT;div class="info-box-content">
+    &LT;span class="info-box-text">Likes&LT;/span>
+    &LT;span class="info-box-number">41,410&LT;/span>
+    &LT;!-- The progress section is optional -->
+    &LT;div class="progress">
+      &LT;div class="progress-bar" style="width: 70%">&LT;/div>
+    &LT;/div>
+    &LT;span class="progress-description">
+      30天内增加70%
+    &LT;/span>
+  &LT;/div>&LT;!-- /.info-box-content -->
+&LT;/div>&LT;!-- /.info-box --></code></pre>
+  <p class="lead">在这些风格间切换，如果使用第一种风格，你只需要将 bg-* 类添加到图标本身；
+    对于另一种风格，添加 bg-* 类到信息框的 div 中即可。</p>
+  <!-- ===================================================================== -->
+
+  <h3 id="component-box">盒子</h3>
+  <p class="lead">盒子组件使用很广泛。
+    从显示图表到文本块；
+    它有多种风格，下面将进行介绍。</p>
+  <h4>默认标记</h4>
+  <div class="box">
+    <div class="box-header with-border">
+      <h3 class="box-title">默认示例</h3>
+      <div class="box-tools pull-right">
+        <!-- Buttons, labels, and many other things can be placed here! -->
+        <!-- Here is a label for example -->
+        <span class="label label-primary">标签</span>
+      </div><!-- /.box-tools -->
+    </div><!-- /.box-header -->
+    <div class="box-body">
+      内容部分
+    </div><!-- /.box-body -->
+    <div class="box-footer">
+      底部内容
+    </div><!-- box-footer -->
+  </div><!-- /.box -->
+  <pre class="prettyprint">&LT;div class="box">
+  &LT;div class="box-header with-border">
+    &LT;h3 class="box-title">Default Box Example&LT;/h3>
+    &LT;div class="box-tools pull-right">
+      &LT;!-- Buttons, labels, and many other things can be placed here! -->
+      &LT;!-- Here is a label for example -->
+      &LT;span class="label label-primary">Label&LT;/span>
+    &LT;/div>&LT;!-- /.box-tools -->
+  &LT;/div>&LT;!-- /.box-header -->
+  &LT;div class="box-body">
+    内容部分
+  &LT;/div>&LT;!-- /.box-body -->
+  &LT;div class="box-footer">
+    底部内容
+  &LT;/div>&LT;!-- box-footer -->
+&LT;/div>&LT;!-- /.box --></pre>
+  <h4>盒子变体</h4>
+  <p class="lead">您可以通过添加box相关的类来更改样式。</p>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">默认示例</h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          内容部分
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+    </div>
+    <div class="col-md-4">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">重要消息示例</h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          内容部分
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+    </div>
+    <div class="col-md-4">
+      <div class="box box-info">
+        <div class="box-header with-border">
+          <h3 class="box-title">普通样式消息示例</h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          内容部分
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+    </div>
+    <div class="clearfix"></div>
+    <div class="col-md-4">
+      <div class="box box-warning">
+        <div class="box-header with-border">
+          <h3 class="box-title">警告样式消息示例</h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          内容部分
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+    </div>
+    <div class="col-md-4">
+      <div class="box box-success">
+        <div class="box-header with-border">
+          <h3 class="box-title">成功样式消息示例</h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          内容部分
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+    </div>
+    <div class="col-md-4">
+      <div class="box box-danger">
+        <div class="box-header with-border">
+          <h3 class="box-title">危险样式消息示例</h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          内容部分
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+    </div>
+  </div><!-- /.row -->
+  <pre class="prettyprint">&LT;div class="box box-default">...&LT;/div>
+&LT;div class="box box-primary">...&LT;/div>
+&LT;div class="box box-info">...&LT;/div>
+&LT;div class="box box-warning">...&LT;/div>
+&LT;div class="box box-success">...&LT;/div>
+&LT;div class="box box-danger">...&LT;/div></pre>
+
+  <h4>实心盒子</h4>
+  <p class="lead">实心盒子替换原有样式的方案。
+    通过将box-solid 类添加到组件中，
+    来实现效果。你也可以使用其他 box 相关的类。</p>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="box box-solid box-default">
+        <div class="box-header">
+          <h3 class="box-title">默认示例</h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          内容部分
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+    </div>
+    <div class="col-md-4">
+      <div class="box box-solid box-primary">
+        <div class="box-header">
+          <h3 class="box-title">重要消息示例</h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          内容部分
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+    </div>
+    <div class="col-md-4">
+      <div class="box box-solid box-info">
+        <div class="box-header">
+          <h3 class="box-title">普通样式消息示例</h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          内容部分
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+    </div>
+    <div class="clearfix"></div>
+    <div class="col-md-4">
+      <div class="box box-solid box-warning">
+        <div class="box-header">
+          <h3 class="box-title">警告样式消息示例</h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          内容部分
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+    </div>
+    <div class="col-md-4">
+      <div class="box box-solid box-success">
+        <div class="box-header">
+          <h3 class="box-title">成功样式消息示例</h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          内容部分
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+    </div>
+    <div class="col-md-4">
+      <div class="box box-solid box-danger">
+        <div class="box-header">
+          <h3 class="box-title">危险样式消息示例</h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          内容部分
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+    </div>
+  </div><!-- /.row -->
+  <pre class="prettyprint">
+&LT;div class="box box-solid box-default">...&LT;/div>
+&LT;div class="box box-solid box-primary">...&LT;/div>
+&LT;div class="box box-solid box-info">...&LT;/div>
+&LT;div class="box box-solid box-warning">...&LT;/div>
+&LT;div class="box box-solid box-success">...&LT;/div>
+&LT;div class="box box-solid box-danger">...&LT;/div></pre>
+  <h4>盒子工具</h4>
+  <p class="lead">盒子中可以包含用于部署特定事件或提供简单信息的工具。
+    下面的示例使用了多个AdminLTE组件。</p>
+  <p>AdminLTE 的 data-widget 属性提供了可以折叠或移除的功能。
+    将按钮样式放置在box-header中。</p>
+  <pre class="prettyprint">
+&LT;!-- This will cause the box to be removed when clicked -->
+&LT;button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="移除">&LT;i class="fa fa-times">&LT;/i>&LT;/button>
+&LT;!-- This will cause the box to collapse when clicked -->
+&LT;button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="折叠">&LT;i class="fa fa-minus">&LT;/i>&LT;/button></pre>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="box box-default">
+        <div class="box-header with-border">
+          <h3 class="box-title">可折叠</h3>
+          <div class="box-tools pull-right">
+            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+          </div><!-- /.box-tools -->
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          内容部分
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+      <pre class="prettyprint">
+&LT;div class="box box-default">
+  &LT;div class="box-header with-border">
+    &LT;h3 class="box-title">Collapsable&LT;/h3>
+    &LT;div class="box-tools pull-right">
+      &LT;button class="btn btn-box-tool" data-widget="collapse">&LT;i class="fa fa-minus">&LT;/i>&LT;/button>
+    &LT;/div>&LT;!-- /.box-tools -->
+  &LT;/div>&LT;!-- /.box-header -->
+  &LT;div class="box-body">
+    内容部分
+  &LT;/div>&LT;!-- /.box-body -->
+&LT;/div>&LT;!-- /.box --></pre>
+    </div>
+    <div class="col-md-4">
+      <div class="box box-default">
+        <div class="box-header with-border">
+          <h3 class="box-title">可移除</h3>
+          <div class="box-tools pull-right">
+            <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          </div><!-- /.box-tools -->
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          内容部分
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+      <pre class="prettyprint">
+&LT;div class="box box-default">
+  &LT;div class="box-header with-border">
+    &LT;h3 class="box-title">Removable&LT;/h3>
+    &LT;div class="box-tools pull-right">
+      &LT;button class="btn btn-box-tool" data-widget="remove">&LT;i class="fa fa-times">&LT;/i>&LT;/button>
+    &LT;/div>&LT;!-- /.box-tools -->
+  &LT;/div>&LT;!-- /.box-header -->
+  &LT;div class="box-body">
+    内容部分
+  &LT;/div>&LT;!-- /.box-body -->
+&LT;/div>&LT;!-- /.box --></pre>
+    </div>
+    <div class="col-md-4">
+      <div class="box box-default collapsed-box">
+        <div class="box-header with-border">
+          <h3 class="box-title">可展开</h3>
+          <div class="box-tools pull-right">
+            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+          </div><!-- /.box-tools -->
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          内容部分
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+      <pre class="prettyprint">
+&LT;div class="box box-default collapsed-box">
+  &LT;div class="box-header with-border">
+    &LT;h3 class="box-title">Expandable&LT;/h3>
+    &LT;div class="box-tools pull-right">
+      &LT;button class="btn btn-box-tool" data-widget="collapse">&LT;i class="fa fa-plus">&LT;/i>&LT;/button>
+    &LT;/div>&LT;!-- /.box-tools -->
+  &LT;/div>&LT;!-- /.box-header -->
+  &LT;div class="box-body">
+    内容部分
+  &LT;/div>&LT;!-- /.box-body -->
+&LT;/div>&LT;!-- /.box --></pre>
+    </div>
+  </div><!-- /.row -->
+  <p>我们还可以添加标签、徽章、分页，工具提示，输入框到盒子中。示例如下：</p>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="box box-default">
+        <div class="box-header with-border">
+          <h3 class="box-title">标签</h3>
+          <div class="box-tools pull-right">
+            <span class="label label-default">一些标签</span>
+          </div><!-- /.box-tools -->
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          内容部分
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+      <pre class="prettyprint">
+&LT;div class="box box-default">
+  &LT;div class="box-header with-border">
+    &LT;h3 class="box-title">Labels&LT;/h3>
+    &LT;div class="box-tools pull-right">
+      &LT;span class="label label-default">8 New Messages&LT;/span>
+    &LT;/div>&LT;!-- /.box-tools -->
+  &LT;/div>&LT;!-- /.box-header -->
+  &LT;div class="box-body">
+    内容部分
+  &LT;/div>&LT;!-- /.box-body -->
+&LT;/div>&LT;!-- /.box --></pre>
+    </div>
+    <div class="col-md-4">
+      <div class="box box-default">
+        <div class="box-header with-border">
+          <h3 class="box-title">输入框</h3>
+          <div class="box-tools pull-right">
+            <div class="has-feedback">
+              <input type="text" class="form-control input-sm" placeholder="搜索...">
+              <span class="glyphicon glyphicon-search form-control-feedback text-muted"></span>
+            </div>
+          </div><!-- /.box-tools -->
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          内容部分
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+      <pre class="prettyprint">
+&LT;div class="box box-default">
+  &LT;div class="box-header with-border">
+    &LT;h3 class="box-title">Input&LT;/h3>
+    &LT;div class="box-tools pull-right">
+      &LT;div class="has-feedback">
+        &LT;input type="text" class="form-control input-sm" placeholder="搜索...">
+        &LT;span class="glyphicon glyphicon-search form-control-feedback">&LT;/span>
+      &LT;/div>
+    &LT;/div>&LT;!-- /.box-tools -->
+  &LT;/div>&LT;!-- /.box-header -->
+  &LT;div class="box-body">
+    内容部分
+  &LT;/div>&LT;!-- /.box-body -->
+&LT;/div>&LT;!-- /.box --></pre>
+    </div>
+    <div class="col-md-4">
+      <div class="box box-default">
+        <div class="box-header with-border">
+          <h3 class="box-title">按钮提示</h3>
+          <div class="box-tools pull-right">
+            <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="折叠"><i class="fa fa-minus"></i></button>
+            <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="移除"><i class="fa fa-times"></i></button>
+          </div><!-- /.box-tools -->
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          内容部分
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+      <pre class="prettyprint">
+&LT;div class="box box-default">
+  &LT;div class="box-header with-border">
+    &LT;h3 class="box-title">Tooltips on buttons&LT;/h3>
+    &LT;div class="box-tools pull-right">
+      &LT;button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="折叠">&LT;i class="fa fa-minus">&LT;/i>&LT;/button>
+      &LT;button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="移除">&LT;i class="fa fa-times">&LT;/i>&LT;/button>
+    &LT;/div>&LT;!-- /.box-tools -->
+  &LT;/div>&LT;!-- /.box-header -->
+  &LT;div class="box-body">
+    内容部分
+  &LT;/div>&LT;!-- /.box-body -->
+&LT;/div>&LT;!-- /.box --></pre>
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+  <p>
+    如果您在引入<code>app.js</code>之后添加了盒子到页面中，
+    那么您必须通过调用<code>.activateBox()</code>来激活：
+  </p>
+  <pre class="prettyprint"><code class="html">&LT;script>
+    $("#box-widget").activateBox();
+&LT;/script></code></pre>
+
+  <h4>加载状态</h4>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="box box-default">
+        <div class="box-header with-border">
+          <h3 class="box-title">加载状态</h3>
+        </div>
+        <div class="box-body">
+          内容部分
+        </div><!-- /.box-body -->
+        <!-- Loading (remove the following to stop the loading)-->
+        <div class="overlay">
+          <i class="fa fa-refresh fa-spin"></i>
+        </div>
+        <!-- end loading -->
+      </div><!-- /.box -->
+    </div><!-- /.col -->
+
+    <div class="col-md-6">
+      <div class="box box-default box-solid">
+        <div class="box-header with-border">
+          <h3 class="box-title">加载状态 (.box-solid)</h3>
+        </div>
+        <div class="box-body">
+          内容部分
+        </div><!-- /.box-body -->
+        <!-- Loading (remove the following to stop the loading)-->
+        <div class="overlay">
+          <i class="fa fa-refresh fa-spin"></i>
+        </div>
+        <!-- end loading -->
+      </div><!-- /.box -->
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+  <p class="lead">
+    要模拟加载状态，只需将该代码放在 <code>.box</code>结束标记之前。
+  </p>
+  <pre class="prettyprint"><code class="html">&LT;div class="overlay">
+  &LT;i class="fa fa-refresh fa-spin">&LT;/i>
+&LT;/div>
+</code></pre>
+  <h3 id="component-direct-chat">聊天</h3>
+  <p class="lead">聊天小部件扩展了盒子组件，
+    以创建一个漂亮的聊天界面。此小部件由必需的消息窗格和可选的联系人窗格组成。示例：</p>
+  <!-- Direct Chat -->
+  <div class="row">
+    <div class="col-md-3">
+      <!-- DIRECT CHAT PRIMARY -->
+      <div class="box box-primary direct-chat direct-chat-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">聊天</h3>
+          <div class="box-tools pull-right">
+            <span data-toggle="tooltip" title="3 条新消息" class="badge bg-light-blue">3</span>
+            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            <button class="btn btn-box-tool" data-toggle="tooltip" title="联系" data-widget="chat-pane-toggle"><i class="fa fa-comments"></i></button>
+            <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          </div>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          <!-- Conversations are loaded here -->
+          <div class="direct-chat-messages">
+            <!-- Message. Default to the left -->
+            <div class="direct-chat-msg">
+              <div class="direct-chat-info clearfix">
+                <span class="direct-chat-name pull-left">Alexander Pierce</span>
+                <span class="direct-chat-timestamp pull-right">1月23日 下午2:00</span>
+              </div><!-- /.direct-chat-info -->
+              <img class="direct-chat-img" src="../dist/img/user1-128x128.jpg" alt="用户消息头像"><!-- /.direct-chat-img -->
+              <div class="direct-chat-text">
+                难以置信，这个模板真的是免费的吗？
+              </div><!-- /.direct-chat-text -->
+            </div><!-- /.direct-chat-msg -->
+
+            <!-- Message to the right -->
+            <div class="direct-chat-msg right">
+              <div class="direct-chat-info clearfix">
+                <span class="direct-chat-name pull-right">Sarah Bullock</span>
+                <span class="direct-chat-timestamp pull-left">1月23日 下午 2:05</span>
+              </div><!-- /.direct-chat-info -->
+              <img class="direct-chat-img" src="../dist/img/user3-128x128.jpg" alt="用户消息头像"><!-- /.direct-chat-img -->
+              <div class="direct-chat-text">
+                你要相信它！
+              </div><!-- /.direct-chat-text -->
+            </div><!-- /.direct-chat-msg -->
+          </div><!--/.direct-chat-messages-->
+
+          <!-- Contacts are loaded here -->
+          <div class="direct-chat-contacts">
+            <ul class="contacts-list">
+              <li>
+                <a href="#">
+                  <img class="contacts-list-img" src="../dist/img/user1-128x128.jpg" alt="联系人头像">
+                  <div class="contacts-list-info">
+                    <span class="contacts-list-name">
+                      Count Dracula
+                      <small class="contacts-list-date pull-right">2/28/2015</small>
+                    </span>
+                    <span class="contacts-list-msg">你最近过得怎么样？我是...</span>
+                  </div><!-- /.contacts-list-info -->
+                </a>
+              </li><!-- End Contact Item -->
+            </ul><!-- /.contatcts-list -->
+          </div><!-- /.direct-chat-pane -->
+        </div><!-- /.box-body -->
+        <div class="box-footer">
+          <form action="#" method="post">
+            <div class="input-group">
+              <input type="text" name="message" placeholder="输入消息 ..." class="form-control">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-primary btn-flat">发送</button>
+              </span>
+            </div>
+          </form>
+        </div><!-- /.box-footer-->
+      </div><!--/.direct-chat -->
+    </div><!-- /.col -->
+
+    <div class="col-md-3">
+      <!-- DIRECT CHAT SUCCESS -->
+      <div class="box box-success direct-chat direct-chat-success">
+        <div class="box-header with-border">
+          <h3 class="box-title">聊天</h3>
+          <div class="box-tools pull-right">
+            <span data-toggle="tooltip" title="3 条新消息" class="badge bg-green">3</span>
+            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            <button class="btn btn-box-tool" data-toggle="tooltip" title="联系" data-widget="chat-pane-toggle"><i class="fa fa-comments"></i></button>
+            <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          </div>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          <!-- Conversations are loaded here -->
+          <div class="direct-chat-messages">
+            <!-- Message. Default to the left -->
+            <div class="direct-chat-msg">
+              <div class="direct-chat-info clearfix">
+                <span class="direct-chat-name pull-left">Alexander Pierce</span>
+                <span class="direct-chat-timestamp pull-right">1月23日 下午2:00</span>
+              </div><!-- /.direct-chat-info -->
+              <img class="direct-chat-img" src="../dist/img/user1-128x128.jpg" alt="用户消息头像"><!-- /.direct-chat-img -->
+              <div class="direct-chat-text">
+                难以置信，这个模板真的是免费的吗？
+              </div><!-- /.direct-chat-text -->
+            </div><!-- /.direct-chat-msg -->
+
+            <!-- Message to the right -->
+            <div class="direct-chat-msg right">
+              <div class="direct-chat-info clearfix">
+                <span class="direct-chat-name pull-right">Sarah Bullock</span>
+                <span class="direct-chat-timestamp pull-left">1月23日 下午 2:05</span>
+              </div><!-- /.direct-chat-info -->
+              <img class="direct-chat-img" src="../dist/img/user3-128x128.jpg" alt="用户消息头像"><!-- /.direct-chat-img -->
+              <div class="direct-chat-text">
+                你要相信它！
+              </div><!-- /.direct-chat-text -->
+            </div><!-- /.direct-chat-msg -->
+          </div><!--/.direct-chat-messages-->
+
+          <!-- Contacts are loaded here -->
+          <div class="direct-chat-contacts">
+            <ul class="contacts-list">
+              <li>
+                <a href="#">
+                  <img class="contacts-list-img" src="../dist/img/user1-128x128.jpg" alt="联系人头像">
+                  <div class="contacts-list-info">
+                    <span class="contacts-list-name">
+                      Count Dracula
+                      <small class="contacts-list-date pull-right">2/28/2015</small>
+                    </span>
+                    <span class="contacts-list-msg">你最近过得怎么样？我是...</span>
+                  </div><!-- /.contacts-list-info -->
+                </a>
+              </li><!-- End Contact Item -->
+            </ul><!-- /.contatcts-list -->
+          </div><!-- /.direct-chat-pane -->
+        </div><!-- /.box-body -->
+        <div class="box-footer">
+          <form action="#" method="post">
+            <div class="input-group">
+              <input type="text" name="message" placeholder="输入消息 ..." class="form-control">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-success btn-flat">发送</button>
+              </span>
+            </div>
+          </form>
+        </div><!-- /.box-footer-->
+      </div><!--/.direct-chat -->
+    </div><!-- /.col -->
+
+    <div class="col-md-3">
+      <!-- DIRECT CHAT WARNING -->
+      <div class="box box-warning direct-chat direct-chat-warning">
+        <div class="box-header with-border">
+          <h3 class="box-title">聊天</h3>
+          <div class="box-tools pull-right">
+            <span data-toggle="tooltip" title="3 条新消息" class="badge bg-yellow">3</span>
+            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            <button class="btn btn-box-tool" data-toggle="tooltip" title="联系" data-widget="chat-pane-toggle"><i class="fa fa-comments"></i></button>
+            <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          </div>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          <!-- Conversations are loaded here -->
+          <div class="direct-chat-messages">
+            <!-- Message. Default to the left -->
+            <div class="direct-chat-msg">
+              <div class="direct-chat-info clearfix">
+                <span class="direct-chat-name pull-left">Alexander Pierce</span>
+                <span class="direct-chat-timestamp pull-right">1月23日 下午2:00</span>
+              </div><!-- /.direct-chat-info -->
+              <img class="direct-chat-img" src="../dist/img/user1-128x128.jpg" alt="用户消息头像"><!-- /.direct-chat-img -->
+              <div class="direct-chat-text">
+                难以置信，这个模板真的是免费的吗？
+              </div><!-- /.direct-chat-text -->
+            </div><!-- /.direct-chat-msg -->
+
+            <!-- Message to the right -->
+            <div class="direct-chat-msg right">
+              <div class="direct-chat-info clearfix">
+                <span class="direct-chat-name pull-right">Sarah Bullock</span>
+                <span class="direct-chat-timestamp pull-left">1月23日 下午 2:05</span>
+              </div><!-- /.direct-chat-info -->
+              <img class="direct-chat-img" src="../dist/img/user3-128x128.jpg" alt="用户消息头像"><!-- /.direct-chat-img -->
+              <div class="direct-chat-text">
+                你要相信它！
+              </div><!-- /.direct-chat-text -->
+            </div><!-- /.direct-chat-msg -->
+          </div><!--/.direct-chat-messages-->
+
+          <!-- Contacts are loaded here -->
+          <div class="direct-chat-contacts">
+            <ul class="contacts-list">
+              <li>
+                <a href="#">
+                  <img class="contacts-list-img" src="../dist/img/user1-128x128.jpg" alt="联系人头像">
+                  <div class="contacts-list-info">
+                    <span class="contacts-list-name">
+                      Count Dracula
+                      <small class="contacts-list-date pull-right">2/28/2015</small>
+                    </span>
+                    <span class="contacts-list-msg">你最近过得怎么样？我是...</span>
+                  </div><!-- /.contacts-list-info -->
+                </a>
+              </li><!-- End Contact Item -->
+            </ul><!-- /.contatcts-list -->
+          </div><!-- /.direct-chat-pane -->
+        </div><!-- /.box-body -->
+        <div class="box-footer">
+          <form action="#" method="post">
+            <div class="input-group">
+              <input type="text" name="message" placeholder="输入消息 ..." class="form-control">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-warning btn-flat">发送</button>
+              </span>
+            </div>
+          </form>
+        </div><!-- /.box-footer-->
+      </div><!--/.direct-chat -->
+    </div><!-- /.col -->
+
+    <div class="col-md-3">
+      <!-- DIRECT CHAT DANGER -->
+      <div class="box box-danger direct-chat direct-chat-danger">
+        <div class="box-header with-border">
+          <h3 class="box-title">聊天</h3>
+          <div class="box-tools pull-right">
+            <span data-toggle="tooltip" title="3 条新消息" class="badge bg-red">3</span>
+            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            <button class="btn btn-box-tool" data-toggle="tooltip" title="联系" data-widget="chat-pane-toggle"><i class="fa fa-comments"></i></button>
+            <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          </div>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          <!-- Conversations are loaded here -->
+          <div class="direct-chat-messages">
+            <!-- Message. Default to the left -->
+            <div class="direct-chat-msg">
+              <div class="direct-chat-info clearfix">
+                <span class="direct-chat-name pull-left">Alexander Pierce</span>
+                <span class="direct-chat-timestamp pull-right">1月23日 下午2:00</span>
+              </div><!-- /.direct-chat-info -->
+              <img class="direct-chat-img" src="../dist/img/user1-128x128.jpg" alt="用户消息头像"><!-- /.direct-chat-img -->
+              <div class="direct-chat-text">
+                难以置信，这个模板真的是免费的吗？
+              </div><!-- /.direct-chat-text -->
+            </div><!-- /.direct-chat-msg -->
+
+            <!-- Message to the right -->
+            <div class="direct-chat-msg right">
+              <div class="direct-chat-info clearfix">
+                <span class="direct-chat-name pull-right">Sarah Bullock</span>
+                <span class="direct-chat-timestamp pull-left">1月23日 下午 2:05</span>
+              </div><!-- /.direct-chat-info -->
+              <img class="direct-chat-img" src="../dist/img/user3-128x128.jpg" alt="用户消息头像"><!-- /.direct-chat-img -->
+              <div class="direct-chat-text">
+                你要相信它！
+              </div><!-- /.direct-chat-text -->
+            </div><!-- /.direct-chat-msg -->
+          </div><!--/.direct-chat-messages-->
+
+          <!-- Contacts are loaded here -->
+          <div class="direct-chat-contacts">
+            <ul class="contacts-list">
+              <li>
+                <a href="#">
+                  <img class="contacts-list-img" src="../dist/img/user1-128x128.jpg" alt="联系人头像">
+                  <div class="contacts-list-info">
+                    <span class="contacts-list-name">
+                      Count Dracula
+                      <small class="contacts-list-date pull-right">2/28/2015</small>
+                    </span>
+                    <span class="contacts-list-msg">你最近过得怎么样？我是...</span>
+                  </div><!-- /.contacts-list-info -->
+                </a>
+              </li><!-- End Contact Item -->
+            </ul><!-- /.contatcts-list -->
+          </div><!-- /.direct-chat-pane -->
+        </div><!-- /.box-body -->
+        <div class="box-footer">
+          <form action="#" method="post">
+            <div class="input-group">
+              <input type="text" name="message" placeholder="输入消息 ..." class="form-control">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-danger btn-flat">发送</button>
+              </span>
+            </div>
+          </form>
+        </div><!-- /.box-footer-->
+      </div><!--/.direct-chat -->
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+  <p class="lead">聊天标记</p>
+  <pre class="prettyprint"><code class="html">
+&LT;!-- Construct the box with style you want. Here we are using box-danger -->
+&LT;!-- Then add the class direct-chat and choose the direct-chat-* contexual class -->
+&LT;!-- The contextual class should match the box, so we are using direct-chat-danger -->
+&LT;div class="box box-danger direct-chat direct-chat-danger">
+  &LT;div class="box-header with-border">
+    &LT;h3 class="box-title">Direct Chat&LT;/h3>
+    &LT;div class="box-tools pull-right">
+      &LT;span data-toggle="tooltip" title="3 条新消息" class="badge bg-red">3&LT;/span>
+      &LT;button class="btn btn-box-tool" data-widget="collapse">&LT;i class="fa fa-minus">&LT;/i>&LT;/button>
+      &LT;!-- In box-tools add this button if you intend to use the contacts pane -->
+      &LT;button class="btn btn-box-tool" data-toggle="tooltip" title="联系" data-widget="chat-pane-toggle">&LT;i class="fa fa-comments">&LT;/i>&LT;/button>
+      &LT;button class="btn btn-box-tool" data-widget="remove">&LT;i class="fa fa-times">&LT;/i>&LT;/button>
+    &LT;/div>
+  &LT;/div>&LT;!-- /.box-header -->
+  &LT;div class="box-body">
+    &LT;!-- Conversations are loaded here -->
+    &LT;div class="direct-chat-messages">
+      &LT;!-- Message. Default to the left -->
+      &LT;div class="direct-chat-msg">
+        &LT;div class="direct-chat-info clearfix">
+          &LT;span class="direct-chat-name pull-left">Alexander Pierce&LT;/span>
+          &LT;span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm&LT;/span>
+        &LT;/div>&LT;!-- /.direct-chat-info -->
+        &LT;img class="direct-chat-img" src="../dist/img/user1-128x128.jpg" alt="用户消息头像">&LT;!-- /.direct-chat-img -->
+        &LT;div class="direct-chat-text">
+          难以置信，这个模板真的是免费的吗？
+        &LT;/div>&LT;!-- /.direct-chat-text -->
+      &LT;/div>&LT;!-- /.direct-chat-msg -->
+
+      &LT;!-- Message to the right -->
+      &LT;div class="direct-chat-msg right">
+        &LT;div class="direct-chat-info clearfix">
+          &LT;span class="direct-chat-name pull-right">Sarah Bullock&LT;/span>
+          &LT;span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm&LT;/span>
+        &LT;/div>&LT;!-- /.direct-chat-info -->
+        &LT;img class="direct-chat-img" src="../dist/img/user3-128x128.jpg" alt="用户消息头像">&LT;!-- /.direct-chat-img -->
+        &LT;div class="direct-chat-text">
+          你要相信它！
+        &LT;/div>&LT;!-- /.direct-chat-text -->
+      &LT;/div>&LT;!-- /.direct-chat-msg -->
+    &LT;/div>&LT;!--/.direct-chat-messages-->
+
+    &LT;!-- Contacts are loaded here -->
+    &LT;div class="direct-chat-contacts">
+      &LT;ul class="contacts-list">
+        &LT;li>
+          &LT;a href="#">
+            &LT;img class="contacts-list-img" src="../dist/img/user1-128x128.jpg" alt="联系人头像">
+            &LT;div class="contacts-list-info">
+              &LT;span class="contacts-list-name">
+                Count Dracula
+                &LT;small class="contacts-list-date pull-right">2/28/2015&LT;/small>
+              &LT;/span>
+              &LT;span class="contacts-list-msg">How have you been? I was...&LT;/span>
+            &LT;/div>&LT;!-- /.contacts-list-info -->
+          &LT;/a>
+        &LT;/li>&LT;!-- End Contact Item -->
+      &LT;/ul>&LT;!-- /.contatcts-list -->
+    &LT;/div>&LT;!-- /.direct-chat-pane -->
+  &LT;/div>&LT;!-- /.box-body -->
+  &LT;div class="box-footer">
+    &LT;div class="input-group">
+      &LT;input type="text" name="message" placeholder="输入消息 ..." class="form-control">
+      &LT;span class="input-group-btn">
+        &LT;button type="button" class="btn btn-danger btn-flat">Send&LT;/button>
+      &LT;/span>
+    &LT;/div>
+  &LT;/div>&LT;!-- /.box-footer-->
+&LT;/div>&LT;!--/.direct-chat -->
+</code></pre>
+
+  <p>当然，你也可以直接将<code>solid-box</code> 类应用的盒子里，下面是示例：</p>
+
+  <!-- Direct Chat With Solid Boxes -->
+  <div class="row">
+    <div class="col-md-6">
+      <!-- DIRECT CHAT WARNING -->
+      <div class="box box-primary box-solid direct-chat direct-chat-primary">
+        <div class="box-header">
+          <h3 class="box-title">实心盒子聊天</h3>
+          <div class="box-tools pull-right">
+            <span data-toggle="tooltip" title="3 条新消息" class="badge bg-light-blue">3</span>
+            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            <button class="btn btn-box-tool" data-toggle="tooltip" title="联系" data-widget="chat-pane-toggle"><i class="fa fa-comments"></i></button>
+            <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          </div>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          <!-- Conversations are loaded here -->
+          <div class="direct-chat-messages">
+            <!-- Message. Default to the left -->
+            <div class="direct-chat-msg">
+              <div class="direct-chat-info clearfix">
+                <span class="direct-chat-name pull-left">Alexander Pierce</span>
+                <span class="direct-chat-timestamp pull-right">1月23日 下午2:00</span>
+              </div><!-- /.direct-chat-info -->
+              <img class="direct-chat-img" src="../dist/img/user1-128x128.jpg" alt="用户消息头像"><!-- /.direct-chat-img -->
+              <div class="direct-chat-text">
+                难以置信，这个模板真的是免费的吗？
+              </div><!-- /.direct-chat-text -->
+            </div><!-- /.direct-chat-msg -->
+
+            <!-- Message to the right -->
+            <div class="direct-chat-msg right">
+              <div class="direct-chat-info clearfix">
+                <span class="direct-chat-name pull-right">Sarah Bullock</span>
+                <span class="direct-chat-timestamp pull-left">1月23日 下午 2:05</span>
+              </div><!-- /.direct-chat-info -->
+              <img class="direct-chat-img" src="../dist/img/user3-128x128.jpg" alt="用户消息头像"><!-- /.direct-chat-img -->
+              <div class="direct-chat-text">
+                你要相信它！
+              </div><!-- /.direct-chat-text -->
+            </div><!-- /.direct-chat-msg -->
+          </div><!--/.direct-chat-messages-->
+
+          <!-- Contacts are loaded here -->
+          <div class="direct-chat-contacts">
+            <ul class="contacts-list">
+              <li>
+                <a href="#">
+                  <img class="contacts-list-img" src="../dist/img/user1-128x128.jpg" alt="联系人头像">
+                  <div class="contacts-list-info">
+                    <span class="contacts-list-name">
+                      Count Dracula
+                      <small class="contacts-list-date pull-right">2/28/2015</small>
+                    </span>
+                    <span class="contacts-list-msg">你最近过得怎么样？我是...</span>
+                  </div><!-- /.contacts-list-info -->
+                </a>
+              </li><!-- End Contact Item -->
+            </ul><!-- /.contatcts-list -->
+          </div><!-- /.direct-chat-pane -->
+        </div><!-- /.box-body -->
+        <div class="box-footer">
+          <form action="#" method="post">
+            <div class="input-group">
+              <input type="text" name="message" placeholder="输入消息 ..." class="form-control">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-primary btn-flat">发送</button>
+              </span>
+            </div>
+          </form>
+        </div><!-- /.box-footer-->
+      </div><!--/.direct-chat -->
+    </div><!-- /.col -->
+
+    <div class="col-md-6">
+      <!-- DIRECT CHAT DANGER -->
+      <div class="box box-info box-solid direct-chat direct-chat-info">
+        <div class="box-header">
+          <h3 class="box-title">实心盒子聊天</h3>
+          <div class="box-tools pull-right">
+            <span data-toggle="tooltip" title="3 条新消息" class="badge bg-aqua">3</span>
+            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            <button class="btn btn-box-tool" data-toggle="tooltip" title="联系" data-widget="chat-pane-toggle"><i class="fa fa-comments"></i></button>
+            <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          </div>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          <!-- Conversations are loaded here -->
+          <div class="direct-chat-messages">
+            <!-- Message. Default to the left -->
+            <div class="direct-chat-msg">
+              <div class="direct-chat-info clearfix">
+                <span class="direct-chat-name pull-left">Alexander Pierce</span>
+                <span class="direct-chat-timestamp pull-right">1月23日 下午2:00</span>
+              </div><!-- /.direct-chat-info -->
+              <img class="direct-chat-img" src="../dist/img/user1-128x128.jpg" alt="用户消息头像"><!-- /.direct-chat-img -->
+              <div class="direct-chat-text">
+                难以置信，这个模板真的是免费的吗？
+              </div><!-- /.direct-chat-text -->
+            </div><!-- /.direct-chat-msg -->
+
+            <!-- Message to the right -->
+            <div class="direct-chat-msg right">
+              <div class="direct-chat-info clearfix">
+                <span class="direct-chat-name pull-right">Sarah Bullock</span>
+                <span class="direct-chat-timestamp pull-left">1月23日 下午 2:05</span>
+              </div><!-- /.direct-chat-info -->
+              <img class="direct-chat-img" src="../dist/img/user3-128x128.jpg" alt="用户消息头像"><!-- /.direct-chat-img -->
+              <div class="direct-chat-text">
+                你要相信它！
+              </div><!-- /.direct-chat-text -->
+            </div><!-- /.direct-chat-msg -->
+          </div><!--/.direct-chat-messages-->
+
+          <!-- Contacts are loaded here -->
+          <div class="direct-chat-contacts">
+            <ul class="contacts-list">
+              <li>
+                <a href="#">
+                  <img class="contacts-list-img" src="../dist/img/user1-128x128.jpg" alt="联系人头像">
+                  <div class="contacts-list-info">
+                    <span class="contacts-list-name">
+                      Count Dracula
+                      <small class="contacts-list-date pull-right">2/28/2015</small>
+                    </span>
+                    <span class="contacts-list-msg">你最近过得怎么样？我是...</span>
+                  </div><!-- /.contacts-list-info -->
+                </a>
+              </li><!-- End Contact Item -->
+            </ul><!-- /.contatcts-list -->
+          </div><!-- /.direct-chat-pane -->
+        </div><!-- /.box-body -->
+        <div class="box-footer">
+          <form action="#" method="post">
+            <div class="input-group">
+              <input type="text" name="message" placeholder="输入消息 ..." class="form-control">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-info btn-flat">发送</button>
+              </span>
+            </div>
+          </form>
+        </div><!-- /.box-footer-->
+      </div><!--/.direct-chat -->
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+</section>

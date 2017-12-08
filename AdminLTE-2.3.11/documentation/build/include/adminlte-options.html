@@ -1,0 +1,125 @@
+<section id="adminlte-options">
+  <h2 class="page-header"><a href="#adminlte-options">AdminLTE Javascript 设置</a></h2>
+  <p class="lead">通过修改app.js文件，来配置AdminLTE。方法如下：</p>
+
+  <h3>编辑 app.js</h3>
+  <p>在JS文件中修改<code>$.AdminLTE.options</code> 对象以适用你的项目。</p>
+
+  <h3>定义 AdminLTEOptions</h3>
+  <p>或者，您可以定义一个名为<code>AdminLTEOptions</code>全局变量，并在加载 app.js 之前对其进行初始化。</p>
+  <p>示例</p>
+  <pre class="prettyprint"><code class="html">&LT;script>
+  var AdminLTEOptions = {
+    //启用迷你侧边栏并固定
+    //如果固定布局和迷你侧边栏启用，
+    //则此选项被强制为真
+    sidebarExpandOnHover: true,
+    //BoxRefresh 插件
+    enableBoxRefresh: true,
+    //Bootstrap.js 提示工具
+    enableBSToppltip: true
+  };
+&LT;/script>
+&LT;script src="dist/js/app.js" type="text/javascript">&LT;/script></code></pre>
+
+  <h3>AdminLTE 可用选项</h3>
+  <pre class="prettyprint"><code class="javascript">{
+  //将 slimscroll 添加到导航栏菜单
+  //你需要加载 slimscroll 插件
+  //在所有页面前加载 app.js
+  navbarMenuSlimscroll: true,
+  navbarMenuSlimscrollWidth: "3px", //滚动条的宽度
+  navbarMenuHeight: "200px", //内部菜单的高度
+  //一般为JS动画速度，如框折叠/展开和侧边栏向上/向下滑动。
+  //单位为毫秒，
+  //或者使用 'fast', 'normal', 或 'slow'
+  animationSpeed: 500,
+  //侧边栏菜单按钮选择器
+  sidebarToggleSelector: "[data-toggle='offcanvas']",
+  // 激活侧边栏推菜单
+  sidebarPushMenu: true,
+  //激活边栏（需要SlimScroll插件）
+  sidebarSlimScroll: true,
+  //启用迷你侧边栏并固定
+  //如果固定布局和迷你侧边栏启用，
+  //则此选项被强制为真
+  sidebarExpandOnHover: false,
+  //BoxRefresh 插件
+  enableBoxRefresh: true,
+  //Bootstrap.js 提示工具
+  enableBSToppltip: true,
+  BSTooltipSelector: "[data-toggle='tooltip']",
+  //启用快速单击。
+  Fastclick 让触摸设备拥有等同于本地的触摸体验。
+  //如果您选择启用该插件，
+  //请确保在 AdminLTE app.js 前加载了该脚本
+  enableFastclick: true,
+  //控制栏树视图
+  enableControlTreeView: true,
+  //控制栏配置
+  enableControlSidebar: true,
+  controlSidebarOptions: {
+    //哪个按钮触发打开/关闭事件
+    toggleBtnSelector: "[data-toggle='control-sidebar']",
+    //侧边栏选择器
+    selector: ".control-sidebar",
+    //启用幻灯片内容
+    slide: true
+  },
+  //Box 小部件插件。启用这个插件
+  //允许折叠和（或）删除
+  enableBoxWidget: true,
+  //Box 小部件配置
+  boxWidgetOptions: {
+    boxWidgetIcons: {
+      //折叠图标
+      collapse: 'fa-minus',
+      //展开图标
+      open: 'fa-plus',
+      //删除图标
+      remove: 'fa-times'
+    },
+    boxWidgetSelectors: {
+      //删除按钮选择器
+      remove: '[data-widget="remove"]',
+      //折叠按钮选择器
+      collapse: '[data-widget="collapse"]'
+    }
+  },
+  //聊天插件配置
+  directChat: {
+    //默认启用聊天
+    enable: true,
+    //这个选择器用于控制打开或关闭联系人面板
+    contactToggleSelector: '[data-widget="chat-pane-toggle"]'
+  },
+  //定义一组在网站上使用的颜色
+  colors: {
+    lightBlue: "#3c8dbc",
+    red: "#f56954",
+    green: "#00a65a",
+    aqua: "#00c0ef",
+    yellow: "#f39c12",
+    blue: "#0073b7",
+    navy: "#001F3F",
+    teal: "#39CCCC",
+    olive: "#3D9970",
+    lime: "#01FF70",
+    orange: "#FF851B",
+    fuchsia: "#F012BE",
+    purple: "#8E24AA",
+    maroon: "#D81B60",
+    black: "#222222",
+    gray: "#d2d6de"
+  },
+  //bootstrap使用的标准屏幕大小。
+  //如果你修改了variables.less 文件，
+  //需要同步修改这里。
+  screenSizes: {
+    xs: 480,
+    sm: 768,
+    md: 992,
+    lg: 1200
+  }
+}</code></pre>
+</section>

@@ -1,0 +1,2448 @@
+<title>AdminLTE 2 | Dashboard</title>
+<title>AdminLTE 2 | 仪表盘</title>
+<!-- Tell the browser to be responsive to screen width -->
+<!-- 告诉浏览器该页面是自适应布局 -->
+<!-- AdminLTE Skins. Choose a skin from the css/skins
+<!-- AdminLTE 皮肤。
+folder instead of downloading all of them to reduce the load. -->
+从 css/skins 目录下选择一个皮肤，以减少负载，而不是下载所有皮肤。 -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!-- 警告：Respond.js 不支持 file:// 方式查看（即本地方式查看）-->
+<span class="sr-only">Toggle navigation</span>
+<span class="sr-only">切换导航</span>
+<li class="header">You have 4 messages</li>
+<li class="header">你有 4 条消息</li>
+<small><i class="fa fa-clock-o"></i> 5 mins</small>
+<small><i class="fa fa-clock-o"></i> 5 分钟前</small>
+<p>Why not buy a new awesome theme?</p>
+<p>为什么不购买一个高级模板主题？</p>
+<small><i class="fa fa-clock-o"></i> 2 hours</small>
+<small><i class="fa fa-clock-o"></i> 2 小时前</small>
+<small><i class="fa fa-clock-o"></i> Today</small>
+<small><i class="fa fa-clock-o"></i> 今天</small>
+<small><i class="fa fa-clock-o"></i> Yesterday</small>
+<small><i class="fa fa-clock-o"></i> 昨天</small>
+<small><i class="fa fa-clock-o"></i> 2 days</small>
+<small><i class="fa fa-clock-o"></i> 2 天前</small>
+<li class="footer"><a href="#">See All Messages</a></li>
+<li class="footer"><a href="#">查看所有消息</a></li>
+<li class="header">You have 10 notifications</li>
+<li class="header">你有 10 条通知</li>
+<i class="fa fa-users text-aqua"></i> 5 new members joined today
+<i class="fa fa-users text-aqua"></i> 今日 5 名新进会员加入
+<i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
+<i class="fa fa-warning text-yellow"></i> 很长描述可能不适用于页面，可能会导致设计问题
+page and may cause design problems
+，可能会导致设计问题
+<i class="fa fa-users text-red"></i> 5 new members joined
+<i class="fa fa-users text-red"></i> 5 名新成员加入
+<i class="fa fa-shopping-cart text-green"></i> 25 sales made
+<i class="fa fa-shopping-cart text-green"></i> 25 条销售记录
+<i class="fa fa-user text-red"></i> You changed your username
+<i class="fa fa-user text-red"></i> 你修改了用户名
+<li class="footer"><a href="#">View all</a></li>
+<li class="footer"><a href="#">查看所有</a></li>
+<li class="header">You have 9 tasks</li>
+<li class="header">你有 9 项任务</li>
+<span class="sr-only">20% Complete</span>
+<span class="sr-only">20% 完成</span>
+<span class="sr-only">40% Complete</span>
+<span class="sr-only">40% 完成</span>
+<span class="sr-only">60% Complete</span>
+<span class="sr-only">60% 完成</span>
+<span class="sr-only">80% Complete</span>
+<span class="sr-only">80% 完成</span>
+<a href="#">View all tasks</a>
+<a href="#">查看所有任务</a>
+<small>Member since Nov. 2012</small>
+<small>注册于2012年11月</small>
+<a href="#">Followers</a>
+<a href="#">关注</a>
+<a href="#">Sales</a>
+<a href="#">销售</a>
+<a href="#">Friends</a>
+<a href="#">好友</a>
+<a href="#" class="btn btn-default btn-flat">Profile</a>
+<a href="#" class="btn btn-default btn-flat">资料</a>
+<a href="#" class="btn btn-default btn-flat">Sign out</a>
+<a href="#" class="btn btn-default btn-flat">退出</a>
+<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+<a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
+<li class="header">MAIN NAVIGATION</li>
+<li class="header">主导航</li>
+<i class="fa fa-dashboard"></i> <span>Dashboard</span>
+<i class="fa fa-dashboard"></i> <span>仪表盘</span>
+<span>Layout Options</span>
+<span>布局设置</span>
+<h3>Layout Options</h3>
+<h3>布局设置</h3>
+<i class="fa fa-circle-o"></i> Top Navigation</a>
+<i class="fa fa-circle-o"></i> 顶部导航</a>
+<title>AdminLTE 2 | Top Navigation</title>
+<title>AdminLTE 2 | 顶部导航</title>
+<i class="fa fa-circle-o"></i> Boxed</a>
+<i class="fa fa-circle-o"></i> 盒子</a>
+<title>AdminLTE 2 | Boxed Layout</title>
+<title>AdminLTE 2 | 盒子布局</title>
+<i class="fa fa-circle-o"></i> Fixed</a>
+<i class="fa fa-circle-o"></i> 固定侧边栏</a>
+<title>AdminLTE 2 | Fixed Layout</title>
+<title>AdminLTE 2 | 固定布局</title>
+<title>AdminLTE 2 | Collapsed Sidebar Layout</title>
+<title>AdminLTE 2 | 折叠侧边栏布局</title>
+<i class="fa fa-circle-o"></i> Collapsed Sidebar</a>
+<i class="fa fa-circle-o"></i> 折叠侧边栏</a>
+<span>Widgets</span>
+<span>小部件</span>
+<span>Charts</span>
+<span>图表</span>
+<small class="label pull-right bg-green">new</small>
+<small class="label pull-right bg-green">新</small>
+<i class="fa fa-circle-o"></i> Inline charts</a>
+<i class="fa fa-circle-o"></i> 内嵌式图表</a>
+<title>AdminLTE 2 | Inline Charts</title>
+<title>AdminLTE 2 | 内嵌式图表</title>
+<span>UI Elements</span>
+<span>UI元素</span>
+<i class="fa fa-circle-o"></i> General</a>
+<i class="fa fa-circle-o"></i> 常规</a>
+<i class="fa fa-circle-o"></i> Icons</a>
+<i class="fa fa-circle-o"></i> 图标</a>
+<i class="fa fa-circle-o"></i> Buttons</a>
+<i class="fa fa-circle-o"></i> 按钮</a>
+<i class="fa fa-circle-o"></i> Sliders</a>
+<i class="fa fa-circle-o"></i> 滑块</a>
+<i class="fa fa-circle-o"></i> Timeline</a>
+<i class="fa fa-circle-o"></i> 时间线</a>
+<i class="fa fa-circle-o"></i> Modals</a>
+<i class="fa fa-circle-o"></i> 弹框</a>
+<span>Forms</span>
+<span>表单</span>
+<i class="fa fa-circle-o"></i> General Elements</a>
+<i class="fa fa-circle-o"></i> 常规元素</a>
+<i class="fa fa-circle-o"></i> Advanced Elements</a>
+<i class="fa fa-circle-o"></i> 高级元素</a>
+<i class="fa fa-circle-o"></i> Editors</a>
+<i class="fa fa-circle-o"></i> 编辑器</a>
+<span>Tables</span>
+<span>表格</span>
+<i class="fa fa-circle-o"></i> Simple tables</a>
+<i class="fa fa-circle-o"></i> 表格</a>
+<i class="fa fa-circle-o"></i> Data tables</a>
+<i class="fa fa-circle-o"></i> 数据表格</a>
+<span>Calendar</span>
+<span>日历</span>
+<span>Mailbox</span>
+<span>邮箱</span>
+<span>Examples</span>
+<span>示例</span>
+<i class="fa fa-circle-o"></i> Invoice</a>
+<i class="fa fa-circle-o"></i> 单据</a>
+<title>AdminLTE 2 | Invoice</title>
+<title>AdminLTE 2 | 单据</title>
+<i class="fa fa-circle-o"></i> Profile</a>
+<i class="fa fa-circle-o"></i> 资料</a>
+<title>AdminLTE 2 | User Profile</title>
+<title>AdminLTE 2 | 用户资料</title>
+<i class="fa fa-circle-o"></i> Login</a>
+<i class="fa fa-circle-o"></i> 登录</a>
+<title>AdminLTE 2 | Log in</title>
+<title>AdminLTE 2 | 登录</title>
+<i class="fa fa-circle-o"></i> Register</a>
+<i class="fa fa-circle-o"></i> 注册</a>
+<title>AdminLTE 2 | Registration Page</title>
+<title>AdminLTE 2 | 注册页面</title>
+<i class="fa fa-circle-o"></i> Lockscreen</a>
+<i class="fa fa-circle-o"></i> 锁屏</a>
+<title>AdminLTE 2 | Lockscreen</title>
+<title>AdminLTE 2 | 锁屏</title>
+<i class="fa fa-circle-o"></i> 404 Error</a>
+<i class="fa fa-circle-o"></i> 404 错误</a>
+<title>AdminLTE 2 | 404 Page not found</title>
+<title>AdminLTE 2 | 404 页面未找到</title>
+<li class="active">404 error</li>
+<li class="active">404 错误</li>
+<i class="fa fa-circle-o"></i> 500 Error</a>
+<i class="fa fa-circle-o"></i> 500 错误</a>
+<title>AdminLTE 2 | 500 Error</title>
+<title>AdminLTE 2 | 500 错误</title>
+<i class="fa fa-circle-o"></i> Blank Page</a>
+<i class="fa fa-circle-o"></i> 空白页</a>
+<title>AdminLTE 2 | Blank Page</title>
+<title>AdminLTE 2 | 空白页</title>
+<i class="fa fa-circle-o"></i> Pace Page</a>
+<i class="fa fa-circle-o"></i> 页面加载进度</a>
+<title>AdminLTE 2 | Pace Page</title>
+<title>AdminLTE 2 | 页面加载进度</title>
+<span>Multilevel</span>
+<span>多级菜单</span>
+<i class="fa fa-circle-o"></i> Level One
+<i class="fa fa-circle-o"></i> 层级1
+<i class="fa fa-circle-o"></i> Level Two
+<i class="fa fa-circle-o"></i> 层级2
+<i class="fa fa-circle-o"></i> Level Three
+<i class="fa fa-circle-o"></i> 层级3
+<span>Documentation</span>
+<span>文档</span>
+<li class="header">LABELS</li>
+<li class="header">标签</li>
+<span>Important</span>
+<span>重要</span>
+<span>Warning</span>
+<span>警告</span>
+<span>Information</span>
+<span>信息</span>
+<i class="fa fa-dashboard"></i> Home
+<i class="fa fa-dashboard"></i> 首页
+<li class="active">Dashboard</li>
+<li class="active">仪表盘</li>
+<span class="info-box-text">CPU Traffic</span>
+<span class="info-box-text">CPU 使用</span>
+<span class="info-box-text">Likes</span>
+<span class="info-box-text">喜欢</span>
+<span class="info-box-text">Sales</span>
+<span class="info-box-text">销售</span>
+<span class="info-box-text">New Members</span>
+<span class="info-box-text">新会员</span>
+<h3 class="box-title">Monthly Recap Report</h3>
+<h3 class="box-title">月度报告</h3>
+<li><a href="#">Action</a></li>
+<li><a href="#">操作</a></li>
+<li><a href="#">Another action</a></li>
+<li><a href="#">另一个操作</a></li>
+<li><a href="#">Something else here</a></li>
+<li><a href="#">其他操作</a></li>
+<a href="#">Separated link</a>
+<a href="#">分隔链接</a>
+<strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
+<strong>销售：2014年1月1日 - 2014年7月30日</strong>
+<strong>Goal Completion</strong>
+<strong>目标完成</strong>
+<span class="progress-text">Add Products to Cart</span>
+<span class="progress-text">添加产品到购物车</span>
+<span class="progress-text">Complete Purchase</span>
+<span class="progress-text">完全购买</span>
+<span class="progress-text">Visit Premium Page</span>
+<span class="progress-text">访问高级页面</span>
+<span class="progress-text">Send Inquiries</span>
+<span class="progress-text">发送查询</span>
+<span class="description-text">TOTAL REVENUE</span>
+<span class="description-text">总收入</span>
+<span class="description-text">TOTAL COST</span>
+<span class="description-text">总成本</span>
+<span class="description-text">TOTAL PROFIT</span>
+<span class="description-text">总利润</span>
+<span class="description-text">GOAL COMPLETIONS</span>
+<span class="description-text">目标完成</span>
+<h3 class="box-title">Visitors Report</h3>
+<h3 class="box-title">访客报告</h3>
+<div class="knob-label">Visitors</div>
+<div class="knob-label">访客</div>
+<span class="description-text">Visits</span>
+<span class="description-text">访问</span>
+<span class="description-text">Referrals</span>
+<span class="description-text">搜索引擎</span>
+<span class="description-text">Organic</span>
+<span class="description-text">其他</span>
+<h3 class="box-title">Direct Chat</h3>
+<h3 class="box-title">聊天</h3>
+Is this template really for free? That's unbelievable!
+难以置信，这个模板真的是免费的吗？
+<span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
+<span class="direct-chat-timestamp pull-left">1月23日 下午 2:05</span>
+You better believe it!
+你要相信它！
+<span class="direct-chat-timestamp pull-right">23 Jan 5:37 pm</span>
+<span class="direct-chat-timestamp pull-right">1月23日 下午 5:37</span>
+Working with AdminLTE on a great new app! Wanna join?
+在一个新应用上使用 AdminLTE ！想加入吗？
+<span class="direct-chat-timestamp pull-left">23 Jan 6:10 pm</span>
+<span class="direct-chat-timestamp pull-left">1月23日 下午 6:10</span>
+I would love to.
+我很乐意。
+<span class="contacts-list-msg">How have you been? I was...</span>
+<span class="contacts-list-msg">你最近过得怎么样？我是...</span>
+<span class="contacts-list-msg">I will be waiting for...</span>
+<span class="contacts-list-msg">我会等着...</span>
+<span class="contacts-list-msg">I'll call you back at...</span>
+<span class="contacts-list-msg">我会打电话给你</span>
+<span class="contacts-list-msg">Where is your new...</span>
+<span class="contacts-list-msg">最近如何</span>
+<span class="contacts-list-msg">Can I take a look at...</span>
+<span class="contacts-list-msg">我可以看看吗</span>
+<span class="contacts-list-msg">Never mind I found...</span>
+<span class="contacts-list-msg">没关系，我发现</span>
+Send</button>
+发送</button>
+Add</button>
+添加</button>
+<h3 class="box-title">Latest Members</h3>
+<h3 class="box-title">最新会员</h3>
+<span class="label label-danger">8 New Members</span>
+<span class="label label-danger">8位新会员</span>
+<span class="users-list-date">Today</span>
+<span class="users-list-date">今天</span>
+<span class="users-list-date">Yesterday</span>
+<span class="users-list-date">昨天</span>
+<span class="users-list-date">12 Jan</span>
+<span class="users-list-date">1月12日</span>
+<span class="users-list-date">13 Jan</span>
+<span class="users-list-date">1月13日</span>
+<span class="users-list-date">14 Jan</span>
+<span class="users-list-date">1月14日</span>
+<span class="users-list-date">15 Jan</span>
+<span class="users-list-date">1月15日</span>
+<a href="javascript:void(0)" class="uppercase">View All Users</a>
+<a href="javascript:void(0)" class="uppercase">查看所有用户</a>
+<h3 class="box-title">Latest Orders</h3>
+<h3 class="box-title">最新订单</h3>
+<th>Order ID</th>
+<th>订单编号</th>
+<th>Item</th>
+<th>项目</th>
+<th>Status</th>
+<th>状态</th>
+<th>Popularity</th>
+<th>人气</th>
+<td>Call of Duty IV</td>
+<td>使命召唤4</td>
+<span class="label label-success">Shipped</span>
+<span class="label label-success">已发货</span>
+<td>Samsung Smart TV</td>
+<td>三星智能电视</td>
+<span class="label label-warning">Pending</span>
+<span class="label label-warning">待付款</span>
+<span class="label label-danger">Delivered</span>
+<span class="label label-danger">已交付</span>
+<span class="label label-info">Processing</span>
+<span class="label label-info">处理中</span>
+<a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Place New Order</a>
+<a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">新订单</a>
+<a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">View All Orders</a>
+<a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">查看所有订单</a>
+<span class="info-box-text">Inventory</span>
+<span class="info-box-text">库存</span>
+<span class="info-box-text">Mentions</span>
+<span class="info-box-text">Mentions</span>
+<span class="info-box-text">Downloads</span>
+<span class="info-box-text">下载</span>
+<span class="info-box-text">Direct Messages</span>
+<span class="info-box-text">消息</span>
+<h3 class="box-title">Browser Usage</h3>
+<h3 class="box-title">浏览器使用</h3>
+<li><a href="#">United States of America
+<li><a href="#">美国
+<li><a href="#">India
+<li><a href="#">印度
+<li><a href="#">China
+<li><a href="#">中国
+<h3 class="box-title">Recently Added Products</h3>
+<h3 class="box-title">最近添加的产品</h3>
+<a href="javascript:void(0)" class="product-title">Samsung TV
+<a href="javascript:void(0)" class="product-title">三星电视
+<a href="javascript:void(0)" class="product-title">Bicycle
+<a href="javascript:void(0)" class="product-title">自行车
+<a href="javascript:void(0)" class="uppercase">View All Products</a>
+<a href="javascript:void(0)" class="uppercase">查看所有产品</a>
+<h3 class="control-sidebar-heading">Recent Activity</h3>
+<h3 class="control-sidebar-heading">近期活动</h3>
+<h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+<h4 class="control-sidebar-subheading">Langdon's 生日</h4>
+<p>Will be 23 on April 24th</p>
+<p>23岁生日，在4月24日</p>
+<h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
+<h4 class="control-sidebar-subheading">Frodo 更新了个人资料</h4>
+<p>New phone +1(800)555-1234</p>
+<p>新电话 +1(800)555-1234</p>
+<h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
+<h4 class="control-sidebar-subheading">Nora 加入邮件列表</h4>
+<h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
+<h4 class="control-sidebar-subheading">254 计划任务执行</h4>
+<p>Execution time 5 seconds</p>
+<p>执行时间5秒</p>
+<h3 class="control-sidebar-heading">Tasks Progress</h3>
+<h3 class="control-sidebar-heading">任务进度</h3>
+<h3 class="control-sidebar-heading">General Settings</h3>
+<h3 class="control-sidebar-heading">常规设置</h3>
+<h3 class="control-sidebar-heading">Chat Settings</h3>
+<h3 class="control-sidebar-heading">聊天设置</h3>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<!-- AdminLTE dashboard 演示（仅供演示使用） -->
+<!-- Add the sidebar's background. This div must be placed
+<!-- 添加侧边栏的背景。
+immediately after the control sidebar -->
+这个 div必须放在 control-sidebar 之后 -->
+<i class="fa fa-circle-o"></i> Dashboard v1</a>
+<i class="fa fa-circle-o"></i> 仪表盘 v1</a>
+<i class="fa fa-circle-o"></i> Dashboard v2</a>
+<i class="fa fa-circle-o"></i> 仪表盘 v2</a>
+<p>New Orders</p>
+<p>新订单</p>
+More info <i class="fa fa-arrow-circle-right"></i>
+更多信息 <i class="fa fa-arrow-circle-right"></i>
+<p>Bounce Rate</p>
+<p>跳出率</p>
+<p>User Registrations</p>
+<p>用户注册</p>
+<p>Unique Visitors</p>
+<p>独立访客</p>
+<a href="#revenue-chart" data-toggle="tab">Area</a>
+<a href="#revenue-chart" data-toggle="tab">地区</a>
+<a href="#sales-chart" data-toggle="tab">Donut</a>
+<a href="#sales-chart" data-toggle="tab">圆环图</a>
+<li class="pull-left header"><i class="fa fa-inbox"></i> Sales</li>
+<li class="pull-left header"><i class="fa fa-inbox"></i> 销售额</li>
+<h3 class="box-title">Chat</h3>
+<h3 class="box-title">聊天</h3>
+<h4>Attachments:</h4>
+<h4>附件：</h4>
+<button type="button" class="btn btn-primary btn-sm btn-flat">Open</button>
+<button type="button" class="btn btn-primary btn-sm btn-flat">打开</button>
+<h3 class="box-title">To Do List</h3>
+<h3 class="box-title">待办事项</h3>
+<span class="text">Design a nice theme</span>
+<span class="text">设计一个不错的主题</span>
+<span class="text">Make the theme responsive</span>
+<span class="text">使响应式主题</span>
+<i class="fa fa-clock-o"></i> 4 hours</small>
+<i class="fa fa-clock-o"></i> 4 小时前</small>
+<span class="text">Let theme shine like a star</span>
+<span class="text">让主题像星星般闪耀</span>
+<i class="fa fa-clock-o"></i> 1 day</small>
+<i class="fa fa-clock-o"></i> 1 天前</small>
+<i class="fa fa-clock-o"></i> 3 days</small>
+<i class="fa fa-clock-o"></i> 3 天前</small>
+<span class="text">Check your messages and notifications</span>
+<span class="text">检查你的邮件和通知</span>
+<i class="fa fa-clock-o"></i> 1 week</small>
+<i class="fa fa-clock-o"></i> 1 周前</small>
+<i class="fa fa-clock-o"></i> 1 month</small>
+<i class="fa fa-clock-o"></i> 1 月前</small>
+<i class="fa fa-plus"></i> Add item</button>
+<i class="fa fa-plus"></i> 添加项目</button>
+<h3 class="box-title">Quick Email</h3>
+<h3 class="box-title">快速邮件</h3>
+<button type="button" class="pull-right btn btn-default" id="sendEmail">Send
+<button type="button" class="pull-right btn btn-default" id="sendEmail">发送
+<div class="knob-label">Online</div>
+<div class="knob-label">在线</div>
+<div class="knob-label">Exists</div>
+<div class="knob-label">存在</div>
+<h3 class="box-title">Sales Graph</h3>
+<h3 class="box-title">销售图表</h3>
+<div class="knob-label">Mail-Orders</div>
+<div class="knob-label">邮件订单</div>
+<div class="knob-label">In-Store</div>
+<div class="knob-label">商店</div>
+<h3 class="box-title">Calendar</h3>
+<h3 class="box-title">日历</h3>
+<li><a href="#">Add new event</a></li>
+<li><a href="#">添加新事件</a></li>
+<li><a href="#">Clear events</a></li>
+<li><a href="#">清除事件</a></li>
+<li><a href="#">View calendar</a></li>
+<li><a href="#">查看日历</a></li>
+<span class="pull-left">Task #1</span>
+<span class="pull-left">任务 #1</span>
+<span class="pull-left">Task #2</span>
+<span class="pull-left">任务 #2</span>
+<span class="pull-left">Task #3</span>
+<span class="pull-left">任务 #3</span>
+<span class="pull-left">Task #4</span>
+<span class="pull-left">任务 #4</span>
+<div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+<div class="tab-pane" id="control-sidebar-stats-tab">统计标签内容</div>
+<li><a href="http://almsaeedstudio.com/premium">Premium Templates</a></li>
+<li><a href="http://almsaeedstudio.com/premium">高级模板</a></li>
+<li class="header">TABLE OF CONTENTS</li>
+<li class="header">目录</li>
+<i class="fa fa-circle-o"></i> Introduction
+<i class="fa fa-circle-o"></i> 介绍
+<a href="#introduction">Introduction</a>
+<a href="#introduction">介绍</a>
+<a href="#download">Download</a>
+<a href="#download">下载</a>
+<i class="fa fa-circle-o"></i> Download</a>
+<i class="fa fa-circle-o"></i> 下载</a>
+<i class="fa fa-circle-o"></i> Dependencies</a>
+<i class="fa fa-circle-o"></i> 依赖</a>
+<a href="#dependencies">Dependencies</a>
+<a href="#dependencies">依赖</a>
+<i class="fa fa-circle-o"></i> Advice</a>
+<i class="fa fa-circle-o"></i> 建议</a>
+<i class="fa fa-circle-o"></i> Layout</a>
+<i class="fa fa-circle-o"></i> 布局</a>
+<a href="#layout">Layout</a>
+<a href="#layout">布局</a>
+<i class="fa fa-circle-o"></i> Javascript Options</a>
+<i class="fa fa-circle-o"></i> Javascript 设置</a>
+<i class="fa fa-circle-o"></i> Components</a>
+<i class="fa fa-circle-o"></i> 组件</a>
+<a href="#components">Components</a>
+<a href="#components">组件</a>
+<li><a href="#component-main-header">Main Header</a></li>
+<li><a href="#component-main-header">主标题</a></li>
+<h3 id="component-main-header">Main Header</h3>
+<h3 id="component-main-header">主标题</h3>
+<li><a href="#component-sidebar">Sidebar</a></li>
+<li><a href="#component-sidebar">侧边栏</a></li>
+<h3 id="component-sidebar">Sidebar</h3>
+<h3 id="component-sidebar">侧边栏</h3>
+<li><a href="#component-control-sidebar">Control Sidebar</a></li>
+<li><a href="#component-control-sidebar">控制栏</a></li>
+<h3 id="component-control-sidebar">Control Sidebar</h3>
+<h3 id="component-control-sidebar">控制栏</h3>
+<li><a href="#component-info-box">Info Box</a></li>
+<li><a href="#component-info-box">信息框</a></li>
+<h3 id="component-info-box">Info Box</h3>
+<h3 id="component-info-box">信息框</h3>
+<li><a href="#component-box">Boxes</a></li>
+<li><a href="#component-box">盒子</a></li>
+<h3 id="component-box">Box</h3>
+<h3 id="component-box">盒子</h3>
+<li><a href="#component-direct-chat">Direct Chat</a></li>
+<li><a href="#component-direct-chat">聊天</a></li>
+<h3 id="component-direct-chat">Direct Chat</h3>
+<h3 id="component-direct-chat">聊天</h3>
+<i class="fa fa-circle-o"></i> Plugins</a>
+<i class="fa fa-circle-o"></i> 插件</a>
+<h2 class="page-header"><a href="#plugins">Plugins</a></h2>
+<h2 class="page-header"><a href="#plugins">插件</a></h2>
+<i class="fa fa-circle-o"></i> Browser Support</a>
+<i class="fa fa-circle-o"></i> 浏览器支持</a>
+<h2 class="page-header"><a href="#browsers">Browser Support</a></h2>
+<h2 class="page-header"><a href="#browsers">浏览器支持</a></h2>
+<i class="fa fa-circle-o"></i> Upgrade Guide</a>
+<i class="fa fa-circle-o"></i> 升级指南</a>
+<h2 class="page-header"><a href="#upgrade">Upgrade Guide</a></h2>
+<h2 class="page-header"><a href="#upgrade">升级指南</a></h2>
+<i class="fa fa-circle-o"></i> Implementations</a>
+<i class="fa fa-circle-o"></i> 实现</a>
+<h2 class="page-header"><a href="#implementations">Implementations</a></h2>
+<h2 class="page-header"><a href="#implementations">实现</a></h2>
+<i class="fa fa-circle-o"></i> FAQ</a>
+<i class="fa fa-circle-o"></i> 常问问题</a>
+<h2 class="page-header"><a href="#faq">FAQ</a></h2>
+<h2 class="page-header"><a href="#faq">常问问题</a></h2>
+<i class="fa fa-circle-o"></i> License</a>
+<i class="fa fa-circle-o"></i> 许可证</a>
+<h2 class="page-header"><a href="#license">License</a></h2>
+<h2 class="page-header"><a href="#license">许可证</a></h2>
+<li class="active">Documentation</li>
+<li class="active">文档</li>
+<h3 class="box-title">Ready</h3>
+<h3 class="box-title">已编译版</h3>
+<p>Compiled and ready to use in production. Download this version if you don't want to customize AdminLTE's LESS files.</p>
+<p>已编译的，并且准备在生产中使用。如果你不需要 AdminLTE LESS 文件，请下载此版本。</p>
+<i class="fa fa-download"></i> Download</a>
+<i class="fa fa-download"></i> 下载</a>
+<h3 class="box-title">Source Code</h3>
+<h3 class="box-title">源码版</h3>
+<p>All files including the compiled CSS. Download this version if you plan on customizing the template. <b>Requires a LESS compiler.</b></p>
+<p>所有文件，包含已编译CSS文件，如果你需要自定义模板，请下载此版本。<b>需要 LESS 编译器。</b></p>
+File Hierarchy of the Source Code Package
+源代码包中的文件层次结构
+│   │   ├── AdminLTE's Less files
+│   │   ├── AdminLTE's Less 文件
+│   └── Bootstrap-less/ (Only for reference. No modifications have been made)
+│   └── Bootstrap-less/（仅供参考，未进行任何修改）
+├── All the customized plugins CSS and JS files</code></pre>
+├── 自定义插件 CSS，JS 文件</code></pre>
+<p class="lead">AdminLTE depends on two main frameworks.
+<p class="lead">AdminLTE依赖于两个主要框架。
+The downloadable package contains both of these libraries, so you don't have to manually download them.</p>
+下载包中包含这两个库，所以你不需要手动下载它们。</p>
+<a href="#plugins">All other plugins are listed below</a>
+<a href="#plugins">下面列出了其他的所有插件</a>
+<a href="#advice">A Word of Advice</a>
+<a href="#advice">忠告</a>
+Before you go to see your new awesome theme, here are few tips on how to familiarize yourself with it:
+在你去看新主题之前，这里有些实用技巧：
+<li><b>AdminLTE is based on <a href="http://getbootstrap.com/" target="_blank">Bootstrap 3</a>.</b> If you are unfamiliar with Bootstrap, visit their website and read through the documentation. All of Bootstrap components have been modified to fit the style of AdminLTE and provide a consistent look throughout the template. This way, we guarantee you will get the best of AdminLTE.</li>
+<li><b>AdminLTE 基于<a href="http://getbootstrap.com/" target="_blank">Bootstrap 3</a>。</b> 如果你不熟悉 Bootstrap，请访问其网站并阅读文档。所有 Bootstrap 组件都被修改过以适用于AdminLTE风格，统一的模板风格将保证您获得最好的AdminLTE。</li>
+<li><b>Go through the pages that are bundled with the theme.</b> Most of the template example pages contain quick tips on how to create or use a component which can be really helpful when you need to create something on the fly.</li>
+<li><b>浏览与主题相关的页面。</b> 大多数模板示例都包含了如何创建和使用组件；当你需要创建某些内容时，这将会很有用。</li>
+<li><b>Documentation.</b> We are trying our best to make your experience with AdminLTE be smooth. One way to achieve that is to provide documentation and support. If you think that something is missing from the documentation, please do not hesitate to create an issue to tell us about it.</li>
+<li><b>文档。</b> 我们正在努力让您使用AdminLTE更方便。实现这一目标的方法是提供支持文档。如果您认为文档中缺少某些内容，不要犹豫，创建一个问题（issue）来告诉我们。</li>
+<li><b>Built with <a href="http://lesscss.org/" target="_blank">LESS</a>.</b> This theme uses the LESS compiler to make it easier to customize and use. LESS is easy to learn if you know CSS or SASS. It is not necessary to learn LESS but it will benefit you a lot in the future.</li>
+<li><b>内置<a href="http://lesscss.org/" target="_blank">LESS</a>。</b> 主题使用 LESS 编译器使它更易于自定义和使用。如果你知道CSS或SASS的话，LESS很容易学习；学习 LESS这会让你在以后受益匪浅。</li>
+<li><b>Hosted on <a href="https://github.com/almasaeed2010/AdminLTE/" target="_blank">GitHub</a>.</b> Visit our GitHub repository to view issues, make requests, or contribute to the project.</li>
+<li><b>托管在GitHub上<a href="https://github.com/almasaeed2010/AdminLTE/" target="_blank">GitHub</a>。</b>访问我们的GitHub仓库，查看问题，请求或贡献项目。</li>
+<b>Note:</b> LESS files are better commented than the compiled CSS file.
+<b>提示：</b>LESS文件中的注释好于编译过的CSS文件。
+<p class="lead">The layout consists of four major parts:</p>
+<p class="lead">布局由四个主要部分组成：</p>
+<li>Wrapper <code>.wrapper</code>. A div that wraps the whole site.</li>
+<li>包裹 <code>.wrapper</code>。包裹整站的 div 标签。</li>
+<li>Main Header <code>.main-header</code>. Contains the logo and navbar.</li>
+<li>主标题 <code>.main-header</code>。包含LOGO和导航。</li>
+<li>Sidebar <code>.sidebar-wrapper</code>. Contains the user panel and sidebar menu.</li>
+<li>侧边栏 <code>.sidebar-wrapper</code>。包含用户面板和侧边栏菜单。</li>
+<li>Content <code>.content-wrapper</code>. Contains the page header and content.</li>
+<li>内容 <code>.content-wrapper</code>。包含页标题和内容。</li>
+<h4>Tip!</h4>
+<h4>提示！</h4>
+<p>The <a href="../starter.html">starter page</a> is a good place to start building your app if you'd like to start from scratch.</p>
+<p>如果你想从头开始，<a href="../starter.html">起始页</a>是构建应用程序的好地方。</p>
+<p class="lead">AdminLTE 2.0 provides a set of options to apply to your main layout. Each one of these classes can be added
+<p class="lead">AdminLTE 2.0提供了一组应用于布局的选项。
+to the body tag to get the desired goal.</p>
+这将些类添加body标签中，以得到想要的效果。</p>
+<li><b>Fixed:</b> use the class <code>.fixed</code> to get a fixed header and sidebar.</li>
+<li><b>固定：</b> 使用类 <code>.fixed</code>将固定页眉和侧边栏。</li>
+<li><b>Collapsed Sidebar:</b> use the class <code>.sidebar-collapse</code> to have a collapsed sidebar upon loading.</li>
+<li><b>折叠侧边栏：</b> 使用类 <code>.sidebar-collapse</code>将在加载时折叠侧边栏。</li>
+<li><b>Boxed Layout:</b> use the class <code>.layout-boxed</code> to get a boxed layout that stretches only to 1250px.</li>
+<li><b>盒子布局：</b> 使用类 <code>.layout-boxed</code>将得到 1250px的盒子布局。</li>
+<li><b>Top Navigation</b> use the class <code>.layout-top-nav</code> to remove the sidebar and have your links at the top navbar.</li>
+<li><b>顶部导航</b> 使用类 <code>.layout-top-nav</code>将移除侧边栏，并将你的链接移到顶部导航栏。</li>
+<p><b>Note:</b> you cannot use both layout-boxed and fixed at the same time. Anything else can be mixed together.</p>
+<p><b>提示：</b>除了，不能将 layout-boxed 和 fixed 混用外，其他的都可以。</p>
+<h3>Skins</h3>
+<h3>皮肤</h3>
+<p class="lead">Skins can be found in the dist/css/skins folder.
+<p class="lead">皮肤可以在 dist/css/skins 目录中找到。
+Choose and the skin file that you want then add the appropriate
+选择所需的皮肤文件，然后将相应的类添加到 body 标签中, 以更改模板的皮肤。
+class to the body tag to change the template's appearance. Here is the list of available skins:</p>
+下面是可用外观的列表：</p>
+<th style="width: 210px;">Skin Class</th>
+<th style="width: 210px;">皮肤类</th>
+<th>Preview</th>
+<th>预览</th>
+<a href="#adminlte-options">AdminLTE Javascript Options</a>
+<a href="#adminlte-options">AdminLTE Javascript 设置</a>
+<p class="lead">Modifying the options of AdminLTE's app.js can be done using one of the following ways.</p>
+<p class="lead">通过修改app.js文件，来配置AdminLTE。方法如下：</p>
+<h3>Editing app.js</h3>
+<h3>编辑 app.js</h3>
+<p>Within the main Javascript file, modify the <code>$.AdminLTE.options</code> object to suit your use case.</p>
+<p>在JS文件中修改<code>$.AdminLTE.options</code> 对象以适用你的项目。</p>
+<h3>Defining AdminLTEOptions</h3>
+<h3>定义 AdminLTEOptions</h3>
+<p>Alternatively, you can define a global options variable named <code>AdminLTEOptions</code> and initialize it before loading app.js.</p>
+<p>或者，您可以定义一个名为<code>AdminLTEOptions</code>全局变量，并在加载 app.js 之前对其进行初始化。</p>
+<p>Example</p>
+<p>示例</p>
+//Enable sidebar expand on hover effect for sidebar mini
+//启用迷你侧边栏并固定
+//BoxRefresh Plugin
+//BoxRefresh 插件
+//Bootstrap.js tooltip
+//Bootstrap.js 提示工具
+//Add slimscroll to navbar menus
+//将 slimscroll 添加到导航栏菜单
+//This requires you to load the slimscroll plugin
+//你需要加载 slimscroll 插件
+//in every page before app.js
+//在所有页面前加载 app.js
+//The width of the scroll bar
+//滚动条的宽度
+//The height of the inner menu
+//内部菜单的高度
+//General animation speed for JS animated elements such as box collapse/expand and
+//一般为JS动画速度，如框折叠/展开和侧边栏向上/向下滑动。
+//sidebar treeview slide up/down. This options accepts an integer as milliseconds,
+//单位为毫秒，
+//'fast', 'normal', or 'slow'
+//或者使用 'fast', 'normal', 或 'slow'
+//Sidebar push menu toggle button selector
+//侧边栏菜单按钮选择器
+//Activate sidebar push menu
+// 激活侧边栏推菜单
+//This option is forced to true if both the fixed layout and sidebar mini
+//如果固定布局和迷你侧边栏启用，
+//Activate sidebar slimscroll if the fixed layout is set (requires SlimScroll Plugin)
+//激活边栏（需要SlimScroll插件）
+//Enable Fast Click. Fastclick.js creates a more
+//启用快速单击。
+//native touch experience with touch devices. If you
+Fastclick 让触摸设备拥有等同于本地的触摸体验。
+//choose to enable the plugin, make sure you load the script
+//如果您选择启用该插件，
+//before AdminLTE's app.js
+//请确保在 AdminLTE app.js 前加载了该脚本
+//Control Sidebar Tree views
+//控制栏树视图
+//Control Sidebar Options
+//控制栏配置
+//Which button should trigger the open/close event
+//哪个按钮触发打开/关闭事件
+//The sidebar selector
+//侧边栏选择器
+//Enable slide over content
+//启用幻灯片内容
+//Box Widget Plugin. Enable this plugin
+//Box 小部件插件。启用这个插件
+//to allow boxes to be collapsed and/or removed
+//允许折叠和（或）删除
+//Box Widget plugin options
+//Box 小部件配置
+//Collapse icon
+//折叠图标
+//Open icon
+//展开图标
+//Remove icon
+//删除图标
+//Remove button selector
+//删除按钮选择器
+//Collapse button selector
+//折叠按钮选择器
+//Direct Chat plugin options
+//聊天插件配置
+//Enable direct chat by default
+//默认启用聊天
+//The button to open and close the chat contacts pane
+//这个选择器用于控制打开或关闭联系人面板
+//Define the set of colors to use globally around the website
+//定义一组在网站上使用的颜色
+//The standard screen sizes that bootstrap uses.
+//bootstrap使用的标准屏幕大小。
+//If you change these in the variables.less file, change
+//如果你修改了variables.less 文件，
+//them here too.
+//需要同步修改这里。
+<h4>Reminder!</h4>
+<h4>提醒！</h4>
+AdminLTE uses all of Bootstrap 3 components. It's a good start to review
+AdminLTE使用所有Bootstrap 3组件。
+the <a href="http://getbootstrap.com">Bootstrap documentation</a> to get an idea of the various components
+查看<a href="http://getbootstrap.com">Bootstrap 文档</a>以了解本文档<b>不包含</b>的各种组件，
+that this documentation <b>does not</b> cover.
+这将是个很好的开始。
+If you go through the example pages and would like to copy a component, right-click on
+如果复制这些组件，
+the component and choose "inspect element" to get to the HTML quicker than scanning
+请右击组件，并选择“检查元素”
+the HTML page.
+这将比查看源码要快得多。
+<p class="lead">The main header contains the logo and navbar. Construction of the
+<p class="lead">主标题包含LOGO导航。
+navbar differs slightly from Bootstrap because it has components that Bootstrap doesn't provide.
+导航栏与Bootstrap略有不同，它有Bootstrap不提供的组件。
+The navbar can be constructed in two way. This an example for the normal navbar and next we will provide an example for
+导航栏有两种方式构建。这是一个正常的导航栏例子，
+the top nav layout.</p>
+接下来我们将提供顶部导航布局的示例。
+<span class="eg">Main Header Example</span>
+<span class="eg">主标题示例</span>
+<h4>Top Nav Layout. Main Header Example.</h4>
+<h4>顶部导航布局，主标题示例</h4>
+<p>To use this main header instead of the regular one, you must add the <code>layout-top-nav</code> class to the body tag.</p>
+<p>要使用主标题而不是常规标题，需要将<code>layout-top-nav</code>类添加到body 标签中。</p>
+<span class="eg">Top Nav Example</span>
+<span class="eg">顶部导航示例</span>
+<a href="#">Link <span class="sr-only">(current)</span></a>
+<a href="#">链接 <span class="sr-only">（当前）</span></a>
+<a href="#">Link</a>
+<a href="#">链接</a>
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">下拉菜单
+<a href="#">One more separated link</a>
+<a href="#">分隔后的链接</a>
+The sidebar used in this page to the left provides an example of what your sidebar should like.
+示例参见，页面左侧的侧边栏。
+Construction of a sidebar:
+创建侧边栏
+<p>User Name</p>
+<p>用户名</p>
+placeholder="Search..."
+placeholder="搜索..."
+placeholder="Place some text here"
+placeholder="在这里输入内容"
+placeholder="Search"
+placeholder="搜索"
+<li class="header">HEADER</li>
+<li class="header">头部</li>
+<span>Link</span>
+<span>链接</span>
+<span>Another Link</span>
+<span>另一个链接</span>
+<a href="#">Link in level 2</a>
+<a href="#">2级链接</a>
+<p class="lead">Control sidebar is the right side bar. It can be used for many purposes and is extremely easy
+<p class="lead">控制栏右侧。
+to create. The sidebar ships with two different show/hide styles. The first allows the sidebar to
+它的用途很广且很容易创建。
+slide over the content. The second pushes the content to make space for the sidebar. Either of
+侧边栏有显示/隐藏样式。对于第1个，是滑过内容，不占用空间。另外一个，将占用空间。
+these methods can be set through the <a href="#adminlte-options">Javascript options</a>.</p>
+通过<a href="#adminlte-options">Javascript 选项</a>进行设置。</p>
+<p class="lead">The following code should be placed within the <code>.wrapper</code> div. I prefer
+<p class="lead">下面代码放在<code>.wrapper</code> div 中。
+to place it right after the footer.</p>
+我喜欢放在页面底部。</p>
+<p class="lead">Dark Sidebar Markup</p>
+<p class="lead">暗色侧边栏标记</p>
+<p class="lead">Light Sidebar Markup</p>
+<p class="lead">亮色侧边栏标记</p>
+<p class="lead">Once you create the sidebar, you will need a toggle button to open/close it.
+<p class="lead">创建侧边栏后，
+By adding the attribute <code>data-toggle="control-sidebar"</code> to any button, it will
+你需要一个通过按钮来控制打开或关闭它。
+automatically act as the toggle button.</p>
+将属性<code>data-toggle="control-sidebar"</code> 添加到任何按钮上，将会自动实现控制操作。</p>
+<p class="lead">Toggle Button Example</p>
+<p class="lead">切换按钮示例</p>
+<button class="btn btn-primary" data-toggle="control-sidebar">Toggle Right Sidebar</button>
+<button class="btn btn-primary" data-toggle="control-sidebar">切换右边栏</button>
+<p class="lead">Sidebar Toggle Markup</p>
+<p class="lead">侧边栏切换标记</p>
+<p class="lead">Info boxes are used to display statistical snippets. There are two types of info boxes.</p>
+<p class="lead">信息框用于显示统计代码段。信息框有两种类型。</p>
+<h4>First Type of Info Boxes</h4>
+<h4>第一种信息框</h4>
+<span class="info-box-text">Messages</span>
+<span class="info-box-text">消息</span>
+<span class="info-box-text">Bookmarks</span>
+<span class="info-box-text">书签</span>
+<span class="info-box-text">Uploads</span>
+<span class="info-box-text">上传</span>
+<span class="info-box-text">Likes</span>
+<span class="info-box-text">喜欢</span>
+<p class="lead">Markup</p>
+<p class="lead">标记</p>
+<h4>Second Type of Info Boxes</h4>
+<h4>第二种信息框</h4>
+<span class="info-box-text">Events</span>
+<span class="info-box-text">活动</span>
+<span class="info-box-text">Comments</span>
+<span class="info-box-text">评论</span>
+<p class="lead">The box component is the most widely used component through out this template. You can
+<p class="lead">盒子组件使用很广泛。
+use it for anything from displaying charts to just blocks of text. It comes in many different
+从显示图表到文本块；
+styles that we will explore below.</p>
+它有多种风格，下面将进行介绍。</p>
+<h4>Default Box Markup</h4>
+<h4>默认标记</h4>
+<h3 class="box-title">Default Box Example</h3>
+<h3 class="box-title">默认示例</h3>
+<span class="label label-primary">Label</span>
+<span class="label label-primary">标签</span>
+<h4>Box Variants</h4>
+<h4>盒子变体</h4>
+<p class="lead">You can change the style of the box by adding any of the contextual classes.</p>
+<p class="lead">您可以通过添加box相关的类来更改样式。</p>
+<h3 class="box-title">Primary Box Example</h3>
+<h3 class="box-title">重要消息示例</h3>
+<h3 class="box-title">Info Box Example</h3>
+<h3 class="box-title">普通样式消息示例</h3>
+<h3 class="box-title">Warning Box Example</h3>
+<h3 class="box-title">警告样式消息示例</h3>
+<h3 class="box-title">Success Box Example</h3>
+<h3 class="box-title">成功样式消息示例</h3>
+<h3 class="box-title">Danger Box Example</h3>
+<h3 class="box-title">危险样式消息示例</h3>
+<h4>Solid Box</h4>
+<h4>实心盒子</h4>
+<p class="lead">Solid Boxes are alternative ways to display boxes.
+<p class="lead">实心盒子替换原有样式的方案。
+They can be created by simply adding the box-solid class to the box component.
+通过将box-solid 类添加到组件中，
+You may also use contextual classes with you solid boxes.</p>
+来实现效果。你也可以使用其他 box 相关的类。</p>
+<h3 class="box-title">Default Solid Box Example</h3>
+<h3 class="box-title">默认示例</h3>
+<h3 class="box-title">Primary Solid Box Example</h3>
+<h3 class="box-title">重要消息示例</h3>
+<h3 class="box-title">Info Solid Box Example</h3>
+<h3 class="box-title">普通样式消息示例</h3>
+<h3 class="box-title">Warning Solid Box Example</h3>
+<h3 class="box-title">警告样式消息示例</h3>
+<h3 class="box-title">Success Solid Box Example</h3>
+<h3 class="box-title">成功样式消息示例</h3>
+<h3 class="box-title">Danger Solid Box Example</h3>
+<h3 class="box-title">危险样式消息示例</h3>
+<h4>Box Tools</h4>
+<h4>盒子工具</h4>
+<h4>Loading States</h4>
+<h4>加载状态</h4>
+<p class="lead">Boxes can contain tools to deploy a specific event or provide simple info. The following examples makes use
+<p class="lead">盒子中可以包含用于部署特定事件或提供简单信息的工具。
+of multiple AdminLTE components within the header of the box.</p>
+下面的示例使用了多个AdminLTE组件。</p>
+<p>AdminLTE data-widget attribute provides boxes with the ability to collapse or be removed. The buttons
+<p>AdminLTE 的 data-widget 属性提供了可以折叠或移除的功能。
+are placed in the box-tools which is placed in the box-header.</p>
+将按钮样式放置在box-header中。</p>
+<!-- This will cause the box to be removed when clicked -->
+<!-- 点击后移除 -->
+<!-- This will cause the box to collapse when clicked -->
+<!-- 点击后折叠 -->
+<h3 class="box-title">Collapsable</h3>
+<h3 class="box-title">可折叠</h3>
+<h3 class="box-title">Removable</h3>
+<h3 class="box-title">可移除</h3>
+<h3 class="box-title">Expandable</h3>
+<h3 class="box-title">可展开</h3>
+<p>We can also add labels, badges, pagination, tooltips, inputs and many more in the box tools. A few examples:</p>
+<p>我们还可以添加标签、徽章、分页，工具提示，输入框到盒子中。示例如下：</p>
+<h3 class="box-title">Labels</h3>
+<h3 class="box-title">标签</h3>
+<span class="label label-default">Some Label</span>
+<span class="label label-default">一些标签</span>
+<span class="label label-default">8 New Messages</span>
+<span class="label label-default">8 条新消息</span>
+<h3 class="box-title">Input</h3>
+<h3 class="box-title">输入框</h3>
+<h3 class="box-title">Tootips on buttons</h3>
+<h3 class="box-title">按钮提示</h3>
+If you inserted a box into the document after <code>app.js</code> was loaded, you have to activate
+如果您在引入<code>app.js</code>之后添加了盒子到页面中，
+the collapse/remove buttons explicitly by calling <code>.activateBox()</code>:
+那么您必须通过调用<code>.activateBox()</code>来激活：
+<h3 class="box-title">Loading state</h3>
+<h3 class="box-title">加载状态</h3>
+<h3 class="box-title">Loading state (.box-solid)</h3>
+<h3 class="box-title">加载状态 (.box-solid)</h3>
+To simulate a loading state, simply place this code before the <code>.box</code> closing tag.
+要模拟加载状态，只需将该代码放在 <code>.box</code>结束标记之前。
+<p class="lead">The direct chat widget extends the box component to create a beautiful chat interface. This widget
+<p class="lead">聊天小部件扩展了盒子组件，
+consists of a required messages pane and an <b>optional</b> contacts pane. Examples:</p>
+以创建一个漂亮的聊天界面。此小部件由必需的消息窗格和可选的联系人窗格组成。示例：</p>
+<span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
+<span class="direct-chat-timestamp pull-right">1月23日 下午2:00</span>
+<span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
+<span class="direct-chat-timestamp pull-left">1月23日 下午2:05</span>
+title="3 New Messages"
+title="3 条新消息"
+<p class="lead">Direct Chat Markup</p>
+<p class="lead">聊天标记</p>
+<p>Of course you can use direct chat with a solid box by adding the class <code>solid-box</code> to the box. Here are a couple of examples:</p>
+<p>当然，你也可以直接将<code>solid-box</code> 类应用的盒子里，下面是示例：</p>
+<h3 class="box-title">Direct Chat in a Solid Box</h3>
+<h3 class="box-title">实心盒子聊天</h3>
+placeholder="Type Message ..."
+placeholder="输入消息 ..."
+alt="message user image"
+alt="用户消息头像"
+alt="Contact Avatar"
+alt="联系人头像"
+<p class="lead">AdminLTE makes use of the following plugins. For documentation, updates or license information, please visit the provided links.</p>
+<p class="lead">AdminLTE使用以下插件。相关文档，更新或许可信息，请访问提供的链接。</p>
+<li><h4>Charts</h4></li>
+<li><h4>图表</h4></li>
+<li><h4>Form Elements</h4></li>
+<li><h4>表单元素</h4></li>
+<li><h4>Editors</h4></li>
+<li><h4>编辑器</h4></li>
+<li><h4>Other</h4></li>
+<li><h4>其它</h4></li>
+<p class="lead">AdminLTE supports the following browsers:</p>
+<p class="lead">AdminLTE支持以下浏览器：</p>
+<li>Firefox (latest)</li>
+<li>Firefox （最新）</li>
+<li>Safari (latest)</li>
+<li>Safari （最新）</li>
+<li>Chrome (latest)</li>
+<li>Chrome （最新）</li>
+<li>Opera (latest)</li>
+<li>Opera （最新）</li>
+<p><b>Note:</b> IE9 does not support transitions or animations. The template will function properly but it won't use animations/transitions on IE9.</p>
+<p><b>提示：</b> IE9 不支持过渡或动画。模板仍会正常工作，但不会启用过渡或动画效果。</p>
+<p class="lead">To upgrade from version 1.x to the lateset version, follow this guide.</p>
+<p class="lead">要从1.x升级到最新版本，请遵循本指南。</p>
+<h3>New Files</h3>
+<h3>新文件</h3>
+<p>Make sure you update all CSS and JS files that are related to AdminLTE. Otherwise, the layout will not
+<p>确保更新所有与AdminLTE相关的CSS和JS文件。
+function properly. Most important files are AdminLTE.css, skins CSS files, and app.js.</p>
+否则，布局将正常使用。最重要的文件是AdminLTE.css，皮肤CSS文件和app.js。</p>
+<h3>Layout Changes</h3>
+<h3>布局调整</h3>
+<li>The .wrapper div must be placed immediately after the body tag rather than after the header</li>
+<li>.wrapper div必须放在 body 标签之后，而不是放在header之后</li>
+<li>Change the .header div to .main-header <code>&LT;div class="main-header"></code></li>
+<li>修改div .header 为 .main-header <code>&LT;div class="main-header"></code></li>
+<li>Change the .right-side class to .content-wrapper <code>&LT;div class="content-wrapper"></code></li>
+<li>修改 .right-side 类为 .content-wrapper <code>&LT;div class="content-wrapper"></code></li>
+<li>Change the .left-side class to .main-sidebar <code>&LT;div class="main-sidebar"></code></li>
+<li>修改 .left-side 类为 .main-sidebar <code>&LT;div class="main-sidebar"></code></li>
+<li>In the navbar, change .navbar-right to .navbar-custom-menu <code>&LT;div class="navbar-custom-menu"></code></li>
+<li>在导航栏中，将 .navbar-right 修改为 .navbar-custom-menu <code>&LT;div class="navbar-custom-menu"></code></li>
+<h3>Navbar Custom Dropdown Menus</h3>
+<h3>导航栏自定义下拉菜单</h3>
+<li>The icons in the notification menu do not need bg-* classes. They should be replaced with contextual text color class such as text-aqua or text-red.</li>
+<li>通知菜单中的图标不需要使用 bg-* 类。会使用当前颜色，例如text-aqua或text-red。</li>
+<h3>Login, Registration and Lockscreen Pages</h3>
+<h3>登录，注册和锁屏页面</h3>
+<p>There are major changes to the HTML markup and style to these pages. The best way is to copy the page's code and customize it.</p>
+<p>这些页面的HTML标记和样式有很大的变化。最好的方法是复制页面代码再修改它。</p>
+<p>And you should be set to go!</p>
+<p>你该着手去做！</p>
+<h3>Mailbox</h3>
+<h3>邮箱</h3>
+<p>Mailbox got an upgrade to include three different views. The views are inbox, read mail, and compose new email. To use these views,
+<p>邮箱升级包含了三个不同的页面。 分别是收件箱，阅读邮件和撰写新邮件。
+you should use the provided HTML files in the pages/mailbox folder.</p>
+要使用这些页面，你可以pages/mailbox目录下找到。</p>
+<p><b class="text-red">Note:</b> the old mailbox layout has been deprecated in favor of the new one and will be removed by the next release.</p>
+<p><b class="text-red">提示：</b> 旧的邮箱布局已被弃用，为了便于使用新布局将在下一个版本中删除。</p>
+<p class="lead">Thanks to many of AdminLTE users, there are multiple implementations of the template
+<p class="lead">感谢AdminLTE用户将模板与后端框架集成，
+for easy integration with back-end frameworks. The following are some of them:</p>
+以下是部分，感谢他们：</p>
+<p><b class="text-red">Note:</b> these implementations are not supported by Almsaeed Studio. However,
+<p><b class="text-red">注意：</b> Almsaeed Studio不支持这些实现。
+they do provide a good example of how to integrate AdminLTE into different frameworks. For the latest release
+但是，它们提供了将AdminLTE集成到不同框架中示例。
+of AdminLTE, please visit our <a href="https://github.com/almasaeed2010/AdminLTE">repository</a> or <a href="https://almsaeedstudio.com">website</a></p>
+有关AdminLTE的最新版本，请访问我们的<a href="https://github.com/almasaeed2010/AdminLTE">仓库</a>或<a href="https://almsaeedstudio.com">网站</a>。</p>
+<h3>Can AdminLTE be used with Wordpress?</h3>
+<h3>AdminLTE可以与Wordpress一起使用吗？</h3>
+<p class="lead">AdminLTE is an HTML template that can be used for any purpose. However, it is not made to be easily installed on Wordpress. It will require some effort and enough knowledge of the Wordpress script to do so.</p>
+<p class="lead">AdminLTE是一个HTML模板，可以用于任何目的。 但它不容易安装在Wordpress上。你需要多些努力及足够的Wordpress脚本知识。</p>
+<h3>Is there an integration guide for PHP frameworks such as Yii or Symfony?</h3>
+<h3>有没有PHP框架的集成指南，如Yii或Symfony？</h3>
+<p class="lead">Short answer, no. However, there are forks and tutorials around the web that provide info on how to integrate with many different frameworks. There are even versions of AdminLTE that are integrated with jQuery ajax, AngularJS and/or MVC5 ASP .NET.</p>
+<p class="lead">简短的说，没有。 不过上，网络上有forks和教程，它提供了如何与框架集成的信息。甚至还有AdminLTE与jQuery ajax，AngularJS或MVC5 ASP .NET集成在一起。</p>
+<h3>How do I get notified of new AdminLTE versions?</h3>
+<h3>如何获得新版通知？</h3>
+<p class="lead">The best option is to subscribe to our mailing list using the <a href="http://almsaeedstudio.com/#subscribe">subscription form on Almsaeed Studio</a>.
+<p class="lead">最好的选择是使用<a href="http://almsaeedstudio.com/#subscribe">Almsaeed Studio上的订阅</a>来加入邮件列表</a>。
+If that's not appealing to you, you may watch the <a href="https://github.com/almasaeed2010/AdminLTE">repository on Github</a> or visit <a href="http://almsaeedstudio.com">Almsaeed Studio</a> every now and then for updates and announcements.</p>
+如果你对这个不感兴趣，你也可以随时查看<a href="https://github.com/almasaeed2010/AdminLTE">Github 仓库</a>，或者访问<a href="http://almsaeedstudio.com">Almsaeed Studio</a>查看更新和公告。</p>
+AdminLTE is an open source project that is licensed under the <a href="http://opensource.org/licenses/MIT">MIT license</a>.
+AdminLTE是根据<a href="http://opensource.org/licenses/MIT">MIT许可证</a>授权的开源项目。
+This allows you to do pretty much anything you want as long as you include
+只要您在“软件的所有副本或大部分内容”中包含版权，
+the copyright in "all copies or substantial portions of the Software."
+您就可以做任何事情。
+Attribution is not required (though very much appreciated).
+署名不是必需的（尽管非常感谢）。
+<title>AdminLTE 2 | Calendar</title>
+<title>AdminLTE 2 | 日历</title>
+<small>Control panel</small>
+<small>控制面板</small>
+<li class="active">Calendar</li>
+<li class="active">日历</li>
+<h4 class="box-title">Draggable Events</h4>
+<h4 class="box-title">可拖动事件</h4>
+<div class="external-event bg-green">Lunch</div>
+<div class="external-event bg-green">午餐</div>
+<div class="external-event bg-yellow">Go home</div>
+<div class="external-event bg-yellow">回家</div>
+<div class="external-event bg-aqua">Do homework</div>
+<div class="external-event bg-aqua">做作业</div>
+<div class="external-event bg-light-blue">Work on UI design</div>
+<div class="external-event bg-light-blue">UI设计</div>
+<div class="external-event bg-red">Sleep tight</div>
+<div class="external-event bg-red">睡觉</div>
+<h3 class="box-title">Create Event</h3>
+<h3 class="box-title">创建事件</h3>
+<title>AdminLTE 2 | Widgets</title>
+<title>AdminLTE 2 | 小部件</title>
+<small>Preview page</small>
+<small>页面预览</small>
+<title>AdminLTE 2 | Documentation</title>
+<title>AdminLTE 2 | 文档</title>
+<li class="active">Widgets</li>
+<li class="active">小部件</li>
+is a popular open source WebApp template for admin dashboards and control panels.
+是一个流行开源的后台管理框架。
+It is a responsive HTML template that is based on the CSS framework Bootstrap 3.
+基于Bootstrap 3 响应式 HTML 模板。
+It utilizes all of the Bootstrap components in its design and re-styles many
+在设计中使用了所有Bootstrap组件，
+commonly used plugins to create a consistent design that can be used as a user
+并重新编写了许多常用的插件，
+interface for backend applications. AdminLTE is based on a modular design, which
+以创建一个可以用作后端程序的用户界面。
+allows it to be easily customized and built upon. This documentation will guide you through
+AdminLTE 基于模块化的设计，使得它可以轻松地定制和构建。
+installing the template and exploring the various components that are bundled with the template.
+本文档将指导您安装及如何使用各种组件。
+AdminLTE can be downloaded in two different versions, each appealing to different skill levels and use case.
+AdminLTE提供了两种版本，你可以根据需要下载，以适应你的要求。
+This is an example of the control sidebar.
+这是控制侧边栏的例子。
+This is a starter template page. Use this page to start your new project from
+这是起始页面，你可以使用此页面开始你的项目。
+scratch. This page gets rid of all links and provides the needed markup only.
+此页面移除了链接，并提供了所需要的标记。
+BODY TAG OPTIONS:
+BODY 标签选项：
+<title>AdminLTE 2 | Starter</title>
+<title>AdminLTE 2 | 起始页</title>
+<!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+<!-- AdminLTE 皮肤。默认使用蓝色皮肤。
+page. However, you can choose any other skin. Make sure you
+您可以选择其他皮肤。皮肤样式写在 body 标签中，
+apply the skin class to the body tag so the changes take effect.
+以便使之生效。
+Apply one or more of the following classes to get the
+使用下面一个或多个类来
+desired effect
+获得所需效果
+| SKINS         | skin-blue                               |
+| 皮 肤         | skin-blue                               |
+|LAYOUT OPTIONS | fixed                                   |
+|布局选项       | fixed                                   |
+Anything you want
+任何你想要的
+<!-- Optionally, you can add Slimscroll and FastClick plugins.
+<!-- 或者，
+Both of these plugins are recommended to enhance the
+您可以添加Slimscroll和FastClick插件。
+user experience. Slimscroll is required when using the
+建议使用这两个插件来增强用户体验。
+fixed layout. -->
+使用固定布局时需要Slimscroll。 -->
+<!-- hidden-xs hides the username on small devices so only the image appears. -->
+<!-- hidden-xs 在小型设备上隐藏用户名，只显示图像。 -->
+<small>Optional description</small>
+<small>可选说明</small>
+<!-- Your Page Content Here -->
+<!-- 页面内容 -->
+<li class="active">Here</li>
+<li class="active">这里</li>
+<i class="fa fa-dashboard"></i> Level
+<i class="fa fa-dashboard"></i> 层级
+alt="User Image"
+alt="用户图像"
+<div class="knob-label">New Visitors</div>
+<div class="knob-label">新访客</div>
+<div class="knob-label">Bounce Rate</div>
+<div class="knob-label">跳出率</div>
+<div class="knob-label">Server Load</div>
+<div class="knob-label">服务器负载</div>
+<div class="knob-label">Disk Space</div>
+<div class="knob-label">磁盘空间</div>
+<div class="knob-label">Bandwidth</div>
+<div class="knob-label">带宽</div>
+<h3 class="box-title">jQuery Knob Different Sizes</h3>
+<h3 class="box-title">jQuery Knob 不同尺寸</h3>
+<h3 class="box-title">jQuery Knob Tron Style</h3>
+<h3 class="box-title">jQuery Knob Tron 风格</h3>
+<h4>The following was created using data tags</h4>
+<h4>以下是使用数据标签创建的</h4>
+<p>The following three inline (sparkline) chart have been initialized to read and interpret data tags</p>
+<p>以下三内嵌 (迷你图) 图表已初始化为读取和解释数据标记</p>
+<h3 class="box-title text-danger">Sparkline Pie</h3>
+<h3 class="box-title text-danger">饼形图</h3>
+<h3 class="box-title text-blue">Sparkline line</h3>
+<h3 class="box-title text-blue">折线图</h3>
+<h3 class="box-title text-warning">Sparkline Bar</h3>
+<h3 class="box-title text-warning">柱形图</h3>
+<h3 class="box-title">Sparkline examples</h3>
+<h3 class="box-title">Sparkline 示例</h3>
+Mouse speed <span id="mousespeed">Loading..</span>
+鼠标速度 <span id="mousespeed">载入中..</span>
+Inline <span class="sparkline-1">10,8,9,3,5,8,5</span>
+内联 <span class="sparkline-1">10,8,9,3,5,8,5</span>
+Bar charts <span class="sparkbar">10,8,9,3,5,8,5</span>
+柱形图 <span class="sparkbar">10,8,9,3,5,8,5</span>
+negative values: <span class="sparkbar">-3,1,2,0,3,-1</span>
+负值：<span class="sparkbar">-3,1,2,0,3,-1</span>
+stacked: <span class="sparkbar">0:2,2:4,4:2,4:1</span>
+堆叠：<span class="sparkbar">0:2,2:4,4:2,4:1</span>
+Bullet charts<br>
+子弹图<br>
+(think games won, lost or drawn)
+（认为游戏赢了，丢失或绘制）
+Tristate chart using a colour map:
+使用彩色地图的三态图：
+Box Plot: <span class="sparkboxplot">4,27,34,52,54,59,61,68,78,82,85,87,91,93,100</span><br>
+盒形图： <span class="sparkboxplot">4,27,34,52,54,59,61,68,78,82,85,87,91,93,100</span><br>
+Pre-computed box plot <span class="sparkboxplotraw">Loading..</span>
+预先计算盒形图 <span class="sparkboxplotraw">载入中..</span>
+SPARKLINE DOCUMENTATION EXAMPLES
+SPARKLINE 文档示例
+<li><a href="#">Charts</a></li>
+<li><a href="#">图表</a></li>
+<h4>Warning!</h4>
+<h4>警告！</h4>
+<p><b>Morris.js</b> charts are no longer maintained by its author. We would recommend using any of the other
+<p><b>Morris.js</b> 图表作者已不再维护。
+charts that come with the template.</p>
+建议使用模板附带的任何图表插件。</p>
+<h3 class="box-title">Area Chart</h3>
+<h3 class="box-title">区域图</h3>
+<h3 class="box-title">Donut Chart</h3>
+<h3 class="box-title">圆环图</h3>
+<h3 class="box-title">Line Chart</h3>
+<h3 class="box-title">折线图</h3>
+<h3 class="box-title">Bar Chart</h3>
+<h3 class="box-title">柱形图</h3>
+<h3 class="box-title">Interactive Area Chart</h3>
+<h3 class="box-title">互动区域图</h3>
+<button type="button" class="btn btn-default btn-xs active" data-toggle="on">On</button>
+<button type="button" class="btn btn-default btn-xs active" data-toggle="on">开</button>
+<button type="button" class="btn btn-default btn-xs" data-toggle="off">Off</button>
+<button type="button" class="btn btn-default btn-xs" data-toggle="off">关</button>
+<h3 class="box-title">Full Width Area Chart</h3>
+<h3 class="box-title">面积图</h3>
+<li><a href="#">Examples</a></li>
+<li><a href="#">示例</a></li>
+<h3><i class="fa fa-warning text-yellow"></i> Oops! Page not found.</h3>
+<h3><i class="fa fa-warning text-yellow"></i> 哎呀！找不到网页。</h3>
+We could not find the page you were looking for.
+我们找不到你需要的网页。
+Meanwhile, you may <a href="../../index.html">return to dashboard</a> or try using the search form.
+同时，您可以<a href="../../index.html">返回仪表盘</a>或尝试使用搜索。
+<li class="active">500 error</li>
+<li class="active">500 错误</li>
+<h3><i class="fa fa-warning text-red"></i> Oops! Something went wrong.</h3>
+<h3><i class="fa fa-warning text-red"></i> 哎呀！ 出了些问题。</h3>
+We will work on fixing that right away.
+我们将马上解决这个问题。
+<small>it all starts here</small>
+<small>一切都从这里开始</small>
+<li class="active">Blank page</li>
+<li class="active">空白页</li>
+<h3 class="box-title">Title</h3>
+<h3 class="box-title">标题</h3>
+Start creating your amazing application!
+开始创建你的应用程序！
+<li class="active">Invoice</li>
+<li class="active">单据</li>
+<i class="fa fa-info"></i> Note:
+<i class="fa fa-info"></i> 注意：
+This page has been enhanced for printing. Click the print button at the bottom of the invoice to test.
+此页面已被增强, 可用于打印。点击底部的打印按钮进行测试。
+<small class="pull-right">Date: 2/10/2014</small>
+<small class="pull-right">日期： 2014-02-10</small>
+<th>Qty</th>
+数量
+<th>Product</th>
+<th>产品</th>
+<th>Serial #</th>
+<th>序列号</th>
+<th>Description</th>
+<th>描述</th>
+<th>Subtotal</th>
+<th>小计</th>
+<td>Call of Duty</td>
+<td>使命召唤</td>
+<td>Need for Speed IV</td>
+<td>极品飞车4</td>
+<p class="lead">Payment Methods:</p>
+<p class="lead">付款方式：</p>
+<th style="width:50%">Subtotal:</th>
+<th style="width:50%">小计：</th>
+<th>Tax (9.3%)</th>
+<th>税 (9.3%)</th>
+<th>Shipping:</th>
+<th>运费：</th>
+<th>Total:</th>
+<th>总计：</th>
+<i class="fa fa-print"></i> Print
+<i class="fa fa-print"></i> 打印
+<i class="fa fa-download"></i> Generate PDF
+<i class="fa fa-download"></i> 生成 PDF
+Enter your password to retrieve your session
+输入密码以恢复你的会话
+<a href="login.html">Or sign in as a different user</a>
+<a href="login.html">或者以其他帐户登录</a>
+<p class="login-box-msg">Sign in to start your session</p>
+<p class="login-box-msg">帐户登录</p>
+<input type="checkbox"> Remember Me
+<input type="checkbox"> 记住我
+<button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+<button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
+<p>- OR -</p>
+<p>- 或者 -</p>
+<a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
+<a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> 使用
+<a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
+<a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> 使用
+<a href="#">I forgot my password</a><br>
+<a href="#">忘记密码？</a><br>
+<a href="register.html" class="text-center">Register a new membership</a>
+<a href="register.html" class="text-center">注册新会员</a>
+<p class="login-box-msg">Register a new membership</p>
+<p class="login-box-msg">注册新会员</p>
+placeholder="Full name"
+placeholder="姓名"
+placeholder="Retype password"
+placeholder="再次输入密码"
+I agree to the <a href="#">terms</a>
+我同意这些 <a href="#">条款</a>
+Register</button>
+注册</button>
+<small>Loading example</small>
+<small>加载示例</small>
+<li class="active">Pace page</li>
+<li class="active">页面加载进度</li>
+Pace loading works automatically on page. You can still implement it with ajax requests by adding this js:
+插件工作时，你仍可以使用下面的代码执行ajax请求：
+<li class="active">User profile</li>
+<li class="active">用户资料</li>
+<p class="text-muted text-center">Software Engineer</p>
+<p class="text-muted text-center">软件工程师</p>
+<b>Followers</b>
+<b>关注</b>
+<b>Following</b>
+<b>粉丝</b>
+<b>Friends</b>
+<b>好友</b>
+<b>Follow</b>
+<b>粉我</b>
+<h3 class="box-title">About Me</h3>
+<h3 class="box-title">关于我</h3>
+<i class="fa fa-book margin-r-5"></i> Education
+<i class="fa fa-book margin-r-5"></i> 教育
+<i class="fa fa-map-marker margin-r-5"></i> Location
+<i class="fa fa-map-marker margin-r-5"></i> 位置
+<i class="fa fa-pencil margin-r-5"></i> Skills
+<i class="fa fa-pencil margin-r-5"></i> 技能
+<span class="label label-danger">UI Design</span>
+<span class="label label-danger">UI设计</span>
+<span class="label label-success">Coding</span>
+<span class="label label-success">编码</span>
+<i class="fa fa-file-text-o margin-r-5"></i> Notes
+<i class="fa fa-file-text-o margin-r-5"></i> 说明
+<a href="#activity" data-toggle="tab">Activity</a>
+<a href="#activity" data-toggle="tab">活动</a>
+<a href="#timeline" data-toggle="tab">Timeline</a>
+<a href="#timeline" data-toggle="tab">时间线</a>
+<a href="#settings" data-toggle="tab">Settings</a>
+<a href="#settings" data-toggle="tab">设置</a>
+<span class="description">Shared publicly - 7:30 PM today</span>
+<span class="description">公开分享 - 今天下午7:30</span>
+<i class="fa fa-share margin-r-5"></i> Share
+<i class="fa fa-share margin-r-5"></i> 分享
+<i class="fa fa-thumbs-o-up margin-r-5"></i> Like
+<i class="fa fa-thumbs-o-up margin-r-5"></i> 喜欢
+<i class="fa fa-comments-o margin-r-5"></i> Comments
+<i class="fa fa-comments-o margin-r-5"></i> 评论
+placeholder="Type a comment"
+placeholder="输入评论"
+<span class="description">Sent you a message - 3 days ago</span>
+<span class="description">给你发消息 - 3天前</span>
+<span class="description">Posted 5 photos - 5 days ago</span>
+<span class="description">发布图片 - 5天前</span>
+alt="Photo"
+alt="图片"
+10 Feb. 2014
+2014年2月10日
+<h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
+<h3 class="timeline-header"><a href="#">支持团队</a> 给你发了一封电子邮件</h3>
+<a class="btn btn-primary btn-xs">Read more</a>
+<a class="btn btn-primary btn-xs">阅读更多</a>
+<a class="btn btn-danger btn-xs">Delete</a>
+<a class="btn btn-danger btn-xs">删除</a>
+<a href="#">Sarah Young</a> accepted your friend request
+<a href="#">Sarah Young</a> 接受了你的朋友请求
+<h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>
+<h3 class="timeline-header"><a href="#">Jay White</a> 评论你了帖子</h3>
+<a class="btn btn-warning btn-flat btn-xs">View comment</a>
+<a class="btn btn-warning btn-flat btn-xs">查看评论</a>
+3 Jan. 2014
+2014年1月3日
+<h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
+<h3 class="timeline-header"><a href="#">Mina Lee</a> 上传了新照片</h3>
+<label for="inputName" class="col-sm-2 control-label">Name</label>
+<label for="inputName" class="col-sm-2 control-label">姓名</label>
+<label for="inputEmail" class="col-sm-2 control-label">Email</label>
+<label for="inputEmail" class="col-sm-2 control-label">邮箱</label>
+<label for="inputExperience" class="col-sm-2 control-label">Experience</label>
+<label for="inputExperience" class="col-sm-2 control-label">经验</label>
+<label for="inputSkills" class="col-sm-2 control-label">Skills</label>
+<label for="inputSkills" class="col-sm-2 control-label">技能</label>
+placeholder="Name"
+placeholder="姓名"
+placeholder="Email"
+placeholder="邮箱"
+placeholder="Experience"
+placeholder="经验"
+placeholder="Skills"
+placeholder="技能"
+<input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
+<input type="checkbox"> 我同意<a href="#">条款和条件</a>
+<button type="submit" class="btn btn-danger">Submit</button>
+<button type="submit" class="btn btn-danger">提交</button>
+<title>AdminLTE 2 | Advanced form elements</title>
+<title>AdminLTE 2 | 高级表单元素</title>
+<title>AdminLTE 2 | Editors</title>
+<title>AdminLTE 2 | 编辑器</title>
+<title>AdminLTE 2 | General Form Elements</title>
+<title>AdminLTE 2 | 常规表单元素</title>
+<small>Preview</small>
+<small>预览</small>
+<li><a href="#">Forms</a></li>
+<li><a href="#">表单</a></li>
+<li class="active">Advanced Elements</li>
+<li class="active">高级表单元素</li>
+<label>Minimal</label>
+<label>单选</label>
+<option selected="selected">Alabama</option>
+<option selected="selected">阿拉巴马州</option>
+<option>Alaska</option>
+<option>阿拉斯加州</option>
+<option>California</option>
+<option>加利福尼亚州</option>
+<option>Delaware</option>
+<option>特拉华州</option>
+<option>Tennessee</option>
+<option>田纳西州</option>
+<option>Texas</option>
+<option>德克萨斯州</option>
+<option>Washington</option>
+<option>华盛顿</option>
+<label>Disabled</label>
+<label>禁用</label>
+<label>Multiple</label>
+<label>多选</label>
+<option>Alabama</option>
+<option>阿拉巴马州</option>
+<label>Disabled Result</label>
+<label>禁用</label>
+placeholder="Select a State"
+placeholder="选择地区"
+<option disabled="disabled">California (disabled)</option>
+<option disabled="disabled">加利福尼亚州 (禁用)</option>
+Visit <a href="https://select2.github.io/">Select2 documentation</a> for more examples and information about
+访问 <a href="https://select2.github.io/">Select2 文档</a> 查看与插件相关的更多示例
+the plugin.
+和信息。
+<h3 class="box-title">Input masks</h3>
+<h3 class="box-title">掩码输入</h3>
+<label>Date masks:</label>
+<label>日期：</label>
+<label>US phone mask:</label>
+<label>美国电话：</label>
+<label>Intl US phone mask:</label>
+<label>国际美国电话：</label>
+<label>IP mask:</label>
+<label>IP地址：</label>
+<h3 class="box-title">Color & Time Picker</h3>
+<h3 class="box-title">颜色 & 时间选择器</h3>
+<label>Color picker:</label>
+<label>颜色选择：</label>
+<label>Color picker with addon:</label>
+<label>带加载项的拾色器：</label>
+<label>Time picker:</label>
+<label>时间选择：</label>
+<h3 class="box-title">Date picker</h3>
+<h3 class="box-title">日期选择器</h3>
+<label>Date:</label>
+<label>日期：</label>
+<label>Date range:</label>
+<label>日期范围：</label>
+<label>Date and time range:</label>
+<label>日期时间范围：</label>
+<label>Date range button:</label>
+<label>日期范围按钮</label>
+<i class="fa fa-calendar"></i> Date range picker
+<i class="fa fa-calendar"></i> 日期范围选择
+<h3 class="box-title">iCheck - Checkbox &amp; Radio Inputs</h3>
+<h3 class="box-title">iCheck - 复选 &amp; 单选框</h3>
+Many more skins available. <a href="http://fronteed.com/iCheck/">Documentation</a>
+更多皮肤，参见 <a href="http://fronteed.com/iCheck/">文档</a>
+<li class="active">General Elements</li>
+<li class="active">常规表单元素</li>
+<h3 class="box-title">Quick Example</h3>
+<h3 class="box-title">简单的例子</h3>
+<label for="exampleInputEmail1">Email address</label>
+<label for="exampleInputEmail1">邮箱地址</label>
+placeholder="Enter email"
+placeholder="输入邮箱"
+<label for="exampleInputPassword1">Password</label>
+<label for="exampleInputPassword1">密码</label>
+placeholder="Password"
+placeholder="密码"
+<label for="exampleInputFile">File input</label>
+<label for="exampleInputFile">文件上传</label>
+<p class="help-block">Example block-level help text here.</p>
+<p class="help-block">示例块帮助内容。</p>
+<input type="checkbox"> Check me out
+<input type="checkbox"> 我同意
+<button type="submit" class="btn btn-primary">Submit</button>
+<button type="submit" class="btn btn-primary">提交</button>
+<h3 class="box-title">Different Height</h3>
+<h3 class="box-title">不同高度</h3>
+placeholder="Default input"
+placeholder="默认输入框"
+<h3 class="box-title">Different Width</h3>
+<h3 class="box-title">不同宽度</h3>
+<h3 class="box-title">Input Addon</h3>
+<h3 class="box-title">输入框插件</h3>
+placeholder="Username"
+placeholder="用户名"
+<h4>With icons</h4>
+<h4>带图标</h4>
+<h4>With checkbox and radio inputs</h4>
+<h4>带复选、单选的输入框</h4>
+<h4>With buttons</h4>
+<h4>带按钮</h4>
+<p class="margin">Large: <code>.input-group.input-group-lg</code></p>
+<p class="margin">大： <code>.input-group.input-group-lg</code></p>
+<p class="margin">Normal</p>
+<p class="margin">正常</p>
+<button type="button" class="btn btn-danger">Action</button>
+<button type="button" class="btn btn-danger">操作</button>
+<p class="margin">Small <code>.input-group.input-group-sm</code></p>
+<p class="margin">小： <code>.input-group.input-group-sm</code></p>
+<h3 class="box-title">Horizontal Form</h3>
+<h3 class="box-title">横排表单</h3>
+<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+<label for="inputEmail3" class="col-sm-2 control-label">邮箱</label>
+<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+<label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+<input type="checkbox"> Remember me
+<input type="checkbox"> 记住我
+<button type="submit" class="btn btn-default">Cancel</button>
+<button type="submit" class="btn btn-default">取消</button>
+<button type="submit" class="btn btn-info pull-right">Sign in</button>
+<button type="submit" class="btn btn-info pull-right">登录</button>
+<h3 class="box-title">General Elements</h3>
+<h3 class="box-title">常规表单元素</h3>
+<label>Text</label>
+<label>文本框</label>
+placeholder="Enter ..."
+placeholder="输入 ..."
+<label>Text Disabled</label>
+<label>禁用文本框</label>
+<label>Textarea</label>
+<label>多行文本框</label>
+<label>Textarea Disabled</label>
+<label>禁用多行文本框</label>
+<i class="fa fa-check"></i> Input with success
+<i class="fa fa-check"></i> 输入正确
+<span class="help-block">Help block with success</span>
+<span class="help-block">输入完成提示</span>
+<label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> Input with
+<label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> 输入
+warning</label>
+警告</label>
+<span class="help-block">Help block with warning</span>
+<span class="help-block">输入警告提示</span>
+<label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> Input with
+<label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> 输入
+error</label>
+错误</label>
+<span class="help-block">Help block with error</span>
+<span class="help-block">输入错误提示</span>
+Option one is this and that&mdash;be sure to include why it's great
+单选1&mdash;be sure to include why it's great
+Option two can be something else and selecting it will deselect option one
+单选2
+Option three is disabled
+单选3被禁用
+<label>Select</label>
+<label>下拉列表</label>
+<label>Select Multiple</label>
+<label>多选下拉列表</label>
+<label>Select Multiple Disabled</label>
+<label>禁用多选下拉列表</label>
+<option>option
+<option>选项
+<small>Advanced form element</small>
+<small>高级表单元素</small>
+<li class="active">Editors</li>
+<li class="active">编辑器</li>
+<small>Advanced and full of features</small>
+<small>先进且充满特色</small>
+title="Collapse"
+title="折叠"
+title="Remove"
+title="移除"
+This is my textarea to be replaced with CKEditor.
+这是我的内容，将会被替换为 CKEditor。
+<small>Simple and fast</small>
+<small>简便快捷</small>
+<li><a href="#">Layout</a></li>
+<li><a href="#">布局</a></li>
+<li class="active">Top Navigation</li>
+<li class="active">顶部导航</li>
+<li class="active">Boxed</li>
+<li class="active">盒子</li>
+<li class="active">Fixed</li>
+<li class="active">固定侧边栏</li>
+<li class="active">Collapsed Sidebar</li>
+<li class="active">折叠侧边栏</li>
+<small>Example 2.0</small>
+<small>示例 2.0</small>
+<p>Add the layout-top-nav class to the body tag to get this layout. This feature can also be used with a
+<p>将 layout-top-nav 类添加到 body 标签以获取此布局。
+sidebar! So use this class if you want to remove the custom dropdown menus from the navbar and use regular
+这个功能也可以与侧边栏一起使用！
+links instead.</p>
+使用此类时，你需要将导航栏下拉菜单转换为常规链接。</p>
+<p>The construction of this layout differs from the normal one. In other words, the HTML markup of the navbar
+<p>这种布局的构造与普通结构不同。
+and the content will slightly differ than that of the normal layout.</p>
+换而言之, 导航和内容的 html 标记将与正常布局稍有不同。</p>
+<h3 class="box-title">Blank Box</h3>
+<h3 class="box-title">空白框</h3>
+The great content goes here
+伟大的内容在这里
+<p>Add the layout-boxed class to the body tag to get this layout. The boxed layout is helpful when working on
+<p>将 layout-boxed 类添加到 body 标签以获取此布局。
+large screens because it prevents the site from stretching very wide.</p>
+在大屏设备上时，该布局将会做到自适应。</p>
+<small>Blank example to the boxed layout</small>
+<small>盒子布局空白示例</small>
+<small>Blank example to the fixed layout</small>
+<small>固定布局空白示例</small>
+<p>Add the fixed class to the body tag to get this layout. The fixed layout is your best option if your sidebar
+<p>将 fixed 类添加到 body 标签以获取此布局。
+is bigger than your content because it prevents extra unwanted scrolling.</p>
+如果侧边栏比内容多，使用固定布局是最佳的选择，它可防止不必要的滚动。</p>
+<small>Layout with collapsed sidebar on load</small>
+<small>载入时折叠侧边栏布局</small>
+<p>Add the sidebar-collapse class to the body tag to get this layout. You should combine this option with a
+<p>将 sidebar-collapse 类添加到 body 标签以获取此布局。
+fixed layout if you have a long sidebar. Doing that will prevent your page content from getting stretched
+如果有很长的侧边栏，则应该将此选项与固定布局相结合。
+vertically.</p>
+这样做可以防止页面内容垂直拉伸。</p>
+<title>AdminLTE 2 | Mailbox</title>
+<title>AdminLTE 2 | 邮箱</title>
+<title>AdminLTE 2 | Compose Message</title>
+<title>AdminLTE 2 | 写信</title>
+<title>AdminLTE 2 | Read Mail</title>
+<title>AdminLTE 2 | 查看邮件</title>
+<li class="active">Mailbox</li>
+<li class="active">邮箱</li>
+<small>13 new messages</small>
+<small>13 条新消息</small>
+<a href="compose.html" class="btn btn-primary btn-block margin-bottom">Compose</a>
+<a href="compose.html" class="btn btn-primary btn-block margin-bottom">写信</a>
+<i class="fa fa-inbox"></i> Inbox
+<i class="fa fa-inbox"></i> 收件箱
+<a href="mailbox.html">Inbox
+<a href="mailbox.html">收件箱
+<a href="compose.html">Compose
+<a href="compose.html">撰写
+<a href="read-mail.html">Read
+<a href="read-mail.html">查看
+<h3 class="box-title">Inbox</h3>
+<h3 class="box-title">收件箱</h3>
+<i class="fa fa-envelope-o"></i> Sent
+<i class="fa fa-envelope-o"></i> 已发送
+<i class="fa fa-file-text-o"></i> Drafts
+<i class="fa fa-file-text-o"></i> 草稿
+<i class="fa fa-filter"></i> Junk
+<i class="fa fa-filter"></i> 废件箱
+<i class="fa fa-trash-o"></i> Trash
+<i class="fa fa-trash-o"></i> 垃圾
+<i class="fa fa-circle-o text-red"></i> Important
+<i class="fa fa-circle-o text-red"></i> 重要
+<i class="fa fa-circle-o text-yellow"></i> Promotions
+<i class="fa fa-circle-o text-yellow"></i> 促销
+<i class="fa fa-circle-o text-light-blue"></i> Social
+<i class="fa fa-circle-o text-light-blue"></i> 社交
+placeholder="Search Mail"
+placeholder="搜索邮件"
+<td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
+<td class="mailbox-subject"><b>AdminLTE 2.0 问题</b> - 尝试找到这个解决问题的方法...
+<td class="mailbox-date">Yesterday</td>
+<td class="mailbox-date">昨天</td>
+<a href="mailbox.html" class="btn btn-primary btn-block margin-bottom">Back to Inbox</a>
+<a href="mailbox.html" class="btn btn-primary btn-block margin-bottom">返回收件箱</a>
+<h3 class="box-title">Folders</h3>
+<h3 class="box-title">文件夹</h3>
+<h3 class="box-title">Compose New Message</h3>
+<h3 class="box-title">撰写新消息</h3>
+placeholder="To:"
+placeholder="给："
+placeholder="Subject:"
+placeholder="主题："
+<h1><u>Heading Of Message</u></h1>
+<h1><u>信息标题</u></h1>
+<h4>Subheading</h4>
+<h4>副标题</h4>
+<i class="fa fa-paperclip"></i> Attachment
+<i class="fa fa-paperclip"></i> 附件
+<i class="fa fa-pencil"></i> Draft
+<i class="fa fa-pencil"></i> 草稿
+<i class="fa fa-envelope-o"></i> Send
+<i class="fa fa-envelope-o"></i> 发送
+<i class="fa fa-times"></i> Discard
+<i class="fa fa-times"></i> 丢弃
+<h3 class="box-title">Read Mail</h3>
+<h3 class="box-title">查看邮件</h3>
+title="Previous"
+title="上一封"
+title="Next"
+title="下一封"
+<h3>Message Subject Is Placed Here</h3>
+<h3>消息标题在这里</h3>
+<h5>From: help@example.com
+<h5>来自： help@example.com
+15 Feb. 2016 11:03 PM
+2016年2月15日下午11:03
+title="Delete"
+title="删除"
+<i class="fa fa-trash-o"></i> Delete
+<i class="fa fa-trash-o"></i> 删除
+title="Reply"
+title="回复"
+<i class="fa fa-reply"></i> Reply
+<i class="fa fa-reply"></i> 回复
+title="Forward"
+title="转发"
+<i class="fa fa-share"></i> Forward
+<i class="fa fa-share"></i> 转发
+title="Print"
+title="打印"
+<i class="fa fa-print"></i> Print
+<i class="fa fa-print"></i> 打印
+alt="Attachment"
+alt="附件"
+<title>AdminLTE 2 | Data Tables</title>
+<title>AdminLTE 2 | 数据表格</title>
+<small>advanced tables</small>
+<small>高级表格</small>
+<title>AdminLTE 2 | Simple Tables</title>
+<title>AdminLTE 2 | 简单表格</title>
+<li><a href="#">Tables</a></li>
+<li><a href="#">表格</a></li>
+<li class="active">Data tables</li>
+<li class="active">数据表格</li>
+<li class="active">Simple</li>
+<li class="active">简单表格</li>
+<small>preview of simple tables</small>
+<small>预览简单表格</small>
+<h3 class="box-title">Hover Data Table</h3>
+<h3 class="box-title">悬停数据表</h3>
+<th>Rendering engine</th>
+<th>渲染引擎</th>
+<th>Browser</th>
+<th>浏览器</th>
+<th>Platform(s)</th>
+<th>平台</th>
+<th>Engine version</th>
+<th>引擎版本</th>
+<th>CSS grade</th>
+<th>CSS 等级</th>
+<h3 class="box-title">Data Table With Full Features</h3>
+<h3 class="box-title">数据表全功能</h3>
+<h3 class="box-title">Bordered Table</h3>
+<h3 class="box-title">带边框的表格</h3>
+<th>Task</th>
+<th>任务</th>
+<th>Progress</th>
+<th>进度</th>
+<th style="width: 40px">Label</th>
+<th style="width: 40px">标签</th>
+<td>Update software</td>
+<td>更新软件</td>
+<td>Clean database</td>
+<td>清理数据库</td>
+<td>Cron job running</td>
+<td>Cron 任务运行</td>
+<td>Fix and squish bugs</td>
+<td>修复 BUG</td>
+<h3 class="box-title">Condensed Full Width Table</h3>
+<h3 class="box-title">紧凑的表格</h3>
+<h3 class="box-title">Simple Full Width Table</h3>
+<h3 class="box-title">全宽表格</h3>
+<h3 class="box-title">Striped Full Width Table</h3>
+<h3 class="box-title">表格隔行换色</h3>
+<h3 class="box-title">Responsive Hover Table</h3>
+<h3 class="box-title">自响应表格</h3>
+<th>ID</th>
+<th>编号</th>
+<th>User</th>
+<th>用户</th>
+<th>Date</th>
+<th>日期</th>
+<th>Status</th>
+<th>状态</th>
+<th>Reason</th>
+<th>原因</th>
+<title>AdminLTE 2 | General UI</title>
+<title>AdminLTE 2 | 常规用户界面</title>
+<li class="active">General</li>
+<li class="active">常规用户界面</li>
+<small>Preview of UI elements</small>
+<small>预览用户界面元素</small>
+<span>Disabled</span>
+<span>禁用</span>
+<span>Active</span>
+<span>活动</span>
+<i class="fa fa-tag"></i> Color Palette
+<i class="fa fa-tag"></i> 调色板
+<h4 class="text-center">Primary</h4>
+<h4 class="text-center">主要</h4>
+<h4 class="text-center">Info</h4>
+<h4 class="text-center">信息</h4>
+<h4 class="text-center">Success</h4>
+<h4 class="text-center">成功</h4>
+<h4 class="text-center">Warning</h4>
+<h4 class="text-center">警告</h4>
+<h4 class="text-center">Danger</h4>
+<h4 class="text-center">危险</h4>
+<h4 class="text-center">Gray</h4>
+<h4 class="text-center">灰色</h4>
+<h4 class="text-center">Navy</h4>
+<h4 class="text-center">深蓝色</h4>
+<h4 class="text-center">Teal</h4>
+<h4 class="text-center">深青色</h4>
+<h4 class="text-center">Purple</h4>
+<h4 class="text-center">紫色</h4>
+<h4 class="text-center">Orange</h4>
+<h4 class="text-center">橙色</h4>
+<h4 class="text-center">Maroon</h4>
+<h4 class="text-center">褐红色</h4>
+<h4 class="text-center">Black</h4>
+<h4 class="text-center">黑色</h4>
+<h2 class="page-header">Alerts and Callouts</h2>
+<h2 class="page-header">警告和提醒</h2>
+<h3 class="box-title">Alerts</h3>
+<h3 class="box-title">警告</h3>
+</i> Alert!
+</i> 警告！
+Danger alert preview. This alert is dismissable. A wonderful serenity has taken possession of my entire
+危险样式预览，这个警告可以不理会。
+soul, like these sweet mornings of spring which I enjoy with my whole heart.
+一种奇妙的宁静占据了我的整个灵魂，就像春天的早晨，我尽情享受。
+Info alert preview. This alert is dismissable.
+消息样式预览，这个警告可以不理会。
+Warning alert preview. This alert is dismissable.
+警告样式预览，这个警告可以不理会。
+Success alert preview. This alert is dismissable.
+成功样式预览，这个警告可以不理会。
+<h3 class="box-title">Callouts</h3>
+<h3 class="box-title">提醒</h3>
+<h4>I am a danger callout!</h4>
+<h4>我是危险样式的提醒！</h4>
+<p>There is a problem that we need to fix. A wonderful serenity has taken possession of my entire soul,
+<p>有一个我们需要解决的问题。
+like these sweet mornings of spring which I enjoy with my whole heart.</p>
+一种奇妙的宁静占据了我的整个灵魂，就像春天的早晨，我尽情享受。</p>
+<h4>I am an info callout!</h4>
+<h4>我是消息样式的提醒！</h4>
+<p>Follow the steps to continue to payment.</p>
+<p>按照步骤继续付款。</p>
+<h4>I am a warning callout!</h4>
+<h4>我是警告样式的提醒！</h4>
+<p>This is a yellow callout.</p>
+<p>这是黄色的提醒。</p>
+<h4>I am a success callout!</h4>
+<h4>我是成功样式的提醒！</h4>
+<p>This is a green callout.</p>
+<p>这是绿色的提醒。</p>
+<h2 class="page-header">AdminLTE Custom Tabs</h2>
+<h2 class="page-header">AdminLTE 自定义选项卡</h2>
+data-toggle="tab">Tab
+data-toggle="tab">选项卡
+Dropdown <span class="caret"></span>
+下拉菜单 <span class="caret"></span>
+tabindex="-1" href="#">Action
+tabindex="-1" href="#">操作
+tabindex="-1" href="#">Another action
+tabindex="-1" href="#">另一个操作
+tabindex="-1" href="#">Something else here
+tabindex="-1" href="#">其他操作
+tabindex="-1" href="#">Separated link
+tabindex="-1" href="#">分隔链接
+<b>How to use:</b>
+<b>如何使用：</b>
+<p>Exactly like the original bootstrap tabs except you should use
+<p>与bootstrap 选项卡相同，
+the custom wrapper <code>.nav-tabs-custom</code> to achieve this style.</p>
+使用 <code>.nav-tabs-custom</code> 类实现这种效果。</p>
+<h2 class="page-header">Progress Bars</h2>
+<h2 class="page-header">进度条</h2>
+<h3 class="box-title">Progress Bars Different Sizes</h3>
+<h3 class="box-title">不同大小的进度条</h3>
+<p>Class:
+<p>类：
+<h3 class="box-title">Progress bars</h3>
+<h3 class="box-title">进度条</h3>
+<h3 class="box-title">Vertical Progress Bars Different Sizes</h3>
+<h3 class="box-title">不同大小的垂直进度条</h3>
+<p>By adding the class <code>.vertical</code> and <code>.progress-sm</code>, <code>.progress-xs</code> or
+<p>通过添加类 <code>.vertical</code> 和 <code>.progress-sm</code>， <code>.progress-xs</code> 或
+<code>.progress-xxs</code> we achieve:</p>
+<code>.progress-xxs</code> 实现：</p>
+<h3 class="box-title">Vertical Progress bars</h3>
+<h3 class="box-title">不同大小的垂直进度条</h3>
+<p>By adding the class <code>.vertical</code> we achieve:</p>
+<p>通过添加类 <code>.vertical</code> 实现：</p>
+<h2 class="page-header">Bootstrap Accordion & Carousel</h2>
+<h2 class="page-header">Bootstrap 手风琴 & 轮播效果</h2>
+<h3 class="box-title">Collapsible Accordion</h3>
+<h3 class="box-title">可折叠手风琴效果</h3>
+<h3 class="box-title">Carousel</h3>
+<h3 class="box-title">轮播效果</h3>
+alt="First slide"
+alt="第一张幻灯片"
+alt="Second slide"
+alt="第二张幻灯片"
+alt="Third slide"
+alt="第三张幻灯片"
+<h2 class="page-header">Typography</h2>
+<h2 class="page-header">排版</h2>
+<h3 class="box-title">Headlines</h3>
+<h3 class="box-title">标题</h3>
+<h3 class="box-title">Text Emphasis</h3>
+<h3 class="box-title">内容强调</h3>
+<p class="lead">Lead to emphasize importance</p>
+<p class="lead">强调重要性</p>
+<p class="text-green">Text green to emphasize success</p>
+<p class="text-green">绿色强调成功</p>
+<p class="text-aqua">Text aqua to emphasize info</p>
+<p class="text-aqua">浅绿色强调信息</p>
+<p class="text-light-blue">Text light blue to emphasize info (2)</p>
+<p class="text-light-blue">淡蓝色强调文本信息 （2）</p>
+<p class="text-red">Text red to emphasize danger</p>
+<p class="text-red">红色强调文本信息</p>
+<p class="text-yellow">Text yellow to emphasize warning</p>
+<p class="text-yellow">黄色强调警告信息</p>
+<p class="text-muted">Text muted to emphasize general</p>
+<p class="text-muted">暗色强调一般信息</p>
+<h3 class="box-title">Block Quotes</h3>
+<h3 class="box-title">块引用</h3>
+<small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+<small>来自<cite title="Source Title">有名的人</cite></small>
+<h3 class="box-title">Block Quotes Pulled Right</h3>
+<h3 class="box-title">块引用右对齐</h3>
+<h3 class="box-title">Unordered List</h3>
+<h3 class="box-title">无序列表</h3>
+<h3 class="box-title">Ordered Lists</h3>
+<h3 class="box-title">有序列表</h3>
+<h3 class="box-title">Unstyled List</h3>
+<h3 class="box-title">无样式列表</h3>
+<h3 class="box-title">Description</h3>
+<h3 class="box-title">描述</h3>
+<dt>Description lists</dt>
+<dt>描述列表</dt>
+<dd>A description list is perfect for defining terms.</dd>
+<dd>描述列表适合定义术语。</dd>
+<h3 class="box-title">Description Horizontal</h3>
+<h3 class="box-title">水平描述</h3>
+<title>AdminLTE 2 | Icons</title>
+<title>AdminLTE 2 | 图标</title>
+<li class="active">Icons</li>
+<li class="active">图标</li>
+<small>a set of beautiful icons</small>
+<small>一套漂亮的图标</small>
+<h4 class="page-header">66 New Icons in 4.4</h4>
+<h4 class="page-header">4.4 新增66个图标</h4>
+<h4 class="page-header">Web Application Icons</h4>
+<h4 class="page-header">Web应用程序图标</h4>
+<h4 class="page-header">Hand Icons</h4>
+<h4 class="page-header">手型图标</h4>
+<h4 class="page-header">Transportation Icons</h4>
+<h4 class="page-header">运输图标</h4>
+<h4 class="page-header">Gender Icons</h4>
+<h4 class="page-header">性别图标</h4>
+<h2 class="page-header">File Type Icons</h2>
+<h2 class="page-header">文件类型图标</h2>
+<h2 class="page-header">Spinner Icons</h2>
+<h2 class="page-header">旋转图标</h2>
+<h4 class="page-header">Form Control Icons</h4>
+<h4 class="page-header">表单控件图标</h4>
+<h4 class="page-header">Payment Icons</h4>
+<h4 class="page-header">支付图标</h4>
+<h4 class="page-header">Chart Icons</h4>
+<h4 class="page-header">图表图标</h4>
+<h4 class="page-header">Currency Icons</h4>
+<h4 class="page-header">货币图标</h4>
+<h4 class="page-header">Text Editor Icons</h4>
+<h4 class="page-header">文本编辑器图标</h4>
+<h4 class="page-header">Directional Icons</h4>
+<h4 class="page-header">方向图标</h4>
+<h4 class="page-header">Video Player Icons</h4>
+<h4 class="page-header">视频播放器图标</h4>
+<h4 class="page-header">Brand Icons</h4>
+<h4 class="page-header">品牌图标</h4>
+<li>All brand icons are trademarks of their respective owners.</li>
+<li>所有品牌图标均为其各自所有者的商标。</li>
+<li>The use of these trademarks does not indicate endorsement of the trademark holder by Font
+<li>这些商标的使用并不能说明商标持有者对Font Awesome的认可，
+Awesome, nor vice versa.
+反之亦然。
+<h4 class="page-header">Medical Icons</h4>
+<h4 class="page-header">医疗图标</h4>
+<title>AdminLTE 2 | Modals</title>
+<title>AdminLTE 2 | 弹框</title>
+<small>new</small>
+<small>新</small>
+<li class="active">Modals</li>
+<li class="active">弹框</li>
+<h4>Reminder!</h4>
+<h4>提醒！</h4>
+Instructions for how to use modals are available on the
+在<a href="http://getbootstrap.com/javascript/#modals">Bootstrap文档</a>中
+<a href="http://getbootstrap.com/javascript/#modals">Bootstrap documentation</a>
+提供了有关如何使用弹框的说明。
+<h4 class="modal-title">Default Modal</h4>
+<h4 class="modal-title">默认弹框</h4>
+<p>One fine body&hellip;</p>
+<p>一个很好的内容&hellip;</p>
+Close</button>
+关闭</button>
+Save changes</button>
+保存修改</button>
+<h4 class="modal-title">Primary Modal</h4>
+<h4 class="modal-title">主要弹框</h4>
+<h4 class="modal-title">Info Modal</h4>
+<h4 class="modal-title">消息样式弹框</h4>
+<h4 class="modal-title">Warning Modal</h4>
+<h4 class="modal-title">警告样式弹框</h4>
+<h4 class="modal-title">Success Modal</h4>
+<h4 class="modal-title">成功样式弹框</h4>
+<h4 class="modal-title">Danger Modal</h4>
+<h4 class="modal-title">危险样式弹框</h4>
+<title>AdminLTE 2 | UI Sliders</title>
+<title>AdminLTE 2 | UI 滑块</title>
+<small>range sliders</small>
+<small>范围滑块</small>
+<li class="active">Sliders</li>
+<li class="active">滑块</li>
+<h3 class="box-title">Ion Slider</h3>
+<h3 class="box-title">Ion 滑块</h3>
+<h3 class="box-title">Bootstrap Slider</h3>
+<h3 class="box-title">Bootstrap 滑块</h3>
+<title>AdminLTE 2 | Timeline</title>
+<title>AdminLTE 2 | 时间线</title>
+<small>example</small>
+<small>示例</small>
+<li class="active">Timeline</li>
+<li class="active">时间线</li>
+<h3 class="timeline-header"><a href="#">Mr. Doe</a> shared a video</h3>
+<h3 class="timeline-header"><a href="#">Mr. Doe</a> 分享了视频</h3>
+<a href="#" class="btn btn-xs bg-maroon">See comments</a>
+<a href="#" class="btn btn-xs bg-maroon">查看评论</a>
+<h3 class="box-title"><i class="fa fa-code"></i> Timeline Markup</h3>
+<h3 class="box-title"><i class="fa fa-code"></i> 时间线标记</h3>
+<title>AdminLTE 2 | Buttons</title>
+<title>AdminLTE 2 | 按钮</title>
+<li class="active">Buttons</li>
+<li class="active">按钮</li>
+<h3 class="box-title">Buttons</h3>
+<h3 class="box-title">按钮</h3>
+<p>Various types of buttons. Using the base class <code>.btn</code></p>
+<p>各种类型的按钮。使用基类 <code>.btn</code></p>
+<th>Normal</th>
+<th>默认</th>
+<th>Large
+<th>大
+<th>Small
+<th>小
+<th>X-Small
+<th>很小
+<th>Flat
+<th>扁平
+<th>Disabled
+<th>禁用
+Default</button>
+默认</button>
+Primary</button>
+主要</button>
+Success</button>
+成功样式</button>
+Info</button>
+信息样式</button>
+Danger</button>
+危险样式</button>
+Warning</button>
+警告样式</button>
+<h3 class="box-title">Block Buttons</h3>
+<h3 class="box-title">按钮块</h3>
+<h3 class="box-title">Horizontal Button Group</h3>
+<h3 class="box-title">水平按钮组</h3>
+Horizontal button groups are easy to create with bootstrap. Just add your buttons
+水平按钮组很容易创建，
+inside <code>&lt;div class="btn-group"&gt;&lt;/div&gt;</code>
+你只需要在 <code>&lt;div class="btn-group"&gt;&lt;/div&gt;</code> 添加按钮
+<th>Button</th>
+<th>按钮</th>
+<th>Icons</th>
+<th>图标</th>
+<th>Dropdown</th>
+<th>下拉</th>
+Left</button>
+左</button>
+Middle</button>
+中</button>
+Right</button>
+右</button>
+<li><a href="#">Dropdown link</a></li>
+<li><a href="#">下拉链接</a></li>
+<h3 class="box-title">Button Addon</h3>
+<h3 class="box-title">按钮插件</h3>
+<p>With dropdown</p>
+<p>有下拉菜单</p>
+<p>Normal</p>
+<p>默认</p>
+<p>Flat</p>
+<p>扁平</p>
+<h3 class="box-title">Split buttons</h3>
+<h3 class="box-title">拆分按钮</h3>
+<p>Normal split buttons:</p>
+<p>默认拆分按钮：</p>
+<span class="sr-only">Toggle Dropdown</span>
+<span class="sr-only">切换下拉菜单</span>
+<p>Flat split buttons:</p>
+<p>扁平拆分按钮：</p>
+<h3 class="box-title">Social Buttons (By <a href="https://github.com/lipis/bootstrap-social">Lipis</a>)
+<h3 class="box-title">社交按钮 (来自 <a href="https://github.com/lipis/bootstrap-social">Lipis</a>)
+<h3 class="box-title">Application Buttons</h3>
+<h3 class="box-title">应用程序按钮</h3>
+<p>Add the classes <code>.btn.btn-app</code> to an <code>&lt;a></code> tag to achieve the following:</p>
+<p>添加 <code>.btn.btn-app</code> 类到 <code>&lt;a></code> 标签中实现：</p>
+<i class="fa fa-edit"></i> Edit
+<i class="fa fa-edit"></i> 编辑
+<i class="fa fa-play"></i> Play
+<i class="fa fa-play"></i> 播放
+<i class="fa fa-repeat"></i> Repeat
+<i class="fa fa-repeat"></i> 循环
+<i class="fa fa-pause"></i> Pause
+<i class="fa fa-pause"></i> 暂停
+<i class="fa fa-save"></i> Save
+<i class="fa fa-save"></i> 保存
+<i class="fa fa-bullhorn"></i> Notifications
+<i class="fa fa-bullhorn"></i> 通知
+<i class="fa fa-barcode"></i> Products
+<i class="fa fa-barcode"></i> 商品
+<i class="fa fa-users"></i> Users
+<i class="fa fa-users"></i> 用户
+<i class="fa fa-inbox"></i> Orders
+<i class="fa fa-inbox"></i> 订单
+<i class="fa fa-envelope"></i> Inbox
+<i class="fa fa-envelope"></i> 收件箱
+<i class="fa fa-heart-o"></i> Likes
+<i class="fa fa-heart-o"></i> 喜欢
+<h3 class="box-title">Different colors</h3>
+<h3 class="box-title">不同的颜色</h3>
+<p>Mix and match with various background colors. Use base class <code>.btn</code> and add any available
+混搭各种背景颜色，使用基类<code>.btn</code>
+<code>.bg-*</code> class</p>
+并添加任何可用的<code>.bg-*</code>
+<h3 class="box-title">Vertical Button Group</h3>
+<h3 class="box-title">垂直按钮组</h3>
+Vertical button groups are easy to create with bootstrap. Just add your buttons
+垂直按钮组很容易创建，
+inside <code>&lt;div class="btn-group-vertical"&gt;&lt;/div&gt;</code>
+你只需要将按添加到 <code>&lt;div class="btn-group-vertical"&gt;&lt;/div&gt;</code>
+Top</button>
+上</button>
+Bottom</button>
+下</button>
+<small>Preview sample</small>
+<small>示例预览</small>
+labels: ['Item 1', 'Item 2'],
+labels: ['项目 1', '项目 2'],
+labels: ['Item 1'],
+labels: ['项目 1'],
+label: "Download Sales"
+label: "下载销售"
+label: "In-Store Sales"
+label: "店内销售"
+label: "Mail-Order Sales"
+label: "邮购销售"
+labels: ['CPU', 'DISK'],
+labels: ['CPU', '磁盘'],
+labels: ["January", "February", "March", "April", "May", "June", "July"],
+labels: ["一月", "二月", "三月", "四月", "五月", "六月", "七月"],
+label: "Electronics",
+label: "电子产品",
+label: "Digital Goods",
+label: "数码商品",
+data: [["January", 10], ["February", 8], ["March", 4], ["April", 13], ["May", 17], ["June", 9]],
+data: [["一月", 10], ["二月", 8], ["三月", 4], ["四月", 13], ["五月", 17], ["六月", 9]],
+placeholder="Type message..."
+placeholder="输入消息..."
+placeholder="Email to:"
+placeholder="发邮件给："
+placeholder="Subject"
+placeholder="主题"
+placeholder="Message"
+placeholder="消息"
+placeholder="Event Title"
+placeholder="事件名称"
+<h2 class="page-header">Social Widgets</h2>
+<h2 class="page-header">社交小部件</h2>
+<h5 class="widget-user-desc">Lead Developer</h5>
+<h5 class="widget-user-desc">首席开发人员</h5>
+<li><a href="#">Projects
+<li><a href="#">项目
+<li><a href="#">Tasks
+<li><a href="#">任务
+<li><a href="#">Completed Projects
+<li><a href="#">完成项目
+<li><a href="#">Followers
+<li><a href="#">关注
+<h5 class="widget-user-desc">Founder &amp; CEO</h5>
+<h5 class="widget-user-desc">创始人 &amp; CEO</h5>
+alt="User Avatar"
+alt="用户头像"
+<span class="description-text">FOLLOWERS</span>
+<span class="description-text">关注</span>
+<span class="description-text">PRODUCTS</span>
+<span class="description-text">产品</span>
+<h5 class="widget-user-desc">Web Designer</h5>
+<h5 class="widget-user-desc">网站设计者</h5>
+<span class="description-text">SALES</span>
+<span class="description-text">销售</span>
+<p>I took this photo this morning. What do you guys think?</p>
+<p>我今早拍的这张照片你们觉得怎么样？</p>
+<i class="fa fa-share"></i> Share
+<i class="fa fa-share"></i> 分享
+<i class="fa fa-thumbs-o-up"></i> Like
+<i class="fa fa-thumbs-o-up"></i> 喜欢
+<span class="pull-right text-muted">127 likes - 3 comments</span>
+<span class="pull-right text-muted">127 喜欢 - 3 评论</span>
+<span class="text-muted pull-right">8:03 PM Today</span>
+<span class="text-muted pull-right">今天下午 8:03</span>
+It is a long established fact that a reader will be distracted
+一个长期以来的事实是，
+by the readable content of a page when looking at its layout.
+通过查看其布局页面内容时读者会分心。
+alt="Alt Text"
+alt="Alt 文本"
+placeholder="Press enter to post comment"
+placeholder="按回车键发表评论"
+title="Mark as read"
+title="标记为已读"
+alt="Attachment Image"
+alt="附件图像"
+<a href="http://www.lipsum.com/">Lorem ipsum text generator</a>
+<a href="http://www.lipsum.com/">Lorem ipsum 文本生成器</a>
+Description about the attachment can be placed here.
+有关附件的说明可以放在这里。
+Lorem Ipsum is simply dummy text of the printing and typesetting industry... <a href="#">more</a>
+Lorem Ipsum is simply dummy text of the printing and typesetting industry... <a href="#">更多</a>
+<span class="pull-right text-muted">45 likes - 2 comments</span>
+<span class="pull-right text-muted">45 喜欢 - 2 评论</span>
+<p class="lead">The only thing you need to change to alternate between these style is change the placement of the bg-* class. For the
+<p class="lead">在这些风格间切换，如果使用第一种风格，你只需要将 bg-* 类添加到图标本身；
+first style apply any bg-* class to the icon itself. For the other style, apply the bg-* class to the info-box div.</p>
+对于另一种风格，添加 bg-* 类到信息框的 div 中即可。</p>
+<h3>Available AdminLTE Options</h3>
+<h3>AdminLTE 可用选项</h3>
+title="Date range"
+title="日期范围"
+title="Contacts"
+title="联系"
+<small>multiple types of charts</small>
+<small>多种类型的图表</small>
+Some information about this general settings option
+有关此常规设置选项信息
+Other sets of options are available
+其他选项是可用的
+Expose author name in posts
+在帖子中显示作者姓名
+Allow the user to show his name in blog posts
+允许用户在博客帖子中显示自己的名字
+I would like to meet you to discuss the latest news about
+我想和你谈谈新主题最新消息。
+the arrival of the new theme. They say it is going to be one the
+他们说这是市场上
+best themes on the market
+最好的主题。
+//are used together
+//则此选项被强制为真
+<i class="fa fa-clock-o"></i> 2 mins
+<i class="fa fa-clock-o"></i> 2 分钟前
+<b>Order ID:</b>
+<b>订单号：</b>
+<b>Payment Due:</b>
+<b>付款期限：</b>
+<b>Account:</b>
+<b>帐户：</b>
+<b>Invoice #007612</b><br>
+<b>发票 #007612</b><br>
+<p class="lead">Amount Due 2/22/2014</p>
+<p class="lead">付款期限 2014-02-22</p>
+'Today': [moment()
+'今天': [moment()
+'Yesterday': [moment()
+'昨天': [moment()
+'Last 7 Days': [moment()
+'近 7 天': [moment()
+'Last 30 Days': [moment()
+'近 30 天': [moment()
+'This Month': [moment()
+'本月': [moment()
+'Last Month': [moment()
+'上月': [moment()
+The body of the box
+内容部分
+The footer of the box
+底部内容
+AdminLTE Design Team
+AdminLTE 设计团队
+Design some buttons
+设计一些按钮
+Create a nice theme
+创建一个漂亮的主题
+Some task I need to do
+我需要做的一些任务
+50% Increase in 30 Days
+30天内增加50%
+20% Increase in 30 Days
+30天内增加20%
+70% Increase in 30 Days
+30天内增加70%
+40% Increase in 30 Days
+30天内增加40%
+Inline with normal range
+内联正常范围
+Customize size and colours
+自定义大小和颜色
+Minimal red skin checkbox
+红色皮肤复选框
+Minimal red skin radio
+红色皮肤单选框
+Flat green skin checkbox
+绿色皮肤复选框
+Flat green skin radio
+绿色皮肤单选框
+Collapsible Group Item #1
+可折叠组项目 #1
+Show me as online
+显示我在线
+Make beautiful transitions
+制作漂亮的过度效果
+Allow mail redirect
+允许邮件重定向
+remove after drop
+添加后删除
+Custom Template Design
+自定义模板设计
+Back End Framework
+后端框架
+Report panel usage
+报告面板使用
+Discrete with threshold
+离散与阈值
+View all tasks
+查看所有任务
+Turn off notifications
+关闭通知
+Delete chat history
+删除聊天记录
+404 Error Page
+404 错误页
+500 Error Page
+500 错误页
+Get External Content
+获取外部内容
+Minimal skin checkbox
+默认皮肤复选框
+Minimal skin radio
+默认皮肤单选框
+Collapsible Group Danger
+危险样式可折叠项目
+Collapsible Group Success
+成功样式可折叠项目
+I already have a membership
+我有会员帐号
+<hr>Ajax Request Completed !
+<hr>Ajax 请求已完成！
+General Form Elements
+常规表单元素
+Stats Tab Content
+统计标签内容
+Sign in with
+登录自
+Sign up using
+使用帐户
+Composite bar
+复合条形图
+AdminLTE Documentation
+AdminLTE 文档
+Page Header
+页眉
+line graphs
+线图
+Composite inline
+复合内联
+Web Developer
+Web 开发人员
+User Profile
+用户资料
+Blank page
+空白页
+Submit Payment
+提交付款
+Pace page
+页面加载进度
+Tristate charts
+三态图
+Pie charts
+饼形图
+Real time
+实时
+Support Team
+支持团队
+Sales Department
+销售部门
+Update Resume
+更新简历
+Laravel Integration
+Laravel积分
+First Slide
+第一张幻灯片
+Second Slide
+第二张幻灯片
+Third Slide
+第三张幻灯片
+Bootstrap heading
+Bootstrap 标题
+Checkbox 1
+复选框 1
+Checkbox 2
+复选框 2
+Checkbox disabled
+禁用复选框
+Text Editors
+文本编辑器
+Top Navigation
+顶部导航
+Boxed Layout
+盒子布局
+Fixed Layout
+固定布局
+Sidebar Collapsed
+折叠侧边栏
+mins ago
+分钟前
+hours ago
+小时前
+days ago
+天前
+Data Tables
+数据表格
+Simple Tables
+简单表格
+General UI
+常规用户界面
+Discrete
+离散
+Mailbox
+邮箱
+Icons
+图标
+(alias)
+（别名）
+Modals
+弹框
+Sliders
+滑块
+Timeline
+时间线
+Buttons
+按钮
+Calendar
+日历
+Widgets
+小部件
+Dashboard
+仪表盘
+Reviewers
+评估人员
+Visitors
+访客
+Footer
+底部
+Invoice
+单据
+From
+从
+To
+到
+Phone:
+电话：
+Email:
+邮箱：
