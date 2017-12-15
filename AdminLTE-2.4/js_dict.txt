@@ -374,30 +374,30 @@ Fastclick 让触摸设备拥有等同于本地的触摸体验。
 * JS 脚本文档
 //Skin switcher
 //定义皮肤选择器
-labels: ['Item 1', 'Item 2'],
-labels: ['项目 1', '项目 2'],
+labels    : ['Item 1', 'Item 2'],
+labels    : ['项目 1', '项目 2'],
 labels: ['Item 1'],
 labels: ['项目 1'],
-label: "Download Sales"
-label: "下载销售"
-label: "In-Store Sales"
-label: "店内销售"
-label: "Mail-Order Sales"
-label: "邮购销售"
+label: 'Download Sales'
+label: '下载销售'
+label: 'In-Store Sales'
+label: '店内销售'
+label: 'Mail-Order Sales'
+label: '邮购销售'
 labels: ['CPU', 'DISK'],
 labels: ['CPU', '磁盘'],
-labels: ["January", "February", "March", "April", "May", "June", "July"],
-labels: ["一月", "二月", "三月", "四月", "五月", "六月", "七月"],
-label: "Electronics",
-label: "电子产品",
-label: "Digital Goods",
-label: "数码商品",
+['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+['一月', '二月', '三月', '四月', '五月', '六月', '七月'],
+'Electronics',
+'电子产品',
+'Digital Goods',
+'数码商品',
 data: [["January", 10], ["February", 8], ["March", 4], ["April", 13], ["May", 17], ["June", 9]],
 data: [["一月", 10], ["二月", 8], ["三月", 4], ["四月", 13], ["五月", 17], ["六月", 9]],
-window.console.log("The element has been checked");
-window.console.log("元素已被选中");
-window.console.log("The element has been unchecked");
-window.console.log("元素取消选中");
+window.console.log($(this), 'The element has been checked');
+window.console.log($(this), '元素已被选中');
+window.console.log($(this), 'The element has been unchecked');
+window.console.log($(this), '元素取消选中');
 name: 'Vatican City'
 name: '梵蒂冈'
 name: 'Monaco'
@@ -450,20 +450,20 @@ name: 'Bahrain'
 name: '巴林'
 name: 'São Tomé and Príncipe'
 name: '圣多美和普林西比'
-'Today': [moment()
-'今天': [moment()
-'Yesterday': [moment()
-'昨天': [moment()
-'Last 7 Days': [moment()
+'Today'       : [moment()
+'今天':       [moment()
+'Yesterday'   : [moment()
+'昨天':   [moment()
+'Last 7 Days' : [moment()
 '近 7 天': [moment()
 'Last 30 Days': [moment()
 '近 30 天': [moment()
-'This Month': [moment()
+'This Month'  : [moment()
 '本月': [moment()
-'Last Month': [moment()
+'Last Month'  : [moment()
 '上月': [moment()
-"You chose: "
-"你选择了： "
+'You chose: '
+'你选择了： '
 el.html(el.html() + ': ' + visitorsData[code] + ' new visitors');
 el.html(el.html() + ': ' + visitorsData[code] + ' 新访客');
 applyLabel: 'Apply',
