@@ -63,12 +63,12 @@ $(document).ready(function() {
 
     if ($('#ranges').is(':checked')) {
       options.ranges = {
-        '今天': [moment(), moment()],
-        '昨天': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-        '近 7 天': [moment().subtract(6, 'days'), moment()],
+        'Today': [moment(), moment()],
+        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
         '近 30 天': [moment().subtract(29, 'days'), moment()],
-        '本月': [moment().startOf('month'), moment().endOf('month')],
-        '上月': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        'This Month': [moment().startOf('month'), moment().endOf('month')],
+        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
       };
     }
 

@@ -32,17 +32,17 @@ $(function () {
 
   $('.daterange').daterangepicker({
     ranges   : {
-      'Today'       : [moment(), moment()],
-      'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-      'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+      '今天':       [moment(), moment()],
+      '昨天':   [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+      '近 7 天': [moment().subtract(6, 'days'), moment()],
       '近 30 天': [moment().subtract(29, 'days'), moment()],
-      'This Month'  : [moment().startOf('month'), moment().endOf('month')],
-      'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+      '本月': [moment().startOf('month'), moment().endOf('month')],
+      '上月': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
     },
     startDate: moment().subtract(29, 'days'),
     endDate  : moment()
   }, function (start, end) {
-    window.alert('You chose: ' + start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+    window.alert('你选择了： ' + start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
   });
 
   /* jQueryKnob */
@@ -143,7 +143,7 @@ $(function () {
     ],
     xkey      : 'y',
     ykeys     : ['item1', 'item2'],
-    labels    : ['Item 1', 'Item 2'],
+    labels    : ['项目 1', '项目 2'],
     lineColors: ['#a0d0e0', '#3c8dbc'],
     hideHover : 'auto'
   });
@@ -183,9 +183,9 @@ $(function () {
     resize   : true,
     colors   : ['#3c8dbc', '#f56954', '#00a65a'],
     data     : [
-      { label: 'Download Sales', value: 12 },
-      { label: 'In-Store Sales', value: 30 },
-      { label: 'Mail-Order Sales', value: 20 }
+      { label: '下载销售', value: 12 },
+      { label: '店内销售', value: 30 },
+      { label: '邮购销售', value: 20 }
     ],
     hideHover: 'auto'
   });
@@ -200,10 +200,10 @@ $(function () {
   /* The todo list plugin */
   $('.todo-list').todoList({
     onCheck  : function () {
-      window.console.log($(this), 'The element has been checked');
+      window.console.log($(this), '元素已被选中');
     },
     onUnCheck: function () {
-      window.console.log($(this), 'The element has been unchecked');
+      window.console.log($(this), '元素取消选中');
     }
   });
 

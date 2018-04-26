@@ -17,10 +17,10 @@ $(function () {
   var salesChart       = new Chart(salesChartCanvas);
 
   var salesChartData = {
-    labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    labels  : ['一月', '二月', '三月', '四月', '五月', '六月', '七月'],
     datasets: [
       {
-        label               : 'Electronics',
+        label               : '电子产品',
         fillColor           : 'rgb(210, 214, 222)',
         strokeColor         : 'rgb(210, 214, 222)',
         pointColor          : 'rgb(210, 214, 222)',
@@ -30,7 +30,7 @@ $(function () {
         data                : [65, 59, 80, 81, 56, 55, 40]
       },
       {
-        label               : 'Digital Goods',
+        label               : '数码商品',
         fillColor           : 'rgba(60,141,188,0.9)',
         strokeColor         : 'rgba(60,141,188,0.8)',
         pointColor          : '#3b8bba',
