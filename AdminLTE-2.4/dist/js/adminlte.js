@@ -7,7 +7,7 @@
 * @Author  Almsaeed Studio
 * @Support <https://www.almsaeedstudio.com>
 * @Email   <abdullah@almsaeedstudio.com>
-* @version 2.4.2
+* @version 2.4.4
 * @repository git://github.com/almasaeed2010/AdminLTE.git
 * @license MIT <http://opensource.org/licenses/MIT>
 */
@@ -1074,10 +1074,10 @@ throw new Error('AdminLTE requires jQuery')
   Tree.prototype.collapse = function (tree, parentLi) {
     var collapsedEvent = $.Event(Event.collapsed);
 
-    tree.find(Selector.open).removeClass(ClassName.open);
+    //tree.find(Selector.open).removeClass(ClassName.open);
     parentLi.removeClass(ClassName.open);
     tree.slideUp(this.options.animationSpeed, function () {
-      tree.find(Selector.open + ' > ' + Selector.treeview).slideUp();
+      //tree.find(Selector.open + ' > ' + Selector.treeview).slideUp();
       $(this.element).trigger(collapsedEvent);
     }.bind(this));
   };
