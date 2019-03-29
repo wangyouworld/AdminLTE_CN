@@ -1356,6 +1356,8 @@ placeholder="技能"
 <button type="submit" class="btn btn-danger">提交</button>
 <title>AdminLTE 2 | Advanced form elements</title>
 <title>AdminLTE 2 | 高级表单元素</title>
+Advanced form elements
+高级表单元素
 <title>AdminLTE 2 | Editors</title>
 <title>AdminLTE 2 | 编辑器</title>
 <title>AdminLTE 2 | General Form Elements</title>
@@ -1596,6 +1598,8 @@ vertically.</p>
 <title>AdminLTE 2 | 写信</title>
 <title>AdminLTE 2 | Read Mail</title>
 <title>AdminLTE 2 | 查看邮件</title>
+Read Mail
+查看邮件
 <li class="active">Mailbox</li>
 <li class="active">邮箱</li>
 <small>13 new messages</small>
