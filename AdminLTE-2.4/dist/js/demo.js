@@ -189,55 +189,55 @@ $(function () {
     // Layout options
     $demoSettings.append(
         '<h4 class="control-sidebar-heading">'
-        + 'Layout Options'
+        + '布局选项'
         + '</h4>'
         // Fixed layout
         + '<div class="form-group">'
         + '<label class="control-sidebar-subheading">'
         + '<input type="checkbox"data-layout="fixed"class="pull-right"/> '
-        + 'Fixed layout'
+        + '固定布局'
         + '</label>'
-        + '<p>Activate the fixed layout. You can\'t use fixed and boxed layouts together</p>'
+        + '<p>激活固定布局后，将不能使用固定和盒子布局</p>'
         + '</div>'
         // Boxed layout
         + '<div class="form-group">'
         + '<label class="control-sidebar-subheading">'
         + '<input type="checkbox"data-layout="layout-boxed" class="pull-right"/> '
-        + 'Boxed Layout'
+        + '盒子布局'
         + '</label>'
-        + '<p>Activate the boxed layout</p>'
+        + '<p>激活盒子布局</p>'
         + '</div>'
         // Sidebar Toggle
         + '<div class="form-group">'
         + '<label class="control-sidebar-subheading">'
         + '<input type="checkbox"data-layout="sidebar-collapse"class="pull-right"/> '
-        + 'Toggle Sidebar'
+        + '切换侧边栏'
         + '</label>'
-        + '<p>Toggle the left sidebar\'s state (open or collapse)</p>'
+        + '<p>切换左侧边栏（打开或折叠）</p>'
         + '</div>'
         // Sidebar mini expand on hover toggle
         + '<div class="form-group">'
         + '<label class="control-sidebar-subheading">'
         + '<input type="checkbox"data-enable="expandOnHover"class="pull-right"/> '
-        + 'Sidebar Expand on Hover'
+        + '左侧边栏悬停'
         + '</label>'
-        + '<p>Let the sidebar mini expand on hover</p>'
+        + '<p>让左侧边栏悬停时展开</p>'
         + '</div>'
         // Control Sidebar Toggle
         + '<div class="form-group">'
         + '<label class="control-sidebar-subheading">'
         + '<input type="checkbox"data-controlsidebar="control-sidebar-open"class="pull-right"/> '
-        + 'Toggle Right Sidebar Slide'
+        + '右侧边栏占位'
         + '</label>'
-        + '<p>Toggle between slide over content and push content effects</p>'
+        + '<p>内容占位和切换效果</p>'
         + '</div>'
         // Control Sidebar Skin Toggle
         + '<div class="form-group">'
         + '<label class="control-sidebar-subheading">'
         + '<input type="checkbox"data-sidebarskin="toggle"class="pull-right"/> '
-        + 'Toggle Right Sidebar Skin'
+        + '右侧边栏皮肤切换'
         + '</label>'
-        + '<p>Toggle between dark and light skins for the right sidebar</p>'
+        + '<p>右侧边栏深色、浅色皮肤切换</p>'
         + '</div>'
     )
     var $skinsList = $('<ul />', {'class': 'list-unstyled clearfix'})
@@ -249,7 +249,7 @@ $(function () {
                 + '<div><span style="display:block; width: 20%; float: left; height: 7px; background: #367fa9"></span><span class="bg-light-blue" style="display:block; width: 80%; float: left; height: 7px;"></span></div>'
                 + '<div><span style="display:block; width: 20%; float: left; height: 20px; background: #222d32"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>'
                 + '</a>'
-                + '<p class="text-center no-margin">Blue</p>')
+                + '<p class="text-center no-margin">蓝色</p>')
     $skinsList.append($skinBlue)
     var $skinBlack =
         $('<li />', {style: 'float:left; width: 33.33333%; padding: 5px;'})
@@ -257,7 +257,7 @@ $(function () {
                 + '<div style="box-shadow: 0 0 2px rgba(0,0,0,0.1)" class="clearfix"><span style="display:block; width: 20%; float: left; height: 7px; background: #fefefe"></span><span style="display:block; width: 80%; float: left; height: 7px; background: #fefefe"></span></div>'
                 + '<div><span style="display:block; width: 20%; float: left; height: 20px; background: #222"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>'
                 + '</a>'
-                + '<p class="text-center no-margin">Black</p>')
+                + '<p class="text-center no-margin">黑色</p>')
     $skinsList.append($skinBlack)
     var $skinPurple =
         $('<li />', {style: 'float:left; width: 33.33333%; padding: 5px;'})
@@ -265,7 +265,7 @@ $(function () {
                 + '<div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-purple-active"></span><span class="bg-purple" style="display:block; width: 80%; float: left; height: 7px;"></span></div>'
                 + '<div><span style="display:block; width: 20%; float: left; height: 20px; background: #222d32"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>'
                 + '</a>'
-                + '<p class="text-center no-margin">Purple</p>')
+                + '<p class="text-center no-margin">紫色</p>')
     $skinsList.append($skinPurple)
     var $skinGreen =
         $('<li />', {style: 'float:left; width: 33.33333%; padding: 5px;'})
@@ -273,7 +273,7 @@ $(function () {
                 + '<div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-green-active"></span><span class="bg-green" style="display:block; width: 80%; float: left; height: 7px;"></span></div>'
                 + '<div><span style="display:block; width: 20%; float: left; height: 20px; background: #222d32"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>'
                 + '</a>'
-                + '<p class="text-center no-margin">Green</p>')
+                + '<p class="text-center no-margin">绿色</p>')
     $skinsList.append($skinGreen)
     var $skinRed =
         $('<li />', {style: 'float:left; width: 33.33333%; padding: 5px;'})
@@ -281,7 +281,7 @@ $(function () {
                 + '<div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-red-active"></span><span class="bg-red" style="display:block; width: 80%; float: left; height: 7px;"></span></div>'
                 + '<div><span style="display:block; width: 20%; float: left; height: 20px; background: #222d32"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>'
                 + '</a>'
-                + '<p class="text-center no-margin">Red</p>')
+                + '<p class="text-center no-margin">红色</p>')
     $skinsList.append($skinRed)
     var $skinYellow =
         $('<li />', {style: 'float:left; width: 33.33333%; padding: 5px;'})
@@ -289,7 +289,7 @@ $(function () {
                 + '<div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-yellow-active"></span><span class="bg-yellow" style="display:block; width: 80%; float: left; height: 7px;"></span></div>'
                 + '<div><span style="display:block; width: 20%; float: left; height: 20px; background: #222d32"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>'
                 + '</a>'
-                + '<p class="text-center no-margin">Yellow</p>')
+                + '<p class="text-center no-margin">黄色</p>')
     $skinsList.append($skinYellow)
 
     // Light sidebar skins
@@ -299,7 +299,7 @@ $(function () {
                 + '<div><span style="display:block; width: 20%; float: left; height: 7px; background: #367fa9"></span><span class="bg-light-blue" style="display:block; width: 80%; float: left; height: 7px;"></span></div>'
                 + '<div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>'
                 + '</a>'
-                + '<p class="text-center no-margin" style="font-size: 12px">Blue Light</p>')
+                + '<p class="text-center no-margin" style="font-size: 12px">亮蓝</p>')
     $skinsList.append($skinBlueLight)
     var $skinBlackLight =
         $('<li />', {style: 'float:left; width: 33.33333%; padding: 5px;'})
@@ -307,7 +307,7 @@ $(function () {
                 + '<div style="box-shadow: 0 0 2px rgba(0,0,0,0.1)" class="clearfix"><span style="display:block; width: 20%; float: left; height: 7px; background: #fefefe"></span><span style="display:block; width: 80%; float: left; height: 7px; background: #fefefe"></span></div>'
                 + '<div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>'
                 + '</a>'
-                + '<p class="text-center no-margin" style="font-size: 12px">Black Light</p>')
+                + '<p class="text-center no-margin" style="font-size: 12px">亮黑</p>')
     $skinsList.append($skinBlackLight)
     var $skinPurpleLight =
         $('<li />', {style: 'float:left; width: 33.33333%; padding: 5px;'})
@@ -315,7 +315,7 @@ $(function () {
                 + '<div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-purple-active"></span><span class="bg-purple" style="display:block; width: 80%; float: left; height: 7px;"></span></div>'
                 + '<div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>'
                 + '</a>'
-                + '<p class="text-center no-margin" style="font-size: 12px">Purple Light</p>')
+                + '<p class="text-center no-margin" style="font-size: 12px">亮紫</p>')
     $skinsList.append($skinPurpleLight)
     var $skinGreenLight =
         $('<li />', {style: 'float:left; width: 33.33333%; padding: 5px;'})
@@ -323,7 +323,7 @@ $(function () {
                 + '<div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-green-active"></span><span class="bg-green" style="display:block; width: 80%; float: left; height: 7px;"></span></div>'
                 + '<div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>'
                 + '</a>'
-                + '<p class="text-center no-margin" style="font-size: 12px">Green Light</p>')
+                + '<p class="text-center no-margin" style="font-size: 12px">亮绿</p>')
     $skinsList.append($skinGreenLight)
     var $skinRedLight =
         $('<li />', {style: 'float:left; width: 33.33333%; padding: 5px;'})
@@ -331,7 +331,7 @@ $(function () {
                 + '<div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-red-active"></span><span class="bg-red" style="display:block; width: 80%; float: left; height: 7px;"></span></div>'
                 + '<div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>'
                 + '</a>'
-                + '<p class="text-center no-margin" style="font-size: 12px">Red Light</p>')
+                + '<p class="text-center no-margin" style="font-size: 12px">亮红</p>')
     $skinsList.append($skinRedLight)
     var $skinYellowLight =
         $('<li />', {style: 'float:left; width: 33.33333%; padding: 5px;'})
@@ -339,10 +339,10 @@ $(function () {
                 + '<div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-yellow-active"></span><span class="bg-yellow" style="display:block; width: 80%; float: left; height: 7px;"></span></div>'
                 + '<div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>'
                 + '</a>'
-                + '<p class="text-center no-margin" style="font-size: 12px">Yellow Light</p>')
+                + '<p class="text-center no-margin" style="font-size: 12px">亮黄</p>')
     $skinsList.append($skinYellowLight)
 
-    $demoSettings.append('<h4 class="control-sidebar-heading">Skins</h4>')
+    $demoSettings.append('<h4 class="control-sidebar-heading">皮肤</h4>')
     $demoSettings.append($skinsList)
 
     $tabPane.append($demoSettings)

@@ -29,17 +29,19 @@
 
 set_time_limit(0);
 $runtime = startRunTime();
+$base_dir_len = strlen(__DIR__);
 header("Content-type: text/html; charset=utf-8");
+$BR = substr(php_sapi_name(), 0, 3) == 'cli' ? PHP_EOL : '<BR />';
 $lock_file = './js.lock'; // 锁文件名
 $dict_file = './js_dict.txt'; // 字典文件
 $ext_file = '.js'; // 待处理文件扩展名
 
-if (is_file($lock_file)) die("内容已经生成，重新生成，你需要删除 <b>{$lock_file}</b> 文件！");
+if (is_file($lock_file)) die("内容已经生成，重新生成，你需要删除 {$lock_file} 文件！");
 
-if (!is_file($dict_file)) die("<b>{$file}</b> 字典文件不存在！");
+if (!is_file($dict_file)) die("{$file} 字典文件不存在！");
 
 $dict = file($dict_file);
-if (empty($dict))  die("<b>{$dict_file}</b> 字典文件内容为空！");
+if (empty($dict))  die("{$dict_file} 字典文件内容为空！");
 // restoreFile(dirname(__FILE__));
 // die();
 $filelist = treeFile(dirname(__FILE__), TRUE, $ext_file);
@@ -55,28 +57,28 @@ die();
 
 $yes = $no = $not_found = 0;
 
-echo '<hr />文件数：'.count($filelist).'<br />';
+echo $BR.$BR.'文件数：'.count($filelist).$BR;
 foreach ($filelist as $file) {
     $t = oper($file, $dict, FALSE);
     // $t = -100;
-    echo $file;
+    echo substr($file, $base_dir_len);
     if ($t > 0) {
         $yes += 1;
-        echo " 【成功】 [{$t}s]";
+        echo " [成功] [{$t}s]";
     } else if ($t == 0) {
         $not_found += 1;
         echo " [".getErr($t).']';
     } else {
         $no += 1;
-        echo " 【<b>失败</b> 】 [".getErr($t).']';
+        echo " [失败] [".getErr($t).']';
     }
-    echo '<br />';
+    echo $BR;
 }
 file_put_contents($lock_file, '');
 $endtime = runTime($runtime);
 echo <<<EOT
-<hr />
-成功数：{$yes}，失败数：{$no}，未找到：{$not_found}<br />
+{$BR}{$BR}
+成功数：{$yes}，失败数：{$no}，未找到：{$not_found}{$BR}
 总耗时：{$endtime}s。
 EOT;
 
@@ -184,7 +186,6 @@ function getErr($id=0) {
 * return float 执行时间 -1 表示失败
 */
 function oper($file, $dict, $backup = FALSE) {
-
 
     $start = startRunTime();
     if (!is_file($file)) return -1;

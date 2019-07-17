@@ -427,7 +427,7 @@ More info <i class="fa fa-arrow-circle-right"></i>
 <div class="knob-label">Online</div>
 <div class="knob-label">在线</div>
 <div class="knob-label">Exists</div>
-<div class="knob-label">存在</div>
+<div class="knob-label">活跃</div>
 <h3 class="box-title">Sales Graph</h3>
 <h3 class="box-title">销售图表</h3>
 <div class="knob-label">Mail-Orders</div>
@@ -2387,7 +2387,7 @@ Sales Department
 Update Resume
 更新简历
 Laravel Integration
-Laravel积分
+Laravel 综合
 First Slide
 第一张幻灯片
 Second Slide

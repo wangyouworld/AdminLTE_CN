@@ -1,55 +1,55 @@
-+ "Layout Options"
-+ "布局选项"
-+ "Fixed layout"
-+ "固定布局"
-+ "<p>Activate the fixed layout. You can't use fixed and boxed layouts together</p>"
-+ "<p>激活固定布局后，将不能使用固定和盒子布局</p>"
-+ "Boxed Layout"
-+ "盒子布局"
-+ "<p>Activate the boxed layout</p>"
-+ "<p>激活盒子布局</p>"
-+ "Toggle Sidebar"
-+ "切换侧边栏"
-+ "<p>Toggle the left sidebar's state (open or collapse)</p>"
-+ "<p>切换左侧边栏（打开或折叠）</p>"
-+ "Sidebar Expand on Hover"
-+ "左侧边栏悬停"
-+ "<p>Let the sidebar mini expand on hover</p>"
-+ "<p>让左侧边栏悬停时展开</p>"
-+ "Toggle Right Sidebar Slide"
-+ "右侧边栏占位"
-+ "<p>Toggle between slide over content and push content effects</p>"
-+ "<p>内容占位和切换效果</p>"
-+ "Toggle Right Sidebar Skin"
-+ "右侧边栏皮肤切换"
-+ "<p>Toggle between dark and light skins for the right sidebar</p>"
-+ "<p>右侧边栏深色、浅色皮肤切换</p>"
-+ "<p class='text-center no-margin'>Blue</p>");
-+ "<p class='text-center no-margin'>蓝色</p>");
-+ "<p class='text-center no-margin'>Black</p>");
-+ "<p class='text-center no-margin'>黑色</p>");
-+ "<p class='text-center no-margin'>Purple</p>");
-+ "<p class='text-center no-margin'>紫色</p>");
-+ "<p class='text-center no-margin'>Green</p>");
-+ "<p class='text-center no-margin'>绿色</p>");
-+ "<p class='text-center no-margin'>Red</p>");
-+ "<p class='text-center no-margin'>红色</p>");
-+ "<p class='text-center no-margin'>Yellow</p>");
-+ "<p class='text-center no-margin'>黄色</p>");
-+ "<p class='text-center no-margin' style='font-size: 12px'>Blue Light</p>");
-+ "<p class='text-center no-margin' style='font-size: 12px'>亮蓝</p>");
-+ "<p class='text-center no-margin' style='font-size: 12px'>Black Light</p>");
-+ "<p class='text-center no-margin' style='font-size: 12px'>亮黑</p>");
-+ "<p class='text-center no-margin' style='font-size: 12px'>Purple Light</p>");
-+ "<p class='text-center no-margin' style='font-size: 12px'>亮紫</p>");
-+ "<p class='text-center no-margin' style='font-size: 12px'>Green Light</p>");
-+ "<p class='text-center no-margin' style='font-size: 12px'>亮绿</p>");
-+ "<p class='text-center no-margin' style='font-size: 12px'>Red Light</p>");
-+ "<p class='text-center no-margin' style='font-size: 12px'>亮红</p>");
-+ "<p class='text-center no-margin' style='font-size: 12px;'>Yellow Light</p>");
-+ "<p class='text-center no-margin' style='font-size: 12px;'>亮黄</p>");
-demo_settings.append("<h4 class='control-sidebar-heading'>Skins</h4>");
-demo_settings.append("<h4 class='control-sidebar-heading'>皮肤</h4>");
++ 'Layout Options'
++ '布局选项'
++ 'Fixed layout'
++ '固定布局'
++ '<p>Activate the fixed layout. You can\'t use fixed and boxed layouts together</p>'
++ '<p>激活固定布局后，将不能使用固定和盒子布局</p>'
++ 'Boxed Layout'
++ '盒子布局'
++ '<p>Activate the boxed layout</p>'
++ '<p>激活盒子布局</p>'
++ 'Toggle Sidebar'
++ '切换侧边栏'
++ '<p>Toggle the left sidebar\'s state (open or collapse)</p>'
++ '<p>切换左侧边栏（打开或折叠）</p>'
++ 'Sidebar Expand on Hover'
++ '左侧边栏悬停'
++ '<p>Let the sidebar mini expand on hover</p>'
++ '<p>让左侧边栏悬停时展开</p>'
++ 'Toggle Right Sidebar Slide'
++ '右侧边栏占位'
++ '<p>Toggle between slide over content and push content effects</p>'
++ '<p>内容占位和切换效果</p>'
++ 'Toggle Right Sidebar Skin'
++ '右侧边栏皮肤切换'
++ '<p>Toggle between dark and light skins for the right sidebar</p>'
++ '<p>右侧边栏深色、浅色皮肤切换</p>'
++ '<p class="text-center no-margin">Blue</p>')
++ '<p class="text-center no-margin">蓝色</p>')
++ '<p class="text-center no-margin">Black</p>')
++ '<p class="text-center no-margin">黑色</p>')
++ '<p class="text-center no-margin">Purple</p>')
++ '<p class="text-center no-margin">紫色</p>')
++ '<p class="text-center no-margin">Green</p>')
++ '<p class="text-center no-margin">绿色</p>')
++ '<p class="text-center no-margin">Red</p>')
++ '<p class="text-center no-margin">红色</p>')
++ '<p class="text-center no-margin">Yellow</p>')
++ '<p class="text-center no-margin">黄色</p>')
++ '<p class="text-center no-margin" style="font-size: 12px">Blue Light</p>')
++ '<p class="text-center no-margin" style="font-size: 12px">亮蓝</p>')
++ '<p class="text-center no-margin" style="font-size: 12px">Black Light</p>')
++ '<p class="text-center no-margin" style="font-size: 12px">亮黑</p>')
++ '<p class="text-center no-margin" style="font-size: 12px">Purple Light</p>')
++ '<p class="text-center no-margin" style="font-size: 12px">亮紫</p>')
++ '<p class="text-center no-margin" style="font-size: 12px">Green Light</p>')
++ '<p class="text-center no-margin" style="font-size: 12px">亮绿</p>')
++ '<p class="text-center no-margin" style="font-size: 12px">Red Light</p>')
++ '<p class="text-center no-margin" style="font-size: 12px">亮红</p>')
++ '<p class="text-center no-margin" style="font-size: 12px">Yellow Light</p>')
++ '<p class="text-center no-margin" style="font-size: 12px">亮黄</p>')
+$demoSettings.append('<h4 class="control-sidebar-heading">Skins</h4>')
+$demoSettings.append('<h4 class="control-sidebar-heading">皮肤</h4>')
 window.alert('Please use a modern browser to properly view this template!');
 window.alert('你的浏览器不支持查看此模板，请换一个！');
 * Main JS application file for AdminLTE v2. This file
