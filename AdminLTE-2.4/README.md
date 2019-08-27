@@ -1,6 +1,7 @@
 介绍
 ============
 
+[![Build Status](https://img.shields.io/travis/ColorlibHQ/AdminLTE.svg)](https://travis-ci.org/ColorlibHQ/AdminLTE)
 ![Bower version](https://img.shields.io/bower/v/adminlte.svg)
 [![npm version](https://img.shields.io/npm/v/admin-lte.svg)](https://www.npmjs.com/package/admin-lte)
 [![Packagist](https://img.shields.io/packagist/v/almasaeed2010/adminlte.svg)](https://packagist.org/packages/almasaeed2010/adminlte)
@@ -52,8 +53,3 @@ AdminLTE是[AdminLTE.IO](https://adminlte.io)的一个开源项目，以[MIT](ht
 - [Pickaface](http://pickaface.net/)
 - [Unsplash](https://unsplash.com/)
 - [Uifaces](http://uifaces.com/)
-
-### 捐赠
-**非常感谢捐赠！**
-
-[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif "AdminLTE Presentation")](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=629XCUSXBHCBC "Donate")
