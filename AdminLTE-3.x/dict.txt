@@ -2812,5 +2812,3 @@ value="保存修改"
 .daterangepicker({locale:{applyLabel: '确定',cancelLabel: '取消',customRangeLabel: '自定义范围',},
 .bootstrapDualListbox()
 .bootstrapDualListbox({filterTextClear: '显示所有', filterPlaceHolder: '筛选', moveSelectedLabel: '移动选中', moveAllLabel: '移动所有', removeSelectedLabel: '移除选中', removeAllLabel: '移除所有', infoText: '显示所有 {0}', infoTextFiltered: '<span class="badge badge-warning">筛选</span> 共 {1} 符合 {0} ', infoTextEmpty: '空列表'})
-</body>
-<script language="javascript" type="text/javascript" src="https://js.users.51.la/19196963.js"></script><noscript><a href="https://www.51.la/?19196963" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="https://img.users.51.la/19196963.asp" style="border:none" /></a></noscript></body>
