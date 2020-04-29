@@ -1,0 +1,166 @@
+AdminLTE Demo Menu
+AdminLTE 演示菜单
+* 你不应在生产环境中使用此文件。
+* You should not use this file in production.
+* 该文件仅用于演示目的。
+* This file is for demo purposes only.
+<h5>Customize AdminLTE</h5>
+<h5>自定义 AdminLTE</h5>
+<h6>Navbar Variants</h6>
+<h6>导航栏颜色</h6>
+<h6>Accent Color Variants</h6>
+<h6>强调颜色</h6>
+<h6>Dark Sidebar Variants</h6>
+<h6>深色侧边栏颜色</h6>
+<h6>Light Sidebar Variants</h6>
+<h6>亮色侧边栏颜色</h6>
+<h6>Brand Logo Variants</h6>
+<h6>品牌 LOGO 颜色</h6>
+Here we will create a few charts using ChartJS
+在这里，我们将使用 ChartJS 创建一些图表
+MONTHLY SALES CHART
+月销售额图表
+Get context with jQuery - using jQuery's .get() method.
+使用 jQuery .get() 方法获取内容。
+'January', 'February', 'March', 'April', 'May', 'June', 'July'
+'一月', '二月', '三月', '四月', '五月', '六月', '七月'
+'Digital Goods'
+'数字商品'
+'Electronics'
+'电子产品'
+This will get the first returned node in the jQuery collection.
+这将获取 jQuery 中的第一个返回的节点。
+END MONTHLY SALES CHART
+月销售额图表结束
+PIE CHART
+饼形图
+//Create pie or douhnut chart
+// 创建饼形图或圆环图
+// You can switch between pie and douhnut using the method below.
+// 你可以使用以下方法在此之间进行切换。
+END PIE CHART
+结束饼形图
+jVector Maps
+jVector 地图
+Create a world map with markers
+使用用标记创建世界地图
+'Vatican City'
+'梵蒂冈'
+'Monaco'
+'摩纳哥'
+'Nauru'
+'瑙鲁'
+'Tuvalu'
+'图瓦卢'
+'San Marino'
+'圣马力诺'
+'Liechtenstein'
+'列支敦士登'
+'Marshall Islands'
+'马绍尔群岛'
+'Saint Kitts and Nevis'
+'圣基茨和尼维斯'
+'Maldives'
+'马尔代夫'
+'Malta'
+'马耳他'
+'Grenada'
+'格林纳达'
+'Saint Vincent and the Grenadines'
+'圣文森特和格林纳丁斯'
+'Barbados'
+'巴巴多斯'
+'Antigua and Barbuda'
+'安提瓜和巴布达'
+'Seychelles'
+'塞舌尔'
+'Palau'
+'帕劳'
+'Andorra'
+'安道尔'
+'Saint Lucia'
+'圣卢西亚'
+'Federated States of Micronesia'
+'密克罗尼西亚联邦'
+'Singapore'
+'新加坡'
+'Kiribati'
+'基里巴斯'
+'Tonga'
+'汤加'
+'Dominica'
+'多米尼克'
+'Mauritius'
+'毛里求斯'
+'Bahrain'
+'巴林'
+'São Tomé and Príncipe'
+'圣多美和普林西比'
+'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'
+'六月', '七月', '八月', '九月', '十月', '十一月', '十二月'
+Include a dollar sign in the ticks
+在刻度上加上美元符号
+'18th', '20th', '22nd', '24th', '26th', '28th', '30th'
+'18 号', '20 号', '22 号', '24 号', '26 号', '28 号', '30 号'
+This is a demo file used only for the main dashboard (index.html)
+该文件仅用于主仪表盘的演示 （index.html）
+Make the dashboard widgets sortable Using jquery UI
+使用 jQuery UI 使仪表盘小部件可排序
+jQuery UI sortable for the todo list
+jQuery UI 可排序待办事项列表
+bootstrap WYSIHTML5 - text editor
+bootstrap WYSIHTML5 - 文本编辑器
+'Today'
+'今天'
+'Yesterday'
+'昨天'
+'Last 7 Days'
+'最近7天'
+'Last 30 Days'
+'最近30天'
+'This Month'
+'本月'
+'Last Month'
+'上月'
+The Calender
+日历
+Sales chart
+销售图表
+Sales graph chart
+销售图表
+'2011 Q1', '2011 Q2', '2011 Q3', '2011 Q4', '2012 Q1', '2012 Q2', '2012 Q3', '2012 Q4', '2013 Q1', '2013 Q2'
+'2011 一季度', '2011 二季度', '2011 三季度', '2011 四季度', '2012 一季度', '2012 二季度', '2012 三季度', '2012 四季度', '2013 一季度', '2013 二季度'
+<span>No Navbar border</span>
+<span>无导航栏边框</span>
+<span>Body small text</span>
+<span>页面小号字体</span>
+<span>Navbar small text</span>
+<span>导航栏小号字体</span>
+<span>Sidebar nav small text</span>
+<span>侧边栏小号字体</span>
+<span>Footer small text</span>
+<span>底部小号字体</span>
+<span>Sidebar nav flat style</span>
+<span>侧边栏平面样式</span>
+<span>Sidebar nav legacy style</span>
+<span>侧边栏传统样式</span>
+<span>Sidebar nav compact</span>
+<span>紧凑侧边栏</span>
+<span>Sidebar nav child indent</span>
+<span>侧边栏子级缩进</span>
+<span>Main Sidebar disable hover/focus auto expand</span>
+<span>主侧边栏禁用悬停/获得焦点时自动展开</span>
+<span>Brand small text</span>
+<span>品牌小号字体</span>
+text('clear')
+text('清除')
+'Instore Sales'
+'店内销售'
+'Download Sales'
+'下载销售'
+'Mail-Order Sales'
+'邮购销售'
+editable  : true,
+editable  : true,locale: 'zh-cn',
+.daterangepicker({
+.daterangepicker({locale:{applyLabel: '确定',cancelLabel: '取消',customRangeLabel: '自定义范围',},

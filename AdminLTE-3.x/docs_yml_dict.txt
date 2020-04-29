@@ -1,0 +1,48 @@
+title: AdminLTE v3 Documentaion
+title: AdminLTE v3 文档
+description: >- # this means to ignore newlines until "baseurl:"
+description: >- # 这意味着忽略换行符直到 "baseurl:"
+AdminLTE v3 Documentaion
+AdminLTE v3 文档
+- title: Installation
+- title: 安装
+- title: Dependencies & Plugins
+- title: 依赖项和插件
+- title: Layout
+- title: 布局
+- title: Components
+- title: 组件
+- title: Main Header
+- title: 主标题
+- title: Main Sidebar
+- title: 主侧边栏
+- title: Control Sidebar
+- title: 控制侧边栏
+- title: Card
+- title: 卡片
+- title: Small-/ Info-Box
+- title: 小-/ 信息框
+- title: Direct Chat
+- title: 聊天
+- title: Timeline
+- title: 时间线
+- title: Ribbons
+- title: 丝带
+- title: Miscellaneous
+- title: 杂项
+- title: Plugins
+- title: 插件
+- title: Card Widget
+- title: 卡片小部件
+- title: CardRefresh
+- title: 刷新卡片
+- title: Todo List
+- title: 待办事项列表
+- title: Browser Support
+- title: 浏览器支持
+- title: Upgrade Guide
+- title: 升级指南
+- title: Implementations
+- title: 集成环境
+- title: License
+- title: 许可证

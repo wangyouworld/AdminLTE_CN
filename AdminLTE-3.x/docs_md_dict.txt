@@ -1,0 +1,1176 @@
+AdminLTE comes with the same browser support as Bootstrap 4.
+AdminLTE 与 Bootstrap 4 支持的浏览器一样。
+title: Browser Support
+title: 浏览器支持
+> ##### Excerpt from Bootstrap's official Documentation!
+> ##### 摘自 Bootstrap 官方文档！
+> Bootstrap supports the __latest, stable releases__ of all major browsers and platforms. On Windows, __we support Internet Explorer 10-11 / Microsoft Edge__.
+> Bootstrap 支持 __主流平台和浏览器__，稳定版在 Windows 上，__我们支持 Internet Explorer 10-11 / Microsoft Edge__。
+> For more details [look here]
+> 更多详细信息，[请点击此处]
+You can find our supported range of browsers and their versions in [our .browserslistrc file](https://github.com/ColorlibHQ/AdminLTE/blob/v3-dev/.browserslistrc):
+你可以在 [我们的 .browserslistrc 文件](https://github.com/ColorlibHQ/AdminLTE/blob/v3-dev/.browserslistrc) 找到支持的浏览器情况及其版本：
+last 1 major version
+前 1 个主要版本
+not dead
+活着
+title: Dependencies & Plugins
+title: 依赖 & 插件
+#### Dependencies
+#### 依赖
+AdminLTE depends on two main frameworks. The downloadable package contains both of these libraries, so you don't have to manually download them.
+AdminLTE 依赖两个主要的框架。下载的软件包中已经包含这两个库，因此你不必手动下载它们。
+- [All other plugins are listed below]
+- [下面列出了所有其他插件]
+#### Plugins
+#### 插件
+AdminLTE makes use of the following plugins. For documentation, updates or license information, please visit the provided links.
+AdminLTE 使用以下插件。相关文档，更新或许可证信息，请访问提供的链接。
+> Note!
+> 注意！
+> You need to load the js/css files of the plugin that you want to use.
+> 你需要手动加载插件的 js/css 文件。
+> AdminLTE doesn't load automatically all plugins, this would cause huge load times on every page load.
+> AdminLTE 不会自动加载所有插件，这会造成页面加载时间过长。
+<h4>Charts</h4>
+<h4>图表</h4>
+<h4>Editors</h4>
+<h4>编辑器</h4>
+<h4>Form Elements</h4>
+<h4>表单元素</h4>
+<h4>Icon Packs</h4>
+<h4>图标包</h4>
+<h4>Table Grids</h4>
+<h4>表格</h4>
+<h4>Notifications</h4>
+<h4>通知</h4>
+<h4>Others</h4>
+<h4>其他</h4>
+<h4>Plugin Dependencies</h4>
+<h4>插件依赖关系</h4>
+Can AdminLTE be used with Wordpress?
+AdminLTE 可以与 Wordpress 一起使用吗？
+AdminLTE is an HTML template that can be used for any purpose. However, it is not made to be easily installed on Wordpress. It will require some effort and enough knowledge of the Wordpress script to do so.
+AdminLTE 是一个 HTML 模板，可以在任何地方使用。但它不容易安装在 Wordpress 上。你需要多些努力及足够的 Wordpress 脚本知识才行。
+Is there an integration guide for PHP frameworks such as Yii or Symfony?
+有没有 PHP 框架的集成指南，如 Yii 或 Symfony？
+Short answer, no. However, there are forks and tutorials around the web that provide info on how to integrate with many different frameworks. There are even versions of AdminLTE that are integrated with jQuery ajax, AngularJS and/or MVC5 ASP .NET.
+简短的说，没有。不过，网络上有一些分支和教程，它们提供了如何与框架集成的信息。甚至还有 AdminLTE 与 jQuery ajax，AngularJS 或 MVC5 ASP .NET 集成在一起版本。
+How do I get notified of new AdminLTE versions?
+如何获得新版通知？
+The best option is to subscribe to our mailing list using the [subscription form on Almsaeed Studio](http://almsaeedstudio.com/#subscribe). If that's not appealing to you, you may watch the [repository on Github](https://github.com/almasaeed2010/AdminLTE) or visit [Almsaeed Studio](http://almsaeedstudio.com) every now and then for updates and announcements.
+最好的选择是使用 [Almsaeed Studio 上的订阅](http://almsaeedstudio.com/#subscribe)来订阅我们的邮件列表。如果你对此不感兴趣，则可以查看 [Github 仓库](https://github.com/almasaeed2010/AdminLTE)或访问每隔一段时间访问 [Almsaeed Studio](http://almsaeedstudio.com) 来获取最新消息和公告。
+title: Implementations
+title: 集成环境
+Thanks to many of AdminLTE users, there are multiple implementations of the template for easy integration with back-end frameworks. The following are some of them:
+感谢 AdminLTE 用户将模板与后端框架集成，以下是部分，感谢他们：
+> ##### Note!
+> ##### 注意！
+These implementations are not supported by ColorlibHQ. However, they do provide a good example of how to integrate AdminLTE into different frameworks. For the latest release of AdminLTE, please visit our [repository](https://github.com/ColorlibHQ/AdminLTE/) or [website](https://adminlte.io).
+ColorlibHQ 不对这些集成环境支持。但是，他们提供了将 AdminLTE 集成到不同框架中示例。有关 AdminLTE 的最新版本，请访问我们的[仓库](https://github.com/ColorlibHQ/AdminLTE/) 或[网站](https://adminlte.io)。
+title: Introduction
+title: 介绍
+AdminLTE can be installed using multiple methods. Pick your favorite method from the list below. Please be sure to check the dependencies section before continuing.
+有多种方式来安装 AdminLTE。从下面的列表中选择你喜欢的方式。在继续之前，请确保检查依赖项部分。
+#### Download
+#### 下载
+###### __From Github__
+###### __从 Github__
+Visit the releases section on Github and download the [latest release](https://github.com/ColorlibHQ/AdminLTE/releases).
+访问 Github 上的发布页面，下载[最新版](https://github.com/ColorlibHQ/AdminLTE/releases)。
+#### Command Line
+#### 命令行
+__Via NPM__
+__通过 NPM__
+__Via Yarn__
+__通过 Yarn__
+__Via Composer__
+__通过 Composer__
+__Via Git__
+__通过 Git__
+title: Layout
+title: 布局
+> ##### Tip!
+> ##### 提示！
+> The starter page is a good place to start building your app if you'd like to start from scratch.
+> 如果你想从头开始，起始页是构建应用程序的好地方。
+The layout consists of four major parts:
+布局包括 4个主要部分：
+- Wrapper `.wrapper`. A div that wraps the whole site.
+- 包装器 `.wrapper`。包含整个网站的 div。
+- Main Header `.main-header`. Contains the logo and navbar.
+- 主标题 `.main-header`。 包含 LOGO 和导航栏。
+- Sidebar `.sidebar-wrapper`. Contains the user panel and sidebar menu.
+- 侧边栏 `.sidebar-wrapper`。包含用户面板和侧边栏菜单。
+- Content `.content-wrapper`. Contains the page header and content.
+- 内容 `.content-wrapper`。包含页面标题和内容。
+#### Layout Options
+#### 布局设置
+> You cannot use both layout-boxed and layout-navbar-fixed or layout-footer-fixed at the same time. Anything else can be mixed together.
+> 你不能同时使用 boxbox-boxed 和 layout-navbar-fixed 或 layout-footer-fixed。其他任何东西都可以组合使用。
+AdminLTE 3.0 provides a set of options to apply to your main layout. Each one of these classes can be added to the body tag to get the desired goal.
+AdminLTE 3.0 提供了一组应用于布局的选项。这些类中的每一个都可以添加到 body 标签中以获得所需的效果。
+- Fixed Sidebar: use the class `.layout-fixed` to get a fixed sidebar.
+- 固定侧边栏：使用 `.layout-fixed` 类来固定侧边栏。
+- Fixed Navbar: use the class `.layout-navbar-fixed` to get a fixed navbar.
+- 固定导航栏：使用 `.layout-navbar-fixed` 类固定导航栏。
+- Fixed Footer: use the class `.layout-footer-fixed` to get a fixed footer.
+- 固定页脚：使用 `.layout-footer-fixed` 类固定页脚。
+- Collapsed Sidebar: use the class `.sidebar-collapse` to have a collapsed sidebar upon loading.
+- 折叠侧边栏：使用 `.sidebar-collapse` 类在加载时折叠侧边栏。
+- Boxed Layout: use the class `.layout-boxed` to get a boxed layout that stretches only to 1250px.
+- 盒式布局：使用 `.layout-boxed` 类来获得只有 1250px 的布局。
+- Top Navigation: use the class `.layout-top-nav` to remove the sidebar and have your links at the top navbar.
+- 顶部导航：使用 `.layout-top-nav` 类移除侧边栏，并使链接位于顶部导航栏。
+##### Responsive Variations
+##### 响应式
+You can also use the following classes for responsive changes with placing
+你还可以使用以下类进行响应式更改
+- Fixed Navbar:
+- 固定导航栏：
+- use the class `.layout-*-navbar-fixed` to get a fixed navbar.
+- 使用 `.layout-*-navbar-fixed` 类固定导航栏。
+- use the class `.layout-*-navbar-not-fixed` to get a not fixed navbar.
+- 使用 `.layout-*-navbar-not-fixed` 类不固定导航栏。
+- Fixed Footer:
+- 固定页脚：
+- use the class `.layout-*-footer-fixed` to get a fixed footer.
+- 使用 `.layout-*-footer-fixed` 类固定页脚。
+- use the class `.layout-*-footer-not-fixed` to get a not fixed footer.
+- 使用 `.layout-*-footer-not-fixed` 类不固定页脚。
+> If you want to use anchors with a fixed navbar, you need to add `.anchor` to you hidden anchor, e.g. `<a id="testAnchor" class="anchor"></a>`.
+> 如果你想使用固定导航栏的锚点，则需要向隐藏的锚点添加 `.anchor`，例如 `<a id="testAnchor" class="anchor"></a>`。
+#### Color Variations
+#### 色调
+AdminLTE 3.0 provides a set of color variations to apply to your sidebar (light & dark) & navbar. You can combine any available color with these class prefixes:
+AdminLTE 3.0 提供了一组颜色，可应用于侧边栏（浅色和深色）和导航栏。你可以将任何可用的颜色与这些类前缀组合：
+> ###### New
+> ###### 新的
+> You can use override the link/accent color in AdminLTE, you can add `.accent-*` to `body`.
+> 你可以在 AdminLTE 中使用覆盖链接/强调的颜色，也可以在 `body` 中添加 `.accent-*`。
+> ###### Info
+> ###### 提示
+> You can combine `.navbar-*` with `.navbar-light` or `.navbar-dark`.
+> 你可以将 `.navbar-*` 和 `.navbar-light` 或 `.navbar-dark` 一起使用。
+The following colors are available:
+提供以下颜色：
+##### Theme Colors
+##### 主题颜色
+Primary (primary) / Blue (blue)
+重要 (primary) / 蓝色 (blue)
+Secondary (secondary)
+次要 (secondary)
+Success (success) / Green (green)
+成功 (success) / 绿色 (green)
+Info (info) / Cyan (cyan)
+信息 (info) / 青色 (cyan)
+Warning (warning) / Yellow (yellow)
+警告 (warning) / 黄色 (yellow)
+Danger (danger) / Red (red)
+危险 (danger) / 红色 (red)
+##### Black/White Nuances
+##### 黑色/白色细微差别
+Black (black)
+黑色 (black)
+Gray Dark (gray-dark)
+深灰色 (gray-dark)
+Gray (gray)
+灰色 (gray)
+Light (light)
+浅色 (light)
+##### Colors
+##### 颜色
+Indigo (indigo)
+深紫色 (indigo)
+Navy (navy)
+深蓝色 (navy)
+Purple (purple)
+紫色 (purple)
+Fuchsia (fuchsia)
+紫红色 (fuchsia)
+Pink (pink)
+粉色 (pink)
+Maroon (maroon)
+褐红色 (maroon)
+Orange (orange)
+橙色 (orange)
+Lime (lime)
+绿色 (lime)
+Teal (teal)
+鸭翅绿 (teal)
+Olive (olive)
+橄榄色 (olive)
+> You can use these color variations even with `.text-*`, `.bg-*` & much more.
+> 你甚至可以将这些颜色与 `.text-*` 、`.bg-*` 及其他一起使用。
+##### Custom Range / Switch
+##### 自定义范围/开关
+For custom colored custom-range you can add this classes:
+自定义范围色，你可以添加这个类:
+For custom colored custom-switch you can add this classes:
+对于自定义颜色开关，你可以添加这个类:
+- `.custom-switch-off-*` (for custom switch off)
+- `.custom-switch-off-*` （用于自定义关闭）
+- `.custom-switch-on-*` (for custom switch on)
+- `.custom-switch-on-*` （用于自定义开启）
+##### Toasts
+##### 提示框
+You can also use `bg-*` beside the `.toast` to get a nice colored toast.
+你还可以在 `.toast` 旁边使用 `bg-*` 以获得漂亮的提示框。
+##### Plugin Support
+##### 支持插件
+You can use the all the colors above with these plugins:
+你可以将以上所有颜色用于这些插件：
+- `.slider-*` (wrapped around the slider)
+- `.slider-*` （在滑块上使用）
+title: License
+title: 许可证
+AdminLTE is an open source project that is licensed under the [MIT license](http://opensource.org/licenses/MIT). This allows you to do pretty much anything you want as long as you include the copyright in "all copies or substantial portions of the Software." Attribution is not required (though very much appreciated).
+AdminLTE 是根据 [MIT 许可证](http://opensource.org/licenses/MIT)授权的开源项目。只要你在“软件的所有副本或大部分内容”中包含版权，你就可以做任何事情。署名不是必需的（尽管非常感谢）。
+What You Are <span class="text-success">Allowed</span> To Do With AdminLTE</h5>
+<span class="text-success">允许</span>使用 AdminLTE 做什么</h5>
+- Use in commercial projects.
+- 用于商业项目。
+- Use in personal/private projects.
+- 用于个人/私人项目。
+- Modify and change the work.
+- 修改和变更工作。
+- Distribute the code.
+- 分发代码。
+- Sublicense: incorporate the work into something that has a more restrictive license.
+- 再许可：将作品集成到更严格的许可证中。
+What You Are <span class="text-danger">Not Allowed</span> To Do With AdminLTE</h5>
+<span class="text-danger">不允许</span>使用 AdminLTE 做什么</h5>
+- The work is provided "as is". You may not hold the author liable.
+- 作品按"原样"提供。你不能追究作者的责任。
+What You <span class="text-warning">Must</span> Do When Using AdminLTE</h5>
+使用 AdminLTE 时<span class="text-warning">必须</span>做的事情</h5>
+- Include the license notice in all copies of the work.
+- 将许可声明包含在作品的所有副本中。
+- Include the copyright notice in all copies of the work. This applies to everything except the notice in the footer of the HTML example pages.
+- 在所有作品中都包含版权声明。适用于除了 HTML 页面中的页脚注释以外的所有内容。
+title: Upgrade Guide
+title: 升级指南
+#### Migration from v2.4.x
+#### 从 v2.4.x 迁移
+The first step to migrate AdminLTE v2.4.x to v3.0 is upgrade the Bootstrap 3 base code to Bootstrap 4, the full instruction <a href="https://getbootstrap.com/docs/4.3/migration/">here</a> after you upgraded the base code you need to update the markups.
+将 AdminLTE v2.4.x 迁移到 v3.0 的第一步是将 Bootstrap 3 基础代码升级到 Bootstrap 4，这里的<a href="https://getbootstrap.com/docs/4.3/migration/">完整说明</a>，在你升级代码后要更新的标记。
+##### Main Header
+##### 主标题
+The biggest change in Main Header is the Logo is moved to Main Sidebar and the Main Header has now color variations, here are all changes:
+主标题中最大的更改是将 Logo 移到了主侧边栏，它现在可以切换颜色，以下是所有更改：
+moved & rebuild to `.brand-link` inside `.main-sidebar`
+移动并重建到 `.brand-link` 到 `.main-sidebar` 中
+2. Header / Nav
+2. 头部/导航
+merged with
+合并为
+3. Sidebar Toggle / Left Navbar
+3. 侧边栏切换/左导航栏
+Toggle navigation
+切换导航
+replaced with
+替换为
+repalced with
+替换为
+3. Right Navbar
+3. 右导航栏
+##### Main Sidebar
+##### 主侧边栏
+Like above the biggest change is the Main Sidebar contains now the Logo and the sidebar has now color variations, here all changes:
+就像上面的更改一样，主侧边栏现在包含 Logo，并且侧边栏现在切换颜色，这里有所有更改：
+1. Main Sidebar Color
+1. 主侧边栏颜色
+2. Logo / Brand Link
+2. Logo/品牌链接
+replaces the old logo
+替换旧 Logo
+3. Sidebar
+3. 侧边栏
+4. User Panel
+4. 用户面板
+alt="User Image"
+alt="用户图片"
+Online</a>
+在线</a>
+5. Sidebar Menu
+5. 侧边栏菜单
+now around
+现在
+need a new class
+需要新类
+`<span class="pull-right-container">` removed
+`<span class="pull-right-container">` 已移除
+new</small>
+新</small>
+New</span>
+新</span>
+Old sample entry
+旧的示例
+Widgets</span>
+小部件</span>
+New sample entry
+新的示例
+Old sample entry (with tree menu)
+旧的示例（带菜单）
+Dashboard</span>
+仪表盘</span>
+Dashboard v1
+仪表盘 v1
+New sample entry (with tree menu)
+新的示例（带菜单）
+Dashboard
+仪表盘
+##### Content Header
+##### 内容标题
+The biggest change in content header is AdminLTE use here now `.container-fluid`, `.row` & `.col-*` and the breadcrumb markup changed, here are all changes:
+内容标题中最大的更改是 AdminLTE 现在在这里使用 `.container-fluid`， `.row` 和 `.col-*` 以及更改了面包屑标记，以下全部更改：
+added in
+添加到
+rebuild in
+重建为
+need new class
+需要新类
+Old Content Header Markup
+旧的内容标题标记
+Control panel
+控制面板
+Home</a>
+主页</a>
+Dashboard</li>
+仪表盘</li>
+New Content Header Markup
+新的内容标题标记
+##### Content
+##### 内容
+The content has no change, we only split `<section class="content container-fluid">` in two elements:
+内容没有变化，我们只将 `<section class="content container-fluid">` 拆分为两个元素：
+##### Footer
+##### 底部
+The footer has only one little change for the right sided div.
+页脚只对右侧的 div 做了一点小小的更改。
+changed to
+修改为
+##### Miscellaneous
+##### 杂项
+Here are some other little css/html changes since v3.0:
+这里是自 v3.0 以来其他 CSS/HTML 的小变化：
+renamed to
+重命名为
+##### JavaScript Plugins
+##### JavaScript 插件
+Here are some other little JavaScript changes since v3.0:
+这里是自 v3.0 以来其他 JavaScript 的小变化：
+instead of CardWidget items
+而不是 CardWidget 项目
+- for CardWidget it's now
+- 对于 CardWidget，现在是
+title: Boxes Components
+title: 框组件
+There are two types of boxes, info boxes & small boxes. Both boxes are used to display statistical snippets.
+有两种类型的框，信息框和小框。两个框均用于显示统计摘要。
+##### Info Box
+##### 信息框
+Messages</span>
+消息</span>
+Bookmarks</span>
+书签</span>
+Uploads</span>
+上传</span>
+##### Info Box with Progress Bar
+##### 带进度条的信息框
+70% Increase in 30 Days
+30 天增加 70%
+Likes</span>
+喜欢</span>
+Events</span>
+事件</span>
+##### Small Box
+##### 小框
+New Orders</p>
+新订单</p>
+User Registrations</p>
+用户注册</p>
+More info
+更多信息
+##### Loading Style
+##### 载入效果
+To simulate a loading state, simply place this code before the `.info-box` / `.small-box` closing tag.
+要模拟加载状态，只需将此代码放在 `.info-box` / `.small-box` 结束标记之前。
+> We recommend `.fa-2x` for Info Boxes and `.fa-3x` for Small Boxes to get a nicely sized loading icon, <br> like in this documentation.
+> 对于信息框，建议使用 `.fa-2x`；对于小框，建议使用 `.fa-3x`，以获取合适尺寸的加载图标，<br>如本文档中的示例。
+You can also use a dark loading style with adding `.dark` to `.overlay` like this code.
+你也可以使用深色加载样式，像这个代码中将 `.dark` 添加到 `.overlay` 中。
+title: Cards Component
+title: 卡片组件
+The card component is the most widely used component through out this template. You can use it for anything from displaying charts to just blocks of text. It comes in many different styles that we will explore below.
+在此模板中，卡片组件是使用最广泛的。你可以将其用于显示图表、文本块等。有许多不同的样式，我们将在下面进行介绍。
+##### Default Card Markup
+##### 默认卡片标记
+Default Card Example</h3>
+默认卡片示例</h3>
+Label</span>
+标签</span>
+The body of the card
+这里是卡片主体
+The footer of the card
+这里是卡片底部
+Buttons, labels, and many other things can be placed here!
+按钮，标签和其他东西都可以放在这里！
+Here is a label for example
+例如，这里是个标签
+##### Card Variants
+##### 卡片样式
+You can change the style of the card by adding any of the contextual classes.
+你可以通过添加相关类来更改卡片的样式。
+###### Default
+###### 默认
+Primary Card Example
+主要卡片示例
+Secondary Card Example
+次要卡片示例
+Success Card Example
+成功卡片示例
+Info Card Example
+信息卡片示例
+Warning Card Example
+警告卡片示例
+Danger Card Example
+危险卡片示例
+Dark Card Example
+灰色卡片示例
+###### Outline
+###### 轮廓
+###### Background Color
+###### 背景色
+###### Gradient Background Color
+###### 渐变背景色
+##### Card Tools
+##### 卡片工具
+Cards can contain tools to deploy a specific event or provide simple info. The following examples makes use of multiple AdminLTE components within the header of the card.
+卡片可以包含用于部署特定事件或提供简单信息的工具。以下示例在卡片标题中使用了多个 AdminLTE 组件。
+AdminLTE data-widget attribute provides cards with the ability to collapse or be removed. The buttons are placed in the card-tools which is placed in the card-header.
+AdminLTE data-widget 属性为卡片提供折叠或移除的功能。按钮位于卡片标题的工具中。
+Card Tools</h3>
+卡片工具</h3>
+This will cause the card to maximize when clicked
+点击后会使卡片最大化
+This will cause the card to collapse when clicked
+点击后会使卡片折叠
+This will cause the card to be removed when clicked
+点击后会移除卡片
+To simulate a loading state, simply place this code before the `.card` closing tag.
+要模拟加载状态，只需将此代码放在 `.card` 结束标记之前。
+Loading state</h3>
+载入状态</h3>
+Loading state (dark)</h3>
+载入状态（灰色）</h3>
+title: Control Sidebar Component
+title: 控制侧边栏组件
+Control sidebar is the right sidebar. It can be used for many purposes and is extremely easy to create. The sidebar ships with two different show/hide styles. The first allows the sidebar to slide over the content. The second pushes the content to make space for the sidebar. Either of these methods can be set through the [Javascript options]({% link javascript/control-sidebar.md %}).
+控制侧边栏是右边的侧边栏。它可以用于多种目的，并且非常易于创建。侧边栏附带两种不同的显示/隐藏样式。第一个允许侧边栏在内容上滑动。第二个推送内容以便为侧边栏腾出空间。可以通过 [Javascript 选项](/AdminLTE/AdminLTE-3.x/docs/javascript/control-sidebar.html)设置这两种方法。
+The following code should be placed within the `.wrapper` div. I prefer to place it right after the footer.
+将以下代码放在 `.wrapper` div 中。我更喜欢将其放在页脚之后。
+##### Control Sidebar Push
+##### 固定控制侧边栏
+By adding the `.control-sidebar-push` to `body`, the sidebar pushes the content away instead of overlaying the content.
+通过将 `.control-sidebar-push` 添加到 `body` 中，这将会固定侧边栏，而不是覆盖内容。
+You can also add `.control-sidebar-push-slide` to `body`, to push the content away with an transition.
+通过添加 `.control-sidebar-push-slide` 到 `body` 中 ，将会显示过渡效果将内容推开。
+##### Dark Sidebar Markup
+##### 深色侧边栏标记
+Control sidebar content goes here
+控制侧边栏内容在这里
+Content of the sidebar goes here
+侧边栏的内容在这里
+##### Light Sidebar Markup
+##### 亮色侧边栏标记
+#### Control Sidebar Toggle Markup
+#### 控制侧边栏切换标记
+Once you create the sidebar, you will need a toggle button to open/close it. By adding the attribute data-toggle="control-sidebar" to any button, it will automatically act as the toggle button.
+创建侧边栏后，你需要一个按钮来打开/关闭它。通过将 data-toggle="control-sidebar" 属性添加到任何按钮，它将自动充当切换按钮。
+Toggle Control Sidebar</a>
+切换控制侧边栏</a>
+title: Direct Chat Components
+title: 聊天组件
+The direct chat widget extends the card component to create a beautiful chat interface. This widget consists of a required messages pane and an __optional__ contacts pane. Examples:
+聊天小部件扩展了卡片组件，以创建漂亮的聊天界面。该窗口小部件由必需的消息框和联系人框（__可选__）组成。示例：
+Direct Chat</h3>
+聊天</h3>
+title="Contacts"
+title="联系人"
+23 Jan 2:00 pm
+1月23日 下午2:00
+alt="message user image"
+alt="消息用户图像"
+Is this template really for free? That's unbelievable!
+这个模板真的是免费的吗？太不可思议了！
+23 Jan 2:05 pm
+1月23日 下午2:05
+23 Jan 5:37 pm
+1月23日 下午5:37
+Working with AdminLTE on a great new app! Wanna join?
+使用 AdminLTE 开发强大的应用！想加入吗？
+23 Jan 6:10 pm
+1月23日 下午6:10
+I would love to.
+是的，我想。
+How have you been? I was...
+你最近怎么样？我是……
+I will be waiting for...
+我会等……
+I'll call you back at...
+我会打电话给你……
+Where is your new...
+你的新……
+Can I take a look at...
+我能看看……
+Never mind I found...
+没关系我发现……
+placeholder="Type Message ..."
+placeholder="输入消息 ..."
+Send</button>
+发送</button>
+Direct Chat</h3>
+聊天</h3>
+Construct the card with style you want. Here we are using card-danger
+用你想要的样式创建卡片。在这里，我们使用 card-danger
+Then add the class direct-chat and choose the direct-chat-* contexual class
+然后添加 direct-chat 类并选择 direct-chat-* 相关类
+The contextual class should match the card, so we are using direct-chat-danger
+相关类应与卡片匹配，因此我们使用 direct-chat-danger
+title="3 New Messages"
+title="3 条新消息"
+Conversations are loaded here
+对话在这里加载
+Message. Default to the left
+信息。默认为左对齐
+Message to the right
+消息右对齐
+Contacts are loaded here
+联系人在这里加载
+End Contact Item
+结束联系人项目
+##### Outline Direct Chat
+##### 聊天外形
+Of course you can use direct chat with a outline card by adding the class `.card-outline` to the card. Here are a couple of examples:
+当然，你可以通过添加类 `.card-outline` 来实现聊天。以下是几个示例：
+title: Main Header Component
+title: 主标题组件
+> ##### Reminder!
+> ##### 提醒！
+> AdminLTE uses all of Bootstrap 4 components. It's a good start to review the [Bootstrap documentation](http://getbootstrap.com) to get an idea of the various components that this documentation __does not__ cover.
+> AdminLTE 使用所有 Bootstrap 4 组件。这是一个回顾 [Bootstrap 文档](http://getbootstrap.com)的良好开端，通过它了解此文档未涵盖的各种组件。
+> If you go through the example pages and would like to copy a component, right-click on the component and choose "inspect element" to get to the HTML quicker than scanning the HTML page.
+> 在浏览示例页面时如果你想要复制组件，请右键单击该组件并选择“检查元素”它比从页面中获取 HTML 更快。
+The main header contains the navbar. Construction of the navbar differs slightly from Bootstrap because it has components that Bootstrap doesn't provide. The navbar can be constructed in two ways. This is an example for the normal navbar and next we will provide an example for the top nav layout with a logo too.
+主标题包含导航栏。导航栏结构与 Bootstrap 略有不同，因为它有 Bootstrap 不提供的组件。导航栏可以通过两种方式创建。这是常规导航栏的示例，接下来，我们将提供顶部导航布局的示例以及 LOGO。
+Home</a>
+首页</a>
+Contact</a>
+联系</a>
+Help
+帮助
+placeholder="Search"
+placeholder="搜索"
+new reports
+个新报告
+Support</a>
+支持</a>
+SEARCH FORM
+搜索表单
+Right navbar links
+右侧导航栏链接
+Messages Dropdown Menu
+消息下拉菜单
+Message Start
+消息开始
+alt="User Avatar"
+alt="用户头像"
+Call me whenever you can...
+有空的话就打电话给我...
+Hours Ago
+小时前
+Message End
+消息结束
+I got your message bro
+我收到你的消息了
+The subject goes here
+主题在这里
+See All Messages
+查看所有消息
+Notifications Dropdown Menu
+通知下拉菜单
+Notifications</span>
+条通知</span>
+new messages
+条新消息
+friend requests
+个好友请求
+hours</span>
+小时前</span>
+days</span>
+天前</span>
+See All Notifications
+查看所有通知
+<!-- Navbar -->
+<!-- 导航栏 -->
+Left navbar links
+左侧导航栏链接
+mins</span>
+分钟前</span>
+#### Top Nav Layout. Main Header Example.
+#### 顶部导航布局 主标题示例
+> To use this main header instead of the regular one, you must add the `layout-top-nav` class to the body tag.
+> 要使用此主标题而不是常规标题，必须将 `layout-top-nav` 类添加到 body 标签。
+Top navbar example can be found in this [demo page](https://adminlte.io/themes/dev/AdminLTE/pages/layout/top-nav.html).
+顶部导航栏示例可以在[演示页面](/AdminLTE/AdminLTE-3.x/pages/layout/top-nav.html)中找到。
+> To get a bigger dropdown menu you can add `.dropdown-menu-lg` or `.dropdown-menu-xl` to `.dropdown-menu`.
+> 要获得更大的下拉菜单，你可以在 `.dropdown-menu` 类中添加 `.dropdown-menu-lg` 或 `.dropdown-menu-xl`。
+title: Main Sidebar Component
+title: 主侧边栏组件
+The sidebar used in this page to the left provides an example of what your sidebar would look like. Construction of a sidebar:
+左侧页面中使用的侧边栏提供了示例。创建侧边栏：
+<!-- Sidebar -->
+<!-- 侧边栏 -->
+<!-- Sidebar Menu -->
+<!-- 侧边栏菜单 -->
+<!-- Add icons to the links using the .nav-icon class
+<!-- 使用 .nav-icon 类将图标添加到链接
+with font-awesome or any other icon font library -->
+可以使用 font-awesome 或其他字体库 -->
+Main Sidebar Container
+主侧边栏容器
+Brand Logo
+品牌 Logo
+Sidebar user panel (optional)
+侧边栏用户面板（可选）
+Starter Pages
+起始页
+<p>Active Page</p>
+<p>活动页面</p>
+<p>Inactive Page</p>
+<p>非活动页面</p>
+New</span>
+新</span>
+#### Alternate Logo
+#### 备用 Logo
+You can use two logo images instead of logo with text, you only need to change the markup to this:
+你可以使用两个 LOGO 图像，而不是带有文字的 LOGO，只需要将标记更改为：
+alt="AdminLTE Docs Logo Small"
+alt="AdminLTE 文档 小 LOGO"
+alt="AdminLTE Docs Logo Large"
+alt="AdminLTE 文档 大 LOGO"
+> Example from v3.0 docs.
+> v3.0 文档中的示例。
+Based on the example above, you can replace `.brand-image-xl` on `.logo-xs` with `.brand-image-xs` or vice versa on `.logo-xl` for changed logo sizes.
+根据上面的示例，你可以将 `.logo-xs` 上的 `.brand-image-xl` 替换为 `.brand-image-xs`，或者将 `.logo-xl` 上的 `.brand-image-xl` 更改成 LOGO 大小。
+#### Search Form in Sidebar
+#### 侧边栏中搜索表单
+You can add this code above user-panel or nav-sidebar:
+你可以在 user-panel 或 nav-sidebar 上添加以下代码：
+#### Additional Classes
+#### 其他类
+##### Sidebar
+##### 侧边栏
+- `.sidebar-no-expand` Disables Auto Expand on Hover/Focus
+- `.sidebar-no-expand` 禁用悬停/获得焦点时自动展开
+##### Navbar
+##### 导航栏
+- `.nav-child-indent` Child indent
+- `.nav-child-indent` 子级缩进
+- `.nav-compact` Compact nav items
+- `.nav-compact` 紧凑侧边栏
+- `.nav-flat` Flat nav style
+- `.nav-flat` 平面导航式
+- `.nav-legacy` Legacy v2 nav style
+- `.nav-legacy` 传统 v2 导航样式
+- `.nav-collapse-hide-child` Hide nav item submenus on collapsed sidebar
+- `.nav-collapse-hide-child` 隐藏折叠子菜单
+> You can also use `.text-sm` on `.nav-sidebar` or `.brand-link` for smaller font.
+> 你可以在 `.nav-sidebar` 或 `.brand-link` 上使用 `.text-sm` 以获得较小的字体。
+For more infromation about the JS part of the sidebar, please visit the [PushMenu plugin page]({% link javascript/push-menu.md %})
+有关侧边栏 JS 部分的更多信息，请访问[PushMenu 插件页面](/AdminLTE/AdminLTE-3.x/docs/javascript/push-menu.html)。
+title: Miscellaneous
+title: 杂项
+AdminLTE has smaller custom classes that not related to other components are listed here.
+AdminLTE 小型自定义类与其他组件无关。
+### Text Size
+### 字体大小
+You can change the font sizes with adding to any element `.text-*` e.g. (`.text-sm`).
+你可以在元素上添加 `.text-*` 来更改字体大小，如 （`.text-sm`）。
+> You can also add `.text-sm` to `body`, with this you get a complete smaller font on the UI or can you add `.text-sm` to `.main-sidebar` or `.main-header` & `.brand-link`.
+> 你还可以将 `.text-sm` 添加到 `body` 上，从而在 UI 上获得统一的小字体，或者可以将 `.text-sm` 添加到 `.main-sidebar` 或 `.main-header`  及 `.brand-link` 上。
+### Dropdown Menu Large
+### 大下拉菜单
+You can add the `.dropdown-menu-lg` to `.dropdown-menu` for a bigger dropdown menu.
+通过将 `.dropdown-menu-lg` 添加到 `.dropdown-menu` 中以获得更大的下拉菜单。
+### Dropdown Hover
+### 下拉悬停
+You can add the `.dropdown-hover` class beside this classes:
+可以在此类旁边添加 `.dropdown-hover` 类：
+- `.dropdown` (to use hover for the whole dropdown menu)
+- `.dropdown` （将鼠标悬停在整个下拉菜单中）
+- `.dropdown-menu` (to use hover on a specific menu item & sub menus)
+- `.dropdown-menu` （在特定菜单项和子菜单上使用悬停）
+- `.dropdown-submenu` (to use hover on a specific sub menu item & sub sub menus)
+- `.dropdown-submenu` （在特定的子菜单项和子子菜单上使用悬停）
+title: Plugins
+title: 插件
+AdminLTE comes with color overrides & extras for the following plugins.
+AdminLTE 为以下插件提供了颜色样式和附加功能。
+### Bootstrap Slider
+### Bootstrap 滑块
+You can override the color for bootstrap slider tracks with the following classes:
+你可以使用以下类覆盖 Bootstrap 滑块轨道颜色：
+Example:
+示例：
+You can also change the layout of the slider with the following classes:
+你还可以使用以下类来更改滑块的布局：
+You can override the color of a iCheck checkbox/radio input, add the following class:
+你可以覆盖 iCheck 复选框/单选框的的颜色，添加以下类：
+You can override the color for all pace themes, load your desired theme and add one the following classes to `body`:
+你可以覆盖所有 pace 的主题颜色，加载所需的主题，然后将以下类之一添加到 `body` 中：
+If you use SweetAlert and load the SweetAlert CSS before AdminLTE's CSS, then the colors of any icon changes to AdminLTE's default colors.
+在你使用 SweetAlert 时，如果你在 AdminLTE CSS 之前加载了 SweetAlert CSS，那么任何图标的颜色都会更改为 AdminLTE 的默认颜色。
+If you use Toastr and load the Toastr CSS before AdminLTE's CSS, then the background colors changes to AdminLTE's default colors.
+在你使用 Toastr 时，如果你在 AdminLTE CSS 之前加载了 Toastr CSS，那么背景颜色会更改为 AdminLTE 的默认颜色。
+title: Ribbons Component
+title: 丝带组件
+The ribbons component is a easy way to display informations above any content. The `.ribbon-warpper` needs to be inside a element with _position:relative;_. In this docs page we place the ribbon always inside `<div class="position-relative p-3 bg-gray" style="height: 180px"></div>` for demo purpose but it can placed inside cards, table rows & many more.
+丝带组件是一种在任何内容上方显示信息的简便方法。`.ribbon-warpper` 必须位于具有 _position:relative;_ 的元素内。在此文档页面中，我们将丝带放在 `<div class="position-relative p-3 bg-gray" style="height: 180px"></div>` 中，也可以将其放置在卡片、表格、行等元素上。
+The ribbon comes in three sizes to display more text or use larger font sizes, default (only `.ribbon-wrapper`), large (`.ribbon-wrapper` with `.ribbon-lg`), extra large (`.ribbon-wrapper` with `.ribbon-xl`).
+丝带组件有三种大小，以显示更多文本或更大的字体，默认值（`.ribbon-wrapper`），大号（`.ribbon-wrapper` 和 `.ribbon-lg`），超大号（`.ribbon-wrapper` 和 `.ribbon-xl`）。
+##### Example Markup
+##### 标记示例
+Ribbon Default
+默认丝带
+Ribbon
+丝带
+##### Ribbon Size Variations
+##### 不同大小的丝带
+Ribbon Large
+大号丝带
+Ribbon Extra Large
+超大号丝带
+Ribbon Large
+大号丝带
+##### Text Size Variations
+##### 不同字号的丝带
+with Large Text
+的大文本
+with Extra Large Text
+的超大文本
+title: Timeline Component
+title: 时间线组件
+The timeline component displays an event history.
+时间线组件通常用于显示事件历史记录。
+You can use it for descriptions of events that occurred in a particular time section.
+你可以使用它来描述在特定时间段内发生的事。
+##### Default
+##### 默认
+Main node for this component
+该组件的主节点
+Timeline time label
+时间线时间标签
+23 Aug. 2019
+2019年8月23日
+Before each timeline item corresponds to one icon on the left scale
+每个时间线项目对应左侧刻度上的一个图标
+Timeline item
+时间线项目
+<!-- Time -->
+<!-- 时间 -->
+Header. Optional
+头部。可选
+<a href="#">Support Team</a> sent you an email
+<a href="#">支持团队</a> 给你发了一封邮件
+Placement of additional controls. Optional
+放置其他控件。可选
+Read more
+查看更多
+Delete</a>
+删除</a>
+The last icon means the story is complete
+最后一个图标表示事件已完成
+##### Extra style
+##### 附加样式
+There is an additional class for styling.
+还有一个用于设置样式的附加类。
+It darkens the elements, highlighting it against the general background.
+它使元素变暗，在大背景下突出显示。
+You can use it with adding `.timeline-inverse` to `.timeline`.
+你可以在 `.timeline` 中添加 `.timeline-inverse` 来使用它。
+... Item ...
+... 项目 ...
+title: Card Refresh Plugin
+title: 卡片刷新插件
+The card refresh plugin provides the functionality for loading ajax content into the card.
+卡片刷新插件提供将 Ajax 内容加载到卡片中的功能。
+##### Usage
+##### 用法
+This plugin can be activated as a jQuery plugin or using the data api.
+该插件可以作为 jQuery 插件或使用数据 API 激活。
+###### Data API
+###### 数据 API
+###### Data api
+###### 数据 API
+Activate the plugin by adding a button with `data-card-widget="card-refresh"` to the card and provide the required `data-source="/URL-TO-CONTENT"` option. By doing that, the plugin will automatically create a GET request to the provided URL and render the returned response the `.card-body` section of the card. If you need to process the returned response before rendering, you should use the jQuery API, which provides hooks to deal with the response.
+通过向卡片添加带有 `data-card-widget="card-refresh"` 的按钮来激活插件，并提供所需的 `data-source="/内容 URL"` 选项。这样，插件将自动创建一个对设置 URL 的 GET 请求，并将返回的内容展示在卡片的 `.card-body` 部分。如果需要在渲染之前处理返回的内容，则应使用 jQuery API，该 API 提供了用于处理响应内容的钩子。
+The jQuery API provides more customizable options that allows the developer to pre-process the request before rendering and post-process it after rendering.
+jQuery API 提供了更具可自定义的选项，允许开发人员在展示前预先处理请求，在请求之后处理返回内容。
+##### Options
+##### 选项
+| Name | Type | Default | Description
+| 名称 | 类型 | 默认 | 说明
+| source | String | '' | The URL to the source.
+| source | String | '' | 源URL。
+| sourceSelector | String | '' | A selector to get return only the content of the selector.
+| sourceSelector | String | '' | 要获取的选择器仅返回选择器内容。
+| params | Object | {} | GET query paramaters (example: {search_term: 'layout'}, which renders to URL/?search_term=layout)
+| params | Object | {} | GET 请求参数（示例：{search_term: 'layout'}， 展示为 URL/?search_term=layout）
+| trigger | String | `[data-card-widget="card-refresh"]` | The CSS selector to the refresh button
+| trigger | String | `[data-card-widget="card-refresh"]` | 刷新按钮的 CSS 选择器
+| content | String | `.card-body` | The CSS selector to the target where the content should be rendered. This selector should exist within the card.
+| content | String | `.card-body` | 展示内容的目标 CSS 选择器。该选择器应该在卡片中。
+| loadInContent | Boolean | TRUE | Whether to automatically render the content.
+| loadInContent | Boolean | TRUE | 是否自动展示。
+| loadOnInit | Boolean | TRUE | Init plugin on page load.
+| loadOnInit | Boolean | TRUE | 是否在页面加载时的初始化插件。
+| responseType | String | '' | Response type (example: 'json' or 'html')
+| responseType | String | '' | 响应类型（示例：'json' 或 'html'）
+| overlayTemplate | String | TRUE | The HTML template for the ajax spinner
+| overlayTemplate | String | TRUE | Ajax spinner 的 HTML 模板
+| onLoadStart | Function | Anonymous Function | Called before the ajax request is made
+| onLoadStart | Function | 匿名函数 | 在 ajax 请求之前调用
+| onLoadDone | Function | Anonymous Function | Called after the ajax request is made. A `response` parameter is passed to the function that hold the server response.
+| onLoadDone | Function | 匿名函数 | 发出 ajax 请求后调用。 传递的 `response` 参数将保存服务器的响应内容。
+##### Events
+##### 事件
+| Event Type | Description
+| 事件类型 | 说明
+|loaded.lte.cardrefresh | Triggered after a card is refreshed.
+|loaded.lte.cardrefresh | 刷新卡片后触发。
+|overlay.added.lte.cardrefresh | Triggered after the overlay added to the card.
+|overlay.added.lte.cardrefresh | 在模板内容添加到卡片后触发。
+|overlay.removed.lte.cardrefresh | Triggered after the overlay removed from the card.
+|overlay.removed.lte.cardrefresh | 从卡片中移除后触发。
+Example:
+示例：
+##### Methods
+##### 方法
+| Method | Description
+| 方法 | 说明
+|load | Reloads the content and runs the `onLoadStart` and `onLoadDone` hooks
+|load | 重新加载内容并运行 `onLoadStart` 和 `onLoadDone` 的钩子
+title: Card Widget Plugin
+title: 卡片小部件插件
+The card widget plugin provides the functionality for collapsing, expanding and removing a card.
+卡片小部件插件提供了折叠、展示和移除卡片的功能。
+##### Usage
+##### 用法
+This plugin provides two data-api attributes. Any element using one of the following attributes should be placed within the `.card-tools` div, which is usually in the card header. For more information about the [card HTML structure]({% link components/cards.md %}), visit the card component documentation
+该插件提供了两个 data-api 属性。任何使用以下属性之一的元素都应放在 `.card-tools` div 中，该元素通常在卡片头部。有关[卡片 HTML 结构](/AdminLTE/AdminLTE-3.x/docs/components/cards.html)的更多信息，请访问卡片组件文档
+This attribute, when attached to a button, allows the box to be collapsed/expanded when clicked.
+将此属性附加到按钮上，在点击按钮后将折叠/展开卡片。
+Collapsible Card Example
+可折叠卡片示例
+Collapse Button
+折叠按钮
+The body of the card
+这里是卡片内容
+This attribute, when attached to a button, allows the box to be removed when clicked.
+将此属性附加到按钮上，在点击按钮后将移除卡片。
+Removable Card Example
+移除卡片示例
+Remove Button
+移除按钮
+This attribute, when attached to a button, allows the box to be maximize/minimize when clicked.
+将此属性附加到按钮上，在点击按钮后将最大化/最小化卡片。
+Maximizable Card Example
+最大化卡片示例
+Maximize Button
+最大化按钮
+To activate any button using jQuery, you must provide the removeTrigger and collapseTrigger options. Otherwise, the plugin will assume the default `data-card-widget` selectors.
+要使用 jQuery 激活任何按钮，则必须提供 removeTrigger 和 crashTrigger 选项。否则，插件将默认使用 `data-card-widget` 的选择器。
+|animationSpeed | Number | 300 | Speed of slide down/up animation in milliseconds.
+|animationSpeed | Number | 300 | 上下滑动动画速度，以毫秒为单位。
+|collapseTrigger | String | `[data-card-widget="remove"]` | jQuery selector to the element responsible for collapsing the box.
+|collapseTrigger | String | `[data-card-widget="remove"]` | 负责折叠元素的 jQuery 选择器。
+|removeTrigger | String | `[data-card-widget="collapse"]` | jQuery selector to the element responsible for removing the box.
+|removeTrigger | String | `[data-card-widget="collapse"]` | 负责移除元素的 jQuery 选择器。
+|maximizeTrigger | String | `[data-card-widget="maximize"]` | jQuery selector to the element responsible for maximizing the box.
+|maximizeTrigger | String | `[data-card-widget="maximize"]` | 负责最大化元素的 jQuery 选择器。
+> You can use any option via the data-attributes like this.
+> 你可以通过数据属性使用任何选项，像这样。
+|expanded.lte.cardwidget | Triggered after a card expanded.
+|expanded.lte.cardwidget | 卡片展开后触发。
+|collapsed.lte.cardwidget | Triggered after a card collapsed.
+|collapsed.lte.cardwidget | 卡片折叠后触发。
+|maximized.lte.cardwidget | Triggered after a card maximized.
+|maximized.lte.cardwidget | 卡片最大化后触发。
+|minimized.lte.cardwidget | Triggered after a card minimized.
+|minimized.lte.cardwidget | 卡片最小化后触发。
+|removed.lte.cardwidget | Triggered after a card removed.
+|removed.lte.cardwidget | 卡片移除后触发。
+|collapse | Collapses the card
+|collapse | 折叠卡片
+|expand | Expands the card
+|expand | 展开卡片
+|remove | Removes the card
+|remove | 移除卡片
+|toggle | Toggles the state of the card between expanded and collapsed
+|toggle | 在展开和折叠卡片之间相互切换
+|maximize | Maximizes the card
+|maximize | 最大化卡片
+|minimize | Minimizes the card
+|minimize | 最小化卡片
+|toggleMaximize | Toggles the state of the card between maximized and minimized
+|toggleMaximize | 在最大化和最小化卡片之间相互切换
+`$('#my-card-widget').CardWidget('toggle')` or `$('#my-card').CardWidget('toggle')`
+`$('#my-card-widget').CardWidget('toggle')` 或 `$('#my-card').CardWidget('toggle')`
+title: Control Sidebar Plugin
+title: 控制侧边栏插件
+The control sidebar component is part of AdminLTE's layout as the right sidebar.
+右侧的控制侧边栏组件是 AdminLTE 布局的一部分。
+This plugin can be activated as a jQuery plugin or using the data api. To activate the plugin, you must first add the HTML markup to your layout, then create the toggle button as shown below.
+该插件可以作为 jQuery 插件或使用数据 API 激活。要激活插件，你必须首先将 HTML 标记添加到布局中，然后创建如下所示的切换按钮。
+###### HTML Markup
+###### HTML 标记
+Control Sidebar
+控制侧边栏
+Control sidebar content goes here
+控制侧边栏内容在这里
+Add `data-widget="control-sidebar"` to any button or a element to activate the plugin.
+将 `data-widget="control-sidebar"` 添加到任何按钮或元素上以激活插件。
+Toggle Control Sidebar
+切换控制侧边栏
+Just like all other AdminLTE plugins, you can also activate the toggle button using jQuery by running the following example.
+与其他 AdminLTE 插件一样，你可以通过运行以下 jQuery 示例来激活切换按钮。
+|controlsidebarSlide | Boolean | TRUE | Whether the sidebar should slide over the content or push the content to make space for itself.
+|controlsidebarSlide | Boolean | TRUE | 侧边栏是滑出，还是将内容推出以为其留出空间。
+|scrollbarTheme | Boolean | `os-theme-light` | Scrollbar Theme used while SideBar Fixed
+|scrollbarTheme | Boolean | `os-theme-light` | 侧边栏固定时滚动条使用的主题
+|scrollbarAutoHide | Boolean | `l` | Scrollbar auto-hide trigger
+|scrollbarAutoHide | Boolean | `l` | 滚动条自动隐藏触发器
+> You can use any option via the data-attributes like this to enable auto collapse sidebar on 768 pixels width.
+> 你可以通过数据属性来启用宽度为 768px 的自动折叠侧边栏。
+|expanded.lte.controlsidebar | Triggered after a control sidebar expands.
+|expanded.lte.controlsidebar | 在控制侧边栏展开后触发。
+|collapsed.lte.controlsidebar | Triggered after a control sidebar collapses.
+|collapsed.lte.controlsidebar | 在控制侧边栏折叠后触发。
+title: Direct Chat Plugin
+title: 聊天插件
+The direct chat plugin provides simple functionality to the direct chat component.
+聊天插件为聊天组件提供了简单的功能。
+Add `data-widget="chat-pane-toggle"` to a button to activate the plugin.
+将 `data-widget="chat-pane-toggle"` 添加到按钮上以激活插件。
+Toggle Chat Pane
+切换聊天面板
+The jQuery API provides more customizable options that allows the developer to handle checking and unchecking the todo list checkbox events.
+jQuery API 提供了更多可自定义的选项，允许开发人员处理待办事项列表中的选中和取消选事件。
+|toggle | Toggles the state of the chat pane between hidden and visible.
+|toggle | 切换隐藏或显示聊天面板。
+|toggled.lte.directchat | Triggered after a direct chat contacts pane is toggled.
+|toggled.lte.directchat | 切换聊天联系人面板后触发。
+title: Layout Plugin
+title: 布局插件
+The layout plugin manages the layout in case of css failure to reset the height or width of the content.
+如果 CSS 无法重置内容的高度或宽度，则布局插件会管理布局。
+This plugin is activated automatically upon window load.
+该插件会在窗口加载时自动激活。
+|fixLayoutHeight | Fix the content / control sidebar height and activates OverlayScrollbars for sidebar / control sidebar
+|fixLayoutHeight | 固定内容/控制侧边栏高度并激活侧边栏/控制侧边栏的 OverlayScrollbars
+title: Push Menu Plugin
+title: Push Menu 插件
+The PushMenu plugin controls the toggle button of the main sidebar.
+PushMenu 插件控制主侧边栏的切换按钮。
+Add `data-widget="pushmenu"` to a button to activate the plugin.
+将 `data-widget="pushmenu"` 添加到按钮上以激活插件。
+Toggle Sidebar</button>
+切换侧边栏</button>
+|autoCollapseSize | Boolean/Number | FALSE | Screen width in pixels to trigger auto collapse sidebar
+|autoCollapseSize | Boolean/Number | FALSE | 屏幕宽度（以像素为单位）触发自动折叠侧边栏
+|enableRemember | Boolean | FALSE | Remember sidebar state and set after page refresh.
+|enableRemember | Boolean | FALSE | 记住侧边栏状态并在页面刷新后进行设置。
+|noTransitionAfterReload | Boolean | TRUE | Hold Transition after page refresh.
+|noTransitionAfterReload | Boolean | TRUE | 刷新页面后保持转换。
+> You can use any option via the data-attributes like this to enable auto collapse sidebar on 768 pixels width.
+> 你可以通过设置的数据属性使用任何选项，像这样的，启用 768px 宽度的自动折叠侧边栏。
+|collapsed.lte.pushmenu | Fired when the sidebar collapsed.
+|collapsed.lte.pushmenu | 侧边栏折叠时触发。
+|shown.lte.pushmenu | Fired when the sidebar shown.
+|shown.lte.pushmenu | 侧边栏显示时触发。
+|toggle | Toggles the state of the menu between expanded and collapsed.
+|toggle | 折叠/展开侧边栏。
+title: Toasts Plugin
+title: Toasts 插件
+The toasts plugin provides simple functionality to create easily a bootstrap toast.
+Toasts 插件提供了简单的功能，可以轻松创建 bootstrap toast。
+This plugin can be activated as a jQuery plugin.
+该插件可以作为 jQuery 插件激活。
+'Toast Title'
+'Toast 标题'
+'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+'Lorem ipsum dolor 坐在沙发上，坐立不安。'
+|position | String | Position.TOP_RIGHT | Position of the toast, available options: `topRight`, `topLeft`, `bottomRight` & `bottomLeft`
+|position | String | Position.TOP_RIGHT | toast 位置，可用选项：`topRight`、`topLeft`、`bottomRight` 和 `bottomLeft`
+|fixed | Boolean | true | Whether to set toasts container fixed.
+|fixed | Boolean | true | 是否固定 toast 容器。
+|autohide | Boolean | false | Whether to auto hide toast
+|autohide | Boolean | false | 是否自动隐藏 toast
+|autoremove | Boolean | true | Whether to auto remove toast after closing
+|autoremove | Boolean | true | 关闭后是否自动移除 toast
+|delay | Integer | 1000 | Auto Hide delay
+|delay | Integer | 1000 | 自动隐藏延迟时间
+|fade | Boolean | true | Whether to fade toast
+|fade | Boolean | true | 是否淡化 toast
+|icon | String | null | Icon class (e.g. `fas fa-exclamation-triangle`)
+|icon | String | null | 图标类 （例如 `fas fa-exclamation-triangle`）
+|image | String | null | Image url
+|image | String | null | 图片地址
+|imageAlt | String | null | Image alt
+|imageAlt | String | null | 图片 alt
+|imageHeight | String | '25px' | Image size of toast
+|imageHeight | String | '25px' | toast 图片大小
+|title | String | null | Title of toast
+|title | String | null | toast 标题
+|subtitle | String | null | Subtitle of toast
+|subtitle | String | null | toast 子标题
+|close | Boolean | true | Whether to add close button to toast
+|close | Boolean | true | 是否在 toast 上添加关闭按钮
+|body | String | null | Body of toast
+|body | String | null | toast 内容
+|class | String | null | Additional classes for the toast
+|class | String | null | toast 的附加类
+All event are sent to `body`.
+所有事件都发送到 `body`。
+|init.lte.toasts | Fired when constructor is done
+|init.lte.toasts | 构造函数完成后触发
+|created.lte.toasts | Fired when the toast is created
+|created.lte.toasts | 创建时触发
+|removed.lte.toasts | Fired when the toast is removed
+|removed.lte.toasts | 移除时触发
+|create | Creates a toast
+|create | 创建 toast
+title: Todo List Plugin
+title: 待办事项列表插件
+The todo list plugin provides simple functionality to the todo list component.
+该插件为待办事项列表组件提供了简单的功能。
+This plugin can be activated as a jQuery plugin or using the data api.
+该插件可以作为 jQuery 插件或使用数据 API 激活。
+Activate the plugin by adding `data-widget="todo-list"` to the ul element. If you need to provide onCheck and onUncheck methods, please use the jQuery API.
+通过向 ul 元素添加 `data-widget="todo-list"` 来激活插件。如果你需要提供 onCheck 和 onUncheck 方法，请使用 jQuery API。
+// Do something when the checkbox is checked
+// 选中复选框后执行的操作
+// Do something after the checkbox has been unchecked
+// 取消选中复选框后执行的操作
+|onCheck | Function | Anonymous Function | Handle checkbox onCheck event. The checkbox is passed as parameter to the function.
+|onCheck | Function | 匿名函数 | 处理复选框 onCheck 事件。该复选框作为参数传递给函数。
+|onUnCheck | Function | Anonymous Function | Handle checkbox onUnCheck event. The checkbox is passed as parameter to the function.
+|onUnCheck | Function | 匿名函数 | 处理复选框 onUnCheck 事件。该复选框作为参数传递给函数。
+title: Treeview Plugin
+title: Treeview 插件
+The Treeview plugin converts a nested list into a tree view where sub menus can be expanded.
+Treeview 插件将嵌套列表转换为树形视图，可在其中扩展子菜单。
+Add `data-widget="treeview"` to any `ul` or `ol` element to activate the plugin.
+将 `data-widget="treeview"` 添加到任何 `ul` 或 `ol` 元素以激活插件。
+One Level</a>
+一级</a>
+Multilevel</a>
+多级</a>
+Level 2</a>
+二级</a>
+|accordion | Boolean | TRUE | Whether to collapse the open menu when expanding another.
+|accordion | Boolean | TRUE | 展开菜单时是否折叠打开的菜单。
+|trigger | String | `[data-widget="treeview"] .nav-link` |  Selector of the element that should respond to the click and result in expanding or collapsing it sibling sub menu.
+|trigger | String | `[data-widget="treeview"] .nav-link` |  响应展开或折叠菜单元素的选择器。
+|expanded.lte.treeview | Triggered after a sub menu expands.
+|expanded.lte.treeview | 子菜单展开后触发。
+|collapsed.lte.treeview | Triggered after a sub menu collapses.
+|collapsed.lte.treeview | 子菜单折叠后触发。
+|load.lte.treeview | Triggered after the plugin initialized via data api.
+|load.lte.treeview | 数据 API 初始化插件后触发。
+Introduction
+介绍
+**AdminLTE** is a fully responsive administration template. Based on **[Bootstrap 4](https://getbootstrap.com)** framework.
+**AdminLTE** 是一个完全响应式管理模板。基于 **[Bootstrap 4](https://getbootstrap.com)** 框架。
+Highly customizable and easy to use. Fits many screen resolutions from small mobile devices to large desktops.
+高度可定制且易于使用。适用于多种屏幕，小到移动设备大到台式机。
+**Preview on [AdminLTE.io](https://adminlte.io/themes/v3)**
+**在 [AdminLTE.io](/AdminLTE/AdminLTE-3.x/) 预览**
+Looking for Premium Templates?
+寻找高级模板？
+AdminLTE.io just opened a new premium templates page. Hand picked to insure the best quality and the most affordable
+AdminLTE.io 刚刚开通了一个高级模板网站，精选以确保最佳质量和最实惠的价格。
+prices. Visit https://adminlte.io/premium for more information.
+访问 https://adminlte.io/premium 了解更多信息。
+AdminLTE Presentation
+AdminLTE 演示
+**AdminLTE** has been carefully coded with clear comments in all of its JS, SCSS and HTML files.
+**AdminLTE** 所有的 JS、SCSS 和 HTML 文件均经过精心编码，并带有清晰的注释。
+SCSS has been used to increase code customizability.
+SCSS 已用于提高代码的可定制性。
+Installation
+安装
+There are multiple ways to install AdminLTE.
+有多种方法安装 AdminLTE。
+#### Download:
+#### 下载：
+Download from [Github releases](https://github.com/ColorlibHQ/AdminLTE/releases).
+下载 [Github 发行版](https://github.com/ColorlibHQ/AdminLTE/releases)。
+Using The Command Line:
+使用命令行：
+- Clone to your machine
+- 克隆到你的电脑上
+Documentation
+文档
+Visit the [online documentation](https://adminlte.io/docs/3.0/) for the most
+请访问[在线文档](/AdminLTE/AdminLTE-3.x/docs/)以获取最新的使用指南。
+updated guide. Information will be added on a weekly basis.
+信息将在每周添加一次。
+Browser Support
+浏览器支持
+(latest)
+（最新）
+Contribution
+贡献
+Contribution are always **welcome and recommended**! Here is how:
+始终**欢迎和推荐**贡献！方法如下：
+- Fork the repository ([here is the guide](https://help.github.com/articles/fork-a-repo/)).
+- Fork 存储库（[这里是指南](https://help.github.com/articles/fork-a-repo/)）。
+- Clone to your machine ```git clone https://github.com/YOUR_USERNAME/AdminLTE.git```
+- 克隆到你的电脑上 ```git clone https://github.com/YOUR_USERNAME/AdminLTE.git```
+- Create a new branch
+- 创建新分支
+- Make your changes
+- 进行更改
+- Create a pull request
+- 创建拉取请求
+Contribution Requirements:
+贡献要求：
+- When you contribute, you agree to give a non-exclusive license to AdminLTE.io to use that contribution in any context as we (AdminLTE.io) see appropriate.
+- 当您提交时，您同意授予 AdminLTE.io 非独占许可，以便在我们（AdminLTE.io）在认为适当的时候使用该贡献。
+- If you use content provided by another party, it must be appropriately licensed using an [open source](http://opensource.org/licenses) license.
+- 如果您使用第三方提供的内容，则必须使用[开源许可证](http://opensource.org/licenses)对其进行适当许可。
+- Contributions are only accepted through Github pull requests.
+- 仅通过 Github 拉取请求接受贡献。
+- Finally, contributed code must work in all supported browsers (see above for browser support).
+- 最后，贡献的代码必须适用于所有支持的浏览器（请参阅上面的浏览器支持）。
+License
+许可证
+AdminLTE is an open source project by [AdminLTE.io](https://adminlte.io) that is licensed under [MIT](http://opensource.org/licenses/MIT). AdminLTE.io
+AdminLTE 是 [AdminLTE.io](https://adminlte.io) 的开源项目，由 [MIT](http://opensource.org/licenses/MIT) 许可。
+reserves the right to change the license of future releases.
+AdminLTE.io 保留在未来更改版本许可的权利。
+Legacy Releases
+历史版本
+Change log
+更改日志
+Visit the [releases](https://github.com/ColorlibHQ/AdminLTE/releases) page to view the changelog
+访问[发布页面](https://github.com/ColorlibHQ/AdminLTE/releases)以查看更改日志。
+Image Credits
+图片来源
+https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700
+{{'assets/css/google.css?family=Source+Sans+Pro:300,400,400i,700' | absolute_url}}
+relative_url}}
+absolute_url}}
