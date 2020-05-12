@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | 多国语言</title>
+  <title>AdminLTE 3 | 表单验证</title>
   <!-- 告诉浏览器屏幕自适应 -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,15 +11,12 @@
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- flag-icon-css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.3.0/css/flag-icon.min.css">
-  <!-- overlayScrollbars -->
+  <!-- 主题样式 -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <!-- 离线 Google 字体: Source Sans Pro -->
   <link href="/AdminLTE/AdminLTE-3.x/dist/css/google.css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini">
-<!-- Site wrapper -->
 <div class="wrapper">
   <!-- 导航栏 -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -135,26 +132,6 @@
           <a href="#" class="dropdown-item dropdown-footer">查看所有通知</a>
         </div>
       </li>
-      <!-- Language Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="flag-icon flag-icon-us"></i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right p-0">
-          <a href="#" class="dropdown-item active">
-            <i class="flag-icon flag-icon-us mr-2"></i> 英语
-          </a>
-          <a href="#" class="dropdown-item">
-            <i class="flag-icon flag-icon-de mr-2"></i> 德语
-          </a>
-          <a href="#" class="dropdown-item">
-            <i class="flag-icon flag-icon-fr mr-2"></i> 法语
-          </a>
-          <a href="#" class="dropdown-item">
-            <i class="flag-icon flag-icon-es mr-2"></i> 西班牙语
-          </a>
-        </div>
-      </li>
       <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
           <i class="fas fa-th-large"></i>
@@ -177,6 +154,16 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
+      <!-- Sidebar user (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="用户头像">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Alexander Pierce</a>
+        </div>
+      </div>
+
       <!-- 侧边栏菜单 -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -362,8 +349,8 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-edit"></i>
               <p>
 表单
@@ -390,7 +377,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../forms/validation.html" class="nav-link">
+                <a href="../forms/validation.html" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>验证</p>
                 </a>
@@ -532,8 +519,8 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
 附加
@@ -578,7 +565,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../examples/language-menu.html" class="nav-link active">
+                <a href="../examples/language-menu.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>多国语言</p>
                 </a>
@@ -720,12 +707,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>多国语言</h1>
+            <h1>验证</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">首页</a></li>
-              <li class="breadcrumb-item active">多国语言</li>
+              <li class="breadcrumb-item active">验证</li>
             </ol>
           </div>
         </div>
@@ -734,35 +721,55 @@
 
     <!-- 主体内容 -->
     <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- jquery validation -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">快速示例 <small>jQuery 验证</small></h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form role="form" id="quickForm">
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">邮箱地址</label>
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="输入邮箱">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">密码</label>
+                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="密码">
+                  </div>
+                  <div class="form-group mb-0">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
+                      <label class="custom-control-label" for="exampleCheck1">我同意<a href="#">服务条款</a>.</label>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">提交</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+            </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+          <div class="col-md-6">
 
-      <!-- Default box -->
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">标题</h3>
-
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="折叠">
-              <i class="fas fa-minus"></i></button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="移除">
-              <i class="fas fa-times"></i></button>
           </div>
+          <!--/.col (right) -->
         </div>
-        <div class="card-body">
-          开始创建你的应用程序！
-        </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-底部
-        </div>
-        <!-- /.card-footer-->
-      </div>
-      <!-- /.card -->
-
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
       <b>版本</b> 3.0.2
@@ -783,9 +790,58 @@
 <script src="../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- jquery-validation -->
+<script src="../../plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="../../plugins/jquery-validation/additional-methods.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- 用于演示 AdminLTE  -->
 <script src="../../dist/js/demo.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+  $.validator.setDefaults({
+    submitHandler: function () {
+      alert( "表单提交成功！" );
+    }
+  });
+  $('#quickForm').validate({
+    rules: {
+      email: {
+        required: true,
+        email: true,
+      },
+      password: {
+        required: true,
+        minlength: 5
+      },
+      terms: {
+        required: true
+      },
+    },
+    messages: {
+      email: {
+        required: "请输入邮箱地址",
+        email: "请输入有效的邮箱地址"
+      },
+      password: {
+        required: "请提供密码",
+        minlength: "密码至少 5 个字符"
+      },
+      terms: "请接受我们的条款"
+    },
+    errorElement: 'span',
+    errorPlacement: function (error, element) {
+      error.addClass('invalid-feedback');
+      element.closest('.form-group').append(error);
+    },
+    highlight: function (element, errorClass, validClass) {
+      $(element).addClass('is-invalid');
+    },
+    unhighlight: function (element, errorClass, validClass) {
+      $(element).removeClass('is-invalid');
+    }
+  });
+});
+</script>
 </body>
 </html>

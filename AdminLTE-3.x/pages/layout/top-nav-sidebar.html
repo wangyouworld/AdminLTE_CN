@@ -1,166 +1,192 @@
 <!DOCTYPE html>
-<html>
+<!--
+这是一个入门模板页面。通过此页面从头开发新的项目。
+该页面删除了所有链接，仅提供所需的标签。
+-->
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | 多国语言</title>
-  <!-- 告诉浏览器屏幕自适应 -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <!-- Font Awesome -->
+  <title>AdminLTE 3 | 顶部导航 + 侧边栏</title>
+
+  <!-- Font Awesome 图标 -->
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- flag-icon-css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.3.0/css/flag-icon.min.css">
-  <!-- overlayScrollbars -->
+  <!-- 主题样式 -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <!-- 离线 Google 字体: Source Sans Pro -->
   <link href="/AdminLTE/AdminLTE-3.x/dist/css/google.css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition sidebar-mini">
-<!-- Site wrapper -->
+<body class="hold-transition sidebar-collapse layout-top-nav">
 <div class="wrapper">
+
   <!-- 导航栏 -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- 左侧导航栏链接 -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../index3.html" class="nav-link">首页</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">联系</a>
-      </li>
-    </ul>
+  <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
+    <div class="container">
+      <a href="../../index3.html" class="navbar-brand">
+        <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+             style="opacity: .8">
+        <span class="brand-text font-weight-light">AdminLTE 3</span>
+      </a>
 
-    <!-- 搜索表单 -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="搜索" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
+      <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+        <!-- 左侧导航栏链接 -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+          </li>
+          <li class="nav-item">
+            <a href="index3.html" class="nav-link">主页</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">联系</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">下拉菜单</a>
+            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+              <li><a href="#" class="dropdown-item">一些操作 </a></li>
+              <li><a href="#" class="dropdown-item">一些其他操作</a></li>
+
+              <li class="dropdown-divider"></li>
+
+              <!-- Level two dropdown-->
+              <li class="dropdown-submenu dropdown-hover">
+                <a id="dropdownSubMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">悬停操作</a>
+                <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow">
+                  <li>
+                    <a tabindex="-1" href="#" class="dropdown-item">2 级</a>
+                  </li>
+
+                  <!-- Level three dropdown-->
+                  <li class="dropdown-submenu">
+                    <a id="dropdownSubMenu3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">2 级</a>
+                    <ul aria-labelledby="dropdownSubMenu3" class="dropdown-menu border-0 shadow">
+                      <li><a href="#" class="dropdown-item">3 级</a></li>
+                      <li><a href="#" class="dropdown-item">3 级</a></li>
+                    </ul>
+                  </li>
+                  <!-- End Level three -->
+
+                  <li><a href="#" class="dropdown-item">2 级</a></li>
+                  <li><a href="#" class="dropdown-item">2 级</a></li>
+                </ul>
+              </li>
+              <!-- End Level two -->
+            </ul>
+          </li>
+        </ul>
+
+        <!-- 搜索表单 -->
+        <form class="form-inline ml-0 ml-md-3">
+          <div class="input-group input-group-sm">
+            <input class="form-control form-control-navbar" type="search" placeholder="搜索" aria-label="Search">
+            <div class="input-group-append">
+              <button class="btn btn-navbar" type="submit">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
-    </form>
 
-    <!-- 右侧导航栏链接 -->
-    <ul class="navbar-nav ml-auto">
-      <!-- 消息下拉菜单 -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
-            <!-- 消息开始 -->
-            <div class="media">
-              <img src="../../dist/img/user1-128x128.jpg" alt="用户头像" class="img-size-50 mr-3 img-circle">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">有空的话就打电话给我...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 小时前</p>
+      <!-- 右侧导航栏链接 -->
+      <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+        <!-- 消息下拉菜单 -->
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+            <i class="fas fa-comments"></i>
+            <span class="badge badge-danger navbar-badge">3</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <a href="#" class="dropdown-item">
+              <!-- 消息开始 -->
+              <div class="media">
+                <img src="../../dist/img/user1-128x128.jpg" alt="用户头像" class="img-size-50 mr-3 img-circle">
+                <div class="media-body">
+                  <h3 class="dropdown-item-title">
+                    Brad Diesel
+                    <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                  </h3>
+                  <p class="text-sm">有空的话就打电话给我...</p>
+                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 小时前</p>
+                </div>
               </div>
-            </div>
-            <!-- 消息结束 -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- 消息开始 -->
-            <div class="media">
-              <img src="../../dist/img/user8-128x128.jpg" alt="用户头像" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  John Pierce
-                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">我收到你的消息了</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 小时前</p>
+              <!-- 消息结束 -->
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <!-- 消息开始 -->
+              <div class="media">
+                <img src="../../dist/img/user8-128x128.jpg" alt="用户头像" class="img-size-50 img-circle mr-3">
+                <div class="media-body">
+                  <h3 class="dropdown-item-title">
+                    John Pierce
+                    <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                  </h3>
+                  <p class="text-sm">我收到你的消息了</p>
+                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 小时前</p>
+                </div>
               </div>
-            </div>
-            <!-- 消息结束 -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- 消息开始 -->
-            <div class="media">
-              <img src="../../dist/img/user3-128x128.jpg" alt="用户头像" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Nora Silvester
-                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">主题在这里</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 小时前</p>
+              <!-- 消息结束 -->
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <!-- 消息开始 -->
+              <div class="media">
+                <img src="../../dist/img/user3-128x128.jpg" alt="用户头像" class="img-size-50 img-circle mr-3">
+                <div class="media-body">
+                  <h3 class="dropdown-item-title">
+                    Nora Silvester
+                    <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                  </h3>
+                  <p class="text-sm">主题在这里</p>
+                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 小时前</p>
+                </div>
               </div>
-            </div>
-            <!-- 消息结束 -->
+              <!-- 消息结束 -->
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item dropdown-footer">查看所有消息</a>
+          </div>
+        </li>
+        <!-- 通知下拉菜单 -->
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+            <i class="far fa-bell"></i>
+            <span class="badge badge-warning navbar-badge">15</span>
           </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">查看所有消息</a>
-        </div>
-      </li>
-      <!-- 通知下拉菜单 -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 条通知</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 条新消息
-            <span class="float-right text-muted text-sm">3 分钟前</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 个好友请求
-            <span class="float-right text-muted text-sm">12 小时前</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 个新报告
-            <span class="float-right text-muted text-sm">2 天前</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">查看所有通知</a>
-        </div>
-      </li>
-      <!-- Language Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="flag-icon flag-icon-us"></i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right p-0">
-          <a href="#" class="dropdown-item active">
-            <i class="flag-icon flag-icon-us mr-2"></i> 英语
-          </a>
-          <a href="#" class="dropdown-item">
-            <i class="flag-icon flag-icon-de mr-2"></i> 德语
-          </a>
-          <a href="#" class="dropdown-item">
-            <i class="flag-icon flag-icon-fr mr-2"></i> 法语
-          </a>
-          <a href="#" class="dropdown-item">
-            <i class="flag-icon flag-icon-es mr-2"></i> 西班牙语
-          </a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
-          <i class="fas fa-th-large"></i>
-        </a>
-      </li>
-    </ul>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <span class="dropdown-header">15 条通知</span>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-envelope mr-2"></i> 4 条新消息
+              <span class="float-right text-muted text-sm">3 分钟前</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-users mr-2"></i> 8 个好友请求
+              <span class="float-right text-muted text-sm">12 小时前</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-file mr-2"></i> 3 个新报告
+              <span class="float-right text-muted text-sm">2 天前</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item dropdown-footer">查看所有通知</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
+              class="fas fa-th-large"></i></a>
+        </li>
+      </ul>
+    </div>
   </nav>
   <!-- /.navbar -->
 
@@ -177,6 +203,16 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
+      <!-- Sidebar user (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="用户头像">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Alexander Pierce</a>
+        </div>
+      </div>
+
       <!-- 侧边栏菜单 -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -220,8 +256,8 @@
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 布局选项
@@ -237,7 +273,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../layout/top-nav-sidebar.html" class="nav-link">
+                <a href="../layout/top-nav-sidebar.html" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>顶部导航 + 侧边栏</p>
                 </a>
@@ -533,7 +569,7 @@
             </ul>
           </li>
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
 附加
@@ -578,7 +614,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../examples/language-menu.html" class="nav-link active">
+                <a href="../examples/language-menu.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>多国语言</p>
                 </a>
@@ -716,68 +752,114 @@
   <!-- Content Wrapper. 包含页面内容 -->
   <div class="content-wrapper">
     <!-- 内容标题（页面标题） -->
-    <section class="content-header">
-      <div class="container-fluid">
+    <div class="content-header">
+      <div class="container">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>多国语言</h1>
-          </div>
+            <h1 class="m-0 text-dark"> 顶部导航 <small>示例 3.0</small></h1>
+          </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">首页</a></li>
-              <li class="breadcrumb-item active">多国语言</li>
+              <li class="breadcrumb-item"><a href="#">布局</a></li>
+              <li class="breadcrumb-item active">顶部导航</li>
             </ol>
-          </div>
-        </div>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
       </div><!-- /.container-fluid -->
-    </section>
+    </div>
+    <!-- /.content-header -->
 
     <!-- 主体内容 -->
-    <section class="content">
+    <div class="content">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">卡片标题</h5>
 
-      <!-- Default box -->
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">标题</h3>
+                <p class="card-text">
+                  简要内容在标题上填写，
+                  用于构建卡片标题和内容。
+                </p>
 
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="折叠">
-              <i class="fas fa-minus"></i></button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="移除">
-              <i class="fas fa-times"></i></button>
+                <a href="#" class="card-link">卡片链接</a>
+                <a href="#" class="card-link">另一个链接</a>
+              </div>
+            </div>
+
+            <div class="card card-primary card-outline">
+              <div class="card-body">
+                <h5 class="card-title">卡片标题</h5>
+
+                <p class="card-text">
+                  简要内容在标题上填写，
+                  用于构建卡片标题和内容。
+                </p>
+                <a href="#" class="card-link">卡片链接</a>
+                <a href="#" class="card-link">另一个链接</a>
+              </div>
+            </div><!-- /.card -->
           </div>
-        </div>
-        <div class="card-body">
-          开始创建你的应用程序！
-        </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-底部
-        </div>
-        <!-- /.card-footer-->
-      </div>
-      <!-- /.card -->
+          <!-- /.col-md-6 -->
+          <div class="col-lg-6">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="card-title m-0">特色</h5>
+              </div>
+              <div class="card-body">
+                <h6 class="card-title">特殊标题处理</h6>
 
-    </section>
+                <p class="card-text">支持引入其他额外内容。</p>
+                <a href="#" class="btn btn-primary">跳走</a>
+              </div>
+            </div>
+
+            <div class="card card-primary card-outline">
+              <div class="card-header">
+                <h5 class="card-title m-0">特色</h5>
+              </div>
+              <div class="card-body">
+                <h6 class="card-title">特殊标题处理</h6>
+
+                <p class="card-text">支持引入其他额外内容。</p>
+                <a href="#" class="btn btn-primary">跳走</a>
+              </div>
+            </div>
+          </div>
+          <!-- /.col-md-6 -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>版本</b> 3.0.2
-    </div>
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> 保留所有
-    权利。
-  </footer>
-
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- 控制侧边栏内容在这里 -->
+    <div class="p-3">
+      <h5>标题</h5>
+      <p>侧边栏内容</p>
+    </div>
   </aside>
   <!-- /.control-sidebar -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+      任何你想要的
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> 保留所有权利。
+  </footer>
 </div>
 <!-- ./wrapper -->
+
+<!-- 载入脚本 -->
 
 <!-- jQuery -->
 <script src="../../plugins/jquery/jquery.min.js"></script>
@@ -785,7 +867,5 @@
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
-<!-- 用于演示 AdminLTE  -->
-<script src="../../dist/js/demo.js"></script>
 </body>
 </html>

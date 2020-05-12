@@ -78,6 +78,26 @@ body,
     }
   }
 
+  body:not(.layout-fixed).layout-navbar-fixed & {
+    .main-sidebar {
+      margin-top: calc(#{$main-header-height} / -1);
+
+      .sidebar {
+        margin-top: $main-header-height;
+      }
+    }
+  }
+
+  body:not(.layout-fixed).layout-navbar-fixed.text-sm & {
+    .main-sidebar {
+      margin-top: calc(#{$main-header-height-sm} / -1);
+
+      .sidebar {
+        margin-top: $main-header-height-sm;
+      }
+    }
+  }
+
   .layout-navbar-fixed & {
     .control-sidebar {
       top: 0;
@@ -269,6 +289,26 @@ body,
         }
       }
 
+      body:not(.layout-fixed).layout#{$infix}-navbar-fixed & {
+        .main-sidebar {
+          margin-top: calc(#{$main-header-height} / -1);
+
+          .sidebar {
+            margin-top: $main-header-height;
+          }
+        }
+      }
+
+      body:not(.layout-fixed).layout#{$infix}-navbar-fixed.text-sm & {
+        .main-sidebar {
+          margin-top: calc(#{$main-header-height-sm} / -1);
+
+          .sidebar {
+            margin-top: $main-header-height-sm;
+          }
+        }
+      }
+
       .layout#{$infix}-navbar-not-fixed & {
         .brand-link {
           position: static;
@@ -352,23 +392,17 @@ body,
   .layout-top-nav & {
     margin-left: 0;
 
-    & .text-sm {
+    .main-header {    
       .brand-image {
         margin-top: -.5rem;
+        margin-right: .2rem;
+        height: 33px;
       }
     }
 
     & .main-sidebar {
       bottom: inherit;
       height: inherit;
-    }
-
-    .brand-image {
-      height: 33px;
-    }
-
-    & .main-sidebar {
-      display: none;
     }
 
     & .content-wrapper,
@@ -451,6 +485,13 @@ body:not(.sidebar-mini-md) {
     $local-sidebar-transition: margin-left $transition-speed $transition-fn, width $transition-speed $transition-fn;
     @include transition($local-sidebar-transition);
     width: $sidebar-width;
+  }
+
+  .sidebar-collapse:not(.sidebar-mini):not(.sidebar-mini-md) & {
+    &,
+    &::before {
+      box-shadow: none !important;
+    }
   }
 
   .sidebar-collapse & {

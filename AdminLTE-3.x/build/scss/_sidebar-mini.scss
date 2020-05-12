@@ -44,17 +44,38 @@
     @include sidebar-mini-breakpoint;
   }
 }
+@include media-breakpoint-down(md) {
+  .sidebar-mini.sidebar-collapse .main-sidebar {
+    box-shadow: none !important;
+  }
+}
 
 .sidebar-mini-md {
   @include media-breakpoint-up(md) {
     @include sidebar-mini-breakpoint;
   }
 }
+@include media-breakpoint-down(sm) {
+  .sidebar-mini-md.sidebar-collapse .main-sidebar {
+    box-shadow: none !important;
+  }
+}
 
 .sidebar-collapse {
+  .main-sidebar.sidebar-focused,
+  .main-sidebar:hover {
+    .nav-header {
+      display: inline-block;
+    }
+  }
+
   .sidebar-no-expand.main-sidebar.sidebar-focused,
   .sidebar-no-expand.main-sidebar:hover {
     width: $sidebar-mini-width;
+
+    .nav-header {
+      display: none;
+    }
 
     .brand-link {
       width: $sidebar-mini-width !important;
@@ -99,6 +120,18 @@
       .nav-treeview {
         .nav-icon {
           margin-left: .3rem;
+        }
+      }
+    }
+
+    .nav-flat.nav-compact {
+      .nav-icon {
+        margin-left: 1.05rem;
+      }
+
+      .nav-treeview {
+        .nav-icon {
+          margin-left: .85rem;
         }
       }
     }

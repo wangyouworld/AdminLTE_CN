@@ -555,7 +555,7 @@ Go somewhere</a>
 <p>Sidebar content</p>
 <p>侧边栏内容</p>
 Anything you want
-怎么样都行
+任何你想要的
 <!-- REQUIRED SCRIPTS -->
 <!-- 载入脚本 -->
 <title>AdminLTE 3 | Calendar</title>
@@ -2812,3 +2812,35 @@ value="保存修改"
 .daterangepicker({locale:{applyLabel: '确定',cancelLabel: '取消',customRangeLabel: '自定义范围',},
 .bootstrapDualListbox()
 .bootstrapDualListbox({filterTextClear: '显示所有', filterPlaceHolder: '筛选', moveSelectedLabel: '移动选中', moveAllLabel: '移动所有', removeSelectedLabel: '移除选中', removeAllLabel: '移除所有', infoText: '显示所有 {0}', infoTextFiltered: '<span class="badge badge-warning">筛选</span> 共 {1} 符合 {0} ', infoTextEmpty: '空列表'})
+Top Navigation + Sidebar
+顶部导航 + 侧边栏
+<p>Validation</p>
+<p>验证</p>
+Lightblue</h4>
+浅蓝色</h4>
+<span>Disabled</span>
+<span>禁用</span>
+Category 4 (COLORED, BLACK)
+类别4（彩色，黑色）
+Validation Form
+表单验证
+<h1>Validation</h1>
+<h1>验证</h1>
+Validation</li>
+验证</li>
+Quick Example <small>jQuery Validation</small>
+快速示例 <small>jQuery 验证</small>
+I agree to the <a href="#">terms of service</a>
+我同意<a href="#">服务条款</a>
+Form successful submitted!
+表单提交成功！
+Please enter a email address
+请输入邮箱地址
+Please enter a vaild email address
+请输入有效的邮箱地址
+Please provide a password
+请提供密码
+Your password must be at least 5 characters long
+密码至少 5 个字符
+Please accept our terms
+请接受我们的条款

@@ -269,6 +269,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="../layout/top-nav-sidebar.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>顶部导航 + 侧边栏</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="../layout/boxed.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>盒式布局</p>
@@ -413,6 +419,12 @@
                 <a href="../forms/editors.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>编辑器</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../forms/validation.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>验证</p>
                 </a>
               </li>
             </ul>
@@ -883,6 +895,15 @@
               </div>
               <!-- /.col -->
               <div class="col-sm-4 col-md-2">
+                <h4 class="text-center bg-lightblue">浅蓝色</h4>
+
+                <div class="color-palette-set">
+                  <div class="bg-lightblue color-palette"><span>#3c8dbc</span></div>
+                  <div class="bg-lightblue disabled color-palette"><span>禁用</span></div>
+                </div>
+              </div>
+              <!-- /.col -->
+              <div class="col-sm-4 col-md-2">
                 <h4 class="text-center bg-navy">深蓝色</h4>
 
                 <div class="color-palette-set">
@@ -1027,7 +1048,7 @@
 
                   <p>我们需要解决一个问题。
                     一种奇妙的宁静占据了我的整个灵魂，
-                    我尽情享受。</p>
+                    就像春天的早晨，我尽情享受。</p>
                 </div>
                 <div class="callout callout-info">
                   <h5>我是 info 标注！</h5>
@@ -1083,7 +1104,7 @@
                 <div class="tab-content">
                   <div class="tab-pane active" id="tab_1">
                     一种奇妙的宁静占据了我的整个灵魂，就像春天的早晨一样，
-                    我尽情享受。
+                    就像春天的早晨，我尽情享受。
                     我孤身一人，感受她存在的魅力，
                     就像为幸福而创造的。我太快乐了，我亲爱的朋友，
                     沉迷在那宁静美妙，以至于忽视了我的才华。
@@ -1672,16 +1693,16 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <dl class="dl-horizontal">
-                  <dt>Description lists</dt>
-                  <dd>A description list is perfect for defining terms.</dd>
-                  <dt>Euismod</dt>
-                  <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
-                  <dd>Donec id elit non mi porta gravida at eget metus.</dd>
-                  <dt>Malesuada porta</dt>
-                  <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
-                  <dt>Felis euismod semper eget lacinia</dt>
-                  <dd>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
+                <dl class="row">
+                  <dt class="col-sm-4">Description lists</dt>
+                  <dd class="col-sm-8">A description list is perfect for defining terms.</dd>
+                  <dt class="col-sm-4">Euismod</dt>
+                  <dd class="col-sm-8">Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+                  <dd class="col-sm-8 offset-sm-4">Donec id elit non mi porta gravida at eget metus.</dd>
+                  <dt class="col-sm-4">Malesuada porta</dt>
+                  <dd class="col-sm-8">Etiam porta sem malesuada magna mollis euismod.</dd>
+                  <dt class="col-sm-4">Felis euismod semper eget lacinia</dt>
+                  <dd class="col-sm-8">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
                     sit amet risus.
                   </dd>
                 </dl>
@@ -1701,7 +1722,7 @@
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <b>版本</b> 3.0.1
+      <b>版本</b> 3.0.2
     </div>
     <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> 保留所有
     权利。

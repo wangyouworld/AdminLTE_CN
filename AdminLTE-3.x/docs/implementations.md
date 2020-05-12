@@ -10,6 +10,7 @@ title: 集成环境
 {: .text-bold .text-dark .mt-3}
 - [Laravel-AdminLTE _v3.x_](https://github.com/jeroennoten/Laravel-AdminLTE) by [Jeroen Noten](https://github.com/jeroennoten)
 - [django-adminlte3](https://github.com/d-demirci/django-adminlte3) by [d-demirci](https://github.com/d-demirci)
+- [AdminLTE3.MVC](https://www.nuget.org/packages/AdminLTE3.MVC/) by [somaraj](https://github.com/somaraj)
 
 ##### AdminLTE v2.4
 {: .text-bold .text-dark .mt-3}

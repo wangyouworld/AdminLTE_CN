@@ -79,7 +79,7 @@ git clone https://github.com/ColorlibHQ/AdminLTE.git
 要编译 dist 文件，你需要 nodejs/npm，克隆/下载仓库，然后：
 
 1. `npm install` （安装 npm）
-2. _可选：_ `npm dev` （开发人员模式，支持实时演示、自动编译、浏览器同步）
+2. _可选：_ `npm run dev` （开发人员模式，支持实时演示、自动编译、浏览器同步）
 3. `npm run production` （编译 css/js 文件）
 
 #### 贡献要求：

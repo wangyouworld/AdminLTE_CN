@@ -134,7 +134,7 @@ title: 升级指南
     <small>控制面板</small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+    <li><a href="#"><i class="fa fa-dashboard"></i> 主页</a></li>
     <li class="active">仪表盘</li>
   </ol>
 </section>
@@ -154,7 +154,7 @@ title: 升级指南
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="#">首页</a></li>
+          <li class="breadcrumb-item"><a href="#">主页</a></li>
           <li class="breadcrumb-item active">仪表盘 v1</li>
         </ol>
       </div>
