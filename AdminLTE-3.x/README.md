@@ -1,6 +1,11 @@
 介绍
 ============
 
+[![Build Status](https://img.shields.io/travis/ColorlibHQ/AdminLTE/master.svg)](https://travis-ci.org/ColorlibHQ/AdminLTE)
+[![npm version](https://img.shields.io/npm/v/admin-lte/latest.svg)](https://www.npmjs.com/package/admin-lte)
+[![Packagist](https://img.shields.io/packagist/v/almasaeed2010/adminlte.svg)](https://packagist.org/packages/almasaeed2010/adminlte)
+[![CDNJS](https://img.shields.io/cdnjs/v/admin-lte.svg)](https://cdnjs.com/libraries/admin-lte)
+
 **AdminLTE** 是一个完全响应式管理模板。基于 **[Bootstrap 4](https://getbootstrap.com)** 框架。
 高度可定制且易于使用。适用于多种屏幕，小到移动设备大到台式机。
 
@@ -70,8 +75,14 @@ git clone https://github.com/ColorlibHQ/AdminLTE.git
 - 进行更改
 - 创建拉取请求
 
-#### 贡献要求：
+#### Compile dist files
+To compile the dist files you need nodejs/npm, clone/download the repo then:
 
+1. `npm install` (install npm deps)
+2. _Optional:_ `npm dev` (developer mode, autocompile with browsersync support for live demo)
+3. `npm run production` (compile css/js files)
+
+#### 贡献要求：
 - 当您提交时，您同意授予 AdminLTE.io 非独占许可，以便在我们（AdminLTE.io）在认为适当的时候使用该贡献。
 - 如果您使用第三方提供的内容，则必须使用[开源许可证](http://opensource.org/licenses)对其进行适当许可。
 - 仅通过 Github 拉取请求接受贡献。

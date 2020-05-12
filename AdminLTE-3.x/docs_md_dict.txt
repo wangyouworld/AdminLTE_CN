@@ -75,7 +75,7 @@ AdminLTE can be installed using multiple methods. Pick your favorite method from
 #### Download
 #### 下载
 ###### __From Github__
-###### __从 Github__
+###### __通过 Github__
 Visit the releases section on Github and download the [latest release](https://github.com/ColorlibHQ/AdminLTE/releases).
 访问 Github 上的发布页面，下载[最新版](https://github.com/ColorlibHQ/AdminLTE/releases)。
 #### Command Line
@@ -92,8 +92,8 @@ title: Layout
 title: 布局
 > ##### Tip!
 > ##### 提示！
-> The starter page is a good place to start building your app if you'd like to start from scratch.
-> 如果你想从头开始，起始页是构建应用程序的好地方。
+> The [starter page](https://adminlte.io/themes/v3/starter.html) is a good place to start building your app if you'd like to start from scratch.
+> 如果你想从头开始，[起始页](/AdminLTE/AdminLTE-3.x/starter.html)是构建应用程序的好地方。
 The layout consists of four major parts:
 布局包括 4个主要部分：
 - Wrapper `.wrapper`. A div that wraps the whole site.
@@ -1002,6 +1002,10 @@ Toggle Sidebar</button>
 |shown.lte.pushmenu | 侧边栏显示时触发。
 |toggle | Toggles the state of the menu between expanded and collapsed.
 |toggle | 折叠/展开侧边栏。
+|collapse | Collapses the sidebar menu.
+|collapse | 折叠侧边栏菜单。
+|expand | Expands the sidebar menu
+|expand | 展开侧边栏菜单。
 title: Toasts Plugin
 title: Toasts 插件
 The toasts plugin provides simple functionality to create easily a bootstrap toast.
@@ -1084,6 +1088,10 @@ Level 2</a>
 |accordion | Boolean | TRUE | 展开菜单时是否折叠打开的菜单。
 |trigger | String | `[data-widget="treeview"] .nav-link` |  Selector of the element that should respond to the click and result in expanding or collapsing it sibling sub menu.
 |trigger | String | `[data-widget="treeview"] .nav-link` |  响应展开或折叠菜单元素的选择器。
+|expandSidebar | Boolean | FALSE | Whether to expand sidebar on open menu.
+|expandSidebar | Boolean | FALSE | 是否在菜单上展开侧边栏。
+|sidebarButtonSelector | String | `[data-widget="pushmenu"]` | Selector of the sidebar button.
+|sidebarButtonSelector | String | `[data-widget="pushmenu"]` | 侧边栏按钮选择器。
 |expanded.lte.treeview | Triggered after a sub menu expands.
 |expanded.lte.treeview | 子菜单展开后触发。
 |collapsed.lte.treeview | Triggered after a sub menu collapses.
@@ -1174,3 +1182,5 @@ https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700
 {{'assets/css/google.css?family=Source+Sans+Pro:300,400,400i,700' | absolute_url}}
 relative_url}}
 absolute_url}}
+You better believe it!
+是的，确实如此！

@@ -40,6 +40,8 @@ $('ul').Treeview(options)
 |animationSpeed | Number | 300 | 上下滑动动画速度，以毫秒为单位。
 |accordion | Boolean | TRUE | 展开菜单时是否折叠打开的菜单。
 |trigger | String | `[data-widget="treeview"] .nav-link` |  响应展开或折叠菜单元素的选择器。
+|expandSidebar | Boolean | FALSE | 是否在菜单上展开侧边栏。
+|sidebarButtonSelector | String | `[data-widget="pushmenu"]` | 侧边栏按钮选择器。
 {: .table .table-bordered .bg-light}
 
 > ##### 提示！

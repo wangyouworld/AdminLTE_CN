@@ -44,7 +44,7 @@ $("#my-toggle-button").ControlSidebar('toggle');
 {: .table .table-bordered .bg-light}
 
 > ##### 提示！
-> 你可以通过设置的数据属性使用任何选项，像这样的，启用 768px 宽度的自动折叠侧边栏。
+> 你可以通过数据属性来启用宽度为 768px 的自动折叠侧边栏。
 > ```html
 > <a href="#" data-widget="control-sidebar" data-controlsidebar-slide="false">切换控制侧边栏</a>
 > ```

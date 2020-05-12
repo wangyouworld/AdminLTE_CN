@@ -41,7 +41,7 @@ title: 聊天组件
             </div>
             <img class="direct-chat-img" src="{{'assets/img/user3-128x128.jpg' | absolute_url}}" alt="消息用户图像">
             <div class="direct-chat-text">
-              You better believe it!
+              是的，确实如此！
             </div>
           </div>
           <div class="direct-chat-msg">
@@ -190,7 +190,7 @@ title: 聊天组件
             </div>
             <img class="direct-chat-img" src="{{'assets/img/user3-128x128.jpg' | absolute_url}}" alt="消息用户图像">
             <div class="direct-chat-text">
-              You better believe it!
+              是的，确实如此！
             </div>
           </div>
           <div class="direct-chat-msg">
@@ -354,7 +354,7 @@ title: 聊天组件
         <img class="direct-chat-img" src="{{'assets/img/user3-128x128.jpg' | absolute_url}}" alt="消息用户图像">
         <!-- /.direct-chat-img -->
         <div class="direct-chat-text">
-          You better believe it!
+          是的，确实如此！
         </div>
         <!-- /.direct-chat-text -->
       </div>
@@ -541,7 +541,7 @@ title: 聊天组件
             </div>
             <img class="direct-chat-img" src="{{'assets/img/user3-128x128.jpg' | absolute_url}}" alt="消息用户图像">
             <div class="direct-chat-text">
-              You better believe it!
+              是的，确实如此！
             </div>
           </div>
           <div class="direct-chat-msg">
@@ -690,7 +690,7 @@ title: 聊天组件
             </div>
             <img class="direct-chat-img" src="{{'assets/img/user3-128x128.jpg' | absolute_url}}" alt="消息用户图像">
             <div class="direct-chat-text">
-              You better believe it!
+              是的，确实如此！
             </div>
           </div>
           <div class="direct-chat-msg">

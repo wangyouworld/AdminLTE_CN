@@ -7,7 +7,7 @@ title: 介绍
 
 #### 下载
 
-###### __从 Github__
+###### __通过 Github__
 访问 Github 上的发布页面，下载[最新版](https://github.com/ColorlibHQ/AdminLTE/releases)。
 
 

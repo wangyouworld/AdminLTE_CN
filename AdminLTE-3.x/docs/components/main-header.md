@@ -22,7 +22,7 @@ title: 主标题组件
       <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-      <a href="index3.html" class="nav-link">主页</a>
+      <a href="index3.html" class="nav-link">首页</a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
       <a href="#" class="nav-link">联系</a>
@@ -155,7 +155,7 @@ title: 主标题组件
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">主页</a>
+        <a href="index3.html" class="nav-link">首页</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">联系</a>
@@ -304,7 +304,7 @@ title: 主标题组件
       <li class="nav-item">
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">主页</a>
+        <a href="index3.html" class="nav-link">首页</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">联系</a>
@@ -441,7 +441,7 @@ title: 主标题组件
         <li class="nav-item">
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="index3.html" class="nav-link">主页</a>
+          <a href="index3.html" class="nav-link">首页</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
           <a href="#" class="nav-link">联系</a>
