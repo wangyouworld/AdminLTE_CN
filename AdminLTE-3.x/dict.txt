@@ -785,7 +785,7 @@ The body of the card after card refresh
 <h3 class="card-title">Loading state</h3>
 <h3 class="card-title">加载状态</h3>
 <h3 class="card-title">Loading state (dark)</h3>
-<h3 class="card-title">加载状态（暗）</h3>
+<h3 class="card-title">加载状态（暗色）</h3>
 <h5 class="mb-2">Colors Variations</h5>
 <h5 class="mb-2">不同颜色</h5>
 <h3 class="card-title">Primary Outline</h3>
@@ -1152,8 +1152,8 @@ Request new password
 <a href="login.html">登录</a>
 Register a new membership
 注册新会员
-Invoice</title>
-发票</title>
+Invoice Print</title>
+打印发票</title>
 Invoice</li>
 发票</li>
 <h1>Invoice</h1>
@@ -1610,8 +1610,8 @@ Success checkbox
 Success 复选框
 Success radio
 Success 单选框
-Many more skins available. <a href="http://fronteed.com/iCheck/">Documentation</a>
-还有更多可用的皮肤，参见 <a href="http://fronteed.com/iCheck/">文档</a>。
+Many more skins available. <a href="https://bantikyan.github.io/icheck-bootstrap/">文档</a>
+还有更多可用的皮肤，参见 <a href="https://bantikyan.github.io/icheck-bootstrap/">文档</a>。
 Bootstrap Switch
 Bootstrap 开关
 Initialize Select2 Elements
@@ -2012,7 +2012,7 @@ Apparel PBR listicle, salvia aesthetic occupy sustainable Neutra kogi. Organic s
 不是抱恨前朝，恐惧来日，也不是今朝的重负使我们忧虑不安。
 plaid, shabby chic single-origin coffee Etsy 3 wolf moon slow-carb Schlitz roof party tousled squid
 悔恨和恐惧是劫夺我们美好今朝的孪生窃贼。</p>
-<p>vinyl. Readymade next level literally trust fund. Distillery master cleanse migas, Vice sriracha
+vinyl. Readymade next level literally trust fund. Distillery master cleanse migas, Vice sriracha
 <p>所以，不要在过道里徘徊踌躇，不要时时计算里程度日如年。去爬山吧！去吃冰激凌，去赤足奔走，畅游江河，去欣赏晚霞夕阳。
 flannel chambray chia cronut.</p>
 多一些大笑，少一些哭泣。生命如逆旅,我亦是行人——这时终点就会倏然而至。</p>
@@ -2844,3 +2844,11 @@ Your password must be at least 5 characters long
 密码至少 5 个字符
 Please accept our terms
 请接受我们的条款
+Nav Tabs Overlay for loading
+导航标签遮罩加载
+Overlay</a>
+遮罩</a>
+Overlay Dark</a>
+暗色遮罩</a>
+Normal Tab</a>
+普通标签</a>

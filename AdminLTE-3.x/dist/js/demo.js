@@ -324,7 +324,7 @@
     $body.addClass(accent_class)
   }))
 
-  $container.append('<h6>深色侧边栏颜色</h6>')
+  $container.append('<h6>暗色侧边栏颜色</h6>')
   var $sidebar_variants_dark = $('<div />', {
     'class': 'd-flex'
   })
@@ -416,4 +416,11 @@
 
     return $block
   }
+
+  $('.product-image-thumb').on('click', function() {
+    const image_element = $(this).find('img');
+    $('.product-image').prop('src', $(image_element).attr('src'))
+    $('.product-image-thumb.active').removeClass('active');
+    $(this).addClass('active');
+  });
 })(jQuery)

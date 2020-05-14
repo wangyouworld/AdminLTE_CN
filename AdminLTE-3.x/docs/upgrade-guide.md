@@ -6,6 +6,9 @@ title: 升级指南
 #### 从 v2.4.x 迁移
 将 AdminLTE v2.4.x 迁移到 v3.0 的第一步是将 Bootstrap 3 基础代码升级到 Bootstrap 4，这里的<a href="https://getbootstrap.com/docs/4.3/migration/">完整说明</a>，在你升级代码后要更新的标记。
 
+#### CSS / JS 文件
+在 AdminLTE v3.0 中 Bootstrap 4 已完全包含在 AdminLTE 的 CSS 文件中。因此你不需要加载 Bootstrap CSS 文件 `bootstrap(.min).css`，但是你需要 Bootstrap JS 文件 `bootstrap(.min).js`。
+
 ##### 主标题
 主标题中最大的更改是将 Logo 移到了主侧边栏，它现在可以切换颜色，以下是所有更改：
 
@@ -134,7 +137,7 @@ title: 升级指南
     <small>控制面板</small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> 主页</a></li>
+    <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
     <li class="active">仪表盘</li>
   </ol>
 </section>
@@ -154,7 +157,7 @@ title: 升级指南
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="#">主页</a></li>
+          <li class="breadcrumb-item"><a href="#">首页</a></li>
           <li class="breadcrumb-item active">仪表盘 v1</li>
         </ol>
       </div>

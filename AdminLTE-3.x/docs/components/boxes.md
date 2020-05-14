@@ -309,7 +309,7 @@ title: 框组件
 </div>
 
 
-你也可以使用深色加载样式，像这个代码中将 `.dark` 添加到 `.overlay` 中。
+你也可以使用暗色加载样式，像这个代码中将 `.dark` 添加到 `.overlay` 中。
 ```html
 <div class="overlay dark">
   <i class="fas fa-2x fa-sync-alt fa-spin"></i>

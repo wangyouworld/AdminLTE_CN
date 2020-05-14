@@ -17,7 +17,7 @@ title: 卡片组件
     </div>
   </div>
   <div class="card-body">
-    这里是卡片主体
+    这里是卡片内容
   </div>
   <div class="card-footer">
     这里是卡片底部
@@ -37,7 +37,7 @@ title: 卡片组件
   </div>
   <!-- /.card-header -->
   <div class="card-body">
-    这里是卡片主体
+    这里是卡片内容
   </div>
   <!-- /.card-body -->
   <div class="card-footer">
@@ -63,7 +63,7 @@ title: 卡片组件
         <h3 class="card-title">默认卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -76,7 +76,7 @@ title: 卡片组件
         <h3 class="card-title">主要卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -89,7 +89,7 @@ title: 卡片组件
         <h3 class="card-title">次要卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -102,7 +102,7 @@ title: 卡片组件
         <h3 class="card-title">成功卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -117,7 +117,7 @@ title: 卡片组件
         <h3 class="card-title">信息卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -130,7 +130,7 @@ title: 卡片组件
         <h3 class="card-title">警告卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -143,7 +143,7 @@ title: 卡片组件
         <h3 class="card-title">危险卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -153,10 +153,10 @@ title: 卡片组件
   <div class="col-sm-3">
     <div class="card card-dark">
       <div class="card-header">
-        <h3 class="card-title">灰色卡片示例</h3>
+        <h3 class="card-title">暗色卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -186,7 +186,7 @@ title: 卡片组件
         <h3 class="card-title">主要卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -199,7 +199,7 @@ title: 卡片组件
         <h3 class="card-title">次要卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -212,7 +212,7 @@ title: 卡片组件
         <h3 class="card-title">成功卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -225,7 +225,7 @@ title: 卡片组件
         <h3 class="card-title">信息卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -240,7 +240,7 @@ title: 卡片组件
         <h3 class="card-title">警告卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -253,7 +253,7 @@ title: 卡片组件
         <h3 class="card-title">危险卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -263,10 +263,10 @@ title: 卡片组件
   <div class="col-sm-3">
     <div class="card card-outline card-dark">
       <div class="card-header">
-        <h3 class="card-title">灰色卡片示例</h3>
+        <h3 class="card-title">暗色卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -296,7 +296,7 @@ title: 卡片组件
         <h3 class="card-title">主要卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -309,7 +309,7 @@ title: 卡片组件
         <h3 class="card-title">次要卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -322,7 +322,7 @@ title: 卡片组件
         <h3 class="card-title">成功卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -335,7 +335,7 @@ title: 卡片组件
         <h3 class="card-title">信息卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -350,7 +350,7 @@ title: 卡片组件
         <h3 class="card-title">警告卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -363,7 +363,7 @@ title: 卡片组件
         <h3 class="card-title">危险卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -373,10 +373,10 @@ title: 卡片组件
   <div class="col-sm-3">
     <div class="card bg-dark">
       <div class="card-header">
-        <h3 class="card-title">灰色卡片示例</h3>
+        <h3 class="card-title">暗色卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -406,7 +406,7 @@ title: 卡片组件
         <h3 class="card-title">主要卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -419,7 +419,7 @@ title: 卡片组件
         <h3 class="card-title">次要卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -432,7 +432,7 @@ title: 卡片组件
         <h3 class="card-title">成功卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -445,7 +445,7 @@ title: 卡片组件
         <h3 class="card-title">信息卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -460,7 +460,7 @@ title: 卡片组件
         <h3 class="card-title">警告卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -473,7 +473,7 @@ title: 卡片组件
         <h3 class="card-title">危险卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -483,10 +483,10 @@ title: 卡片组件
   <div class="col-sm-3">
     <div class="card bg-gradient-dark">
       <div class="card-header">
-        <h3 class="card-title">灰色卡片示例</h3>
+        <h3 class="card-title">暗色卡片示例</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="card-footer">
         这里是卡片底部
@@ -510,7 +510,7 @@ title: 卡片组件
 {: .text-bold .text-dark .mt-5}
 卡片可以包含用于部署特定事件或提供简单信息的工具。以下示例在卡片标题中使用了多个 AdminLTE 组件。
 
-AdminLTE data-widget 属性为卡片提供折叠或移除的功能。按钮位于卡片标题的工具中。
+AdminLTE data-card-widget 属性为卡片提供折叠或移除的功能。按钮位于卡片标题的工具中。
 
 ```html
 <div class="card card-primary">
@@ -519,17 +519,17 @@ AdminLTE data-widget 属性为卡片提供折叠或移除的功能。按钮位�
 
     <div class="card-tools">
       <!-- 点击后会使卡片最大化 -->
-      <button type="button" class="btn btn-tool" data-widget="maximize"><i class="fas fa-expand"></i></button>
+      <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
       <!-- 点击后会使卡片折叠 -->
-      <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fas fa-minus"></i></button>
+      <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
       <!-- 点击后会移除卡片 -->
-      <button type="button" class="btn btn-tool" data-widget="remove"><i class="fas fa-times"></i></button>
+      <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
     </div>
     <!-- /.card-tools -->
   </div>
   <!-- /.card-header -->
   <div class="card-body">
-    这里是卡片主体
+    这里是卡片内容
   </div>
   <!-- /.card-body -->
 </div>
@@ -555,7 +555,7 @@ AdminLTE data-widget 属性为卡片提供折叠或移除的功能。按钮位�
         <h3 class="card-title">载入状态</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="overlay">
         <i class="fas fa-2x fa-sync-alt fa-spin"></i>
@@ -568,7 +568,7 @@ AdminLTE data-widget 属性为卡片提供折叠或移除的功能。按钮位�
         <h3 class="card-title">载入状态</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="overlay">
         <i class="fas fa-2x fa-sync-alt fa-spin"></i>
@@ -581,7 +581,7 @@ AdminLTE data-widget 属性为卡片提供折叠或移除的功能。按钮位�
         <h3 class="card-title">载入状态</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="overlay">
         <i class="fas fa-2x fa-sync-alt fa-spin"></i>
@@ -594,7 +594,7 @@ AdminLTE data-widget 属性为卡片提供折叠或移除的功能。按钮位�
         <h3 class="card-title">载入状态</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="overlay">
         <i class="fas fa-2x fa-sync-alt fa-spin"></i>
@@ -604,7 +604,7 @@ AdminLTE data-widget 属性为卡片提供折叠或移除的功能。按钮位�
 </div>
 
 
-你也可以使用深色加载样式，像这个代码中将 `.dark` 添加到 `.overlay` 中。
+你也可以使用暗色加载样式，像这个代码中将 `.dark` 添加到 `.overlay` 中。
 ```html
 <div class="overlay dark">
   <i class="fas fa-2x fa-sync-alt fa-spin"></i>
@@ -615,10 +615,10 @@ AdminLTE data-widget 属性为卡片提供折叠或移除的功能。按钮位�
   <div class="col-md-3">
     <div class="card card-primary">
       <div class="card-header">
-        <h3 class="card-title">载入状态（灰色）</h3>
+        <h3 class="card-title">载入状态（暗色）</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="overlay dark">
         <i class="fas fa-2x fa-sync-alt fa-spin"></i>
@@ -628,10 +628,10 @@ AdminLTE data-widget 属性为卡片提供折叠或移除的功能。按钮位�
   <div class="col-md-3">
     <div class="card card-outline card-primary">
       <div class="card-header">
-        <h3 class="card-title">载入状态（灰色）</h3>
+        <h3 class="card-title">载入状态（暗色）</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="overlay dark">
         <i class="fas fa-2x fa-sync-alt fa-spin"></i>
@@ -641,10 +641,10 @@ AdminLTE data-widget 属性为卡片提供折叠或移除的功能。按钮位�
   <div class="col-md-3">
     <div class="card bg-primary">
       <div class="card-header">
-        <h3 class="card-title">载入状态（灰色）</h3>
+        <h3 class="card-title">载入状态（暗色）</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="overlay dark">
         <i class="fas fa-2x fa-sync-alt fa-spin"></i>
@@ -654,10 +654,10 @@ AdminLTE data-widget 属性为卡片提供折叠或移除的功能。按钮位�
   <div class="col-md-3">
     <div class="card bg-gradient-primary">
       <div class="card-header">
-        <h3 class="card-title">载入状态（灰色）</h3>
+        <h3 class="card-title">载入状态（暗色）</h3>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
       <div class="overlay dark">
         <i class="fas fa-2x fa-sync-alt fa-spin"></i>

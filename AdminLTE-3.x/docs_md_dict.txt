@@ -399,7 +399,7 @@ To simulate a loading state, simply place this code before the `.info-box` / `.s
 > We recommend `.fa-2x` for Info Boxes and `.fa-3x` for Small Boxes to get a nicely sized loading icon, <br> like in this documentation.
 > 对于信息框，建议使用 `.fa-2x`；对于小框，建议使用 `.fa-3x`，以获取合适尺寸的加载图标，<br>如本文档中的示例。
 You can also use a dark loading style with adding `.dark` to `.overlay` like this code.
-你也可以使用深色加载样式，像这个代码中将 `.dark` 添加到 `.overlay` 中。
+你也可以使用暗色加载样式，像这个代码中将 `.dark` 添加到 `.overlay` 中。
 title: Cards Component
 title: 卡片组件
 The card component is the most widely used component through out this template. You can use it for anything from displaying charts to just blocks of text. It comes in many different styles that we will explore below.
@@ -437,7 +437,7 @@ Warning Card Example
 Danger Card Example
 危险卡片示例
 Dark Card Example
-灰色卡片示例
+暗色卡片示例
 ###### Outline
 ###### 轮廓
 ###### Background Color
@@ -448,8 +448,8 @@ Dark Card Example
 ##### 卡片工具
 Cards can contain tools to deploy a specific event or provide simple info. The following examples makes use of multiple AdminLTE components within the header of the card.
 卡片可以包含用于部署特定事件或提供简单信息的工具。以下示例在卡片标题中使用了多个 AdminLTE 组件。
-AdminLTE data-widget attribute provides cards with the ability to collapse or be removed. The buttons are placed in the card-tools which is placed in the card-header.
-AdminLTE data-widget 属性为卡片提供折叠或移除的功能。按钮位于卡片标题的工具中。
+AdminLTE data-card-widget attribute provides cards with the ability to collapse or be removed. The buttons are placed in the card-tools which is placed in the card-header.
+AdminLTE data-card-widget 属性为卡片提供折叠或移除的功能。按钮位于卡片标题的工具中。
 Card Tools</h3>
 卡片工具</h3>
 This will cause the card to maximize when clicked
@@ -463,7 +463,7 @@ To simulate a loading state, simply place this code before the `.card` closing t
 Loading state</h3>
 载入状态</h3>
 Loading state (dark)</h3>
-载入状态（灰色）</h3>
+载入状态（暗色）</h3>
 title: Control Sidebar Component
 title: 控制侧边栏组件
 Control sidebar is the right sidebar. It can be used for many purposes and is extremely easy to create. The sidebar ships with two different show/hide styles. The first allows the sidebar to slide over the content. The second pushes the content to make space for the sidebar. Either of these methods can be set through the [Javascript options]({% link javascript/control-sidebar.md %}).
@@ -477,7 +477,7 @@ By adding the `.control-sidebar-push` to `body`, the sidebar pushes the content 
 You can also add `.control-sidebar-push-slide` to `body`, to push the content away with an transition.
 通过添加 `.control-sidebar-push-slide` 到 `body` 中 ，将会显示过渡效果将内容推开。
 ##### Dark Sidebar Markup
-##### 深色侧边栏标记
+##### 暗色侧边栏标记
 Control sidebar content goes here
 控制侧边栏内容在这里
 Content of the sidebar goes here
@@ -688,7 +688,7 @@ You can add this code above user-panel or nav-sidebar:
 - `.nav-collapse-hide-child` 隐藏折叠子菜单
 > You can also use `.text-sm` on `.nav-sidebar` or `.brand-link` for smaller font.
 > 你可以在 `.nav-sidebar` 或 `.brand-link` 上使用 `.text-sm` 以获得较小的字体。
-For more infromation about the JS part of the sidebar, please visit the [PushMenu plugin page]({% link javascript/push-menu.md %})
+For more information about the JS part of the sidebar, please visit the [PushMenu plugin page]({% link javascript/push-menu.md %})
 有关侧边栏 JS 部分的更多信息，请访问[PushMenu 插件页面](/AdminLTE/AdminLTE-3.x/docs/javascript/push-menu.html)。
 title: Miscellaneous
 title: 杂项
@@ -894,10 +894,10 @@ To activate any button using jQuery, you must provide the removeTrigger and coll
 要使用 jQuery 激活任何按钮，则必须提供 removeTrigger 和 crashTrigger 选项。否则，插件将默认使用 `data-card-widget` 的选择器。
 |animationSpeed | Number | 300 | Speed of slide down/up animation in milliseconds.
 |animationSpeed | Number | 300 | 上下滑动动画速度，以毫秒为单位。
-|collapseTrigger | String | `[data-card-widget="remove"]` | jQuery selector to the element responsible for collapsing the box.
-|collapseTrigger | String | `[data-card-widget="remove"]` | 负责折叠元素的 jQuery 选择器。
-|removeTrigger | String | `[data-card-widget="collapse"]` | jQuery selector to the element responsible for removing the box.
-|removeTrigger | String | `[data-card-widget="collapse"]` | 负责移除元素的 jQuery 选择器。
+|collapseTrigger | String | `[data-card-widget="collapse"]` | jQuery selector to the element responsible for collapsing the box.
+|collapseTrigger | String | `[data-card-widget="collapse"]` | 负责折叠元素的 jQuery 选择器。
+|removeTrigger | String | `[data-card-widget="remove"]` | jQuery selector to the element responsible for removing the box.
+|removeTrigger | String | `[data-card-widget="remove"]` | 负责移除元素的 jQuery 选择器。
 |maximizeTrigger | String | `[data-card-widget="maximize"]` | jQuery selector to the element responsible for maximizing the box.
 |maximizeTrigger | String | `[data-card-widget="maximize"]` | 负责最大化元素的 jQuery 选择器。
 > You can use any option via the data-attributes like this.
@@ -952,6 +952,10 @@ Just like all other AdminLTE plugins, you can also activate the toggle button us
 |scrollbarTheme | Boolean | `os-theme-light` | 侧边栏固定时滚动条使用的主题
 |scrollbarAutoHide | Boolean | `l` | Scrollbar auto-hide trigger
 |scrollbarAutoHide | Boolean | `l` | 滚动条自动隐藏触发器
+|panelAutoHeight | Boolean|Numeric | true | Panel Height Correction (`true` = default correction on load/resize; numeric = offset the correction on load/resize)
+|panelAutoHeight | Boolean|Numeric | true | 面板高度调整（`true` = 加载/调整大小时自动调整；数值=加载/调整大小时的高度）
+|loginRegisterAutoHeight | Boolean|Integer | true | Login & Register Height Correction (`true` = single correction on load; integer = correction with a interval based on the interger)
+|loginRegisterAutoHeight | Boolean|Integer | true | 登录和注册高度调整（`true` = 仅载入时调整；整数=指定间隔调整）
 > You can use any option via the data-attributes like this to enable auto collapse sidebar on 768 pixels width.
 > 你可以通过数据属性来启用宽度为 768px 的自动折叠侧边栏。
 |expanded.lte.controlsidebar | Triggered after a control sidebar expands.
@@ -980,6 +984,8 @@ This plugin is activated automatically upon window load.
 该插件会在窗口加载时自动激活。
 |fixLayoutHeight | Fix the content / control sidebar height and activates OverlayScrollbars for sidebar / control sidebar
 |fixLayoutHeight | 固定内容/控制侧边栏高度并激活侧边栏/控制侧边栏的 OverlayScrollbars
+|fixLoginRegisterHeight | Fix the login & register body height
+|fixLoginRegisterHeight | 修复登录和注册 body 高度
 title: Push Menu Plugin
 title: Push Menu 插件
 The PushMenu plugin controls the toggle button of the main sidebar.
@@ -1108,7 +1114,7 @@ Highly customizable and easy to use. Fits many screen resolutions from small mob
 **在 [AdminLTE.io](/AdminLTE/AdminLTE-3.x/) 预览**
 Looking for Premium Templates?
 寻找高级模板？
-AdminLTE.io just opened a new premium templates page. Hand picked to insure the best quality and the most affordable
+AdminLTE.io just opened a new premium templates page. Hand picked to ensure the best quality and the most affordable
 AdminLTE.io 刚刚开通了一个高级模板网站，精选以确保最佳质量和最实惠的价格。
 prices. Visit https://adminlte.io/premium for more information.
 访问 https://adminlte.io/premium 了解更多信息。
@@ -1194,3 +1200,69 @@ To compile the dist files you need nodejs/npm, clone/download the repo then:
 2. _可选：_ `npm run dev` （开发人员模式，支持实时演示、自动编译、浏览器同步）
 3. `npm run production` (compile css/js files)
 3. `npm run production` （编译 css/js 文件）
+#### CSS / JS Files
+#### CSS / JS 文件
+Since AdminLTE v3.0 Bootstrap 4 is complete included in AdminLTE's CSS file. You will not need to load the Bootstrap CSS file `bootstrap(.min).css`, but you will need the Bootstrap JS file `bootstrap(.min).js`.
+在 AdminLTE v3.0 中 Bootstrap 4 已完全包含在 AdminLTE 的 CSS 文件中。因此你不需要加载 Bootstrap CSS 文件 `bootstrap(.min).css`，但是你需要 Bootstrap JS 文件 `bootstrap(.min).js`。
+name: Bug report for AdminLTE v2.4.x
+名称: AdminLTE v2.4.x 错误报告
+about: Create a report to help us improve AdminLTE v2.4.x
+关于: 创建报告以帮助我们改善 AdminLTE v2.4.x
+**Describe the bug**
+**BUG 说明**
+A clear and concise description of what the bug is.
+清楚简洁地说明错误是什么。
+**To Reproduce**
+**重现**
+Steps to reproduce the behavior:
+重现问题步骤：
+1. Go to '...'
+1. 在 '...'
+2. Click on '....'
+2. 点击 '....'
+3. Scroll down to '....'
+3. 向下滚动到 '....'
+4. See error
+4. 看到错误
+**Expected behavior**
+**预期行为**
+A clear and concise description of what you expected to happen.
+对你期望得到的结果，简洁明了的描述。
+**Screenshots**
+**屏幕截图**
+If applicable, add screenshots to help explain your problem.
+如果可以，请添加屏幕截图以帮助解释你的问题。
+**Environment (please complete the following information):**
+**环境（请填写以下信息）：**
+- AdminLTE Version: [e.g. v2.4.18]
+- AdminLTE 版本：[如 v2.4.18]
+- Operating System:  [e.g. macOS Catalina]
+- 操作系统版本：[如 macOS Catalina]
+- Browser (Version): [e.g. Chrome (Latest)]
+- 浏览器（版本）：[如 Chrome（最新）]
+**Additional context**
+**相关内容**
+Add any other context about the problem here.
+在这里添加与此问题相关的内容。
+name: Feature request for AdminLTE v3.x
+name: AdminLTE v3.x 新功能
+about: Suggest an idea for this project
+about: 这个项目有一个新想法
+**Is your feature request related to a problem? Please describe.**
+**你的新想法与问题有关吗？请描述。**
+A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+清楚，简洁地说明问题所在。例如 当[...]时，我总是感到苦恼
+**Describe the solution you'd like**
+**描述你想要的解决方案**
+A clear and concise description of what you want to happen.
+简洁明了地描述你想要的。
+**Describe alternatives you've considered**
+**描述你的替代方案**
+A clear and concise description of any alternative solutions or features you've considered.
+对你使用的所有替代方案或功能的简洁描述。
+Add any other context or screenshots about the feature request here.
+在这里添加与此问题相关的内容或屏幕截图。
+name: Bug report for AdminLTE v3.x
+name: AdminLTE v3.x 错误报告
+about: Create a report to help us improve AdminLTE v3.x
+about: 创建报告以帮助我们改善 AdminLTE v3.x

@@ -1,32 +1,32 @@
 ---
-name: Bug report for AdminLTE v3.x
-about: Create a report to help us improve AdminLTE v3.x
+name: AdminLTE v3.x 错误报告
+about: 创建报告以帮助我们改善 AdminLTE v3.x
 title: "[BUG]"
 labels: type:bug, version:3.x
 assignees: ''
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**BUG 说明**
+清楚简洁地说明错误是什么。
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+**重现**
+重现问题步骤：
+1. 在 '...'
+2. 点击 '....'
+3. 向下滚动到 '....'
+4. 看到错误
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+**预期行为**
+对你期望得到的结果，简洁明了的描述。
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+**屏幕截图**
+如果可以，请添加屏幕截图以帮助解释你的问题。
 
-**Environment (please complete the following information):**
+**环境（请填写以下信息）：**
  - AdminLTE Version: [e.g. v3.0.0]
- - Operating System:  [e.g. macOS Catalina]
- - Browser (Version): [e.g. Chrome (Latest)]
+ - 操作系统版本：[如 macOS Catalina]
+ - 浏览器（版本）：[如 Chrome（最新）]
 
-**Additional context**
-Add any other context about the problem here.
+**相关内容**
+在这里添加与此问题相关的内容。

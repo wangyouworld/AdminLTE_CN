@@ -19,10 +19,10 @@ title: 主标题组件
   <!-- 左侧导航栏链接 -->
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+      <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-      <a href="index3.html" class="nav-link">主页</a>
+      <a href="index3.html" class="nav-link">首页</a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
       <a href="#" class="nav-link">联系</a>
@@ -140,7 +140,7 @@ title: 主标题组件
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
+      <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
           class="fas fa-th-large"></i></a>
     </li>
   </ul>
@@ -152,10 +152,10 @@ title: 主标题组件
     <!-- 左侧导航栏链接 -->
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">主页</a>
+        <a href="index3.html" class="nav-link">首页</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">联系</a>
@@ -273,7 +273,7 @@ title: 主标题组件
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
             class="fas fa-th-large"></i></a>
       </li>
     </ul>
@@ -304,7 +304,7 @@ title: 主标题组件
       <li class="nav-item">
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">主页</a>
+        <a href="index3.html" class="nav-link">首页</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">联系</a>
@@ -420,7 +420,7 @@ title: 主标题组件
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
             class="fas fa-th-large"></i></a>
       </li>
     </ul>
@@ -435,13 +435,12 @@ title: 主标题组件
              style="opacity: .8">
         <span class="brand-text font-weight-light">AdminLTE 3</span>
       </a>
-
       <!-- 左侧导航栏链接 -->
       <ul class="navbar-nav">
         <li class="nav-item">
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="index3.html" class="nav-link">主页</a>
+          <a href="index3.html" class="nav-link">首页</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
           <a href="#" class="nav-link">联系</a>
@@ -458,7 +457,6 @@ title: 主标题组件
           </div>
         </li>
       </ul>
-
       <!-- 搜索表单 -->
       <form class="form-inline ml-3">
         <div class="input-group input-group-sm">
@@ -470,7 +468,6 @@ title: 主标题组件
           </div>
         </div>
       </form>
-
       <!-- 右侧导航栏链接 -->
       <ul class="navbar-nav ml-auto">
         <!-- 消息下拉菜单 -->
@@ -559,7 +556,7 @@ title: 主标题组件
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
+          <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
               class="fas fa-th-large"></i></a>
         </li>
       </ul>

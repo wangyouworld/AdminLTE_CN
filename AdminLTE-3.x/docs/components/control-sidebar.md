@@ -12,7 +12,7 @@ title: 控制侧边栏组件
 通过将 `.control-sidebar-push` 添加到 `body` 中，这将会固定侧边栏，而不是覆盖内容。
 通过添加 `.control-sidebar-push-slide` 到 `body` 中 ，将会显示过渡效果将内容推开。
 
-##### 深色侧边栏标记
+##### 暗色侧边栏标记
 {: .text-bold .text-dark}
 ```html
   <!-- 控制侧边栏 -->

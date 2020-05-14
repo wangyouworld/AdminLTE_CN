@@ -1,7 +1,7 @@
 {
   "name": "admin-lte",
   "description": "Responsive open source admin dashboard and control panel.",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "license": "MIT",
   "author": "Colorlib <http://colorlib.com>",
   "main": "dist/js/adminlte.min.js",
@@ -139,7 +139,7 @@
     "eslint": "^6.7.2",
     "eslint-plugin-compat": "^3.3.0",
     "extract-text-webpack-plugin": "^3.0.2",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "node-sass-package-importer": "^5.3.2",
     "nodemon": "^1.19.4",
     "npm-run-all": "^4.1.5",

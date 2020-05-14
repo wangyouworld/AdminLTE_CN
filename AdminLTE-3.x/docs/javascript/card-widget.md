@@ -26,7 +26,7 @@ title: 卡片小部件插件
         </div>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
     </div>
   </div>
@@ -43,7 +43,7 @@ title: 卡片小部件插件
   </div>
   <!-- /.card-header -->
   <div class="card-body">
-    这里是卡片主体
+    这里是卡片内容
   </div>
   <!-- /.card-body -->
 </div>
@@ -66,7 +66,7 @@ title: 卡片小部件插件
         </div>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
     </div>
   </div>
@@ -83,7 +83,7 @@ title: 卡片小部件插件
   </div>
   <!-- /.card-header -->
   <div class="card-body">
-    这里是卡片主体
+    这里是卡片内容
   </div>
   <!-- /.card-body -->
 </div>
@@ -106,7 +106,7 @@ title: 卡片小部件插件
         </div>
       </div>
       <div class="card-body">
-        这里是卡片主体
+        这里是卡片内容
       </div>
     </div>
   </div>
@@ -123,7 +123,7 @@ title: 卡片小部件插件
   </div>
   <!-- /.card-header -->
   <div class="card-body">
-    这里是卡片主体
+    这里是卡片内容
   </div>
   <!-- /.card-body -->
 </div>
@@ -149,8 +149,8 @@ $('#my-card').CardWidget(options)
 | 名称 | 类型 | 默认 | 说明
 |-|-|-|-
 |animationSpeed | Number | 300 | 上下滑动动画速度，以毫秒为单位。
-|collapseTrigger | String | `[data-card-widget="remove"]` | 负责折叠元素的 jQuery 选择器。
-|removeTrigger | String | `[data-card-widget="collapse"]` | 负责移除元素的 jQuery 选择器。
+|collapseTrigger | String | `[data-card-widget="collapse"]` | 负责折叠元素的 jQuery 选择器。
+|removeTrigger | String | `[data-card-widget="remove"]` | 负责移除元素的 jQuery 选择器。
 |maximizeTrigger | String | `[data-card-widget="maximize"]` | 负责最大化元素的 jQuery 选择器。
 {: .table .table-bordered .bg-light}
 

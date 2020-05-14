@@ -16,6 +16,8 @@ title: 布局插件
 |-|-|-|-
 |scrollbarTheme | Boolean | `os-theme-light` | 侧边栏固定时滚动条使用的主题
 |scrollbarAutoHide | Boolean | `l` | 滚动条自动隐藏触发器
+|panelAutoHeight | Boolean|Numeric | true | 面板高度调整（`true` = 加载/调整大小时自动调整；数值=加载/调整大小时的高度）
+|loginRegisterAutoHeight | Boolean|Integer | true | 登录和注册高度调整（`true` = 仅载入时调整；整数=指定间隔调整）
 |---
 {: .table .table-bordered .bg-light}
 
@@ -33,6 +35,7 @@ title: 布局插件
 | 方法 | 说明
 |-|-
 |fixLayoutHeight | 固定内容/控制侧边栏高度并激活侧边栏/控制侧边栏的 OverlayScrollbars
+|fixLoginRegisterHeight | 修复登录和注册 body 高度
 {: .table .table-bordered .bg-light}
 
 示例： `$('body').Layout('fixLayoutHeight')`

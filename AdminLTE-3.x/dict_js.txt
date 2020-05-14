@@ -11,7 +11,7 @@ AdminLTE 演示菜单
 <h6>Accent Color Variants</h6>
 <h6>强调颜色</h6>
 <h6>Dark Sidebar Variants</h6>
-<h6>深色侧边栏颜色</h6>
+<h6>暗色侧边栏颜色</h6>
 <h6>Light Sidebar Variants</h6>
 <h6>亮色侧边栏颜色</h6>
 <h6>Brand Logo Variants</h6>

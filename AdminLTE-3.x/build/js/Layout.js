@@ -54,7 +54,9 @@ const Layout = (($) => {
 
   const Default = {
     scrollbarTheme : 'os-theme-light',
-    scrollbarAutoHide: 'l'
+    scrollbarAutoHide: 'l',
+    panelAutoHeight: true,
+    loginRegisterAutoHeight: true,
   }
 
   /**
@@ -75,7 +77,7 @@ const Layout = (($) => {
     fixLayoutHeight(extra = null) {
       let control_sidebar = 0
 
-      if ($('body').hasClass(ClassName.CONTROL_SIDEBAR_SLIDE_OPEN) || $('body').hasClass(ClassName.CONTROL_SIDEBAR_OPEN) || extra == 'control_sidebar') {
+      if ($('body').hasClass(ClassName.CONTROL_SIDEBAR_SLIDE_OPEN) || $('body').hasClass(ClassName.CONTROL_SIDEBAR_OPEN) || extra == 'control_sidebar') {
         control_sidebar = $(Selector.CONTROL_SIDEBAR_CONTENT).height()
       }
 
@@ -88,17 +90,26 @@ const Layout = (($) => {
       }
 
       const max = this._max(heights)
+      let offset = this._config.panelAutoHeight
 
-      if (max == heights.control_sidebar) {
-        $(Selector.CONTENT).css('min-height', max)
-      } else if (max == heights.window) {
-        $(Selector.CONTENT).css('min-height', max - heights.header - heights.footer)
-      } else {
-        $(Selector.CONTENT).css('min-height', max - heights.header)
+      if (offset === true) {
+        offset = 0;
+      }
+
+      if (offset !== false) {
+        if (max == heights.control_sidebar) {
+          $(Selector.CONTENT).css('min-height', (max + offset))
+        } else if (max == heights.window) {
+          $(Selector.CONTENT).css('min-height', (max + offset) - heights.header - heights.footer)
+        } else {
+          $(Selector.CONTENT).css('min-height', (max + offset) - heights.header)
+        }
       }
 
       if ($('body').hasClass(ClassName.LAYOUT_FIXED)) {
-        $(Selector.CONTENT).css('min-height', max - heights.header - heights.footer)
+        if (offset !== false) {
+          $(Selector.CONTENT).css('min-height', (max + offset) - heights.header - heights.footer)
+        }
 
         if (typeof $.fn.overlayScrollbars !== 'undefined') {
           $(Selector.SIDEBAR).overlayScrollbars({
@@ -113,11 +124,30 @@ const Layout = (($) => {
       }
     }
 
+    fixLoginRegisterHeight() {
+      if ($(Selector.LOGIN_BOX + ', ' + Selector.REGISTER_BOX).length === 0) {
+        $('body, html').css('height', 'auto')
+      } else if ($(Selector.LOGIN_BOX + ', ' + Selector.REGISTER_BOX).length !== 0) {
+        let box_height = $(Selector.LOGIN_BOX + ', ' + Selector.REGISTER_BOX).height()
+
+        if ($('body').css('min-height') !== box_height) {
+          $('body').css('min-height', box_height)
+        }
+      }
+    }
+
     // Private
 
     _init() {
       // Activate layout height watcher
       this.fixLayoutHeight()
+
+      if (this._config.loginRegisterAutoHeight === true) {      
+        this.fixLoginRegisterHeight()
+      } else if (Number.isInteger(this._config.loginRegisterAutoHeight)) {      
+        setInterval(this.fixLoginRegisterHeight, this._config.loginRegisterAutoHeight);
+      }
+
       $(Selector.SIDEBAR)
         .on('collapsed.lte.treeview expanded.lte.treeview', () => {
           this.fixLayoutHeight()
@@ -139,14 +169,6 @@ const Layout = (($) => {
       $(window).resize(() => {
         this.fixLayoutHeight()
       })
-
-      if (!$('body').hasClass(ClassName.LOGIN_PAGE) && !$('body').hasClass(ClassName.REGISTER_PAGE)) {
-        $('body, html').css('height', 'auto')
-      } else if ($('body').hasClass(ClassName.LOGIN_PAGE) || $('body').hasClass(ClassName.REGISTER_PAGE)) {
-        let box_height = $(Selector.LOGIN_BOX + ', ' + Selector.REGISTER_BOX).height()
-
-        $('body').css('min-height', box_height);
-      }
 
       $('body.hold-transition').removeClass('hold-transition')
     }
@@ -176,8 +198,10 @@ const Layout = (($) => {
           $(this).data(DATA_KEY, data)
         }
 
-        if (config === 'init' || config === '') {
+        if (config === 'init' || config === '') {
           data['_init']()
+        } else if (config === 'fixLayoutHeight' || config === 'fixLoginRegisterHeight') {
+          data[config]()
         }
       })
     }

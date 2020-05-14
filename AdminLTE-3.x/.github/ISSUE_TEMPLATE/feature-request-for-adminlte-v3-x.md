@@ -1,20 +1,20 @@
 ---
-name: Feature request for AdminLTE v3.x
-about: Suggest an idea for this project
+name: AdminLTE v3.x 新功能
+about: 这个项目有一个新想法
 title: "[FEATURE]"
 labels: type:enhancement, version:3.x
 assignees: ''
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+**你的新想法与问题有关吗？请描述。**
+清楚，简洁地说明问题所在。例如 当[...]时，我总是感到苦恼
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+**描述你想要的解决方案**
+简洁明了地描述你想要的。
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+**描述你的替代方案**
+对你使用的所有替代方案或功能的简洁描述。
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+**相关内容**
+在这里添加与此问题相关的内容或屏幕截图。
