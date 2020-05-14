@@ -1139,7 +1139,7 @@ Using The Command Line:
 Documentation
 文档
 Visit the [online documentation](https://adminlte.io/docs/3.0/) for the most
-请访问[在线文档](/AdminLTE/AdminLTE-3.x/docs/)以获取最新的使用指南。
+请访问[在线文档](https://3vshej.cn/AdminLTE/)以获取最新的使用指南。
 updated guide. Information will be added on a weekly basis.
 信息将在每周添加一次。
 Browser Support

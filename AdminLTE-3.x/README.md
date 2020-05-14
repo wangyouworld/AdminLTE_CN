@@ -54,7 +54,7 @@ git clone https://github.com/ColorlibHQ/AdminLTE.git
 
 文档
 -------------
-请访问[在线文档](/AdminLTE/AdminLTE-3.x/docs/)以获取最新的使用指南。
+请访问[在线文档](https://3vshej.cn/AdminLTE/)以获取最新的使用指南。
 信息将在每周添加一次。
 
 浏览器支持
