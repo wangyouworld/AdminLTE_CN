@@ -42,6 +42,8 @@ AdminLTE 3.0 提供了一组应用于布局的选项。这些类中的每一个�
 
 > ##### 提示！
 > 如果你想使用固定导航栏的锚点，则需要向隐藏的锚点添加 `.anchor`，例如 `<a id="testAnchor" class="anchor"></a>`。
+>
+> 要平滑滚动到锚点，你需要添加 `.scroll-smooth` 到 HTML 标记中，像 `<html class="scroll-smooth">`，否则它会直接跳转到锚点，`.scroll-smooth` 可能会导致名为 ScrollAnywhere 的 Chrome 扩展出现问题。
 {: .quote-info}
 
 

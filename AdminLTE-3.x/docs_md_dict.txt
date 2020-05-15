@@ -67,7 +67,7 @@ Thanks to many of AdminLTE users, there are multiple implementations of the temp
 > ##### Note!
 > ##### 注意！
 These implementations are not supported by ColorlibHQ. However, they do provide a good example of how to integrate AdminLTE into different frameworks. For the latest release of AdminLTE, please visit our [repository](https://github.com/ColorlibHQ/AdminLTE/) or [website](https://adminlte.io).
-ColorlibHQ 不对这些集成环境支持。但是，他们提供了将 AdminLTE 集成到不同框架中示例。有关 AdminLTE 的最新版本，请访问我们的[仓库](https://github.com/ColorlibHQ/AdminLTE/) 或[网站](https://adminlte.io)。
+ColorlibHQ 不对这些集成环境支持。但是，他们提供了将 AdminLTE 集成到不同框架中示例。有关 AdminLTE 的最新版本，请访问我们的[仓库](https://github.com/ColorlibHQ/AdminLTE/)或[网站](https://adminlte.io)。
 title: Introduction
 title: 介绍
 AdminLTE can be installed using multiple methods. Pick your favorite method from the list below. Please be sure to check the dependencies section before continuing.
@@ -1266,3 +1266,5 @@ name: Bug report for AdminLTE v3.x
 name: AdminLTE v3.x 错误报告
 about: Create a report to help us improve AdminLTE v3.x
 about: 创建报告以帮助我们改善 AdminLTE v3.x
+> To get a smooth scrolling to the anchor you need to add `.scroll-smooth` to your HTML tag like this `<html class="scroll-smooth">` otherwise it jumps directly to your anchor, `.scroll-smooth` can cause issues with a Chrome extension called ScrollAnywhere.
+> 要平滑滚动到锚点，你需要添加 `.scroll-smooth` 到 HTML 标记中，像 `<html class="scroll-smooth">`，否则它会直接跳转到锚点，`.scroll-smooth` 可能会导致名为 ScrollAnywhere 的 Chrome 扩展出现问题。

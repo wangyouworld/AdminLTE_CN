@@ -22,7 +22,7 @@ plugins:
   - jekyll-seo-tag
 
 title: AdminLTE v3 文档
-version: v3.0.3
+version: v3.0.4
 description: >- # 这意味着忽略换行符直到 "baseurl:"
   AdminLTE v3 文档
 

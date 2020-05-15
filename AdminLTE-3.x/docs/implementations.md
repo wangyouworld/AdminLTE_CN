@@ -36,5 +36,5 @@ title: 集成环境
 
 
 > ##### 注意！
-> ColorlibHQ 不对这些集成环境支持。但是，他们提供了将 AdminLTE 集成到不同框架中示例。有关 AdminLTE 的最新版本，请访问我们的[仓库](https://github.com/ColorlibHQ/AdminLTE/) 或[网站](https://adminlte.io)。
+> ColorlibHQ 不对这些集成环境支持。但是，他们提供了将 AdminLTE 集成到不同框架中示例。有关 AdminLTE 的最新版本，请访问我们的[仓库](https://github.com/ColorlibHQ/AdminLTE/)或[网站](https://adminlte.io)。
 {: .quote-danger}
