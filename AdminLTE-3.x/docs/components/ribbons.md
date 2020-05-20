@@ -163,3 +163,17 @@ title: 丝带组件
 ```
   </div>
 </div>
+
+##### 图片示例代码
+{: .text-bold .text-dark .mt-5}
+
+```html
+<div class="position-relative">
+    <img src="../../dist/img/photo1.png" alt="照片 1" class="img-fluid">
+    <div class="ribbon-wrapper ribbon-lg">
+        <div class="ribbon bg-success text-lg">
+丝带
+        </div>
+    </div>
+</div>
+```

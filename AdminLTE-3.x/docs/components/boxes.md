@@ -72,6 +72,11 @@ title: 框组件
 {: .col-md-4 .col-sm-6 .col-12}
 </div>
 
+> ##### 注意！
+> 要将内容换行，请在 info-box-text 中添加 text-wrap 类。
+> 要截断文本并显示...，请在 info-box-content 中添加 text-truncate 类。（在这里你应该添加工具提示以显示整个内容）
+{: .quote-danger}
+
 ##### 带进度条的信息框
 {: .text-bold .text-dark .mt-4}
 

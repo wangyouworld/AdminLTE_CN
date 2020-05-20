@@ -1563,9 +1563,9 @@ California (disabled)</option>
 Custom Color Variants
 自定义颜色
 Visit <a href="https://select2.github.io/">Select2 documentation</a> for more examples and information about
-获取有关插件的更多示例信息，
+访问 <a href="https://select2.github.io/">Select2 文档</a> 获取更多信息和示例。
 the plugin.
-请访问 <a href="https://select2.github.io/">Select2 文档</a>。
+&nbsp;
 (Bootstrap4 Theme)
 （Bootstrap4 主题）
 Input masks
@@ -1628,10 +1628,10 @@ Simple and fast
 简单便捷
 placeholder="Place some text here"
 placeholder="在这里填写内容"
-Editor <a href="https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg">Documentation and license
-编辑器
+Editor <a href="https://github.com/summernote/summernote">Documentation and license
+编辑器<a href="https://github.com/summernote/summernote">文档和许可证
 information.</a>
-<a href="https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg">文档和许可证信息</a>。
+信息</a>。
 // Summernote
 // 夏天的随笔
 General Form Elements
@@ -2852,3 +2852,19 @@ Overlay Dark</a>
 暗色遮罩</a>
 Normal Tab</a>
 普通标签</a>
+alt="Photo 1"
+alt="照片 1"
+alt="Photo 2"
+alt="照片 2"
+alt="Photo 3"
+alt="照片 3"
+<label>Date:</label>
+<label>日期：</label>
+Visit <a href="https://tempusdominus.github.io/bootstrap-4/Usage/">tempusdominus </a> for more examples and information about
+访问 <a href="https://tempusdominus.github.io/bootstrap-4/Usage/">tempusdominus</a>，获取更多信息和示例。
+//Date range picker
+// 日期范围选择器
+Visit <a href="https://github.com/istvan-ujjmeszaros/bootstrap-duallistbox#readme">Bootstrap Duallistbox</a> for more examples and information about
+访问 <a href="https://github.com/istvan-ujjmeszaros/bootstrap-duallistbox#readme">Bootstrap Duallistbox</a> 获取更多信息和示例。
+Many more skins available. <a href="https://bantikyan.github.io/icheck-bootstrap/">Documentation</a>
+查看<a href="https://bantikyan.github.io/icheck-bootstrap/">文档</a>获取更多皮肤。

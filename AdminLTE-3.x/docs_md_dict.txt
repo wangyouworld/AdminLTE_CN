@@ -1106,8 +1106,8 @@ Level 2</a>
 |load.lte.treeview | 数据 API 初始化插件后触发。
 Introduction
 介绍
-**AdminLTE** is a fully responsive administration template. Based on **[Bootstrap 4](https://getbootstrap.com)** framework.
-**AdminLTE** 是一个完全响应式管理模板。基于 **[Bootstrap 4](https://getbootstrap.com)** 框架。
+**AdminLTE** is a fully responsive administration template. Based on **[Bootstrap 4.4](https://getbootstrap.com)** framework and also the JS/jQuery plugin.
+**AdminLTE** 是一个完全响应式管理模板。基于 **[Bootstrap 4](https://getbootstrap.com)** 框架以及 JS/jQuery 插件。
 Highly customizable and easy to use. Fits many screen resolutions from small mobile devices to large desktops.
 高度可定制且易于使用。适用于多种屏幕，小到移动设备大到台式机。
 **Preview on [AdminLTE.io](https://adminlte.io/themes/v3)**
@@ -1268,3 +1268,15 @@ about: Create a report to help us improve AdminLTE v3.x
 about: 创建报告以帮助我们改善 AdminLTE v3.x
 > To get a smooth scrolling to the anchor you need to add `.scroll-smooth` to your HTML tag like this `<html class="scroll-smooth">` otherwise it jumps directly to your anchor, `.scroll-smooth` can cause issues with a Chrome extension called ScrollAnywhere.
 > 要平滑滚动到锚点，你需要添加 `.scroll-smooth` 到 HTML 标记中，像 `<html class="scroll-smooth">`，否则它会直接跳转到锚点，`.scroll-smooth` 可能会导致名为 ScrollAnywhere 的 Chrome 扩展出现问题。
+_**Important Note**: To install it via NPM/Yarn, you need at least Node.js 10 or higher._
+_**重要提示**：要通过 NPM/Yarn 安装，至少需要 Node.js 10 或更高版本。_
+Latest Release
+最新发布
+##### Image Example Code
+##### 图片示例代码
+alt="Photo 1"
+alt="照片 1"
+> To wrap the text in to a new line add to the info-box-text the class text-wrap.
+> 要将内容换行，请在 info-box-text 中添加 text-wrap 类。
+> To truncate the text with ... add to the info-box-content the class text-truncate. (Here you should add a tooltip to display the whole pharse)
+> 要截断文本并显示...，请在 info-box-content 中添加 text-truncate 类。（在这里你应该添加工具提示以显示整个内容）

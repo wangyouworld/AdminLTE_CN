@@ -724,7 +724,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">首页</a></li>
+              <li class="breadcrumb-item"><a href="#">主页</a></li>
               <li class="breadcrumb-item active">高级表单</li>
             </ol>
           </div>
@@ -850,8 +850,8 @@
           </div>
           <!-- /.card-body -->
           <div class="card-footer">
-            获取有关插件的更多示例信息，
-            请访问 <a href="https://select2.github.io/">Select2 文档</a>。
+            访问 <a href="https://select2.github.io/">Select2 文档</a> 获取更多信息和示例。
+            &nbsp;
           </div>
         </div>
         <!-- /.card -->
@@ -933,8 +933,8 @@
           </div>
           <!-- /.card-body -->
           <div class="card-footer">
-            获取有关插件的更多示例信息，
-            请访问 <a href="https://select2.github.io/">Select2 文档</a>。
+            访问 <a href="https://select2.github.io/">Select2 文档</a> 获取更多信息和示例。
+            &nbsp;
           </div>
         </div>
         <!-- /.card -->
@@ -972,8 +972,8 @@
           </div>
           <!-- /.card-body -->
           <div class="card-footer">
-            获取有关插件的更多示例信息，
-            请访问 <a href="https://select2.github.io/">Select2 文档</a>。
+            访问 <a href="https://github.com/istvan-ujjmeszaros/bootstrap-duallistbox#readme">Bootstrap Duallistbox</a> 获取更多信息和示例。
+            &nbsp;
           </div>
         </div>
         <!-- /.card -->
@@ -1115,6 +1115,17 @@
                 <h3 class="card-title">日期选择器</h3>
               </div>
               <div class="card-body">
+                <!-- Date -->
+                <div class="form-group">
+                  <label>日期：</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate"/>
+                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.form group -->
                 <!-- Date range -->
                 <div class="form-group">
                   <label>日期范围：</label>
@@ -1157,8 +1168,11 @@
                   </div>
                 </div>
                 <!-- /.form group -->
-
               </div>
+                <div class="card-footer">
+                  访问 <a href="https://tempusdominus.github.io/bootstrap-4/Usage/">tempusdominus</a>，获取更多信息和示例。
+                  &nbsp;
+                </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
@@ -1307,7 +1321,7 @@
               </div>
               <!-- /.card-body -->
               <div class="card-footer">
-                Many more skins available. <a href="https://bantikyan.github.io/icheck-bootstrap/">Documentation</a>
+                查看<a href="https://bantikyan.github.io/icheck-bootstrap/">文档</a>获取更多皮肤。
               </div>
             </div>
             <!-- /.card -->
@@ -1334,7 +1348,7 @@
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <b>版本</b> 3.0.4
+      <b>版本</b> 3.0.5
     </div>
     <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> 保留所有
     权利。
@@ -1389,9 +1403,13 @@
     // 欧元
     $('[data-mask]').inputmask()
 
-    //日期范围选择器
+    // 日期范围选择器
+    $('#reservationdate').datetimepicker({
+        format: 'L'
+    });
+    // 日期范围选择器
     $('#reservation').daterangepicker()
-    //日期范围选择器 with time picker
+    // 日期范围选择器 with time picker
     $('#reservationtime').daterangepicker({locale:{applyLabel: '确定',cancelLabel: '取消',customRangeLabel: '自定义范围',},locale:{applyLabel: '确定',cancelLabel: '取消',customRangeLabel: '自定义范围',},
       timePicker: true,
       timePickerIncrement: 30,

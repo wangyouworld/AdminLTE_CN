@@ -183,6 +183,9 @@
 
   .nav-link p {
     display: inline-block;
+    animation-name: fadeIn;
+    animation-duration: $transition-speed;
+    animation-fill-mode: both;
     margin: 0;
   }
 }
@@ -818,13 +821,17 @@
 .nav-collapse-hide-child {
   .menu-open > .nav-treeview {
     max-height: min-content;
-    opacity: 1;
+    animation-name: fadeIn;
+    animation-duration: $transition-speed;
+    animation-fill-mode: both;
   }
 
   .sidebar-collapse & {
     .menu-open > .nav-treeview {
       max-height: 0;
-      opacity: 0;
+      animation-name: fadeOut;
+      animation-duration: $transition-speed;
+      animation-fill-mode: both;
     }
   }
 
@@ -834,7 +841,9 @@
   .sidebar-mini-md.sidebar-collapse .main-sidebar:hover & {
     .menu-open > .nav-treeview {
       max-height: min-content;
-      opacity: 1;
+      animation-name: fadeIn;
+      animation-duration: $transition-speed;
+      animation-fill-mode: both;
     }
   }
 }
@@ -907,5 +916,27 @@
 
   .btn-sidebar:focus {
     background: darken($sidebar-light-bg, 10%);
+  }
+}
+
+// Sidebar inline input-group fix
+.sidebar .form-inline .input-group {
+  width: 100%;
+}
+.sidebar nav .form-inline {
+  margin-bottom: .2rem;
+}
+
+// Sidebar Collapse on Layout Boxed
+
+.layout-boxed {
+  &.sidebar-collapse .main-sidebar {
+    margin-left: 0;
+  }
+  .content-wrapper, 
+  .main-header,
+  .main-footer {
+    z-index: 9999;
+    position: relative;
   }
 }

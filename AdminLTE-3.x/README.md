@@ -1,12 +1,11 @@
 介绍
 ============
 
-[![Build Status](https://img.shields.io/travis/ColorlibHQ/AdminLTE/master.svg)](https://travis-ci.org/ColorlibHQ/AdminLTE)
 [![npm version](https://img.shields.io/npm/v/admin-lte/latest.svg)](https://www.npmjs.com/package/admin-lte)
 [![Packagist](https://img.shields.io/packagist/v/almasaeed2010/adminlte.svg)](https://packagist.org/packages/almasaeed2010/adminlte)
 [![CDNJS](https://img.shields.io/cdnjs/v/admin-lte.svg)](https://cdnjs.com/libraries/admin-lte)
 
-**AdminLTE** 是一个完全响应式管理模板。基于 **[Bootstrap 4](https://getbootstrap.com)** 框架。
+**AdminLTE** 是一个完全响应式管理模板。基于 **[Bootstrap 4](https://getbootstrap.com)** 框架以及 JS/jQuery 插件。
 高度可定制且易于使用。适用于多种屏幕，小到移动设备大到台式机。
 
 **在 [AdminLTE.io](/AdminLTE/AdminLTE-3.x/) 预览**
@@ -30,6 +29,8 @@ SCSS 已用于提高代码的可定制性。
 下载 [Github 发行版](https://github.com/ColorlibHQ/AdminLTE/releases)。
 
 #### 使用命令行：
+
+_**重要提示**：要通过 NPM/Yarn 安装，至少需要 Node.js 10 或更高版本。_
 
 __通过 NPM__
 ```bash
@@ -64,6 +65,7 @@ git clone https://github.com/ColorlibHQ/AdminLTE.git
 - Chrome （最新）
 - Safari （最新）
 - Opera （最新）
+- Microsoft Edge （最新）
 
 贡献
 ------------
@@ -92,6 +94,10 @@ git clone https://github.com/ColorlibHQ/AdminLTE.git
 -------
 AdminLTE 是 [AdminLTE.io](https://adminlte.io) 的开源项目，由 [MIT](http://opensource.org/licenses/MIT) 许可。
 AdminLTE.io 保留在未来更改版本许可的权利。
+
+最新发布
+---------------
+- [AdminLTE 3](https://github.com/ColorlibHQ/AdminLTE/releases/latest)
 
 历史版本
 ---------------
