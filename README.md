@@ -81,24 +81,34 @@ php bat_trans.php -c=start>trans.log
 如果你不需要这些，在字典中删除相应项，并重新生成，即可。
 
 **dict.txt**
+
 /AdminLTE/AdminLTE-3.x/docs
+
 /AdminLTE/AdminLTE-3.x/dist/css/google.css
+
 /AdminLTE/AdminLTE-3.x/plugins/datatables/Chinese.json
+
 jsgrid/i18n/jsgrid-zh-cn.js
+
 /plugins/fullcalendar/locales/zh-cn.js
 
 **docs_dict.txt**
+
 /AdminLTE/AdminLTE-3.x/dist/css/google.css
+
 /AdminLTE/AdminLTE-2.4/
+
 /AdminLTE/AdminLTE-2.3.11/
 
 **/dist/css/AdminLTE.min.css**
+
 文件改名为：adminlte.min.css
 
 
 生成你的文档时，更新 docs/_config.yml，如：
 
 baseurl: /AdminLTE/AdminLTE-3.x/docs
+
 url: https://3vshej.cn
 
 
