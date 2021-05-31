@@ -34,13 +34,17 @@
     position: fixed;
     top: 0;
     width: 100% !important;
-    z-index: 9999;
+    z-index: $zindex-modal-backdrop;
 
     &.was-collapsed .card-body {
       display: block !important;
     }
 
-    [data-widget='collapse'] {
+    .card-body {
+      overflow: auto;
+    }
+
+    [data-card-widgett="collapse"] {
       display: none;
     }
 
@@ -87,12 +91,12 @@
 
   &.card-tabs {
     &:not(.card-outline) {
-      & > .card-header {
+      > .card-header {
         border-bottom: 0;
 
         .nav-item {
           &:first-child .nav-link {
-            margin-left: -1px;
+            border-left-color: transparent;
           }
         }
       }
@@ -202,7 +206,7 @@ html.maximized-card {
 .card-header,
 .card-body,
 .card-footer {
-  @include clearfix;
+  @include clearfix ();
 }
 
 // Box header
@@ -231,7 +235,7 @@ html.maximized-card {
       margin-top: -$card-spacer-y / 2.5;
     }
 
-    [data-toggle='tooltip'] {
+    [data-toggle="tooltip"] {
       position: relative;
     }
   }
@@ -251,7 +255,7 @@ html.maximized-card {
 
 // Box Tools Buttons
 .btn-tool {
-  background: transparent;
+  background-color: transparent;
   color: $gray-500;
   font-size: $font-size-sm;
   margin: -(($card-spacer-y / 2) * 2) 0;
@@ -310,7 +314,7 @@ html.maximized-card {
 }
 
 .chart-legend {
-  @include list-unstyled;
+  @include list-unstyled ();
   margin: 10px 0;
 
   > li {
@@ -323,10 +327,10 @@ html.maximized-card {
 
 // Comment Box
 .card-comments {
-  background: $gray-100;
+  background-color: $gray-100;
 
   .card-comment {
-    @include clearfix;
+    @include clearfix ();
     border-bottom: 1px solid $gray-200;
     padding: 8px 0;
 
@@ -375,7 +379,7 @@ html.maximized-card {
   // Todo list element
   > li {
     @include border-radius(2px);
-    background: $gray-100;
+    background-color: $gray-100;
     border-left: 2px solid $gray-200;
     color: $gray-700;
     margin-bottom: 2px;
@@ -385,7 +389,7 @@ html.maximized-card {
       margin-bottom: 0;
     }
 
-    > input[type='checkbox'] {
+    > input[type="checkbox"] {
       margin: 0 10px 0 5px;
     }
 
@@ -403,7 +407,7 @@ html.maximized-card {
 
     // Tools and options box
     .tools {
-      color: theme-color('danger');
+      color: theme-color("danger");
       display: none;
       float: right;
 
@@ -412,7 +416,9 @@ html.maximized-card {
       > .fas,
       > .far,
       > .fab,
-      > .glyphicon,
+      > .fal,
+      > .fad,
+      > .svg-inline--fa,
       > .ion {
         cursor: pointer;
         margin-right: 5px;
@@ -432,7 +438,7 @@ html.maximized-card {
       }
 
       .badge {
-        background: $gray-500 !important;
+        background-color: $gray-500 !important;
       }
     }
   }
@@ -469,6 +475,71 @@ html.maximized-card {
   .nav-item {
     &:first-child .nav-link {
       border-left: 0;
+    }
+  }
+}
+
+.dark-mode {
+
+  // Color variants
+  @each $name, $color in $theme-colors-alt {
+    @include cards-variant($name, $color);
+  }
+
+  @each $name, $color in $colors-alt {
+    @include cards-variant($name, $color);
+  }
+
+  .card {
+    background-color: $dark;
+    color: $white;
+
+    .card {
+      background-color: lighten($dark, 5%);
+      color: $white;
+    }
+    .nav.flex-column > li {
+      border-bottom-color: $gray-600;
+    }
+    .card-footer {
+      background-color: rgba($black, .1);
+    }
+    &.card-outline-tabs .card-header a:hover {
+      border-color: $gray-600;
+      border-bottom-color: transparent;
+    }
+    &:not(.card-outline) > .card-header a.active {
+      color: $white;
+    }
+  }
+
+  .card-comments {
+    background-color: lighten($dark, 1.25%);
+    .username {
+      color: $gray-400;
+    }
+    .card-comment {
+      border-bottom-color: lighten($dark, 7.5%);
+    }
+  }
+
+  .todo-list > li {
+    background-color: lighten($dark, 5%);
+    border-color: lighten($dark, 7.5%);
+    color: $white;
+  }
+
+  .todo-list {
+    @each $name, $color in $theme-colors-alt {
+      .#{$name} {
+        border-left-color: $color;
+      }
+    }
+
+    @each $name, $color in $colors-alt {
+      .#{$name} {
+        border-left-color: $color;
+      }
     }
   }
 }

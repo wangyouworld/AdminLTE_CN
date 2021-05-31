@@ -1,5 +1,6 @@
-$(function () {
+/* global Chart:false */
 
+$(function () {
   'use strict'
 
   /* ChartJS
@@ -8,108 +9,110 @@ $(function () {
    */
 
   //-----------------------
-  //- 月销售额图表 -
+  // - 月销售额图表 -
   //-----------------------
 
   // 使用 jQuery .get() 方法获取内容。
   var salesChartCanvas = $('#salesChart').get(0).getContext('2d')
 
   var salesChartData = {
-    labels  : ['一月', '二月', '三月', '四月', '五月', '六月', '七月'],
+    labels: ['一月', '二月', '三月', '四月', '五月', '六月', '七月'],
     datasets: [
       {
-        label               : '数字商品',
-        backgroundColor     : 'rgba(60,141,188,0.9)',
-        borderColor         : 'rgba(60,141,188,0.8)',
-        pointRadius          : false,
-        pointColor          : '#3b8bba',
-        pointStrokeColor    : 'rgba(60,141,188,1)',
-        pointHighlightFill  : '#fff',
+        label: '数字商品',
+        backgroundColor: 'rgba(60,141,188,0.9)',
+        borderColor: 'rgba(60,141,188,0.8)',
+        pointRadius: false,
+        pointColor: '#3b8bba',
+        pointStrokeColor: 'rgba(60,141,188,1)',
+        pointHighlightFill: '#fff',
         pointHighlightStroke: 'rgba(60,141,188,1)',
-        data                : [28, 48, 40, 19, 86, 27, 90]
+        data: [28, 48, 40, 19, 86, 27, 90]
       },
       {
-        label               : '电子产品',
-        backgroundColor     : 'rgba(210, 214, 222, 1)',
-        borderColor         : 'rgba(210, 214, 222, 1)',
-        pointRadius         : false,
-        pointColor          : 'rgba(210, 214, 222, 1)',
-        pointStrokeColor    : '#c1c7d1',
-        pointHighlightFill  : '#fff',
+        label: '电子产品',
+        backgroundColor: 'rgba(210, 214, 222, 1)',
+        borderColor: 'rgba(210, 214, 222, 1)',
+        pointRadius: false,
+        pointColor: 'rgba(210, 214, 222, 1)',
+        pointStrokeColor: '#c1c7d1',
+        pointHighlightFill: '#fff',
         pointHighlightStroke: 'rgba(220,220,220,1)',
-        data                : [65, 59, 80, 81, 56, 55, 40]
-      },
+        data: [65, 59, 80, 81, 56, 55, 40]
+      }
     ]
   }
 
   var salesChartOptions = {
-    maintainAspectRatio : false,
-    responsive : true,
+    maintainAspectRatio: false,
+    responsive: true,
     legend: {
       display: false
     },
     scales: {
       xAxes: [{
-        gridLines : {
-          display : false,
+        gridLines: {
+          display: false
         }
       }],
       yAxes: [{
-        gridLines : {
-          display : false,
+        gridLines: {
+          display: false
         }
       }]
     }
   }
 
   // 这将获取 jQuery 中的第一个返回的节点。
+  // eslint-disable-next-line no-unused-vars
   var salesChart = new Chart(salesChartCanvas, {
-      type: 'line',
-      data: salesChartData,
-      options: salesChartOptions
-    }
+    type: 'line',
+    data: salesChartData,
+    options: salesChartOptions
+  }
   )
 
   //---------------------------
-  //- 月销售额图表结束 -
+  // - 月销售额图表结束 -
   //---------------------------
 
   //-------------
-  //- 饼形图 -
+  // - 饼形图 -
   //-------------
   // 使用 jQuery .get() 方法获取内容。
-    var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
-    var pieData        = {
-      labels: [
-          'Chrome',
-          'IE',
-          'FireFox',
-          'Safari',
-          'Opera',
-          'Navigator',
-      ],
-      datasets: [
-        {
-          data: [700,500,400,600,300,100],
-          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
-        }
-      ]
-    }
-    var pieOptions     = {
-      legend: {
-        display: false
+  var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+  var pieData = {
+    labels: [
+      'Chrome',
+      'IE',
+      'FireFox',
+      'Safari',
+      'Opera',
+      'Navigator'
+    ],
+    datasets: [
+      {
+        data: [700, 500, 400, 600, 300, 100],
+        backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de']
       }
+    ]
+  }
+  var pieOptions = {
+    legend: {
+      display: false
     }
-    // 创建饼形图或圆环图
-    // 你可以使用以下方法在此之间进行切换。
-    var pieChart = new Chart(pieChartCanvas, {
-      type: 'doughnut',
-      data: pieData,
-      options: pieOptions
-    })
+  }
+  // 创建饼形图或环形图
+  // 你可以使用以下方法在此之间进行切换。
+  // eslint-disable-next-line no-unused-vars
+  var pieChart = new Chart(pieChartCanvas, {
+    type: 'doughnut',
+    data: pieData,
+    options: pieOptions
+  })
 
   //-----------------
-  //- 结束饼形图 -
+  // - 结束饼形图 -
   //-----------------
 
   /* jVector 地图
@@ -117,15 +120,14 @@ $(function () {
    * 使用用标记创建世界地图
    */
   $('#world-map-markers').mapael({
-      map: {
-        name : "usa_states",
-        zoom: {
-          enabled: true,
-          maxLevel: 10
-        },
-      },
+    map: {
+      name: 'usa_states',
+      zoom: {
+        enabled: true,
+        maxLevel: 10
+      }
     }
-  );
+  })
 
   // $('#world-map-markers').vectorMap({
   //   map              : 'world_en',
@@ -263,5 +265,6 @@ $(function () {
   //     }
   //   ]
   // })
-
 })
+
+// lgtm [js/unused-local-variable]

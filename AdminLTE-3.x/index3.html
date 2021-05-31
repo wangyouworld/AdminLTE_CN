@@ -3,28 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-
   <title>AdminLTE 3 | 仪表盘 3</title>
 
+  <!-- 离线 Google 字体: Source Sans Pro -->
+  <link rel="stylesheet" href="/AdminLTE/AdminLTE-3.x/dist/css/google.css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome 图标 -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- 使用 BootCDN 的 IonIcons -->
   <link rel="stylesheet" href="https://cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- 主题样式 -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
-  <!-- 离线 Google 字体: Source Sans Pro -->
-  <link href="/AdminLTE/AdminLTE-3.x/dist/css/google.css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <!--
-BODY 标签选项：
-=================
-将以下一个或多个类
-应用到 body 标签以获得所需效果
-|---------------------------------------------------------|
-|布局      选项 | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
+`body` 标签选项：
+
+  将以下一个或多个类
+  应用到 body 标签以获得所需效果
+
+  * sidebar-collapse
+  * sidebar-mini
 -->
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -43,20 +40,30 @@ BODY 标签选项：
       </li>
     </ul>
 
-    <!-- 搜索表单 -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="搜索" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-
     <!-- 右侧导航栏链接 -->
     <ul class="navbar-nav ml-auto">
+      <!-- Navbar Search -->
+      <li class="nav-item">
+        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+          <i class="fas fa-search"></i>
+        </a>
+        <div class="navbar-search-block">
+          <form class="form-inline">
+            <div class="input-group input-group-sm">
+              <input class="form-control form-control-navbar" type="search" placeholder="搜索" aria-label="Search">
+              <div class="input-group-append">
+                <button class="btn btn-navbar" type="submit">
+                  <i class="fas fa-search"></i>
+                </button>
+                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </li>
+
       <!-- 消息下拉菜单 -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -143,8 +150,14 @@ BODY 标签选项：
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
-            class="fas fa-th-large"></i></a>
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+          <i class="fas fa-th-large"></i>
+        </a>
       </li>
     </ul>
   </nav>
@@ -154,8 +167,7 @@ BODY 标签选项：
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- 品牌 Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-           style="opacity: .8">
+      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
 
@@ -171,16 +183,28 @@ BODY 标签选项：
         </div>
       </div>
 
+      <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="搜索" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
       <!-- 侧边栏菜单 -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- 使用 .nav-icon 类添加图标，
                或使用 font-awesome 或其他任何图标字体库 -->
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-item menu-open">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-仪表盘
+                仪表盘
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -209,12 +233,12 @@ BODY 标签选项：
             <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-小部件
+                小部件
                 <span class="right badge badge-danger">新</span>
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -249,6 +273,12 @@ BODY 标签选项：
                 </a>
               </li>
               <li class="nav-item">
+                <a href="pages/layout/fixed-sidebar-custom.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>固定侧边栏 <small>+ 自定义区域</small></p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="pages/layout/fixed-topnav.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>固定导航栏</p>
@@ -268,11 +298,11 @@ BODY 标签选项：
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-图表
+                图表
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -295,9 +325,15 @@ BODY 标签选项：
                   <p>内联图表</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="pages/charts/uplot.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>uPlot</p>
+                </a>
+              </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tree"></i>
               <p>
@@ -356,11 +392,11 @@ BODY 标签选项：
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-表单
+                表单
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -391,11 +427,11 @@ BODY 标签选项：
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-表格
+                表格
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -425,7 +461,7 @@ BODY 标签选项：
             <a href="pages/calendar.html" class="nav-link">
               <i class="nav-icon fas fa-calendar-alt"></i>
               <p>
-日历
+                日历
                 <span class="badge badge-info right">2</span>
               </p>
             </a>
@@ -434,15 +470,23 @@ BODY 标签选项：
             <a href="pages/gallery.html" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
-相册
+                相册
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
+            <a href="pages/kanban.html" class="nav-link">
+              <i class="nav-icon fas fa-columns"></i>
+              <p>
+                看板
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-envelope"></i>
               <p>
-邮箱
+                邮箱
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -467,11 +511,11 @@ BODY 标签选项：
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
-页面
+                页面
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -524,40 +568,98 @@ BODY 标签选项：
                   <p>联系人</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="pages/examples/faq.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>FAQ</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/examples/contact-us.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>联系我们</p>
+                </a>
+              </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
-附加
+                附加
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/examples/login.html" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>登录</p>
+                  <p>
+                    登录 & 注册 v1
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
                 </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="pages/examples/login.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>登录 v1</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/examples/register.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>注册 v1</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/examples/forgot-password.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>忘记密码 v1</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/examples/recover-password.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>重置密码 v1</p>
+                    </a>
+                  </li>
+                </ul>
               </li>
               <li class="nav-item">
-                <a href="pages/examples/register.html" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>注册</p>
+                  <p>
+                    登录 & 注册 v2
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
                 </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/forgot-password.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>忘记密码</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/recover-password.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>重置密码</p>
-                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="pages/examples/login-v2.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>登录 v2</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/examples/register-v2.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>注册 v2</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/examples/forgot-password-v2.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>忘记密码 v2</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/examples/recover-password-v2.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>重置密码 v2</p>
+                    </a>
+                  </li>
+                </ul>
               </li>
               <li class="nav-item">
                 <a href="pages/examples/lockscreen.html" class="nav-link">
@@ -609,7 +711,36 @@ BODY 标签选项：
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-search"></i>
+              <p>
+                搜索
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/search/simple.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>普通搜索</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/search/enhanced.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>高级</p>
+                </a>
+              </li>
+            </ul>
+          </li>
           <li class="nav-header">杂项</li>
+          <li class="nav-item">
+            <a href="iframe.html" class="nav-link">
+              <i class="nav-icon fas fa-ellipsis-h"></i>
+              <p>选项卡式框架插件</p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="/AdminLTE/AdminLTE-3.x/docs/" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
@@ -623,11 +754,11 @@ BODY 标签选项：
               <p>一级</p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-circle"></i>
               <p>
-                一 级
+                一级
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -638,11 +769,11 @@ BODY 标签选项：
                   <p>二级</p>
                 </a>
               </li>
-              <li class="nav-item has-treeview">
+              <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>
-                    二 级
+                    二级
                     <i class="right fas fa-angle-left"></i>
                   </p>
                 </a>
@@ -714,11 +845,11 @@ BODY 标签选项：
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">仪表盘 v3</h1>
+            <h1 class="m-0">仪表盘 v3</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">主页</a></li>
+              <li class="breadcrumb-item"><a href="#">首页</a></li>
               <li class="breadcrumb-item active">仪表盘 v3</li>
             </ol>
           </div><!-- /.col -->
@@ -736,7 +867,7 @@ BODY 标签选项：
               <div class="card-header border-0">
                 <div class="d-flex justify-content-between">
                   <h3 class="card-title">商城访客</h3>
-                  <a href="javascript:void(0);">查看报表</a>
+                  <a href="javascript:void(0);">查看报告</a>
                 </div>
               </div>
               <div class="card-body">
@@ -883,7 +1014,7 @@ BODY 标签选项：
               <div class="card-header border-0">
                 <div class="d-flex justify-content-between">
                   <h3 class="card-title">销量</h3>
-                  <a href="javascript:void(0);">查看报表</a>
+                  <a href="javascript:void(0);">查看报告</a>
                 </div>
               </div>
               <div class="card-body">
@@ -988,10 +1119,10 @@ BODY 标签选项：
 
   <!-- Main Footer -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
     保留所有权利。
     <div class="float-right d-none d-sm-inline-block">
-      <b>版本</b> 3.0.5
+      <b>版本</b> 3.1.0
     </div>
   </footer>
 </div>
@@ -1006,9 +1137,11 @@ BODY 标签选项：
 <!-- AdminLTE -->
 <script src="dist/js/adminlte.js"></script>
 
-<!-- OPTIONAL SCRIPTS -->
+<!-- 可选脚本 -->
 <script src="plugins/chart.js/Chart.min.js"></script>
+<!-- 用于演示 AdminLTE  -->
 <script src="dist/js/demo.js"></script>
+<!-- AdminLTE 仪表盘演示（仅用于演示） -->
 <script src="dist/js/pages/dashboard3.js"></script>
 </body>
 </html>

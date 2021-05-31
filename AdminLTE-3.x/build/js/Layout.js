@@ -5,248 +5,253 @@
  * --------------------------------------------
  */
 
-const Layout = (($) => {
-  /**
-   * Constants
-   * ====================================================
-   */
+import $ from 'jquery'
 
-  const NAME               = 'Layout'
-  const DATA_KEY           = 'lte.layout'
-  const EVENT_KEY          = `.${DATA_KEY}`
-  const JQUERY_NO_CONFLICT = $.fn[NAME]
+/**
+ * Constants
+ * ====================================================
+ */
 
-  const Event = {
-    SIDEBAR: 'sidebar'
+const NAME = 'Layout'
+const DATA_KEY = 'lte.layout'
+const JQUERY_NO_CONFLICT = $.fn[NAME]
+
+const SELECTOR_HEADER = '.main-header'
+const SELECTOR_MAIN_SIDEBAR = '.main-sidebar'
+const SELECTOR_SIDEBAR = '.main-sidebar .sidebar'
+const SELECTOR_CONTENT = '.content-wrapper'
+const SELECTOR_CONTROL_SIDEBAR_CONTENT = '.control-sidebar-content'
+const SELECTOR_CONTROL_SIDEBAR_BTN = '[data-widget="control-sidebar"]'
+const SELECTOR_FOOTER = '.main-footer'
+const SELECTOR_PUSHMENU_BTN = '[data-widget="pushmenu"]'
+const SELECTOR_LOGIN_BOX = '.login-box'
+const SELECTOR_REGISTER_BOX = '.register-box'
+const SELECTOR_PRELOADER = '.preloader'
+
+const CLASS_NAME_SIDEBAR_COLLAPSED = 'sidebar-collapse'
+const CLASS_NAME_SIDEBAR_FOCUSED = 'sidebar-focused'
+const CLASS_NAME_LAYOUT_FIXED = 'layout-fixed'
+const CLASS_NAME_CONTROL_SIDEBAR_SLIDE_OPEN = 'control-sidebar-slide-open'
+const CLASS_NAME_CONTROL_SIDEBAR_OPEN = 'control-sidebar-open'
+
+const Default = {
+  scrollbarTheme: 'os-theme-light',
+  scrollbarAutoHide: 'l',
+  panelAutoHeight: true,
+  panelAutoHeightMode: 'min-height',
+  preloadDuration: 200,
+  loginRegisterAutoHeight: true
+}
+
+/**
+ * Class Definition
+ * ====================================================
+ */
+
+class Layout {
+  constructor(element, config) {
+    this._config = config
+    this._element = element
   }
 
-  const Selector = {
-    HEADER         : '.main-header',
-    MAIN_SIDEBAR   : '.main-sidebar',
-    SIDEBAR        : '.main-sidebar .sidebar',
-    CONTENT        : '.content-wrapper',
-    BRAND          : '.brand-link',
-    CONTENT_HEADER : '.content-header',
-    WRAPPER        : '.wrapper',
-    CONTROL_SIDEBAR: '.control-sidebar',
-    CONTROL_SIDEBAR_CONTENT: '.control-sidebar-content',
-    CONTROL_SIDEBAR_BTN: '[data-widget="control-sidebar"]',
-    LAYOUT_FIXED   : '.layout-fixed',
-    FOOTER         : '.main-footer',
-    PUSHMENU_BTN   : '[data-widget="pushmenu"]',
-    LOGIN_BOX      : '.login-box',
-    REGISTER_BOX   : '.register-box'
-  }
+  // Public
 
-  const ClassName = {
-    HOLD           : 'hold-transition',
-    SIDEBAR        : 'main-sidebar',
-    CONTENT_FIXED  : 'content-fixed',
-    SIDEBAR_FOCUSED: 'sidebar-focused',
-    LAYOUT_FIXED   : 'layout-fixed',
-    NAVBAR_FIXED   : 'layout-navbar-fixed',
-    FOOTER_FIXED   : 'layout-footer-fixed',
-    LOGIN_PAGE     : 'login-page',
-    REGISTER_PAGE  : 'register-page',
-    CONTROL_SIDEBAR_SLIDE_OPEN: 'control-sidebar-slide-open',
-    CONTROL_SIDEBAR_OPEN: 'control-sidebar-open',
-  }
+  fixLayoutHeight(extra = null) {
+    const $body = $('body')
+    let controlSidebar = 0
 
-  const Default = {
-    scrollbarTheme : 'os-theme-light',
-    scrollbarAutoHide: 'l',
-    panelAutoHeight: true,
-    loginRegisterAutoHeight: true,
-  }
-
-  /**
-   * Class Definition
-   * ====================================================
-   */
-
-  class Layout {
-    constructor(element, config) {
-      this._config  = config
-      this._element = element
-
-      this._init()
+    if ($body.hasClass(CLASS_NAME_CONTROL_SIDEBAR_SLIDE_OPEN) || $body.hasClass(CLASS_NAME_CONTROL_SIDEBAR_OPEN) || extra === 'control_sidebar') {
+      controlSidebar = $(SELECTOR_CONTROL_SIDEBAR_CONTENT).outerHeight()
     }
 
-    // Public
+    const heights = {
+      window: $(window).height(),
+      header: $(SELECTOR_HEADER).length > 0 ? $(SELECTOR_HEADER).outerHeight() : 0,
+      footer: $(SELECTOR_FOOTER).length > 0 ? $(SELECTOR_FOOTER).outerHeight() : 0,
+      sidebar: $(SELECTOR_SIDEBAR).length > 0 ? $(SELECTOR_SIDEBAR).height() : 0,
+      controlSidebar
+    }
 
-    fixLayoutHeight(extra = null) {
-      let control_sidebar = 0
+    const max = this._max(heights)
+    let offset = this._config.panelAutoHeight
 
-      if ($('body').hasClass(ClassName.CONTROL_SIDEBAR_SLIDE_OPEN) || $('body').hasClass(ClassName.CONTROL_SIDEBAR_OPEN) || extra == 'control_sidebar') {
-        control_sidebar = $(Selector.CONTROL_SIDEBAR_CONTENT).height()
+    if (offset === true) {
+      offset = 0
+    }
+
+    const $contentSelector = $(SELECTOR_CONTENT)
+
+    if (offset !== false) {
+      if (max === heights.controlSidebar) {
+        $contentSelector.css(this._config.panelAutoHeightMode, (max + offset))
+      } else if (max === heights.window) {
+        $contentSelector.css(this._config.panelAutoHeightMode, (max + offset) - heights.header - heights.footer)
+      } else {
+        $contentSelector.css(this._config.panelAutoHeightMode, (max + offset) - heights.header)
       }
 
-      const heights = {
-        window: $(window).height(),
-        header: $(Selector.HEADER).length !== 0 ? $(Selector.HEADER).outerHeight() : 0,
-        footer: $(Selector.FOOTER).length !== 0 ? $(Selector.FOOTER).outerHeight() : 0,
-        sidebar: $(Selector.SIDEBAR).length !== 0 ? $(Selector.SIDEBAR).height() : 0,
-        control_sidebar: control_sidebar,
-      }
-
-      const max = this._max(heights)
-      let offset = this._config.panelAutoHeight
-
-      if (offset === true) {
-        offset = 0;
-      }
-
-      if (offset !== false) {
-        if (max == heights.control_sidebar) {
-          $(Selector.CONTENT).css('min-height', (max + offset))
-        } else if (max == heights.window) {
-          $(Selector.CONTENT).css('min-height', (max + offset) - heights.header - heights.footer)
-        } else {
-          $(Selector.CONTENT).css('min-height', (max + offset) - heights.header)
-        }
-        if (this._isFooterFixed()) {
-          $(Selector.CONTENT).css('min-height', parseFloat($(Selector.CONTENT).css('min-height')) + heights.footer);
-        }
-      }
-
-      if ($('body').hasClass(ClassName.LAYOUT_FIXED)) {
-        if (offset !== false) {
-          $(Selector.CONTENT).css('min-height', (max + offset) - heights.header - heights.footer)
-        }
-
-        if (typeof $.fn.overlayScrollbars !== 'undefined') {
-          $(Selector.SIDEBAR).overlayScrollbars({
-            className       : this._config.scrollbarTheme,
-            sizeAutoCapable : true,
-            scrollbars : {
-              autoHide: this._config.scrollbarAutoHide, 
-              clickScrolling : true
-            }
-          })
-        }
+      if (this._isFooterFixed()) {
+        $contentSelector.css(this._config.panelAutoHeightMode, parseFloat($contentSelector.css(this._config.panelAutoHeightMode)) + heights.footer)
       }
     }
 
-    fixLoginRegisterHeight() {
-      if ($(Selector.LOGIN_BOX + ', ' + Selector.REGISTER_BOX).length === 0) {
-        $('body, html').css('height', 'auto')
-      } else if ($(Selector.LOGIN_BOX + ', ' + Selector.REGISTER_BOX).length !== 0) {
-        let box_height = $(Selector.LOGIN_BOX + ', ' + Selector.REGISTER_BOX).height()
-
-        if ($('body').css('min-height') !== box_height) {
-          $('body').css('min-height', box_height)
-        }
-      }
+    if (!$body.hasClass(CLASS_NAME_LAYOUT_FIXED)) {
+      return
     }
 
-    // Private
+    if (typeof $.fn.overlayScrollbars !== 'undefined') {
+      $(SELECTOR_SIDEBAR).overlayScrollbars({
+        className: this._config.scrollbarTheme,
+        sizeAutoCapable: true,
+        scrollbars: {
+          autoHide: this._config.scrollbarAutoHide,
+          clickScrolling: true
+        }
+      })
+    } else {
+      $(SELECTOR_SIDEBAR).css('overflow-y', 'auto')
+    }
+  }
 
-    _init() {
-      // Activate layout height watcher
-      this.fixLayoutHeight()
+  fixLoginRegisterHeight() {
+    const $body = $('body')
+    const $selector = $(`${SELECTOR_LOGIN_BOX}, ${SELECTOR_REGISTER_BOX}`)
 
-      if (this._config.loginRegisterAutoHeight === true) {
-        this.fixLoginRegisterHeight()
-      } else if (Number.isInteger(this._config.loginRegisterAutoHeight)) {
-        setInterval(this.fixLoginRegisterHeight, this._config.loginRegisterAutoHeight);
+    if ($selector.length === 0) {
+      $body.css('height', 'auto')
+      $('html').css('height', 'auto')
+    } else {
+      const boxHeight = $selector.height()
+
+      if ($body.css(this._config.panelAutoHeightMode) !== boxHeight) {
+        $body.css(this._config.panelAutoHeightMode, boxHeight)
       }
+    }
+  }
 
-      $(Selector.SIDEBAR)
-        .on('collapsed.lte.treeview expanded.lte.treeview', () => {
-          this.fixLayoutHeight()
-        })
+  // Private
 
-      $(Selector.PUSHMENU_BTN)
-        .on('collapsed.lte.pushmenu shown.lte.pushmenu', () => {
-          this.fixLayoutHeight()
-        })
+  _init() {
+    // Activate layout height watcher
+    this.fixLayoutHeight()
 
-      $(Selector.CONTROL_SIDEBAR_BTN)
-        .on('collapsed.lte.controlsidebar', () => {
-          this.fixLayoutHeight()
-        })
-        .on('expanded.lte.controlsidebar', () => {
-          this.fixLayoutHeight('control_sidebar')
-        })
+    if (this._config.loginRegisterAutoHeight === true) {
+      this.fixLoginRegisterHeight()
+    } else if (this._config.loginRegisterAutoHeight === parseInt(this._config.loginRegisterAutoHeight, 10)) {
+      setInterval(this.fixLoginRegisterHeight, this._config.loginRegisterAutoHeight)
+    }
 
-      $(window).resize(() => {
+    $(SELECTOR_SIDEBAR)
+      .on('collapsed.lte.treeview expanded.lte.treeview', () => {
         this.fixLayoutHeight()
       })
 
-      setTimeout(() => {
-        $('body.hold-transition').removeClass('hold-transition')
-
-      }, 50);
-    }
-
-    _max(numbers) {
-      // Calculate the maximum number in a list
-      let max = 0
-
-      Object.keys(numbers).forEach((key) => {
-        if (numbers[key] > max) {
-          max = numbers[key]
+    $(SELECTOR_MAIN_SIDEBAR)
+      .on('mouseenter mouseleave', () => {
+        if ($('body').hasClass(CLASS_NAME_SIDEBAR_COLLAPSED)) {
+          this.fixLayoutHeight()
         }
       })
 
-      return max
-    }
-
-    _isFooterFixed() {
-      return $('.main-footer').css('position') === 'fixed';
-    }
-
-    // Static
-
-    static _jQueryInterface(config = '') {
-      return this.each(function () {
-        let data = $(this).data(DATA_KEY)
-        const _options = $.extend({}, Default, $(this).data())
-
-        if (!data) {
-          data = new Layout($(this), _options)
-          $(this).data(DATA_KEY, data)
-        }
-
-        if (config === 'init' || config === '') {
-          data['_init']()
-        } else if (config === 'fixLayoutHeight' || config === 'fixLoginRegisterHeight') {
-          data[config]()
-        }
+    $(SELECTOR_PUSHMENU_BTN)
+      .on('collapsed.lte.pushmenu shown.lte.pushmenu', () => {
+        setTimeout(() => {
+          this.fixLayoutHeight()
+        }, 300)
       })
-    }
+
+    $(SELECTOR_CONTROL_SIDEBAR_BTN)
+      .on('collapsed.lte.controlsidebar', () => {
+        this.fixLayoutHeight()
+      })
+      .on('expanded.lte.controlsidebar', () => {
+        this.fixLayoutHeight('control_sidebar')
+      })
+
+    $(window).resize(() => {
+      this.fixLayoutHeight()
+    })
+
+    setTimeout(() => {
+      $('body.hold-transition').removeClass('hold-transition')
+    }, 50)
+
+    setTimeout(() => {
+      const $preloader = $(SELECTOR_PRELOADER)
+      if ($preloader) {
+        $preloader.css('height', 0)
+        setTimeout(() => {
+          $preloader.children().hide()
+        }, 200)
+      }
+    }, this._config.preloadDuration)
   }
 
-  /**
-   * Data API
-   * ====================================================
-   */
+  _max(numbers) {
+    // Calculate the maximum number in a list
+    let max = 0
 
-  $(window).on('load', () => {
-    Layout._jQueryInterface.call($('body'))
-  })
+    Object.keys(numbers).forEach(key => {
+      if (numbers[key] > max) {
+        max = numbers[key]
+      }
+    })
 
-  $(Selector.SIDEBAR + ' a').on('focusin', () => {
-    $(Selector.MAIN_SIDEBAR).addClass(ClassName.SIDEBAR_FOCUSED);
-  })
-
-  $(Selector.SIDEBAR + ' a').on('focusout', () => {
-    $(Selector.MAIN_SIDEBAR).removeClass(ClassName.SIDEBAR_FOCUSED);
-  })
-
-  /**
-   * jQuery API
-   * ====================================================
-   */
-
-  $.fn[NAME] = Layout._jQueryInterface
-  $.fn[NAME].Constructor = Layout
-  $.fn[NAME].noConflict = function () {
-    $.fn[NAME] = JQUERY_NO_CONFLICT
-    return Layout._jQueryInterface
+    return max
   }
 
-  return Layout
-})(jQuery)
+  _isFooterFixed() {
+    return $(SELECTOR_FOOTER).css('position') === 'fixed'
+  }
+
+  // Static
+
+  static _jQueryInterface(config = '') {
+    return this.each(function () {
+      let data = $(this).data(DATA_KEY)
+      const _options = $.extend({}, Default, $(this).data())
+
+      if (!data) {
+        data = new Layout($(this), _options)
+        $(this).data(DATA_KEY, data)
+      }
+
+      if (config === 'init' || config === '') {
+        data._init()
+      } else if (config === 'fixLayoutHeight' || config === 'fixLoginRegisterHeight') {
+        data[config]()
+      }
+    })
+  }
+}
+
+/**
+ * Data API
+ * ====================================================
+ */
+
+$(window).on('load', () => {
+  Layout._jQueryInterface.call($('body'))
+})
+
+$(`${SELECTOR_SIDEBAR} a`)
+  .on('focusin', () => {
+    $(SELECTOR_MAIN_SIDEBAR).addClass(CLASS_NAME_SIDEBAR_FOCUSED)
+  })
+  .on('focusout', () => {
+    $(SELECTOR_MAIN_SIDEBAR).removeClass(CLASS_NAME_SIDEBAR_FOCUSED)
+  })
+
+/**
+ * jQuery API
+ * ====================================================
+ */
+
+$.fn[NAME] = Layout._jQueryInterface
+$.fn[NAME].Constructor = Layout
+$.fn[NAME].noConflict = function () {
+  $.fn[NAME] = JQUERY_NO_CONFLICT
+  return Layout._jQueryInterface
+}
 
 export default Layout

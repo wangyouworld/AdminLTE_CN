@@ -1,20 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | 编辑项目</title>
-  <!-- 告诉浏览器屏幕自适应 -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | 编辑项目</title>
 
+  <!-- 离线 Google 字体: Source Sans Pro -->
+  <link rel="stylesheet" href="/AdminLTE/AdminLTE-3.x/dist/css/google.css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- overlayScrollbars -->
+  <!-- 主题样式 -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-  <!-- 离线 Google 字体: Source Sans Pro -->
-  <link href="/AdminLTE/AdminLTE-3.x/dist/css/google.css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -34,20 +30,30 @@
       </li>
     </ul>
 
-    <!-- 搜索表单 -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="搜索" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-
     <!-- 右侧导航栏链接 -->
     <ul class="navbar-nav ml-auto">
+      <!-- Navbar Search -->
+      <li class="nav-item">
+        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+          <i class="fas fa-search"></i>
+        </a>
+        <div class="navbar-search-block">
+          <form class="form-inline">
+            <div class="input-group input-group-sm">
+              <input class="form-control form-control-navbar" type="search" placeholder="搜索" aria-label="Search">
+              <div class="input-group-append">
+                <button class="btn btn-navbar" type="submit">
+                  <i class="fas fa-search"></i>
+                </button>
+                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </li>
+
       <!-- 消息下拉菜单 -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -134,6 +140,11 @@
         </div>
       </li>
       <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
           <i class="fas fa-th-large"></i>
         </a>
@@ -146,10 +157,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- 品牌 Logo -->
     <a href="../../index3.html" class="brand-link">
-      <img src="../../dist/img/AdminLTELogo.png"
-           alt="AdminLTE Logo"
-           class="brand-image img-circle elevation-3"
-           style="opacity: .8">
+      <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
 
@@ -165,16 +173,28 @@
         </div>
       </div>
 
+      <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="搜索" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
       <!-- 侧边栏菜单 -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- 使用 .nav-icon 类添加图标，
                或使用 font-awesome 或其他任何图标字体库 -->
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-仪表盘
+                仪表盘
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -203,12 +223,12 @@
             <a href="../widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-小部件
+                小部件
                 <span class="right badge badge-danger">新</span>
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -243,6 +263,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="../layout/fixed-sidebar-custom.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>固定侧边栏 <small>+ 自定义区域</small></p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="../layout/fixed-topnav.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>固定导航栏</p>
@@ -262,11 +288,11 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-图表
+                图表
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -289,9 +315,15 @@
                   <p>内联图表</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="../charts/uplot.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>uPlot</p>
+                </a>
+              </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tree"></i>
               <p>
@@ -350,11 +382,11 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-表单
+                表单
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -385,11 +417,11 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-表格
+                表格
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -419,7 +451,7 @@
             <a href="../calendar.html" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
-日历
+                日历
                 <span class="badge badge-info right">2</span>
               </p>
             </a>
@@ -428,15 +460,23 @@
             <a href="../gallery.html" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
-相册
+                相册
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
+            <a href="../kanban.html" class="nav-link">
+              <i class="nav-icon fas fa-columns"></i>
+              <p>
+                看板
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-envelope"></i>
               <p>
-邮箱
+                邮箱
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -461,11 +501,11 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-item menu-open">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-book"></i>
               <p>
-页面
+                页面
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -518,40 +558,98 @@
                   <p>联系人</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="../examples/faq.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>FAQ</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/contact-us.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>联系我们</p>
+                </a>
+              </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
-附加
+                附加
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../examples/login.html" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>登录</p>
+                  <p>
+                    登录 & 注册 v1
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
                 </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="../examples/login.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>登录 v1</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/register.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>注册 v1</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/forgot-password.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>忘记密码 v1</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/recover-password.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>重置密码 v1</p>
+                    </a>
+                  </li>
+                </ul>
               </li>
               <li class="nav-item">
-                <a href="../examples/register.html" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>注册</p>
+                  <p>
+                    登录 & 注册 v2
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
                 </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/forgot-password.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>忘记密码</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/recover-password.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>重置密码</p>
-                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="../examples/login-v2.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>登录 v2</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/register-v2.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>注册 v2</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/forgot-password-v2.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>忘记密码 v2</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/recover-password-v2.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>重置密码 v2</p>
+                    </a>
+                  </li>
+                </ul>
               </li>
               <li class="nav-item">
                 <a href="../examples/lockscreen.html" class="nav-link">
@@ -603,7 +701,36 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-search"></i>
+              <p>
+                搜索
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../search/simple.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>普通搜索</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../search/enhanced.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>高级</p>
+                </a>
+              </li>
+            </ul>
+          </li>
           <li class="nav-header">杂项</li>
+          <li class="nav-item">
+            <a href="../../iframe.html" class="nav-link">
+              <i class="nav-icon fas fa-ellipsis-h"></i>
+              <p>选项卡式框架插件</p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="/AdminLTE/AdminLTE-3.x/docs/" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
@@ -617,11 +744,11 @@
               <p>一级</p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-circle"></i>
               <p>
-                一 级
+                一级
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -632,11 +759,11 @@
                   <p>二级</p>
                 </a>
               </li>
-              <li class="nav-item has-treeview">
+              <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>
-                    二 级
+                    二级
                     <i class="right fas fa-angle-left"></i>
                   </p>
                 </a>
@@ -712,7 +839,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">主页</a></li>
+              <li class="breadcrumb-item"><a href="#">首页</a></li>
               <li class="breadcrumb-item active">编辑项目</li>
             </ol>
           </div>
@@ -729,8 +856,9 @@
               <h3 class="card-title">常规</h3>
 
               <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="折叠">
-                  <i class="fas fa-minus"></i></button>
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="折叠">
+                  <i class="fas fa-minus"></i>
+                </button>
               </div>
             </div>
             <div class="card-body">
@@ -740,24 +868,24 @@
               </div>
               <div class="form-group">
                 <label for="inputDescription">项目说明</label>
-                <textarea id="inputDescription" class="form-control" rows="4">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terr.</textarea>
+                <textarea id="inputDescription" class="form-control" rows="4">第四次，这是第四次。一次比一次更接近南天门，一次比一次更像梦，一个漫长的梦。路程按厘米计算，只能忘掉路程。我是石头，我是杂草，我是粪便，是枯树腐烂的尸体。怒江在身下流逝，逝者如斯，也需要忘掉时间，时刻记住，我，不存在，我不存在了，我不存在。</textarea>
               </div>
               <div class="form-group">
                 <label for="inputStatus">状态</label>
-                <select class="form-control custom-select">
-                  <option selected disabled>选择一个</option>
+                <select id="inputStatus" class="form-control custom-select">
+                  <option disabled>选择一个</option>
                   <option>暂停</option>
                   <option>取消</option>
                   <option selected>完成</option>
                 </select>
               </div>
               <div class="form-group">
-                <label for="inputClientCompany">客户公司</label>
-                <input type="text" id="inputClientCompany" class="form-control" value="Deveint Inc">
+                <label for="inputClientCompany">公司客户</label>
+                <input type="text" id="inputClientCompany" class="form-control" value="德文特公司">
               </div>
               <div class="form-group">
                 <label for="inputProjectLeader">项目负责人</label>
-                <input type="text" id="inputProjectLeader" class="form-control" value="Tony Chicken">
+                <input type="text" id="inputProjectLeader" class="form-control" value="托尼">
               </div>
             </div>
             <!-- /.card-body -->
@@ -770,8 +898,9 @@
               <h3 class="card-title">预算</h3>
 
               <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="折叠">
-                  <i class="fas fa-minus"></i></button>
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="折叠">
+                  <i class="fas fa-minus"></i>
+                </button>
               </div>
             </div>
             <div class="card-body">
@@ -796,8 +925,9 @@
               <h3 class="card-title">文件</h3>
 
               <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="折叠">
-                  <i class="fas fa-minus"></i></button>
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="折叠">
+                  <i class="fas fa-minus"></i>
+                </button>
               </div>
             </div>
             <div class="card-body p-0">
@@ -812,7 +942,7 @@
                 <tbody>
 
                   <tr>
-                    <td>Functional-requirements.docx</td>
+                    <td>功能要求.docx</td>
                     <td>49.8005 kb</td>
                     <td class="text-right py-0 align-middle">
                       <div class="btn-group btn-group-sm">
@@ -821,7 +951,7 @@
                       </div>
                     </td>
                   <tr>
-                    <td>UAT.pdf</td>
+                    <td>用户验收测试.pdf</td>
                     <td>28.4883 kb</td>
                     <td class="text-right py-0 align-middle">
                       <div class="btn-group btn-group-sm">
@@ -830,7 +960,7 @@
                       </div>
                     </td>
                   <tr>
-                    <td>Email-from-flatbal.mln</td>
+                    <td>来自 flatbal 的电子邮件.mln</td>
                     <td>57.9003 kb</td>
                     <td class="text-right py-0 align-middle">
                       <div class="btn-group btn-group-sm">
@@ -848,7 +978,7 @@
                       </div>
                     </td>
                   <tr>
-                    <td>Contract-10_12_2014.docx</td>
+                    <td>合同-10_12_2014.docx</td>
                     <td>44.9715 kb</td>
                     <td class="text-right py-0 align-middle">
                       <div class="btn-group btn-group-sm">
@@ -878,10 +1008,9 @@
 
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <b>版本</b> 3.0.5
+      <b>版本</b> 3.1.0
     </div>
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> 保留所有
-    权利。
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> 保留所有权利。
   </footer>
 
   <!-- Control Sidebar -->

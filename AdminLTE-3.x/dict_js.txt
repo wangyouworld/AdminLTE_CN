@@ -1,9 +1,9 @@
 AdminLTE Demo Menu
 AdminLTE 演示菜单
-* 你不应在生产环境中使用此文件。
-* You should not use this file in production.
-* 该文件仅用于演示目的。
-* This file is for demo purposes only.
+You should not use this file in production.
+你不应在生产环境中使用此文件。
+This file is for demo purposes only.
+该文件仅用于演示。
 <h5>Customize AdminLTE</h5>
 <h5>自定义 AdminLTE</h5>
 <h6>Navbar Variants</h6>
@@ -11,9 +11,9 @@ AdminLTE 演示菜单
 <h6>Accent Color Variants</h6>
 <h6>强调颜色</h6>
 <h6>Dark Sidebar Variants</h6>
-<h6>暗色侧边栏颜色</h6>
+<h6>暗色侧边栏</h6>
 <h6>Light Sidebar Variants</h6>
-<h6>亮色侧边栏颜色</h6>
+<h6>亮色侧边栏</h6>
 <h6>Brand Logo Variants</h6>
 <h6>品牌 LOGO 颜色</h6>
 Here we will create a few charts using ChartJS
@@ -133,13 +133,13 @@ Sales graph chart
 <span>No Navbar border</span>
 <span>无导航栏边框</span>
 <span>Body small text</span>
-<span>页面小号字体</span>
+<span>页面使用小号字体</span>
 <span>Navbar small text</span>
-<span>导航栏小号字体</span>
+<span>导航栏使用小号字体</span>
 <span>Sidebar nav small text</span>
-<span>侧边栏小号字体</span>
+<span>侧边栏使用小号字体</span>
 <span>Footer small text</span>
-<span>底部小号字体</span>
+<span>底部使用小号字体</span>
 <span>Sidebar nav flat style</span>
 <span>侧边栏平面样式</span>
 <span>Sidebar nav legacy style</span>
@@ -151,7 +151,7 @@ Sales graph chart
 <span>Main Sidebar disable hover/focus auto expand</span>
 <span>主侧边栏禁用悬停/获得焦点时自动展开</span>
 <span>Brand small text</span>
-<span>品牌小号字体</span>
+<span>品牌使用小号字体</span>
 text('clear')
 text('清除')
 'Instore Sales'
@@ -164,3 +164,101 @@ editable  : true,
 editable  : true,locale: 'zh-cn',
 .daterangepicker({
 .daterangepicker({locale:{applyLabel: '确定',cancelLabel: '取消',customRangeLabel: '自定义范围',},
+<span>Sidebar nav child hide on collapse</span>
+<span>侧边栏子菜单展开时使用特效</span>
+<span>Dark Mode</span>
+<span>深色模式</span>
+Today: [moment(), moment()],
+'今天': [moment(), moment()],
+Yesterday: [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+'昨天': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+// USA
+// 美国
+// Saudi Arabia
+// 沙特阿拉伯
+// Canada
+// 加拿大
+// Germany
+// 德国
+// France
+// 法国
+// China
+// 中国
+// Australia
+// 澳大利亚
+// Brazil
+// 巴西
+// India
+// 印度
+// Great Britain
+// 大不列颠
+// Russia
+// 俄罗斯
+// jvectormap data
+// jvectormap 数据
+// World map by jvectormap
+// jvectormap 世界地图
+' new visitors'
+' 新访客'
+Sparkline charts
+Sparkline 图表
+SLIMSCROLL FOR CHAT WIDGET
+SLIMSCROLL 聊天小工具
+Donut Chart
+环形图
+Create pie or douhnut chart
+创建饼形图或环形图
+4 Jan 2014
+2014-01-04
+You chose:
+你选择了：
+Header Options
+页眉选项
+No border
+无边框
+Sidebar Options
+侧边栏选项
+<span>Fixed</span>
+<span>固定</span>
+<span>Collapsed</span>
+<span>折叠</span>
+Dropdown Legacy Offset
+传统下拉菜单偏移
+Sidebar Mini
+迷你侧边栏
+Nav Flat Style
+平面效果
+Nav Legacy Style
+传统导航
+Nav Compact
+紧凑效果
+Nav Child Indent
+缩进效果
+Nav Child Hide on Collapse
+导航子项隐现效果
+Disable Hover/Focus Auto-Expand
+禁用悬停/获得焦点自动展开
+<span>Body</span>
+<span>主体</span>
+Small Text Options
+小号字体
+<span>Navbar</span>
+<span>导航栏</span>
+<span>Brand</span>
+<span>品牌</span>
+<span>Sidebar Nav</span>
+<span>侧边栏导航</span>
+<span>Footer</span>
+<span>底部</span>
+Color Arrays
+颜色数组
+// Checkboxes
+// 复选框
+Navbar Variants
+导航栏变量
+Sidebar Colors
+侧边栏颜色
+text: 'None Selected'
+text: '请选择'
+Footer Options
+页脚选项

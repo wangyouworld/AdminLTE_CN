@@ -4,7 +4,9 @@
 
 // text modification
 .text-bold {
-  &, &.table td, &.table th {
+  &,
+  &.table td,
+  &.table th {
     font-weight: 700;
   }
 }
@@ -33,5 +35,17 @@
 @each $name, $color in $colors {
   .text-#{$name} {
     color: #{$color} !important;
+  }
+}
+
+.dark-mode {
+  .text-muted {
+    color: $gray-500 !important;
+  }
+
+  @each $name, $color in $colors-alt {
+    .text-#{$name} {
+      color: #{$color} !important;
+    }
   }
 }

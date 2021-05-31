@@ -1,21 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | 内联图表</title>
-  <!-- 告诉浏览器屏幕自适应 -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Bootstrap 4 -->
+  <title>AdminLTE 3 | 内联图表</title>
 
+  <!-- 离线 Google 字体: Source Sans Pro -->
+  <link rel="stylesheet" href="/AdminLTE/AdminLTE-3.x/dist/css/google.css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- 主题样式 -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-  <!-- 离线 Google 字体: Source Sans Pro -->
-  <link href="/AdminLTE/AdminLTE-3.x/dist/css/google.css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -34,20 +29,30 @@
       </li>
     </ul>
 
-    <!-- 搜索表单 -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="搜索" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-
     <!-- 右侧导航栏链接 -->
     <ul class="navbar-nav ml-auto">
+      <!-- Navbar Search -->
+      <li class="nav-item">
+        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+          <i class="fas fa-search"></i>
+        </a>
+        <div class="navbar-search-block">
+          <form class="form-inline">
+            <div class="input-group input-group-sm">
+              <input class="form-control form-control-navbar" type="search" placeholder="搜索" aria-label="Search">
+              <div class="input-group-append">
+                <button class="btn btn-navbar" type="submit">
+                  <i class="fas fa-search"></i>
+                </button>
+                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </li>
+
       <!-- 消息下拉菜单 -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -134,6 +139,11 @@
         </div>
       </li>
       <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
           <i class="fas fa-th-large"></i>
         </a>
@@ -146,10 +156,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- 品牌 Logo -->
     <a href="../../index3.html" class="brand-link">
-      <img src="../../dist/img/AdminLTELogo.png"
-           alt="AdminLTE Logo"
-           class="brand-image img-circle elevation-3"
-           style="opacity: .8">
+      <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
 
@@ -165,16 +172,28 @@
         </div>
       </div>
 
+      <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="搜索" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
       <!-- 侧边栏菜单 -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- 使用 .nav-icon 类添加图标，
                或使用 font-awesome 或其他任何图标字体库 -->
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-仪表盘
+                仪表盘
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -203,12 +222,12 @@
             <a href="../widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-小部件
+                小部件
                 <span class="right badge badge-danger">新</span>
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -243,6 +262,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="../layout/fixed-sidebar-custom.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>固定侧边栏 <small>+ 自定义区域</small></p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="../layout/fixed-topnav.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>固定导航栏</p>
@@ -262,11 +287,11 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-item menu-open">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-图表
+                图表
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -289,9 +314,15 @@
                   <p>内联图表</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="uplot.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>uPlot</p>
+                </a>
+              </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tree"></i>
               <p>
@@ -350,11 +381,11 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-表单
+                表单
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -385,11 +416,11 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-表格
+                表格
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -419,7 +450,7 @@
             <a href="../calendar.html" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
-日历
+                日历
                 <span class="badge badge-info right">2</span>
               </p>
             </a>
@@ -428,15 +459,23 @@
             <a href="../gallery.html" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
-相册
+                相册
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
+            <a href="../kanban.html" class="nav-link">
+              <i class="nav-icon fas fa-columns"></i>
+              <p>
+                看板
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-envelope"></i>
               <p>
-邮箱
+                邮箱
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -461,11 +500,11 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
-页面
+                页面
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -518,40 +557,98 @@
                   <p>联系人</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="../examples/faq.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>FAQ</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/contact-us.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>联系我们</p>
+                </a>
+              </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
-附加
+                附加
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../examples/login.html" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>登录</p>
+                  <p>
+                    登录 & 注册 v1
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
                 </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="../examples/login.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>登录 v1</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/register.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>注册 v1</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/forgot-password.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>忘记密码 v1</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/recover-password.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>重置密码 v1</p>
+                    </a>
+                  </li>
+                </ul>
               </li>
               <li class="nav-item">
-                <a href="../examples/register.html" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>注册</p>
+                  <p>
+                    登录 & 注册 v2
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
                 </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/forgot-password.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>忘记密码</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/recover-password.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>重置密码</p>
-                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="../examples/login-v2.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>登录 v2</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/register-v2.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>注册 v2</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/forgot-password-v2.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>忘记密码 v2</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/recover-password-v2.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>重置密码 v2</p>
+                    </a>
+                  </li>
+                </ul>
               </li>
               <li class="nav-item">
                 <a href="../examples/lockscreen.html" class="nav-link">
@@ -603,7 +700,36 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-search"></i>
+              <p>
+                搜索
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../search/simple.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>普通搜索</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../search/enhanced.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>高级</p>
+                </a>
+              </li>
+            </ul>
+          </li>
           <li class="nav-header">杂项</li>
+          <li class="nav-item">
+            <a href="../../iframe.html" class="nav-link">
+              <i class="nav-icon fas fa-ellipsis-h"></i>
+              <p>选项卡式框架插件</p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="/AdminLTE/AdminLTE-3.x/docs/" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
@@ -617,11 +743,11 @@
               <p>一级</p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-circle"></i>
               <p>
-                一 级
+                一级
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -632,11 +758,11 @@
                   <p>二级</p>
                 </a>
               </li>
-              <li class="nav-item has-treeview">
+              <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>
-                    二 级
+                    二级
                     <i class="right fas fa-angle-left"></i>
                   </p>
                 </a>
@@ -712,7 +838,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">主页</a></li>
+              <li class="breadcrumb-item"><a href="#">首页</a></li>
               <li class="breadcrumb-item active">内联图表</li>
             </ol>
           </div>
@@ -735,10 +861,11 @@
                 </h3>
 
                 <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
-                      class="fas fa-minus"></i>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
                   </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
                   </button>
                 </div>
               </div>
@@ -807,10 +934,11 @@
                 </h3>
 
                 <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
-                      class="fas fa-minus"></i>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
                   </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
                   </button>
                 </div>
               </div>
@@ -866,10 +994,11 @@
                 </h3>
 
                 <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
-                      class="fas fa-minus"></i>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
                   </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
                   </button>
                 </div>
               </div>
@@ -916,6 +1045,50 @@
         </div>
         <!-- /.row -->
 
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="far fa-chart-bar"></i>
+                  迷你图
+                </h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-4 text-center">
+                    <div id="sparkline-1"></div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-4 text-center">
+                    <div id="sparkline-2"></div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-4 text-center">
+                    <div id="sparkline-3"></div>
+                  </div>
+                  <!-- ./col -->
+                </div>
+                <!-- /.row -->
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
@@ -923,10 +1096,9 @@
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <b>版本</b> 3.0.5
+      <b>版本</b> 3.1.0
     </div>
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> 保留所有
-    权利。
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> 保留所有权利。
   </footer>
 
   <!-- Control Sidebar -->
@@ -943,13 +1115,13 @@
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
-<!-- 用于演示 AdminLTE  -->
-<script src="../../dist/js/demo.js"></script>
 <!-- jQuery Knob -->
 <script src="../../plugins/jquery-knob/jquery.knob.min.js"></script>
 <!-- Sparkline -->
-<script src="../../plugins/sparkline/jquery.sparkline.min.js"></script>
-<!-- 页面脚本 -->
+<script src="../../plugins/sparklines/sparkline.js"></script>
+<!-- 用于演示 AdminLTE  -->
+<script src="../../dist/js/demo.js"></script>
+<!-- 特定页面脚本 -->
 <script>
   $(function () {
     /* jQueryKnob */
@@ -1016,219 +1188,16 @@
     /* 结束 JQUERY KNOB */
 
     // 初始化 SPARKLINE 图表
-    $('.sparkline').each(function () {
-      var $this = $(this)
-      $this.sparkline('html', $this.data())
-    })
+    var sparkline1 = new Sparkline($('#sparkline-1')[0], { width: 240, height: 70, lineColor: '#92c1dc', endColor: '#92c1dc' })
+    var sparkline2 = new Sparkline($('#sparkline-2')[0], { width: 240, height: 70, lineColor: '#f56954', endColor: '#f56954' })
+    var sparkline3 = new Sparkline($('#sparkline-3')[0], { width: 240, height: 70, lineColor: '#3af221', endColor: '#3af221' })
 
-    /* SPARKLINE 文档示例 http://omnipotent.net/jquery.sparkline/#s-about */
-    drawDocSparklines()
-    drawMouseSpeedDemo()
+    sparkline1.draw([1000, 1200, 920, 927, 931, 1027, 819, 930, 1021])
+    sparkline2.draw([515, 519, 520, 522, 652, 810, 370, 627, 319, 630, 921])
+    sparkline3.draw([15, 19, 20, 22, 33, 27, 31, 27, 19, 30, 21])
 
   })
 
-  function drawDocSparklines() {
-
-    // 条形 + 折线复合图
-    $('#compositebar').sparkline('html', {
-      type    : 'bar',
-      barColor: '#aaf'
-    })
-    $('#compositebar').sparkline([4, 1, 5, 7, 9, 9, 8, 7, 6, 6, 4, 7, 8, 4, 3, 2, 2, 5, 6, 7],
-      {
-        composite: true,
-        fillColor: false,
-        lineColor: 'red'
-      })
-
-
-    // 折线图从标记中获取值
-    $('.sparkline-1').sparkline()
-
-    // 文档的折线图较大
-    $('.largeline').sparkline('html',
-      {
-        type  : 'line',
-        height: '2.5em',
-        width : '4em'
-      })
-
-    // 自定义折线图
-    $('#linecustom').sparkline('html',
-      {
-        height      : '1.5em',
-        width       : '8em',
-        lineColor   : '#f00',
-        fillColor   : '#ffa',
-        minSpotColor: false,
-        maxSpotColor: false,
-        spotColor   : '#77f',
-        spotRadius  : 3
-      })
-
-    // 条形图使用内置值
-    $('.sparkbar').sparkline('html', { type: 'bar' })
-
-    $('.barformat').sparkline([1, 3, 5, 3, 8], {
-      type               : 'bar',
-      tooltipFormat      : '{{value:levels}} - {{value}}',
-      tooltipValueLookups: {
-        levels: $.range_map({
-          ':2' : 'Low',
-          '3:6': 'Medium',
-          '7:' : 'High'
-        })
-      }
-    })
-
-    // 三态图使用内置值
-    $('.sparktristate').sparkline('html', { type: 'tristate' })
-    $('.sparktristatecols').sparkline('html',
-      {
-        type    : 'tristate',
-        colorMap: {
-          '-2': '#fa7',
-          '2' : '#44f'
-        }
-      })
-
-    // 复合折线图，第二个使用 javascript 提供的值
-    $('#compositeline').sparkline('html', {
-      fillColor     : false,
-      changeRangeMin: 0,
-      chartRangeMax : 10
-    })
-    $('#compositeline').sparkline([4, 1, 5, 7, 9, 9, 8, 7, 6, 6, 4, 7, 8, 4, 3, 2, 2, 5, 6, 7],
-      {
-        composite     : true,
-        fillColor     : false,
-        lineColor     : 'red',
-        changeRangeMin: 0,
-        chartRangeMax : 10
-      })
-
-    // 带有正常范围标记的折线图
-    $('#normalline').sparkline('html',
-      {
-        fillColor     : false,
-        normalRangeMin: -1,
-        normalRangeMax: 8
-      })
-    $('#normalExample').sparkline('html',
-      {
-        fillColor       : false,
-        normalRangeMin  : 80,
-        normalRangeMax  : 95,
-        normalRangeColor: '#4f4'
-      })
-
-    // 离散图表
-    $('.discrete1').sparkline('html',
-      {
-        type     : 'discrete',
-        lineColor: 'blue',
-        xwidth   : 18
-      })
-    $('#discrete2').sparkline('html',
-      {
-        type          : 'discrete',
-        lineColor     : 'blue',
-        thresholdColor: 'red',
-        thresholdValue: 4
-      })
-
-    // 项目符号图
-    $('.sparkbullet').sparkline('html', { type: 'bullet' })
-
-    // 饼形图
-    $('.sparkpie').sparkline('html', {
-      type  : 'pie',
-      height: '1.0em'
-    })
-
-    // 盒形图
-    $('.sparkboxplot').sparkline('html', { type: 'box' })
-    $('.sparkboxplotraw').sparkline([1, 3, 5, 8, 10, 15, 18],
-      {
-        type        : 'box',
-        raw         : true,
-        showOutliers: true,
-        target      : 6
-      })
-
-    // 具有特定字段顺序的盒形图
-    $('.boxfieldorder').sparkline('html', {
-      type                     : 'box',
-      tooltipFormatFieldlist   : ['med', 'lq', 'uq'],
-      tooltipFormatFieldlistKey: 'field'
-    })
-
-    // 迷你图点击事件演示
-    $('.clickdemo').sparkline()
-    $('.clickdemo').bind('sparklineClick', function (ev) {
-      var sparkline = ev.sparklines[0],
-          region    = sparkline.getCurrentRegionFields()
-      value         = region.y
-      alert('Clicked on x=' + region.x + ' y=' + region.y)
-    })
-
-    // 迷你图鼠标悬停事件演示
-    $('.mouseoverdemo').sparkline()
-    $('.mouseoverdemo').bind('sparklineRegionChange', function (ev) {
-      var sparkline = ev.sparklines[0],
-          region    = sparkline.getCurrentRegionFields()
-      value         = region.y
-      $('.mouseoverregion').text('x=' + region.x + ' y=' + region.y)
-    }).bind('mouseleave', function () {
-      $('.mouseoverregion').text('')
-    })
-  }
-
-  /**
-   ** 绘制鼠标移动速度图
-   ** 这只是将处理程序附加到 mousemove 事件以查看
-   ** 鼠标（大致）移动了多远
-   ** 然后每秒两次更新
-   ** setTimeout()
-   **/
-  function drawMouseSpeedDemo() {
-    var mrefreshinterval = 500 // 每 500ms 更新显示
-    var lastmousex       = -1
-    var lastmousey       = -1
-    var lastmousetime
-    var mousetravel      = 0
-    var mpoints          = []
-    var mpoints_max      = 30
-    $('html').mousemove(function (e) {
-      var mousex = e.pageX
-      var mousey = e.pageY
-      if (lastmousex > -1) {
-        mousetravel += Math.max(Math.abs(mousex - lastmousex), Math.abs(mousey - lastmousey))
-      }
-      lastmousex = mousex
-      lastmousey = mousey
-    })
-    var mdraw = function () {
-      var md      = new Date()
-      var timenow = md.getTime()
-      if (lastmousetime && lastmousetime != timenow) {
-        var pps = Math.round(mousetravel / (timenow - lastmousetime) * 1000)
-        mpoints.push(pps)
-        if (mpoints.length > mpoints_max) {
-          mpoints.splice(0, 1)
-        }
-        mousetravel = 0
-        $('#mousespeed').sparkline(mpoints, {
-          width        : mpoints.length * 2,
-          tooltipSuffix: ' 每秒像素'
-        })
-      }
-      lastmousetime = timenow
-      setTimeout(mdraw, mrefreshinterval)
-    }
-    // 我们可以改用 setInterval，但是我更喜欢这样
-    setTimeout(mdraw, mrefreshinterval);
-  }
 </script>
 </body>
 </html>

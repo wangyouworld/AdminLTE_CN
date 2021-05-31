@@ -130,24 +130,20 @@ Legacy User Menu
 <p>加载状态</p>
 <p>Blank Page</p>
 <p>空白页</p>
-<p>Starter Page</p>
-<p>起始页</p>
+Starter Page
+起始页
 <li class="nav-header">MISCELLANEOUS</li>
 <li class="nav-header">杂项</li>
 <p>Documentation</p>
 <p>文档</p>
 <li class="nav-header">MULTI LEVEL EXAMPLE</li>
 <li class="nav-header">多级示例</li>
-<p>Level 1</p>
-<p>一级</p>
 Level 1
-一 级
-<p>Level 2</p>
-<p>二级</p>
+一级
 Level 2
-二 级
-<p>Level 3</p>
-<p>三级</p>
+二级
+Level 3
+三级
 <li class="nav-header">LABELS</li>
 <li class="nav-header">标签</li>
 <p class="text">Important</p>
@@ -175,7 +171,7 @@ Unique Visitors
 <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
 <a class="nav-link active" href="#revenue-chart" data-toggle="tab">趋势</a>
 <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
-<a class="nav-link" href="#sales-chart" data-toggle="tab">饼型图</a>
+<a class="nav-link" href="#sales-chart" data-toggle="tab">环形图</a>
 <h3 class="card-title">Direct Chat</h3>
 <h3 class="card-title">聊天</h3>
 23 Jan 2:00 pm
@@ -382,8 +378,8 @@ alt="用户头像"
 <span class="users-list-date">1月13日</span>
 <span class="users-list-date">15 Jan</span>
 <span class="users-list-date">1月15日</span>
-<a href="javascript::">View All Users</a>
-<a href="javascript::">查看所有用户</a>
+View All Users
+查看所有用户
 <h3 class="card-title">Latest Orders</h3>
 <h3 class="card-title">最新订单</h3>
 <th>Order ID</th>
@@ -430,8 +426,8 @@ Samsung 32" 1080p 60Hz LED Smart HDTV.
 26 英寸猫鼬云白男式速7，海军蓝。
 Xbox One Console Bundle with Halo Master Chief Collection.
 Xbox One 主机包含光环。
-BODY TAG OPTIONS:
-BODY 标签选项：
+`body` tag options:
+`body` 标签选项：
 Apply one or more of the following classes to to the body tag
 将以下一个或多个类
 to get the desired effect
@@ -654,20 +650,22 @@ initialize the calendar
 /* 添加事件 */
 //Red by default
 // 默认为红色
-//Color chooser button
+// Color chooser button
 // 颜色选择器按钮
-//Save color
+// Save color
 // 保存颜色
-//Add color effect to button
+// Add color effect to button
 // 为按钮添加颜色
-//Get value and make sure it is not null
+// Get value and make sure it is not null
 // 获取值并确保它不为 null
-//Create events
+// Create events
 // 创建事件
-//Add draggable funtionality
+// Add draggable funtionality
 // 添加可拖动功能
-//Remove event from text input
+// Remove event from text input
 // 移除事件框中的内容
+, //red
+,// 红色
 Gallery</title>
 Gallery</title>
 <h1>Gallery</h1>
@@ -704,6 +702,8 @@ alt="black sample"
 alt="黑色示例"
 data-title="sample 3 - red"
 data-title="示例 3 - 红色"
+data-title="sample 4 - red"
+data-title="示例 4 - 红色"
 alt="red sample"
 alt="红色示例"
 data-title="sample 5 - black"
@@ -879,7 +879,7 @@ Lorem ipsum 文本生成器
 Description about the attachment can be placed here.
 有关附件的说明可以放在此处。
 Lorem Ipsum is simply dummy text of the printing and typesetting industry...
-Lorem Ipsum 只是印刷和排版行业的伪内……
+Lorem Ipsum 只是印刷和排版行业的伪内容……
 45 likes - 2 comments
 45 喜欢 - 2 评论
 The point of using Lorem Ipsum is that it hrs a morer-less
@@ -1357,7 +1357,7 @@ Sent you a message - 3 days ago
 Send</button>
 发送</button>
 placeholder="Response"
-placeholder="响应"
+placeholder="内容"
 Posted 5 photos - 5 days ago
 发布图片 - 5天前
 alt="Photo"
@@ -1416,6 +1416,8 @@ Project Add
 <h3 class="card-title">常规</h3>
 Project Name
 项目名称
+Project Name</label>
+项目名称</label>
 Project Description
 项目说明
 Project files
@@ -1431,7 +1433,7 @@ Select one</option>
 Success</option>
 完成</option>
 Client Company
-客户公司
+公司客户
 Project Leader
 项目负责人
 Budget</h3>
@@ -1492,8 +1494,6 @@ Projects</li>
 项目</li>
 Projects</h3>
 项目</h3>
-Project Name
-项目名称
 Team Members
 团队成员
 Project Progress
@@ -1515,7 +1515,7 @@ Delete
 alt="Avatar"
 alt="头像"
 You are only one step a way from your new password, recover your password now.
-最后一步，请设置你的新密码。
+最后一步，设置你的新密码。
 Change password
 修改密码
 Registration Page
@@ -1632,8 +1632,6 @@ Editor <a href="https://github.com/summernote/summernote">Documentation and lice
 编辑器<a href="https://github.com/summernote/summernote">文档和许可证
 information.</a>
 信息</a>。
-// Summernote
-// 夏天的随笔
 General Form Elements
 通用表单
 General Form
@@ -1758,16 +1756,16 @@ Radio disabled</label>
 <h3 class="card-title">自定义元素</h3>
 Custom Checkbox</label>
 自定义复选框</label>
-Custom Checkbox checked
-选中自定义复选框
-Custom Checkbox disabled
-禁用自定义复选框
+Custom Checkbox checked</label>
+选中自定义复选框</label>
+Custom Checkbox disabled</label>
+禁用自定义复选框</label>
 Custom Radio</label>
 自定义单选框</label>
-Custom Radio checked
-选中自定义单选框
-Custom Radio disabled
-禁用自定义单选框
+Custom Radio checked</label>
+选中自定义单选框</label>
+Custom Radio disabled</label>
+禁用自定义单选框</label>
 <label>Custom Select</label>
 <label>自定义列表框</label>
 Custom Select Disabled
@@ -1800,6 +1798,8 @@ Fixed Footer Layout
 固定底部布局
 Fixed Sidebar
 固定侧边栏
+Custom Area
+自定义区域
 Fixed Layout
 固定布局
 Fixed Navbar Layout
@@ -1921,7 +1921,7 @@ Social
 placeholder="Search Mail"
 placeholder="搜索邮件"
 Issue</b> - Trying to find a solution to this problem...
-问题</b> - 试图找到解决这个问题的方法……
+问题</b> - 试图找到解决问题的方法……
 hours ago
 小时前
 Yesterday</td>
@@ -1947,7 +1947,7 @@ title="上一封"
 title="Next"
 title="下一封"
 Message Subject Is Placed Here
-消息主题放在这里
+消息标题放在这里
 From:
 来自：
 15 Feb. 2015 11:03 PM
@@ -2088,6 +2088,12 @@ Responsive Hover Table
 <th>状态</th>
 <th>Reason</th>
 <th>原因</th>
+Approved</td>
+批准</td>
+Pending</td>
+等待</td>
+Denied</td>
+拒绝</td>
 Approved</span>
 批准</span>
 Pending</span>
@@ -2184,6 +2190,8 @@ Hoverable split buttons:
 水平分割按钮：
 Application Buttons
 应用程序按钮
+Application Buttons with Custom Colors
+自定义颜色应用程序按钮
 <p>Add the classes <code>.btn.btn-app</code> to an <code>&lt;a></code> tag to achieve the following:</p>
 <p>添加 <code>.btn.btn-app</code> 类到 <code>&lt;a></code> 标签中实现：</p>
 </i> Edit
@@ -2658,8 +2666,8 @@ shared a video
 分享视频
 See comments
 查看评论
-<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tMWkeBIohBs" frameborder="0" allowfullscreen=""></iframe>
-<iframe class="embed-responsive-item" height=498 width=510 src='https://player.youku.com/embed/XMjk4MzI2MjQw' frameborder=0 'allowfullscreen'></iframe>
+<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tMWkeBIohBs" allowfullscreen></iframe>
+<iframe height=498 width=510 src='https://player.youku.com/embed/XMjY2NTkzNjk2' frameborder=0 'allowfullscreen'></iframe>
 United States of America
 美国
 India
@@ -2668,8 +2676,8 @@ China
 中国
 Samsung TV
 三星电视
-Bicycle
-自行车
+>Bicycle
+>自行车
 Sales
 销售
 Extras
@@ -2714,8 +2722,8 @@ Visitors
 .summernote({lang : 'zh-CN'})
 <!-- Google Font: Source Sans Pro -->
 <!-- 离线 Google 字体: Source Sans Pro -->
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-<link href="/AdminLTE/AdminLTE-3.x/dist/css/google.css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+<link rel="stylesheet" href="/AdminLTE/AdminLTE-3.x/dist/css/google.css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 <!-- IonIcons -->
 <!-- 使用 BootCDN 的 IonIcons -->
 https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css
@@ -2783,21 +2791,19 @@ Friends</a>
 Sign out
 退出
 $("#example1").DataTable();
-$("#example1").DataTable({"language": {"url": "/AdminLTE/AdminLTE-3.x/plugins/datatables/Chinese.json"}})
-.DataTable({
-.DataTable({"language": {"url": "/AdminLTE/AdminLTE-3.x/plugins/datatables/Chinese.json"},
+$("#example1").DataTable({"language": {"url": "/AdminLTE/AdminLTE-3.x/plugins/datatables/Chinese.json"}});
+$("#example2").DataTable({
+$("#example2").DataTable({"language": {"url": "/AdminLTE/AdminLTE-3.x/plugins/datatables/Chinese.json"},
 <script src="../../plugins/jsgrid/jsgrid.min.js"></script>
 <script src="../../plugins/jsgrid/jsgrid.min.js"></script><script src="../../plugins/jsgrid/i18n/jsgrid-zh-cn.js"></script>
 $("#jsGrid1").jsGrid({
 jsGrid.locale("zh-cn");$("#jsGrid1").jsGrid({
 <a href="#">more</a>
 <a href="#">更多</a>
-<a href="https://adminlte.io/docs/3.0" class="nav-link">
-<a href="/AdminLTE/AdminLTE-3.x/docs/" class="nav-link">
 title="Date range"
 title="日期范围"
-<script src="../plugins/fullcalendar/main.min.js"></script>
-<script src="../plugins/fullcalendar/main.min.js"></script><script src="../plugins/fullcalendar/locales/zh-cn.js"></script>
+<script src="../plugins/fullcalendar/main.js"></script>
+<script src="../plugins/fullcalendar/main.js"></script><script src="../plugins/fullcalendar/locales/zh-cn.js"></script>
 var calendar = new Calendar(calendarEl, {
 var calendar = new Calendar(calendarEl, {locale:'zh-cn',
 <a href="..examples/recover-password.html" class="nav-link">
@@ -2808,8 +2814,8 @@ level 2</a>
 2 级</a>
 value="Save Changes"
 value="保存修改"
-.daterangepicker({
-.daterangepicker({locale:{applyLabel: '确定',cancelLabel: '取消',customRangeLabel: '自定义范围',},
+$('#reservation').daterangepicker()
+$('#reservation').daterangepicker({locale:{applyLabel: '确定',cancelLabel: '取消',customRangeLabel: '自定义范围'}});
 .bootstrapDualListbox()
 .bootstrapDualListbox({filterTextClear: '显示所有', filterPlaceHolder: '筛选', moveSelectedLabel: '移动选中', moveAllLabel: '移动所有', removeSelectedLabel: '移除选中', removeAllLabel: '移除所有', infoText: '显示所有 {0}', infoTextFiltered: '<span class="badge badge-warning">筛选</span> 共 {1} 符合 {0} ', infoTextEmpty: '空列表'})
 Top Navigation + Sidebar
@@ -2862,9 +2868,467 @@ alt="照片 3"
 <label>日期：</label>
 Visit <a href="https://tempusdominus.github.io/bootstrap-4/Usage/">tempusdominus </a> for more examples and information about
 访问 <a href="https://tempusdominus.github.io/bootstrap-4/Usage/">tempusdominus</a>，获取更多信息和示例。
-//Date range picker
-// 日期范围选择器
+//Date range picker with time picker
+// 带有时间选择的日期范围选择器
 Visit <a href="https://github.com/istvan-ujjmeszaros/bootstrap-duallistbox#readme">Bootstrap Duallistbox</a> for more examples and information about
 访问 <a href="https://github.com/istvan-ujjmeszaros/bootstrap-duallistbox#readme">Bootstrap Duallistbox</a> 获取更多信息和示例。
 Many more skins available. <a href="https://bantikyan.github.io/icheck-bootstrap/">Documentation</a>
 查看<a href="https://bantikyan.github.io/icheck-bootstrap/">文档</a>获取更多皮肤。
+Tabbed IFrame Plugin
+选项卡式框架插件
+Kanban Board
+看板
+<h1 class="m-0">Dashboard
+<h1 class="m-0">仪表盘
+2/28/2015
+2015年02月08日
+2/23/2015
+2015年02月23日
+2/20/2015
+2015年02月20日
+2/10/2015
+2015年02月10日
+1/27/2015
+2015年01月27日
+1/4/2015
+2015年01月04日
+Contact us
+联系我们
+Login & Register
+登录 & 注册
+Login v1
+登录 v1
+Register v1
+注册 v1
+Login v2
+登录 v2
+Register v2
+注册 v2
+Search
+搜索
+Search</h2>
+搜索</h2>
+Type your keywords here
+在这里输入关键字
+Simple Search
+普通搜索
+Simple Search Form
+普通搜索表单
+Enhanced Search
+高级搜索
+Enhanced Search Form
+高级搜索表单
+<p>Enhanced</p>
+<p>高级</p>
+OPTIONAL SCRIPTS
+可选脚本
+Info Box With Custom Shadows
+信息框自定义阴影
+Using Bootstrap's Shadow Utility
+基于 Bootstrap 阴影功能
+Shadows</span>
+阴影效果</span>
+None</span>
+无</span>
+Small</span>
+小</span>
+Regular</span>
+常规</span>
+Large</span>
+大</span>
+Custom Shadows Variations
+自定义阴影参数
+Shadow - None
+阴影效果 - 无
+Shadow - Small
+阴影效果 - 小
+Shadow - Regular
+阴影效果 - 常规
+Shadow - Large
+阴影效果 - 大
+Far far away, behind the word mountains, far from the
+被我们从山顶撞下去的日军足有一百多人两个小队，斥候绝没有这么大规模，他们甚至已经在峰顶插上了军旗。
+countries Vokalia and Consonantia, there live the blind
+没有被累死和杀死的人，傻呵呵的高兴着。仅仅十五分钟，我们把占了绝对地形优势的敌军赶回林里吃草，干掉他们三分之二。
+texts. Separated they live in Bookmarksgrove right at
+我们像一条巨大的恶犬，呲出我们以为早已经退化没了的獠牙吼着，我咬死你。
+the coast of the Semantics, a large language ocean.
+整个晚上，日军炮兵像在展览，随着装备轻重和时间推移加入我们视野之外的射场。
+A small river named Duden flows by their place and supplies
+五十毫米掷弹筒、七十毫米步炮、九十毫米迫击炮、七十五毫米山炮和野炮、一百零五毫米野炮和山炮，
+it with the necessary regelialia. It is a paradisematic
+爆破弹在土层里爆炸，杀伤流弹在空中穿飞，
+country, in which roasted parts of sentences fly into
+烧夷弹让泥土粘在我们身上烧灼，照明弹让黎明提前到来，
+your mouth.
+烟幕弹把黎明又拉回黑夜。
+Card with Image Overlay
+内容叠加卡片
+Card Title
+卡片标题
+Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor.
+人老了，思绪就会常常飘忽，和灵魂一样。
+Lorem ipsum dolor sit amet, <br>
+经过那样的一场恶战，<br>
+consectetur adipisicing elit <br>
+我的灵魂已经没有了重量，<br>
+sed do eiusmod tempor.
+只有思绪才会偶尔沉淀，<br>它让我继续生活。
+Lorem ipsum dolor <br>
+我该回家了<br>
+sit amet, consectetur <br>
+猪肉白菜炖粉条子<br>
+adipisicing elit sed <br>
+如今是我最拿手的大菜<br>
+do eiusmod tempor.
+我都闻到它的香味了
+Last update
+更新于
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+无论你能飞多远，都别忘了你来自何方。
+Pagination Month
+月份分页
+Jan</p>
+1月</p>
+Feb</p>
+2月</p>
+Mar</p>
+3月</p>
+Apr</p>
+4月</p>
+May</p>
+5月</p>
+Jun</p>
+6月</p>
+Jul</p>
+7月</p>
+Aug</p>
+8月</p>
+Sep</p>
+9月</p>
+Oct</p>
+10月</p>
+Nov</p>
+11月</p>
+Dec</p>
+12月</p>
+Different Styles
+不同风格
+Input</h4>
+输入框</h4>
+Bottom Border only
+仅底部有边框
+Bottom Border only 2px Border
+底部 2px 边框
+Flat <code>
+扁平化 <code>
+Custom Select
+自定义下拉列表框
+<option>Value
+<option>值
+Custom Radio with custom color</label>
+自定义单选框和颜色</label>
+Custom Radio with custom color outline</label>
+自定义单选框和颜色边框</label>
+Custom Checkbox with custom color
+自定义复选框和颜色
+Custom Checkbox with custom color outline
+自定义复选框和颜色边框
+Date dd/mm/yyyy
+Date yyyy-dd-mm
+data-inputmask-inputformat="dd/mm/yyyy"
+data-inputmask-inputformat="yyyy-dd-mm"
+//color picker with addon
+// 带有插件的颜色选择器
+//Colorpicker
+// 颜色选择器
+// BS-Stepper Init
+// BS-Stepper 初始化
+// DropzoneJS Demo Code Start
+// DropzoneJS 演示代码开始
+// Get the template HTML and remove it from the doument he template HTML and remove it from the doument
+// 获取 #template 并从文档中移除
+// Make the whole body a dropzone
+// 使整 body 可拖放
+// Set the url
+// 设置地址
+// Make sure the files aren't queued until manually added
+// 确保手动添加时不将文件放入队列
+// Define the container to display the previews
+// 定义容器以显示预览
+// Define the element that should be used as click trigger to select files.
+// 定义用作触发器选择文件的元素。
+// Hookup the start button
+// 绑定开始上传按钮
+// Update the total progress bar
+// 更新总进度条
+// Show the total progress bar when upload starts
+// 上传开始时显示总进度条
+// And disable the start button
+// 并禁用开始按钮
+// Hide the total progress bar when nothing's uploading anymore
+// 上传完成时，不显示总进度条
+// Setup the buttons for all transfers
+// 设置所有传输的按钮
+// The "add files" button doesn't need to be setup because the config
+// 不需要设置“添加文件”按钮，因为已配置
+// `clickable` has already been specified.
+// 已经指定了 `clickable`。
+// DropzoneJS Demo Code End
+// DropzoneJS 演示代码结束
+Place <em>some</em> <u>text</u> <strong>here</strong>
+放 <em>一些</em> <u>内容</u> <strong>在这里</strong>
+Visit <a href="https://github.com/summernote/summernote/">Summernote</a> documentation for more examples and information about &nbsp;
+访问 <a href="https://github.com/summernote/summernote/">Summernote</a> 获取更多信息和示例。
+Visit <a href="https://codemirror.net/">CodeMirror</a> documentation for more examples and information about &nbsp;
+访问 <a href="https://codemirror.net/">CodeMirror</a> 获取更多信息和示例。
+Expandable Table
+可扩展表格
+Expandable Table Tree
+树形可扩展表格
+<title>AdminLTE 3 | Kanban Board</title>
+<title>AdminLTE 3 | 看板</title>
+<h1>Kanban Board</h1>
+<h1>看板</h1>
+Kanban Board</li>
+看板</li>
+Backlog
+积压
+Create Labels
+创建标签
+Bug</label>
+问题</label>
+Feature</label>
+新功能</label>
+Enhancement</label>
+增强</label>
+Documentation</label>
+文档</label>
+Examples</label>
+示例</label>
+Create Issue template
+创建问题模板
+Bug Report
+问题反馈
+Feature Request
+功能需求
+Create PR template
+创建 PR 模板
+Create Actions
+创建操作
+To Do
+待办
+Create first milestone
+创建第一个里程碑
+In Progress
+进行中
+Update Readme
+更新 Readme
+Done
+完成
+Create repo
+创建仓库
+Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem
+那帮家伙——那帮贪生怕死的人渣，兵痞中的破落户，
+plugg
+大字不识的造粪机——他们都在发痒。
+weebly ning heekya handango imeem plugg dopplr
+大字不识的造粪机——他们都在发痒。
+dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
+我的汗毛直竖，我也有点发痒，这跟美械无关。
+jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
+我的汗毛直竖，我也有点发痒，这跟美械无关。
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.
+永远不要在人前调侃你的理想，你为它付出的是生命。
+Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
+桃花飞绿水，一庭芳草围新绿，有情芍药含春泪。
+weebly ning heekya handango imeem plugg dopplr jibjab, movity
+野竹上青霄，十亩藤花落古香，无力蔷薇卧晓枝。
+jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
+我愿暂求造化力，减却牡丹妖艳色。
+quora plaxo ideeli hulu weebly balihoo...
+花非花，梦非梦，花如梦，梦似花，梦里有花，花开如梦。心非心，镜非镜，心如镜，镜似心，镜中有心，心如明镜。
+Take me to your leader!
+我记得我小的时候，有一晚也像今天这样。那天我真的看到了圣诞老人，带着白雪公主，赶着花马车从我头顶划过。
+Switzerland is small and neutral!
+我去跟家父说，却换回了一顿手板。后来，我独自躺在院子里，等着他们回来，我相信他们是去采蘑菇了，一定还会回来的。
+We are more like Germany, ambitious and misunderstood!
+现在，繁星在我的眼里都已经散乱，它们再不表示什么，除了无数个你无法去到的地方。
+Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terr.
+第四次，这是第四次。一次比一次更接近南天门，一次比一次更像梦，一个漫长的梦。路程按厘米计算，只能忘掉路程。我是石头，我是杂草，我是粪便，是枯树腐烂的尸体。怒江在身下流逝，逝者如斯，也需要忘掉时间，时刻记住，我，不存在，我不存在了，我不存在。
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae condimentum erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed posuere, purus at efficitur hendrerit, augue elit lacinia arcu, a eleifend sem elit et nunc. Sed rutrum vestibulum est, sit amet cursus dolor fermentum vel. Suspendisse mi nibh, congue et ante et, commodo mattis lacus. Duis varius finibus purus sed venenatis. Vivamus varius metus quam, id dapibus velit mattis eu. Praesent et semper risus. Vestibulum erat erat, condimentum at elit at, bibendum placerat orci. Nullam gravida velit mauris, in pellentesque urna pellentesque viverra. Nullam non pellentesque justo, et ultricies neque. Praesent vel metus rutrum, tempus erat a, rutrum ante. Quisque interdum efficitur nunc vitae consectetur. Suspendisse venenatis, tortor non convallis interdum, urna mi molestie eros, vel tempor justo lacus ac justo. Fusce id enim a erat fringilla sollicitudin ultrices vel metus.
+用从正午到凌晨，穿过一发子弹就能飞到的距离，在某个日军过于紧张的节点上，你发狂的想念黑夜。到了夜晚，你祈祷不要有人拿你这堆枯草练夜间射击，因为你得一动不动，直到被他打成烂泥。
+Vivamus rhoncus nisl sed venenatis luctus. Sed condimentum risus ut tortor feugiat laoreet. Suspendisse potenti. Donec et finibus sem, ut commodo lectus. Cras eget neque dignissim, placerat orci interdum, venenatis odio. Nulla turpis elit, consequat eu eros ac, consectetur fringilla urna. Duis gravida ex pulvinar mauris ornare, eget porttitor enim vulputate. Mauris hendrerit, massa nec aliquam cursus, ex elit euismod lorem, vehicula rhoncus nisl dui sit amet eros. Nulla turpis lorem, dignissim a sapien eget, ultrices venenatis dolor. Curabitur vel turpis at magna elementum hendrerit vel id dui. Curabitur a ex ullamcorper, ornare velit vel, tincidunt ipsum.
+我的团长今天不损，而是……他的战法说出来都嫌恶毒。他给铁棘刺通了电，在防线上不光布设了地雷，还埋设了五公斤炸药再加五公斤钉子这样的遥控引爆。他用尸体堵住炸开的铁丝网，让日军通过地道在虞师背后出现。他从陡坡上投掷装满炸药和玻璃片的汽油桶、炮弹壳、炸药包和炮弹改装的巨型手榴弹、燃烧瓶、瓦斯和死人。他用曲射火力收拾了半个总爱乱放信号的搜索连，让人发现乱放信号弹等于通敌。虞师倚重的空中支援居然被他用老式迫击炮发射的烟幕化解，他甚至用假烟幕把美国飞机引到了虞师头上。他让人看战争会如何歇斯底里，他也引来了最多的仇恨，全部来自自己人。
+Cras ut ipsum ornare, aliquam ipsum non, posuere elit. In hac habitasse platea dictumst. Aenean elementum leo augue, id fermentum risus efficitur vel. Nulla iaculis malesuada scelerisque. Praesent vel ipsum felis. Ut molestie, purus aliquam placerat sollicitudin, mi ligula euismod neque, non bibendum nibh neque et erat. Etiam dignissim aliquam ligula, aliquet feugiat nibh rhoncus ut. Aliquam efficitur lacinia lacinia. Morbi ac molestie lectus, vitae hendrerit nisl. Nullam metus odio, malesuada in vehicula at, consectetur nec justo. Quisque suscipit odio velit, at accumsan urna vestibulum a. Proin dictum, urna ut varius consectetur, sapien justo porta lectus, at mollis nisi orci et nulla. Donec pellentesque tortor vel nisl commodo ullamcorper. Donec varius massa at semper posuere. Integer finibus orci vitae vehicula placerat.
+后来我们用绳子把兽医缒上去。他被绳子勒得张开了双臂，像个被折去翅膀的老天使。他逆着日光，和初升的太阳一起照射着仰望的我和迷龙。我看着老头儿一点点升入阳光，升入阴暗如我永远无法到达的纯真之地，谁说他不是升天了呢？他一生中没能帮过任何人，尽管他不自量力地想帮每一个人。他从不恶毒。中国人习惯为死人说好话。这是我能为他想到的最好的一句话。
+Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terr.
+阿译已经开始唱了，依然很难听，却比在收容站那会儿更加动情，真的很，真凄迷。我有时候怀疑那首歌是不是就是为他写的。不过在这个人命如同朝露的南天门，也许再难听的声音也会让人潸然泪下。
+Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terr.
+二十四岁的时候，我在这里打了一场搏命的战斗。命令说只坚守两天，可我们却守了三十八天。三十八天头上，我太累了，睡着了。这一觉我就睡了六十年。现如今我已经八十四岁了。我把自己留在了这里，留在了南天门。
+1. Lorem ipsum dolor sit amet
+旅行文化
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+在旅行过程中，文化与文化相互碰撞，人们常常会遇到，与其自身所处文化截然不同的另一些文化。
+2. Aenean massa
+预定阳光
+Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+预定一米阳光，装进心房。欢畅的风，轻敲我的心窗。
+3. Donec quam felis
+微笑和沉默
+Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+微笑和沉默是两把利器：微笑解决很多问题，沉默避免许多问题。
+4. Donec pede justo
+读书、讨论、写作
+Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+读书使人充实，讨论使人机敏，写作使人严谨。
+5. In enim justo
+来自何方
+In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
+无论你能飞多远，都别忘了你来自何方。
+6. Integer tincidunt
+不要去骗人
+Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
+不要去骗人，因为你能骗到的，都是相信你的人。
+7. Aenean leo ligula
+不同的结局
+Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
+没人能回头重新来过，但谁都可以从现在起书写一个不同的结局。
+8. Aliquam lorem ante
+别在
+Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.
+别在喜悦时承诺，别在悲伤时回答，别在愤怒时决定。
+9.  Quisque rutrum
+玫瑰
+Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.
+与其抱怨玫瑰丛长满了刺，还不如感激刺丛里竟生出了玫瑰。
+if you found not the right anwser or you have a other question?
+如果你看到了不正确的答案，或者还有其他问题？
+123 Testing Ave, Testtown, 9876 NA
+NA 9876，德斯敦，测试大街123号
+E-Mail</label>
+邮箱</label>
+Subject</label>
+主题</label>
+Message</label>
+内容</label>
+Send message
+发送消息
+data-placeholder="Any"
+data-placeholder="所有"
+Result Type:
+返回类型：
+Text only</option>
+仅文本</option>
+Images</option>
+图像</option>
+Video</option>
+视频</option>
+Sort Order:
+排序方式：
+ASC</option>
+正序</option>
+DESC</option>
+倒序</option>
+Order By:
+排序项：
+Title</option>
+标题</option>
+Date</option>
+日期</option>
+Enhanced Search Results
+高级搜索结果
+Lorem ipsum dolor sit amet</h3>
+理性</h3>
+consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+理性的声音蕴含在所有在运用的语言中，人们利用它来处理事情。
+4pm</div>
+4 下午</div>
+<iframe width="240" height="160" src="https://www.youtube.com/embed/WEkSYw3o5is?controls=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" class="border-0" allowfullscreen></iframe>
+<iframe height=498 width=510 src='https://player.youku.com/embed/XMjY2NTkzNjk2' frameborder=0 'allowfullscreen'></iframe>
+Tabbed IFrames
+选项卡式框架
+Close</a>
+关闭</a>
+No tab selected!
+这里什么也没有！点击左侧菜单打开一个。
+Tab is loading
+载入中……
+Buttons with Icons
+带图标的按钮
+bs-stepper</h3>
+步进器</h3>
+Logins</span>
+登录</span>
+Various information</span>
+各种信息</span>
+Next</button>
+下一步</button>
+Previous</button>
+上一步</button>
+Visit <a href="https://github.com/Johann-S/bs-stepper/#how-to-use-it">bs-stepper documentation</a> for more examples and information about &nbsp;
+访问 <a href="https://github.com/Johann-S/bs-stepper/#how-to-use-it">bs-stepper 文档</a> 获取更多信息和示例。
+<em>jQuery File Upload</em> like look</small>
+<em>jQuery 文件上传</em>效果</small>
+Add files
+添加文件
+Start upload
+开始上传
+Cancel upload
+取消上传
+<span>Start</span>
+<span>上传</span>
+<span>取消</span>
+<span>删除</span>
+Visit <a href="https://www.dropzonejs.com">dropzone.js documentation</a> for more examples and information about &nbsp;
+访问 <a href="https://www.dropzonejs.com">dropzone.js 文档</a> 获取更多信息和示例。
+$("#example1").DataTable({
+$("#example1").DataTable({"language": {"url": "/AdminLTE/AdminLTE-3.x/plugins/datatables/Chinese.json"},
+$('#example2').DataTable({
+$('#example2').DataTable({"language": {"url": "/AdminLTE/AdminLTE-3.x/plugins/datatables/Chinese.json"},
+Sparklines
+迷你图
+Launch Error Toast
+错误弹框
+Date and time
+日期和时间
+Date and time range
+日期和时间范围
+Date and time:
+日期和时间：
+Visit <a href="https://getdatepicker.com/5-4/">tempusdominus </a> for more examples and information about
+访问 <a href="https://getdatepicker.com/5-4/">tempusdominus</a> 获取更多信息和示例。
+Visit <a href="https://github.com/Johann-S/bs-stepper/#how-to-use-it">bs-stepper documentation</a> for more examples and information about &nbsp;
+访问 <a href="https://github.com/Johann-S/bs-stepper/#how-to-use-it">bs-stepper 文档</a> 获取更多信息和示例。
+Visit <a href="https://www.dropzonejs.com">dropzone.js documentation</a> for more examples and information about &nbsp;
+访问 <a href="https://www.dropzonejs.com">dropzone.js 文档</a> 获取更多信息和示例。
+Visit <a href="https://github.com/summernote/summernote/">Summernote</a> documentation for more examples and information about &nbsp;
+访问 <a href="https://github.com/summernote/summernote/">Summernote 文档</a> 获取更多信息和示例。
+Visit <a href="https://codemirror.net/">CodeMirror</a> documentation for more examples and information about &nbsp;
+访问 <a href="https://codemirror.net/">CodeMirror 文档</a> 获取更多信息和示例。
+Sep2014-report.pdf
+2014年9月-报告.pdf
+App Description.docx
+APP 说明.docx
+Deveint Inc
+德文特公司
+Tony Chicken
+托尼
+Functional-requirements.docx
+功能要求.docx
+UAT.pdf
+用户验收测试.pdf
+Email-from-flatbal.mln
+来自 flatbal 的电子邮件.mln
+Contract-10_12_2014.docx
+合同-10_12_2014.docx
+Check the Header part you can find Legacy vesion of style.
+检查标题部分，你可以找到传统风格。
+Check the Header part you can find Language Changing Options with Icon.
+检查标题部分，你可以找到带有语言的图标。
+You can Change Pace Styles, Checkout the <a href="https://adminlte.io/docs/3.1/" target="_blank" rel="noopener noreferrer">AdminLTE Official Docs</a> in Online.
+你可以更改 Pace 样式，在线查看 <a href="https://adminlte.io/docs/3.1/" target="_blank" rel="noopener noreferrer">AdminLTE 官方文档</a>。
+value="Lorem ipsum"
+value="兰晓龙"
+https://adminlte.io/docs/3.1
+/AdminLTE/AdminLTE-3.x/docs

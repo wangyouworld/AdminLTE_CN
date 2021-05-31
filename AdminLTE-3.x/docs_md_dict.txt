@@ -13,7 +13,7 @@ You can find our supported range of browsers and their versions in [our .browser
 last 1 major version
 前 1 个主要版本
 not dead
-活着
+活跃
 title: Dependencies & Plugins
 title: 依赖 & 插件
 #### Dependencies
@@ -39,7 +39,7 @@ AdminLTE 使用以下插件。相关文档，更新或许可证信息，请访�
 <h4>Form Elements</h4>
 <h4>表单元素</h4>
 <h4>Icon Packs</h4>
-<h4>图标包</h4>
+<h4>图标库</h4>
 <h4>Table Grids</h4>
 <h4>表格</h4>
 <h4>Notifications</h4>
@@ -48,9 +48,9 @@ AdminLTE 使用以下插件。相关文档，更新或许可证信息，请访�
 <h4>其他</h4>
 <h4>Plugin Dependencies</h4>
 <h4>插件依赖关系</h4>
-Can AdminLTE be used with Wordpress?
+Can AdminLTE be used with WordPress?
 AdminLTE 可以与 Wordpress 一起使用吗？
-AdminLTE is an HTML template that can be used for any purpose. However, it is not made to be easily installed on Wordpress. It will require some effort and enough knowledge of the Wordpress script to do so.
+AdminLTE is an HTML template that can be used for any purpose. However, it is not made to be easily installed on WordPress. It will require some effort and enough knowledge of the WordPress script to do so.
 AdminLTE 是一个 HTML 模板，可以在任何地方使用。但它不容易安装在 Wordpress 上。你需要多些努力及足够的 Wordpress 脚本知识才行。
 Is there an integration guide for PHP frameworks such as Yii or Symfony?
 有没有 PHP 框架的集成指南，如 Yii 或 Symfony？
@@ -72,22 +72,22 @@ title: Introduction
 title: 介绍
 AdminLTE can be installed using multiple methods. Pick your favorite method from the list below. Please be sure to check the dependencies section before continuing.
 有多种方式来安装 AdminLTE。从下面的列表中选择你喜欢的方式。在继续之前，请确保检查依赖项部分。
-#### Download
-#### 下载
-###### __From Github__
-###### __通过 Github__
-Visit the releases section on Github and download the [latest release](https://github.com/ColorlibHQ/AdminLTE/releases).
+# Download
+# 下载
+# __From Github__
+# __通过 Github__
+Visit the releases section on GitHub and download the [latest release](https://github.com/ColorlibHQ/AdminLTE/releases).
 访问 Github 上的发布页面，下载[最新版](https://github.com/ColorlibHQ/AdminLTE/releases)。
-#### Command Line
-#### 命令行
-__Via NPM__
-__通过 NPM__
-__Via Yarn__
-__通过 Yarn__
-__Via Composer__
-__通过 Composer__
-__Via Git__
-__通过 Git__
+# Command Line
+# 命令行
+# Via NPM
+# 通过 NPM
+# Via Yarn
+# 通过 Yarn
+# Via Composer
+# 通过 Composer
+# Via Git
+# 通过 Git
 title: Layout
 title: 布局
 > ##### Tip!
@@ -204,8 +204,10 @@ Olive (olive)
 > 你甚至可以将这些颜色与 `.text-*` 、`.bg-*` 及其他一起使用。
 ##### Custom Range / Switch
 ##### 自定义范围/开关
-For custom colored custom-range you can add this classes:
-自定义范围色，你可以添加这个类:
+For custom colored custom-checkbox & custom-radio you can add this classes:
+对于自定义复选框、单选框，你可以添加这个类:
+You can also change the look to outlined checkbox & radio with adding the `.custom-control-input-outline` on the custom control input.
+在自定义输入框中使用 `.custom-control-input-outline`，会展示成复选框、单选框效果。
 For custom colored custom-switch you can add this classes:
 对于自定义颜色开关，你可以添加这个类:
 - `.custom-switch-off-*` (for custom switch off)
@@ -224,8 +226,8 @@ You can use the all the colors above with these plugins:
 - `.slider-*` （在滑块上使用）
 title: License
 title: 许可证
-AdminLTE is an open source project that is licensed under the [MIT license](http://opensource.org/licenses/MIT). This allows you to do pretty much anything you want as long as you include the copyright in "all copies or substantial portions of the Software." Attribution is not required (though very much appreciated).
-AdminLTE 是根据 [MIT 许可证](http://opensource.org/licenses/MIT)授权的开源项目。只要你在“软件的所有副本或大部分内容”中包含版权，你就可以做任何事情。署名不是必需的（尽管非常感谢）。
+AdminLTE is an open source project that is licensed under the [MIT license](https://opensource.org/licenses/MIT). This allows you to do pretty much anything you want as long as you include the copyright in "all copies or substantial portions of the Software." Attribution is not required (though very much appreciated).
+AdminLTE 是通过 [MIT 许可证](http://opensource.org/licenses/MIT)授权的开源项目。只要你在“软件的所有副本或大部分内容”中包含版权，你就可以做任何事情。署名不是必需的（尽管非常感谢）。
 What You Are <span class="text-success">Allowed</span> To Do With AdminLTE</h5>
 <span class="text-success">允许</span>使用 AdminLTE 做什么</h5>
 - Use in commercial projects.
@@ -252,8 +254,8 @@ title: Upgrade Guide
 title: 升级指南
 #### Migration from v2.4.x
 #### 从 v2.4.x 迁移
-The first step to migrate AdminLTE v2.4.x to v3.0 is upgrade the Bootstrap 3 base code to Bootstrap 4, the full instruction <a href="https://getbootstrap.com/docs/4.3/migration/">here</a> after you upgraded the base code you need to update the markups.
-将 AdminLTE v2.4.x 迁移到 v3.0 的第一步是将 Bootstrap 3 基础代码升级到 Bootstrap 4，这里的<a href="https://getbootstrap.com/docs/4.3/migration/">完整说明</a>，在你升级代码后要更新的标记。
+The first step to migrate AdminLTE v2.4.x to v3.0 is upgrade the Bootstrap 3 base code to Bootstrap 4, the full instruction [here](https://getbootstrap.com/docs/4.4/migration/) after you upgraded the base code you need to update the markups.
+将 AdminLTE v2.4.x 迁移到 v3.0 的第一步是将 Bootstrap 3 基础代码升级到 Bootstrap 4，这里的<a href="https://getbootstrap.com/docs/4.4/migration/">完整说明</a>，在你升级代码后要更新的标记。
 ##### Main Header
 ##### 主标题
 The biggest change in Main Header is the Logo is moved to Main Sidebar and the Main Header has now color variations, here are all changes:
@@ -466,8 +468,8 @@ Loading state (dark)</h3>
 载入状态（暗色）</h3>
 title: Control Sidebar Component
 title: 控制侧边栏组件
-Control sidebar is the right sidebar. It can be used for many purposes and is extremely easy to create. The sidebar ships with two different show/hide styles. The first allows the sidebar to slide over the content. The second pushes the content to make space for the sidebar. Either of these methods can be set through the [Javascript options]({% link javascript/control-sidebar.md %}).
-控制侧边栏是右边的侧边栏。它可以用于多种目的，并且非常易于创建。侧边栏附带两种不同的显示/隐藏样式。第一个允许侧边栏在内容上滑动。第二个推送内容以便为侧边栏腾出空间。可以通过 [Javascript 选项](/AdminLTE/AdminLTE-3.x/docs/javascript/control-sidebar.html)设置这两种方法。
+Control sidebar is the right sidebar. It can be used for many purposes and is extremely easy to create. The sidebar ships with two different show/hide styles. The first allows the sidebar to slide over the content. The second pushes the content to make space for the sidebar. Either of these methods can be set through the [JavaScript options]({% link javascript/control-sidebar.md %}).
+控制侧边栏是右边的侧边栏。它可以用于多种目的，并且非常易于创建。侧边栏附带两种不同的显示/隐藏样式。第一个允许侧边栏在内容上滑动。第二个推送内容以便为侧边栏腾出空间。可以通过 [JavaScript 选项](/AdminLTE/AdminLTE-3.x/docs/javascript/control-sidebar.html)设置这两种方法。
 The following code should be placed within the `.wrapper` div. I prefer to place it right after the footer.
 将以下代码放在 `.wrapper` div 中。我更喜欢将其放在页脚之后。
 ##### Control Sidebar Push
@@ -558,8 +560,8 @@ title: Main Header Component
 title: 主标题组件
 > ##### Reminder!
 > ##### 提醒！
-> AdminLTE uses all of Bootstrap 4 components. It's a good start to review the [Bootstrap documentation](http://getbootstrap.com) to get an idea of the various components that this documentation __does not__ cover.
-> AdminLTE 使用所有 Bootstrap 4 组件。这是一个回顾 [Bootstrap 文档](http://getbootstrap.com)的良好开端，通过它了解此文档未涵盖的各种组件。
+AdminLTE uses all of Bootstrap 4 components. It's a good start to review the [Bootstrap documentation](https://getbootstrap.com/) to get an idea of the various components that this documentation __does not__ cover.
+AdminLTE 使用所有 Bootstrap 4 组件。这是一个回顾 [Bootstrap 文档](https://getbootstrap.com/)的良好开端，通过它了解此文档未涵盖的各种组件。
 > If you go through the example pages and would like to copy a component, right-click on the component and choose "inspect element" to get to the HTML quicker than scanning the HTML page.
 > 在浏览示例页面时如果你想要复制组件，请右键单击该组件并选择“检查元素”它比从页面中获取 HTML 更快。
 The main header contains the navbar. Construction of the navbar differs slightly from Bootstrap because it has components that Bootstrap doesn't provide. The navbar can be constructed in two ways. This is an example for the normal navbar and next we will provide an example for the top nav layout with a logo too.
@@ -620,12 +622,14 @@ mins</span>
 分钟前</span>
 #### Top Nav Layout. Main Header Example.
 #### 顶部导航布局 主标题示例
-> To use this main header instead of the regular one, you must add the `layout-top-nav` class to the body tag.
-> 要使用此主标题而不是常规标题，必须将 `layout-top-nav` 类添加到 body 标签。
+To use this main header instead of the regular one, you must add the `layout-top-nav` class to the body tag.
+要使用此主标题而不是常规标题，必须将 `layout-top-nav` 类添加到 body 标签。
 Top navbar example can be found in this [demo page](https://adminlte.io/themes/dev/AdminLTE/pages/layout/top-nav.html).
 顶部导航栏示例可以在[演示页面](/AdminLTE/AdminLTE-3.x/pages/layout/top-nav.html)中找到。
-> To get a bigger dropdown menu you can add `.dropdown-menu-lg` or `.dropdown-menu-xl` to `.dropdown-menu`.
-> 要获得更大的下拉菜单，你可以在 `.dropdown-menu` 类中添加 `.dropdown-menu-lg` 或 `.dropdown-menu-xl`。
+To get a bigger dropdown menu you can add `.dropdown-menu-lg` or `.dropdown-menu-xl` to `.dropdown-menu`.
+要获得更大的下拉菜单，你可以在 `.dropdown-menu` 类中添加 `.dropdown-menu-lg` 或 `.dropdown-menu-xl`。
+You can also get the legacy dropdown offset with adding `.dropdown-offset-legacy` to `.main-header`.
+你还可以通过向 `.main-header` 中添加 `.dropdown-offset-legacy` 来获得旧版的下拉偏移。
 title: Main Sidebar Component
 title: 主侧边栏组件
 The sidebar used in this page to the left provides an example of what your sidebar would look like. Construction of a sidebar:
@@ -663,7 +667,7 @@ alt="AdminLTE 文档 大 LOGO"
 > Example from v3.0 docs.
 > v3.0 文档中的示例。
 Based on the example above, you can replace `.brand-image-xl` on `.logo-xs` with `.brand-image-xs` or vice versa on `.logo-xl` for changed logo sizes.
-根据上面的示例，你可以将 `.logo-xs` 上的 `.brand-image-xl` 替换为 `.brand-image-xs`，或者将 `.logo-xl` 上的 `.brand-image-xl` 更改成 LOGO 大小。
+根据上面的示例，你可以将 `.logo-xs` 上的 `.brand-image-xl` 替换为 `.brand-image-xs`，或者将 `.logo-xl` 替换为 `.brand-image-xl` 以更改 LOGO 的大小。
 #### Search Form in Sidebar
 #### 侧边栏中搜索表单
 You can add this code above user-panel or nav-sidebar:
@@ -806,20 +810,20 @@ title: Card Refresh Plugin
 title: 卡片刷新插件
 The card refresh plugin provides the functionality for loading ajax content into the card.
 卡片刷新插件提供将 Ajax 内容加载到卡片中的功能。
-##### Usage
-##### 用法
-This plugin can be activated as a jQuery plugin or using the data api.
+# Usage
+# 用法
+This plugin can be activated as a jQuery plugin or using the data API.
 该插件可以作为 jQuery 插件或使用数据 API 激活。
-###### Data API
-###### 数据 API
-###### Data api
-###### 数据 API
+# Data API
+# 数据 API
+# Data api
+# 数据 API
 Activate the plugin by adding a button with `data-card-widget="card-refresh"` to the card and provide the required `data-source="/URL-TO-CONTENT"` option. By doing that, the plugin will automatically create a GET request to the provided URL and render the returned response the `.card-body` section of the card. If you need to process the returned response before rendering, you should use the jQuery API, which provides hooks to deal with the response.
 通过向卡片添加带有 `data-card-widget="card-refresh"` 的按钮来激活插件，并提供所需的 `data-source="/内容 URL"` 选项。这样，插件将自动创建一个对设置 URL 的 GET 请求，并将返回的内容展示在卡片的 `.card-body` 部分。如果需要在渲染之前处理返回的内容，则应使用 jQuery API，该 API 提供了用于处理响应内容的钩子。
 The jQuery API provides more customizable options that allows the developer to pre-process the request before rendering and post-process it after rendering.
 jQuery API 提供了更具可自定义的选项，允许开发人员在展示前预先处理请求，在请求之后处理返回内容。
-##### Options
-##### 选项
+# Options
+# 选项
 | Name | Type | Default | Description
 | 名称 | 类型 | 默认 | 说明
 | source | String | '' | The URL to the source.
@@ -844,8 +848,8 @@ jQuery API 提供了更具可自定义的选项，允许开发人员在展示前
 | onLoadStart | Function | 匿名函数 | 在 ajax 请求之前调用
 | onLoadDone | Function | Anonymous Function | Called after the ajax request is made. A `response` parameter is passed to the function that hold the server response.
 | onLoadDone | Function | 匿名函数 | 发出 ajax 请求后调用。 传递的 `response` 参数将保存服务器的响应内容。
-##### Events
-##### 事件
+# Events
+# 事件
 | Event Type | Description
 | 事件类型 | 说明
 |loaded.lte.cardrefresh | Triggered after a card is refreshed.
@@ -856,8 +860,8 @@ jQuery API 提供了更具可自定义的选项，允许开发人员在展示前
 |overlay.removed.lte.cardrefresh | 从卡片中移除后触发。
 Example:
 示例：
-##### Methods
-##### 方法
+# Methods
+# 方法
 | Method | Description
 | 方法 | 说明
 |load | Reloads the content and runs the `onLoadStart` and `onLoadDone` hooks
@@ -866,9 +870,7 @@ title: Card Widget Plugin
 title: 卡片小部件插件
 The card widget plugin provides the functionality for collapsing, expanding and removing a card.
 卡片小部件插件提供了折叠、展示和移除卡片的功能。
-##### Usage
-##### 用法
-This plugin provides two data-api attributes. Any element using one of the following attributes should be placed within the `.card-tools` div, which is usually in the card header. For more information about the [card HTML structure]({% link components/cards.md %}), visit the card component documentation
+This plugin provides two `data-api` attributes. Any element using one of the following attributes should be placed within the `.card-tools` div, which is usually in the card header. For more information about the [card HTML structure]({% link components/cards.md %}), visit the card component documentation
 该插件提供了两个 data-api 属性。任何使用以下属性之一的元素都应放在 `.card-tools` div 中，该元素通常在卡片头部。有关[卡片 HTML 结构](/AdminLTE/AdminLTE-3.x/docs/components/cards.html)的更多信息，请访问卡片组件文档
 This attribute, when attached to a button, allows the box to be collapsed/expanded when clicked.
 将此属性附加到按钮上，在点击按钮后将折叠/展开卡片。
@@ -947,11 +949,11 @@ Toggle Control Sidebar
 Just like all other AdminLTE plugins, you can also activate the toggle button using jQuery by running the following example.
 与其他 AdminLTE 插件一样，你可以通过运行以下 jQuery 示例来激活切换按钮。
 |controlsidebarSlide | Boolean | TRUE | Whether the sidebar should slide over the content or push the content to make space for itself.
-|controlsidebarSlide | Boolean | TRUE | 侧边栏是滑出，还是将内容推出以为其留出空间。
+|controlsidebarSlide | Boolean | TRUE | 侧边栏是滑出，还是将内容推出以为其留出空间
 |scrollbarTheme | Boolean | `os-theme-light` | Scrollbar Theme used while SideBar Fixed
-|scrollbarTheme | Boolean | `os-theme-light` | 侧边栏固定时滚动条使用的主题
+|scrollbarTheme | Boolean | `os-theme-light` | 侧边栏固定时滚动条使用的主题。
 |scrollbarAutoHide | Boolean | `l` | Scrollbar auto-hide trigger
-|scrollbarAutoHide | Boolean | `l` | 滚动条自动隐藏触发器
+|scrollbarAutoHide | Boolean | `l` | 滚动条自动隐藏触发器。
 |panelAutoHeight | Boolean|Numeric | true | Panel Height Correction (`true` = default correction on load/resize; numeric = offset the correction on load/resize)
 |panelAutoHeight | Boolean|Numeric | true | 面板高度调整（`true` = 加载/调整大小时自动调整；数值=加载/调整大小时的高度）
 |loginRegisterAutoHeight | Boolean|Integer | true | Login & Register Height Correction (`true` = single correction on load; integer = correction with a interval based on the interger)
@@ -959,9 +961,9 @@ Just like all other AdminLTE plugins, you can also activate the toggle button us
 > You can use any option via the data-attributes like this to enable auto collapse sidebar on 768 pixels width.
 > 你可以通过数据属性来启用宽度为 768px 的自动折叠侧边栏。
 |expanded.lte.controlsidebar | Triggered after a control sidebar expands.
-|expanded.lte.controlsidebar | 在控制侧边栏展开后触发。
+|expanded.lte.controlsidebar | 在控制侧边栏展开后触发
 |collapsed.lte.controlsidebar | Triggered after a control sidebar collapses.
-|collapsed.lte.controlsidebar | 在控制侧边栏折叠后触发。
+|collapsed.lte.controlsidebar | 在控制侧边栏折叠后触发
 title: Direct Chat Plugin
 title: 聊天插件
 The direct chat plugin provides simple functionality to the direct chat component.
@@ -1066,7 +1068,7 @@ title: Todo List Plugin
 title: 待办事项列表插件
 The todo list plugin provides simple functionality to the todo list component.
 该插件为待办事项列表组件提供了简单的功能。
-This plugin can be activated as a jQuery plugin or using the data api.
+This plugin can be activated as a jQuery plugin or using the data API.
 该插件可以作为 jQuery 插件或使用数据 API 激活。
 Activate the plugin by adding `data-widget="todo-list"` to the ul element. If you need to provide onCheck and onUncheck methods, please use the jQuery API.
 通过向 ul 元素添加 `data-widget="todo-list"` 来激活插件。如果你需要提供 onCheck 和 onUncheck 方法，请使用 jQuery API。
@@ -1116,8 +1118,8 @@ Looking for Premium Templates?
 寻找高级模板？
 AdminLTE.io just opened a new premium templates page. Hand picked to ensure the best quality and the most affordable
 AdminLTE.io 刚刚开通了一个高级模板网站，精选以确保最佳质量和最实惠的价格。
-prices. Visit https://adminlte.io/premium for more information.
-访问 https://adminlte.io/premium 了解更多信息。
+prices. Visit <https://adminlte.io/premium> for more information.
+访问 <https://adminlte.io/premium> 了解更多信息。
 AdminLTE Presentation
 AdminLTE 演示
 **AdminLTE** has been carefully coded with clear comments in all of its JS, SCSS and HTML files.
@@ -1134,8 +1136,8 @@ Download from [Github releases](https://github.com/ColorlibHQ/AdminLTE/releases)
 下载 [Github 发行版](https://github.com/ColorlibHQ/AdminLTE/releases)。
 Using The Command Line:
 使用命令行：
-- Clone to your machine
-- 克隆到你的电脑上
+Clone to your machine
+克隆到你的电脑上
 Documentation
 文档
 Visit the [online documentation](https://adminlte.io/docs/3.0/) for the most
@@ -1148,33 +1150,31 @@ Browser Support
 （最新）
 Contribution
 贡献
-Contribution are always **welcome and recommended**! Here is how:
-始终**欢迎和推荐**贡献！方法如下：
-- Fork the repository ([here is the guide](https://help.github.com/articles/fork-a-repo/)).
-- Fork 存储库（[这里是指南](https://help.github.com/articles/fork-a-repo/)）。
-- Clone to your machine ```git clone https://github.com/YOUR_USERNAME/AdminLTE.git```
-- 克隆到你的电脑上 ```git clone https://github.com/YOUR_USERNAME/AdminLTE.git```
-- Create a new branch
-- 创建新分支
+Fork the repository ([here is the guide](https://help.github.com/articles/fork-a-repo/)).
+Fork 存储库（[这里是指南](https://help.github.com/articles/fork-a-repo/)）。
+Clone to your machine ```git clone https://github.com/YOUR_USERNAME/AdminLTE.git```
+克隆到你的电脑上 ```git clone https://github.com/YOUR_USERNAME/AdminLTE.git```
+Create a new branch
+创建新分支
 - Make your changes
 - 进行更改
-- Create a pull request
-- 创建拉取请求
-Contribution Requirements:
+Create a pull request
+创建拉取请求
+Contribution Requirements :
 贡献要求：
-- When you contribute, you agree to give a non-exclusive license to AdminLTE.io to use that contribution in any context as we (AdminLTE.io) see appropriate.
-- 当您提交时，您同意授予 AdminLTE.io 非独占许可，以便在我们（AdminLTE.io）在认为适当的时候使用该贡献。
-- If you use content provided by another party, it must be appropriately licensed using an [open source](http://opensource.org/licenses) license.
-- 如果您使用第三方提供的内容，则必须使用[开源许可证](http://opensource.org/licenses)对其进行适当许可。
-- Contributions are only accepted through Github pull requests.
-- 仅通过 Github 拉取请求接受贡献。
-- Finally, contributed code must work in all supported browsers (see above for browser support).
-- 最后，贡献的代码必须适用于所有支持的浏览器（请参阅上面的浏览器支持）。
+When you contribute, you agree to give a non-exclusive license to AdminLTE.io to use that contribution in any context as we (AdminLTE.io) see appropriate.
+当您提交时，您同意授予 AdminLTE.io 非独占许可，以便在我们（AdminLTE.io）在认为适当的时候使用该贡献。
+If you use content provided by another party, it must be appropriately licensed using an [open source](https://opensource.org/licenses) license.
+如果您使用第三方提供的内容，则必须使用[开源许可证](http://opensource.org/licenses)对其进行适当许可。
+Contributions are only accepted through GitHub pull requests.
+仅通过 Github 拉取请求接受贡献。
+Finally, contributed code must work in all supported browsers (see above for browser support).
+最后，贡献的代码必须适用于所有支持的浏览器（请参阅上面的浏览器支持）。
 License
 许可证
 AdminLTE is an open source project by [AdminLTE.io](https://adminlte.io) that is licensed under [MIT](http://opensource.org/licenses/MIT). AdminLTE.io
-AdminLTE 是 [AdminLTE.io](https://adminlte.io) 的开源项目，由 [MIT](http://opensource.org/licenses/MIT) 许可。
-reserves the right to change the license of future releases.
+AdminLTE 是 [AdminLTE.io](https://adminlte.io) 的开源项目，通过 [MIT](http://opensource.org/licenses/MIT) 授权许可。
+AdminLTE.io reserves the right to change the license of future releases.
 AdminLTE.io 保留在未来更改版本许可的权利。
 Legacy Releases
 历史版本
@@ -1190,8 +1190,8 @@ relative_url}}
 absolute_url}}
 You better believe it!
 是的，确实如此！
-#### Compile dist files
-#### 编译 dist 文件
+Compile dist files
+编译 dist 文件
 To compile the dist files you need nodejs/npm, clone/download the repo then:
 要编译 dist 文件，你需要 nodejs/npm，克隆/下载仓库，然后：
 1. `npm install` (install npm deps)
@@ -1280,3 +1280,401 @@ alt="照片 1"
 > 要将内容换行，请在 info-box-text 中添加 text-wrap 类。
 > To truncate the text with ... add to the info-box-content the class text-truncate. (Here you should add a tooltip to display the whole pharse)
 > 要截断文本并显示...，请在 info-box-content 中添加 text-truncate 类。（在这里你应该添加工具提示以显示整个内容）
+# Introduction
+# 介绍
+**AdminLTE** is a fully responsive administration template. Based on **[Bootstrap 4.5](https://getbootstrap.com/)** framework and also the JS/jQuery plugin.
+**AdminLTE** 是一个完全响应式管理模板。基于 **[Bootstrap 4.5](https://getbootstrap.com/)** 框架和 JS/jQuery 插件。
+## Installation
+## 安装
+### Download & Changelog:
+### 下载 & 更新日志：
+Download from GitHub latest release [AdminLTE 3](https://github.com/ColorlibHQ/AdminLTE/latest).
+从 GitHub下载最新版本 [AdminLTE 3](https://github.com/ColorlibHQ/AdminLTE/latest)。
+_**Important Note**: To install it via npm/Yarn, you need at least Node.js 10 or higher._
+_**重要说明**：要通过 npm/Yarn 安装，至少 Node.js 10 或更高版本。_
+**Via npm**
+**通过 npm**
+**Via Yarn**
+**通过 Yarn**
+**Via Composer**
+**通过 Composer**
+**Via Git**
+**通过 Git**
+## Documentation
+## 文档
+Visit the [online documentation](https://adminlte.io/docs/3.1/) for the most
+访问 [在线文档](https://adminlte.io/docs/3.1/) 以获取更多信息。
+Browsers support
+支持浏览器
+last 2 versions
+最近2个版本
+How to Contribute
+如何贡献
+Contributions are always **welcome and recommended**! Here is how for beginner's: [Get started with open source click here](https://youtu.be/GbqSvJs-6W4)
+始终**欢迎**你分享，也**推荐**你这么做！这是初学者的方法：[开源入门请单击此处](https://youtu.be/GbqSvJs-6W4)
+* When you contribute, you agree to give a non-exclusive license to AdminLTE.io to use that contribution in any context as we (AdminLTE.io) see appropriate.
+* 当你提交时，你同意给 AdminLTE.io 一个非独占许可。我们（AdminLTE.io）可以任意使用该贡献。
+Installation :
+安装：
+Compile dist files (Development) :
+编译 dist 文件（开发）：
+To compile the dist files you need Node.js 10 or higher/npm (node package manager)
+要编译 dist 文件，你需要 Node.js 10或更高版本/npm（node 包管理器）
+Delete ./package-lock.json file
+删除 ./package-lock.json 文件
+(developer mode, autocompile with browsersync support for live demo)
+（开发者模式，自动编译，支持 browsersync 实时演示）
+Make your changes only in ./buid Folder OR package.json OR ./dist/js/demo.js OR in any html files which nessary to contribute
+允许在 ./buid 目录、package.json 或 ./dist/js/demo.js 中修改，或在 HTML 文件中进行更改
+Do not changes in ./dist/css/ AND ./dist/js/ Because its compiled files
+不要修改 ./dist/css/ 和 ./dist/js/ 目录下的文件，因为它是已编译文件
+(compile css/js files and test every pages are perfectly working fine, before creating pull request)
+（在创建拉取请求之前，编译 css/js 文件并测试每个页面是否正常工作）
+Online one-click setup for contributing
+在线一键设置
+You can use Gitpod(an online IDE which is free for Open Source) for working on issues or making Prs. With a single click it will launch a workspace and automatically:
+你可以使用 Gitpod（一个开源的在线 IDE）或处理问题或管理 Prs。只需点击一下，就会自动启动工作区：
+clone the `AdminLTE` repo.
+克隆 `AdminLTE` 仓库
+install the dependencies.
+安装依赖关系
+run `yarn dev` to start the server.
+运行 `yarn dev` 启动服务
+[Open in Gitpod]
+[打开 Gitpod]
+To compile the dist files you need Node.js/npm, clone/download the repo then:
+要编译 dist 文件，你需要 Node.js/npm，克隆/下载仓库后：
+## License
+## 许可证
+AdminLTE is an open source project by [AdminLTE.io](https://adminlte.io) that is licensed under [MIT](https://opensource.org/licenses/MIT).
+AdminLTE 是 [AdminLTE.io](https://adminlte.io) 的开源项目，通过 [MIT](http://opensource.org/licenses/MIT) 授权许可。
+Additional Styles / Custom Skin
+附加样式/自定义皮肤
+If you want to create additional styles like a company specific color for buttons, the background utility or something else you can simply create your own subversion of AdminLTE with the following SCSS template.
+如果要创建其他样式，例如按钮、背景实用程序或公司的特定颜色，则可以使用 SCSS 模板轻松创建自己的 AdminLTE 子版本。
+In this example we create a custom button class called `.btn-custom-color` with an extra button style and a custom class called `.my-custom-style`.
+在示例中，我们创建了一个 `.btn-custom-color` 自定义按钮类，该按钮类具有额外的按钮样式，以及一个名为 `.my-custom-style` 的自定义类。
+Custom Theme Color START
+自定义主题颜色开始
+Custom Theme Color END
+自定义主题颜色结束
+Variables and Mixins
+变量和混合
+Custom Style START
+自定义样式开始
+Custom Style END
+自定义样式结束
+You can also create a skin on top of AdminLTE with the following SCSS template.
+你还可以使用 SCSS 模板在 AdminLTE 之上创建皮肤。
+In this example we create a custom class called `.btn-custom-color` with a extra button style.
+在示例中，我们创建了一个名为 `.btn-custom-color` 的自定义类，并带有额外的按钮样式。
+Warning!
+注意！
+These examples are only raw SCSS templates, you will still need a SCSS -> CSS build script to compile the SCSS to CSS!
+这些示例是原始的 SCSS 模板，你需要 SCSS -> CSS 构建脚本才能将 SCSS 编译为 CSS！
+You can find our supported range of browsers and their versions in [our .browserslistrc file](https://github.com/ColorlibHQ/AdminLTE/blob/master/.browserslistrc):
+在 [.browserslistrc 文件](https://github.com/ColorlibHQ/AdminLTE/blob/master/.browserslistrc) 中可以找到我们支持的浏览器及脚本。
+last 2 major versions
+最近2个主要版本
+You may watch the [releases on GitHub]
+你可以查看[[Github 仓库]]
+Brand with Pushmenu Button
+带有品牌的按钮
+You can place the pushmenu button inside the brand, simply replace the brand-link code with the code below:
+你可以将按钮菜单放置在品牌内，只需将品牌链接代码替换为以下代码即可：
+Sidebar Custom Area
+侧边栏自定义区域
+You can add a Custom Area inside the Sidebar to display extra buttons or text below your menu entries.
+你可以在侧边栏中添加自定义区域，以在菜单项下方显示其他按钮或文本。
+You can simply add this code after the `div.sidebar`:
+只需要简单的在 `div.sidebar` 之后添加以下代码：
+Help</a>
+帮助</a>
+The Sidebar Custom Area works only with `.layout-fixed` enabled.
+仅在使用 `.layout-fixed` 时才管用。
+Form Control Bottom Border Only
+表单控件底部边框
+You can change the form-control input to a bottom border only style with adding the `.form-control-border` class.
+通过在 form-control 后添加 `.form-control-border` 类，实现仅底部展示边框效果。
+Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
+整个晚上，日军炮兵像在展览，随着装备轻重和时间推移加入我们视野之外的射场。
+weebly ning heekya handango imeem plugg dopplr jibjab, movity
+五十毫米掷弹筒、七十毫米步炮、九十毫米迫击炮、七十五毫米山炮和野炮、一百零五毫米野炮和山炮，
+jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
+爆破弹在土层里爆炸，杀伤流弹在空中穿飞，
+quora plaxo ideeli hulu weebly balihoo...
+烧夷弹让泥土粘在我们身上烧灼，照明弹让黎明提前到来，烟幕弹把黎明又拉回黑夜。
+Collapses the control-sidebar
+折叠侧边栏
+Show's the control-sidebar
+显示侧边栏
+Toggles the state of the control-sidebar expanded and collapsed
+切换侧边栏折叠/展开状态
+The jQuery API provides more customizable options that allows the developer to toggle the chat contact pane.
+jQuery API 提供了更多可定制的选项，允许开发人员展开/折叠聊天面板。
+Expandable Table Plugin
+可扩展表格插件
+The expandable table plugin provides simple functionality to create expandable tables.
+可扩展表格插件提供了创建可展开表格的简单功能。
+# Example Code
+# 示例代码
+YOUR EXPANDABLE TABLE BODY HERE
+这是可展开的表体
+You can control the default visibility with ` aria-expanded="false"`/` aria-expanded="true"` via the expandable table header.
+你可以通过在表行中设置` aria-expanded="false"`/` aria-expanded="true"` 来折叠/展开内容。
+Add `data-widget="expandable-table"` to a table row to activate the plugin and place a new table row below with the `.expandable-body`-class.
+添加 `data-widget="expandable-table"` 到表行以激活插件，及在下面新表行中使用 `.expandable-body` 类。
+To get the correct slide up/down animation place a `div` or `p`-tag inside your expandable table body.
+你必须在表体中使用 `div` 或 `p` 标签，才能实现滑动效果。
+Toggles the state of the expandable table body between hidden and visible.
+在折叠/展开表体间切换。
+Triggered after a expandable table body is expanded.
+在展开表体时触发。
+Triggered after a expandable table body is collapsed.
+在折叠表体时触发。
+IFrame Plugin
+框架插件
+The iframe plugin provides the functionality to open sidebar & navbar items in a tabbed iframe.
+框架插件提供了以标签方式在框架中打开侧边栏和导航栏的功能。
+Required Markup
+使用标记
+To get the iframe 100% working you need the following content-wrapper markup:
+要使框架 100% 工作，你需要在 `.content-wrapper` 中使用以下标记：
+Close</a>
+关闭</a>
+No tab selected!
+这里什么也没有！点击左侧菜单打开一个。
+Tab is loading
+载入中……
+Activate the plugin by adding `data-widget="iframe"` to the `.content-wrapper`. If you need to provide onCheck and onUncheck methods, please use the jQuery API.
+通过在 `data-widget="iframe"` 中添加 `.content-wrapper` 来激活插件。如果你需要 onCheck 和 onUncheck 方法，请使用 jQuery API。
+Anonymous Function
+匿名函数
+Handle tab click event.
+处理标签单击事件。
+Handle tab changed event.
+处理标签切换事件。
+Handle tab created event.
+处理标签创建事件。
+Whether to automatically add `.iframe-mode` to `body` if page is loaded via iframe.
+如果页面是通过框架加载的，是否将 `.iframe-mode` 添加到 `body` 中。
+Whether to automatically set the sidebar menu item active based on the active iframe.
+根据当前活动的框架，是否将侧边栏菜单项也设置活动状态。
+Whether to automatically display created tab.
+是否自动显示创建的选项卡。
+[Boolean] Whether to enable iframe loading screen; [Number] Set loading screen hide delay.
+[true 或 false] 是否显示框架加载界面；[数字]设置加载界面延迟。
+Whether to open navbar menu items, instead of open only sidebar menu items.
+一并打开导航栏菜单项，而不是只打开侧边栏菜单项。
+Create tab by title, link & uniqueName. Available arguments: title `String`, link `String`, uniqueName `String`, autoOpen `Boolean/Optional`.
+通过标题，链接和唯一名称创建选项卡。可用参数：标题 `String`，链接 `String`，唯一名称 `String`，自动打开 `Boolean / 可选`。
+Create tab by sidebar menu item. Available arguments: item `String|jQuery Object`, autoOpen `Boolean/Optional`.
+通过侧边栏菜单项创建选项卡。可用参数：项目 `String | jQuery Object`，自动打开 `Boolean / 可选`。
+Switch tab by iframe tab navbar item. Available arguments: item `String|jQuery Object`.
+通过框架选项卡标签实现切换。可用参数：项目 `String | jQuery Object`。
+Remove active iframe tab.
+移除活动的框架。
+Scrollbar Theme used while SideBar Fixed
+滚动条主题
+Scrollbar auto-hide trigger
+滚动条自动隐藏
+Panel Height Correction (`true` = default correction on load/resize; numeric = offset the correction on load/resize)
+面板高度修正（`true` = 默认值，在加载/调整大小时修正；数字 = 加载/调整大小时修正）
+Panel Height Mode (`min-height` = sets the `min-height`-attribute to the content-wrapper; `height` = sets `height`-attribute to the content-wrapper)
+面板高度模式（`min-height` =设置 `最小高度` 属性到 content-wrapper；`height` = 设置指定`高度`到 content-wrapper）
+Login & Register Height Correction (`true` = single correction on load; integer = correction with a interval based on the interger)
+登录和注册高度修正（`true` = 仅载入时修正；整数 = 基于指定时间间隔修正）
+Sidebar Search Plugin
+侧边栏搜索插件
+The sidebar search plugin provides the functionality to search menu items from the sidebar menu entries.
+插件提供了搜索侧边栏菜单项的功能。
+This plugin can be activated as a jQuery plugin or using the data API.
+该插件可以作为 jQuery 插件或使用数据 API 激活。
+Activate the plugin by adding the following data-attribue `data-widget="sidebar-search"` to a input-group inside the sidebar. You can use the HTML Markup below for a quick start.
+通过将 `data-widget="sidebar-search"` 添加到侧边栏中来激活插件。你可以使用下面代码来快速实现。
+# HTML Markup
+# HTML 代码
+Place this HTML Markup after `div.user-panel`.
+将代码放在 `div.user-panel` 标记后。
+Arrow Sign between the menu item path.
+菜单、路径之间的箭头符号。
+Min search query length.
+关键词搜索最小长度。
+Max search results to display.
+最大搜索结果数。
+Whether to highlight menu item name.
+是否突出显示菜单项名称。
+Whether to highlight menu item path.
+是否突出显示菜单项路径。
+Hightlight class.
+突出展示类。
+| 'No element found! | Response text if no menu item found.
+| '找不到元素！ | 找不到时响应内容。
+Init's the SidebarSearch Plugin and registers all visible menu items.
+初始化 SidebarSearch 插件，并注册所有可见的菜单项。
+Toggles the search dropdown list.
+切换搜索下拉列表。
+Closes the search dropdown list.
+关闭搜索下拉列表。
+Opens the search dropdown list.
+打开搜索下拉列表。
+Triggers a search.
+触发搜索。
+For custom colored custom-range you can add this classes:
+对于自定义颜色范围，你可以添加以下类：
+Simple Link
+示例链接
+This plugin can be activated as a jQuery plugin or using the data api.
+该插件可以作为 jQuery 插件或使用数据 API 激活。
+Sidebar Search
+侧边栏搜索
+Expandable Tables
+可扩展表格
+The jQuery API provides more customizable options that allows the developer to toggle the visibilty state of one table row.
+jQuery API 提供了更多可定制的选项，允许开发人员切换表行的可见状态。
+<p>IFrame</p>
+<p>框架</p>
+Additional Styles
+附加样式
+Bootstrap 4 Admin Dashboard
+Bootstrap 4 管理面板
+**AdminLTE** is a fully responsive administration template. Based on **[Bootstrap 4.6](https://getbootstrap.com/)** framework and also the JS/jQuery plugin.
+**AdminLTE** 是一个自响应式管理框架。基于 **[Bootstrap 4.6](https://getbootstrap.com/)** 框架以及 JS/jQuery 插件。
+Always Recommended to download from GitHub latest release [AdminLTE 3](https://github.com/ColorlibHQ/AdminLTE/releases/latest) for bug free and latest features.
+始终建议从 GitHub 下载最新版本的 [AdminLTE 3](https://github.com/ColorlibHQ/AdminLTE/releases/latest)，以获取无错误和最新功能。
+## Quick start
+## 快速开始
+## Stable release
+## 稳定发布
+Grab from [jsdelivr](https://www.jsdelivr.com/package/npm/admin-lte) CDN:
+从 [jsdelivr](https://www.jsdelivr.com/package/npm/admin-lte) CDN 获取：
+_**Important Note**: You needed to add separately cdn links for plugins in your project._
+_**重要说明**：在项目中使用的插件，你也需要添加 cdn 链接。_
+#### Via npm
+#### 使用 npm
+## Unstable release
+## 不稳定发布
+## Contributing
+## 贡献
+Please read through our [contributing guidelines](https://github.com/ColorlibHQ/AdminLTE/tree/master/.github/CONTRIBUTING.md). Included are directions for opening issues, coding standards, and notes on development.
+请仔细阅读我们的[贡献准则](https://github.com/ColorlibHQ/AdminLTE/tree/master/.github/CONTRIBUTING.md)。其中包括开放问题的说明，编码标准和开发说明。
+Editor preferences are available in the [editor config](https://github.com/twbs/bootstrap/blob/main/.editorconfig) for easy use in common text editors.
+[编辑器配置](https://github.com/twbs/bootstrap/blob/main/.editorconfig)中的配置项，以方便在普通文本编辑器中使用。
+Read more and download plugins at <https://editorconfig.org/>.
+了解更多信息，并在 <https://editorconfig.org/> 下载插件。
+(Included all open-source extensions with Bootstrap 4 styling)
+（包含所有 Bootstrap 4 样式的开源扩展）
+# Contributing to AdminLTE
+# 为 AdminLTE 做贡献
+run `npm run dev` to start the server.
+执行 `npm run dev` 启动服务
+Legacy Releases are
+历史版本是
+AdminLTE 3.1 provides a set of options to apply to your main layout. Each one of these classes can be added to the body tag to get the desired goal.
+AdminLTE 3.1 提供了一组用于主布局的选项。你可以将这些类添加到 body 标签以获得需要的效果。
+#### Preloader
+#### 预载器
+Preloader to avoid [https://github.com/ColorlibHQ/AdminLTE/discussions/3319](https://github.com/ColorlibHQ/AdminLTE/discussions/3319)
+要避免预载器加载 [https://github.com/ColorlibHQ/AdminLTE/discussions/3319](https://github.com/ColorlibHQ/AdminLTE/discussions/3319)
+<!-- Preloader -->
+<!-- 预载器 -->
+Preloader elements should be added inside `.wrapper` element.
+预载器元素应添加到 `.wrapper` 元素内。
+You can replace image OR modify size OR include any preload items inside `.preloader` element.
+你可以替换图片，也可以修改尺寸，或在 `.preloader` 元素中包含任何预加载项。
+#### Dark Mode
+#### 深色模式
+AdminLTE 3.1 provides a dark mode option. You can add in body tag:
+AdminLTE 3.1 提供了深色模式。 你可以添加 body 标签中：
+AdminLTE 3.1 provides a set of color variations to apply to your sidebar (light & dark) & navbar. You can combine any available color with these class prefixes:
+AdminLTE 3.1 提供了一组颜色变量，可应用于侧边栏（浅色和深色）和导航栏。你可以将任何可用的颜色与这些类前缀结合使用：
+Recommended for Dark Mode
+推荐使用深色模式
+You must use only `.navbar-dark` without only combination.
+它只能单独使用`.navbar-dark`，而不能组合使用。
+- Bootstrap Slider
+- Bootstrap 滑块
+Widgets
+小部件
+You can also get the legacy dropdown offset with adding `.dropdown-legacy` to `.main-header`.
+你可以通过向 `.main-header` 中添加 `.dropdown-legacy` 来获得旧版下拉菜单的偏移量。
+Target control-sidebar to handle multiple control-sidebars.
+可以处理多个控制侧边栏。
+Markup with Default IFrame Tab
+使用默认 IFrame 标签进行标记
+Whether to allow creation of duplicate tab/iframe.
+是否允许创建重复的标签/框架。
+Preloader Duration (Set in milliseconds)
+预加载器持续时间（以毫秒为单位）
+Navbar Search Plugin
+导航栏搜索插件
+The navbar search plugin provides the functionality to show/hide a search input across the whole header.
+导航栏搜索插件提供了搜索功能。
+Activate the plugin by adding the following data-attribue `data-widget="navbar-search"` to the `.navbar-search-block` inside the header. You can use the HTML Markup below for a quick start.
+将 `data-widget="navbar-search"` 添加到标题内的 `.navbar-search-block` 来激活插件。你可以使用下面的 HTML 代码快速开始。
+Place this HTML Markup after inside the header.
+将此 HTML 标记放在标题内。
+Or you can place the search button inside the navbar as nav-item with this markup:
+或者，也可以使用以下标记将搜索按钮作为 nav-item 放置在导航栏中：
+Reset Input on Close/Hide.
+关闭/隐藏时重置输入。
+Target navbar-search-block to handle multiple navbar-search-blocks.
+将 navbar-search-block 定义为可处理个 navbar-search-blocks。
+Toggles the search block.
+切换搜索块。
+Closes the search block.
+关闭搜索块。
+Opens the search block.
+打开搜索块。
+# Contributor Covenant Code of Conduct
+# 贡献者行为公约
+## Our Pledge
+## 我们的承诺
+In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.
+为了培养一个开放和谐的环境，作为贡献者和维护者，我们承诺创造一个没有骚扰的环境，这里无关年龄、体型、残障、种族、性别、身、经验、国籍、外表、种族、信仰、取向。
+## Our Standards
+## 我们的标准
+Examples of behavior that contributes to creating a positive environment include:
+有助于促进积极环境的行为包括但不限于：
+- Using welcoming and inclusive language
+- 措辞体贴，友好和耐心
+- Being respectful of differing viewpoints and experiences
+- 尊重不同的观点或经验
+- Gracefully accepting constructive criticism
+- 优雅的接受建设性批评
+- Focusing on what is best for the community
+- 致力于关注社区的整体利益
+- Showing empathy towards other community members
+- 与其他社区成员产生共鸣
+Examples of unacceptable behavior by participants include:
+不可接受的参与者行为包括：
+- The use of sexualized language or imagery and unwelcome sexual attention or advances
+- 使用污言秽语
+- Trolling, insulting/derogatory comments, and personal or political attacks
+- 恶意诽谤、侮辱或贬损的言论，人身攻击或政治攻击
+- Public or private harassment
+- 公开或私下的骚扰
+- Publishing others' private information, such as a physical or electronic address, without explicit permission
+- 在没有明确允许下发布他人的私人信息，如住址或电子邮件
+- Other conduct which could reasonably be considered inappropriate in a professional setting
+- 不符合专业语境的其它行为
+## Our Responsibilities
+## 我们的责任
+Project maintainers are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response to any instances of unacceptable behavior.
+项目的维护者负责阐述可接受的行为标准，并对任何不可接受的行为采取适当公平的纠正行动。
+Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, or to ban temporarily or permanently any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful.
+项目维护者有权并有责任删除、编辑或拒绝不符合本守则的评论、提交、代码、wiki 编辑、issues 和其它贡献，或者临时或永久性禁止其他的他们认为不合适的行为、威胁、无礼、不良的行为。
+## Scope
+## 适用范围
+This Code of Conduct applies both within project spaces and in public spaces when an individual is representing the project or its community. Examples of representing a project or community include using an official project e-mail address, posting via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by project maintainers.
+本守则适用于任何个人代表此项目或此项目社区时的项目空间和公共空间。 代表项目或社区的例子包括：使用项目的公共邮箱地址，通过社交媒体公共账号发布东西，或者在线上或线下社交场合担任项目代表。 项目代表将由项目维护者进一步定义和阐述。
+## Enforcement
+## 具体措施
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at https://colorlib.com/wp/contact-us/. The project team will review and investigate all complaints, and will respond in a way that it deems appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.
+如遇到辱骂、骚扰或其它不被接受的行为，请联系 https://colorlib.com/wp/contact-us/ 上报项目团队。 所有投诉都将被审核调查，并给出核定后的结果。 项目团队有义务对涉及到的事件报告者进行保密。 具体措施的细节可能会单独发布。
+Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project's leadership.
+违背行为守则的项目维护者, 在其他的项目维护者决定下，可能面临临时或永久的惩罚。
+## Attribution
+## 致谢
+This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org/), version 1.4, available at <https://www.contributor-covenant.org/version/1/4/code-of-conduct/>
+本行为准则改编自 Contributor Covenant, 版本 1.4, 可以在这里获取 https://www.contributor-covenant.org/version/1/4

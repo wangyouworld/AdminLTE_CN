@@ -1,33 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | 高级表单</title>
-  <!-- 告诉浏览器屏幕自适应 -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | 高级表单</title>
 
+  <!-- 离线 Google 字体: Source Sans Pro -->
+  <link rel="stylesheet" href="/AdminLTE/AdminLTE-3.x/dist/css/google.css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- daterange picker -->
   <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
   <!-- iCheck for checkboxes and radio inputs -->
   <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Bootstrap Color Picker -->
   <link rel="stylesheet" href="../../plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
-  <!-- Tempusdominus Bbootstrap 4 -->
+  <!-- Tempusdominus Bootstrap 4 -->
   <link rel="stylesheet" href="../../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- Select2 -->
   <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
   <link rel="stylesheet" href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
   <!-- Bootstrap4 Duallistbox -->
   <link rel="stylesheet" href="../../plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+  <!-- BS Stepper -->
+  <link rel="stylesheet" href="../../plugins/bs-stepper/css/bs-stepper.min.css">
+  <!-- dropzonejs -->
+  <link rel="stylesheet" href="../../plugins/dropzone/min/dropzone.min.css">
   <!-- 主题样式 -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-  <!-- 离线 Google 字体: Source Sans Pro -->
-  <link href="/AdminLTE/AdminLTE-3.x/dist/css/google.css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -46,20 +46,30 @@
       </li>
     </ul>
 
-    <!-- 搜索表单 -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="搜索" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-
     <!-- 右侧导航栏链接 -->
     <ul class="navbar-nav ml-auto">
+      <!-- Navbar Search -->
+      <li class="nav-item">
+        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+          <i class="fas fa-search"></i>
+        </a>
+        <div class="navbar-search-block">
+          <form class="form-inline">
+            <div class="input-group input-group-sm">
+              <input class="form-control form-control-navbar" type="search" placeholder="搜索" aria-label="Search">
+              <div class="input-group-append">
+                <button class="btn btn-navbar" type="submit">
+                  <i class="fas fa-search"></i>
+                </button>
+                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </li>
+
       <!-- 消息下拉菜单 -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -146,6 +156,11 @@
         </div>
       </li>
       <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
           <i class="fas fa-th-large"></i>
         </a>
@@ -158,10 +173,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- 品牌 Logo -->
     <a href="../../index3.html" class="brand-link">
-      <img src="../../dist/img/AdminLTELogo.png"
-           alt="AdminLTE Logo"
-           class="brand-image img-circle elevation-3"
-           style="opacity: .8">
+      <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
 
@@ -177,16 +189,28 @@
         </div>
       </div>
 
+      <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="搜索" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
       <!-- 侧边栏菜单 -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- 使用 .nav-icon 类添加图标，
                或使用 font-awesome 或其他任何图标字体库 -->
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-仪表盘
+                仪表盘
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -215,12 +239,12 @@
             <a href="../widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-小部件
+                小部件
                 <span class="right badge badge-danger">新</span>
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -255,6 +279,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="../layout/fixed-sidebar-custom.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>固定侧边栏 <small>+ 自定义区域</small></p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="../layout/fixed-topnav.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>固定导航栏</p>
@@ -274,11 +304,11 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-图表
+                图表
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -301,9 +331,15 @@
                   <p>内联图表</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="../charts/uplot.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>uPlot</p>
+                </a>
+              </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tree"></i>
               <p>
@@ -362,11 +398,11 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-item menu-open">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-表单
+                表单
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -397,11 +433,11 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-表格
+                表格
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -431,7 +467,7 @@
             <a href="../calendar.html" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
-日历
+                日历
                 <span class="badge badge-info right">2</span>
               </p>
             </a>
@@ -440,15 +476,23 @@
             <a href="../gallery.html" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
-相册
+                相册
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
+            <a href="../kanban.html" class="nav-link">
+              <i class="nav-icon fas fa-columns"></i>
+              <p>
+                看板
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-envelope"></i>
               <p>
-邮箱
+                邮箱
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -473,11 +517,11 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
-页面
+                页面
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -530,40 +574,98 @@
                   <p>联系人</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="../examples/faq.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>FAQ</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/contact-us.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>联系我们</p>
+                </a>
+              </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
-附加
+                附加
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../examples/login.html" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>登录</p>
+                  <p>
+                    登录 & 注册 v1
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
                 </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="../examples/login.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>登录 v1</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/register.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>注册 v1</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/forgot-password.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>忘记密码 v1</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/recover-password.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>重置密码 v1</p>
+                    </a>
+                  </li>
+                </ul>
               </li>
               <li class="nav-item">
-                <a href="../examples/register.html" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>注册</p>
+                  <p>
+                    登录 & 注册 v2
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
                 </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/forgot-password.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>忘记密码</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/recover-password.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>重置密码</p>
-                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="../examples/login-v2.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>登录 v2</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/register-v2.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>注册 v2</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/forgot-password-v2.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>忘记密码 v2</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/recover-password-v2.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>重置密码 v2</p>
+                    </a>
+                  </li>
+                </ul>
               </li>
               <li class="nav-item">
                 <a href="../examples/lockscreen.html" class="nav-link">
@@ -615,7 +717,36 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-search"></i>
+              <p>
+                搜索
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../search/simple.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>普通搜索</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../search/enhanced.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>高级</p>
+                </a>
+              </li>
+            </ul>
+          </li>
           <li class="nav-header">杂项</li>
+          <li class="nav-item">
+            <a href="../../iframe.html" class="nav-link">
+              <i class="nav-icon fas fa-ellipsis-h"></i>
+              <p>选项卡式框架插件</p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="/AdminLTE/AdminLTE-3.x/docs/" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
@@ -629,11 +760,11 @@
               <p>一级</p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-circle"></i>
               <p>
-                一 级
+                一级
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -644,11 +775,11 @@
                   <p>二级</p>
                 </a>
               </li>
-              <li class="nav-item has-treeview">
+              <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>
-                    二 级
+                    二级
                     <i class="right fas fa-angle-left"></i>
                   </p>
                 </a>
@@ -724,7 +855,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">主页</a></li>
+              <li class="breadcrumb-item"><a href="#">首页</a></li>
               <li class="breadcrumb-item active">高级表单</li>
             </ol>
           </div>
@@ -741,8 +872,12 @@
             <h3 class="card-title">Select2 （默认主题）</h3>
 
             <div class="card-tools">
-              <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-              <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+              <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-tool" data-card-widget="remove">
+                <i class="fas fa-times"></i>
+              </button>
             </div>
           </div>
           <!-- /.card-header -->
@@ -862,8 +997,12 @@
             <h3 class="card-title">Select2 （Bootstrap4 主题）</h3>
 
             <div class="card-tools">
-              <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-              <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+              <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-tool" data-card-widget="remove">
+                <i class="fas fa-times"></i>
+              </button>
             </div>
           </div>
           <!-- /.card-header -->
@@ -944,8 +1083,12 @@
             <h3 class="card-title">Bootstrap Duallistbox</h3>
 
             <div class="card-tools">
-              <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-              <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+              <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-tool" data-card-widget="remove">
+                <i class="fas fa-times"></i>
+              </button>
             </div>
           </div>
           <!-- /.card-header -->
@@ -986,7 +1129,7 @@
                 <h3 class="card-title">格式输入</h3>
               </div>
               <div class="card-body">
-                <!-- Date dd/mm/yyyy -->
+                <!-- Date yyyy-dd-mm -->
                 <div class="form-group">
                   <label>日期格式：</label>
 
@@ -994,7 +1137,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                     </div>
-                    <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                    <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy-dd-mm" data-mask>
                   </div>
                   <!-- /.input group -->
                 </div>
@@ -1125,6 +1268,16 @@
                         </div>
                     </div>
                 </div>
+                <!-- 日期和时间 -->
+                <div class="form-group">
+                  <label>日期和时间：</label>
+                    <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#reservationdatetime"/>
+                        <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                    </div>
+                </div>
                 <!-- /.form group -->
                 <!-- Date range -->
                 <div class="form-group">
@@ -1142,7 +1295,7 @@
                 </div>
                 <!-- /.form group -->
 
-                <!-- Date and time range -->
+                <!-- 日期和时间范围 -->
                 <div class="form-group">
                   <label>日期和时间范围：</label>
 
@@ -1156,7 +1309,7 @@
                 </div>
                 <!-- /.form group -->
 
-                <!-- Date and time range -->
+                <!-- 日期和时间范围 -->
                 <div class="form-group">
                   <label>日期范围按钮：</label>
 
@@ -1170,7 +1323,7 @@
                 <!-- /.form group -->
               </div>
                 <div class="card-footer">
-                  访问 <a href="https://tempusdominus.github.io/bootstrap-4/Usage/">tempusdominus</a>，获取更多信息和示例。
+                  访问 <a href="https://getdatepicker.com/5-4/">tempusdominus</a> 获取更多信息和示例。
                   &nbsp;
                 </div>
               <!-- /.card-body -->
@@ -1341,17 +1494,159 @@
           <!-- /.col (right) -->
         </div>
         <!-- /.row -->
-      </div><!-- /.container-fluid -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-default">
+              <div class="card-header">
+                <h3 class="card-title">步进器</h3>
+              </div>
+              <div class="card-body p-0">
+                <div class="bs-stepper">
+                  <div class="bs-stepper-header" role="tablist">
+                    <!-- your steps here -->
+                    <div class="step" data-target="#logins-part">
+                      <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger">
+                        <span class="bs-stepper-circle">1</span>
+                        <span class="bs-stepper-label">登录</span>
+                      </button>
+                    </div>
+                    <div class="line"></div>
+                    <div class="step" data-target="#information-part">
+                      <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
+                        <span class="bs-stepper-circle">2</span>
+                        <span class="bs-stepper-label">各种信息</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="bs-stepper-content">
+                    <!-- your steps content here -->
+                    <div id="logins-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">邮箱地址</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="输入邮箱">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">密码</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="密码">
+                      </div>
+                      <button class="btn btn-primary" onclick="stepper.next()">下一步</button>
+                    </div>
+                    <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
+                      <div class="form-group">
+                        <label for="exampleInputFile">上传文件</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="exampleInputFile">
+                            <label class="custom-file-label" for="exampleInputFile">选择文件</label>
+                          </div>
+                          <div class="input-group-append">
+                            <span class="input-group-text">上传</span>
+                          </div>
+                        </div>
+                      </div>
+                      <button class="btn btn-primary" onclick="stepper.previous()">上一步</button>
+                      <button type="submit" class="btn btn-primary">提交</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                Visit <a href="https://github.com/Johann-S/bs-stepper/#how-to-use-it">bs-stepper documentation</a> for more examples and information about &nbsp;
+              </div>
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+        <!-- /.row -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-default">
+              <div class="card-header">
+                <h3 class="card-title">Dropzone.js <small><em>jQuery 文件上传</em>效果</small></h3>
+              </div>
+              <div class="card-body">
+                <div id="actions" class="row">
+                  <div class="col-lg-6">
+                    <div class="btn-group w-100">
+                      <span class="btn btn-success col fileinput-button">
+                        <i class="fas fa-plus"></i>
+                        <span>添加文件</span>
+                      </span>
+                      <button type="submit" class="btn btn-primary col start">
+                        <i class="fas fa-upload"></i>
+                        <span>开始上传</span>
+                      </button>
+                      <button type="reset" class="btn btn-warning col cancel">
+                        <i class="fas fa-times-circle"></i>
+                        <span>取消上传</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 d-flex align-items-center">
+                    <div class="fileupload-process w-100">
+                      <div id="total-progress" class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                        <div class="progress-bar progress-bar-success" style="width:0%;" data-dz-uploadprogress></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="table table-striped files" id="previews">
+                  <div id="template" class="row mt-2">
+                    <div class="col-auto">
+                        <span class="preview"><img src="data:," alt="" data-dz-thumbnail /></span>
+                    </div>
+                    <div class="col d-flex align-items-center">
+                        <p class="mb-0">
+                          <span class="lead" data-dz-name></span>
+                          (<span data-dz-size></span>)
+                        </p>
+                        <strong class="error text-danger" data-dz-errormessage></strong>
+                    </div>
+                    <div class="col-4 d-flex align-items-center">
+                        <div class="progress progress-striped active w-100" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                          <div class="progress-bar progress-bar-success" style="width:0%;" data-dz-uploadprogress></div>
+                        </div>
+                    </div>
+                    <div class="col-auto d-flex align-items-center">
+                      <div class="btn-group">
+                        <button class="btn btn-primary start">
+                          <i class="fas fa-upload"></i>
+                          <span>上传</span>
+                        </button>
+                        <button data-dz-remove class="btn btn-warning cancel">
+                          <i class="fas fa-times-circle"></i>
+                          <span>Cancel</span>
+                        </button>
+                        <button data-dz-remove class="btn btn-danger delete">
+                          <i class="fas fa-trash"></i>
+                          <span>Delete</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                Visit <a href="https://www.dropzonejs.com">dropzone.js documentation</a> for more examples and information about &nbsp;
+              </div>
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <b>版本</b> 3.0.5
+      <b>版本</b> 3.1.0
     </div>
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> 保留所有
-    权利。
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> 保留所有权利。
   </footer>
 
   <!-- Control Sidebar -->
@@ -1372,7 +1667,7 @@
 <script src="../../plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
 <!-- InputMask -->
 <script src="../../plugins/moment/moment.min.js"></script><script src="../../plugins/moment/locale/zh-cn.js"></script>
-<script src="../../plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+<script src="../../plugins/inputmask/jquery.inputmask.min.js"></script>
 <!-- date-range-picker -->
 <script src="../../plugins/daterangepicker/daterangepicker.js"></script>
 <!-- bootstrap color picker -->
@@ -1381,11 +1676,15 @@
 <script src="../../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Bootstrap 开关 -->
 <script src="../../plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<!-- BS-Stepper -->
+<script src="../../plugins/bs-stepper/js/bs-stepper.min.js"></script>
+<!-- dropzonejs -->
+<script src="../../plugins/dropzone/min/dropzone.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- 用于演示 AdminLTE  -->
 <script src="../../dist/js/demo.js"></script>
-<!-- Page script -->
+<!-- 特定页面脚本 -->
 <script>
   $(function () {
     //初始化 Select2 元素
@@ -1403,14 +1702,18 @@
     // 欧元
     $('[data-mask]').inputmask()
 
-    // 日期范围选择器
+    //日期选择器
     $('#reservationdate').datetimepicker({
         format: 'L'
     });
-    // 日期范围选择器
-    $('#reservation').daterangepicker()
-    // 日期范围选择器 with time picker
-    $('#reservationtime').daterangepicker({locale:{applyLabel: '确定',cancelLabel: '取消',customRangeLabel: '自定义范围',},locale:{applyLabel: '确定',cancelLabel: '取消',customRangeLabel: '自定义范围',},
+
+    //日期和时间 picker
+    $('#reservationdatetime').datetimepicker({ icons: { time: 'far fa-clock' } });
+
+    //日期范围选择器
+    $('#reservation').daterangepicker({locale:{applyLabel: '确定',cancelLabel: '取消',customRangeLabel: '自定义范围'}});
+    // 带有时间选择的日期范围选择器
+    $('#reservationtime').daterangepicker({
       timePicker: true,
       timePickerIncrement: 30,
       locale: {
@@ -1444,20 +1747,77 @@
     //Bootstrap Duallistbox
     $('.duallistbox').bootstrapDualListbox({filterTextClear: '显示所有', filterPlaceHolder: '筛选', moveSelectedLabel: '移动选中', moveAllLabel: '移动所有', removeSelectedLabel: '移除选中', removeAllLabel: '移除所有', infoText: '显示所有 {0}', infoTextFiltered: '<span class="badge badge-warning">筛选</span> 共 {1} 符合 {0} ', infoTextEmpty: '空列表'})
 
-    //Colorpicker
+    // 颜色选择器
     $('.my-colorpicker1').colorpicker()
-    //color picker with addon
+    // 带有插件的颜色选择器
     $('.my-colorpicker2').colorpicker()
 
     $('.my-colorpicker2').on('colorpickerChange', function(event) {
       $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
-    });
+    })
 
     $("input[data-bootstrap-switch]").each(function(){
       $(this).bootstrapSwitch('state', $(this).prop('checked'));
-    });
+    })
 
   })
+  // BS-Stepper 初始化
+  document.addEventListener('DOMContentLoaded', function () {
+    window.stepper = new Stepper(document.querySelector('.bs-stepper'))
+  })
+
+  // DropzoneJS 演示代码开始
+  Dropzone.autoDiscover = false
+
+  // Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument
+  var previewNode = document.querySelector("#template")
+  previewNode.id = ""
+  var previewTemplate = previewNode.parentNode.innerHTML
+  previewNode.parentNode.removeChild(previewNode)
+
+  var myDropzone = new Dropzone(document.body, { // 使整 body 可拖放
+    url: "/target-url", // 设置地址
+    thumbnailWidth: 80,
+    thumbnailHeight: 80,
+    parallelUploads: 20,
+    previewTemplate: previewTemplate,
+    autoQueue: false, // 确保手动添加时不将文件放入队列
+    previewsContainer: "#previews", // 定义容器以显示预览
+    clickable: ".fileinput-button" // 定义用作触发器选择文件的元素。
+  })
+
+  myDropzone.on("addedfile", function(file) {
+    // 绑定开始上传按钮
+    file.previewElement.querySelector(".start").onclick = function() { myDropzone.enqueueFile(file) }
+  })
+
+  // 更新总进度条
+  myDropzone.on("totaluploadprogress", function(progress) {
+    document.querySelector("#total-progress .progress-bar").style.width = progress + "%"
+  })
+
+  myDropzone.on("sending", function(file) {
+    // 上传开始时显示总进度条
+    document.querySelector("#total-progress").style.opacity = "1"
+    // 并禁用开始按钮
+    file.previewElement.querySelector(".start").setAttribute("disabled", "disabled")
+  })
+
+  // 上传完成时，不显示总进度条
+  myDropzone.on("queuecomplete", function(progress) {
+    document.querySelector("#total-progress").style.opacity = "0"
+  })
+
+  // 设置所有传输的按钮
+  // 不需要设置“添加文件”按钮，因为已配置
+  // 已经指定了 `clickable`。
+  document.querySelector("#actions .start").onclick = function() {
+    myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED))
+  }
+  document.querySelector("#actions .cancel").onclick = function() {
+    myDropzone.removeAllFiles(true)
+  }
+  // DropzoneJS 演示代码结束
 </script>
 </body>
 </html>

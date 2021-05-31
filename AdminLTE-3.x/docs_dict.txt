@@ -20,5 +20,9 @@ subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS
 订阅 <a href="{{ "/feed.xml" | relative_url }}">通过 RSS
 <!-- SEARCH FORM -->
 <!-- 搜索表单 -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700">
-<link rel="stylesheet" href="/AdminLTE/AdminLTE-3.x/dist/css/google.css?family=Source+Sans+Pro:300,400,400i,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+<link rel="stylesheet" href="/AdminLTE/AdminLTE-3.x/dist/css/google.css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+<a class="dropdown-item" href="https://adminlte.io/docs/2.4/installation">v2.4</a>
+<a class="dropdown-item" href="/AdminLTE/AdminLTE-2.4/">v2.4</a>
+<a class="dropdown-item" href="https://adminlte.io/themes/AdminLTE/documentation/index.html">&lt;= v2.3</a>
+<a class="dropdown-item" href="/AdminLTE/AdminLTE-2.3.11/">&lt;= v2.3</a>

@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>框架插件 | AdminLTE v3 文档</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="框架插件" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="AdminLTE v3.1 文档" />
+<meta property="og:description" content="AdminLTE v3.1 文档" />
+<link rel="canonical" href="https://3vshej.cn/AdminLTE/AdminLTE-3.x/docs/javascript/iframe.html" />
+<meta property="og:url" content="https://3vshej.cn/AdminLTE/AdminLTE-3.x/docs/javascript/iframe.html" />
+<meta property="og:site_name" content="AdminLTE v3 文档" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="框架插件" />
+<script type="application/ld+json">
+{"@type":"WebPage","url":"https://3vshej.cn/AdminLTE/AdminLTE-3.x/docs/javascript/iframe.html","headline":"框架插件","description":"AdminLTE v3.1 文档","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <link rel="stylesheet" href="/AdminLTE/AdminLTE-3.x/dist/css/google.css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="/AdminLTE/AdminLTE-3.x/docs/assets/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/AdminLTE/AdminLTE-3.x/docs/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <link rel="stylesheet" href="/AdminLTE/AdminLTE-3.x/docs/assets/css/docs.css">
+  <link rel="stylesheet" href="/AdminLTE/AdminLTE-3.x/docs/assets/css/highlighter.css">
+  <link rel="stylesheet" href="/AdminLTE/AdminLTE-3.x/docs/assets/css/adminlte.min.css">
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
+    <div class="wrapper"><div class="preloader flex-column justify-content-center align-items-center">
+  <img class="animation__shake" src="/AdminLTE/AdminLTE-3.x/docs/assets/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+</div>
+<nav class="main-header navbar navbar-expand navbar-light">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link bg-info rounded dropdown-toggle" href="#" id="navbarVersionDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        v3.1.0
+      </a>
+      <div class="dropdown-menu py-0" aria-labelledby="navbarVersionDropdown">
+        <a class="dropdown-item bg-info disabled" href="#">v3.1</a>
+        <a class="dropdown-item" href="https://adminlte.io/docs/3.0/">v3.0</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="/AdminLTE/AdminLTE-2.4/">v2.4</a>
+        <a class="dropdown-item" href="/AdminLTE/AdminLTE-2.3.11/">&lt;= v2.3</a>
+      </div>
+    </li>
+  </ul>
+
+  <ul class="navbar-nav ml-auto">
+    <!-- <li class="nav-item d-none d-sm-inline-block">
+      <a href="index3.html" class="nav-link">Home</a>
+    </li> -->
+    <li class="nav-item">
+      <div class="theme-switch-wrapper nav-link">
+        <label class="theme-switch" for="checkbox">
+          <input type="checkbox" id="checkbox" />
+          <span class="slider round"></span>
+        </label>
+      </div>
+    </li>
+    <!-- <li class="nav-item">
+      <em class="nav-link">Enable Dark Mode!</em>
+    </li> -->
+  </ul>
+
+  <!-- 搜索表单 -->
+  <!-- <form class="form-check-inline ml-3">
+    <div class="input-group input-group-sm">
+      <input class="form-control form-control-navbar" type="search" placeholder="搜索" aria-label="Search">
+      <div class="input-group-append">
+        <button class="btn btn-navbar" type="submit">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </div>
+  </form> -->
+</nav>
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <a href="/AdminLTE/AdminLTE-3.x/docs/index.html" class="brand-link logo-switch">
+    <img src="/AdminLTE/AdminLTE-3.x/docs/assets/img/logo-xs.png" alt="AdminLTE 文档小 LOGO" class="brand-image-xl logo-xs">
+    <img src="/AdminLTE/AdminLTE-3.x/docs/assets/img/logo-xl.png" alt="AdminLTE 文档大 LOGO" class="brand-image-xs logo-xl" style="left: 12px">
+  </a>
+  <div class="sidebar">
+    <div class="form-inline mt-2">
+      <div class="input-group" data-widget="sidebar-search">
+        <input class="form-control form-control-sidebar" type="search" placeholder="搜索" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-sidebar">
+            <i class="fas fa-search fa-fw"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview" role="menu">
+       
+
+          <li class="nav-item">
+            
+
+            <a href="/AdminLTE/AdminLTE-3.x/docs/index.html" class="nav-link">
+              <i class="nav-icon fas fa-microchip"></i>
+              <p>
+                安装
+                
+              </p>
+            </a>
+
+            
+          </li>
+       
+
+          <li class="nav-item">
+            
+
+            <a href="/AdminLTE/AdminLTE-3.x/docs/dependencies.html" class="nav-link">
+              <i class="nav-icon fas fa-handshake"></i>
+              <p>
+                依赖项和插件
+                
+              </p>
+            </a>
+
+            
+          </li>
+       
+
+          <li class="nav-item">
+            
+
+            <a href="/AdminLTE/AdminLTE-3.x/docs/layout.html" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                布局
+                
+              </p>
+            </a>
+
+            
+          </li>
+       
+
+          <li class="nav-item">
+            
+
+            <a href="/AdminLTE/AdminLTE-3.x/docs/components" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                组件
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                  <a href="/AdminLTE/AdminLTE-3.x/docs/components/main-header.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>主标题</p>
+                  </a>
+                </li><li class="nav-item">
+                  <a href="/AdminLTE/AdminLTE-3.x/docs/components/main-sidebar.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>主侧边栏</p>
+                  </a>
+                </li><li class="nav-item">
+                  <a href="/AdminLTE/AdminLTE-3.x/docs/components/control-sidebar.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>控制侧边栏</p>
+                  </a>
+                </li><li class="nav-item">
+                  <a href="/AdminLTE/AdminLTE-3.x/docs/components/cards.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>卡片</p>
+                  </a>
+                </li><li class="nav-item">
+                  <a href="/AdminLTE/AdminLTE-3.x/docs/components/boxes.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>小-/ 信息框</p>
+                  </a>
+                </li><li class="nav-item">
+                  <a href="/AdminLTE/AdminLTE-3.x/docs/components/direct-chat.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>聊天</p>
+                  </a>
+                </li><li class="nav-item">
+                  <a href="/AdminLTE/AdminLTE-3.x/docs/components/timeline.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>时间线</p>
+                  </a>
+                </li><li class="nav-item">
+                  <a href="/AdminLTE/AdminLTE-3.x/docs/components/ribbons.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>丝带</p>
+                  </a>
+                </li><li class="nav-item">
+                  <a href="/AdminLTE/AdminLTE-3.x/docs/components/miscellaneous.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>杂项</p>
+                  </a>
+                </li><li class="nav-item">
+                  <a href="/AdminLTE/AdminLTE-3.x/docs/components/plugins.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>插件</p>
+                  </a>
+                </li>
+              </ul>
+          </li>
+       
+
+          <li class="nav-item menu-open">
+            
+
+            <a href="/AdminLTE/AdminLTE-3.x/docs/javascript" class="nav-link active">
+              <i class="nav-icon fas fa-code"></i>
+              <p>
+                JavaScript
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                  <a href="/AdminLTE/AdminLTE-3.x/docs/javascript/layout.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>布局</p>
+                  </a>
+                </li><li class="nav-item">
+                  <a href="/AdminLTE/AdminLTE-3.x/docs/javascript/push-menu.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Push Menu</p>
+                  </a>
+                </li><li class="nav-item">
+                  <a href="/AdminLTE/AdminLTE-3.x/docs/javascript/treeview.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Treeview</p>
+                  </a>
+                </li><li class="nav-item">
+                  <a href="/AdminLTE/AdminLTE-3.x/docs/javascript/card-widget.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>卡片小部件</p>
+                  </a>
+                </li><li class="nav-item">
+                  <a href="/AdminLTE/AdminLTE-3.x/docs/javascript/card-refresh.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>刷新卡片</p>
+                  </a>
+                </li><li class="nav-item">
+                  <a href="/AdminLTE/AdminLTE-3.x/docs/javascript/control-sidebar.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>控制侧边栏</p>
+                  </a>
+                </li><li class="nav-item">
+                  <a href="/AdminLTE/AdminLTE-3.x/docs/javascript/direct-chat.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>聊天</p>
+                  </a>
+                </li><li class="nav-item">
+                  <a href="/AdminLTE/AdminLTE-3.x/docs/javascript/todo-list.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>待办事项列表</p>
+                  </a>
+                </li><li class="nav-item">
+                  <a href="/AdminLTE/AdminLTE-3.x/docs/javascript/toasts.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Toasts</p>
+                  </a>
+                </li><li class="nav-item">
+                  <a href="/AdminLTE/AdminLTE-3.x/docs/javascript/sidebar-search.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>侧边栏搜索</p>
+                  </a>
+                </li><li class="nav-item">
+                  <a href="/AdminLTE/AdminLTE-3.x/docs/javascript/expandable-tables.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>可扩展表格</p>
+                  </a>
+                </li><li class="nav-item">
+                  <a href="/AdminLTE/AdminLTE-3.x/docs/javascript/iframe.html" class="nav-link active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>框架</p>
+                  </a>
+                </li><li class="nav-item">
+                  <a href="/AdminLTE/AdminLTE-3.x/docs/javascript/navbar-search.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>导航栏搜索</p>
+                  </a>
+                </li>
+              </ul>
+          </li>
+       
+
+          <li class="nav-item">
+            
+
+            <a href="/AdminLTE/AdminLTE-3.x/docs/browser-support.html" class="nav-link">
+              <i class="nav-icon fab fa-chrome"></i>
+              <p>
+                浏览器支持
+                
+              </p>
+            </a>
+
+            
+          </li>
+       
+
+          <li class="nav-item">
+            
+
+            <a href="/AdminLTE/AdminLTE-3.x/docs/implementations.html" class="nav-link">
+              <i class="nav-icon fas fa-bookmark"></i>
+              <p>
+                集成环境
+                
+              </p>
+            </a>
+
+            
+          </li>
+       
+
+          <li class="nav-item">
+            
+
+            <a href="/AdminLTE/AdminLTE-3.x/docs/additional-styles.html" class="nav-link">
+              <i class="nav-icon fas fa-mortar-pestle"></i>
+              <p>
+                附加样式
+                
+              </p>
+            </a>
+
+            
+          </li>
+       
+
+          <li class="nav-item">
+            
+
+            <a href="/AdminLTE/AdminLTE-3.x/docs/upgrade-guide.html" class="nav-link">
+              <i class="nav-icon fas fa-hand-point-up"></i>
+              <p>
+                升级指南
+                
+              </p>
+            </a>
+
+            
+          </li>
+       
+
+          <li class="nav-item">
+            
+
+            <a href="/AdminLTE/AdminLTE-3.x/docs/how-to-contribute.html" class="nav-link">
+              <i class="nav-icon fas fa-hands-helping"></i>
+              <p>
+                贡献指南
+                
+              </p>
+            </a>
+
+            
+          </li>
+       
+
+          <li class="nav-item">
+            
+
+            <a href="/AdminLTE/AdminLTE-3.x/docs/faq.html" class="nav-link">
+              <i class="nav-icon fas fa-question-circle"></i>
+              <p>
+                FAQ
+                
+              </p>
+            </a>
+
+            
+          </li>
+       
+
+          <li class="nav-item">
+            
+
+            <a href="/AdminLTE/AdminLTE-3.x/docs/license.html" class="nav-link">
+              <i class="nav-icon fas fa-file-contract"></i>
+              <p>
+                许可证
+                
+              </p>
+            </a>
+
+            
+          </li>
+       
+      </ul>
+    </nav>
+  </div>
+</aside>
+<div class="content-wrapper px-4 py-2">
+  
+  <div class="content-header">
+    <h1>框架插件</h1>
+  </div>
+  
+  <div class="content px-2">
+    <p>框架插件提供了以标签方式在框架中打开侧边栏和导航栏的功能。</p>
+
+<h5 id="使用标记">使用标记</h5>
+<p>要使框架 100% 工作，你需要在 <code class="language-plaintext highlighter-rouge">.content-wrapper</code> 中使用以下标记：</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content-wrapper iframe-mode"</span> <span class="na">data-widget=</span><span class="s">"iframe"</span> <span class="na">data-loading-screen=</span><span class="s">"750"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"nav navbar navbar-expand-lg navbar-white navbar-light border-bottom p-0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link bg-danger"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">data-widget=</span><span class="s">"iframe-close"</span><span class="nt">&gt;</span>关闭<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"navbar-nav"</span> <span class="na">role=</span><span class="s">"tablist"</span><span class="nt">&gt;&lt;/ul&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-content"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-empty"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"display-4"</span><span class="nt">&gt;</span>这里什么也没有！点击左侧菜单打开一个。<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-loading"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"display-4"</span><span class="nt">&gt;</span>载入中…… <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-sync fa-spin"</span><span class="nt">&gt;&lt;/i&gt;&lt;/h2&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h6 id="使用默认-iframe-标签进行标记">使用默认 IFrame 标签进行标记</h6>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content-wrapper iframe-mode"</span> <span class="na">data-widget=</span><span class="s">"iframe"</span> <span class="na">data-loading-screen=</span><span class="s">"750"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"nav navbar navbar-expand-lg navbar-white navbar-light border-bottom p-0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link bg-danger"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">data-widget=</span><span class="s">"iframe-close"</span><span class="nt">&gt;</span>关闭<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link bg-light"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">data-widget=</span><span class="s">"iframe-scrollleft"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"fas fa-angle-double-left"</span><span class="nt">&gt;&lt;/i&gt;&lt;/a&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"navbar-nav"</span> <span class="na">role=</span><span class="s">"tablist"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"nav-item active"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;&lt;a</span> <span class="na">class=</span><span class="s">"nav-link active"</span> <span class="na">data-toggle=</span><span class="s">"row"</span> <span class="na">id=</span><span class="s">"tab-index"</span> <span class="na">href=</span><span class="s">"#panel-index"</span> <span class="na">role=</span><span class="s">"tab"</span> <span class="na">aria-controls=</span><span class="s">"panel-index"</span> <span class="na">aria-selected=</span><span class="s">"true"</span><span class="nt">&gt;</span>仪表盘 v1<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link bg-light"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">data-widget=</span><span class="s">"iframe-scrollright"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"fas fa-angle-double-right"</span><span class="nt">&gt;&lt;/i&gt;&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link bg-light"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">data-widget=</span><span class="s">"iframe-fullscreen"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"fas fa-expand"</span><span class="nt">&gt;&lt;/i&gt;&lt;/a&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-content"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane fade active show"</span> <span class="na">id=</span><span class="s">"panel-index"</span> <span class="na">role=</span><span class="s">"tabpanel"</span> <span class="na">aria-labelledby=</span><span class="s">"tab-index"</span><span class="nt">&gt;&lt;iframe</span> <span class="na">src=</span><span class="s">"./index.html"</span> <span class="na">style=</span><span class="s">"height: 671px;"</span><span class="nt">&gt;&lt;/iframe&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-empty"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"display-4"</span><span class="nt">&gt;</span>这里什么也没有！点击左侧菜单打开一个。<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-loading"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"display-4"</span><span class="nt">&gt;</span>载入中…… <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-sync fa-spin"</span><span class="nt">&gt;&lt;/i&gt;&lt;/h2&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h5 id="用法">用法</h5>
+<p>该插件可以作为 jQuery 插件或使用数据 API 激活。</p>
+
+<h6 class="text-bold" id="数据-api">数据 API</h6>
+<p>通过在 <code class="language-plaintext highlighter-rouge">data-widget="iframe"</code> 中添加 <code class="language-plaintext highlighter-rouge">.content-wrapper</code> 来激活插件。如果你需要 onCheck 和 onUncheck 方法，请使用 jQuery API。</p>
+
+<h6 class="text-bold" id="jquery">jQuery</h6>
+<p>jQuery API 提供了更多可自定义的选项，允许开发人员处理待办事项列表中的选中和取消选事件。</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.content-wrapper</span><span class="dl">'</span><span class="p">).</span><span class="nx">IFrame</span><span class="p">({</span>
+  <span class="nx">onTabClick</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">item</span>
+  <span class="p">},</span>
+  <span class="nx">onTabChanged</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">item</span>
+  <span class="p">},</span>
+  <span class="nx">onTabCreated</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">item</span>
+  <span class="p">},</span>
+  <span class="na">autoIframeMode</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="na">autoItemActive</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="na">autoShowNewTab</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="na">allowDuplicates</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="na">loadingScreen</span><span class="p">:</span> <span class="mi">750</span><span class="p">,</span>
+  <span class="na">useNavbarItems</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<h5 class="mt-4" id="选项">选项</h5>
+
+<table class="table table-bordered bg-light">
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th>类型</th>
+      <th>默认</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>onTabClick</td>
+      <td>Function</td>
+      <td>匿名函数</td>
+      <td>处理标签单击事件。</td>
+    </tr>
+    <tr>
+      <td>onTabChanged</td>
+      <td>Function</td>
+      <td>匿名函数</td>
+      <td>处理标签切换事件。</td>
+    </tr>
+    <tr>
+      <td>onTabCreated</td>
+      <td>Function</td>
+      <td>匿名函数</td>
+      <td>处理标签创建事件。</td>
+    </tr>
+    <tr>
+      <td>autoIframeMode</td>
+      <td>Boolean</td>
+      <td>true </td>
+      <td>如果页面是通过框架加载的，是否将 <code class="language-plaintext highlighter-rouge">.iframe-mode</code> 添加到 <code class="language-plaintext highlighter-rouge">body</code> 中。</td>
+    </tr>
+    <tr>
+      <td>autoItemActive</td>
+      <td>Boolean</td>
+      <td>true </td>
+      <td>根据当前活动的框架，是否将侧边栏菜单项也设置活动状态。</td>
+    </tr>
+    <tr>
+      <td>autoShowNewTab</td>
+      <td>Boolean</td>
+      <td>true </td>
+      <td>是否自动显示创建的选项卡。</td>
+    </tr>
+    <tr>
+      <td>allowDuplicates</td>
+      <td>Boolean</td>
+      <td>true </td>
+      <td>是否允许创建重复的标签/框架。</td>
+    </tr>
+    <tr>
+      <td>loadingScreen</td>
+      <td>Boolean/Number</td>
+      <td>true </td>
+      <td>[true 或 false] 是否显示框架加载界面；[数字]设置加载界面延迟。</td>
+    </tr>
+    <tr>
+      <td>useNavbarItems</td>
+      <td>Boolean</td>
+      <td>true </td>
+      <td>一并打开导航栏菜单项，而不是只打开侧边栏菜单项。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 class="mt-4" id="方法">方法</h5>
+
+<table class="table table-bordered bg-light">
+  <thead>
+    <tr>
+      <th>方法</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>createTab</td>
+      <td>通过标题，链接和唯一名称创建选项卡。可用参数：标题 <code class="language-plaintext highlighter-rouge">String</code>，链接 <code class="language-plaintext highlighter-rouge">String</code>，唯一名称 <code class="language-plaintext highlighter-rouge">String</code>，自动打开 <code class="language-plaintext highlighter-rouge">Boolean / 可选</code>。</td>
+    </tr>
+    <tr>
+      <td>openTabSidebar</td>
+      <td>通过侧边栏菜单项创建选项卡。可用参数：项目 <code class="language-plaintext highlighter-rouge">String | jQuery Object</code>，自动打开 <code class="language-plaintext highlighter-rouge">Boolean / 可选</code>。</td>
+    </tr>
+    <tr>
+      <td>switchTab</td>
+      <td>通过框架选项卡标签实现切换。可用参数：项目 <code class="language-plaintext highlighter-rouge">String | jQuery Object</code>。</td>
+    </tr>
+    <tr>
+      <td>removeActiveTab</td>
+      <td>移除活动的框架。</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>示例： <code class="language-plaintext highlighter-rouge">$('.content-wrapper').IFrame('createTab', 'Home', 'index.html, 'index', true)</code></p>
+
+  </div>
+</div>
+<footer class="main-footer">
+  <div class="float-right d-none d-sm-inline">
+    v3.1.0
+  </div>
+  <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> 保留所有权利。
+</footer>
+</div>
+
+    <script src="/AdminLTE/AdminLTE-3.x/docs/assets/plugins/jquery/jquery.min.js"></script>
+<script src="/AdminLTE/AdminLTE-3.x/docs/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/AdminLTE/AdminLTE-3.x/docs/assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="/AdminLTE/AdminLTE-3.x/docs/assets/js/adminlte.min.js"></script>
+<script>
+  var toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+  var currentTheme = localStorage.getItem('theme');
+  var mainHeader = document.querySelector('.main-header');
+
+  if (currentTheme) {
+    if (currentTheme === 'dark') {
+      if (!document.body.classList.contains('dark-mode')) {
+        document.body.classList.add("dark-mode");
+      }
+      if (mainHeader.classList.contains('navbar-light')) {
+        mainHeader.classList.add('navbar-dark');
+        mainHeader.classList.remove('navbar-light');
+      }
+      toggleSwitch.checked = true;
+    }
+  }
+
+  function switchTheme(e) {
+    if (e.target.checked) {
+      if (!document.body.classList.contains('dark-mode')) {
+        document.body.classList.add("dark-mode");
+      }
+      if (mainHeader.classList.contains('navbar-light')) {
+        mainHeader.classList.add('navbar-dark');
+        mainHeader.classList.remove('navbar-light');
+      }
+      localStorage.setItem('theme', 'dark');
+    } else {
+      if (document.body.classList.contains('dark-mode')) {
+        document.body.classList.remove("dark-mode");
+      }
+      if (mainHeader.classList.contains('navbar-dark')) {
+        mainHeader.classList.add('navbar-light');
+        mainHeader.classList.remove('navbar-dark');
+      }
+      localStorage.setItem('theme', 'light');
+    }
+  }
+
+  toggleSwitch.addEventListener('change', switchTheme, false);
+</script>
+</body>
+</html>

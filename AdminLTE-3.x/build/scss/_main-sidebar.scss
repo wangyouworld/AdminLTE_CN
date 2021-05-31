@@ -19,22 +19,24 @@
 
 .sidebar {
   height: calc(100% - (#{$main-header-height-inner} + #{$main-header-bottom-border-width}));
-  overflow-y: auto;
+  overflow-x: none;
+  overflow-y: initial;
   padding-bottom: $sidebar-padding-y;
   padding-left: $sidebar-padding-x;
   padding-right: $sidebar-padding-x;
   padding-top: $sidebar-padding-y;
+  @include scrollbar-width-thin();
 }
 
 // Sidebar user panel
 .user-panel {
   position: relative;
 
-  [class*='sidebar-dark'] & {
+  [class*="sidebar-dark"] & {
     border-bottom: 1px solid lighten($dark, 12%);
   }
 
-  [class*='sidebar-light'] & {
+  [class*="sidebar-light"] & {
     border-bottom: 1px solid $gray-300;
   }
 
@@ -98,7 +100,10 @@
     > .nav-treeview {
       display: block;
     }
+  }
 
+  .menu-open,
+  .menu-is-opening {
     > .nav-link {
       i.right {
         @include rotate(-90deg);
@@ -121,7 +126,9 @@
       &.fas,
       &.far,
       &.fab,
-      &.glyphicon,
+      &.fal,
+      &.fad,
+      &.svg-inline--fa,
       &.ion {
         font-size: 1.1rem;
       }
@@ -158,12 +165,12 @@
     }
 
     &.nav-legacy {
-      .nav-treeview {      
+      .nav-treeview {
         .nav-treeview {
           padding-left: 2rem;
           margin-left: -1rem;
 
-          .text-sm & {          
+          .text-sm & {
             padding-left: 1rem;
             margin-left: -.5rem;
           }
@@ -174,19 +181,21 @@
 
   .nav-header {
     font-size: .9rem;
-    padding: $nav-link-padding-y;
-
-    &:not(:first-of-type) {
-      padding: 1.7rem 1rem .5rem;
-    }
+    padding: $nav-link-padding-y ($nav-link-padding-y * 1.5);
   }
 
   .nav-link p {
-    display: inline-block;
+    display: inline;
+    margin: 0;
+    white-space: normal;
+  }
+}
+
+.sidebar-is-opening .nav-sidebar {
+  .nav-link p {
     animation-name: fadeIn;
     animation-duration: $transition-speed;
     animation-fill-mode: both;
-    margin: 0;
   }
 }
 
@@ -197,7 +206,7 @@
     }
   }
 
-  background-color: rgba($black, 0.1);
+  background-color: rgba($black, .1);
   bottom: 0;
   display: none;
   left: 0;
@@ -207,7 +216,7 @@
   z-index: $zindex-main-sidebar - 1;
 }
 
-[class*='sidebar-light-'] {
+[class*="sidebar-light-"] {
   // Sidebar background color
   background-color: $sidebar-light-bg;
 
@@ -218,13 +227,13 @@
     }
 
     .status {
-      background: $sidebar-light-hover-bg;
+      background-color: $sidebar-light-hover-bg;
       color: $sidebar-light-color;
 
       &:hover,
       &:focus,
       &:active {
-        background: darken($sidebar-light-hover-bg, 3%);
+        background-color: darken($sidebar-light-hover-bg, 3%);
         color: $sidebar-light-hover-color;
       }
     }
@@ -267,13 +276,13 @@
 
     // First Level Submenu
     > .nav-treeview {
-      background: $sidebar-light-submenu-bg;
+      background-color: $sidebar-light-submenu-bg;
     }
   }
 
   // Section Heading
   .nav-header {
-    background: inherit;
+    background-color: inherit;
     color: darken($sidebar-light-color, 5%);
   }
 
@@ -293,6 +302,12 @@
     > .nav-item {
       > .nav-link {
         color: $sidebar-light-submenu-color;
+
+        &:hover,
+        &:focus {
+          background-color: $sidebar-light-submenu-hover-bg;
+          color: $sidebar-light-submenu-hover-color;
+        }
       }
 
       > .nav-link.active {
@@ -330,7 +345,7 @@
   }
 }
 
-[class*='sidebar-dark-'] {
+[class*="sidebar-dark-"] {
   // Sidebar background color
   background-color: $sidebar-dark-bg;
 
@@ -341,13 +356,13 @@
     }
 
     .status {
-      background: $sidebar-dark-hover-bg;
+      background-color: $sidebar-dark-hover-bg;
       color: $sidebar-dark-color;
 
       &:hover,
       &:focus,
       &:active {
-        background: darken($sidebar-dark-hover-bg, 3%);
+        background-color: darken($sidebar-dark-hover-bg, 3%);
         color: $sidebar-dark-hover-color;
       }
     }
@@ -375,7 +390,7 @@
     // Hover and active states
     &.menu-open > .nav-link,
     &:hover > .nav-link,
-    & > .nav-link:focus  {
+    > .nav-link:focus  {
       background-color: $sidebar-dark-hover-bg;
       color: $sidebar-dark-hover-color;
     }
@@ -390,13 +405,13 @@
 
     // First Level Submenu
     > .nav-treeview {
-      background: $sidebar-dark-submenu-bg;
+      background-color: $sidebar-dark-submenu-bg;
     }
   }
 
   // Section Heading
   .nav-header {
-    background: inherit; //darken($sidebar-dark-bg, 3%);
+    background-color: inherit; //darken($sidebar-dark-bg, 3%);
     color: lighten($sidebar-dark-color, 5%);
   }
 
@@ -461,24 +476,27 @@
 @each $name, $color in $theme-colors {
   .sidebar-dark-#{$name},
   .sidebar-light-#{$name} {
-    @include sidebar-color($color)
+    @include sidebar-color($color);
   }
 }
 
 @each $name, $color in $colors {
   .sidebar-dark-#{$name},
   .sidebar-light-#{$name} {
-    @include sidebar-color($color)
+    @include sidebar-color($color);
   }
 }
 
 .sidebar-mini .main-sidebar:not(.sidebar-no-expand),
 .sidebar-mini-md .main-sidebar:not(.sidebar-no-expand),
+.sidebar-mini-xs .main-sidebar:not(.sidebar-no-expand),
 .sidebar-mini .main-sidebar:not(.sidebar-no-expand):hover,
 .sidebar-mini-md .main-sidebar:not(.sidebar-no-expand):hover,
+.sidebar-mini-xs .main-sidebar:not(.sidebar-no-expand):hover,
 .sidebar-mini .main-sidebar.sidebar-focused,
-.sidebar-mini-md .main-sidebar.sidebar-focused {
- .nav-compact.nav-sidebar.nav-child-indent:not(.nav-flat) .nav-treeview {
+.sidebar-mini-md .main-sidebar.sidebar-focused,
+.sidebar-mini-xs .main-sidebar.sidebar-focused {
+  .nav-compact.nav-sidebar.nav-child-indent:not(.nav-flat) .nav-treeview {
     padding-left: 1rem;
     margin-left: -.5rem;
   }
@@ -486,7 +504,7 @@
 
 // Nav Flat
 .nav-flat {
-  margin: (-$sidebar-padding-x/2) (-$sidebar-padding-x) 0;
+  margin: (-$sidebar-padding-x / 2) (-$sidebar-padding-x) 0;
 
   .nav-item {
     > .nav-link {
@@ -500,7 +518,7 @@
   }
 
   &:not(.nav-child-indent) {
-    .nav-treeview {  
+    .nav-treeview {
       .nav-item {
         > .nav-link {
           > .nav-icon {
@@ -585,8 +603,10 @@
 
   .sidebar-mini .main-sidebar:not(.sidebar-no-expand):hover &,
   .sidebar-mini-md .main-sidebar:not(.sidebar-no-expand):hover &,
+  .sidebar-mini-xs .main-sidebar:not(.sidebar-no-expand):hover &,
   .sidebar-mini .main-sidebar.sidebar-focused &,
-  .sidebar-mini-md .main-sidebar.sidebar-focused & {
+  .sidebar-mini-md .main-sidebar.sidebar-focused &,
+  .sidebar-mini-xs .main-sidebar.sidebar-focused & {
     &.nav-compact.nav-sidebar .nav-treeview {
       .nav-icon {
         margin-left: .4rem;
@@ -637,7 +657,7 @@
   &.nav-sidebar > .nav-item {
     .nav-treeview,
     > .nav-treeview {
-      background: rgba($white, .05);
+      background-color: rgba($white, .05);
 
       .nav-item {
         > .nav-link {
@@ -649,7 +669,7 @@
 }
 
 .nav-legacy {
-  margin: (-$sidebar-padding-x/2) (-$sidebar-padding-x) 0;
+  margin: (-$sidebar-padding-x / 2) (-$sidebar-padding-x) 0;
 
   &.nav-sidebar .nav-item {
     > .nav-link {
@@ -669,13 +689,13 @@
   &.nav-sidebar > .nav-item {
     > .nav-link {
       &.active {
-        background: inherit;
+        background-color: inherit;
         border-left: 3px solid transparent;
         box-shadow: none;
 
         > .nav-icon {
           margin-left: calc(.55rem - 3px);
-          
+
           .text-sm & {
             margin-left: calc(.75rem - 3px);
           }
@@ -695,11 +715,13 @@
   }
 
   .sidebar-mini &,
-  .sidebar-mini-md & {
+  .sidebar-mini-md &,
+  .sidebar-mini-xs & {
     > .nav-item .nav-link {
       .nav-icon {
         @include transition(margin-left $transition-fn $transition-speed);
-        margin-left: .75rem;
+        margin-left: .6rem;
+
       }
     }
   }
@@ -707,7 +729,9 @@
   .sidebar-mini.sidebar-collapse .main-sidebar.sidebar-focused &.nav-child-indent,
   .sidebar-mini.sidebar-collapse .main-sidebar:hover &.nav-child-indent,
   .sidebar-mini-md.sidebar-collapse .main-sidebar.sidebar-focused &.nav-child-indent,
-  .sidebar-mini-md.sidebar-collapse .main-sidebar:hover &.nav-child-indent {
+  .sidebar-mini-md.sidebar-collapse .main-sidebar:hover &.nav-child-indent,
+  .sidebar-mini-xs.sidebar-collapse .main-sidebar.sidebar-focused &.nav-child-indent,
+  .sidebar-mini-xs.sidebar-collapse .main-sidebar:hover &.nav-child-indent {
     .nav-treeview {
       padding-left: 1rem;
 
@@ -721,7 +745,9 @@
   .sidebar-mini.sidebar-collapse.text-sm .main-sidebar.sidebar-focused &.nav-child-indent,
   .sidebar-mini.sidebar-collapse.text-sm .main-sidebar:hover &.nav-child-indent,
   .sidebar-mini-md.sidebar-collapse.text-sm .main-sidebar.sidebar-focused &.nav-child-indent,
-  .sidebar-mini-md.sidebar-collapse.text-sm .main-sidebar:hover &.nav-child-indent {
+  .sidebar-mini-md.sidebar-collapse.text-sm .main-sidebar:hover &.nav-child-indent,
+  .sidebar-mini-xs.sidebar-collapse.text-sm .main-sidebar.sidebar-focused &.nav-child-indent,
+  .sidebar-mini-xs.sidebar-collapse.text-sm .main-sidebar:hover &.nav-child-indent {
     .nav-treeview {
       padding-left: .5rem;
 
@@ -733,7 +759,8 @@
   }
 
   .sidebar-mini.sidebar-collapse &,
-  .sidebar-mini-md.sidebar-collapse & {
+  .sidebar-mini-md.sidebar-collapse &,
+  .sidebar-mini-xs.sidebar-collapse & {
     > .nav-item > .nav-link {
       .nav-icon {
         margin-left: .55rem;
@@ -746,19 +773,20 @@
       }
     }
 
-    &.nav-child-indent {   
+    &.nav-child-indent {
       .nav-treeview {
         .nav-treeview {
           padding-left: 0;
           margin-left: 0;
         }
       }
-      }
     }
+  }
 
 
   .sidebar-mini.sidebar-collapse.text-sm &,
-  .sidebar-mini-md.sidebar-collapse.text-sm & {
+  .sidebar-mini-md.sidebar-collapse.text-sm &,
+  .sidebar-mini-xs.sidebar-collapse.text-sm & {
     > .nav-item > .nav-link {
       .nav-icon {
         margin-left: .75rem;
@@ -772,11 +800,11 @@
     }
   }
 
-  [class*='sidebar-dark'] & {
+  [class*="sidebar-dark"] & {
     &.nav-sidebar > .nav-item {
       .nav-treeview,
       > .nav-treeview {
-        background: rgba($white, .05);
+        background-color: rgba($white, .05);
       }
 
       > .nav-link.active {
@@ -788,17 +816,17 @@
       &.active,
       &:focus,
       &:hover {
-        background: none;
+        background-color: transparent;
         color: $sidebar-dark-active-color;
       }
     }
   }
 
-  [class*='sidebar-light'] & {
+  [class*="sidebar-light"] & {
     &.nav-sidebar > .nav-item {
       .nav-treeview,
       > .nav-treeview {
-        background: rgba($black, .05);
+        background-color: rgba($black, .05);
       }
 
       > .nav-link.active {
@@ -810,7 +838,7 @@
       &.active,
       &:focus,
       &:hover {
-        background: none;
+        background-color: transparent;
         color: $sidebar-light-active-color;
       }
     }
@@ -836,9 +864,11 @@
   }
 
   .sidebar-mini.sidebar-collapse .main-sidebar.sidebar-focused &,
-  .sidebar-mini.sidebar-collapse .main-sidebar:hover &,
+  .sidebar-mini.sidebar-collapse .main-sidebar:not(.sidebar-no-expand):hover &,
   .sidebar-mini-md.sidebar-collapse .main-sidebar.sidebar-focused &,
-  .sidebar-mini-md.sidebar-collapse .main-sidebar:hover & {
+  .sidebar-mini-md.sidebar-collapse .main-sidebar:not(.sidebar-no-expand):hover &,
+  .sidebar-mini-xs.sidebar-collapse .main-sidebar.sidebar-focused &,
+  .sidebar-mini-xs.sidebar-collapse .main-sidebar:not(.sidebar-no-expand):hover & {
     .menu-open > .nav-treeview {
       max-height: min-content;
       animation-name: fadeIn;
@@ -875,10 +905,10 @@
 }
 
 // Sidebar Form Control
-[class*='sidebar-dark'] {
+[class*="sidebar-dark"] {
   .form-control-sidebar,
   .btn-sidebar {
-    background: lighten($sidebar-dark-bg, 5%);
+    background-color: lighten($sidebar-dark-bg, 5%);
     border: 1px solid lighten($sidebar-dark-bg, 15%);
     color: lighten(color-yiq(lighten($sidebar-dark-bg, 5%)), 15%);
   }
@@ -889,18 +919,36 @@
   }
 
   .btn-sidebar:hover {
-    background: lighten($sidebar-dark-bg, 7.5%);
+    background-color: lighten($sidebar-dark-bg, 7.5%);
   }
 
   .btn-sidebar:focus {
-    background: lighten($sidebar-dark-bg, 10%);
+    background-color: lighten($sidebar-dark-bg, 10%);
+  }
+
+  .list-group-item {
+    background-color: lighten($sidebar-dark-bg, 7.5%);
+    border-color: lighten($sidebar-dark-bg, 15%);
+    color: $sidebar-dark-color;
+
+    &:hover {
+      background-color: lighten($sidebar-dark-bg, 10%);
+    }
+
+    &:focus {
+      background-color: lighten($sidebar-dark-bg, 12.5%);
+    }
+
+    .search-path {
+      color: $gray-500;
+    }
   }
 }
 
-[class*='sidebar-light'] {
+[class*="sidebar-light"] {
   .form-control-sidebar,
   .btn-sidebar {
-    background: darken($sidebar-light-bg, 5%);
+    background-color: darken($sidebar-light-bg, 5%);
     border: 1px solid darken($sidebar-light-bg, 15%);
     color: color-yiq(darken($sidebar-light-bg, 5%));
   }
@@ -911,32 +959,218 @@
   }
 
   .btn-sidebar:hover {
-    background: darken($sidebar-light-bg, 7.5%);
+    background-color: darken($sidebar-light-bg, 7.5%);
   }
 
   .btn-sidebar:focus {
-    background: darken($sidebar-light-bg, 10%);
+    background-color: darken($sidebar-light-bg, 10%);
+  }
+
+  .list-group-item {
+    border-color: darken($sidebar-light-bg, 15%);
+
+    &:hover {
+      background-color: darken($sidebar-light-bg, 7.5%);
+    }
+
+    &:focus {
+      background-color: darken($sidebar-light-bg, 10%);
+    }
+
+    .search-path {
+      color: $gray-600;
+    }
   }
 }
 
 // Sidebar inline input-group fix
 .sidebar .form-inline .input-group {
   width: 100%;
+  flex-wrap: nowrap;
 }
 .sidebar nav .form-inline {
   margin-bottom: .2rem;
 }
 
 // Sidebar Collapse on Layout Boxed
-
-.layout-boxed {
+.layout-boxed:not(.sidebar-mini):not(.sidebar-mini-md):not(.sidebar-mini-xs) {
   &.sidebar-collapse .main-sidebar {
     margin-left: 0;
   }
-  .content-wrapper, 
+  .content-wrapper,
   .main-header,
   .main-footer {
     z-index: 9999;
     position: relative;
   }
 }
+
+// Sidebar Search
+.sidebar-collapse {
+  .form-control-sidebar,
+  .form-control-sidebar ~ .input-group-append,
+  .sidebar-search-results {
+    display: none;
+  }
+}
+
+[data-widget="sidebar-search"] {
+  input[type="search"] {
+    &::-ms-clear,
+    &::-ms-reveal {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-decoration,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+      display: none;
+    }
+  }
+}
+
+.sidebar-search-results {
+  position: relative;
+  display: none;
+  width: 100%;
+
+  .sidebar-search-open & {
+    display: inline-block;
+  }
+
+  .search-title {
+    margin-bottom: -.1rem;
+  }
+
+  .list-group {
+    position: absolute;
+    width: 100%;
+    z-index: $zindex-main-sidebar + 1;
+
+    > .list-group-item {
+      padding: $input-padding-y $input-padding-x;
+
+      &:-moz-focusring {
+        margin-top: 0;
+        border-left: 1px solid transparent;
+        border-top: 0;
+        border-bottom: 1px solid transparent;
+      }
+
+      &:first-child {
+        margin-top: 0;
+        border-top: 0;
+        @include border-top-radius(0);
+      }
+    }
+  }
+}
+
+.sidebar-search-results .search-path {
+  font-size: $small-font-size;
+}
+
+.sidebar-search-open {
+  .btn,
+  .form-control {
+    @include border-bottom-radius(0);
+  }
+}
+
+// Custom Area
+.sidebar-custom {
+  [class*="sidebar-dark"] & {
+    border-top: 1px solid lighten($dark, 12%);
+  }
+
+  [class*="sidebar-light"] & {
+    border-top: 1px solid $gray-300;
+  }
+}
+
+.layout-fixed {
+  &.sidebar-collapse {
+    .hide-on-collapse {
+      display: none;
+    }
+  }
+
+  &.sidebar-collapse:hover {
+    .hide-on-collapse {
+      display: block;
+    }
+  }
+
+  .main-sidebar-custom {
+    .sidebar {
+      height: calc(100% - ((#{$main-header-height-inner} + #{$sidebar-custom-height}) + #{$main-header-bottom-border-width}));
+    }
+
+    .sidebar-custom {
+      height: $sidebar-custom-height;
+      padding: $sidebar-custom-padding-x $sidebar-custom-padding-y;
+    }
+  }
+
+  .main-sidebar-custom-lg {
+    .sidebar {
+      height: calc(100% - ((#{$main-header-height-inner} + #{$sidebar-custom-height-lg}) + #{$main-header-bottom-border-width}));
+    }
+
+    .sidebar-custom {
+      height: $sidebar-custom-height-lg;
+    }
+  }
+
+  .main-sidebar-custom-xl {
+    .sidebar {
+      height: calc(100% - ((#{$main-header-height-inner} + #{$sidebar-custom-height-xl}) + #{$main-header-bottom-border-width}));
+    }
+
+    .sidebar-custom {
+      height: $sidebar-custom-height-xl;
+    }
+  }
+
+  .main-sidebar-custom,
+  .main-sidebar-custom-lg,
+  .main-sidebar-custom-xl {
+    .pos-right {
+      position: absolute;
+      right: .5rem;
+    }
+  }
+}
+
+.dark-mode {
+  @each $name, $color in $theme-colors-alt {
+    .sidebar-dark-#{$name},
+    .sidebar-light-#{$name} {
+      @include sidebar-color($color);
+    }
+  }
+
+  @each $name, $color in $colors-alt {
+    .sidebar-dark-#{$name},
+    .sidebar-light-#{$name} {
+      @include sidebar-color($color);
+    }
+  }
+
+  [class*="sidebar-light-"] {
+    .sidebar {
+      a {
+        color: $sidebar-light-color;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+//

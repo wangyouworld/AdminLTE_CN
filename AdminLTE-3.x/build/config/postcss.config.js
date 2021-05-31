@@ -1,14 +1,17 @@
 'use strict'
 
-module.exports = (ctx) => ({
-  map: ctx.file.dirname.includes('examples') ? false : {
+module.exports = {
+  map: {
     inline: false,
     annotation: true,
     sourcesContent: true
   },
-  plugins: {
-    autoprefixer: {
+  plugins: [
+    require('postcss-scrollbar')({
+      edgeAutohide: true
+    }),
+    require('autoprefixer')({
       cascade: false
-    }
-  }
-})
+    })
+  ]
+}

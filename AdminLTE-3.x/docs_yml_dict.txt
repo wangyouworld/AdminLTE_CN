@@ -1,9 +1,7 @@
-title: AdminLTE v3 Documentaion
+title: AdminLTE v3 Documentation
 title: AdminLTE v3 文档
 description: >- # this means to ignore newlines until "baseurl:"
 description: >- # 这意味着忽略换行符直到 "baseurl:"
-AdminLTE v3 Documentaion
-AdminLTE v3 文档
 - title: Installation
 - title: 安装
 - title: Dependencies & Plugins
@@ -46,3 +44,21 @@ AdminLTE v3 文档
 - title: 集成环境
 - title: License
 - title: 许可证
+- title: Sidebar Search
+- title: 侧边栏搜索
+- title: Expandable Tables
+- title: 可扩展表格
+- title: IFrame
+- title: 框架
+title: Additional Styles
+title: 附加样式
+The `index` step extracts information from the files in the codebase.
+`index` 从代码库中提取文件信息。
+Specify a list of files and folders to exclude from extraction.
+指定要从提取中排除的文件和文件夹列表。
+- title: Contributing Guide
+- title: 贡献指南
+- title: Navbar Search
+- title: 导航栏搜索
+description: AdminLTE v3.1 Documentation
+description: AdminLTE v3.1 文档

@@ -3,11 +3,17 @@
 //
 
 .invoice {
-  background: $white;
+  background-color: $white;
   border: 1px solid $card-border-color;
   position: relative;
 }
 
 .invoice-title {
   margin-top: 0;
+}
+
+.dark-mode {
+  .invoice {
+    background-color: $dark;
+  }
 }

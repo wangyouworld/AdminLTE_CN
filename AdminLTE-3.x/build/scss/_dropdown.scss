@@ -18,7 +18,7 @@
   }
 
   .dropdown-toggle::after {
-    vertical-align: .2rem
+    vertical-align: .2rem;
   }
 }
 
@@ -57,17 +57,17 @@
 .dropdown-submenu {
   position: relative;
 
-  & > a:after {
-    @include caret-right;
+  > a::after {
+    @include caret-right ();
     float: right;
     margin-left: .5rem;
     margin-top: .5rem;
   }
 
-  & > .dropdown-menu {
+  > .dropdown-menu {
     left: 100%;
-    margin-left: 0px;
-    margin-top: 0px;
+    margin-left: 0;
+    margin-top: 0;
     top: 0;
   }
 }
@@ -83,7 +83,6 @@
     }
   }
 }
-
 
 
 // Dropdown Sizes
@@ -115,37 +114,11 @@
   text-align: center;
 }
 
-// Add fade animation to dropdown menus by appending 
+// Add fade animation to dropdown menus by appending
 // the class .animated-dropdown-menu to the .dropdown-menu ul (or ol)
 .open:not(.dropup) > .animated-dropdown-menu {
   @include animation(flipInX .7s both);
   backface-visibility: visible !important;
-}
-
-@keyframes flipInX {
-  0% {
-    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
-    transition-timing-function: ease-in;
-    opacity: 0;
-  }
-
-  40% {
-    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-    transition-timing-function: ease-in;
-  }
-
-  60% {
-    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
-    opacity: 1;
-  }
-
-  80% {
-    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
-  }
-
-  100% {
-    transform: perspective(400px);
-  }
 }
 
 // Fix dropdown menu in navbars
@@ -170,7 +143,7 @@
         right: 5%;
         left: auto;
         border: 1px solid #ddd;
-        background: $white;
+        background-color: $white;
       }
     }
   }
@@ -178,8 +151,8 @@
 
 // User Menu
 .navbar-nav > .user-menu {
-  > .nav-link:after {
-    content:none;
+  > .nav-link::after {
+    content: none;
   }
 
   > .dropdown-menu {
@@ -205,7 +178,7 @@
         width: 90px;
         border: 3px solid;
         border-color: transparent;
-        border-color: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, .2);
       }
 
       > p {
@@ -223,14 +196,14 @@
 
     // Menu Body
     > .user-body {
-      @include clearfix;
+      @include clearfix ();
       border-bottom: 1px solid $gray-700;
       border-top: 1px solid $gray-300;
       padding: 15px;
 
       a {
         @include media-breakpoint-up(sm) {
-          background: $white !important;
+          background-color: $white !important;
           color: $gray-700 !important;
         }
       }
@@ -238,7 +211,7 @@
 
     // Menu Footer
     > .user-footer {
-      @include clearfix;
+      @include clearfix ();
       background-color: $gray-100;
       padding: 10px;
 
@@ -268,5 +241,55 @@
     margin-right: 10px;
     margin-top: -2px;
     width: $sidebar-user-image-width;
+  }
+}
+
+.dark-mode {
+  .dropdown-menu {
+    background-color: $dark;
+    color: $white;
+  }
+  .dropdown-item {
+    color: $white;
+
+    &:focus,
+    &:hover {
+      background-color: lighten($dark, 5%);
+    }
+  }
+  .dropdown-divider {
+    border-color: $gray-600;
+  }
+
+  .navbar-nav > .user-menu > .dropdown-menu {
+    > .user-footer {
+      background-color: lighten($dark, 2.5%);
+      color: $white;
+
+      .btn-default {
+        color: $white;
+
+        &:hover,
+        &:focus {
+          background-color: lighten($dark, 5%);
+          color: $gray-300;
+        }
+        &:focus {
+          background-color: lighten($dark, 7.5%);
+        }
+      }
+    }
+    > .user-body {
+      border-color: $gray-600;
+    }
+    > .user-body a {
+      background-color: transparent !important;
+      color: $white !important;
+
+      &:hover,
+      &:focus {
+        color: $gray-400 !important;
+      }
+    }
   }
 }
