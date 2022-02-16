@@ -230,8 +230,8 @@ To Do List
 <small class="badge badge-primary"><i class="far fa-clock"></i> 1 周前</small>
 <small class="badge badge-secondary"><i class="far fa-clock"></i> 1 month</small>
 <small class="badge badge-secondary"><i class="far fa-clock"></i> 1 月前</small>
-<button type="button" class="btn btn-info float-right"><i class="fas fa-plus"></i> Add item</button>
-<button type="button" class="btn btn-info float-right"><i class="fas fa-plus"></i> 添加</button>
+<button type="button" class="btn btn-primary float-right"><i class="fas fa-plus"></i> Add item</button>
+<button type="button" class="btn btn-primary float-right"><i class="fas fa-plus"></i> 添加</button>
 <!-- right col (We are only adding the ID to make the widgets sortable)-->
 <!-- right col （仅添加 ID 便可实现排序）-->
 <div class="text-white">Visitors</div>
@@ -2791,9 +2791,9 @@ Friends</a>
 Sign out
 退出
 $("#example1").DataTable();
-$("#example1").DataTable({"language": {"url": "/AdminLTE/AdminLTE-3.x/plugins/datatables/Chinese.json"}});
+$("#example1").DataTable({"language": {"url": "../../plugins/datatables/Chinese.json"}});
 $("#example2").DataTable({
-$("#example2").DataTable({"language": {"url": "/AdminLTE/AdminLTE-3.x/plugins/datatables/Chinese.json"},
+$("#example2").DataTable({"language": {"url": "../../plugins/datatables/Chinese.json"},
 <script src="../../plugins/jsgrid/jsgrid.min.js"></script>
 <script src="../../plugins/jsgrid/jsgrid.min.js"></script><script src="../../plugins/jsgrid/i18n/jsgrid-zh-cn.js"></script>
 $("#jsGrid1").jsGrid({
@@ -3078,10 +3078,10 @@ data-inputmask-inputformat="yyyy-dd-mm"
 // DropzoneJS 演示代码结束
 Place <em>some</em> <u>text</u> <strong>here</strong>
 放 <em>一些</em> <u>内容</u> <strong>在这里</strong>
-Visit <a href="https://github.com/summernote/summernote/">Summernote</a> documentation for more examples and information about &nbsp;
-访问 <a href="https://github.com/summernote/summernote/">Summernote</a> 获取更多信息和示例。
-Visit <a href="https://codemirror.net/">CodeMirror</a> documentation for more examples and information about &nbsp;
-访问 <a href="https://codemirror.net/">CodeMirror</a> 获取更多信息和示例。
+Visit <a href="https://github.com/summernote/summernote/">Summernote</a> documentation for more examples and information about the plugin.
+访问 <a href="https://github.com/summernote/summernote/">Summernote 文档</a> 获取更多信息和示例。
+Visit <a href="https://codemirror.net/">CodeMirror</a> documentation for more examples and information about the plugin.
+访问 <a href="https://codemirror.net/">CodeMirrorCodeMirror 文档</a> 获取更多信息和示例。
 Expandable Table
 可扩展表格
 Expandable Table Tree
@@ -3266,8 +3266,6 @@ Next</button>
 下一步</button>
 Previous</button>
 上一步</button>
-Visit <a href="https://github.com/Johann-S/bs-stepper/#how-to-use-it">bs-stepper documentation</a> for more examples and information about &nbsp;
-访问 <a href="https://github.com/Johann-S/bs-stepper/#how-to-use-it">bs-stepper 文档</a> 获取更多信息和示例。
 <em>jQuery File Upload</em> like look</small>
 <em>jQuery 文件上传</em>效果</small>
 Add files
@@ -3280,12 +3278,10 @@ Cancel upload
 <span>上传</span>
 <span>取消</span>
 <span>删除</span>
-Visit <a href="https://www.dropzonejs.com">dropzone.js documentation</a> for more examples and information about &nbsp;
-访问 <a href="https://www.dropzonejs.com">dropzone.js 文档</a> 获取更多信息和示例。
 $("#example1").DataTable({
-$("#example1").DataTable({"language": {"url": "/AdminLTE/AdminLTE-3.x/plugins/datatables/Chinese.json"},
+$("#example1").DataTable({"language": {"url": "../../plugins/datatables/Chinese.json"},
 $('#example2').DataTable({
-$('#example2').DataTable({"language": {"url": "/AdminLTE/AdminLTE-3.x/plugins/datatables/Chinese.json"},
+$('#example2').DataTable({"language": {"url": "../../plugins/datatables/Chinese.json"},
 Sparklines
 迷你图
 Launch Error Toast
@@ -3298,14 +3294,10 @@ Date and time:
 日期和时间：
 Visit <a href="https://getdatepicker.com/5-4/">tempusdominus </a> for more examples and information about
 访问 <a href="https://getdatepicker.com/5-4/">tempusdominus</a> 获取更多信息和示例。
-Visit <a href="https://github.com/Johann-S/bs-stepper/#how-to-use-it">bs-stepper documentation</a> for more examples and information about &nbsp;
+Visit <a href="https://github.com/Johann-S/bs-stepper/#how-to-use-it">bs-stepper documentation</a> for more examples and information about the plugin.
 访问 <a href="https://github.com/Johann-S/bs-stepper/#how-to-use-it">bs-stepper 文档</a> 获取更多信息和示例。
-Visit <a href="https://www.dropzonejs.com">dropzone.js documentation</a> for more examples and information about &nbsp;
+Visit <a href="https://www.dropzonejs.com">dropzone.js documentation</a> for more examples and information about the plugin.
 访问 <a href="https://www.dropzonejs.com">dropzone.js 文档</a> 获取更多信息和示例。
-Visit <a href="https://github.com/summernote/summernote/">Summernote</a> documentation for more examples and information about &nbsp;
-访问 <a href="https://github.com/summernote/summernote/">Summernote 文档</a> 获取更多信息和示例。
-Visit <a href="https://codemirror.net/">CodeMirror</a> documentation for more examples and information about &nbsp;
-访问 <a href="https://codemirror.net/">CodeMirror 文档</a> 获取更多信息和示例。
 Sep2014-report.pdf
 2014年9月-报告.pdf
 App Description.docx
@@ -3332,3 +3324,5 @@ value="Lorem ipsum"
 value="兰晓龙"
 https://adminlte.io/docs/3.1
 /AdminLTE/AdminLTE-3.x/docs
+checked data-bootstrap-switch
+data-bootstrap-switch data-on-text="开启" data-off-text="关闭"

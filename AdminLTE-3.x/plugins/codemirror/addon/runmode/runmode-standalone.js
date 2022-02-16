@@ -220,7 +220,7 @@
     return mode.startState ? mode.startState(a1, a2) : true
   }
 
-  var modeMethods = ({
+  var modeMethods = {
     __proto__: null,
     modes: modes,
     mimeModes: mimeModes,
@@ -233,7 +233,7 @@
     copyState: copyState,
     innerMode: innerMode,
     startState: startState
-  });
+  };
 
   // declare global: globalThis, CodeMirror
 
@@ -251,6 +251,7 @@
 
   CodeMirror.registerHelper = CodeMirror.registerGlobalHelper = Math.min;
   CodeMirror.splitLines = function(string) { return string.split(/\r?\n|\r/) };
+  CodeMirror.countColumn = countColumn;
 
   CodeMirror.defaults = { indentUnit: 2 };
 
@@ -322,7 +323,7 @@
       if (!stream.string && mode.blankLine) { mode.blankLine(state); }
       while (!stream.eol()) {
         var style = mode.token(stream, state);
-        callback(stream.current(), style, i, stream.start, state);
+        callback(stream.current(), style, i, stream.start, state, mode);
         stream.start = stream.pos;
       }
     }

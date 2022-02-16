@@ -23,11 +23,11 @@ const SELECTOR_DATA_TOGGLE_SCROLL_RIGHT = '[data-widget="iframe-scrollright"]'
 const SELECTOR_DATA_TOGGLE_FULLSCREEN = '[data-widget="iframe-fullscreen"]'
 const SELECTOR_CONTENT_WRAPPER = '.content-wrapper'
 const SELECTOR_CONTENT_IFRAME = `${SELECTOR_CONTENT_WRAPPER} iframe`
-const SELECTOR_TAB_NAV = `${SELECTOR_DATA_TOGGLE}.iframe-mode .nav`
-const SELECTOR_TAB_NAVBAR_NAV = `${SELECTOR_DATA_TOGGLE}.iframe-mode .navbar-nav`
+const SELECTOR_TAB_NAV = `${SELECTOR_CONTENT_WRAPPER}.iframe-mode .nav`
+const SELECTOR_TAB_NAVBAR_NAV = `${SELECTOR_CONTENT_WRAPPER}.iframe-mode .navbar-nav`
 const SELECTOR_TAB_NAVBAR_NAV_ITEM = `${SELECTOR_TAB_NAVBAR_NAV} .nav-item`
 const SELECTOR_TAB_NAVBAR_NAV_LINK = `${SELECTOR_TAB_NAVBAR_NAV} .nav-link`
-const SELECTOR_TAB_CONTENT = `${SELECTOR_DATA_TOGGLE}.iframe-mode .tab-content`
+const SELECTOR_TAB_CONTENT = `${SELECTOR_CONTENT_WRAPPER}.iframe-mode .tab-content`
 const SELECTOR_TAB_EMPTY = `${SELECTOR_TAB_CONTENT} .tab-empty`
 const SELECTOR_TAB_LOADING = `${SELECTOR_TAB_CONTENT} .tab-loading`
 const SELECTOR_TAB_PANE = `${SELECTOR_TAB_CONTENT} .tab-pane`
@@ -51,7 +51,9 @@ const Default = {
   autoIframeMode: true,
   autoItemActive: true,
   autoShowNewTab: true,
+  autoDarkMode: false,
   allowDuplicates: false,
+  allowReload: true,
   loadingScreen: true,
   useNavbarItems: true,
   scrollOffset: 40,
@@ -69,7 +71,6 @@ class IFrame {
   constructor(element, config) {
     this._config = config
     this._element = element
-
     this._init()
   }
 
@@ -142,11 +143,11 @@ class IFrame {
       return
     }
 
-    const uniqueName = link.replace('./', '').replace(/["&'./:=?[\]]/gi, '-').replace(/(--)/gi, '')
+    const uniqueName = unescape(link).replace('./', '').replace(/["#&'./:=?[\]]/gi, '-').replace(/(--)/gi, '')
     const navId = `tab-${uniqueName}`
 
     if (!this._config.allowDuplicates && $(`#${navId}`).length > 0) {
-      return this.switchTab(`#${navId}`)
+      return this.switchTab(`#${navId}`, this._config.allowReload)
     }
 
     if ((!this._config.allowDuplicates && $(`#${navId}`).length === 0) || this._config.allowDuplicates) {
@@ -154,12 +155,35 @@ class IFrame {
     }
   }
 
-  switchTab(item) {
+  switchTab(item, reload = false) {
     const $item = $(item)
     const tabId = $item.attr('href')
 
     $(SELECTOR_TAB_EMPTY).hide()
+
+    if (reload) {
+      const $loadingScreen = $(SELECTOR_TAB_LOADING)
+      if (this._config.loadingScreen) {
+        $loadingScreen.show(0, () => {
+          $(`${tabId} iframe`).attr('src', $(`${tabId} iframe`).attr('src')).ready(() => {
+            if (this._config.loadingScreen) {
+              if (typeof this._config.loadingScreen === 'number') {
+                setTimeout(() => {
+                  $loadingScreen.fadeOut()
+                }, this._config.loadingScreen)
+              } else {
+                $loadingScreen.fadeOut()
+              }
+            }
+          })
+        })
+      } else {
+        $(`${tabId} iframe`).attr('src', $(`${tabId} iframe`).attr('src'))
+      }
+    }
+
     $(`${SELECTOR_TAB_NAVBAR_NAV} .active`).tab('dispose').removeClass('active')
+
     this._fixHeight()
 
     $item.tab('show')
@@ -212,9 +236,9 @@ class IFrame {
     if ($('body').hasClass(CLASS_NAME_FULLSCREEN_MODE)) {
       $(`${SELECTOR_DATA_TOGGLE_FULLSCREEN} i`).removeClass(this._config.iconMinimize).addClass(this._config.iconMaximize)
       $('body').removeClass(CLASS_NAME_FULLSCREEN_MODE)
-      $(`${SELECTOR_TAB_EMPTY}, ${SELECTOR_TAB_LOADING}`).height('auto')
-      $(SELECTOR_CONTENT_WRAPPER).height('auto')
-      $(SELECTOR_CONTENT_IFRAME).height('auto')
+      $(`${SELECTOR_TAB_EMPTY}, ${SELECTOR_TAB_LOADING}`).height('100%')
+      $(SELECTOR_CONTENT_WRAPPER).height('100%')
+      $(SELECTOR_CONTENT_IFRAME).height('100%')
     } else {
       $(`${SELECTOR_DATA_TOGGLE_FULLSCREEN} i`).removeClass(this._config.iconMaximize).addClass(this._config.iconMinimize)
       $('body').addClass(CLASS_NAME_FULLSCREEN_MODE)
@@ -227,17 +251,30 @@ class IFrame {
   // Private
 
   _init() {
-    if (window.frameElement && this._config.autoIframeMode) {
-      $('body').addClass(CLASS_NAME_IFRAME_MODE)
-    } else if ($(SELECTOR_CONTENT_WRAPPER).hasClass(CLASS_NAME_IFRAME_MODE)) {
-      if ($(SELECTOR_TAB_CONTENT).children().length > 2) {
-        const $el = $(`${SELECTOR_TAB_PANE}:first-child`)
-        $el.show()
-        this._setItemActive($el.find('iframe').attr('src'))
-      }
+    const usingDefTab = ($(SELECTOR_TAB_CONTENT).children().length > 2)
 
-      this._setupListeners()
-      this._fixHeight(true)
+    this._setupListeners()
+    this._fixHeight(true)
+
+    if (usingDefTab) {
+      const $el = $(`${SELECTOR_TAB_PANE}`).first()
+      // eslint-disable-next-line no-console
+      console.log($el)
+      const uniqueName = $el.attr('id').replace('panel-', '')
+      const navId = `#tab-${uniqueName}`
+
+      this.switchTab(navId, true)
+    }
+  }
+
+  _initFrameElement() {
+    if (window.frameElement && this._config.autoIframeMode) {
+      const $body = $('body')
+      $body.addClass(CLASS_NAME_IFRAME_MODE)
+
+      if (this._config.autoDarkMode) {
+        $body.addClass('dark-mode')
+      }
     }
   }
 
@@ -252,16 +289,17 @@ class IFrame {
         this._fixHeight()
       }, 1)
     })
-    $(document).on('click', `${SELECTOR_SIDEBAR_MENU_ITEM}, ${SELECTOR_SIDEBAR_SEARCH_ITEM}`, e => {
-      e.preventDefault()
-      this.openTabSidebar(e.target)
-    })
-
-    if (this._config.useNavbarItems) {
-      $(document).on('click', `${SELECTOR_HEADER_MENU_ITEM}, ${SELECTOR_HEADER_DROPDOWN_ITEM}`, e => {
+    if ($(SELECTOR_CONTENT_WRAPPER).hasClass(CLASS_NAME_IFRAME_MODE)) {
+      $(document).on('click', `${SELECTOR_SIDEBAR_MENU_ITEM}, ${SELECTOR_SIDEBAR_SEARCH_ITEM}`, e => {
         e.preventDefault()
         this.openTabSidebar(e.target)
       })
+      if (this._config.useNavbarItems) {
+        $(document).on('click', `${SELECTOR_HEADER_MENU_ITEM}, ${SELECTOR_HEADER_DROPDOWN_ITEM}`, e => {
+          e.preventDefault()
+          this.openTabSidebar(e.target)
+        })
+      }
     }
 
     $(document).on('click', SELECTOR_TAB_NAVBAR_NAV_LINK, e => {
@@ -374,17 +412,26 @@ class IFrame {
 
   // Static
 
-  static _jQueryInterface(operation, ...args) {
-    let data = $(this).data(DATA_KEY)
-    const _options = $.extend({}, Default, $(this).data())
+  static _jQueryInterface(config) {
+    if ($(SELECTOR_DATA_TOGGLE).length > 0) {
+      let data = $(this).data(DATA_KEY)
 
-    if (!data) {
-      data = new IFrame(this, _options)
-      $(this).data(DATA_KEY, data)
-    }
+      if (!data) {
+        data = $(this).data()
+      }
 
-    if (typeof operation === 'string' && /createTab|openTabSidebar|switchTab|removeActiveTab/.test(operation)) {
-      data[operation](...args)
+      const _options = $.extend({}, Default, typeof config === 'object' ? config : data)
+      localStorage.setItem('AdminLTE:IFrame:Options', JSON.stringify(_options))
+
+      const plugin = new IFrame($(this), _options)
+
+      $(this).data(DATA_KEY, typeof config === 'object' ? config : data)
+
+      if (typeof config === 'string' && /createTab|openTabSidebar|switchTab|removeActiveTab/.test(config)) {
+        plugin[config]()
+      }
+    } else {
+      new IFrame($(this), JSON.parse(localStorage.getItem('AdminLTE:IFrame:Options')))._initFrameElement()
     }
   }
 }

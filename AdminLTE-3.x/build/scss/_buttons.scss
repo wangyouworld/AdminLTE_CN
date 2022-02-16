@@ -53,6 +53,23 @@
     background-color: darken($button-default-background-color, 5%);
     color: darken($button-default-color, 10%);
   }
+
+  &.disabled,
+  &:disabled {
+    color: $button-default-color;
+    background-color: $button-default-background-color;
+  }
+}
+
+.btn-outline-light {
+  color: darken($light, 20%);
+  border-color: darken($light, 20%);
+
+  &.disabled,
+  &:disabled {
+    color: darken($light, 20%);
+    border-color: darken($light, 20%);
+  }
 }
 
 // Application buttons
@@ -113,7 +130,7 @@
   @include button-size($button-padding-y-xs, $button-padding-x-xs, $button-font-size-xs, $button-line-height-xs, $button-border-radius-xs);
 }
 
-.dark-mode {
+@include dark-mode () {
   .btn-default,
   .btn-app {
     background-color: lighten($dark, 2.5%);
@@ -142,13 +159,21 @@
 
   @each $color, $value in $theme-colors-alt {
     .btn-#{$color} {
-      @include button-variant($value, $value);
+      @if $color == dark {
+        @include button-variant(darken($value, 5%), lighten($value, 10%));
+      } @else {
+        @include button-variant($value, $value);
+      }
     }
   }
 
   @each $color, $value in $theme-colors-alt {
     .btn-outline-#{$color} {
-      @include button-outline-variant($value);
+      @if $color == dark {
+        @include button-outline-variant(darken($value, 20%));
+      } @else {
+        @include button-outline-variant($value);
+      }
     }
   }
 }

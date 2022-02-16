@@ -1,0 +1,96 @@
+title: AdminLTE v3.2 文档
+version: v3.2
+description: AdminLTE v3.2 Documentation
+
+baseurl: /docs/3.2
+url: https://adminlte.io
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+navigation:
+  - title: 安装
+    url: index.html
+    icon: fas fa-microchip
+  - title: 依赖项和插件
+    url: dependencies.html
+    icon: fas fa-handshake
+  - title: 布局
+    url: layout.html
+    icon: fas fa-copy
+  - title: 组件
+    icon: fas fa-th
+    url: components
+    subitems:
+      - title: 主标题
+        url: components/main-header.html
+      - title: 主侧边栏
+        url: components/main-sidebar.html
+      - title: 控制侧边栏
+        url: components/control-sidebar.html
+      - title: 卡片
+        url: components/cards.html
+      - title: 小-/ 信息框
+        url: components/boxes.html
+      - title: 聊天
+        url: components/direct-chat.html
+      - title: 时间线
+        url: components/timeline.html
+      - title: 丝带
+        url: components/ribbons.html
+      - title: 杂项
+        url: components/miscellaneous.html
+      - title: 插件
+        url: components/plugins.html
+  - title: JavaScript
+    icon: fas fa-code
+    url: javascript
+    subitems:
+      - title: 布局
+        url: javascript/layout.html
+      - title: Push Menu
+        url: javascript/push-menu.html
+      - title: Treeview
+        url: javascript/treeview.html
+      - title: 卡片小部件
+        url: javascript/card-widget.html
+      - title: 刷新卡片
+        url: javascript/card-refresh.html
+      - title: 控制侧边栏
+        url: javascript/control-sidebar.html
+      - title: 聊天
+        url: javascript/direct-chat.html
+      - title: 待办事项列表
+        url: javascript/todo-list.html
+      - title: Toasts
+        url: javascript/toasts.html
+      - title: 侧边栏搜索
+        url: javascript/sidebar-search.html
+      - title: 可扩展表格
+        url: javascript/expandable-tables.html
+      - title: 框架
+        url: javascript/iframe.html
+      - title: 导航栏搜索
+        url: javascript/navbar-search.html
+  - title: 浏览器支持
+    url: browser-support.html
+    icon: fab fa-chrome
+  - title: 集成环境
+    url: implementations.html
+    icon: fas fa-bookmark
+  - title: 附加样式
+    url: additional-styles.html
+    icon: fas fa-mortar-pestle
+  - title: 升级指南
+    url: upgrade-guide.html
+    icon: fas fa-hand-point-up
+  - title: 贡献指南
+    url: how-to-contribute.html
+    icon: fas fa-hands-helping
+  - title: FAQ
+    url: faq.html
+    icon: fas fa-question-circle
+  - title: 许可证
+    url: license.html
+    icon: fas fa-file-contract

@@ -262,3 +262,5 @@ text: 'None Selected'
 text: '请选择'
 Footer Options
 页脚选项
+alert('You load AdminLTE\'s "demo.js", \nthis file is only created for testing purposes!')
+alert('留意！你使用了 AdminLTE "demo.js" 文件，\n它是为测试而创建的！')

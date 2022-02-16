@@ -4,6 +4,8 @@
 [![Packagist](https://img.shields.io/packagist/v/almasaeed2010/adminlte.svg)](https://packagist.org/packages/almasaeed2010/adminlte)
 [![cdn version](https://data.jsdelivr.com/v1/package/npm/admin-lte/badge)](https://www.jsdelivr.com/package/npm/admin-lte)
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/from-referrer/)
+[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/ColorlibHQ/AdminLTE)
+[![Discord Invite](https://img.shields.io/badge/discord-join%20now-green)](https://discord.gg/jfdvjwFqfz)
 
 **AdminLTE** 是一个自响应式管理框架。基于 **[Bootstrap 4.6](https://getbootstrap.com/)** 框架以及 JS/jQuery 插件。
 高度可定制且易于使用。适用于多种屏幕，小到移动设备大到台式机。
@@ -32,52 +34,24 @@ SCSS 已用于提高代码的可定制性。
 ### 从 [jsdelivr](https://www.jsdelivr.com/package/npm/admin-lte) CDN 获取：
 _**重要说明**：在项目中使用的插件，你也需要添加 cdn 链接。_
 ```html
-<script src="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/js/adminlte.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
 ```
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
 ```
 ### 使用命令行：
-_**重要说明**：要通过 npm/Yarn 安装，至少 Node.js 10 或更高版本。_
+_**重要提示**：通过 NPM/Yarn 安装，至少需要 Node.js 14 或更高版本。_
 #### 使用 npm
 ```bash
-npm install admin-lte@^3.1 --save
+npm install admin-lte@^3.2 --save
 ```
 #### 通过 Yarn
 ```bash
-yarn add admin-lte@^3.1
+yarn add admin-lte@^3.2
 ```
 #### 通过 Composer
 ```bash
-composer require "almasaeed2010/adminlte=~3.1"
-```
-#### 通过 Git
-```bash
-git clone https://github.com/ColorlibHQ/AdminLTE.git
-```
-
-## 不稳定发布
-### 从 [jsdelivr](https://www.jsdelivr.com/package/npm/admin-lte) CDN 获取：
-_**重要说明**：在项目中使用的插件，你也需要添加 cdn 链接。_
-```html
-<script src="https://cdn.jsdelivr.net/npm/admin-lte@3.1.0/dist/js/adminlte.min.js"></script>
-```
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.1.0/dist/css/adminlte.min.css">
-```
-### 使用命令行：
-_**重要说明**：要通过 npm/Yarn 安装，至少 Node.js 10 或更高版本。_
-#### 使用 npm
-```bash
-npm install admin-lte@^3.1.0 --save
-```
-#### 通过 Yarn
-```bash
-yarn add admin-lte@^3.1.0
-```
-#### 通过 Composer
-```bash
-composer require "almasaeed2010/adminlte=~3.1.0"
+composer require "almasaeed2010/adminlte=~3.2"
 ```
 #### 通过 Git
 ```bash
@@ -86,7 +60,7 @@ git clone https://github.com/ColorlibHQ/AdminLTE.git
 
 ## 文档
 
-访问 [在线文档](https://adminlte.io/docs/3.1/) 以获取更多信息。
+请访问[在线文档](https://3vshej.cn/AdminLTE/)以获取最新的使用指南。
 信息将在每周添加一次。
 
 ## 支持浏览器
@@ -95,7 +69,13 @@ git clone https://github.com/ColorlibHQ/AdminLTE.git
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | IE10, IE11, Edge| 最近2个版本| 最近2个版本| 最近2个版本| 最近2个版本| 最近2个版本| 最近2个版本| 最近2个版本| 最近2个版本
 
-### 编译 dist 文件
+## 亮模式 （只移除深色模式）
+如果不使用也不需要深色模式，则可以只使用亮模式版本，这样的话文件会更小。
+
+文件在 `./dist/css/alt/adminlte.light.css`
+
+
+## 编译 dist 文件
 
 要编译 dist 文件，你需要 Node.js/npm，克隆/下载仓库后：
 

@@ -11,7 +11,7 @@
     $pagination-active-border-color: $color;
 
     .btn-link,
-    a:not(.dropdown-item):not(.btn-app):not(.nav-link):not(.brand-link):not(.page-link):not(.btn),
+    a:not(.dropdown-item):not(.btn-app):not(.nav-link):not(.brand-link):not(.page-link):not(.badge):not(.btn),
     .nav-tabs .nav-link {
       color: $link-color;
 
@@ -91,12 +91,14 @@
       }
     }
   }
-  .dark-mode.accent-#{$name} {
-    .page-item {
-      .page-link {
-        &:hover,
-        &:focus {
-          color: lighten($link-color, 5%);
+  @include dark-mode () {
+    &.accent-#{$name} {
+      .page-item {
+        .page-link {
+          &:hover,
+          &:focus {
+            color: lighten($link-color, 5%);
+          }
         }
       }
     }

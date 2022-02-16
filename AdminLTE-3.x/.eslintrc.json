@@ -5,14 +5,19 @@
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:unicorn/recommended",
-    "xo/esnext",
+    "xo",
     "xo/browser"
   ],
   "env": {
     "jquery": true
   },
   "rules": {
+    "arrow-body-style": "off",
     "capitalized-comments": "off",
+    "comma-dangle": [
+      "error",
+      "never"
+    ],
     "eqeqeq": "off",
     "indent": [
       "error",
@@ -39,8 +44,13 @@
       "error",
       "always"
     ],
+    "operator-linebreak": [
+      "error",
+      "after"
+    ],
     "prefer-template": "error",
     "prefer-named-capture-group": "off",
+
     "semi": [
       "error",
       "never"
@@ -55,6 +65,7 @@
     "unicorn/prefer-dom-node-append": "off",
     "unicorn/prefer-dom-node-dataset": "off",
     "unicorn/prefer-dom-node-remove": "off",
+    "unicorn/prefer-export-from": "off",
     "unicorn/prefer-includes": "off",
     "unicorn/prefer-number-properties": "off",
     "unicorn/prefer-optional-catch-binding": "off",

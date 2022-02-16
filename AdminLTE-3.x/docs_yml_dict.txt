@@ -1,5 +1,5 @@
-title: AdminLTE v3 Documentation
-title: AdminLTE v3 文档
+title: AdminLTE v3.2 Documentation
+title: AdminLTE v3.2 文档
 description: >- # this means to ignore newlines until "baseurl:"
 description: >- # 这意味着忽略换行符直到 "baseurl:"
 - title: Installation
@@ -60,5 +60,3 @@ Specify a list of files and folders to exclude from extraction.
 - title: 贡献指南
 - title: Navbar Search
 - title: 导航栏搜索
-description: AdminLTE v3.1 Documentation
-description: AdminLTE v3.1 文档

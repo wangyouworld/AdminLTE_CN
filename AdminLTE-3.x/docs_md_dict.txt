@@ -108,8 +108,8 @@ The layout consists of four major parts:
 #### 布局设置
 > You cannot use both layout-boxed and layout-navbar-fixed or layout-footer-fixed at the same time. Anything else can be mixed together.
 > 你不能同时使用 boxbox-boxed 和 layout-navbar-fixed 或 layout-footer-fixed。其他任何东西都可以组合使用。
-AdminLTE 3.0 provides a set of options to apply to your main layout. Each one of these classes can be added to the body tag to get the desired goal.
-AdminLTE 3.0 提供了一组应用于布局的选项。这些类中的每一个都可以添加到 body 标签中以获得所需的效果。
+AdminLTE 3.2 provides a set of options to apply to your main layout. Each one of these classes can be added to the body tag to get the desired goal.
+AdminLTE 3.2 提供了一组应用于布局的选项。这些类中的每一个都可以添加到 body 标签中以获得所需的效果。
 - Fixed Sidebar: use the class `.layout-fixed` to get a fixed sidebar.
 - 固定侧边栏：使用 `.layout-fixed` 类来固定侧边栏。
 - Fixed Navbar: use the class `.layout-navbar-fixed` to get a fixed navbar.
@@ -142,8 +142,8 @@ You can also use the following classes for responsive changes with placing
 > 如果你想使用固定导航栏的锚点，则需要向隐藏的锚点添加 `.anchor`，例如 `<a id="testAnchor" class="anchor"></a>`。
 #### Color Variations
 #### 色调
-AdminLTE 3.0 provides a set of color variations to apply to your sidebar (light & dark) & navbar. You can combine any available color with these class prefixes:
-AdminLTE 3.0 提供了一组颜色，可应用于侧边栏（浅色和深色）和导航栏。你可以将任何可用的颜色与这些类前缀组合：
+AdminLTE 3.2 provides a set of color variations to apply to your sidebar (light & dark) & navbar. You can combine any available color with these class prefixes:
+AdminLTE 3.2 提供了一组颜色，可应用于侧边栏（浅色和深色）和导航栏。你可以将任何可用的颜色与这些类前缀组合：
 > ###### New
 > ###### 新的
 > You can use override the link/accent color in AdminLTE, you can add `.accent-*` to `body`.
@@ -553,7 +553,7 @@ Contacts are loaded here
 End Contact Item
 结束联系人项目
 ##### Outline Direct Chat
-##### 聊天外形
+##### 聊天样式
 Of course you can use direct chat with a outline card by adding the class `.card-outline` to the card. Here are a couple of examples:
 当然，你可以通过添加类 `.card-outline` 来实现聊天。以下是几个示例：
 title: Main Header Component
@@ -1002,12 +1002,16 @@ Toggle Sidebar</button>
 |enableRemember | Boolean | FALSE | 记住侧边栏状态并在页面刷新后进行设置。
 |noTransitionAfterReload | Boolean | TRUE | Hold Transition after page refresh.
 |noTransitionAfterReload | Boolean | TRUE | 刷新页面后保持转换。
+|animationSpeed | Boolean | `300` | Set the animation/transition speed equals to the scss transition speed.
+|animationSpeed | Boolean | `300` | 设置动画/过渡速度（等于 scss 的过渡速度）。
 > You can use any option via the data-attributes like this to enable auto collapse sidebar on 768 pixels width.
 > 你可以通过设置的数据属性使用任何选项，像这样的，启用 768px 宽度的自动折叠侧边栏。
 |collapsed.lte.pushmenu | Fired when the sidebar collapsed.
 |collapsed.lte.pushmenu | 侧边栏折叠时触发。
 |shown.lte.pushmenu | Fired when the sidebar shown.
 |shown.lte.pushmenu | 侧边栏显示时触发。
+|collapsed-done.lte.pushmenu | Fired when the sidebar is fully collapsed.
+|collapsed-done.lte.pushmenu | 侧边栏完全折叠时触发。
 |toggle | Toggles the state of the menu between expanded and collapsed.
 |toggle | 折叠/展开侧边栏。
 |collapse | Collapses the sidebar menu.
@@ -1140,7 +1144,7 @@ Clone to your machine
 克隆到你的电脑上
 Documentation
 文档
-Visit the [online documentation](https://adminlte.io/docs/3.0/) for the most
+Visit the [online documentation](https://adminlte.io/docs/3.2/) for the most
 请访问[在线文档](https://3vshej.cn/AdminLTE/)以获取最新的使用指南。
 updated guide. Information will be added on a weekly basis.
 信息将在每周添加一次。
@@ -1194,12 +1198,12 @@ Compile dist files
 编译 dist 文件
 To compile the dist files you need nodejs/npm, clone/download the repo then:
 要编译 dist 文件，你需要 nodejs/npm，克隆/下载仓库，然后：
-1. `npm install` (install npm deps)
-1. `npm install` （安装 npm）
-2. _Optional:_ `npm run dev` (developer mode, autocompile with browsersync support for live demo)
-2. _可选：_ `npm run dev` （开发人员模式，支持实时演示、自动编译、浏览器同步）
-3. `npm run production` (compile css/js files)
-3. `npm run production` （编译 css/js 文件）
+`npm install` (install npm deps)
+`npm install` （安装 npm）
+_Optional:_ `npm run dev` (developer mode, autocompile with browsersync support for live demo)
+_可选：_ `npm run dev` （开发人员模式，支持实时演示、自动编译、浏览器同步）
+`npm run production` (compile css/js files)
+`npm run production` （编译 css/js 文件）
 #### CSS / JS Files
 #### CSS / JS 文件
 Since AdminLTE v3.0 Bootstrap 4 is complete included in AdminLTE's CSS file. You will not need to load the Bootstrap CSS file `bootstrap(.min).css`, but you will need the Bootstrap JS file `bootstrap(.min).js`.
@@ -1318,8 +1322,8 @@ Installation :
 安装：
 Compile dist files (Development) :
 编译 dist 文件（开发）：
-To compile the dist files you need Node.js 10 or higher/npm (node package manager)
-要编译 dist 文件，你需要 Node.js 10或更高版本/npm（node 包管理器）
+To compile the dist files you need Node.js 14 or higher/npm (node package manager)
+要编译 dist 文件，你需要 Node.js 14 或更高版本的 npm（node 包管理器）
 Delete ./package-lock.json file
 删除 ./package-lock.json 文件
 (developer mode, autocompile with browsersync support for live demo)
@@ -1332,8 +1336,8 @@ Do not changes in ./dist/css/ AND ./dist/js/ Because its compiled files
 （在创建拉取请求之前，编译 css/js 文件并测试每个页面是否正常工作）
 Online one-click setup for contributing
 在线一键设置
-You can use Gitpod(an online IDE which is free for Open Source) for working on issues or making Prs. With a single click it will launch a workspace and automatically:
-你可以使用 Gitpod（一个开源的在线 IDE）或处理问题或管理 Prs。只需点击一下，就会自动启动工作区：
+You can use Gitpod(an online IDE which is free for Open Source) for working on issues or making PRs (Pull Requests). With a single click it will launch a workspace and automatically:
+你可以使用 Gitpod（一个开源的在线 IDE免费且开源）或处理问题或管理 PR（拉取请求）。只需点击一下，就会自动启动工作区：
 clone the `AdminLTE` repo.
 克隆 `AdminLTE` 仓库
 install the dependencies.
@@ -1584,10 +1588,10 @@ You can replace image OR modify size OR include any preload items inside `.prelo
 你可以替换图片，也可以修改尺寸，或在 `.preloader` 元素中包含任何预加载项。
 #### Dark Mode
 #### 深色模式
-AdminLTE 3.1 provides a dark mode option. You can add in body tag:
-AdminLTE 3.1 提供了深色模式。 你可以添加 body 标签中：
-AdminLTE 3.1 provides a set of color variations to apply to your sidebar (light & dark) & navbar. You can combine any available color with these class prefixes:
-AdminLTE 3.1 提供了一组颜色变量，可应用于侧边栏（浅色和深色）和导航栏。你可以将任何可用的颜色与这些类前缀结合使用：
+AdminLTE 3.2 provides a dark mode option. You can add in body tag:
+AdminLTE 3.2 提供了深色模式。 你可以添加 body 标签中：
+AdminLTE 3.2 provides a set of color variations to apply to your sidebar (light & dark) & navbar. You can combine any available color with these class prefixes:
+AdminLTE 3.2 提供了一组颜色变量，可应用于侧边栏（浅色和深色）和导航栏。你可以将任何可用的颜色与这些类前缀结合使用：
 Recommended for Dark Mode
 推荐使用深色模式
 You must use only `.navbar-dark` without only combination.
@@ -1678,3 +1682,39 @@ Project maintainers who do not follow or enforce the Code of Conduct in good fai
 ## 致谢
 This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org/), version 1.4, available at <https://www.contributor-covenant.org/version/1/4/code-of-conduct/>
 本行为准则改编自 Contributor Covenant, 版本 1.4, 可以在这里获取 https://www.contributor-covenant.org/version/1/4
+_**Important Note**: To install it via npm/Yarn, you need at least Node.js 14 or higher._
+_**重要提示**：通过 NPM/Yarn 安装，至少需要 Node.js 14 或更高版本。_
+- Main Sidebar `.main-sidebar`. Contains the sidebar user panel, search form and menu.
+- 主侧边栏 `.main-sidebar`。包含侧边栏用户面板，搜索表单和菜单。
+> ##### IMPORTANT!
+> ##### 重要！
+> If you want to use a multiple treeview's beside the main-sidebar treeview,
+> 如果你想在主侧边中使用多个 treeview，
+> then you need to add to all treeview's a ID-tag.
+> 那么，你需要向 treeview 中添加 ID 标记。
+| loadErrorTemplate | Boolean | TRUE | Whether to append the `errorTemplate` to the card when an ajax error occurs.
+| loadErrorTemplate | Boolean | TRUE | 发生 AJAX 错误时是否将 `errorTemplate` 附加到卡片上。
+| errorTemplate | String | `'<span class="text-danger"></span>'` | The HTML template for an ajax error message
+| errorTemplate | String | `'<span class="text-danger"></span>'` | AJAX 错误消息 HTML 模板
+| onLoadFail | Function | Anonymous Function | Called if the ajax request fails. `jqXHR`, `textStatus` and `errorThrown` parameters are passed to the function.
+| onLoadFail | Function | 匿名函数 | 当 ajax 请求失败时调用。 `jqXHR`、`textStatus` 和 `errorThrown` 参数将被传递给函数。
+|animationSpeed | Boolean | `300` | Set the animation/transition speed equals to the scss transition speed.
+|animationSpeed | Boolean | `300` | 设置动画/过渡速度（等于 scss 的过渡速度）。
+|collapsed-done.lte.controlsidebar | Triggered after a control sidebar is fully collapsed.
+|collapsed-done.lte.controlsidebar | 侧边栏完全折叠时触发。
+|autoDarkMode | Boolean | false | Whether to automatically enable dark-mode in iframe pages.
+|autoDarkMode | Boolean | false | 是否在框架页面中自动启用暗模式。
+|allowReload | Boolean | true | Whether to allow reload non duplicate tab/iframes.
+|allowReload | Boolean | true | 是否允许重新加载非重复标签/框架。
+Make your changes only in ./build Folder OR package.json OR ./dist/js/demo.js OR package-lock.json OR ./dist/js/pages/ OR ./docs OR in any html files which are necessary for contribution
+仅在 ./build 文件夹或 package.json、./dist/js/demo.js、package-lock.json、./dist/js/pages/、./docs 及任何 html 文件中
+Do not make changes in ./dist/css/ AND ./dist/js/ AND ./plugins Because it contains compiled files and do not include in PR (Pull Request)
+不要在 ./dist/css/、./dist/js/、./plugins 中修改，因为它们是编译过的并没有包含在 PR 中（拉取请求）
+`npm run production` (compile css/js files and test all pages are perfectly working fine, before creating a pull request)
+`npm run production` （在创建拉取请求之前编译 css/js 文件并测试所有页面都可以正常工作）
+## Light Mode (Only Dark Mode Removed)
+## 亮模式 （只移除深色模式）
+You can use light-mode-only version, if you are not using dark mode and also file size less without dark-mode.
+如果不使用也不需要深色模式，则可以只使用亮模式版本，这样的话文件会更小。
+File Location `./dist/css/alt/adminlte.light.css`
+文件在 `./dist/css/alt/adminlte.light.css`
