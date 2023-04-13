@@ -1765,6 +1765,7 @@
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables  & Plugins -->
 <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../plugins/datatables/i18n/zh-cn.js"></script>
 <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
@@ -1783,11 +1784,11 @@
 <!-- 特定页面脚本 -->
 <script>
   $(function () {
-    $("#example1").DataTable({"language": {"url": "../../plugins/datatables/Chinese.json"},"language": {"url": "../../plugins/datatables/Chinese.json"},
+    $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({"language": {"url": "../../plugins/datatables/Chinese.json"},"language": {"url": "../../plugins/datatables/Chinese.json"},
+    $('#example2').DataTable({
       "paging": true,
       "lengthChange": false,
       "searching": false,

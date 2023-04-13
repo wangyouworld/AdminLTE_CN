@@ -2790,10 +2790,8 @@ Friends</a>
 好友</a>
 Sign out
 退出
-$("#example1").DataTable();
-$("#example1").DataTable({"language": {"url": "../../plugins/datatables/Chinese.json"}});
-$("#example2").DataTable({
-$("#example2").DataTable({"language": {"url": "../../plugins/datatables/Chinese.json"},
+<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../plugins/datatables/jquery.dataTables.min.js"></script><script src="../../plugins/datatables/i18n/zh-cn.js"></script>
 <script src="../../plugins/jsgrid/jsgrid.min.js"></script>
 <script src="../../plugins/jsgrid/jsgrid.min.js"></script><script src="../../plugins/jsgrid/i18n/jsgrid-zh-cn.js"></script>
 $("#jsGrid1").jsGrid({
@@ -3278,10 +3276,6 @@ Cancel upload
 <span>上传</span>
 <span>取消</span>
 <span>删除</span>
-$("#example1").DataTable({
-$("#example1").DataTable({"language": {"url": "../../plugins/datatables/Chinese.json"},
-$('#example2').DataTable({
-$('#example2').DataTable({"language": {"url": "../../plugins/datatables/Chinese.json"},
 Sparklines
 迷你图
 Launch Error Toast
