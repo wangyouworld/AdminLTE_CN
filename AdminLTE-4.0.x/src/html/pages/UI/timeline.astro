@@ -1,0 +1,221 @@
+---
+import Head from "@components/_head.astro";
+import Footer from "@components/dashboard/_footer.astro";
+import Topbar from "@components/dashboard/_topbar.astro";
+import Sidenav from "@components/dashboard/_sidenav.astro";
+import Scripts from "@components/_scripts.astro";
+
+const title = "AdminLTE 4 | 时间线";
+const path = "../../../dist";
+const mainPage = "ui-elements";
+const page = "timeline";
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <!--begin::Head-->
+  <head>
+    <Head title={title} path={path} />
+  </head>
+  <!--end::Head-->
+  <!--begin::Body-->
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <!--begin::App Wrapper-->
+    <div class="app-wrapper">
+      <Topbar path={path} />
+      <Sidenav path={path} mainPage={mainPage} page={page} />
+      <!--begin::App Main-->
+      <main class="app-main">
+        <!--begin::App Content Header-->
+        <div class="app-content-header">
+          <!--begin::Container-->
+          <div class="container-fluid">
+            <!--begin::Row-->
+            <div class="row">
+              <div class="col-sm-6">
+                <h3 class="mb-0">时间线</h3>
+              </div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                  <li class="breadcrumb-item"><a href="#">首页</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    时间线
+                  </li>
+                </ol>
+              </div>
+            </div>
+            <!--end::Row-->
+          </div>
+          <!--end::Container-->
+        </div>
+        <!--end::App Content Header-->
+        <!--begin::App Content-->
+        <div class="app-content">
+          <!--begin::Container-->
+          <div class="container-fluid">
+            <!-- Timelime example  -->
+            <div class="row">
+              <div class="col-md-12">
+                <!-- The time line -->
+                <div class="timeline">
+                  <!-- timeline time label -->
+                  <div class="time-label">
+                    <span class="text-bg-danger">2023年2月10日</span>
+                  </div>
+                  <!-- /.timeline-label -->
+                  <!-- timeline item -->
+                  <div>
+                    <i
+                      class="timeline-icon bi bi-envelope text-bg-primary"
+                    >
+                    </i>
+                    <div class="timeline-item">
+                      <span class="time">
+                        <i class="bi bi-clock-fill"></i> 12:05
+                      </span>
+                      <h3 class="timeline-header">
+                        <a href="#">支持团队</a> 给你发送了邮件
+                      </h3>
+
+                      <div class="timeline-body">
+                        虞啸卿下车，他并不像他的部下那样把自己堆成武器库，
+                        只在腰上挂了一支绝对不是摆设的柯尔特手枪和一柄绝对是摆设的中正剑。
+                        你会觉得最有杀伤力的不是武器，是他本人，
+                        他本人立得像支长枪，随时能扎死人。
+                        随时能扎死人。
+                      </div>
+                      <div class="timeline-footer">
+                        <a class="btn btn-primary btn-sm">阅读更多</a>
+                        <a class="btn btn-danger btn-sm">删除</a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- END timeline item -->
+                  <!-- timeline item -->
+                  <div>
+                    <i class="timeline-icon bi bi-person text-bg-success">
+                    </i>
+                    <div class="timeline-item">
+                      <span class="time">
+                        <i class="bi bi-clock-fill"></i> 5 分钟前
+                      </span>
+                      <h3 class="timeline-header no-border">
+                        <a href="#">Sarah Young</a> 接受了你的好友请求
+                      </h3>
+                    </div>
+                  </div>
+                  <!-- END timeline item -->
+                  <!-- timeline item -->
+                  <div>
+                    <i
+                      class="timeline-icon bi bi-chat-text-fill text-bg-warning"
+                    >
+                    </i>
+                    <div class="timeline-item">
+                      <span class="time">
+                        <i class="bi bi-clock-fill"></i> 27 分钟前
+                      </span>
+                      <h3 class="timeline-header">
+                        <a href="#">Jay White</a> 在你的帖子下评论
+                      </h3>
+                      <div class="timeline-body">
+                        “我姓虞！名啸卿！我的上峰告诉我，
+                        如果去缅甸打仗，给我一个装备齐全的加强团！
+                        我说心领啦——为什么？”
+                      </div>
+                      <div class="timeline-footer">
+                        <a class="btn btn-warning btn-sm">查看评论</a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- END timeline item -->
+                  <!-- timeline time label -->
+                  <div class="time-label">
+                    <span class="text-bg-success">2023年1月3日</span>
+                  </div>
+                  <!-- /.timeline-label -->
+                  <!-- timeline item -->
+                  <div>
+                    <i class="timeline-icon bi bi-camera text-bg-primary">
+                    </i>
+                    <div class="timeline-item">
+                      <span class="time">
+                        <i class="bi bi-clock-fill"></i> 2 天前
+                      </span>
+                      <h3 class="timeline-header">
+                        <a href="#">Mina Lee</a> 上传了新照片
+                      </h3>
+                      <div class="timeline-body">
+                        <img
+                          src={path + "/assets/img/user1-128x128.jpg"}
+                          alt="..."
+                        />
+                        <img
+                          src={path + "/assets/img/user1-128x128.jpg"}
+                          alt="..."
+                        />
+                        <img
+                          src={path + "/assets/img/user1-128x128.jpg"}
+                          alt="..."
+                        />
+                        <img
+                          src={path + "/assets/img/user1-128x128.jpg"}
+                          alt="..."
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <!-- END timeline item -->
+                  <!-- timeline item -->
+                  <div>
+                    <i class="timeline-icon bi bi-camera-film text-bg-info"></i>
+
+                    <div class="timeline-item">
+                      <span class="time">
+                        <i class="bi bi-clock-fill"></i> 5 天前
+                      </span>
+
+                      <h3 class="timeline-header">
+                        <a href="#">Mr. Doe</a> 分享了视频
+                      </h3>
+
+                      <div class="timeline-body">
+                        <div class="ratio ratio-16x9">
+                          <iframe
+                            src="https://player.youku.com/embed/XMjY2NTkzNjk2"
+                            allowfullscreen></iframe>
+                        </div>
+                      </div>
+                      <div class="timeline-footer">
+                        <a href="#" class="btn btn-sm text-bg-warning">
+                          查看评论
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- END timeline item -->
+                  <div>
+                    <i
+                      class="timeline-icon bi bi-clock-fill text-bg-secondary"
+                    >
+                    </i>
+                  </div>
+                </div>
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!--end::Container-->
+        </div>
+        <!--end::App Content-->
+      </main>
+      <!--end::App Main-->
+      <Footer />
+    </div>
+    <!--end::App Wrapper-->
+    <!--begin::Script-->
+    <Scripts path={path} />
+    <!--end::Script-->
+  </body><!--end::Body-->
+</html>

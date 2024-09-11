@@ -1,0 +1,226 @@
+AdminLTE comes with the same browser support as Bootstrap 5.
+AdminLTE 支持与 Bootstrap 5 相同的浏览器。
+Excerpt from Bootstrap's official Documentation!
+摘自 Bootstrap 官方文档！
+Bootstrap supports the **latest, stable releases** of all major browsers and platforms.
+Bootstrap 支持所有主流浏览器的**最新稳定版本**。
+> For more details [look here](https://getbootstrap.com/docs/5.0/getting-started/browsers-devices/#supported-browsers).
+[查看更多信息](https://getbootstrap.com/docs/5.0/getting-started/browsers-devices/#supported-browsers)。
+You can find our supported range of browsers and their versions in [our .browserslistrc file](https://github.com/ColorlibHQ/AdminLTE/blob/master/.browserslistrc):
+在 [.browserslistrc](https://github.com/ColorlibHQ/AdminLTE/blob/master/.browserslistrc) 文件中找到我们支持的浏览器及其版本：
+last 2 major versions
+最近 2 个主要版本
+not dead
+不再支持的浏览器除外
+not Explorer <= 11
+不支持 IE <= 11
+Toggle theme
+切换主题
+Home</
+首页</
+Contact</
+联系</
+Color Mode Toggle
+明暗模式切换
+Can AdminLTE be used with WordPress?
+AdminLTE 可以与 Wordpress 一起使用吗？
+AdminLTE is an HTML template that can be used for any purpose. However, it is not made to be easily installed on WordPress. It will require some effort and enough knowledge of the WordPress script to do so.
+AdminLTE 是一个 HTML 模板，可以在任何地方使用。但它不容易安装在 WordPress 上。你需要多些努力及足够的 WordPress 脚本知识才行。
+Is there an integration guide for PHP frameworks such as Yii or Symfony?
+有没有 PHP 框架的集成指南，如 Yii 或 Symfony？
+Short answer, no. However, there are forks and tutorials around the web that provide info on how to integrate with many different frameworks. There are even versions of AdminLTE that are integrated with jQuery ajax, AngularJS and/or MVC5 ASP .NET.
+简短的说，没有。不过，网络上有一些分支和教程，它们提供了如何与框架集成的信息。甚至还有 AdminLTE 与 jQuery ajax，AngularJS 或 MVC5 ASP .NET 集成在一起版本。
+How do I get notified of new AdminLTE versions?
+如何获得新版通知？
+You may watch the [releases on GitHub](https://github.com/ColorlibHQ/AdminLTE).
+你可以查看[Github 仓库](https://github.com/ColorlibHQ/AdminLTE)。
+Contributing to AdminLTE
+为 AdminLTE 做贡献
+Contributions are always **welcome and recommended**! Here is how for beginner's: [Get started with open source click here](https://youtu.be/GbqSvJs-6W4)
+始终**欢迎**你分享，也**推荐**你这么做！这是初学者的方法：[开源入门请单击这里](https://youtu.be/GbqSvJs-6W4)
+Contribution Requirements :
+贡献要求：
+When you contribute, you agree to give a non-exclusive license to AdminLTE.io to use that contribution in any context as we (AdminLTE.io) see appropriate.
+当你提交时，将同意授予 AdminLTE.io 非独占许可，以便在我们（AdminLTE.io）在认为适当的时候使用该贡献。
+If you use content provided by another party, it must be appropriately licensed using an [open source](https://opensource.org/licenses) license.
+如果你使用第三方提供的内容，则必须使用[开源许可证](http://opensource.org/licenses)对其进行适当许可。
+Contributions are only accepted through GitHub pull requests.
+仅通过 Github 拉取请求接受贡献。
+Finally, contributed code must work in all supported browsers (see above for browser support).
+最后，贡献的代码必须适用于所有支持的浏览器（请参阅上面的浏览器支持）。
+Installation :
+安装：
+Fork the repository ([here is the guide](https://help.github.com/articles/fork-a-repo/)).
+Fork 存储库（[这里是指南](https://help.github.com/articles/fork-a-repo/)）。
+Clone to your machine
+克隆到你的电脑上
+Create a new branch from `master`
+从 `master` 上创建分支
+Compile dist files (Development) :
+编译 dist 文件（开发）：
+To compile the dist files you need Node.js 18 or higher/npm (node package manager)
+要编译 dist 文件，你需要 Node.js 18 或更高版本的 npm (node 包管理器)
+`npm install` (install npm deps)
+`npm install` （安装依赖）
+`npm run dev` (developer mode, autocompile with browsersync support for live demo)
+`npm run dev` （开发人员模式，支持实时预览、自动编译、浏览器同步）
+Make your changes only in `./src` Folder OR `package.json` in any files which are necessary for contribution
+仅在 `./src` 目录或 `package.json` 中修改
+Do not make changes in `./dist/**` Because it contains compiled files and do not include in PR (Pull Request)
+请勿在 `./dist/**` 中进行更改，因为其中包含编译文件，请勿包含在 PR（拉取请求）中
+`npm run production` (compile css/js files and test all pages are perfectly working fine, before creating a pull request)
+`npm run production` （在创建拉取请求之前编译 css/js 文件并测试所有页面都可以正常工作）
+Create a pull request to `master` branch
+向 `master` 分支创建拉取请求
+Online one-click setup for contributing
+在线一键设置
+You can use [Codespace](https://docs.github.com/en/codespaces) an online IDE which is free for Open Source for working on issues or making PRs (Pull Requests). With a single click it will launch a workspace and automatically:
+你可以使用 [Codespace](https://docs.github.com/en/codespaces)，这是一个免费的开源在线集成开发环境，用于处理问题或提交 PR（拉取请求）。只需点击一下，它就会自动启动一个工作区：
+clone the `AdminLTE` repo.
+克隆 `AdminLTE` 仓库
+Open with [Codespace](https://docs.github.com/en/codespaces) or [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
+使用 [Codespace](https://docs.github.com/en/codespaces) 或 [![Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/) 中打开
+install the dependencies.
+安装依赖关系
+run `npm run dev` to start the server.
+执行 `npm run dev` 启动
+There are multiple ways to install AdminLTE.
+有多种方法安装 AdminLTE。
+Download & Changelog:
+下载 & 更新日志：
+Always Recommended to download from GitHub latest release [AdminLTE 4](https://github.com/ColorlibHQ/AdminLTE/releases/latest) for bug free and latest features.
+推荐从 GitHub 下载最新版本 [AdminLTE 4](https://github.com/ColorlibHQ/AdminLTE/releases/latest)。
+Visit the [releases](https://github.com/ColorlibHQ/AdminLTE/releases) page to view the changelog.
+访问[发布页](https://github.com/ColorlibHQ/AdminLTE/releases) 查看变更日志。
+Legacy Releases are [AdminLTE 3](https://github.com/ColorlibHQ/AdminLTE/releases/tag/v3.2.0) / [AdminLTE 2](https://github.com/ColorlibHQ/AdminLTE/releases/tag/v2.4.18) / [AdminLTE 1](https://github.com/ColorlibHQ/AdminLTE/releases/tag/1.3.1).
+历史版本有 [AdminLTE 3](https://github.com/ColorlibHQ/AdminLTE/releases/tag/v3.2.0) / [AdminLTE 2](https://github.com/ColorlibHQ/AdminLTE/releases/tag/v2.4.18) / [AdminLTE 1](https://github.com/ColorlibHQ/AdminLTE/releases/tag/1.3.1)。
+Stable release
+稳定版
+Grab from [jsdelivr](https://www.jsdelivr.com/package/npm/admin-lte) CDN:
+从 [jsdelivr](https://www.jsdelivr.com/package/npm/admin-lte) CDN 获取：
+_**Important Note**: You needed to add separately cdn links for plugins in your project._
+_**重要说明**：在项目中使用的插件，你也需要添加 cdn 链接。_
+Using The Command Line:
+使用命令行：
+_**Important Note**: To install it via npm/Yarn, you need at least Node.js 14 or higher._
+_**重要提示**：通过 npm/Yarn 安装，至少需要 Node.js 14 或更高版本。_
+Via npm
+使用 npm
+Via Yarn
+使用 Yarn
+Via Composer
+使用 Composer
+Via Git
+使用 Git
+AdminLTE is an open source project that is licensed under the [MIT license](https://opensource.org/licenses/MIT). This allows you to do pretty much anything you want as long as you include the copyright in "all copies or substantial portions of the Software." Attribution is not required (though very much appreciated).
+AdminLTE 是通过 [MIT 许可证](http://opensource.org/licenses/MIT)授权的开源项目。只要你在“软件的所有副本或大部分内容”中包含版权，你就可以做任何事情。署名不是必需的（尽管非常感谢）。
+<h5 class="text-bold text-dark mt-3">What You Are <span class="text-success">Allowed</span> To Do With AdminLTE</h5>
+<h5 class="text-bold text-dark mt-3"><span class="text-success">允许</span>使用 AdminLTE 做什么</h5>
+Use in commercial projects.
+用于商业项目。
+Use in personal/private projects.
+用于个人/私人项目。
+Modify and change the work.
+修改和变更工作。
+Distribute the code.
+分发代码。
+Sublicense: incorporate the work into something that has a more restrictive license.
+再许可：将作品集成到更严格的许可证中。
+Start navbar links
+导航栏链接开始
+End navbar links
+导航栏链接结束
+Navbar Search
+导航栏搜索
+Messages Dropdown Menu
+消息下拉菜单
+Message Start
+消息开始
+Message End
+消息结束
+User Avatar
+用户头像
+Call me whenever you can...
+有时间打电话给我……
+4 Hours Ago
+4 小时前
+I got your message bro
+我收到你的消息了，兄弟
+The subject goes here
+主题在这里
+See All Messages
+查看所有消息
+15 Notifications
+15 条通知
+4 new messages
+4 条新消息
+8 friend requests
+8 条好友请求
+3 mins
+3 分钟前
+12 hours
+12 小时前
+3 new reports
+3 个新报告
+2 days
+2 天前
+See All Notifications
+查看所有通知
+Web Developer
+网页开发工程师
+Member since Nov. 2023
+注册于 2023 年 11 月
+Followers</
+关注</
+Friends</
+好友</
+Profile</
+资料</
+Sign out
+退出
+The sidebar used in this page to the left provides an example of what your sidebar would look like. Construction of a sidebar:
+左侧页面的侧边栏提供了示例：
+Treeview
+树形
+Level 1
+1 级
+Level 2
+2 级
+Level 2 (Badge)
+2 级（徽章）
+Level 1 Active
+1 级激活
+Treeview Menu Open
+展开树形菜单
+Level 2 Active
+2 级激活
+备用 Logo
+可替换 Logo
+You can use two logo images instead of logo with text, you only need to change the markup to this:
+你可以使用两个 LOGO 图像，而不是带有文字的 LOGO，只需要将标记更改为：
+AdminLTE Logo Small
+AdminLTE 小 Logo
+AdminLTE Logo Large
+AdminLTE 大 Logo
+Quick start
+快速开始
+Treeview plugin converts a nested list into a tree view where sub menus can be expanded.
+Treeview 插件将嵌套列表转换为树形视图，可在其中扩展子菜单。
+##### Usage
+##### 用法
+This plugin can be used as the data api.
+这个插件可以使用 API 返回数据。
+**Data API**
+**数据 API**
+Add `data-lte-toggle="treeview"` to any ul or ol element to activate the plugin.
+在 ul 或 ol 中添加 `data-lte-toggle="treeview"`，以激活插件。
+One Level</
+1 级</
+Multilevel</
+多级</
+Multilevel
+多级
+Nav Header</
+导航栏</
+##### Example
+##### 示例

@@ -1,0 +1,1294 @@
+<html lang="en">
+<html lang="zh-CN">
+"https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css"
+{path + "/assets/apexcharts/apexcharts.css"}
+"https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css"
+{path + "/assets/jsvectormap/jsvectormap.min.css"}
+"https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"
+{path + "/assets/sortablejs/Sortable.min.js"}
+"https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.min.js"
+{path + "/assets/apexcharts/apexcharts.min.js"}
+"https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/js/jsvectormap.min.js"
+{path + "/assets/jsvectormap/jsvectormap.min.js"}
+"https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/maps/world.js"
+{path + "/assets/jsvectormap/world.js"}
+"https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+{path + "/assets/fontsource/index.css"}
+"https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css"
+{path + "/assets/overlayscrollbars/overlayscrollbars.min.css"}
+"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css"
+{path + "/assets/bootstrap-icons/bootstrap-icons.min.css"}
+"https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/browser/overlayscrollbars.browser.es6.min.js"
+{path + "/assets/overlayscrollbars/overlayscrollbars.browser.es6.min.js"}
+"https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+{path + "/assets/popperjs/popper.min.js"}
+"https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+{path + "/assets/bootstrap/bootstrap.min.js"}
+"AdminLTE v4 | Dashboard"
+"AdminLTE v4 | 仪表盘"
+Dashboard
+仪表盘
+Dashboard</
+仪表盘</
+Home</
+首页</
+New Orders
+新订单
+More info
+更多信息
+Bounce Rate
+跳出率
+User Registrations
+用户注册
+Unique Visitors
+独立访客
+Sales Value
+销售额
+Direct Chat
+聊天
+DIRECT CHAT
+聊天
+23 Jan 2:00 pm
+1月23日 下午 2:00
+Is this template really for free? That's unbelievable!
+这个模板真的是免费的吗？太不可思议了！
+23 Jan 2:05 pm
+1月23日 下午2:05
+You better believe it!
+是的，确实如此！
+23 Jan 5:37 pm
+1月23日 下午5:37
+Working with AdminLTE on a great new app! Wanna join?
+使用 AdminLTE 开发强大的应用！想加入吗？
+23 Jan 6:10 pm
+1月23日 下午6:10
+I would love to.
+是的，我想。
+2/28/2023
+2023-2-28
+How have you been? I was...
+你最近怎么样？我是……
+2/23/2023
+2023-2-23
+I will be waiting for...
+我会等……
+2/20/2023
+2023-2-20
+I'll call you back at...
+我会打电话给你……
+2/10/2023
+2023-2-10
+Where is your new...
+你的新……
+End Contact Item
+聊天结束
+User Avatar
+用户头像
+1/27/2023
+2023-1-27
+Can I take a look at...
+我能看看……
+1/4/2023
+2023-1-4
+Never mind I found...
+没关系我发现……
+Type Message ...
+输入消息 ...
+Send
+发送
+Visitors</
+访客</
+Online</
+在线</
+OPTIONAL SCRIPTS
+可选脚本
+NOTICE!! DO NOT USE ANY OF THIS JAVASCRIPT
+请注意！！！不要使用任何 javascript
+IT'S ALL JUST JUNK FOR DEMO
+它们是演示用的
+"Digital Goods"
+"数字产品"
+"Electronics"
+"电子产品"
+// USA
+// 美国
+// Saudi Arabia
+// 沙特阿拉伯
+// Canada
+// 加拿大
+// Germany
+// 德国
+// France
+// 法国
+// China
+// 中国
+// Australia
+// 澳大利亚
+// Brazil
+// 巴西
+// India
+// 印度
+// Great Britain
+// 英国
+// Russia
+// 俄罗斯
+// World map by jsVectorMap
+// 世界地图 由 VectorMap
+// Sparkline charts
+// 迷你图
+Dashboard v2
+仪表盘 v2
+CPU Traffic
+CPU 负载
+Likes</
+喜欢</
+New Members
+新成员
+Monthly Recap Report
+月报
+Action</
+操作</
+Another action</a>
+另一个操作</a>
+Something else here
+其他
+Separated link
+分隔符
+Sales: 1 Jan, 2023 - 30 Jul, 2023
+销量: 2023年1月1日 - 2023年7月30日
+Goal Completion
+完成目标
+Add Products to Cart
+添加购物车
+Complete Purchase
+完成购买
+Visit Premium Page
+访问高级页面
+Send Inquiries
+发送咨询
+TOTAL REVENUE
+总收入
+TOTAL COST
+总费用
+TOTAL PROFIT
+利润总额
+GOAL COMPLETIONS
+完成目标
+Is this template really for free? That's
+这个模板真的是免费的吗？
+unbelievable!
+太不可思议了！
+Working with AdminLTE on a great new app! Wanna
+使用 AdminLTE 开发强大的应用！
+join?
+想加入吗？
+message user image
+用户头像
+Latest Members
+最新成员
+8 New Members
+8 位新成员
+Today</
+今天</
+Yesterday</
+昨天</
+User Image
+用户头像
+12 Jan
+1月12日
+13 Jan
+1月13日
+14 Jan
+1月14日
+15 Jan
+1月15日
+View All Users
+查看所有用户
+Latest Orders
+最新订单
+Order ID
+订单号
+Item</
+项目</
+Status</
+状态</
+Popularity</
+人气</
+Call of Duty IV
+使命召唤 4
+Shipped
+已发货
+Samsung Smart TV
+三星智能电视
+Pending</
+待处理</
+Delivered
+已交付
+Processing</
+处理中</
+Shipped</
+已发货</
+Place New Order
+新订单
+View All Orders
+查看所有订单
+Inventory</
+库存</
+Mentions</
+涉及</
+Downloads</
+下载</
+Direct Messages
+消息
+Browser Usage
+浏览器信息
+United States of America
+美国
+India
+印度
+China
+中国
+Recently Added Products
+近期新增产品
+Samsung TV
+三星电视
+Samsung 32" 1080p 60Hz LED Smart HDTV.
+三星 32英寸 1080p 60Hz LED 智能高清电视。
+Bicycle
+自行车
+26" Mongoose Dolomite Men's 7-speed, Navy Blue.
+26 英寸 Mongoose Dolomite 男式速7，海军蓝。
+Xbox One Console Bundle with Halo Master Chief
+Xbox One 主机包含
+Collection.
+《光环:士官长合集》。
+PlayStation 4
+PS 4
+PlayStation 4 500GB Console (PS4)
+PlayStation 4 500GB 主机（PS4）
+View All Products
+查看所有产品
+Here we will create a few charts using apexcharts
+这里我们将使用 apexcharts 创建一些图表
+MONTHLY SALES CHART
+月度销售图表
+END MONTHLY SALES CHART
+结束 月度销售图表
+PIE CHART
+饼形图
+END PIE CHART
+结束 饼形图
+Dashboard v3
+仪表盘 v3
+Online Store Visitors
+商城访客
+View Report
+查看报告
+Visitors Over Time
+近期访问
+Since last week
+自上周以来
+This Week
+本周
+Last Week
+上周
+Products</
+产品</
+Product</
+产品</
+Price</
+价格</
+More</
+更多</
+Some Product
+某产品
+12,000 Sold
+售出 12,000
+Another Product
+另一个产品
+123,234 Sold
+售出 123,234
+Amazing Product
+特殊产品
+198 Sold
+售出 198
+Perfect Item
+完美物品
+87 Sold
+售出 87
+Sales Over Time
+销量
+Since Past Year
+自去年以来
+Online Store Overview
+商城概览
+CONVERSION RATE
+转化率
+SALES RATE
+销售率
+REGISTRATION RATE
+注册率
+High - 2023
+高 - 2023
+Low - 2023
+低 - 2023
+takes an array which will be repeated on columns
+该数组将在列上重复出现
+"Net Profit"
+"净利润"
+"Revenue"
+"收益"
+"Free Cash Flow"
+"现金流"
+"Feb",
+"二月",
+"Mar",
+"三月",
+"Apr",
+"四月",
+"May",
+"五月",
+"Jun",
+"六月",
+"Jul",
+"七月",
+"Aug",
+"八月",
+"Sep",
+"九月",
+"Oct",
+"十月",
+Browser Support
+浏览器支持
+Docs</
+文档</
+Color Mode
+明暗模式
+Color Mode Toggle
+明暗模式切换
+Tips</h5>
+提示</h5>
+Color modes in Bootstrap
+在 Bootstrap 中
+allow you to switch between light and dark modes. You can do this using the data-bs-theme attribute. You can also create your own custom color
+允许你在明暗模式之间切换。可以使用 data-bs-theme 属性来实现它。你还可以创建自己的颜色
+modes.
+模式。
+Contact</
+联系</
+Toggle theme
+切换主题
+Light
+明亮
+Dark
+暗黑
+Auto
+自动
+Color Mode Toggler
+明暗模式切换
+How To Contribute
+如何贡献
+title = "Introduction
+title = "介绍
+Introduction</
+介绍</
+Introduction
+介绍
+title = "Layout
+title = "布局
+Layout</
+布局</
+Layout
+布局
+The <a href="/starter.html" target="_blank" rel="noopener noreferrer"  class="callout-link">
+如果你想从头开始 <a href="/starter.html" target="_blank" rel="noopener noreferrer"  class="callout-link">
+starter page
+起始页
+</a> is a good place to start building your app if you’d like to
+</a>是一个开始构建
+start from scratch.
+应用的好地方。
+The layout consists of five major parts:
+布局由五个主要部分组成:
+Wrapper <code>.app-wrapper</code> . A div that wraps the whole site.
+容器 <code>.app-wrapper</code>：包含整个页面的 div 容器。
+Main Header <code>.app-header</code> . Contains the logo and navbar.
+头部 <code>.app-header</code>：包含 logo 和导航栏。
+Main Sidebar <code>.app-sidebar</code> . Contains the sidebar user
+侧边栏 <code>.app-sidebar</code>：包含侧边栏的用户面板和菜单
+panel and menu.
+和菜单。
+Content <code>.app-main</code> . Contains the page header and content.
+内容 <code>.app-main</code>：包含页面标题和内容。
+Main Footer <code>.app-footer</code> . Contains the footer.
+底部 <code>.app-footer</code>：包含页脚，如版权声明。
+Layout Options
+布局选项
+AdminLTE v4 provides a set of options to apply to your main
+AdminLTE v4 提供了一系列选项，
+layout. Each one of these classes can be added to the
+这些类中的每一个都可以添加到 <code>body</code> 标签上，
+<code>body</code> tag to get the desired goal.
+以达到所需的效果。
+Fixed Sidebar: use the class <code>.layout-fixed</code> to get a
+固定侧边栏：使用 <code>.layout-fixed</code> 来固定侧边栏。
+fixed sidebar.
+来固定侧边栏。
+Mini Sidebar on Toggle: use the class
+手动折叠侧边栏：
+<code>.sidebar-expand-* .sidebar-mini</code>
+使用 <code>.sidebar-expand-* .sidebar-mini</code> 类，
+to have a collapsed sidebar upon loading.
+在加载后，可以手动折叠侧边栏。
+Collapsed Sidebar: use the class
+自动折叠侧边栏：
+<code>.sidebar-expand-* .sidebar-mini .sidebar-collapse</code> to
+使用 <code>.sidebar-expand-* .sidebar-mini .sidebar-collapse</code> 类，
+have a collapsed sidebar upon loading.
+在加载后会自动折叠侧边栏。
+title = "License
+title = "版权
+License</h3>
+版权</h3>
+License
+版权
+Main Header Component
+头部组件
+Reminder!</h5>
+留意！</h5>
+AdminLTE uses all of Bootstrap 5 components. It's a good start
+AdminLTE 使用所有 Bootstrap 5 组件，
+to review the <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer" class="callout-link">
+这是一个好的开始。
+Bootstrap documentation
+查看 <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer" class="callout-link">Bootstrap 文档</a>
+</a> to get an idea of the
+以了解
+various components that this documentation <b>does not</b> cover.
+本文档中<b>未涵盖</b>的组件。
+If you go through the example pages and would like to copy a
+在你浏览示例页面时，如果想使用某个组件，
+component, right-click on the component and choose “inspect
+则右键单击该组件并选择“检查”，
+element” to get to the HTML quicker than scanning the HTML page.
+以便快速查看 HTML。
+Call me whenever you can...
+有时间打电话给我……
+4 Hours Ago
+4 小时前
+I got your message bro
+我收到你的消息了，兄弟
+The subject goes here
+主题在这里
+See All Messages
+查看所有消息
+15 Notifications
+15 条通知
+4 new messages
+4 条新消息
+8 friend requests
+8 条好友请求
+3 mins
+3 分钟前
+12 hours
+12 小时前
+3 new reports
+3 个新报告
+2 days
+2 天前
+See All Notifications
+查看所有通知
+Web Developer
+网页开发工程师
+Member since Nov. 2023
+注册于 2023 年 11 月
+Followers</
+关注</
+Friends</
+好友</
+Profile</
+资料</
+Sign out
+退出
+Main Sidebar Component
+主侧边栏组件
+Treeview Plugin
+树形插件
+| Lockscreen
+| 锁屏
+"password"
+"密码"
+Enter your password to retrieve your session
+输入密码以恢复会话
+Or sign in as a different user
+或以其他用户登录
+All rights reserved
+保留所有权利
+Login Page
+登录页
+Sign in to start your session
+帐户登录
+Remember Me
+记住我
+Sign In
+登录
+- OR -
+- 或 -
+Sign in using Facebook
+通过 Facebook 登录
+Sign in using Google+
+通过 Google+ 登录
+I forgot my password
+忘记密码
+Register a new membership
+注册新会员
+Email</label>
+邮箱</label>
+Password</label>
+密码</label>
+Register Page
+注册页
+Full Name
+全名
+"Email"
+"邮箱"
+"Password"
+"密码"
+I agree to the <a href="#">terms</a>
+我同意这些<a href="#">条款</a>
+I already have a membership
+我已经有账号了
+General Form Elements
+通用表单
+General Form
+通用表单
+For detailed documentation of Form visit
+有关表单的详细内容请访问
+Bootstrap Form
+Bootstrap 表单
+Quick Example
+简单的例子
+Email address
+邮箱地址
+We'll never share your email with anyone else.
+我们不会与任何人分享你的邮箱地址。
+Password<
+密码<
+Upload<
+上传<
+Check me out
+看看我
+Submit<
+提交<
+Input Group
+分组输入框
+"Username"
+"用户名"
+"Recipient's username"
+"收件人"
+Your vanity URL
+链接名称
+Example help text goes outside the input group.
+示例帮助文本在分组输入框之外。
+Amount (to the nearest dollar)
+金额（以美元计）
+"Server"
+"服务器"
+With textarea
+多行文本框
+Horizontal Form
+竖排表单
+Radios<
+单选<
+First radio
+第一个单选
+Second radio
+第二个单选
+Third disabled radio
+第三个单选（禁用）
+Example checkbox
+复选示例
+Sign in
+登录
+Cancel<
+取消<
+Different Height
+不同高度
+example"
+示例"
+Default input
+默认输入框
+default input example
+默认输入框示例
+Different Width
+不同宽度
+Form Validation
+表单验证
+First name
+姓
+Looks good!
+不错！
+Last name
+名
+Username<
+用户名<
+Please choose a username.
+请选择用户名。
+City<
+城市<
+Please provide a valid city.
+请提供一个有效的城市。
+State<
+地区<
+Choose...<
+选择...<
+Please select a valid state.
+请选择有效的地区。
+Zip<
+邮编<
+Please provide a valid zip.
+请提供一个有效的邮编。
+Agree to terms and conditions
+同意条款和条件
+You must agree before submitting.
+提交前你必须同意。
+Submit form
+提交表单
+Example starter JavaScript for disabling form submissions if there are invalid fields
+有无效字段时禁用表单提交
+Fetch all the forms we want to apply custom Bootstrap validation styles to
+自定义 Bootstrap 验证样式
+Loop over them and prevent submission
+循环遍历它们并阻止提交
+Sidebar Mini
+迷你侧边栏
+Collapsed Sidebar
+可折叠侧边栏
+Title</h3>
+标题</h3>
+"Collapse"
+"折叠"
+"Remove"
+"移除"
+Start creating your amazing application!
+开始创建你的应用程序！
+Footer</
+底部</
+Layout <small>+ Custom Area </small>
+布局 <small>+ 自定义区域 </small>
+(Sidebar, Header & Footer)
+(侧边栏、头部和底部)
+Fixed Layout
+固定布局
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+“小醉，小醉姓陈。”<br />
+labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+“最好的最？”<br />
+et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+小醉有些恼火，“喝醉的醉啦！”<br />
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum
+天地为炉，
+dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit
+阴阳为炭，
+praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit
+造化为工，
+amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+我们其中的人总是
+aliquam erat volutpat.
+时不常地要沸腾。
+Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+天地为炉，
+aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit
+阴阳为炭，
+esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et
+造化为工，
+iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla
+我们其中的人总是
+facilisi.
+时不常地要沸腾。
+Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim
+天地为炉，
+placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+阴阳为炭，
+nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim
+造化为工，
+veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+我们其中的人总是
+consequat.
+时不常地要沸腾。
+dolore eu feugiat nulla facilisis.
+阴阳为炭，造化为工，我们其中的人总是时不常地要沸腾。
+At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+他们全副武装，几乎没有戴便帽的，
+sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+混戴着德式Ｍ３５、英式Ｍ１９１７甚至是日式钢盔，毛瑟９６Ｃ几乎是他们中的制式装备，
+diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+并且就完整的背具和托式枪套来看，
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+绝对不是像草寇那样用的。
+sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At
+有几个人背着带皮套的砍刀，做工在抗战使用的同类刀具中堪称精湛。
+accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt
+他们挎着的拿着的枪械显得有些过于沉重：
+justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero
+中正步枪、汤姆逊（弹匣）冲锋枪、ＺＢ２６机枪之类的，
+voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+这并不是为了打仗，而是为了虞啸卿征兵用的。
+sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.
+他们的着装接近于草率，而在战争装备上偏于精良——与这一切并不大匹配的是，
+Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+何书光跳下来的那辆车后座上放着一架手风琴。
+aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+天地为炉，
+clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+造化为工，
+amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+我们其中的人总是时不常地要沸腾。
+clita kasd gubergren, no sea takimata sanctus.
+造化为工，我们其中的人总是时不常地要沸腾。
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+天地为炉，造化为工，
+labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+我们其中的人
+et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+总是时不常地要沸腾。
+dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit
+阴阳为炭，
+praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit
+造化为工，
+amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+我们其中的人
+aliquam erat volutpat.
+总是时不常地要沸腾。
+Create Admin
+创建
+Fixed Sidebar
+固定侧边栏
+Layout RTL
+RTL 布局
+AdminLTE Logo Small
+小 AdminLTE Logo
+AdminLTE Logo Large
+大 AdminLTE Logo
+MULTI LEVEL EXAMPLE
+多级示例
+Level 1
+1 级
+Level 2
+2 级
+Level 3
+3 级
+Logo Switch
+Logo 开关
+Unfixed Sidebar
+不固定侧边栏
+Simple Tables
+简单的表格
+Bordered Table
+有边框
+Task</
+任务</
+Progress</
+进度</
+Label</
+标识</
+Update software
+更新软件
+Clean database
+清理数据库
+Cron job running
+计划任务运行中
+Fix and squish bugs
+修复 BUG
+Condensed Full Width Table
+紧凑的表格
+Simple Full Width Table
+全宽表格
+Striped Full Width Table
+隔行换色
+General UI Elements
+通用用户界面
+For detailed documentation of Components visit
+更详细的文档，请访问
+Bootstrap Components
+Bootstrap 组件
+Accordion</div>
+手风琴</div>
+Accordion Item
+内容
+This is the first item's accordion body.
+这是第一个内容。
+It is shown by default, until the collapse plugin
+它是默认是显示的，
+adds the appropriate classes that we use to style
+直到折叠插件添加了相应的类，
+each element. These classes control the overall
+才会使用这些类来样式化每个元素。
+appearance, as well as the showing and hiding via
+这些类可以控制外观，
+CSS transitions. You can modify any of this with
+并通过 CSS 过渡效果来控制显示和隐藏。
+custom CSS or overriding our default variables. It's
+你可以使用自定义 CSS 或覆盖默认变量来修改这些内容。
+also worth noting that just about any HTML can go
+值得注意的是，
+within the <code>.accordion-body</code>, though the
+几乎所有的 HTML 都可以放在 <code>.accordion-body</code> 中，
+transition does limit overflow.
+留意，过渡效果会限制溢出。
+This is the second item's accordion body.
+这是第二个内容。
+It is hidden by default, until the collapse plugin
+它是默认是隐藏的，
+This is the third item's accordion body.
+这是第三个内容。
+Alert</div>
+提醒</div>
+A simple primary alert with
+主要（alert-primary） 样式的提醒，这是
+an example link
+示例链接
+. Give it a click if you like.
+效果。
+A simple secondary alert with
+次要（alert-secondary） 样式的提醒，这是
+A simple success alert with
+成功（alert-success） 样式的提醒，这是
+A simple danger alert with
+危险（alert-danger） 样式的提醒，这是
+A simple warning alert with
+警告（alert-warning） 样式的提醒，这是
+A simple info alert with
+信息（alert-info） 样式的提醒，这是
+A simple light alert with
+高亮（alert-light） 样式的提醒，这是
+A simple dark alert with
+暗黑（alert-dark） 样式的提醒，这是
+Badge</div>
+角标</div>
+Example heading
+标题示例
+New</
+新</
+Notifications <span
+通知 <span
+Inbox
+收件箱
+unread messages
+未读消息
+Profile
+资料
+New alerts
+新提醒
+Primary</
+主要</
+Secondary</
+次要</
+Success</
+成功</
+Danger</
+危险</
+Warning</
+警告</
+Info</
+信息</
+Light</
+高亮</
+Dark</
+暗黑</
+Button</
+按钮</
+Primary (disabled)
+主要（禁用）
+Secondary (disabled)
+次要（禁用）
+Success (disabled)
+成功（禁用）
+Danger (disabled)
+危险（禁用）
+Warning (disabled)
+警告（禁用）
+Info (disabled)
+信息（禁用）
+Large button
+大按钮
+Small button
+小按钮
+Custom button
+自定义按钮
+Button Group
+按钮组
+Left</
+左</
+Right</
+右</
+Middle</
+中</
+>Checkbox
+>复选
+>Radio
+>单选
+Dropdown
+下拉
+Dropdown link
+下拉链接
+Collapse</
+可折叠</
+Link with href
+链接到 href
+Button with data-bs-target
+带有 data-bs-target 的按钮
+Some placeholder content for the collapse component.
+折叠组件的一些占位符内容。
+This panel is hidden by default but revealed when the
+该面板默认情况下是隐藏的，
+user activates the relevant trigger.
+但当用户激活相关触发器时会显示出来。
+Dropdowns</
+下拉</
+Primary
+主要
+Action</
+操作</
+Another action
+另一个操作
+Something else here
+其它操作
+Separated link
+分隔线
+Secondary
+次要
+Danger Split
+危险分隔
+Toggle Dropdown
+切换下拉
+Warning Split
+警告分隔
+List Group
+列表组
+The current link item
+当前链接
+A second link item
+第二个
+A third link item
+第三个
+A fourth link item
+第四个
+A disabled link item
+禁用链接
+Navbar</
+导航栏</
+Link</
+链接</
+Disabled</
+禁用</
+"Search"
+"搜索"
+Search</
+搜索</
+Pagination</
+分页</
+Page navigation example
+分页示例
+Previous</
+上一页</
+Next</
+下一页</
+"Previous"
+"上一页"
+"Next"
+"下一页"
+Placeholder</
+占位符</
+Progress</
+进度</
+Success example
+成功示例
+Default striped example
+默认条纹示例
+Info striped example
+信息条纹示例
+Warning striped example
+警告条纹示例
+Danger striped example
+危险条纹示例
+Toast</
+Toast 提示</
+Show default toast
+显示默认提示
+Show primary toast
+显示主要提示
+Show secondary toast
+显示次要提示
+Show success toast
+显示成功提示
+Show danger toast
+显示危险提示
+Show warning toast
+显示警告提示
+Show info toast
+显示信息提示
+Show light toast
+显示高亮提示
+Show dark toast
+显示暗黑提示
+11 mins ago
+11 分钟前
+Hello, world! This is a toast message.
+你好，世界！这里是消息提示。
+Tooltip</
+工具提示</
+Placeholder text to demonstrate some <a
+占位符文本，用于演示带有工具提示的<a
+data-bs-title="Default tooltip">inline links</a
+data-bs-title="提示内容">链接</a
+> with tooltips. This is now just filler, no killer.
+>，它只为了填充内容，无任何意义。
+Content placed here just to mimic the presence of <a
+放这里是为了模拟<a
+data-bs-title="Another tooltip">real text</a
+data-bs-title="真实内容">真实内容</a
+>. And all that just to give you an idea of how tooltips
+>是为了让
+would look when used in real-world situations. So
+你了解在实际使用
+hopefully you've now seen how <a
+中的效果。以及<a
+data-bs-title="Another one here too"
+data-bs-title="这里还有一个"
+>these tooltips on links</a
+>这些工具提示</a
+> can work in practice, once you use them on <a
+> 是如何工作的，以便在<a
+data-bs-title="The last tip!">your own</a
+data-bs-title="最后一个提示！">你的</a
+> site or project.
+网站和项目中使用。
+Spinner</
+旋转</
+Loading...</
+载入中……</
+Timeline Elements
+时间线
+Timeline</
+时间线</
+Timeline
+时间线
+10 Feb. 2023
+2023年2月10日
+<a href="#">Support Team</a> sent you an email
+<a href="#">支持团队</a> 给你发送了邮件
+Etsy doostang zoodles disqus groupon greplin oooj voxy
+虞啸卿下车，他并不像他的部下那样把自己堆成武器库，
+zoodles, weebly ning heekya handango imeem plugg dopplr
+只在腰上挂了一支绝对不是摆设的柯尔特手枪和一柄绝对是摆设的中正剑。
+jibjab, movity jajah plickers sifteo edmodo ifttt
+你会觉得最有杀伤力的不是武器，是他本人，
+zimbra. Babblely odeo kaboodle quora plaxo ideeli hulu
+他本人立得像支长枪，随时能扎死人。
+weebly balihoo...
+随时能扎死人。
+Read more
+阅读更多
+Delete</
+删除</
+5 mins ago
+5 分钟前
+accepted your friend request
+接受了你的好友请求
+27 mins ago
+27 分钟前
+commented on your post
+在你的帖子下评论
+Take me to your leader! Switzerland is small and
+“我姓虞！名啸卿！我的上峰告诉我，
+neutral! We are more like Germany, ambitious and
+如果去缅甸打仗，给我一个装备齐全的加强团！
+misunderstood!
+我说心领啦——为什么？”
+View comment
+查看评论
+3 Jan. 2023
+2023年1月3日
+2 days ago
+2 天前
+uploaded new photos
+上传了新照片
+5 days ago
+5 天前
+shared a video
+分享了视频
+See comments
+查看评论
+Widgets - Cards
+小部件 - 卡片
+Cards</
+卡片</
+Cards
+卡片
+Abilities</
+效果</
+Expandable</
+可展开</
+The body of the card
+这是卡片内容
+Collapsable</
+可折叠</
+Removable</
+可移除</
+Maximizable</
+最大化</
+Card Outlined
+卡片边框
+Card with
+卡片使用
+Widgets - Info Box
+小部件 - 信息框
+Info Box</
+信息框</
+Info Box
+信息框
+Info Box With Custom Shadows
+自定义阴影
+Using Bootstrap's Shadow Utility
+使用 Bootstrap Shadow 工具
+Info Box With
+信息框使用
+Bookmarks</
+书签</
+70% Increase in 30 Days
+30 天增加 70%
+Events</
+事件</
+Comments</
+评论</
+Widgets - Small Box
+小部件 - 小框
+Small Box
+小框
+All rights reserved.
+保留所有权利
+Anything you want
+任何你想要的
+>Dashboard
+>仪表盘
+Widgets
+小部件
+info Box
+信息框
+Default Sidebar
+默认侧边栏
+Fixed Sidebar
+固定侧边栏
++ Collapsed
++ 折叠
+UI Elements
+用户界面
+General</
+通用</
+Forms
+表单
+General Elements
+常用组件
+Tables
+表格
+EXAMPLES</
+示例</
+Auth
+登录注册
+Version 1
+版本 1
+Login</
+登录</
+Register</
+注册</
+Version 2
+版本 2
+Lockscreen</
+锁屏</
+DOCUMENTATIONS</
+文档</
+Installation</
+安装</
+Layout</
+布局</
+Components
+组件
+Main Header
+头部
+Main Sidebar
+主侧边栏
+Treeview</
+树形插件</
+Browser Support
+浏览器支持
+How To Contribute
+参与贡献
+License</
+许可证</
+LABELS</
+标签</
+Important</
+重要</
+Warning</
+警告</
+Informational</
+信息</
+AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS.
+AdminLTE 是一款免费的 Bootstrap 5 管理控制面板，包含 30 个使用 Vanilla JS 的示例页面。
+bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard
+Bootstrap 5, Bootstrap 5 管理仪表盘,Bootstrap 5 仪表盘,Bootstrap 5 图表,Bootstrap 5 日历,Bootstrap 5 日期选择器,Bootstrap 5 表格,Bootstrap 5 数据表,vanilla js 数据表,colorlibhq, colorlibhq 仪表盘,colorlibhq 管理仪表盘
+New Messages
+条新消息
+"Contacts"
+"联系人"
+Sales</
+销量</
+This year
+今年
+Last year
+去年
+"22th", "23th", "24th", "25th", "26th", "27th", "28th"
+"22 日", "23 日", "24 日", "25 日", "26 日", "27 日", "28 日"
+MMMM yyyy
+yyyy 年 MM 月
+Unfixed Layout
+不固定布局
+https://www.youtube.com/embed/tMWkeBIohBs
+https://player.youku.com/embed/XMjY2NTkzNjk2
+"Mark"
+"张"
+"Otto"
+"三"
+</footer>
+<script language="javascript" type="text/javascript" src="https://js.users.51.la/19196963.js"></script><noscript><a href="https://www.51.la/?19196963" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="https://img.users.51.la/19196963.asp" style="border:none" /></a></noscript><script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script><script>LA.init({id: 'JENJislCoLYyP54T',ck: 'JENJislCoLYyP54T'})</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2081438108627350"crossorigin="anonymous"></script></footer>
+Theme Generate
+生成主题
+Icons</
+图标</
+Icons"
+图标"
+You can use any font library you like with AdminLTE 4.
+你可以在 AdminLTE 4 中使用任何你喜欢的字库。
+Recommendations</
+推荐</
+Theme Customize
+自定义主题
+Sidebar Theme
+侧边栏主题
+-Select-
+-选择-
+Navbar Theme
+导航栏主题
+Layout Custom Area
+自定义区域布局
+App Content Top Area
+应用顶部内容区域
+App Content Bottom Area
+应用底部内容区域
+Refresh</
+刷新</
+Check more color in
+查看更多颜色
+Bootstrap Background Colors
+Bootstrap 背景颜色

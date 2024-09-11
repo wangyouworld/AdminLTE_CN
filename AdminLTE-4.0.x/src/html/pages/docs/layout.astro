@@ -1,0 +1,120 @@
+---
+import Head from "@components/_head.astro";
+import Footer from "@components/dashboard/_footer.astro";
+import Topbar from "@components/dashboard/_topbar.astro";
+import Sidenav from "@components/dashboard/_sidenav.astro";
+import Scripts from "@components/_scripts.astro";
+
+const title = "布局 | AdminLTE 4";
+const path = "../../../dist";
+const mainPage = "docs";
+const page = "layout";
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <!--begin::Head-->
+  <head>
+    <Head title={title} path={path} />
+  </head>
+  <!--end::Head-->
+  <!--begin::Body-->
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <!--begin::App Wrapper-->
+    <div class="app-wrapper">
+      <Topbar path={path} />
+      <Sidenav path={path} mainPage={mainPage} page={page} />
+      <!--begin::App Main-->
+      <main class="app-main">
+        <!--begin::App Content Header-->
+        <div class="app-content-header">
+          <!--begin::Container-->
+          <div class="container-fluid">
+            <!--begin::Row-->
+            <div class="row">
+              <div class="col-sm-6">
+                <h3 class="mb-0">布局</h3>
+              </div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                  <li class="breadcrumb-item"><a href="#">文档</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    布局
+                  </li>
+                </ol>
+              </div>
+            </div>
+            <!--end::Row-->
+          </div>
+          <!--end::Container-->
+        </div>
+        <!--end::App Content Header-->
+        <!--begin::App Content-->
+        <div class="app-content">
+          <div class="container-fluid">
+            <div class="callout callout-info mb-4">
+              <h5 class="fw-bold">提示</h5>
+              <p>
+                如果你想从头开始 <a href="/starter.html" target="_blank" rel="noopener noreferrer"  class="callout-link">
+                  起始页
+                </a>是一个开始构建
+                应用的好地方。
+              </p>
+            </div>
+
+            <p>布局由五个主要部分组成:</p>
+            <ul>
+              <li>
+                容器 <code>.app-wrapper</code>：包含整个页面的 div 容器。
+              </li>
+              <li>
+                头部 <code>.app-header</code>：包含 logo 和导航栏。
+              </li>
+              <li>
+                侧边栏 <code>.app-sidebar</code>：包含侧边栏的用户面板和菜单
+                和菜单。
+              </li>
+              <li>
+                内容 <code>.app-main</code>：包含页面标题和内容。
+              </li>
+              <li>
+                底部 <code>.app-footer</code>：包含页脚，如版权声明。
+              </li>
+            </ul>
+
+            <h4>布局选项</h4>
+            <p>
+              AdminLTE v4 提供了一系列选项，
+              这些类中的每一个都可以添加到 <code>body</code> 标签上，
+              以达到所需的效果。
+            </p>
+            <ul>
+              <li>
+                固定侧边栏：使用 <code>.layout-fixed</code> 来固定侧边栏。
+                来固定侧边栏。
+              </li>
+              <li>
+                手动折叠侧边栏：
+                使用 <code>.sidebar-expand-* .sidebar-mini</code> 类，
+                在加载后，可以手动折叠侧边栏。
+              </li>
+              <li>
+                自动折叠侧边栏：
+                使用 <code>.sidebar-expand-* .sidebar-mini .sidebar-collapse</code> 类，
+                在加载后会自动折叠侧边栏。
+              </li>
+            </ul>
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!--end::App Content-->
+      </main>
+      <!--end::App Main-->
+      <Footer />
+    </div>
+    <!--end::App Wrapper-->
+    <!--begin::Script-->
+    <Scripts path={path} />
+    <!--end::Script-->
+  </body><!--end::Body-->
+</html>

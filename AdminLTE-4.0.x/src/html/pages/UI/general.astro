@@ -1,0 +1,1451 @@
+---
+import Head from "../../components/_head.astro";
+import Footer from "../../components/dashboard/_footer.astro";
+import Topbar from "../../components/dashboard/_topbar.astro";
+import Sidenav from "../../components/dashboard/_sidenav.astro";
+import Scripts from "../../components/_scripts.astro";
+
+const title = "AdminLTE 4 | 通用用户界面";
+const path = "../../../dist";
+const mainPage = "ui-elements";
+const page = "general";
+const pageTitle = "通用用户界面";
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <!--begin::Head-->
+  <head>
+    <Head title={title} path={path} />
+  </head>
+  <!--end::Head-->
+  <!--begin::Body-->
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <!--begin::App Wrapper-->
+    <div class="app-wrapper">
+      <Topbar path={path} />
+      <Sidenav path={path} mainPage={mainPage} page={page} />
+      <!--begin::App Main-->
+      <main class="app-main">
+        <!--begin::App Content Header-->
+        <div class="app-content-header">
+          <!--begin::Container-->
+          <div class="container-fluid">
+            <!--begin::Row-->
+            <div class="row">
+              <div class="col-sm-6">
+                <h3 class="mb-0">{pageTitle}</h3>
+              </div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                  <li class="breadcrumb-item"><a href="#">首页</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    {pageTitle}
+                  </li>
+                </ol>
+              </div>
+            </div>
+            <!--end::Row-->
+          </div>
+          <!--end::Container-->
+        </div>
+        <!--end::App Content Header-->
+        <!--begin::App Content-->
+        <div class="app-content">
+          <!--begin::Container-->
+          <div class="container-fluid">
+            <!--begin::Row-->
+            <div class="row g-4">
+              <!--begin::Col-->
+              <div class="col-12">
+                <div class="callout callout-info">
+                  更详细的文档，请访问 <a
+                    href="https://getbootstrap.com/docs/5.3/components/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="callout-link"
+                  >
+                    Bootstrap 组件
+                  </a>
+                </div>
+              </div>
+              <!--end::Col-->
+              <!--begin::Col-->
+              <div class="col-md-6">
+                <!--begin::Accordion-->
+                <div class="card card-primary card-outline mb-4">
+                  <!--begin::Header-->
+                  <div class="card-header">
+                    <div class="card-title">手风琴</div>
+                  </div>
+                  <!--end::Header-->
+                  <!--begin::Body-->
+                  <div class="card-body">
+                    <div class="accordion" id="accordionExample">
+                      <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button
+                            class="accordion-button"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne"
+                            aria-expanded="true"
+                            aria-controls="collapseOne"
+                          >
+                            内容 #1
+                          </button>
+                        </h2>
+                        <div
+                          id="collapseOne"
+                          class="accordion-collapse collapse show"
+                          data-bs-parent="#accordionExample"
+                        >
+                          <div class="accordion-body">
+                            <strong
+                              >这是第一个内容。</strong
+                            > 它是默认是显示的，
+                            直到折叠插件添加了相应的类，
+                            才会使用这些类来样式化每个元素。
+                            这些类可以控制外观，
+                            并通过 CSS 过渡效果来控制显示和隐藏。
+                            你可以使用自定义 CSS 或覆盖默认变量来修改这些内容。
+                            值得注意的是，
+                            几乎所有的 HTML 都可以放在 <code>.accordion-body</code> 中，
+                            留意，过渡效果会限制溢出。
+                          </div>
+                        </div>
+                      </div>
+                      <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo"
+                            aria-expanded="false"
+                            aria-controls="collapseTwo"
+                          >
+                            内容 #2
+                          </button>
+                        </h2>
+                        <div
+                          id="collapseTwo"
+                          class="accordion-collapse collapse"
+                          data-bs-parent="#accordionExample"
+                        >
+                          <div class="accordion-body">
+                            <strong
+                              >这是第二个内容。</strong
+                            > 它是默认是隐藏的，
+                            直到折叠插件添加了相应的类，
+                            才会使用这些类来样式化每个元素。
+                            这些类可以控制外观，
+                            并通过 CSS 过渡效果来控制显示和隐藏。
+                            你可以使用自定义 CSS 或覆盖默认变量来修改这些内容。
+                            值得注意的是，
+                            几乎所有的 HTML 都可以放在 <code>.accordion-body</code> 中，
+                            留意，过渡效果会限制溢出。
+                          </div>
+                        </div>
+                      </div>
+                      <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree"
+                            aria-expanded="false"
+                            aria-controls="collapseThree"
+                          >
+                            内容 #3
+                          </button>
+                        </h2>
+                        <div
+                          id="collapseThree"
+                          class="accordion-collapse collapse"
+                          data-bs-parent="#accordionExample"
+                        >
+                          <div class="accordion-body">
+                            <strong
+                              >这是第三个内容。</strong
+                            > 它是默认是隐藏的，
+                            直到折叠插件添加了相应的类，
+                            才会使用这些类来样式化每个元素。
+                            这些类可以控制外观，
+                            并通过 CSS 过渡效果来控制显示和隐藏。
+                            你可以使用自定义 CSS 或覆盖默认变量来修改这些内容。
+                            值得注意的是，
+                            几乎所有的 HTML 都可以放在 <code>.accordion-body</code> 中，
+                            留意，过渡效果会限制溢出。
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--end::Body-->
+                </div>
+                <!--end::Accordion-->
+                <!--begin::Alert-->
+                <div class="card card-success card-outline mb-4">
+                  <!--begin::Header-->
+                  <div class="card-header">
+                    <div class="card-title">提醒</div>
+                  </div>
+                  <!--end::Header-->
+                  <!--begin::Body-->
+                  <div class="card-body">
+                    <div class="alert alert-primary" role="alert">
+                      主要（alert-primary） 样式的提醒，这是 <a href="#" class="alert-link"
+                        >示例链接</a
+                      >效果。
+                    </div>
+                    <div class="alert alert-secondary" role="alert">
+                      次要（alert-secondary） 样式的提醒，这是 <a
+                        href="#"
+                        class="alert-link">示例链接</a
+                      >效果。
+                    </div>
+                    <div class="alert alert-success" role="alert">
+                      成功（alert-success） 样式的提醒，这是 <a href="#" class="alert-link"
+                        >示例链接</a
+                      >效果。
+                    </div>
+                    <div class="alert alert-danger" role="alert">
+                      危险（alert-danger） 样式的提醒，这是 <a href="#" class="alert-link"
+                        >示例链接</a
+                      >效果。
+                    </div>
+                    <div class="alert alert-warning" role="alert">
+                      警告（alert-warning） 样式的提醒，这是 <a href="#" class="alert-link"
+                        >示例链接</a
+                      >效果。
+                    </div>
+                    <div class="alert alert-info" role="alert">
+                      信息（alert-info） 样式的提醒，这是 <a href="#" class="alert-link"
+                        >示例链接</a
+                      >效果。
+                    </div>
+                    <div class="alert alert-light" role="alert">
+                      高亮（alert-light） 样式的提醒，这是 <a href="#" class="alert-link"
+                        >示例链接</a
+                      >效果。
+                    </div>
+                    <div class="alert alert-dark" role="alert">
+                      暗黑（alert-dark） 样式的提醒，这是 <a href="#" class="alert-link"
+                        >示例链接</a
+                      >效果。
+                    </div>
+                  </div>
+                  <!--end::Body-->
+                </div>
+                <!--end::Alert-->
+                <!--begin::Badge-->
+                <div class="card card-warning card-outline mb-4">
+                  <!--begin::Header-->
+                  <div class="card-header">
+                    <div class="card-title">角标</div>
+                  </div>
+                  <!--end::Header-->
+                  <!--begin::Body-->
+                  <div class="card-body">
+                    <h1>
+                      标题示例 <span class="badge bg-secondary"
+                        >新</span>
+                    </h1>
+                    <h2>
+                      标题示例 <span class="badge bg-secondary"
+                        >新</span>
+                    </h2>
+                    <h3>
+                      标题示例 <span class="badge bg-secondary"
+                        >新</span>
+                    </h3>
+                    <h4>
+                      标题示例 <span class="badge bg-secondary"
+                        >新</span>
+                    </h4>
+                    <h5>
+                      标题示例 <span class="badge bg-secondary"
+                        >新</span>
+                    </h5>
+                    <h6>
+                      标题示例 <span class="badge bg-secondary"
+                        >新</span>
+                    </h6>
+                    <hr />
+                    <button type="button" class="btn btn-primary">
+                      通知 <span class="badge text-bg-secondary"
+                        >4</span
+                      >
+                    </button>
+                    <hr />
+                    <button
+                      type="button"
+                      class="btn btn-primary position-relative"
+                    >
+                      收件箱
+                      <span
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                      >
+                        99+
+                        <span class="visually-hidden">未读消息</span>
+                      </span>
+                    </button>
+                    <hr />
+                    <button
+                      type="button"
+                      class="btn btn-primary position-relative"
+                    >
+                      资料
+                      <span
+                        class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"
+                      >
+                        <span class="visually-hidden">新提醒</span>
+                      </span>
+                    </button>
+                    <hr />
+                    <span class="badge text-bg-primary">主要</span>
+                    <span class="badge text-bg-secondary">次要</span>
+                    <span class="badge text-bg-success">成功</span>
+                    <span class="badge text-bg-danger">危险</span>
+                    <span class="badge text-bg-warning">警告</span>
+                    <span class="badge text-bg-info">信息</span>
+                    <span class="badge text-bg-light">高亮</span>
+                    <span class="badge text-bg-dark">暗黑</span>
+                    <hr />
+                    <span class="badge rounded-pill text-bg-primary"
+                      >主要</span
+                    >
+                    <span class="badge rounded-pill text-bg-secondary"
+                      >次要</span
+                    >
+                    <span class="badge rounded-pill text-bg-success"
+                      >成功</span
+                    >
+                    <span class="badge rounded-pill text-bg-danger">危险</span
+                    >
+                    <span class="badge rounded-pill text-bg-warning"
+                      >警告</span
+                    >
+                    <span class="badge rounded-pill text-bg-info">信息</span>
+                    <span class="badge rounded-pill text-bg-light">高亮</span>
+                    <span class="badge rounded-pill text-bg-dark">暗黑</span>
+                  </div>
+                  <!--end::Body-->
+                </div>
+                <!--end::Badge-->
+                <!--begin::Button-->
+                <div class="card card-danger card-outline mb-4">
+                  <!--begin::Header-->
+                  <div class="card-header">
+                    <div class="card-title">按钮</div>
+                  </div>
+                  <!--end::Header-->
+                  <!--begin::Body-->
+                  <div class="card-body">
+                    <button type="button" class="btn btn-primary mb-2"
+                      >主要</button
+                    >
+                    <button type="button" class="btn btn-secondary mb-2"
+                      >次要</button
+                    >
+                    <button type="button" class="btn btn-success mb-2"
+                      >成功</button
+                    >
+                    <button type="button" class="btn btn-danger mb-2"
+                      >危险</button
+                    >
+                    <button type="button" class="btn btn-warning mb-2"
+                      >警告</button
+                    >
+                    <button type="button" class="btn btn-info mb-2">信息</button
+                    >
+                    <button type="button" class="btn btn-light mb-2"
+                      >高亮</button
+                    >
+                    <button type="button" class="btn btn-dark mb-2">暗黑</button
+                    >
+                    <button type="button" class="btn btn-link mb-2">链接</button
+                    >
+                    <hr />
+                    <button type="button" class="btn btn-primary mb-2" disabled
+                      >主要（禁用）</button
+                    >
+                    <button
+                      type="button"
+                      class="btn btn-secondary mb-2"
+                      disabled>次要（禁用）</button
+                    >
+                    <button type="button" class="btn btn-success mb-2" disabled
+                      >成功（禁用）</button
+                    >
+                    <button type="button" class="btn btn-danger mb-2" disabled
+                      >危险（禁用）</button
+                    >
+                    <button type="button" class="btn btn-warning mb-2" disabled
+                      >警告（禁用）</button
+                    >
+                    <button type="button" class="btn btn-info mb-2" disabled
+                      >信息（禁用）</button
+                    >
+                    <hr />
+                    <button type="button" class="btn btn-outline-primary mb-2"
+                      >主要</button
+                    >
+                    <button type="button" class="btn btn-outline-secondary mb-2"
+                      >次要</button
+                    >
+                    <button type="button" class="btn btn-outline-success mb-2"
+                      >成功</button
+                    >
+                    <button type="button" class="btn btn-outline-danger mb-2"
+                      >危险</button
+                    >
+                    <button type="button" class="btn btn-outline-warning mb-2"
+                      >警告</button
+                    >
+                    <button type="button" class="btn btn-outline-info mb-2"
+                      >信息</button
+                    >
+                    <button type="button" class="btn btn-outline-light mb-2"
+                      >高亮</button
+                    >
+                    <button type="button" class="btn btn-outline-dark mb-2"
+                      >暗黑</button
+                    >
+                    <hr />
+                    <button type="button" class="btn btn-primary btn-lg"
+                      >大按钮</button
+                    >
+                    <button type="button" class="btn btn-warning btn-sm"
+                      >小按钮</button
+                    >
+                    <button
+                      type="button"
+                      class="btn btn-danger"
+                      style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                      >自定义按钮</button
+                    >
+                  </div>
+                  <!--end::Body-->
+                </div>
+                <!--end::Button-->
+              </div>
+              <!--end::Col-->
+              <!--begin::Col-->
+              <div class="col-md-6">
+                <!--begin::按钮组-->
+                <div class="card card-info card-outline mb-4">
+                  <!--begin::Header-->
+                  <div class="card-header">
+                    <div class="card-title">按钮组</div>
+                  </div>
+                  <!--end::Header-->
+                  <!--begin::Body-->
+                  <div class="card-body">
+                    <div
+                      class="btn-group mb-2"
+                      role="group"
+                      aria-label="Basic 示例"
+                    >
+                      <button type="button" class="btn btn-primary">左</button
+                      >
+                      <button type="button" class="btn btn-primary"
+                        >中</button
+                      >
+                      <button type="button" class="btn btn-primary"
+                        >右</button
+                      >
+                    </div>
+                    <div
+                      class="btn-group mb-2"
+                      role="group"
+                      aria-label="Basic mixed styles 示例"
+                    >
+                      <button type="button" class="btn btn-danger">左</button>
+                      <button type="button" class="btn btn-warning"
+                        >中</button
+                      >
+                      <button type="button" class="btn btn-success"
+                        >右</button
+                      >
+                    </div>
+                    <div
+                      class="btn-group mb-2"
+                      role="group"
+                      aria-label="Basic outlined 示例"
+                    >
+                      <button type="button" class="btn btn-outline-primary"
+                        >左</button
+                      >
+                      <button type="button" class="btn btn-outline-primary"
+                        >中</button
+                      >
+                      <button type="button" class="btn btn-outline-primary"
+                        >右</button
+                      >
+                    </div>
+                    <hr />
+                    <div
+                      class="btn-group mb-2"
+                      role="group"
+                      aria-label="Basic checkbox toggle button group"
+                    >
+                      <input
+                        type="checkbox"
+                        class="btn-check"
+                        id="btncheck1"
+                        autocomplete="off"
+                      />
+                      <label class="btn btn-outline-primary" for="btncheck1"
+                        >复选 1</label
+                      >
+
+                      <input
+                        type="checkbox"
+                        class="btn-check"
+                        id="btncheck2"
+                        autocomplete="off"
+                      />
+                      <label class="btn btn-outline-primary" for="btncheck2"
+                        >复选 2</label
+                      >
+
+                      <input
+                        type="checkbox"
+                        class="btn-check"
+                        id="btncheck3"
+                        autocomplete="off"
+                      />
+                      <label class="btn btn-outline-primary" for="btncheck3"
+                        >复选 3</label
+                      >
+                    </div>
+                    <div
+                      class="btn-group mb-2"
+                      role="group"
+                      aria-label="Basic radio toggle button group"
+                    >
+                      <input
+                        type="radio"
+                        class="btn-check"
+                        name="btnradio"
+                        id="btnradio1"
+                        autocomplete="off"
+                        checked
+                      />
+                      <label class="btn btn-outline-primary" for="btnradio1"
+                        >单选 1</label
+                      >
+
+                      <input
+                        type="radio"
+                        class="btn-check"
+                        name="btnradio"
+                        id="btnradio2"
+                        autocomplete="off"
+                      />
+                      <label class="btn btn-outline-primary" for="btnradio2"
+                        >单选 2</label
+                      >
+
+                      <input
+                        type="radio"
+                        class="btn-check"
+                        name="btnradio"
+                        id="btnradio3"
+                        autocomplete="off"
+                      />
+                      <label class="btn btn-outline-primary" for="btnradio3"
+                        >单选 3</label
+                      >
+                    </div>
+                    <hr />
+                    <div
+                      class="btn-group mb-2"
+                      role="group"
+                      aria-label="Button group with nested dropdown"
+                    >
+                      <button type="button" class="btn btn-primary">1</button>
+                      <button type="button" class="btn btn-primary">2</button>
+                      <div class="btn-group" role="group">
+                        <button
+                          type="button"
+                          class="btn btn-primary dropdown-toggle"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                        >
+                          下拉
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <a class="dropdown-item" href="#">下拉链接</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#">下拉链接</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <!--end::Body-->
+                </div>
+                <!--end::按钮组-->
+                <!--begin::Collapse-->
+                <div class="card card-primary card-outline mb-4">
+                  <!--begin::Header-->
+                  <div class="card-header">
+                    <div class="card-title">可折叠</div>
+                  </div>
+                  <!--end::Header-->
+                  <!--begin::Body-->
+                  <div class="card-body">
+                    <p class="d-inline-flex gap-1">
+                      <a
+                        class="btn btn-primary"
+                        data-bs-toggle="collapse"
+                        href="#collapseExample"
+                        role="button"
+                        aria-expanded="false"
+                        aria-controls="collapseExample"
+                      >
+                        链接到 href
+                      </a>
+                      <button
+                        class="btn btn-success"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseExample"
+                        aria-expanded="false"
+                        aria-controls="collapseExample"
+                      >
+                        带有 data-bs-target 的按钮
+                      </button>
+                    </p>
+                    <div class="collapse" id="collapseExample">
+                      <div class="card card-body">
+                        折叠组件的一些占位符内容。
+                        该面板默认情况下是隐藏的，
+                        但当用户激活相关触发器时会显示出来。
+                      </div>
+                    </div>
+                  </div>
+                  <!--end::Body-->
+                </div>
+                <!--end::Collapse-->
+                <!--begin::Dropdowns-->
+                <div class="card card-success card-outline mb-4">
+                  <!--begin::Header-->
+                  <div class="card-header">
+                    <div class="card-title">下拉</div>
+                  </div>
+                  <!--end::Header-->
+                  <!--begin::Body-->
+                  <div class="card-body">
+                    <div class="btn-group">
+                      <button
+                        type="button"
+                        class="btn btn-primary dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        主要
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">操作</a></li>
+                        <li>
+                          <a class="dropdown-item" href="#">另一个操作</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="#"
+                            >其他</a>
+                        </li>
+                        <li>
+                          <hr class="dropdown-divider" />
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="#">分隔线</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="btn-group">
+                      <button
+                        type="button"
+                        class="btn btn-secondary dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        次要
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">操作</a></li>
+                        <li>
+                          <a class="dropdown-item" href="#">另一个操作</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="#"
+                            >其他</a>
+                        </li>
+                        <li>
+                          <hr class="dropdown-divider" />
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="#">分隔线</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <hr />
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-danger"
+                        >危险分隔</button
+                      >
+                      <button
+                        type="button"
+                        class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <span class="visually-hidden">切换下拉</span>
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">操作</a></li>
+                        <li>
+                          <a class="dropdown-item" href="#">另一个操作</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="#"
+                            >其他</a>
+                        </li>
+                        <li>
+                          <hr class="dropdown-divider" />
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="#">分隔线</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-warning"
+                        >警告分隔</button
+                      >
+                      <button
+                        type="button"
+                        class="btn btn-warning dropdown-toggle dropdown-toggle-split"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <span class="visually-hidden">切换下拉</span>
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">操作</a></li>
+                        <li>
+                          <a class="dropdown-item" href="#">另一个操作</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="#"
+                            >其他</a>
+                        </li>
+                        <li>
+                          <hr class="dropdown-divider" />
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="#">分隔线</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!--end::Body-->
+                </div>
+                <!--end::Dropdowns-->
+                <!--begin::列表组-->
+                <div class="card card-warning card-outline mb-4">
+                  <!--begin::Header-->
+                  <div class="card-header">
+                    <div class="card-title">列表组</div>
+                  </div>
+                  <!--end::Header-->
+                  <!--begin::Body-->
+                  <div class="card-body">
+                    <div class="list-group">
+                      <a
+                        href="#"
+                        class="list-group-item list-group-item-action active"
+                        aria-current="true"
+                      >
+                        当前链接
+                      </a>
+                      <a href="#" class="list-group-item list-group-item-action"
+                        >第二个</a
+                      >
+                      <a href="#" class="list-group-item list-group-item-action"
+                        >第三个</a
+                      >
+                      <a href="#" class="list-group-item list-group-item-action"
+                        >第四个</a
+                      >
+                      <a
+                        class="list-group-item list-group-item-action disabled"
+                        aria-disabled="true">禁用链接</a
+                      >
+                    </div>
+                  </div>
+                  <!--end::Body-->
+                </div>
+                <!--end::列表组-->
+                <!--begin::Navbar-->
+                <div class="card card-danger card-outline mb-4">
+                  <!--begin::Header-->
+                  <div class="card-header">
+                    <div class="card-title">导航栏</div>
+                  </div>
+                  <!--end::Header-->
+                  <!--begin::Body-->
+                  <div class="card-body">
+                    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                      <div class="container-fluid">
+                        <a class="navbar-brand" href="#">导航栏</a>
+                        <button
+                          class="navbar-toggler"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#navbarSupportedContent"
+                          aria-controls="navbarSupportedContent"
+                          aria-expanded="false"
+                          aria-label="Toggle navigation"
+                        >
+                          <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div
+                          class="collapse navbar-collapse"
+                          id="navbarSupportedContent"
+                        >
+                          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                              <a
+                                class="nav-link active"
+                                aria-current="page"
+                                href="#">首页</a
+                              >
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">链接</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                              <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                              >
+                                下拉
+                              </a>
+                              <ul class="dropdown-menu">
+                                <li>
+                                  <a class="dropdown-item" href="#">操作</a>
+                                </li>
+                                <li>
+                                  <a class="dropdown-item" href="#"
+                                    >另一个操作</a>
+                                </li>
+                                <li>
+                                  <hr class="dropdown-divider" />
+                                </li>
+                                <li>
+                                  <a class="dropdown-item" href="#"
+                                    >其他</a>
+                                </li>
+                              </ul>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link disabled" aria-disabled="true"
+                                >禁用</a
+                              >
+                            </li>
+                          </ul>
+                          <form class="d-flex" role="search">
+                            <input
+                              class="form-control me-2"
+                              type="search"
+                              placeholder="搜索"
+                              aria-label="搜索"
+                            />
+                            <button
+                              class="btn btn-outline-success"
+                              type="submit">搜索</button
+                            >
+                          </form>
+                        </div>
+                      </div>
+                    </nav>
+                  </div>
+                  <!--end::Body-->
+                </div>
+                <!--end::Navbar-->
+                <!--begin::Pagination-->
+                <div class="card card-info card-outline mb-4">
+                  <!--begin::Header-->
+                  <div class="card-header">
+                    <div class="card-title">分页</div>
+                  </div>
+                  <!--end::Header-->
+                  <!--begin::Body-->
+                  <div class="card-body">
+                    <nav aria-label="分页示例">
+                      <ul class="pagination">
+                        <li class="page-item">
+                          <a class="page-link" href="#">上一页</a>
+                        </li>
+                        <li class="page-item">
+                          <a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item">
+                          <a class="page-link" href="#">2</a>
+                        </li>
+                        <li class="page-item">
+                          <a class="page-link" href="#">3</a>
+                        </li>
+                        <li class="page-item">
+                          <a class="page-link" href="#">下一页</a>
+                        </li>
+                      </ul>
+                    </nav>
+                    <hr />
+                    <nav aria-label="分页示例">
+                      <ul class="pagination">
+                        <li class="page-item">
+                          <a class="page-link" href="#" aria-label="上一页">
+                            <span aria-hidden="true">&laquo;</span>
+                          </a>
+                        </li>
+                        <li class="page-item">
+                          <a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item">
+                          <a class="page-link" href="#">2</a>
+                        </li>
+                        <li class="page-item">
+                          <a class="page-link" href="#">3</a>
+                        </li>
+                        <li class="page-item">
+                          <a class="page-link" href="#" aria-label="下一页">
+                            <span aria-hidden="true">&raquo;</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </nav>
+                    <hr />
+                    <nav aria-label="...">
+                      <ul class="pagination">
+                        <li class="page-item disabled">
+                          <a class="page-link">上一页</a>
+                        </li>
+                        <li class="page-item active" aria-current="page">
+                          <a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item">
+                          <a class="page-link" href="#">2</a>
+                        </li>
+                        <li class="page-item">
+                          <a class="page-link" href="#">3</a>
+                        </li>
+                        <li class="page-item">
+                          <a class="page-link" href="#">下一页</a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                  <!--end::Body-->
+                </div>
+                <!--end::Pagination-->
+                <!--begin::Placeholder-->
+                <div class="card card-secondary card-outline mb-4">
+                  <!--begin::Header-->
+                  <div class="card-header">
+                    <div class="card-title">占位符</div>
+                  </div>
+                  <!--end::Header-->
+                  <!--begin::Body-->
+                  <div class="card-body">
+                    <div class="card" aria-hidden="true">
+                      <div class="card-body">
+                        <h5 class="card-title placeholder-glow">
+                          <span class="placeholder col-6"></span>
+                        </h5>
+                        <p class="card-text placeholder-glow">
+                          <span class="placeholder col-7"></span>
+                          <span class="placeholder col-4"></span>
+                          <span class="placeholder col-4"></span>
+                          <span class="placeholder col-6"></span>
+                          <span class="placeholder col-8"></span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <!--end::Body-->
+                </div>
+                <!--end::Placeholder-->
+                <!--begin::Progress-->
+                <div class="card card-primary card-outline mb-4">
+                  <!--begin::Header-->
+                  <div class="card-header">
+                    <div class="card-title">进度</div>
+                  </div>
+                  <!--end::Header-->
+                  <!--begin::Body-->
+                  <div class="card-body">
+                    <div
+                      class="progress mb-2"
+                      role="progressbar"
+                      aria-label="成功示例"
+                      aria-valuenow="25"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    >
+                      <div
+                        class="progress-bar bg-success"
+                        style="width: 25%; border-radius: 0.375rem;"
+                      >
+                      </div>
+                    </div>
+                    <div
+                      class="progress mb-2"
+                      role="progressbar"
+                      aria-label="默认条纹示例"
+                      aria-valuenow="10"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    >
+                      <div
+                        class="progress-bar"
+                        style="width: 10%; border-radius: 0.375rem;"
+                      >
+                      </div>
+                    </div>
+                    <div
+                      class="progress mb-2"
+                      role="progressbar"
+                      aria-label="信息条纹示例"
+                      aria-valuenow="50"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    >
+                      <div
+                        class="progress-bar progress-bar-striped bg-info"
+                        style="width: 50%; border-radius: 0.375rem;"
+                      >
+                      </div>
+                    </div>
+                    <div
+                      class="progress mb-2"
+                      role="progressbar"
+                      aria-label="警告条纹示例"
+                      aria-valuenow="75"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    >
+                      <div
+                        class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
+                        style="width: 75%; border-radius: 0.375rem;"
+                      >
+                      </div>
+                    </div>
+                    <div
+                      class="progress mb-2"
+                      role="progressbar"
+                      aria-label="危险条纹示例"
+                      aria-valuenow="100"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    >
+                      <div
+                        class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
+                        style="width: 100%; border-radius: 0.375rem;"
+                      >
+                      </div>
+                    </div>
+                  </div>
+                  <!--end::Body-->
+                </div>
+                <!--end::Progress-->
+                <!--begin::Toast-->
+                <div class="card card-primary card-outline mb-4">
+                  <!--begin::Header-->
+                  <div class="card-header">
+                    <div class="card-title">Toast 提示</div>
+                  </div>
+                  <!--end::Header-->
+                  <!--begin::Body-->
+                  <div class="card-body">
+                    <button
+                      type="button"
+                      class="btn btn-primary mb-2"
+                      data-bs-toggle="toast"
+                      data-bs-target="toastDefault">显示默认提示</button
+                    >
+                    <hr />
+                    <button
+                      type="button"
+                      class="btn btn-primary mb-2"
+                      data-bs-toggle="toast"
+                      data-bs-target="toastPrimary">显示主要提示</button
+                    >
+                    <button
+                      type="button"
+                      class="btn btn-secondary mb-2"
+                      data-bs-toggle="toast"
+                      data-bs-target="toastSecondary"
+                      >显示次要提示</button
+                    >
+                    <button
+                      type="button"
+                      class="btn btn-success mb-2"
+                      data-bs-toggle="toast"
+                      data-bs-target="toastSuccess">显示成功提示</button
+                    >
+                    <button
+                      type="button"
+                      class="btn btn-danger mb-2"
+                      data-bs-toggle="toast"
+                      data-bs-target="toastDanger">显示危险提示</button
+                    >
+                    <button
+                      type="button"
+                      class="btn btn-warning mb-2"
+                      data-bs-toggle="toast"
+                      data-bs-target="toastWarning">显示警告提示</button
+                    >
+                    <button
+                      type="button"
+                      class="btn btn-info mb-2"
+                      data-bs-toggle="toast"
+                      data-bs-target="toastInfo">显示信息提示</button
+                    >
+                    <button
+                      type="button"
+                      class="btn btn-light mb-2"
+                      data-bs-toggle="toast"
+                      data-bs-target="toastLight">显示高亮提示</button
+                    >
+                    <button
+                      type="button"
+                      class="btn btn-dark mb-2"
+                      data-bs-toggle="toast"
+                      data-bs-target="toastDark">显示暗黑提示</button
+                    >
+                    <div
+                      class="toast-container position-fixed bottom-0 end-0 p-3"
+                    >
+                      <div
+                        id="toastDefault"
+                        class="toast"
+                        role="alert"
+                        aria-live="assertive"
+                        aria-atomic="true"
+                      >
+                        <div class="toast-header">
+                          <i class="bi bi-circle me-2"></i>
+                          <strong class="me-auto">Bootstrap</strong>
+                          <small>11 分钟前</small>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="toast"
+                            aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                          你好，世界！这里是消息提示。
+                        </div>
+                      </div>
+                      <div
+                        id="toastPrimary"
+                        class="toast toast-primary"
+                        role="alert"
+                        aria-live="assertive"
+                        aria-atomic="true"
+                      >
+                        <div class="toast-header">
+                          <i class="bi bi-circle me-2"></i>
+                          <strong class="me-auto">Bootstrap</strong>
+                          <small>11 分钟前</small>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="toast"
+                            aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                          你好，世界！这里是消息提示。
+                        </div>
+                      </div>
+                      <div
+                        id="toastSecondary"
+                        class="toast toast-secondary"
+                        role="alert"
+                        aria-live="assertive"
+                        aria-atomic="true"
+                      >
+                        <div class="toast-header">
+                          <i class="bi bi-circle me-2"></i>
+                          <strong class="me-auto">Bootstrap</strong>
+                          <small>11 分钟前</small>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="toast"
+                            aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                          你好，世界！这里是消息提示。
+                        </div>
+                      </div>
+                      <div
+                        id="toastSuccess"
+                        class="toast toast-success"
+                        role="alert"
+                        aria-live="assertive"
+                        aria-atomic="true"
+                      >
+                        <div class="toast-header">
+                          <i class="bi bi-circle me-2"></i>
+                          <strong class="me-auto">Bootstrap</strong>
+                          <small>11 分钟前</small>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="toast"
+                            aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                          你好，世界！这里是消息提示。
+                        </div>
+                      </div>
+                      <div
+                        id="toastDanger"
+                        class="toast toast-danger"
+                        role="alert"
+                        aria-live="assertive"
+                        aria-atomic="true"
+                      >
+                        <div class="toast-header">
+                          <i class="bi bi-circle me-2"></i>
+                          <strong class="me-auto">Bootstrap</strong>
+                          <small>11 分钟前</small>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="toast"
+                            aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                          你好，世界！这里是消息提示。
+                        </div>
+                      </div>
+                      <div
+                        id="toastWarning"
+                        class="toast toast-warning"
+                        role="alert"
+                        aria-live="assertive"
+                        aria-atomic="true"
+                      >
+                        <div class="toast-header">
+                          <i class="bi bi-circle me-2"></i>
+                          <strong class="me-auto">Bootstrap</strong>
+                          <small>11 分钟前</small>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="toast"
+                            aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                          你好，世界！这里是消息提示。
+                        </div>
+                      </div>
+                      <div
+                        id="toastInfo"
+                        class="toast toast-info"
+                        role="alert"
+                        aria-live="assertive"
+                        aria-atomic="true"
+                      >
+                        <div class="toast-header">
+                          <i class="bi bi-circle me-2"></i>
+                          <strong class="me-auto">Bootstrap</strong>
+                          <small>11 分钟前</small>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="toast"
+                            aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                          你好，世界！这里是消息提示。
+                        </div>
+                      </div>
+                      <div
+                        id="toastLight"
+                        class="toast toast-light"
+                        role="alert"
+                        aria-live="assertive"
+                        aria-atomic="true"
+                      >
+                        <div class="toast-header">
+                          <i class="bi bi-circle me-2"></i>
+                          <strong class="me-auto">Bootstrap</strong>
+                          <small>11 分钟前</small>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="toast"
+                            aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                          你好，世界！这里是消息提示。
+                        </div>
+                      </div>
+                      <div
+                        id="toastDark"
+                        class="toast toast-dark"
+                        role="alert"
+                        aria-live="assertive"
+                        aria-atomic="true"
+                      >
+                        <div class="toast-header">
+                          <i class="bi bi-circle me-2"></i>
+                          <strong class="me-auto">Bootstrap</strong>
+                          <small>11 分钟前</small>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="toast"
+                            aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                          你好，世界！这里是消息提示。
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--end::Body-->
+                </div>
+                <!--end::Toast-->
+                <!--begin::Tooltip-->
+                <div class="card card-primary card-outline mb-4">
+                  <!--begin::Header-->
+                  <div class="card-header">
+                    <div class="card-title">工具提示</div>
+                  </div>
+                  <!--end::Header-->
+                  <!--begin::Body-->
+                  <div class="card-body">
+                    <p class="muted">
+                      占位符文本，用于演示带有工具提示的<a
+                        href="#"
+                        data-bs-toggle="tooltip"
+                        data-bs-title="提示内容">链接</a
+                      >，它只为了填充内容，无任何意义。
+                      放这里是为了模拟<a
+                        href="#"
+                        data-bs-toggle="tooltip"
+                        data-bs-title="真实内容">真实内容</a
+                      >是为了让
+                      你了解在实际使用
+                      中的效果。以及<a
+                        href="#"
+                        data-bs-toggle="tooltip"
+                        data-bs-title="这里还有一个"
+                        >这些工具提示</a
+                      > 是如何工作的，以便在<a
+                        href="#"
+                        data-bs-toggle="tooltip"
+                        data-bs-title="最后一个提示！">你的</a
+                      网站和项目中使用。
+                    </p>
+                  </div>
+                  <!--end::Body-->
+                </div>
+                <!--end::Toast-->
+                <!--begin::Spinner-->
+                <div class="card card-success card-outline mb-4">
+                  <!--begin::Header-->
+                  <div class="card-header">
+                    <div class="card-title">旋转</div>
+                  </div>
+                  <!--end::Header-->
+                  <!--begin::Body-->
+                  <div class="card-body">
+                    <div class="spinner-border text-primary" role="status">
+                      <span class="visually-hidden">载入中……</span>
+                    </div>
+                    <div class="spinner-border text-secondary" role="status">
+                      <span class="visually-hidden">载入中……</span>
+                    </div>
+                    <div class="spinner-border text-success" role="status">
+                      <span class="visually-hidden">载入中……</span>
+                    </div>
+                    <div class="spinner-border text-danger" role="status">
+                      <span class="visually-hidden">载入中……</span>
+                    </div>
+                    <div class="spinner-border text-warning" role="status">
+                      <span class="visually-hidden">载入中……</span>
+                    </div>
+                    <div class="spinner-border text-info" role="status">
+                      <span class="visually-hidden">载入中……</span>
+                    </div>
+                    <div class="spinner-border text-light" role="status">
+                      <span class="visually-hidden">载入中……</span>
+                    </div>
+                    <div class="spinner-border text-dark" role="status">
+                      <span class="visually-hidden">载入中……</span>
+                    </div>
+                  </div>
+                  <!--end::Body-->
+                </div>
+                <!--end::Spinner-->
+              </div>
+              <!--end::Col-->
+            </div>
+            <!--end::Row-->
+          </div>
+          <!--end::Container-->
+        </div>
+        <!--end::App Content-->
+      </main>
+      <!--end::App Main-->
+      <Footer />
+    </div>
+    <!--end::App Wrapper-->
+    <!--begin::Script-->
+    <Scripts path={path} />
+    <!--begin::Bootstrap Tooltips-->
+    <script is:inline>
+      const tooltipTriggerList = document.querySelectorAll(
+        '[data-bs-toggle="tooltip"]',
+      );
+      const tooltipList = [...tooltipTriggerList].map(
+        (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl),
+      );
+    </script>
+    <!--end::Bootstrap Tooltips-->
+    <!--begin::Bootstrap Toasts-->
+    <script is:inline>
+      const toastTriggerList = document.querySelectorAll(
+        '[data-bs-toggle="toast"]',
+      );
+      toastTriggerList.forEach((btn) => {
+        btn.addEventListener("click", (event) => {
+          event.preventDefault();
+          const toastEle = document.getElementById(
+            btn.getAttribute("data-bs-target"),
+          );
+          const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastEle);
+          toastBootstrap.show();
+        });
+      });
+    </script>
+    <!--end::Bootstrap Toasts-->
+    <!--end::Script-->
+  </body><!--end::Body-->
+</html>

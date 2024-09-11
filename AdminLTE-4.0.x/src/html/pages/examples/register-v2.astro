@@ -1,0 +1,116 @@
+---
+import Head from "@components/_head.astro";
+import Scripts from "@components/_scripts.astro";
+
+const title = "AdminLTE 4 | 注册页 v2";
+const path = "../../../dist";
+const htmlPath = "..";
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <!--begin::Head-->
+  <head>
+    <Head title={title} path={path} />
+  </head>
+  <!--end::Head-->
+  <!--begin::Body-->
+  <body class="register-page bg-body-secondary">
+    <div class="register-box">
+      <!-- /.register-logo -->
+      <div class="card card-outline card-primary">
+        <div class="card-header">
+          <a href={htmlPath + "/index2.html"} class="link-dark text-center link-offset-2 link-opacity-100 link-opacity-50-hover">
+            <h1 class="mb-0">
+              <b>Admin</b>LTE
+            </h1>
+          </a>
+        </div>
+        <div class="card-body register-card-body">
+          <p class="register-box-msg">注册新会员</p>
+
+          <form action={htmlPath + "/index3.html"} method="post">
+            <div class="input-group mb-1">
+              <div class="form-floating">
+                <input id="registerFullName" type="text" class="form-control" placeholder="" />
+                <label for="registerFullName">全名</label>
+              </div>
+              <div class="input-group-text">
+                <span class="bi bi-person"></span>
+              </div>
+            </div>
+            <div class="input-group mb-1">
+              <div class="form-floating">
+                <input id="registerEmail" type="email" class="form-control" placeholder="" />
+                <label for="registerEmail">邮箱</label>
+              </div>
+              <div class="input-group-text">
+                <span class="bi bi-envelope"></span>
+              </div>
+            </div>
+            <div class="input-group mb-1">
+              <div class="form-floating">
+                <input
+                  id="registerPassword"
+                  type="密码"
+                  class="form-control"
+                  placeholder=""
+                />
+                <label for="registerPassword">密码</label>
+              </div>
+              <div class="input-group-text">
+                <span class="bi bi-lock-fill"></span>
+              </div>
+            </div>
+            <!--begin::Row-->
+            <div class="row">
+              <div class="col-8 d-inline-flex align-items-center">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                  <label class="form-check-label" for="flexCheckDefault">
+                    我同意这些<a href="#">条款</a>
+                  </label>
+                </div>
+              </div>
+              <!-- /.col -->
+              <div class="col-4">
+                <div class="d-grid gap-2">
+                  <button type="submit" class="btn btn-primary">登录</button>
+                </div>
+              </div>
+              <!-- /.col -->
+            </div>
+            <!--end::Row-->
+          </form>
+
+          <div class="social-auth-links text-center mb-3 d-grid gap-2">
+            <p>- 或 -</p>
+            <a href="#" class="btn btn-primary">
+              <i class="bi bi-facebook me-2"></i> 通过 Facebook 登录
+            </a>
+            <a href="#" class="btn btn-danger">
+              <i class="bi bi-google me-2"></i> 通过 Google+ 登录
+            </a>
+          </div>
+          <!-- /.social-auth-links -->
+
+          <p class="mb-0">
+            <a href="login.html" class="link-primary text-center">
+              我已经有账号了
+            </a>
+          </p>
+        </div>
+        <!-- /.register-card-body -->
+      </div>
+    </div>
+    <!-- /.register-box -->
+
+    <Scripts path={path} />
+    <!--end::Script-->
+  </body><!--end::Body-->
+</html>

@@ -1,0 +1,39 @@
+The Treeview 插件将嵌套列表转换为树形视图，可在其中扩展子菜单。
+
+##### 用法
+
+这个插件可以使用 API 返回数据。
+
+**数据 API**
+
+在 ul 或 ol 中添加 `data-lte-toggle="treeview"`，以激活插件。
+
+```html
+<ul data-lte-toggle="treeview">
+  <li><a href="#">1 级</a></li>
+  <li class="nav-item menu-open">
+    <a class="nav-link" href="#">多级</a>
+    <ul class="nav-treeview">
+      <li><a href="#">2 级</a></li>
+    </ul>
+  </li>
+</ul>
+```
+
+##### 示例
+
+<ul data-lte-toggle="treeview">
+  <li>
+    <a href="#">1 级</a>
+  </li>
+  <li class="nav-item menu-open">
+    <a class="nav-link" href="#">
+      多级
+    </a>
+    <ul class="nav-treeview">
+      <li>
+        <a href="#">2 级</a>
+      </li>
+    </ul>
+  </li>
+</ul>

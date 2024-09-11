@@ -1,0 +1,34 @@
+# 为 AdminLTE 做贡献
+
+始终**欢迎**你分享，也**推荐**你这么做！这是初学者的方法：[开源入门请单击这里](https://youtu.be/GbqSvJs-6W4)
+
+1. 贡献要求：
+    * 当你提交时，将同意授予 AdminLTE.io 非独占许可，以便在我们（AdminLTE.io）在认为适当的时候使用该贡献。
+    * 如果你使用第三方提供的内容，则必须使用[开源许可证](http://opensource.org/licenses)对其进行适当许可。
+    * 仅通过 Github 拉取请求接受贡献。
+    * 最后，贡献的代码必须适用于所有支持的浏览器（请参阅上面的浏览器支持）。
+2. 安装：
+    * Fork 存储库（[这里是指南](https://help.github.com/articles/fork-a-repo/)）。
+    * 克隆到你的电脑上
+
+    ```bash
+    git clone https://github.com/YOUR_USERNAME/AdminLTE.git
+    ```
+    * 从 `master` 上创建分支
+3. 编译 dist 文件（开发）：
+    * 要编译 dist 文件，你需要 Node.js 18 或更高版本的 npm (node 包管理器)
+    * `npm install` （安装依赖）
+    * `npm run dev` （开发人员模式，支持实时预览、自动编译、浏览器同步）
+    * 仅在 `./src` 目录或 `package.json` 中修改
+    * 请勿在 `./dist/**` 中进行更改，因为其中包含编译文件，请勿包含在 PR（拉取请求）中
+    * `npm run production` （在创建拉取请求之前编译 css/js 文件并测试所有页面都可以正常工作）
+4. 向 `master` 分支创建拉取请求
+
+## 在线一键设置
+
+你可以使用 [Codespace](https://docs.github.com/en/codespaces)，这是一个免费的开源在线集成开发环境，用于处理问题或提交 PR（拉取请求）。只需点击一下，它就会自动启动一个工作区：
+
+- 克隆 `AdminLTE` 仓库
+- 使用 [Codespace](https://docs.github.com/en/codespaces) 或 [![Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/) 中打开
+- 安装依赖关系
+- 执行 `npm run dev` 启动

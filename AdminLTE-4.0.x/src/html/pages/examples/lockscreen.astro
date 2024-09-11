@@ -1,0 +1,63 @@
+---
+import Head from "@components/_head.astro";
+import Scripts from "@components/_scripts.astro";
+
+const title = "AdminLTE 4 | 锁屏";
+const path = "../../../dist";
+const htmlPath = "..";
+const year = new Date().getFullYear();
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <!--begin::Head-->
+  <head>
+    <Head title={title} path={path} />
+  </head>
+  <!--end::Head-->
+  <!--begin::Body-->
+  <body class="lockscreen bg-body-secondary">
+    <div class="lockscreen-wrapper">
+      <div class="lockscreen-logo">
+        <a href={htmlPath + "/index2.html"}><b>Admin</b>LTE</a>
+      </div>
+
+      <div class="lockscreen-name">John Doe</div>
+
+      <div class="lockscreen-item">
+        <div class="lockscreen-image">
+          <img src={path + "/assets/img/user1-128x128.jpg"} alt="用户头像" />
+        </div>
+
+        <form class="lockscreen-credentials">
+          <div class="input-group">
+            <input
+              type="密码"
+              class="form-control shadow-none"
+              placeholder="密码"
+            />
+            <div class="input-group-text border-0 bg-transparent px-1">
+              <button type="button" class="btn shadow-none">
+                <i class="bi bi-box-arrow-right text-body-secondary"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="help-block text-center">
+        输入密码以恢复会话
+      </div>
+      <div class="text-center">
+        <a href="login.html" class="text-decoration-none">或以其他用户登录</a>
+      </div>
+      <div class="lockscreen-footer text-center">
+        Copyright © 2014-{year} &nbsp;
+        <b><a href="https://adminlte.io" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">AdminLTE.io</a></b> <br />
+        保留所有权利
+      </div>
+    </div>
+
+    <Scripts />
+  </body><!--end::Body-->
+</html>

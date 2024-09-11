@@ -1,0 +1,66 @@
+[AdminLTE - Bootstrap 5 Admin Dashboard](https://adminlte.io)
+[AdminLTE - Bootstrap 5 管理面板](https://adminlte.io)
+**AdminLTE** is a fully responsive administration template. Based on **[Bootstrap 5](https://getbootstrap.com/)** framework and also the JavaScript plugins.
+**AdminLTE** 是一个自响应式管理框架。基于 **[Bootstrap 5](https://getbootstrap.com/)** 框架和 JavaScript 插件。
+Highly customizable and easy to use. Fits many screen resolutions from small mobile devices to large desktops.
+高度可定制且易于使用。适用于多种屏幕，小到移动设备大到台式机。
+Looking for Premium Templates?
+寻找高级模板？
+AdminLTE.io just opened a new premium templates page. Hand picked to ensure the best quality and the most affordable
+AdminLTE.io 刚刚开通了一个高级模板网站，精选以确保最佳质量和最实惠的价格。
+prices. Visit <https://adminlte.io/premium> for more information.
+访问 <https://adminlte.io/premium> 了解更多信息。
+AdminLTE Presentation
+预览 AdminLTE
+**AdminLTE** has been carefully coded with clear comments in all of its JS, SCSS and HTML files.
+**AdminLTE** 所有的 JS、SCSS 和 HTML 文件均经过精心编码，并带有清晰的注释。
+SCSS has been used to increase code customizability.
+SCSS 已用于提高代码的可定制性。
+Quick start
+快速开始
+Compile dist files
+编译 dist 文件
+To compile the dist files you need Node.js/npm, clone/download the repo then:
+要编译 dist 文件，你需要 Node.js/npm，克隆/下载仓库，然后:
+(install npm deps)
+（安装依赖）
+_Optional:_ `npm run dev` (developer mode, autocompile with browsersync support for live demo)
+_可选：_ `npm run dev` （开发者模式，支持在线预览自动编译）
+(compile css/js files)
+（编译 css/js 文件）
+## Contributing
+## 贡献
+Highly welcome.
+非常欢迎
+For your extra reference check [AdminLTE v4 Contribution Guide](https://github.com/ColorlibHQ/AdminLTE#contributing)
+其他参考资料请查看 [AdminLTE v4 贡献指南](https://github.com/ColorlibHQ/AdminLTE#contributing)
+First thing first, you should have bit knowledge about NodeJS.
+首先，你应该对 NodeJS 有一些了解
+Github Knowledge.
+Github 知识
+Install NodeJS LTS version.
+安装 NodeJS LTS 版本
+Clone this Repository to your machine and change to `master` branch.
+将代码克隆你的计算机并更改为 `master` 分支
+Go to Cloned Folder.
+进入克隆后的文件夹
+In cli/bash run `npm install` it will install dependency from `package.json`.
+在 cli/bash 中运行 `npm install`，它会从 `package.json` 中安装依赖
+After installation completes, run `npm run dev`
+安装完成后，运行 `npm run dev`
+Cool, Send urs changes in PR to `master` branch.
+将 PR 中的更改发送到 `master` 分支
+## Sponsorship
+## 赞助
+Support AdminLTE development by becoming a sponsor.
+通过成为赞助商来支持 AdminLTE 开发。
+[Github Sponsors](https://github.com/sponsors/danny007in) or
+通过 [Github 赞助](https://github.com/sponsors/danny007in) 或者使用
+## License
+## 许可证
+AdminLTE is an open source project by [AdminLTE.io](https://adminlte.io) that is licensed under [MIT](https://opensource.org/licenses/MIT).
+AdminLTE 是一个开源项目，由 [AdminLTE.io](https://adminlte.io) 授权，许可协议使用 [MIT](https://opensource.org/licenses/MIT)。
+AdminLTE.io reserves the right to change the license of future releases.
+AdminLTE.io 保留在未来更改许可的权利。
+Image Credits
+图片来源
