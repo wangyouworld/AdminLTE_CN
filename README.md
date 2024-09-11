@@ -2,7 +2,7 @@
 
 > * 翻译采用第三方翻译工具和人工复核的方式进行。
 > * 尽可能的信、达、雅； 但由于英文水平有限，翻译内容会偏离原内容。
-> * 目前已经完成，AdminLTE-2.3.11、2.4.x、3.1、3.2 翻译工作
+> * 目前已经完成，AdminLTE-2.3.11、2.4.x、3.1、4.0.x 翻译工作
 
 ----------
 
@@ -12,8 +12,42 @@
 ----------
 当然，你也可以参与其中（请邮件：ramble **AT** 3vshej.cn）：
 
+# 【4.0.x】
+该版本使用 astro 管理页面和文档。但**字典格式与 2.x 一样**。
+
+- AdminLTE 4 文档使用了 astro
+
+如果有需要本地配置的，参见 [astro 教程][5]。
+
+使用时很简单，只需要使用以下命令：
+
+```bash
+# 安装依赖包
+npm install
+
+# 执行翻译
+php bat_trans.php -c=start
+
+# 调试运行
+npm run dev
+
+# 打包发布
+npm run compile
+```
+
+- 已知不同于官方的内容
+
+链接外部的 JS、CSS，均修改为本地引用。
+如果你不想使用，可以在 astro_dict.txt 中删除相关项。
+
 # 【3.x】
 该版本有很大变化，因此，PHP 处理程序也做了很大调整。但**字典格式与 2.x 一样**。
+
+| 字典文件名 | 说明          |
+| ------ |-------------|
+| md_dict | readme 文件   |
+| mdx_dict | 示例页面        |
+| astro_dict.txt | 文档页面       |
 
 替换时，对字典从长到短排序，并依次替换。
 对于单词，只是一个单词，单词的替换规则，是**完全匹配**，注意是**完全匹配**。
@@ -58,12 +92,12 @@ php bat_trans.php -c=start>trans.log
 
 | -c 参数 | 说明 |
 | ------ | ------ |
-|backup | 运行并备份
-|start |  执行任务
-|restore| 还原更改，backup 后使用
-|test |   测试替换
-|debug |  调试输出
-|help |   帮助
+|backup | 运行并备份|
+|start |  执行任务|
+|restore| 还原更改，backup 后使用|
+|test |   测试替换|
+|debug |  调试输出|
+|help |   帮助|
 
 -t 参数
 处理类型：传递，则仅对该类型文件翻译，值有：html、js、docs_md、docs_html、docs_yml。
@@ -166,3 +200,4 @@ Timeout  86400
   [2]: https://adminlte.io/
   [3]: https://3vshej.cn/AdminLTE/
   [4]: https://ramble.3vshej.cn/ruby-jekyll-install
+  [5]: https://docs.astro.build/zh-cn/getting-started/
