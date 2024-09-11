@@ -13,7 +13,13 @@
 当然，你也可以参与其中（请邮件：ramble **AT** 3vshej.cn）：
 
 # 【4.0.x】
-该版本使用 astro 管理页面和文档。但**字典格式与 2.x 一样**。
+基于 Bootstrap 5，该版本使用 astro 管理页面和文档。但**字典格式与 2.x 一样**。
+
+| 字典文件名 | 说明     |
+| ------ |--------|
+| astro_dict.txt | 示例页面 |
+| md_dict.txt | readme.md 文件 |
+| mdx_dict.txt| 使用文档  |
 
 - AdminLTE 4 文档使用了 astro
 
@@ -43,11 +49,13 @@ npm run compile
 # 【3.x】
 该版本有很大变化，因此，PHP 处理程序也做了很大调整。但**字典格式与 2.x 一样**。
 
-| 字典文件名 | 说明          |
-| ------ |-------------|
-| md_dict | readme 文件   |
-| mdx_dict | 示例页面        |
-| astro_dict.txt | 文档页面       |
+| 字典文件名 | 说明 |
+| ------ | ------ |
+| dict.txt | 示例页面 |
+| dict_js.txt | 示例页面的JS文件 |
+| docs_dict.txt | HTML 模板文档页面 |
+| docs_md_dict.txt | 文档 md 文件 |
+| docs_yml_dict.txt | 文档 yml 配置文件 |
 
 替换时，对字典从长到短排序，并依次替换。
 对于单词，只是一个单词，单词的替换规则，是**完全匹配**，注意是**完全匹配**。
