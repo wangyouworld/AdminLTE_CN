@@ -34,6 +34,18 @@ npm install
 # 执行翻译
 php bat_trans.php -c=start
 
+# 适用于 AdminLTE-4.0.0-rc4 及以上
+
+# 调试运行
+npm start
+
+# 发布
+npm run build
+# 或
+npm run production
+
+# AdminLTE-4.0.0-rc4 以下版本
+
 # 调试运行
 npm run dev
 
