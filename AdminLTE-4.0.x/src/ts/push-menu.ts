@@ -59,7 +59,6 @@ class PushMenu {
     this._config = { ...Defaults, ...config }
   }
 
-  // TODO
   menusClose() {
     const navTreeview = document.querySelectorAll<HTMLElement>(SELECTOR_NAV_TREEVIEW)
 
@@ -100,7 +99,7 @@ class PushMenu {
     const sidebarExpandList = document.querySelector(SELECTOR_SIDEBAR_EXPAND)?.classList ?? []
     const sidebarExpand = Array.from(sidebarExpandList).find(className => className.startsWith(CLASS_NAME_SIDEBAR_EXPAND)) ?? ''
     const sidebar = document.getElementsByClassName(sidebarExpand)[0]
-    const sidebarContent = window.getComputedStyle(sidebar, '::before').getPropertyValue('content')
+    const sidebarContent = globalThis.getComputedStyle(sidebar, '::before').getPropertyValue('content')
     this._config = { ...this._config, sidebarBreakpoint: Number(sidebarContent.replace(/[^\d.-]/g, '')) }
 
     if (window.innerWidth <= this._config.sidebarBreakpoint) {
@@ -151,12 +150,24 @@ onDOMContentLoaded(() => {
   sidebarOverlay.className = CLASS_NAME_SIDEBAR_OVERLAY
   document.querySelector(SELECTOR_APP_WRAPPER)?.append(sidebarOverlay)
 
-  sidebarOverlay.addEventListener('touchstart', event => {
-    event.preventDefault()
-    const target = event.currentTarget as HTMLElement
-    const data = new PushMenu(target, Defaults)
-    data.collapse()
+  let isTouchMoved = false
+
+  sidebarOverlay.addEventListener('touchstart', () => {
+    isTouchMoved = false
   }, { passive: true })
+
+  sidebarOverlay.addEventListener('touchmove', () => {
+    isTouchMoved = true
+  }, { passive: true })
+
+  sidebarOverlay.addEventListener('touchend', event => {
+    if (!isTouchMoved) {
+      event.preventDefault()
+      const target = event.currentTarget as HTMLElement
+      const data = new PushMenu(target, Defaults)
+      data.collapse()
+    }
+  }, { passive: false })
   sidebarOverlay.addEventListener('click', event => {
     event.preventDefault()
     const target = event.currentTarget as HTMLElement

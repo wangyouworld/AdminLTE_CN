@@ -116,3 +116,1165 @@ Project maintainers who do not follow or enforce the Code of Conduct in good fai
 ## 来源
 This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org/), version 1.4, available at <https://www.contributor-covenant.org/version/1/4/code-of-conduct/>
 本行为准则改编自 [Contributor Covenant](https://www.contributor-covenant.org/) 1.4 版，原文可查阅 <https://www.contributor-covenant.org/version/1/4/code-of-conduct/>。
+What's New in v4.0.0-rc3
+v4.0.0-rc3 版本更新内容
+**Production Deployment & Cross-Platform Compatibility** - This release resolves critical production deployment issues:
+**生产环境部署与跨平台兼容性** - 该版本修复了关键的生产环境部署问题：
+- **Fixed Production Builds** - Resolved CSS/JS path issues, sidebar navigation, and image loading in all deployment scenarios
+- **修复生产构建** - 解决了所有部署场景下的 CSS/JS 路径问题、侧边栏导航及图片加载异常
+- **Smart Path Resolution** - Automatic relative path calculation works for root deployment, sub-folders, and CDN hosting
+- **智能路径解析** - 自动计算相对路径，完美支持根目录部署、子目录部署及 CDN 托管
+- **RTL CSS Fix** - Eliminated rtlcss interference with standard LTR production builds
+- **RTL样式修复** - 消除了 rtlcss 对标准 LTR 生产构建的干扰
+- **Updated Dependencies** - Bootstrap 5.3.7, Bootstrap Icons 1.13.1, OverlayScrollbars 2.11.0
+- **依赖项更新** - Bootstrap 5.3.7、Bootstrap Icons 1.13.1、OverlayScrollbars 2.11.0
+- **Zero Console Errors** - Fixed all CDN integrity mismatches and runtime issues
+- **零控制台报错** - 修复所有 CDN 完整性校验不匹配及运行时问题
+- **FTP/Static Host Ready** - Perfect compatibility with traditional hosting and modern static platforms
+- **FTP/静态托管就绪** - 完美兼容传统托管与现代静态平台
+**Key Improvements:**
+**核心改进：**
+- ✅ Development and production environments now behave identically
+- ✅ 开发环境与生产环境表现完全一致
+- ✅ Images, CSS, and JavaScript load correctly in any deployment structure
+- ✅ 图片/CSS/JavaScript 在任何部署结构下均可正确加载
+- ✅ Sidebar navigation displays properly with badges and arrow indicators
+- ✅ 侧边栏导航正常显示徽章与箭头指示器
+- ✅ All CDN resources load without console errors
+- ✅ 所有 CDN 资源加载无控制台报错
+- ✅ Complete production build included in repository for easy deployment
+- ✅ 代码库包含完整生产构建版本，部署更便捷
+See the [CHANGELOG.md](CHANGELOG.md) for complete details.
+完整变更详见[更新日志](CHANGELOG.md)
+### Development
+### 开发指南
+To start developing with AdminLTE:
+开始使用 AdminLTE 进行开发的步骤：
+1. **Install dependencies:** `npm install`
+1. **安装依赖项**：执行 `npm install`
+2. **Start development server:** `npm start` *(opens browser at http://localhost:3000)*
+2. **启动开发服务器**：运行 `npm start` *(自动在浏览器打开 http://localhost:3000)*
+3. **Start coding!** Files auto-compile and refresh on changes
+3. **开始编码！** 文件修改后将自动编译并刷新页面
+### Production Build
+### 生产环境构建
+To build for production:
+构建生产版本的流程：
+1. **Full production build:** `npm run production` *(includes linting and optimization)*
+1. **完整生产构建**：执行 `npm run production` *(包含代码校验与优化)*
+2. **Quick build:** `npm run build` *(faster for development/testing)*
+2. **快速构建**：运行 `npm run build` *(适用于开发/测试的快速构建)*
+### Available Scripts
+### 可用脚本命令
+- `npm start` - Start development server with file watching
+- `npm start` - 启动带文件监听的开发服务器
+- `npm run build` - Build all assets for development
+- `npm run build` - 构建开发环境所需资源
+- `npm run production` - Full production build with linting and bundlewatch
+- `npm run production` - 执行完整生产构建（含代码校验与 bundlewatch 检查）
+- `npm run lint` - Run all linters (JS, CSS, docs, lockfile)
+- `npm run lint` - 运行所有校验器（JS/CSS/文档/lockfile）
+- `npm run css` - Build CSS only
+- `npm run css` - 仅构建 CSS 文件
+- `npm run js` - Build JavaScript only
+- `npm run js` - 仅构建 JavaScript 文件
+## Browser Support
+## 浏览器兼容性
+AdminLTE supports all modern browsers with the latest Bootstrap 5.3.7:
+AdminLTE基于最新版 Bootstrap 5.3.7 支持所有现代浏览器：
+- Chrome (latest)
+- Chrome（最新版）
+- Firefox (latest)
+- Firefox（最新版）
+- Safari (latest)
+- Safari（最新版）
+- Edge (latest)
+- Edge（最新版）
+## Platform Support
+## 平台兼容性
+AdminLTE v4 build scripts work cross-platform:
+AdminLTE v4 构建脚本支持跨平台运行：
+- **Windows** - Command Prompt, PowerShell, Git Bash
+- **Windows** - 命令 提示符/PowerShell/Git Bash
+- **macOS** - Terminal, iTerm2
+- **macOS** - 终端/iTerm2
+- **Linux** - Bash, Zsh, and other Unix shells
+- **Linux** - Bash/Zsh 及其他 Unix shell 环境
+All npm scripts use cross-platform utilities to ensure consistent behavior across different operating systems.
+所有 npm 脚本均使用跨平台工具，确保在不同操作系统上表现一致。
+- After installation completes, run `npm start`
+- 安装完成后，请运行 `npm start`
+- Cool, Send your changes in PR to `master` branch.
+- 太棒了，请将您的修改通过PR提交到`master`分支。
+# AdminLTE Accessibility Compliance - WCAG 2.1 AA
+# AdminLTE 无障碍合规性 - WCAG 2.1 AA 标准
+## Overview
+## 概述
+AdminLTE has been enhanced with comprehensive accessibility features to meet **WCAG 2.1 AA** standards. This implementation ensures the template is usable by all users, including those with disabilities who may use assistive technologies like screen readers, keyboard navigation, or voice control software.
+AdminLTE 已全面增强无障碍功能，符合 **WCAG 2.1 AA** 标准。这些改进确保所有用户（包括使用屏幕阅读器、键盘导航或语音控制软件等辅助技术的残障人士）都能顺畅使用本模板。
+## 🎯 WCAG 2.1 AA Compliance Features
+## 🎯 WCAG 2.1 AA 合规特性
+### **Principle 1: Perceivable**
+### **原则一：可感知**
+#### 1.1 Text Alternatives
+#### 1.1 文本替代
+- ✅ **All decorative icons have `aria-hidden="true"`**
+- ✅ 所有装饰性图标均添加 `aria-hidden="true"`
+- ✅ **Meaningful images have appropriate `alt` text**
+- ✅ 功能性图片配有恰当的 `alt` 文本
+- ✅ **Icon fonts use screen reader friendly approaches**
+- ✅ 图标字体采用屏幕阅读器友好方案
+#### 1.3 Adaptable
+#### 1.3 适应性
+- ✅ **Semantic HTML structure with proper landmarks**
+- ✅ 符合语义的HTML结构及地标标记
+- ✅ **Form labels properly associated with inputs**
+- ✅ 表单标签与输入框正确关联
+- ✅ **Table headers have correct `scope` attributes**
+- ✅ 表格标题含有效 `scope` 属性
+- ✅ **Lists use proper `<ul>`, `<ol>`, `<li>` structure**
+- ✅ 列表使用标准 `<ul>`/`<ol>`/`<li>` 结构
+- ✅ **Heading hierarchy follows logical order (h1 → h2 → h3)**
+- ✅ 标题层级遵循逻辑顺序（h1 → h2 → h3）
+#### 1.4 Distinguishable
+#### 1.4 可辨别
+- ✅ **Color contrast ratios meet 4.5:1 minimum for normal text**
+- ✅ 普通文本颜色对比度达 4.5:1 最低标准
+- ✅ **Color contrast ratios meet 3:1 minimum for large text**
+- ✅ 大号文本颜色对比度达 3:1 最低标准
+- ✅ **Information not conveyed by color alone**
+- ✅ 信息不依赖单一颜色传递
+- ✅ **Text can be resized up to 200% without loss of functionality**
+- ✅ 支持 200% 文本缩放不影响功能
+- ✅ **Focus indicators are clearly visible**
+- ✅ 焦点指示器清晰可见
+### **Principle 2: Operable**
+### **原则二：可操作**
+#### 2.1 Keyboard Accessible
+#### 2.1 键盘可访问
+- ✅ **All interactive elements are keyboard accessible**
+- ✅ 所有交互元素支持键盘操作
+- ✅ **Tab order is logical and predictable**
+- ✅ Tab键顺序符合逻辑预期
+- ✅ **No keyboard traps exist**
+- ✅ 无键盘焦点陷阱
+- ✅ **Skip links to bypass repetitive content**
+- ✅ 提供跳过重复内容的快捷链接
+- ✅ **Arrow key navigation for menus**
+- ✅ 方向键导航菜单
+- ✅ **Escape key closes modals and dropdowns**
+- ✅ ESC 键关闭弹窗和下拉框
+#### 2.2 Enough Time
+#### 2.2 充足时间
+- ✅ **No time limits on user interactions**
+- ✅ 无操作时间限制
+- ✅ **Animations can be paused or disabled**
+- ✅ 动画可暂停或禁用
+#### 2.3 Seizures and Physical Reactions
+#### 2.3 癫痫发作与身体反应
+- ✅ **No content flashes more than 3 times per second**
+- ✅ 内容闪烁频率不超过每秒3次
+- ✅ **Respects `prefers-reduced-motion` user preference**
+- ✅ 遵循系统级减弱动画偏好设置
+- ✅ **Animation duration can be controlled**
+- ✅ 动画时长可控
+#### 2.4 Navigable
+#### 2.4 可导航
+- ✅ **Skip links to main content and navigation**
+- ✅ 直达主内容与导航的快捷链接
+- ✅ **Descriptive page titles**
+- ✅ 描述性页面标题
+- ✅ **Meaningful link text (no "click here")**
+- ✅ 有意义的链接文本（避免"点击这里"）
+- ✅ **Focus order matches visual order**
+- ✅ 焦点顺序与视觉顺序一致
+- ✅ **Focus is clearly visible**
+- ✅ 焦点状态清晰可见
+- ✅ **Multiple ways to navigate (menus, breadcrumbs, search)**
+- ✅ 提供多种导航方式（菜单、面包屑、搜索）
+#### 2.5 Input Modalities
+#### 2.5 输入模式
+- ✅ **Touch targets are at least 44×44 pixels**
+- ✅ 触控区域不小于 44×44 像素
+- ✅ **Drag operations have keyboard alternatives**
+- ✅ 拖拽操作提供键盘替代方案
+- ✅ **Touch gestures have alternatives**
+- ✅ 触控手势有替代交互方式
+### **Principle 3: Understandable**
+### **原则三：可理解**
+#### 3.1 Readable
+#### 3.1 可读性
+- ✅ **Language of page is declared (`lang="en"`)**
+- ✅ 声明页面语言（`lang="en"`）
+- ✅ **Language changes are marked up**
+- ✅ 标记语言变化部分
+- ✅ **Unusual words have definitions or explanations**
+- ✅ 生僻词汇提供解释说明
+#### 3.2 Predictable
+#### 3.2 可预测
+- ✅ **Navigation is consistent across pages**
+- ✅ 跨页面导航保持一致性
+- ✅ **Components behave predictably**
+- ✅ 组件行为符合预期
+- ✅ **Form submission doesn't cause unexpected context changes**
+- ✅ 表单提交不会引发意外跳转
+#### 3.3 Input Assistance
+#### 3.3 输入辅助
+- ✅ **Error messages are clearly identified**
+- ✅ 错误信息明确标识
+- ✅ **Form field requirements are indicated**
+- ✅ 标注必填表单字段
+- ✅ **Error suggestions are provided when possible**
+- ✅ 尽可能提供纠错建议
+- ✅ **Form validation messages are announced to screen readers**
+- ✅ 表单验证信息可被屏幕阅读器播报
+### **Principle 4: Robust**
+### **原则四：健壮性**
+#### 4.1 Compatible
+#### 4.1 兼容性
+- ✅ **Valid HTML markup**
+- ✅ 符合HTML规范
+- ✅ **Proper ARIA attributes and roles**
+- ✅ 正确的ARIA属性和角色
+- ✅ **Compatible with assistive technologies**
+- ✅ 兼容主流辅助技术
+- ✅ **Status messages are announced (`aria-live` regions)**
+- ✅ 状态消息通过`aria-live`区域播报
+## 🛠️ Implementation Details
+## 🛠️ 实现细节
+### **Skip Links Implementation**
+### **跳转链接实现方式**
+<!-- Automatically added by accessibility.js -->
+<!-- 自动添加 accessibility.js -->
+Skip to main content
+跳转到主内容
+Skip to navigation
+跳转到导航
+### **ARIA Live Regions**
+### **ARIA 动态区域**
+Automatically created for status announcements
+自动创建的状态通知区域
+### **Enhanced Focus Management**
+### **增强型焦点管理**
+- **Modal Focus Trap**: Focus is contained within modals
+- **模态框焦点锁定**：焦点始终保持在当前模态框内
+- **Dropdown Navigation**: Arrow keys navigate menu items
+- **下拉菜单导航**：支持方向键切换菜单项
+- **Focus Restoration**: Previous focus restored when modals close
+- **焦点恢复**：关闭模态框后自动还原先前焦点位置
+- **Escape Key Support**: ESC closes modals and dropdowns
+- **ESC 键支持**：通过ESC键关闭模态框和下拉菜单
+### **Form Accessibility**
+### **表单无障碍实现**
+Example of accessible form with error handling
+带错误处理的无障碍表单示例
+Email address <span class="required-indicator sr-only">(required)</span>
+电子邮箱 <span class="required-indicator sr-only">(必填)</span>
+We'll never share your email with anyone else.
+我们绝不会与他人共享您的邮箱地址
+### **Table Accessibility**
+### **无障碍表格实现**
+Accessible table structure
+符合无障碍标准的表格结构
+<caption>Monthly Sales Data</caption>
+<caption>月度销售数据</caption>
+<th scope="col">Month</th>
+<th scope="col">月份</th>
+<th scope="col">Sales</th>
+<th scope="col">销售额</th>
+<th scope="col">Growth</th>
+<th scope="col">增长率</th>
+### **Navigation Landmarks**
+### **导航地标区域**
+<!-- Semantic navigation structure -->
+<!-- 语义化导航结构 -->
+<p>Widgets <i class="nav-arrow bi bi-chevron-right" aria-hidden="true"></i></p>
+<p>小部件 <i class="nav-arrow bi bi-chevron-right" aria-hidden="true"></i></p>
+<!-- Submenu items -->
+<!-- 子菜单项 -->
+## 🎨 Accessible Color Palette
+## 🎨 无障碍配色方案
+### **High Contrast Colors (4.5:1 ratio minimum)**
+### **高对比度色彩（最低 4.5:1 比率）**
+- **Primary Accessible**: `#003d82` (4.5:1 on white)
+- **主色调优化版**: `#003d82`（白底对比度 4.5:1）
+- **Success Accessible**: `#0f5132` (4.5:1 on white)
+- **成功色优化版**: `#0f5132`（白底对比度 4.5:1）
+- **Danger Accessible**: `#842029` (4.5:1 on white)
+- **危险色优化版**: `#842029`（白底对比度 4.5:1）
+- **Warning Accessible**: `#664d03` (4.5:1 on white)
+- **警告色优化版**: `#664d03`（白底对比度 4.5:1）
+### **Dark Mode Support**
+### **深色模式支持**
+## 📱 Responsive & Touch Accessibility
+## 📱 响应式与触控无障碍
+### **Touch Target Sizes**
+### **触控目标尺寸**
+- **Standard buttons**: Minimum 44×44 pixels
+- **标准按钮**：最小 44×44 像素
+- **Icon buttons**: Minimum 44×44 pixels touch area
+- **图标按钮**：最小 44×44 像素触控区域
+- **Small interactive elements**: Minimum 24×24 pixels (when grouped)
+- **组合小元素**：分组时最小 24×24 像素
+### **Responsive Considerations**
+### **响应式设计考量**
+- **Zoom support**: Up to 200% zoom without horizontal scrolling
+- **缩放支持**：支持 200% 页面缩放且不出现横向滚动条
+- **Mobile navigation**: Touch-friendly collapsible menus
+- **移动端导航**：采用触控友好的可折叠菜单设计
+- **Orientation support**: Works in both portrait and landscape
+- **屏幕方向适配**：完美兼容竖屏与横屏显示模式
+## 🔧 JavaScript Accessibility API
+## 🔧 JavaScript 可访问性 API
+### **AccessibilityManager Class**
+### **访问权限管理器类**
+// Initialize with full features
+// 初始化时启用全部功能
+// Public API methods
+// 公共 API 方法
+Form submitted successfully
+表单提交成功
+### **Utility Functions**
+### **工具函数**
+// Check color contrast
+// 检查颜色对比度
+// Generate unique IDs
+// 生成唯一标识符
+// Check if element is focusable
+// 检查元素是否可聚焦
+## 🧪 Testing & Validation
+## 🧪 测试与验证
+### **Automated Testing Tools**
+### **自动化测试工具**
+- **axe-core**: Automated accessibility testing
+- **axe-core**：自动化无障碍测试
+- **WAVE**: Web accessibility evaluation
+- **WAVE**：网页无障碍评估
+- **Lighthouse**: Accessibility audit included
+- **Lighthouse**：内置无障碍审计
+### **Manual Testing Checklist**
+### **人工检查清单**
+- [ ] Navigate entire interface using only keyboard
+- [ ] 仅用键盘完成全界面导航
+- [ ] Test with screen reader (NVDA, JAWS, VoiceOver)
+- [ ] 使用屏幕阅读器测试（NVDA/JAWS/VoiceOver）
+- [ ] Verify color contrast ratios
+- [ ] 验证色彩对比度
+- [ ] Test with 200% zoom
+- [ ] 200% 缩放测试
+- [ ] Verify reduced motion preferences
+- [ ] 验证减弱动画偏好
+- [ ] Test touch interactions on mobile
+- [ ] 移动端触控交互测试
+### **Screen Reader Testing**
+### **屏幕阅读器测试**
+# Test announcements
+# 测试通知
+New message received
+收到新消息
+Test form errors
+测试表单错误
+Please enter a valid email address
+请输入有效的电子邮件地址
+## 📚 Browser Support
+## 🌐 浏览器支持
+### **Modern Browser Support (ES2022 Compatible)**
+### **现代浏览器支持（ES2022兼容）**
+- **Chrome**: 97+ (97% coverage)
+- **Chrome**：97+（覆盖率97%）
+- **Firefox**: 104+ (95% coverage)
+- **Firefox**：104+（覆盖率95%）
+- **Safari**: 15.4+ (92% coverage)
+- **Safari**：15.4+（覆盖率92%）
+- **Edge**: 97+ (94% coverage)
+- **Edge**：97+（覆盖率94%）
+### **Assistive Technology Support**
+### **辅助技术支持**
+## 🚀 Performance Impact
+## 🚀 性能影响
+### **Bundle Size Impact**
+### **打包体积影响**
+- **CSS**: +12KB (compressed)
+- **CSS**：增加 12KB（压缩后）
+- **JavaScript**: +8KB (compressed)
+- **JavaScript**：增加 8KB（压缩后）
+- **Total Impact**: ~20KB additional payload
+- **总影响**：额外负载约 20KB
+### **Runtime Performance**
+### **运行时性能**
+- **Initialization**: ~5ms on modern devices
+- **初始化**：现代设备上约 5ms
+- **Focus Management**: <1ms per interaction
+- **焦点管理**：每次交互 <1ms
+- **Announcements**: <1ms per message
+- **播报通知**：每条消息 <1ms
+## 📖 Usage Examples
+## 📖 用法示例
+### **Basic Setup**
+### **基础设置**
+<!-- Enhanced accessibility meta tags -->
+<!-- 增强的可访问性元标签 -->
+<!-- AdminLTE CSS with accessibility styles -->
+<!-- 包含无障碍样式的 AdminLTE CSS -->
+<!-- Skip links automatically added -->
+<!-- 自动添加的跳过导航链接 -->
+<!-- Main content with proper landmarks -->
+<!-- 带有正确地标角色的主要内容区 -->
+<!-- AdminLTE JS with accessibility features -->
+<!-- 包含无障碍功能的 AdminLTE JS -->
+### **Custom Configuration**
+### **自定义配置**
+// Initialize with custom settings
+// 使用自定义设置初始化
+// Enable screen reader announcements
+// 启用屏幕阅读器播报
+// Add skip navigation links
+// 添加跳过导航链接
+// Enhanced focus handling
+// 增强焦点管理
+// Arrow key navigation
+// 启用键盘方向键导航
+// Disable if animations are critical
+// 如果动画效果很关键则禁用此选项
+// Add custom announcements
+// 添加自定义播报信息
+accessibility.announce("Data saved successfully", "polite")
+accessibility.announce("数据保存成功", "polite")
+// Focus specific elements
+// 聚焦到特定元素
+## 🔄 Future Enhancements
+## 🔄 未来改进计划
+### **Roadmap for Additional Features**
+### **新增功能路线图**
+- [ ] Voice navigation support
+- [ ] 语音导航支持
+- [ ] Enhanced keyboard shortcuts
+- [ ] 增强型键盘快捷键
+- [ ] Customizable contrast themes
+- [ ] 可自定义对比度主题
+- [ ] Advanced screen reader optimization
+- [ ] 高级屏幕阅读器优化
+- [ ] Internationalization (i18n) support
+- [ ] 国际化(i18n)支持
+- [ ] Right-to-left (RTL) accessibility improvements
+- [ ] 从右至左(RTL)的无障碍改进
+### **Community Contributions**
+### **社区贡献指南**
+We welcome contributions to improve accessibility further. Please:
+我们诚邀您参与改进无障碍功能，请遵循以下原则：
+1. Follow WCAG 2.1 AA guidelines
+1. 遵守 WCAG 2.1 AA 标准
+2. Test with multiple assistive technologies
+2. 使用多种辅助技术进行测试
+3. Document any new features thoroughly
+3. 完整记录所有新功能
+4. Include automated tests where possible
+4. 尽可能包含自动化测试
+## 📞 Support & Resources
+## 📞 支持与资源
+### **Documentation**
+### **文档**
+- [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
+- [WCAG 2.1 指南](https://www.w3.org/WAI/WCAG21/quickref/)
+- [ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/)
+- [ARIA 开发实践](https://www.w3.org/WAI/ARIA/apg/)
+- [WebAIM Resources](https://webaim.org/)
+- [WebAIM 资源中心](https://webaim.org/)
+### **Testing Tools**
+### **测试工具**
+- [axe-core](https://github.com/dequelabs/axe-core)
+- [axe-core 无障碍测试库](https://github.com/dequelabs/axe-core)
+- [WAVE Web Accessibility Evaluator](https://wave.webaim.org/)
+- [WAVE 网页无障碍评估工具](https://wave.webaim.org/)
+- [Lighthouse Accessibility](https://developers.google.com/web/tools/lighthouse/)
+- [Lighthouse 无障碍检测](https://developers.google.com/web/tools/lighthouse/)
+### **Screen Readers**
+### **屏幕阅读器**
+- [NVDA (Free)](https://www.nvaccess.org/)
+- [NVDA (免费版)](https://www.nvaccess.org/)
+- [JAWS (Commercial)](https://www.freedomscientific.com/products/software/jaws/)
+- [JAWS (商业版)](https://www.freedomscientific.com/products/software/jaws/)
+- [VoiceOver (Built-in on macOS/iOS)](https://support.apple.com/guide/voiceover/)
+- [VoiceOver (macOS/iOS 内置)](https://support.apple.com/guide/voiceover/)
+**AdminLTE v4.0.0** - Now with comprehensive WCAG 2.1 AA accessibility compliance!
+**AdminLTE v4.0.0** - 现已全面符合 WCAG 2.1 AA 无障碍标准！🎉
+# Changelog
+# 更新日志
+All notable changes to AdminLTE will be documented in this file.
+AdminLTE 的所有显著变更都将记录在此文件中。
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+格式基于 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)，
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+本项目遵循 [语义化版本控制](https://semver.org/spec/v2.0.0.html)。
+## [Unreleased]
+## [未发布]
+### Updated
+### 已更新
+- **Dependencies:** Updated 8 packages to latest versions
+- **依赖项：** 8 个包已更新至最新版本
+### Fixed
+### 已修复
+- **Windows Build Compatibility:** Fixed npm scripts to work cross-platform by replacing Unix-specific shell commands with `shx`
+- **Windows 构建兼容性：** 修复了 npm 脚本，通过将 Unix 特定的 shell 命令替换为 `shx` 来实现跨平台工作
+- Updated `copy-assets` script to use `shx mkdir` and `shx cp` commands
+- 更新了 `copy-assets` 脚本以使用 `shx mkdir` 和 `shx cp` 命令
+- Updated `flatten-build` script to use `shx cp` and `shx rm` commands
+- 更新了 `flatten-build` 脚本以使用 `shx cp` 和 `shx rm` 命令
+- Added `shx` package as dev dependency for cross-platform shell command support
+- 添加 `shx` 包作为开发依赖项，以支持跨平台 shell 命令
+- Resolves build failures on Windows systems with "The syntax of the command is incorrect" errors
+- 解决了 Windows 系统上“命令语法不正确”的构建失败问题
+- **TeamViewer Modal Compatibility:** Fixed modal fade animations for remote desktop compatibility
+- **TeamViewer 模态框兼容性：** 修复了远程桌面兼容性的模态框渐变动画
+- Updated accessibility CSS to use `transition: none` and `opacity: 1` instead of `display: block`
+- 更新了可访问性 CSS，使用 `transition: none` 和 `opacity: 1` 而不是 `display: block`
+- Maintains WCAG 2.1 AA compliance while ensuring modals work properly in TeamViewer sessions
+- 在确保模态框在 TeamViewer 会话中正常工作的同时，保持 WCAG 2.1 AA 合规性
+- Added specific transform overrides for modal dialogs in reduced motion mode
+- 为减速模式下的模态对话框添加了特定的转换覆盖
+- **Mobile Sidebar Scrolling:** Fixed sidebar closing unexpectedly when scrolling on mobile devices
+- **移动侧边栏滚动：** 修复了在移动设备上滚动时侧边栏意外关闭的问题
+- Updated touch event handling to differentiate between tap and scroll gestures
+- 更新了触摸事件处理以区分点击和滚动手势
+- Added proper overflow properties to sidebar wrapper for mobile viewport
+- 为移动视口添加了侧边栏包装器的正确溢出属性
+- Sidebar now remains open during scroll operations on touch devices
+- 在触摸设备上滚动操作期间，侧边栏现在保持打开状态
+- Resolves issue where scrolling in sidebar would immediately close it on mobile browsers
+- 解决了在移动浏览器上在侧边栏中滚动会立即关闭侧边栏的问题
+- **Image Path Resolution:** Fixed mobile image loading by using relative paths in HTML
+- **图像路径解析：** 通过在 HTML 中使用相对路径修复了移动图像加载问题
+- **Root Cause:** Absolute paths like `/assets/img/user.jpg` caused 404 errors on mobile
+- **根本原因：** 像 `/assets/img/user.jpg` 这样的绝对路径在移动设备上导致 404 错误
+- **Solution:** Generate relative image paths in Astro components based on page location
+- **解决方案：** 根据页面位置在 Astro 组件中生成相对图像路径
+- **Result:** Images now load correctly on all devices and deployment scenarios
+- **结果：** 图像现在在所有设备和部署场景中都能正确加载
+### Production Deployment & Cross-Platform Compatibility
+### 生产部署与跨平台兼容性
+This release resolves critical production deployment issues and ensures consistent behavior between development and production environments across different deployment scenarios.
+此版本解决了关键的生产部署问题，并确保了开发和生产环境在不同部署场景下的一致行为。
+### 🚀 **Production Deployment Fixes**
+### 🚀 **生产部署修复**
+#### **Path Resolution System**
+#### **路径解析系统**
+- **Smart Path Resolution:** Implemented intelligent relative path calculation for all assets
+- **智能路径解析：** 对所有资产实施了智能相对路径计算
+- CSS/JS paths automatically adjust based on page depth (e.g., `./css/` for root, `../css/` for sub-pages)
+- CSS/JS 路径根据页面深度自动调整（例如，根目录为 `./css/`，子页面为 `../css/`）
+- Image paths dynamically corrected at runtime for any deployment structure
+- 图像路径在运行时动态更正，适用于任何部署结构
+- Works seamlessly for root deployment, sub-folder deployment, and CDN hosting
+- 无缝适用于根目录部署、子文件夹部署和 CDN 托管
+#### **RTL CSS Processing Fix**
+#### **RTL CSS 处理修复**
+- **PostCSS Configuration:** Fixed `rtlcss` plugin interference with LTR builds
+- **PostCSS 配置：** 修复了 `rtlcss` 插件对 LTR 构建的干扰
+- `rtlcss` now only runs during RTL-specific builds (`NODE_ENV=RTL`)
+- `rtlcss` 现在只在 RTL 特定的构建期间运行（`NODE_ENV=RTL`）
+- Prevents automatic left/right property flipping in standard production builds
+- 防止在标准生产构建中自动翻转左/右属性
+- Maintains separate `.rtl.css` files for right-to-left language support
+- 为从右到左语言支持维护独立的 `.rtl.css` 文件
+#### **Image Loading Resolution**
+#### **图像加载解析**
+- **Runtime Image Path Fix:** Added intelligent image path correction script
+- **运行时图像路径修复：** 添加了智能图像路径校正脚本
+- Detects deployment context from working CSS/JS paths
+- 从工作的 CSS/JS 路径检测部署上下文
+- Automatically converts absolute image paths (`/assets/img/...`) to relative paths
+- 自动将绝对图像路径（`/assets/img/...`）转换为相对路径
+- Ensures images load correctly regardless of deployment sub-folder structure
+- 确保图像无论部署子文件夹结构如何都能正确加载
+### 🎨 **UI/Navigation Improvements**
+### 🎨 **UI/导航改进**
+#### **Sidebar Navigation Fixed**
+#### **侧边栏导航修复**
+- **Badge & Arrow Positioning:** Resolved sidebar layout issues
+- **徽章与箭头定位：** 解决了侧边栏布局问题
+- Fixed nav badges overlapping text elements
+- 修复了导航徽章与文本元素重叠的问题
+- Restored chevron arrow indicators for expandable menu items
+- 恢复了可展开菜单项的 V 形箭头指示器
+- Corrected spacing and visual hierarchy in sidebar navigation
+- 纠正了侧边栏导航中的间距和视觉层次
+- Added `sidebar-open` class to all layouts for consistent styling
+- 为所有布局添加了 `sidebar-open` 类以实现一致的样式
+#### **Cross-Device Consistency**
+#### **跨设备一致性**
+- **Full-Width Navigation Links:** Enhanced clickable areas
+- **全宽导航链接：** 增强了可点击区域
+- Set `.sidebar-menu .nav-link { width: 100%; }` for better UX
+- 设置 `.sidebar-menu .nav-link { width: 100%; }` 以获得更好的用户体验
+- Ensures badges and arrows align properly at the far right edge
+- 确保徽章和箭头在最右侧正确对齐
+- Maintains proper spacing across all screen sizes and devices
+- 在所有屏幕尺寸和设备上保持适当的间距
+### 📦 **CDN & Dependencies**
+### 📦 **CDN 和依赖项**
+#### **Updated to Latest Stable Versions**
+#### **更新到最新稳定版本**
+- **Bootstrap:** v5.3.3 → v5.3.7 (latest stable)
+- **Bootstrap：** v5.3.3 → v5.3.7（最新稳定版）
+- **Bootstrap Icons:** v1.11.3 → v1.13.1 (latest with new icons)
+- **Bootstrap 图标：** v1.11.3 → v1.13.1（最新版，含新图标）
+- **OverlayScrollbars:** v2.10.1 → v2.11.0 (performance improvements)
+- **OverlayScrollbars：** v2.10.1 → v2.11.0（性能改进）
+- **PopperJS:** v2.11.8 (confirmed latest - no change needed)
+- **PopperJS：** v2.11.8（确认最新 - 无需更改）
+#### **Integrity Attribute Removal**
+#### **完整性属性移除**
+- **SRI-Free CDN Loading:** Removed `integrity` attributes from all CDN resources
+- **无 SRI CDN 加载：** 从所有 CDN 资源中删除了 `integrity` 属性
+- Prevents "Failed to find a valid digest" console errors
+- 防止“无法找到有效的摘要”控制台错误
+- Allows CDN providers to update files without breaking existing links
+- 允许 CDN 提供商更新文件而不破坏现有链接
+- Maintains `crossorigin="anonymous"` for security while removing brittle SRI checks
+- 保持 `crossorigin="anonymous"` 以确保安全性，同时移除脆弱的 SRI 检查
+### 🛠️ **Build System Enhancements**
+### 🛠️ **构建系统增强**
+#### **Development vs Production Parity**
+#### **开发与生产环境对等**
+- **Unified Asset Pipeline:** Both dev and production now use identical asset resolution
+- **统一资产管道：** 开发和生产现在都使用相同的资产解析
+- Development copies fresh CSS/JS to `src/html/public/` for hot-reloading
+- 开发将新的 CSS/JS 复制到 `src/html/public/` 用于热重载
+- Production builds CSS/JS to `dist/css/` and `dist/js/` then flattens structure
+- 生产将 CSS/JS 构建到 `dist/css/` 和 `dist/js/`，然后展平结构
+- Smart path resolution ensures consistent behavior in both environments
+- 智能路径解析确保在两个环境中的一致行为
+#### **Git Repository Cleanup**
+#### **Git 仓库清理**
+- **Production Build Distribution:** Added complete `dist/` folder to repository
+- **生产构建分发：** 将完整的 `dist/` 文件夹添加到仓库
+- Provides ready-to-use production files for immediate deployment
+- 提供即时部署的即用型生产文件
+- Simplifies distribution and CDN access via jsDelivr
+- 简化了通过 jsDelivr 进行的分发和 CDN 访问
+- Enables direct download without requiring Node.js build environment
+- 无需 Node.js 构建环境即可直接下载
+### 🐛 **Critical Bug Fixes**
+### 🐛 **关键错误修复**
+#### **Console Errors Eliminated**
+#### **控制台错误已消除**
+- **SortableJS Loading:** Fixed CDN integrity mismatch for SortableJS
+- **SortableJS 加载：** 修复了 SortableJS 的 CDN 完整性不匹配问题
+- **Asset Path Errors:** Resolved 404 errors for images in sub-folder deployments
+- **资产路径错误：** 解决了子文件夹部署中图像的 404 错误
+- **ESLint Compliance:** Fixed `prefer-global-this` and `prefer-string-slice` linting issues
+- **ESLint 合规性：** 修复了 `prefer-global-this` 和 `prefer-string-slice` linting 问题
+#### **Cross-Browser Compatibility**
+#### **跨浏览器兼容性**
+- **Modern Browser Support:** Updated all CDN references to use stable, versioned URLs
+- **现代浏览器支持：** 更新所有 CDN 引用以使用稳定的版本化 URL
+- **Legacy Browser Fallbacks:** Maintained compatibility while leveraging modern features
+- **旧版浏览器回退：** 在利用现代功能的同时保持兼容性
+- **Touch Device Optimization:** Enhanced touch target sizing and navigation
+- **触摸设备优化：** 增强了触摸目标尺寸和导航
+### 📊 **Performance & Reliability**
+### 📊 **性能与可靠性**
+#### **Bundle Analysis**
+#### **包分析**
+- **Size Optimization:** All bundle watch checks pass with updated thresholds
+- **大小优化：** 所有包监视检查均通过更新的阈值
+- **Loading Performance:** Faster initial page load with optimized asset delivery
+- **加载性能：** 通过优化的资产交付，初始页面加载更快
+- **Runtime Performance:** Minimal overhead from path resolution scripts (<1ms execution)
+- **运行时性能：** 路径解析脚本开销极小（执行时间 <1ms）
+#### **Deployment Versatility**
+#### **部署多功能性**
+- **FTP Deployment:** Full support for traditional FTP/SFTP deployment workflows
+- **FTP 部署：** 完全支持传统的 FTP/SFTP 部署工作流程
+- **Static Hosting:** Compatible with GitHub Pages, Netlify, Vercel, Cloudflare Pages
+- **静态托管：** 兼容 GitHub Pages、Netlify、Vercel、Cloudflare Pages
+- **Sub-folder Deployment:** Works seamlessly when deployed to `/themes/v4/` or similar paths
+- **子文件夹部署：** 部署到 `/themes/v4/` 或类似路径时无缝工作
+- **CDN Integration:** Ready for integration with content delivery networks
+- **CDN 集成：** 已准备好与内容分发网络集成
+### 🎯 **Quality Assurance**
+### 🎯 **质量保证**
+#### **Testing Coverage**
+#### **测试覆盖率**
+- **Development Environment:** `npm run dev` - all features verified working
+- **开发环境：** `npm run dev` - 所有功能均已验证正常工作
+- **Production Build:** `npm run production` - 37 pages built successfully, 0 errors
+- **生产构建：** `npm run production` - 37 个页面成功构建，0 个错误
+- **Static Serving:** `python3 -m http.server` - full functionality confirmed
+- **静态服务：** `python3 -m http.server` - 完整功能已确认
+- **Sub-folder Deployment:** Tested with various deployment paths and structures
+- **子文件夹部署：** 已使用各种部署路径和结构进行测试
+#### **Linting & Standards**
+#### **代码检查和标准**
+- **Zero Linting Errors:** Complete compliance with ESLint and StyleLint rules
+- **零拼写错误：** 完全符合 ESLint 和 StyleLint 规则
+- **Code Consistency:** Unified code style across all JavaScript and CSS files
+- **代码一致性：** 所有 JavaScript 和 CSS 文件统一的代码风格
+- **Best Practices:** Modern ES2022+ patterns with proper browser compatibility
+- **最佳实践：** 具有适当浏览器兼容性的现代 ES2022+ 模式
+### 🚀 **Deployment Guide**
+### 🚀 **部署指南**
+#### **Quick Start**
+#### **快速开始**
+# Deploy via FTP (upload entire dist/ folder contents)
+# 通过 FTP 部署（上传整个 dist/ 文件夹内容）
+# Or serve locally for testing
+# 或者在本地提供服务进行测试
+#### **Deployment Scenarios**
+#### **部署场景**
+1. **Root Deployment:** Upload `dist/` contents to `public_html/` or equivalent
+1. **根目录部署：** 将 `dist/` 内容上传到 `public_html/` 或等效目录
+2. **Sub-folder Deployment:** Upload `dist/` contents to `public_html/admin/` or similar
+2. **子文件夹部署：** 将 `dist/` 内容上传到 `public_html/admin/` 或类似目录
+3. **Static Host Deployment:** Point build directory to `dist/` in your hosting platform
+3. **静态主机部署：** 在您的托管平台中将构建目录指向 `dist/`
+4. **CDN Integration:** Upload assets to CDN and update paths as needed
+4. **CDN 集成：** 将资产上传到 CDN 并根据需要更新路径
+### 📋 **Migration Notes**
+### 📋 **迁移说明**
+#### **From 4.0.0-rc2 to 4.0.0-rc3**
+#### **从 4.0.0-rc2 到 4.0.0-rc3**
+**Automatic Updates (No Action Required):**
+**自动更新（无需操作）：**
+- Path resolution works automatically in all deployment scenarios
+- 路径解析在所有部署场景中自动工作
+- Image loading is fixed without any HTML changes needed
+- 图像加载已修复，无需任何 HTML 更改
+- Sidebar navigation displays correctly with proper spacing and indicators
+- 侧边栏导航显示正确，具有适当的间距和指示器
+- All CDN resources load without console errors
+- 所有 CDN 资源加载无控制台错误
+**Recommended Actions:**
+**推荐操作：**
+- Remove any manual path fixes you may have implemented
+- 移除您可能已实现的任何手动路径修复
+- Update your deployment process to use the new `dist/` structure
+- 更新您的部署过程以使用新的 `dist/` 结构
+- Verify image loading in your specific deployment environment
+- 在您的特定部署环境中验证图像加载
+- Test both development (`npm run dev`) and production builds
+- 测试开发 (`npm run dev`) 和生产构建
+**Breaking Changes:**
+**重大更改：**
+- None - this release is fully backward compatible with existing HTML and CSS
+- 无 - 此版本完全向后兼容现有 HTML 和 CSS
+### ES2022 Modernization & Accessibility Compliance
+### ES2022 现代化与可访问性合规性
+This release modernizes AdminLTE to ES2022 standards and implements comprehensive WCAG 2.1 AA accessibility compliance, making it one of the most accessible admin templates available.
+此版本将 AdminLTE 现代化到 ES2022 标准，并实现了全面的 WCAG 2.1 AA 可访问性合规性，使其成为最易访问的管理模板之一。
+### JavaScript & Build System
+### JavaScript 与构建系统
+#### 🚀 **ES2022 Upgrade**
+#### 🚀 **ES2022 升级**
+- **TypeScript Target:** Upgraded from ES6 to ES2022
+- **TypeScript 目标：** 从 ES6 升级到 ES2022
+- Enables modern JavaScript features: optional chaining, nullish coalescing, class fields
+- 启用现代 JavaScript 功能：可选链、空值合并、类字段
+- Improved performance with native modern browser optimizations
+- 通过原生现代浏览器优化提高性能
+- Better tree-shaking and smaller bundle sizes
+- 更好的 Tree-shaking 和更小的包大小
+- **Browser Support:** Updated `.browserslistrc` for ES2022 compatibility
+- **浏览器支持：** 更新 `.browserslistrc` 以实现 ES2022 兼容性
+- Chrome ≥97, Firefox ≥104, Safari ≥15.4, Edge ≥97
+- Chrome ≥97, Firefox ≥104, Safari ≥15.4, Edge ≥97
+- Removed Internet Explorer support (end-of-life)
+- 移除对 Internet Explorer 的支持（已终止服务）
+- **Build Configuration:** Enhanced Rollup configuration
+- **构建配置：** 增强了 Rollup 配置
+- Native ES2022 module output
+- 原生 ES2022 模块输出
+- Improved source map generation
+- 改进了源映射生成
+- TypeScript integration optimization
+- TypeScript 集成优化
+### ♿ **Accessibility Features**
+### ♿ **可访问性功能**
+#### **WCAG 2.1 AA Compliance Implementation**
+#### **WCAG 2.1 AA 合规性实现**
+- **New Accessibility Module:** Complete `AccessibilityManager` class (`src/ts/accessibility.ts`)
+- **新可访问性模块：** 完整的 `AccessibilityManager` 类 (`src/ts/accessibility.ts`)
+- Automatic skip links generation and management
+- 自动生成和管理跳过链接
+- ARIA live regions for dynamic content announcements
+- 用于动态内容公告的 ARIA 实时区域
+- Enhanced focus management and keyboard navigation
+- 增强的焦点管理和键盘导航
+- Screen reader compatibility (JAWS, NVDA, VoiceOver)
+- 屏幕阅读器兼容性（JAWS、NVDA、VoiceOver）
+- Form validation with accessible error handling
+- 带有可访问错误处理的表单验证
+#### **Core Accessibility Features:**
+#### **核心可访问性功能：**
+- **Skip Navigation:** Automatic skip links to main content, navigation, and key sections
+- **跳过导航：** 自动跳过链接到主要内容、导航和关键部分
+- **Focus Management:**
+- **焦点管理：**
+- Enhanced focus indicators meeting contrast requirements
+- 增强的焦点指示器符合对比度要求
+- Focus trapping for modals and dropdowns
+- 模态框和下拉菜单的焦点陷阱
+- Logical tab order management
+- 逻辑制表符顺序管理
+- **Keyboard Navigation:**
+- **键盘导航：**
+- Full keyboard accessibility for all interactive elements
+- 所有交互式元素的完整键盘可访问性
+- Arrow key navigation for menus and tree views
+- 菜单和树视图的箭头键导航
+- Escape key handling for closing modals/dropdowns
+- 模态框/下拉菜单关闭的 Escape 键处理
+- **Screen Reader Support:**
+- **屏幕阅读器支持：**
+- Proper ARIA labels, roles, and properties
+- 适当的 ARIA 标签、角色和属性
+- Live region announcements for dynamic content
+- 动态内容的实时区域公告
+- Semantic HTML structure with landmarks
+- 带有地标的语义化 HTML 结构
+- **Form Accessibility:**
+- **表单可访问性：**
+- Automatic error identification and announcement
+- 自动错误识别和公告
+- Required field indicators
+- 必填字段指示器
+- Proper label associations
+- 适当的标签关联
+#### **Responsive Design & Preferences:**
+#### **响应式设计与偏好设置：**
+- **Reduced Motion:** Respects `prefers-reduced-motion` for users with vestibular disorders
+- **减少动画：** 尊重 `prefers-reduced-motion`，适用于有前庭疾病的用户
+- **High Contrast:** Enhanced support for high contrast mode
+- **高对比度：** 增强对高对比度模式的支持
+- **Touch Targets:** Minimum 44×44 pixel touch targets (WCAG 2.5.8)
+- **触摸目标：** 最小 44×44 像素触摸目标 (WCAG 2.5.8)
+- **Color Contrast:** All color combinations meet 4.5:1 contrast ratio requirement
+- **颜色对比度：** 所有颜色组合都满足 4.5:1 的对比度要求
+### 🎨 **Accessibility Styles**
+### 🎨 **可访问性样式**
+#### **New Stylesheet:** `src/scss/_accessibility.scss`
+#### **新样式表：** `src/scss/_accessibility.scss`
+- **Skip Link Styling:** Visually hidden until focused, proper positioning
+- **跳过链接样式：** 在聚焦前视觉隐藏，正确定位
+- **Enhanced Focus Indicators:** 3px outline with high contrast colors
+- **增强焦点指示器：** 3px 轮廓，高对比度颜色
+- **Screen Reader Utilities:** `.sr-only` and `.sr-only-focusable` classes
+- **屏幕阅读器工具：** `.sr-only` 和 `.sr-only-focusable` 类
+- **Touch Target Sizing:** Utilities for ensuring minimum touch target sizes
+- **触摸目标大小：** 确保最小触摸目标大小的实用工具
+- **Accessible Color Palette:** Pre-defined colors meeting contrast requirements
+- **可访问颜色调色板：** 预定义的符合对比度要求的颜色
+- **Print Accessibility:** Enhanced print styles with visible URLs and borders
+- **打印可访问性：** 增强的打印样式，带有可见 URL 和边框
+### 🏗️ **Component Improvements**
+### 🏗️ **组件改进**
+#### **Enhanced Components:**
+#### **增强组件：**
+- **Header Component:** Improved meta tags with accessibility features
+- **头部组件：** 改进了带有可访问性功能的元标签
+- Color scheme support (`light`/`dark`)
+- 配色方案支持（`light`/`dark`）
+- Theme color meta tags for browser UI
+- 用于浏览器 UI 的主题颜色元标签
+- Enhanced viewport configuration
+- 增强的视口配置
+- Accessibility description updates
+- 可访问性描述更新
+- **Navigation Components:**
+- **导航组件：**
+- Proper ARIA roles and labels
+- 正确的 ARIA 角色和标签
+- Semantic navigation landmarks
+- 语义化导航地标
+- Keyboard navigation support
+- 键盘导航支持
+- Screen reader announcements
+- 屏幕阅读器公告
+### 📚 **Documentation & Compliance**
+### 📚 **文档与合规性**
+#### **Added:**
+#### **已添加：**
+- **`ACCESSIBILITY-COMPLIANCE.md`:** Comprehensive documentation
+- **`ACCESSIBILITY-COMPLIANCE.md`：** 综合文档
+- Implementation guide for developers
+- 开发者实施指南
+- Testing procedures and tools
+- 测试程序和工具
+- Browser and assistive technology compatibility
+- 浏览器和辅助技术兼容性
+- API documentation for accessibility features
+- 可访问性功能的 API 文档
+- Usage examples and best practices
+- 使用示例和最佳实践
+#### **API Reference:**
+#### **API 参考：**
+// Initialize accessibility features
+// 初始化可访问性功能
+// Enable live announcements
+// 启用实时公告
+// Full keyboard support
+// 完整的键盘支持
+// Respect motion preferences
+// 尊重动画偏好设置
+// Public methods
+// 公共方法
+'Content updated'
+'内容已更新'
+### 🔧 **Technical Improvements**
+### 🔧 **技术改进**
+#### **Build System:**
+#### **构建系统：**
+- **Zero Linting Errors:** All CSS and JavaScript pass strict linting rules
+- **零拼写错误：** 所有 CSS 和 JavaScript 都通过严格的 Linting 规则
+- **Bundle Impact:** Minimal size increase (~23KB total for accessibility features)
+- **捆绑包影响：** 大小增加最小（可访问性功能总共约 23KB）
+- **Performance:** <5ms initialization time for accessibility features
+- **性能：** 可访问性功能的初始化时间 <5ms
+- **Integration:** Seamless integration with existing AdminLTE architecture
+- **集成：** 与现有 AdminLTE 架构无缝集成
+#### **Browser Compatibility:**
+#### **浏览器兼容性：**
+- **Modern Browsers:** Full ES2022 support in target browsers
+- **现代浏览器：** 目标浏览器中完全支持 ES2022
+- **Assistive Technology:** Tested with leading screen readers
+- **辅助技术：** 已使用主流屏幕阅读器进行测试
+- **Mobile Support:** Enhanced touch and mobile accessibility
+- **移动支持：** 增强了触摸和移动可访问性
+- **Legacy Graceful Degradation:** Core functionality maintained for older browsers
+- **旧版优雅降级：** 较旧浏览器仍保留核心功能
+### 🐛 **Bug Fixes**
+### 🐛 **错误修复**
+#### **Layout Issues:**
+#### **布局问题：**
+- **Sidebar Component:** Fixed corrupted navigation structure
+- **侧边栏组件：** 修复了损坏的导航结构
+- **Header Navigation:** Resolved parsing errors in Astro components
+- **头部导航：** 解决了 Astro 组件中的解析错误
+- **CSS Compilation:** Fixed SASS deprecation warnings and property order issues
+- **CSS 编译：** 修复了 SASS 弃用警告和属性顺序问题
+- **Focus Indicators:** Corrected outline and focus ring implementations
+- **焦点指示器：** 修正了轮廓和焦点环实现
+#### **Linting Compliance:**
+#### **Linting 合规性：**
+- **CSS:** Fixed 72+ StyleLint violations in accessibility styles
+- **CSS：** 修复了可访问性样式中 72+ 个 StyleLint 违规
+- **JavaScript:** Resolved ESLint violations for numeric separators and function scoping
+- **JavaScript：** 解决了数字分隔符和函数作用域的 ESLint 违规
+- **TypeScript:** Fixed compilation errors with modern syntax
+- **TypeScript：** 修复了现代语法导致的编译错误
+### 📊 **Performance Metrics**
+### 📊 **性能指标**
+#### **Bundle Sizes:**
+#### **包大小：**
+(includes full accessibility features)
+（包含所有可访问性功能）
+(includes AccessibilityManager)
+（包含 AccessibilityManager）
+<10KB additional for complete accessibility suite
+完整的可访问性套件额外增加 <10KB
+#### **Lighthouse Scores:**
+#### **Lighthouse 评分：**
+- **Accessibility:** 100% (WCAG 2.1 AA compliant)
+- **可访问性：** 100%（符合 WCAG 2.1 AA）
+- **Performance:** Maintained existing performance levels
+- **性能：** 保持现有性能水平
+- **Best Practices:** Improved with modern JavaScript patterns
+- **最佳实践：** 通过现代 JavaScript 模式得到改进
+### 🎯 **Standards Compliance**
+### 🎯 **标准合规性**
+#### **WCAG 2.1 AA Requirements Met:**
+#### **已满足 WCAG 2.1 AA 要求：**
+- **1. Perceivable:** Text alternatives, semantic structure, color contrast
+- **1. 可感知：** 文本替代、语义结构、颜色对比度
+- **2. Operable:** Keyboard accessibility, no seizure triggers, sufficient time
+- **2. 可操作：** 键盘可访问性、无癫痫触发、充足时间
+- **3. Understandable:** Readable content, predictable functionality, input assistance
+- **3. 可理解：** 可读内容、可预测功能、输入辅助
+- **4. Robust:** Valid markup, assistive technology compatibility
+- **4. 健壮性：** 有效标记、辅助技术兼容性
+#### **Additional Standards:**
+#### **其他标准：**
+- **Section 508:** US federal accessibility requirements
+- **508 条款：** 美国联邦可访问性要求
+- **EN 301 549:** European accessibility standard
+- **EN 301 549：** 欧洲可访问性标准
+- **ADA Compliance:** Americans with Disabilities Act requirements
+- **ADA 合规性：** 美国残疾人法案要求
+### 🚀 **Migration Guide**
+### 🚀 **迁移指南**
+#### **From 4.0.0-rc1 to 4.0.0-rc2:**
+#### **从 4.0.0-rc1 到 4.0.0-rc2：**
+**Automatic Features (No Action Required):**
+**自动功能（无需操作）：**
+- Accessibility features initialize automatically
+- 可访问性功能自动初始化
+- Skip links appear automatically for keyboard users
+- 跳过链接自动为键盘用户显示
+- Focus management works out-of-the-box
+- 焦点管理开箱即用
+- Screen reader announcements are enabled by default
+- 屏幕阅读器公告默认启用
+**Optional Enhancements:**
+**可选增强：**
+**For Developers:**
+**对于开发者：**
+- Include accessibility utilities: `import { accessibilityUtils } from './adminlte.js'`
+- 包含可访问性工具：`import { accessibilityUtils } from './adminlte.js'`
+- Use new CSS classes: `.sr-only`, `.touch-target`, `.text-accessible-*`
+- 使用新的 CSS 类：`.sr-only`、`.touch-target`、`.text-accessible-*`
+- Test with screen readers and keyboard navigation
+- 使用屏幕阅读器和键盘导航进行测试
+### Major Modernization Release
+### 主要现代化发布
+This release represents a complete modernization of the AdminLTE codebase, bringing it up to current standards with the latest tooling, dependencies, and best practices.
+此版本代表了 AdminLTE 代码库的彻底现代化，使其符合最新的工具、依赖项和最佳实践。
+### Infrastructure & Tooling
+### 基础设施与工具
+#### Added
+#### 已添加
+- **New npm scripts for better developer experience:**
+- **新的 npm 脚本，提供更好的开发者体验：**
+- `npm start` - Quick development server launch
+- `npm start` - 快速启动开发服务器
+- `npm run build` - Convenient build command for development
+- `npm run build` - 方便的开发构建命令
+- Enhanced `npm run production` with bundlewatch integration
+- 增强的 `npm run production`，集成 bundlewatch
+#### Changed
+#### 已更改
+- **Upgraded to ES Modules:** Added `"type": "module"` to package.json
+- **升级到 ES 模块：** 在 package.json 中添加 `"type": "module"`
+- **ESLint modernization:** Complete upgrade to ESLint v9 with new flat configuration format
+- **ESLint 现代化：** 完全升级到 ESLint v9，采用新的扁平配置格式
+- Migrated from `.eslintrc.json` to modern `eslint.config.js`
+- 从 `.eslintrc.json` 迁移到现代 `eslint.config.js`
+- Updated all ESLint plugins to latest versions
+- 将所有 ESLint 插件更新到最新版本
+- Resolved 700+ linting issues through automated fixes
+- 通过自动化修复解决了 700 多个 linting 问题
+- **Astro configuration:** Added `output: 'static'` for proper static site generation
+- **Astro 配置：** 添加 `output: 'static'` 以实现正确的静态站点生成
+- **Build optimizations:** Enhanced Rollup and PostCSS configurations for ES modules
+- **构建优化：** 增强了 Rollup 和 PostCSS 对 ES 模块的配置
+### Dependencies
+### 依赖项
+#### Updated
+#### 已更新
+- **Major version upgrades:**
+- **主要版本升级：**
+- **Minor/patch updates (50+ packages):**
+- **次要/补丁更新（50 多个包）：**
+- And many more...
+- 还有更多...
+### Security & Quality
+### 安全与质量
+#### Fixed
+#### 已修复
+- **Resolved all npm security vulnerabilities** (0 vulnerabilities remaining)
+- **解决了所有 npm 安全漏洞**（剩余 0 个漏洞）
+- **Updated browserslist database** to latest browser compatibility data
+- **更新了 browserslist 数据库**到最新的浏览器兼容性数据
+- **Fixed all deprecation warnings** from SASS and other build tools
+- **修复了 SASS 和其他构建工具的所有弃用警告**
+#### Improved
+#### 已改进
+- **Code quality:** Zero linting errors across JavaScript, TypeScript, CSS, and Astro files
+- **代码质量：** JavaScript、TypeScript、CSS 和 Astro 文件中零 linting 错误
+- **Bundle optimization:** All assets pass bundlewatch size thresholds
+- **捆绑包优化：** 所有资产都通过 bundlewatch 大小阈值
+- **Build reliability:** Complete production build pipeline works end-to-end
+- **构建可靠性：** 完整的生产构建管道端到端工作
+### Code Cleanup
+### 代码清理
+#### Removed
+#### 已移除
+- **Technical debt cleanup:**
+- **技术债务清理：**
+- Removed incomplete TODO comments and dead code
+- 删除了未完成的 TODO 注释和死代码
+- Cleaned up unused variables and imports
+- 清理了未使用的变量和导入
+- Standardized code formatting across all files
+- 统一了所有文件的代码格式
+#### Fixed
+#### 已修复
+- **ESLint configuration conflicts** between different rule sets
+- 不同规则集之间的 **ESLint 配置冲突**
+- **Module import issues** with JSON imports in ES modules
+- ES 模块中 JSON 导入的 **模块导入问题**
+- **Circular dependency warnings** in build tools
+- 构建工具中的 **循环依赖警告**
+### Development Experience
+### 开发体验
+#### Enhanced
+#### 已增强
+- **Faster development startup** with optimized watch tasks
+- 通过优化的监视任务实现**更快的开发启动**
+- **Cleaner build output** with suppressed non-critical warnings
+- 通过抑制非关键警告实现**更干净的构建输出**
+- **Better error reporting** with modern linting tools
+- 借助现代 linting 工具实现**更好的错误报告**
+- **Improved script organization** with consistent naming conventions
+- 通过一致的命名约定实现**改进的脚本组织**
+### Browser & Platform Support
+### 浏览器与平台支持
+#### Maintained
+#### 已维护
+- **Full Bootstrap 5.3.7 compatibility**
+- **完全兼容 Bootstrap 5.3.7**
+- **Modern browser support** with updated browserslist
+- 通过更新 browserslist 实现**现代浏览器支持**
+- **Static site generation** with Astro 5.x
+- 使用 Astro 5.x 进行**静态站点生成**
+- **RTL (Right-to-Left) language support**
+- **RTL（从右到左）语言支持**
+## Previous Versions
+## 以前的版本
+### [4.0.0-beta3] and earlier
+### [4.0.0-beta3] 及更早版本
+- Legacy versions with previous dependency sets
+- 具有先前依赖集的老版本
+- See git history for detailed changes in earlier versions
+- 有关早期版本的详细更改，请参阅 git 历史记录
+## Migration Guide
+## 迁移指南
+### From 4.0.0-beta3 to 4.0.0-rc1
+### 从 4.0.0-beta3 到 4.0.0-rc1
+**For Users:**
+**对于用户：**
+- No breaking changes in the compiled CSS/JS output
+- 编译后的 CSS/JS 输出中没有重大更改
+- All existing HTML templates remain fully compatible
+- 所有现有 HTML 模板保持完全兼容
+- CDN links and package imports work as before
+- CDN 链接和包导入与以前一样工作
+**For Developers:**
+**对于开发者：**
+- Update your npm scripts if you were using custom ones
+- 如果您使用的是自定义 npm 脚本，请更新它们
+- The new `npm start` command replaces manual `npm run dev`
+- 新的 `npm start` 命令取代了手动 `npm run dev`
+- ESLint configuration is now in `eslint.config.js` (old `.eslintrc.json` removed)
+- ESLint 配置现在位于 `eslint.config.js` 中（旧的 `.eslintrc.json` 已删除）
+- Build process now requires Node.js ES modules support
+- 构建过程现在需要 Node.js ES 模块支持
+**Recommended Actions:**
+**推荐操作：**
+1. Run `npm install` to get latest dependencies
+1. 运行 `npm install` 以获取最新依赖项
+2. Use `npm start` for development
+2. 使用 `npm start` 进行开发
+3. Use `npm run production` for production builds
+3. 使用 `npm run production` 进行生产构建
+4. Review any custom ESLint configurations for compatibility
+4. 检查任何自定义 ESLint 配置的兼容性
+Add accessibility-enhanced form
+添加无障碍功能到表单
+Use accessible color classes
+使用易于识别的颜色类别
+Success message
+发送消息
+# Build for production
+# 生产环境构建
+Email <span
+邮箱 <span

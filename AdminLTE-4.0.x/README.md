@@ -9,6 +9,26 @@
 **AdminLTE** 是一个自响应式管理框架。基于 **[Bootstrap 5](https://getbootstrap.com/)** 框架和 JavaScript 插件。
 高度可定制且易于使用。适用于多种屏幕，小到移动设备大到台式机。
 
+## v4.0.0-rc3 版本更新内容
+
+**生产环境部署与跨平台兼容性** - 该版本修复了关键的生产环境部署问题：
+
+- **修复生产构建** - 解决了所有部署场景下的 CSS/JS 路径问题、侧边栏导航及图片加载异常
+- **智能路径解析** - 自动计算相对路径，完美支持根目录部署、子目录部署及 CDN 托管  
+- **RTL样式修复** - 消除了 rtlcss 对标准 LTR 生产构建的干扰
+- **依赖项更新** - Bootstrap 5.3.7、Bootstrap Icons 1.13.1、OverlayScrollbars 2.11.0
+- **零控制台报错** - 修复所有 CDN 完整性校验不匹配及运行时问题
+- **FTP/静态托管就绪** - 完美兼容传统托管与现代静态平台
+
+**核心改进：**
+- ✅ 开发环境与生产环境表现完全一致
+- ✅ 图片/CSS/JavaScript 在任何部署结构下均可正确加载  
+- ✅ 侧边栏导航正常显示徽章与箭头指示器
+- ✅ 所有 CDN 资源加载无控制台报错
+- ✅ 代码库包含完整生产构建版本，部署更便捷
+
+完整变更详见[更新日志](CHANGELOG.md)
+
 ## 寻找高级模板？
 
 AdminLTE.io 刚刚开通了一个高级模板网站，精选以确保最佳质量和最实惠的价格。
@@ -21,14 +41,46 @@ SCSS 已用于提高代码的可定制性。
 
 ## 快速开始
 
-### 编译 dist 文件
+### 开发指南
 
-要编译 dist 文件，你需要 Node.js/npm，克隆/下载仓库，然后:
+开始使用 AdminLTE 进行开发的步骤：
 
-1. `npm install` （安装依赖）
-2. _可选：_ `npm run dev` （开发者模式，支持在线预览自动编译）
-3. `npm run production` （编译 css/js 文件）
+1. **安装依赖项**：执行 `npm install`
+2. **启动开发服务器**：运行 `npm start` *(自动在浏览器打开 http://localhost:3000)*
+3. **开始编码！** 文件修改后将自动编译并刷新页面
 
+### 生产环境构建
+
+构建生产版本的流程：
+
+1. **完整生产构建**：执行 `npm run production` *(包含代码校验与优化)*
+2. **快速构建**：运行 `npm run build` *(适用于开发/测试的快速构建)*
+
+### 可用脚本命令
+
+- `npm start` - 启动带文件监听的开发服务器
+- `npm run build` - 构建开发环境所需资源
+- `npm run production` - 执行完整生产构建（含代码校验与 bundlewatch 检查）
+- `npm run lint` - 运行所有校验器（JS/CSS/文档/lockfile）
+- `npm run css` - 仅构建 CSS 文件
+- `npm run js` - 仅构建 JavaScript 文件
+
+## 浏览器兼容性
+
+AdminLTE基于最新版 Bootstrap 5.3.7 支持所有现代浏览器：
+- Chrome（最新版）
+- Firefox（最新版） 
+- Safari（最新版）
+- Edge（最新版）
+
+## 平台兼容性
+
+AdminLTE v4 构建脚本支持跨平台运行：
+- **Windows** - 命令 提示符/PowerShell/Git Bash
+- **macOS** - 终端/iTerm2
+- **Linux** - Bash/Zsh 及其他 Unix shell 环境
+
+所有 npm 脚本均使用跨平台工具，确保在不同操作系统上表现一致。
 
 ## 贡献
 
@@ -40,8 +92,8 @@ SCSS 已用于提高代码的可定制性。
 - 将代码克隆你的计算机并更改为 `master` 分支
 - 进入克隆后的文件夹
 - 在 cli/bash 中运行 `npm install`，它会从 `package.json` 中安装依赖
-- 安装完成后，运行 `npm run dev`
-- 将 PR 中的更改发送到 `master` 分支
+- 安装完成后，请运行 `npm start`
+- 太棒了，请将您的修改通过PR提交到`master`分支。
 
 ## 赞助
 

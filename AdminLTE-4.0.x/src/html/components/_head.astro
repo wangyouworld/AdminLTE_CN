@@ -1,37 +1,71 @@
 ---
-const { title, path, isRtl } = Astro.props;
+const { title, isRtl } = Astro.props
 const cssPath = isRtl ? ".rtl" : "";
+
+// Smart path resolution: calculate relative path based on directory depth
+const pathname = Astro.url.pathname;
+// Only count directories, not the filename itself
+const pathSegments = pathname.split('/').filter(segment => segment !== '');
+const depth = pathSegments.length > 0 ? pathSegments.length - 1 : 0;
+const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
 ---
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>{title}</title>
+
+<!--begin::Accessibility Meta Tags-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<meta name="color-scheme" content="light dark" />
+<meta name="theme-color" content="#007bff" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
+<!--end::Accessibility Meta Tags-->
+
 <!--begin::Primary Meta Tags-->
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="title" content={title} />
 <meta name="author" content="ColorlibHQ" />
 <meta
   name="description"
-  content="AdminLTE 是一款免费的 Bootstrap 5 管理控制面板，包含 30 个使用 Vanilla JS 的示例页面。"
+  content="AdminLTE 是一款免费的 Bootstrap 5 管理控制面板，包含 30 个使用 Vanilla JS 的示例页面。 Fully accessible with WCAG 2.1 AA compliance."
 />
 <meta
   name="keywords"
-  content="Bootstrap 5, Bootstrap 5 管理仪表盘,Bootstrap 5 仪表盘,Bootstrap 5 图表,Bootstrap 5 日历,Bootstrap 5 日期选择器,Bootstrap 5 表格,Bootstrap 5 数据表,vanilla js 数据表,colorlibhq, colorlibhq 仪表盘,colorlibhq 管理仪表盘"
+  content="Bootstrap 5, Bootstrap 5 管理仪表盘,Bootstrap 5 仪表盘,Bootstrap 5 图表,Bootstrap 5 日历,Bootstrap 5 日期选择器,Bootstrap 5 表格,Bootstrap 5 数据表,vanilla js 数据表,colorlibhq, colorlibhq 仪表盘,colorlibhq 管理仪表盘, accessible admin panel, WCAG compliant"
 />
 <!--end::Primary Meta Tags-->
+
+<!--begin::Accessibility Features-->
+<!-- Skip links will be dynamically added by accessibility.js -->
+<meta name="supported-color-schemes" content="light dark" />
+<link rel="preload" href={deploymentPath + "css/adminlte" + cssPath + ".css"} as="style" />
+<!--end::Accessibility Features-->
+
 <!--begin::Fonts-->
 <link
   rel="stylesheet"
-  href={path + "/assets/fontsource/index.css"}
+  href={deploymentPath + "assets/fontsource/index.css"}
   integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
   crossorigin="anonymous"
+  media="print"
+  onload="this.media='all'"
 />
 <!--end::Fonts-->
+
 <!--begin::Third Party Plugin(OverlayScrollbars)-->
-<link rel="stylesheet" href={path + "/assets/overlayscrollbars/overlayscrollbars.min.css"} integrity="sha256-tZHrRjVqNSRyWg2wbppGnT833E/Ys0DHWGwT04GiqQg=" crossorigin="anonymous">
+<link
+  rel="stylesheet"
+  href={deploymentPath + "assets/overlayscrollbars/overlayscrollbars.min.css"}
+  crossorigin="anonymous"
+/>
 <!--end::Third Party Plugin(OverlayScrollbars)-->
+
 <!--begin::Third Party Plugin(Bootstrap Icons)-->
-<link rel="stylesheet" href={path + "/assets/bootstrap-icons/bootstrap-icons.min.css"} integrity="sha256-9kPW/n5nn53j4WMRYAxe9c1rCY96Oogo/MKSVdKzPmI=" crossorigin="anonymous">
+<link 
+  rel="stylesheet" 
+  href={deploymentPath + "assets/bootstrap-icons/bootstrap-icons.min.css"} 
+  crossorigin="anonymous"
+/>
 <!--end::Third Party Plugin(Bootstrap Icons)-->
+
 <!--begin::Required Plugin(AdminLTE)-->
-<link rel="stylesheet" href={path + "/css/adminlte" + cssPath + ".css"} />
+<link rel="stylesheet" href={deploymentPath + "css/adminlte" + cssPath + ".css"} />
 <!--end::Required Plugin(AdminLTE)-->

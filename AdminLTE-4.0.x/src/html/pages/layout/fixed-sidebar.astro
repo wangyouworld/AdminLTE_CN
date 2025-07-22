@@ -1,13 +1,13 @@
 ---
-import Head from "@components/_head.astro";
-import Footer from "@components/dashboard/_footer.astro";
-import Topbar from "@components/dashboard/_topbar.astro";
-import Sidenav from "@components/dashboard/_sidenav.astro";
-import Scripts from "@components/_scripts.astro";
+import Head from "@components/_head.astro"
+import Footer from "@components/dashboard/_footer.astro"
+import Topbar from "@components/dashboard/_topbar.astro"
+import Sidenav from "@components/dashboard/_sidenav.astro"
+import Scripts from "@components/_scripts.astro"
 
-const title = "AdminLTE 4 | 固定侧边栏";
-const path = "../../../dist";
-const mainPage = "layout";
+const title = "AdminLTE 4 | 固定侧边栏"
+const path = "../../../dist"
+const mainPage = "layout"
 const page = "fixed-sidebar";
 ---
 
@@ -19,7 +19,7 @@ const page = "fixed-sidebar";
   </head>
   <!--end::Head-->
   <!--begin::Body-->
-  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+  <body class="layout-fixed sidebar-expand-lg sidebar-open bg-body-tertiary">
     <!--begin::App Wrapper-->
     <div class="app-wrapper">
       <Topbar path={path} />
