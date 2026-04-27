@@ -52,8 +52,8 @@ Cool, Send urs changes in PR to `master` branch.
 将 PR 中的更改发送到 `master` 分支
 ## Sponsorship
 ## 赞助
-Support AdminLTE development by becoming a sponsor.
-通过成为赞助商来支持 AdminLTE 开发。
+Support AdminLTE development by becoming a sponsor or donor.
+通过成为赞助者或捐赠者来支持 AdminLTE 的开发工作。
 [Github Sponsors](https://github.com/sponsors/danny007in) or
 通过 [Github 赞助](https://github.com/sponsors/danny007in) 或者使用
 ## License
@@ -1276,5 +1276,283 @@ Success message
 发送消息
 # Build for production
 # 生产环境构建
+- **Fixed 4 Security Vulnerabilities:** Resolved all npm audit security issues
+- **修复了 4 个安全漏洞：** 解决了所有 npm 审计中的安全问题
+- Fixed high severity reflected XSS vulnerability in Astro server islands
+- 修复了 Astro 服务器岛屿中高严重级别的反射型 XSS 漏洞
+- Fixed moderate severity authentication bypass via url.pathname in Astro
+- 修复了通过 Astro 中的 url.pathname 实现的中等严重级别的身份验证绕过漏洞
+- Fixed moderate severity stored XSS in Astro Cloudflare adapter /_image endpoint
+- 修复了 Astro Cloudflare 适配器 /_image 端点中的中等严重级别的存储型 XSS 漏洞
+- Fixed moderate severity unsanitized class attribute in mdast-util-to-hast
+- 修复了 mdast-util-to-hast 中未对类属性进行清理的中等严重级别漏洞
+- All vulnerabilities resolved by updating to Astro 5.16.4+
+- 所有漏洞均已通过更新至 Astro 5.16.4 及以上版本得以解决
+- **Sidebar State Persistence:** New feature to remember sidebar collapsed/expanded state
+- **侧边栏状态保存功能：** 新增功能，可保存侧边栏收起/展开状态
+- Sidebar state now persists across page refreshes using localStorage
+- 现在，侧边栏状态在页面刷新时仍能保持不变，通过使用 localStorage 实现
+- Configurable via `enablePersistence` option (default: `true`)
+- 可通过 `enablePersistence` 选项进行配置（默认值：`true`）
+- SSR-safe implementation with proper environment checks
+- 采用安全的服务器端渲染实现方式，并进行了适当的环境检查
+- Mobile-aware: doesn't restore state on small screens (respects responsive breakpoints)
+- 对移动设备友好：在小屏幕上不会恢复状态（会遵循响应式断点）
+- Graceful error handling for private browsing mode
+- 对私有浏览模式提供优雅的错误处理
+- Storage key: `lte.sidebar.state`
+- 存储键：`lte.sidebar.state`
+- **GitHub Actions:** Updated all workflows to Node.js 22 (from Node.js 18)
+- **GitHub Actions：** 将所有工作流更新为使用 Node.js 22 版本（从之前的 Node.js 18 版本升级而来）
+- Node.js 18 reached End-of-Life on April 30, 2025
+- Node.js 18 于 2025 年 4 月 30 日达到生命周期结束期
+- Node.js 22 is the current Active LTS (supported until April 2027)
+- Node.js 22 是当前的活跃长期支持版本（将持续支持至 2027 年 4 月）
+- Updated `setup-node` action from v3 to v4 across all workflows
+- 在所有工作流中将 `setup-node` 操作从 v3 升级到 v4
+- Updated CodeQL actions from v2 to v3
+- 将 CodeQL 操作从 v2 升级到 v3
+- Added `FORCE_COLOR: 2` environment variable to codeql.yml for consistency
+- 在 codeql.yml 中添加 `FORCE_COLOR： 2` 环境变量以保持一致性
+- **Release Workflow:** Fixed zip command in release.yml
+- **发布流程：** 在 release.yml 中修正了 zip 命令
+- Corrected `-d` flag to `-r` for recursive directory zipping
+- 将 `-d` 标志更正为 `-r` 以实现递归目录压缩
+- Fixed filename inconsistency in release artifacts
+- 修正了发布成果文件中的文件名不一致问题
+- **Nested Card Expand Icon:** Fixed issue #5909 where nested collapsed cards didn't show expand icon
+- **嵌套卡片展开图标：** 解决了 #5909 问题，即嵌套折叠的卡片不会显示展开图标
+- Updated CSS selectors to use direct child (>) scoping for card state icons
+- 更新了 CSS 选择器，使用直接子元素（>）范围来定位卡片状态图标
+- Collapse/expand icons now correctly display for nested cards independently
+- 嵌套卡片的折叠/展开图标现在能够独立正确显示
+- Card body/footer display rules now only affect direct children, not nested cards
+- 卡片主体/页脚的显示规则现在仅影响直接子元素，而不影响嵌套卡片
+- **Card Widget JavaScript:** Fixed nested card collapse/expand affecting child cards
+- **卡片组件 JavaScript：** 解决了嵌套卡片的折叠/展开影响子卡片的问题
+- Added `:scope >` selector to only target direct card-body/footer children
+- 添加了 `:scope >` 选择器，仅针对直接的卡片主体/页脚子元素
+- Prevents parent card collapse from affecting nested card animations
+- 防止父卡片的折叠影响嵌套卡片的动画效果
+- **Dependencies:**
+- **依赖项更新：**
+Updated 15+ packages to latest versions
+已更新 15+ 软件包至最新版本
+Updated 17+ packages to latest versions for improved security and performance
+已将 17+ 软件包更新至最新版本，以提升安全性与性能。
+ (major version)
+ (major 版本)
+- **Security Vulnerabilities:**
+- **安全漏洞：**
+Resolved 2 security issues
+解决了 2 个安全问题
+- Fixed high severity DoS vulnerability in axios (updated to 0.30.2+)
+- 修复了 axios 中的高严重性拒绝服务漏洞（已更新至 0.30.2 及以上版本）
+- Fixed critical vulnerability in form-data random function (updated to 4.0.4+)
+- 修复了 form-data 随机函数中的严重漏洞（已更新至 4.0.4 及以上版本）
+Removed `.eslintignore` file
+移除 `.eslintignore` 文件
+- ESLint ignores are now properly configured in `eslint.config.js`
+- ESLint 的忽略规则现已在 `eslint.config.js` 文件中正确设置
+- Eliminates deprecation warnings in ESLint 9.x
+- 在 ESLint 9.x 版本中消除了弃用警告
+## What's New in v4.0.0-rc6
+## v4.0.0-rc6 版本更新内容
+**Security & Feature Release** - Important security fixes and new sidebar persistence feature:
+**安全与功能更新** - 重要的安全修复措施以及新的侧边栏持久化功能：
+- **Security Fixes** - Resolved 4 vulnerabilities (XSS in Astro, auth bypass, unsanitized attributes)
+- **安全修复** - 解决了 4 个漏洞（Astro 中的跨站脚本攻击、授权绕过、未清理的属性）
+- **Sidebar State Persistence** - Sidebar now remembers collapsed/expanded state across page refreshes
+- **侧边栏状态持久化** - 侧边栏现在能够在页面刷新时记住其折叠/展开的状态
+- **Node.js 22** - Updated all GitHub Actions workflows to Node.js 22 LTS (supported until 2027)
+- **Node.js 22** - 将所有 GitHub Actions 工作流更新为 Node.js 22 版本（支持至 2027 年）
+- **Latest Dependencies** - 15+ packages updated including Astro 5.16.4, Prettier 3.7.4, Rollup 4.53.3
+- **最新依赖项** - 更新了 15 个以上的包，包括 Astro 5.16.4、Prettier 3.7.4、Rollup 4.53.3
+- **CI/CD Improvements** - Updated CodeQL actions to v3, fixed release workflow bugs
+- **CI/CD 改进** - 将 CodeQL 工作流更新至 v3 版本，修复了发布工作流的错误
+- ✅ Zero security vulnerabilities - all npm audit issues resolved
+- ✅ 没有安全漏洞 - 所有 npm 审计问题均已解决
+- ✅ Sidebar state persists in localStorage (configurable, SSR-safe, mobile-aware)
+- ✅ 侧边栏状态会保存在本地存储中（可配置、支持服务器端渲染、具备移动设备适配能力）
+- ✅ GitHub Actions use Node.js 22 (Active LTS until April 2027)
+- ✅ GitHub Actions 使用 Node.js 22 版本（从现在起持续活跃直至 2027 年 4 月）
+- ✅ CodeQL security scanning updated to latest v3 actions
+- ✅ CodeQL 安全扫描已更新至最新 v3 版本的动作
+- ✅ Release workflow fixed for proper asset packaging
+- ✅ 发布流程已修复，以实现正确的资产打包
+**Install the latest:**
+**安装最新版本：**
+## Security & Production Deployment
+## 安全与生产部署
+### Important Security Notice
+### 重要安全提示
+AdminLTE is a **UI template** - when deploying to production, follow these critical guidelines:
+AdminLTE 是一款**用户界面模板**——在进行生产部署时，请遵循以下关键准则：
+**What to Deploy:**
+**部署内容：**
+- Only compiled production assets: `dist/js/adminlte.min.js` and `dist/css/adminlte.min.css`
+- 仅包含编译后的生产资源：`dist/js/adminlte.min.js` 和 `dist/css/adminlte.min.css`
+- Your application-specific files
+- 应用中特定文件
+**What NOT to Deploy:**
+**不应部署的内容：**
+- `node_modules/` directory
+- `node_modules/` 目录
+- Demo/example HTML files (index.html, index2.html, index3.html, etc.)
+- 演示/示例 HTML 文件（index.html、index2.html、index3.html 等）
+- Source files (`src/` directory)
+- 源文件（`src/` 目录）
+- Development configuration files
+- 开发配置文件
+**CVE-2021-36471 Notice:**
+**CVE-2021-36471 警告：**
+This CVE is **disputed** and does not represent a vulnerability in AdminLTE. It refers to demo pages being accessible when developers incorrectly deploy example files to production. AdminLTE v4 has a clear separation between development demos and production assets. See [SECURITY.md](SECURITY.md) for complete details.
+此 CVE 信息存在争议，并不代表 AdminLTE 存在漏洞。它指的是在开发人员错误地将示例文件部署到生产环境时，演示页面能够被访问到。AdminLTE 4 版本明确区分了开发演示内容和生产资源。有关详细信息，请参阅 [SECURITY.md](SECURITY.md) 文件。
+**Production Build:**
+**生产版本：**
+# Builds optimized assets in dist/
+# 在 dist/ 目录中构建优化后的资产文件
+For detailed security guidelines, authentication requirements, and best practices, see [SECURITY.md](SECURITY.md).
+有关详细的安全指南、认证要求以及最佳实践，请参阅 [SECURITY.md](SECURITY.md)。
+Your avatar here? Become a sponsor
+你的虚拟形象在这里吗？请成为赞助商吧
+- **Deprecated Files:**
+- **已弃用文件：**
+# Security Policy
+# 安全政策
+## Reporting Security Issues
+## 报告安全问题
+If you discover a security vulnerability in AdminLTE, please report it by emailing the maintainers or opening a private security advisory on GitHub. We take security seriously and will respond promptly.
+如果您在 AdminLTE 中发现任何安全漏洞，请通过发送电子邮件给维护人员或在 GitHub 上创建私密的安全公告来报告该问题。我们非常重视安全问题，并会迅速作出回应。
+## Supported Versions
+## 支持的版本
+| Version
+| 版本
+| Supported
+| 支持的系统
+## Security Best Practices
+## 安全最佳实践
+AdminLTE is a frontend admin dashboard template. When deploying applications built with AdminLTE, follow these security best practices:
+AdminLTE 是一款前端管理仪表板模板。在部署使用 AdminLTE 构建的应用程序时，请遵循以下安全最佳实践：
+### 1. Production Deployment
+### 1. 生产部署
+- **Never expose `node_modules` directory** in production environments
+- 在生产环境中**切勿公开 `node_modules` 目录**
+- **Remove demo/example files** (like `index2.html`, `index3.html`) from production builds
+- 从生产构建中移除演示/示例文件（例如 `index2.html`, `index3.html`）
+- **Use a proper build process** that only includes necessary production assets
+- 使用仅包含必要生产资源的恰当构建流程
+- **Configure web server properly** to prevent directory traversal attacks
+- 正确配置网络服务器，以防止目录遍历攻击
+### 2. Build Process
+### 2. 构建过程
+When deploying to production:
+在部署到生产环境时：
+# Build only production assets
+# 仅构建生产环境所需资源
+# Deploy only the dist/ directory contents you need
+# 只部署您所需的内容到 dist/ 目录中
+# Typically: dist/js/adminlte.min.js and dist/css/adminlte.min.css
+# 通常情况下：dist/js/adminlte.min.js 和 dist/css/adminlte.min.css
+### 3. What NOT to Deploy
+### 3. 不宜部署的内容
+Do not deploy these to production:
+请勿将以下内容部署到生产环境中：
+- `node_modules/` directory
+- `node_modules/` 目录
+- Example/demo HTML files (`index.html`, `index2.html`, `index3.html`, etc.)
+- 示例/演示的 HTML 文件（如 `index.html`, `index2.html`, `index3.html` 等）
+- Source files (`src/` directory)
+- 源文件（`src/`目录）
+- Development configuration files
+- 开发配置文件
+- Documentation files
+- 文档文件
+## Known CVE Issues
+## 已知的 CVE 问题
+### CVE-2021-36471 (Disputed)
+### CVE-2021-36471（存在争议）
+**Status**: This CVE is **disputed** and does not represent a vulnerability in AdminLTE itself.
+**状态**：此 CVE 被认为**存在争议**，并且并不意味着 AdminLTE 系统本身存在漏洞。
+**Issue**: CVE-2021-36471 claims AdminLTE 3.1.0 has a "Directory Traversal vulnerability" that allows remote attackers to view demo pages via `/admin/index2.html` and `/admin/index3.html`.
+**问题**：CVE-2021-36471 指出 AdminLTE 3.1.0 存在"目录遍历漏洞"，该漏洞使得远程攻击者能够通过访问 `/admin/index2.html` 和 `/admin/index3.html` 来查看演示页面。
+**Clarification**:
+**说明**：
+- The `index2.html` and `index3.html` files are **example/demo pages** intended for developer reference during development
+- `index2.html` 和 `index3.html` 这两个文件是 **示例/演示页面**，旨在供开发人员在开发过程中参考
+- This is **not a vulnerability in AdminLTE** - it is a **deployment misconfiguration** by website developers
+- 这并非 **AdminLTE 的漏洞** - 它是由网站开发者在部署时出现的 **配置错误**
+- The issue occurs when developers incorrectly deploy:
+- 问题出现在开发者错误地进行以下操作时：
+- Their entire `node_modules` folder publicly
+- 将其整个 `node_modules` 文件夹公开部署
+- Demo/example files in production environments
+- 在生产环境中部署演示/示例文件
+- Without proper web server configuration
+- 且未进行适当的 Web 服务器配置
+**Resolution**:
+**决议**：
+- AdminLTE 4.x has restructured the project architecture with clear separation between development demos and production assets
+- AdminLTE 4.x 已对项目架构进行了重新设计，实现了开发演示与生产资源的清晰区分
+- Follow the production deployment best practices above
+- 请遵循上述的生产部署最佳实践
+- Only deploy the compiled production assets from `dist/js/` and `dist/css/`
+- 仅部署来自 `dist/js/` 和 `dist/css/` 目录的编译后的生产资源
+- The original CVE researcher acknowledged this should be classified as low/info severity, not critical
+- 该原始的漏洞研究员已确认，此漏洞应被归类为低/信息级别严重性，而非严重级别
+**For More Information**:
+**了解更多**：
+- [GitHub Issue
+- [GitHub 问题
+- [CVE Record
+- [CVE 记录
+marked as disputed
+标记为存在争议
+## Secure Development
+## 安全开发
+### Content Security Policy (CSP)
+### 内容安全策略（CSP）
+When implementing AdminLTE in your application, consider adding appropriate Content Security Policy headers to prevent XSS attacks.
+在将 AdminLTE 应用到您的系统中时，请考虑添加适当的内容安全策略标头，以防止 XSS 攻击。
+### Authentication & Authorization
+### 身份验证与授权
+AdminLTE is a **UI template only** and does not include authentication or authorization. You must:
+AdminLTE 仅是一个**用户界面模板**，不包含认证或授权功能。您需要：
+- Implement proper authentication in your backend
+- 在后端实现适当的认证机制
+- Secure all API endpoints
+- 保护所有 API 端点
+- Use HTTPS in production
+- 在生产环境中使用 HTTPS
+- Implement proper session management
+- 实施适当的会话管理
+- Follow OWASP security guidelines
+- 遵循 OWASP 安全指南
+- Keep AdminLTE and its dependencies up to date
+- 保持 AdminLTE 及其相关依赖项处于最新状态
+- Regularly run `npm audit` to check for vulnerabilities
+- 定期运行 `npm audit` 以检查是否存在漏洞
+- Review security advisories for Bootstrap and other dependencies
+- 查阅 Bootstrap 及其他依赖项的安全公告
+## Contact
+## 联系方式
+For security concerns, please contact the maintainers through:
+出于安全方面的考虑，请通过以下方式联系维护人员：
+- GitHub Issues (for general questions)
+- GitHub 问题跟踪页面（用于一般性问题）
+- GitHub Security Advisories (for sensitive security issues)
+- GitHub 安全公告（用于敏感的安全问题）
+- Project maintainer email (check package.json)
+- 项目维护人员邮箱（查看 package.json 文件）
+(includes security fixes)
+（包含安全修复）
+Our Sponsors
+我们的赞助商
+### Added
+### 新增
+### Changed
+### 变更
+### Removed
+### 移除
 Email <span
 邮箱 <span

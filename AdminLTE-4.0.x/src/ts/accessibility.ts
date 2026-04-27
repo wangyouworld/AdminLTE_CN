@@ -159,15 +159,17 @@ export class AccessibilityManager {
   }
 
   private handleEscapeKey(event: KeyboardEvent): void {
-    // Close modals, dropdowns, etc.
+    // Close dropdowns, but let Bootstrap handle its own modal keyboard behavior
     const activeModal = document.querySelector('.modal.show')
-    const activeDropdown = document.querySelector('.dropdown-menu.show')
-    
+
     if (activeModal) {
-      const closeButton = activeModal.querySelector('[data-bs-dismiss="modal"]') as HTMLElement
-      closeButton?.click()
-      event.preventDefault()
-    } else if (activeDropdown) {
+      // Do not interfere — Bootstrap handles Escape for modals,
+      // including respecting keyboard: false and stacked modals
+      return
+    }
+
+    const activeDropdown = document.querySelector('.dropdown-menu.show')
+    if (activeDropdown) {
       const toggleButton = document.querySelector('[data-bs-toggle="dropdown"][aria-expanded="true"]') as HTMLElement
       toggleButton?.click()
       event.preventDefault()
@@ -338,10 +340,13 @@ export class AccessibilityManager {
         }
       }
 
-      // Handle invalid states
-      htmlInput.addEventListener('invalid', () => {
-        this.handleFormError(htmlInput)
-      })
+      // Handle invalid state unless the element explicitly opts out via the
+      // 'disable-adminlte-validations' class.
+      if (!htmlInput.classList.contains('disable-adminlte-validations')) {
+        htmlInput.addEventListener('invalid', () => {
+          this.handleFormError(htmlInput)
+        })
+      }
     })
   }
 
@@ -354,7 +359,12 @@ export class AccessibilityManager {
       errorElement.id = errorId
       errorElement.className = 'invalid-feedback'
       errorElement.setAttribute('role', 'alert')
-      input.parentNode?.insertBefore(errorElement, input.nextSibling)
+
+      // Always append the error element as the last child of the parent.
+      // This prevents breaking layouts where inputs use Bootstrap's
+      // `.input-group-text` decorators, ensuring the error stays below
+      // the entire input group.
+      input.parentNode?.append(errorElement)
     }
     
     errorElement.textContent = input.validationMessage

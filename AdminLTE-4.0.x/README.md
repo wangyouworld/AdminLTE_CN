@@ -9,23 +9,28 @@
 **AdminLTE** 是一个自响应式管理框架。基于 **[Bootstrap 5](https://getbootstrap.com/)** 框架和 JavaScript 插件。
 高度可定制且易于使用。适用于多种屏幕，小到移动设备大到台式机。
 
-## v4.0.0-rc3 版本更新内容
+## v4.0.0-rc6 版本更新内容
 
-**生产环境部署与跨平台兼容性** - 该版本修复了关键的生产环境部署问题：
+**安全与功能更新** - 重要的安全修复措施以及新的侧边栏持久化功能：
 
-- **修复生产构建** - 解决了所有部署场景下的 CSS/JS 路径问题、侧边栏导航及图片加载异常
-- **智能路径解析** - 自动计算相对路径，完美支持根目录部署、子目录部署及 CDN 托管  
-- **RTL样式修复** - 消除了 rtlcss 对标准 LTR 生产构建的干扰
-- **依赖项更新** - Bootstrap 5.3.7、Bootstrap Icons 1.13.1、OverlayScrollbars 2.11.0
-- **零控制台报错** - 修复所有 CDN 完整性校验不匹配及运行时问题
-- **FTP/静态托管就绪** - 完美兼容传统托管与现代静态平台
+- **安全修复** - 解决了 4 个漏洞（Astro 中的跨站脚本攻击、授权绕过、未清理的属性）
+- **侧边栏状态持久化** - 侧边栏现在能够在页面刷新时记住其折叠/展开的状态
+- **Node.js 22** - 将所有 GitHub Actions 工作流更新为 Node.js 22 版本（支持至 2027 年）
+- **最新依赖项** - 更新了 15 个以上的包，包括 Astro 5.16.4、Prettier 3.7.4、Rollup 4.53.3
+- **CI/CD 改进** - 将 CodeQL 工作流更新至 v3 版本，修复了发布工作流的错误
 
 **核心改进：**
-- ✅ 开发环境与生产环境表现完全一致
-- ✅ 图片/CSS/JavaScript 在任何部署结构下均可正确加载  
-- ✅ 侧边栏导航正常显示徽章与箭头指示器
-- ✅ 所有 CDN 资源加载无控制台报错
-- ✅ 代码库包含完整生产构建版本，部署更便捷
+
+- ✅ 没有安全漏洞 - 所有 npm 审计问题均已解决
+- ✅ 侧边栏状态会保存在本地存储中（可配置、支持服务器端渲染、具备移动设备适配能力）
+- ✅ GitHub Actions 使用 Node.js 22 版本（从现在起持续活跃直至 2027 年 4 月）
+- ✅ CodeQL 安全扫描已更新至最新 v3 版本的动作
+- ✅ 发布流程已修复，以实现正确的资产打包
+
+**安装最新版本：**
+```bash
+npm install admin-lte@4.0.0-rc6
+```
 
 完整变更详见[更新日志](CHANGELOG.md)
 
@@ -69,7 +74,7 @@ SCSS 已用于提高代码的可定制性。
 
 AdminLTE基于最新版 Bootstrap 5.3.7 支持所有现代浏览器：
 - Chrome（最新版）
-- Firefox（最新版） 
+- Firefox（最新版）
 - Safari（最新版）
 - Edge（最新版）
 
@@ -81,6 +86,62 @@ AdminLTE v4 构建脚本支持跨平台运行：
 - **Linux** - Bash/Zsh 及其他 Unix shell 环境
 
 所有 npm 脚本均使用跨平台工具，确保在不同操作系统上表现一致。
+
+## 安全与生产部署
+
+### 重要安全提示
+
+AdminLTE 是一款**用户界面模板**——在进行生产部署时，请遵循以下关键准则：
+
+**部署内容：**
+- 仅包含编译后的生产资源：`dist/js/adminlte.min.js` 和 `dist/css/adminlte.min.css`
+- 应用中特定文件
+
+**不应部署的内容：**
+- `node_modules/` 目录
+- 演示/示例 HTML 文件（index.html、index2.html、index3.html 等）
+- 源文件（`src/` 目录）
+- 开发配置文件
+
+**CVE-2021-36471 警告：**
+此 CVE 信息存在争议，并不代表 AdminLTE 存在漏洞。它指的是在开发人员错误地将示例文件部署到生产环境时，演示页面能够被访问到。AdminLTE 4 版本明确区分了开发演示内容和生产资源。有关详细信息，请参阅 [SECURITY.md](SECURITY.md) 文件。
+
+**生产版本：**
+```bash
+npm run production  # 在 dist/ 目录中构建优化后的资产文件
+```
+
+有关详细的安全指南、认证要求以及最佳实践，请参阅 [SECURITY.md](SECURITY.md)。
+
+## 赞助
+
+通过成为赞助者或捐赠者来支持 AdminLTE 的开发工作。
+
+<p align="center">
+  <a href="https://github.com/sponsors/danny007in">
+    <img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86" alt="Sponsor on GitHub" />
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://www.paypal.me/daniel007in">
+    <img src="https://img.shields.io/static/v1?label=Donate&message=%E2%9D%A4&logo=PayPal&color=%2300457C" alt="Donate via PayPal" />
+  </a>
+</p>
+
+## 我们的赞助商
+
+<p align="center">
+  <a href="https://github.com/spizzo14"><img src="https://unavatar.io/github/spizzo14?fallback=https%3A%2F%2Fraw.githubusercontent.com%2FJamesIves%2Fgithub-sponsors-readme-action%2Fdev%2F.github%2Fassets%2Fplaceholder.png" width="50" height="50" alt="User avatar: spizzo14" loading="lazy" /></a>&nbsp;&nbsp;
+  <a href="https://github.com/tomhappyblock"><img src="https://unavatar.io/github/tomhappyblock?fallback=https%3A%2F%2Fraw.githubusercontent.com%2FJamesIves%2Fgithub-sponsors-readme-action%2Fdev%2F.github%2Fassets%2Fplaceholder.png" width="50" height="50" alt="User avatar: tomhappyblock" loading="lazy" /></a>&nbsp;&nbsp;
+  <a href="https://github.com/stefanmorderca"><img src="https://unavatar.io/github/stefanmorderca?fallback=https%3A%2F%2Fraw.githubusercontent.com%2FJamesIves%2Fgithub-sponsors-readme-action%2Fdev%2F.github%2Fassets%2Fplaceholder.png" width="50" height="50" alt="User avatar: stefanmorderca" loading="lazy" /></a>&nbsp;&nbsp;
+  <a href="https://github.com/tito10047"><img src="https://unavatar.io/github/tito10047?fallback=https%3A%2F%2Fraw.githubusercontent.com%2FJamesIves%2Fgithub-sponsors-readme-action%2Fdev%2F.github%2Fassets%2Fplaceholder.png" width="50" height="50" alt="User avatar: tito10047" loading="lazy" /></a>&nbsp;&nbsp;
+  <a href="https://github.com/sitchi"><img src="https://unavatar.io/github/sitchi?fallback=https%3A%2F%2Fraw.githubusercontent.com%2FJamesIves%2Fgithub-sponsors-readme-action%2Fdev%2F.github%2Fassets%2Fplaceholder.png" width="50" height="50" alt="User avatar: sitchi" loading="lazy" /></a>&nbsp;&nbsp;
+  <a href="https://github.com/npreee"><img src="https://unavatar.io/github/npreee?fallback=https%3A%2F%2Fraw.githubusercontent.com%2FJamesIves%2Fgithub-sponsors-readme-action%2Fdev%2F.github%2Fassets%2Fplaceholder.png" width="50" height="50" alt="User avatar: npreee" loading="lazy" /></a>&nbsp;&nbsp;
+  <a href="https://github.com/isaacmorais"><img src="https://unavatar.io/github/isaacmorais?fallback=https%3A%2F%2Fraw.githubusercontent.com%2FJamesIves%2Fgithub-sponsors-readme-action%2Fdev%2F.github%2Fassets%2Fplaceholder.png" width="50" height="50" alt="User avatar: isaacmorais" loading="lazy" /></a>&nbsp;&nbsp;
+</p>
+
+<p align="center">
+  <a href="https://github.com/sponsors/danny007in">你的虚拟形象在这里吗？请成为赞助商吧</a>
+</p>
 
 ## 贡献
 
@@ -95,11 +156,6 @@ AdminLTE v4 构建脚本支持跨平台运行：
 - 安装完成后，请运行 `npm start`
 - 太棒了，请将您的修改通过PR提交到`master`分支。
 
-## 赞助
-
-通过成为赞助商来支持 AdminLTE 开发。
-通过 [Github 赞助](https://github.com/sponsors/danny007in) 或者使用
-[PayPal](https://www.paypal.me/daniel007in)
 
 ## 许可证
 
@@ -113,3 +169,4 @@ AdminLTE.io 保留在未来更改许可的权利。
 - [Pickaface](https://pickaface.net/)
 - [Unsplash](https://unsplash.com/)
 - [Uifaces](http://uifaces.com/)
+- [Unavatar](https://unavatar.io/)

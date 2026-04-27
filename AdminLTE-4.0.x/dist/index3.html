@@ -1,68 +1,77 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <!--begin::Head-->
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>AdminLTE | Dashboard v3</title>
+    <title>AdminLTE | 仪表盘 v3</title>
+
     <!--begin::Accessibility Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="#007bff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
     <!--end::Accessibility Meta Tags-->
+
     <!--begin::Primary Meta Tags-->
-    <meta name="title" content="AdminLTE | Dashboard v3" />
+    <meta name="title" content="AdminLTE | 仪表盘 v3" />
     <meta name="author" content="ColorlibHQ" />
     <meta
       name="description"
-      content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS. Fully accessible with WCAG 2.1 AA compliance."
+      content="AdminLTE 是一款免费的 Bootstrap 5 管理控制面板，包含 30 个使用 Vanilla JS 的示例页面。 Fully accessible with WCAG 2.1 AA compliance."
     />
     <meta
       name="keywords"
-      content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard, accessible admin panel, WCAG compliant"
+      content="Bootstrap 5, Bootstrap 5 管理仪表盘,Bootstrap 5 仪表盘,Bootstrap 5 图表,Bootstrap 5 日历,Bootstrap 5 日期选择器,Bootstrap 5 表格,Bootstrap 5 数据表,vanilla js 数据表,colorlibhq, colorlibhq 仪表盘,colorlibhq 管理仪表盘, accessible admin panel, WCAG compliant"
     />
     <!--end::Primary Meta Tags-->
+
     <!--begin::Accessibility Features-->
     <!-- Skip links will be dynamically added by accessibility.js -->
     <meta name="supported-color-schemes" content="light dark" />
     <link rel="preload" href="./css/adminlte.css" as="style" />
     <!--end::Accessibility Features-->
+
     <!--begin::Fonts-->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+      href="./assets/fontsource/index.css"
       integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
       crossorigin="anonymous"
       media="print"
-      onload="this.media='all'"
+      onload="this.media = 'all'"
     />
     <!--end::Fonts-->
+
     <!--begin::Third Party Plugin(OverlayScrollbars)-->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css"
+      href="./assets/overlayscrollbars/overlayscrollbars.min.css"
       crossorigin="anonymous"
     />
     <!--end::Third Party Plugin(OverlayScrollbars)-->
+
     <!--begin::Third Party Plugin(Bootstrap Icons)-->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+      href="./assets/bootstrap-icons/bootstrap-icons.min.css"
       crossorigin="anonymous"
     />
     <!--end::Third Party Plugin(Bootstrap Icons)-->
+
     <!--begin::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="./css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
+
     <!-- apexcharts -->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css"
+      href="./assets/apexcharts/apexcharts.css"
       integrity="sha256-4MX+61mt9NVvvuPjUWdUdyfZfxSB1/Rf9WtqRHgG5S0="
       crossorigin="anonymous"
     />
   </head>
-  <body class="layout-fixed sidebar-expand-lg sidebar-open bg-body-tertiary">
+
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
     <!--begin::App Wrapper-->
     <div class="app-wrapper">
       <!--begin::Header-->
@@ -76,10 +85,15 @@
                 <i class="bi bi-list"></i>
               </a>
             </li>
-            <li class="nav-item d-none d-md-block"><a href="#" class="nav-link">Home</a></li>
-            <li class="nav-item d-none d-md-block"><a href="#" class="nav-link">Contact</a></li>
+            <li class="nav-item d-none d-md-block">
+              <a href="#" class="nav-link">首页</a>
+            </li>
+            <li class="nav-item d-none d-md-block">
+              <a href="#" class="nav-link">联系</a>
+            </li>
           </ul>
           <!--end::Start Navbar Links-->
+
           <!--begin::End Navbar Links-->
           <ul class="navbar-nav ms-auto">
             <!--begin::Navbar Search-->
@@ -89,6 +103,7 @@
               </a>
             </li>
             <!--end::Navbar Search-->
+
             <!--begin::Messages Dropdown Menu-->
             <li class="nav-item dropdown">
               <a class="nav-link" data-bs-toggle="dropdown" href="#">
@@ -102,7 +117,7 @@
                     <div class="flex-shrink-0">
                       <img
                         src="./assets/img/user1-128x128.jpg"
-                        alt="User Avatar"
+                        alt="用户头像"
                         class="img-size-50 rounded-circle me-3"
                       />
                     </div>
@@ -113,9 +128,9 @@
                           ><i class="bi bi-star-fill"></i
                         ></span>
                       </h3>
-                      <p class="fs-7">Call me whenever you can...</p>
+                      <p class="fs-7">有时间打电话给我……</p>
                       <p class="fs-7 text-secondary">
-                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                        <i class="bi bi-clock-fill me-1"></i> 4 小时前
                       </p>
                     </div>
                   </div>
@@ -128,7 +143,7 @@
                     <div class="flex-shrink-0">
                       <img
                         src="./assets/img/user8-128x128.jpg"
-                        alt="User Avatar"
+                        alt="用户头像"
                         class="img-size-50 rounded-circle me-3"
                       />
                     </div>
@@ -139,9 +154,9 @@
                           <i class="bi bi-star-fill"></i>
                         </span>
                       </h3>
-                      <p class="fs-7">I got your message bro</p>
+                      <p class="fs-7">我收到你的消息了，兄弟</p>
                       <p class="fs-7 text-secondary">
-                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                        <i class="bi bi-clock-fill me-1"></i> 4 小时前
                       </p>
                     </div>
                   </div>
@@ -154,7 +169,7 @@
                     <div class="flex-shrink-0">
                       <img
                         src="./assets/img/user3-128x128.jpg"
-                        alt="User Avatar"
+                        alt="用户头像"
                         class="img-size-50 rounded-circle me-3"
                       />
                     </div>
@@ -165,19 +180,20 @@
                           <i class="bi bi-star-fill"></i>
                         </span>
                       </h3>
-                      <p class="fs-7">The subject goes here</p>
+                      <p class="fs-7">主题在这里</p>
                       <p class="fs-7 text-secondary">
-                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                        <i class="bi bi-clock-fill me-1"></i> 4 小时前
                       </p>
                     </div>
                   </div>
                   <!--end::Message-->
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+                <a href="#" class="dropdown-item dropdown-footer">查看所有消息</a>
               </div>
             </li>
             <!--end::Messages Dropdown Menu-->
+
             <!--begin::Notifications Dropdown Menu-->
             <li class="nav-item dropdown">
               <a class="nav-link" data-bs-toggle="dropdown" href="#">
@@ -185,27 +201,28 @@
                 <span class="navbar-badge badge text-bg-warning">15</span>
               </a>
               <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-                <span class="dropdown-item dropdown-header">15 Notifications</span>
+                <span class="dropdown-item dropdown-header">15 条通知</span>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item">
-                  <i class="bi bi-envelope me-2"></i> 4 new messages
-                  <span class="float-end text-secondary fs-7">3 mins</span>
+                  <i class="bi bi-envelope me-2"></i> 4 条新消息
+                  <span class="float-end text-secondary fs-7">3 分钟前</span>
                 </a>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item">
-                  <i class="bi bi-people-fill me-2"></i> 8 friend requests
-                  <span class="float-end text-secondary fs-7">12 hours</span>
+                  <i class="bi bi-people-fill me-2"></i> 8 条好友请求
+                  <span class="float-end text-secondary fs-7">12 小时前</span>
                 </a>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item">
-                  <i class="bi bi-file-earmark-fill me-2"></i> 3 new reports
-                  <span class="float-end text-secondary fs-7">2 days</span>
+                  <i class="bi bi-file-earmark-fill me-2"></i> 3 个新报告
+                  <span class="float-end text-secondary fs-7">2 天前</span>
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item dropdown-footer"> See All Notifications </a>
+                <a href="#" class="dropdown-item dropdown-footer"> 查看所有通知 </a>
               </div>
             </li>
             <!--end::Notifications Dropdown Menu-->
+
             <!--begin::Fullscreen Toggle-->
             <li class="nav-item">
               <a class="nav-link" href="#" data-lte-toggle="fullscreen">
@@ -214,45 +231,52 @@
               </a>
             </li>
             <!--end::Fullscreen Toggle-->
+
             <!--begin::User Menu Dropdown-->
             <li class="nav-item dropdown user-menu">
               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                 <img
                   src="./assets/img/user2-160x160.jpg"
                   class="user-image rounded-circle shadow"
-                  alt="User Image"
+                  alt="用户头像"
                 />
                 <span class="d-none d-md-inline">Alexander Pierce</span>
               </a>
               <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-                <!--begin::User Image-->
+                <!--begin::用户头像-->
                 <li class="user-header text-bg-primary">
                   <img
                     src="./assets/img/user2-160x160.jpg"
                     class="rounded-circle shadow"
-                    alt="User Image"
+                    alt="用户头像"
                   />
                   <p>
-                    Alexander Pierce - Web Developer
-                    <small>Member since Nov. 2023</small>
+                    Alexander Pierce - 网页开发工程师
+                    <small>注册于 2023 年 11 月</small>
                   </p>
                 </li>
-                <!--end::User Image-->
+                <!--end::用户头像-->
                 <!--begin::Menu Body-->
                 <li class="user-body">
                   <!--begin::Row-->
                   <div class="row">
-                    <div class="col-4 text-center"><a href="#">Followers</a></div>
-                    <div class="col-4 text-center"><a href="#">Sales</a></div>
-                    <div class="col-4 text-center"><a href="#">Friends</a></div>
+                    <div class="col-4 text-center">
+                      <a href="#">关注</a>
+                    </div>
+                    <div class="col-4 text-center">
+                      <a href="#">销量</a>
+                    </div>
+                    <div class="col-4 text-center">
+                      <a href="#">好友</a>
+                    </div>
                   </div>
                   <!--end::Row-->
                 </li>
                 <!--end::Menu Body-->
                 <!--begin::Menu Footer-->
                 <li class="user-footer">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
-                  <a href="#" class="btn btn-default btn-flat float-end">Sign out</a>
+                  <a href="#" class="btn btn-outline-secondary">资料</a>
+                  <a href="#" class="btn btn-outline-danger float-end">退出</a>
                 </li>
                 <!--end::Menu Footer-->
               </ul>
@@ -300,7 +324,7 @@
                 <a href="#" class="nav-link active">
                   <i class="nav-icon bi bi-speedometer"></i>
                   <p>
-                    Dashboard
+                    仪表盘
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
@@ -308,19 +332,19 @@
                   <li class="nav-item">
                     <a href="./index.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Dashboard v1</p>
+                      <p>仪表盘 v1</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./index2.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Dashboard v2</p>
+                      <p>仪表盘 v2</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./index3.html" class="nav-link active">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Dashboard v3</p>
+                      <p>仪表盘 v3</p>
                     </a>
                   </li>
                 </ul>
@@ -328,14 +352,14 @@
               <li class="nav-item">
                 <a href="./generate/theme.html" class="nav-link">
                   <i class="nav-icon bi bi-palette"></i>
-                  <p>Theme Generate</p>
+                  <p>生成主题</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-box-seam-fill"></i>
                   <p>
-                    Widgets
+                    小部件
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
@@ -343,19 +367,19 @@
                   <li class="nav-item">
                     <a href="./widgets/small-box.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Small Box</p>
+                      <p>小框</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./widgets/info-box.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>info Box</p>
+                      <p>信息框</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./widgets/cards.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Cards</p>
+                      <p>卡片</p>
                     </a>
                   </li>
                 </ul>
@@ -364,7 +388,7 @@
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-clipboard-fill"></i>
                   <p>
-                    Layout Options
+                    布局选项
                     <span class="nav-badge badge text-bg-secondary me-3">6</span>
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
@@ -373,61 +397,61 @@
                   <li class="nav-item">
                     <a href="./layout/unfixed-sidebar.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Default Sidebar</p>
+                      <p>默认侧边栏</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./layout/fixed-sidebar.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Fixed Sidebar</p>
+                      <p>固定侧边栏</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./layout/fixed-header.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Fixed Header</p>
+                      <p>固定头部</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./layout/fixed-footer.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Fixed Footer</p>
+                      <p>固定底部</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./layout/fixed-complete.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Fixed Complete</p>
+                      <p>全部固定</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./layout/layout-custom-area.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Layout <small>+ Custom Area </small></p>
+                      <p>布局 <small>+ 自定义区域 </small></p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./layout/sidebar-mini.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Sidebar Mini</p>
+                      <p>迷你侧边栏</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./layout/collapsed-sidebar.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Sidebar Mini <small>+ Collapsed</small></p>
+                      <p>迷你侧边栏 <small>+ 折叠</small></p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./layout/logo-switch.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Sidebar Mini <small>+ Logo Switch</small></p>
+                      <p>迷你侧边栏 <small>+ Logo 开关</small></p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./layout/layout-rtl.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Layout RTL</p>
+                      <p>RTL 布局</p>
                     </a>
                   </li>
                 </ul>
@@ -436,7 +460,7 @@
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-tree-fill"></i>
                   <p>
-                    UI Elements
+                    用户界面
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
@@ -444,19 +468,19 @@
                   <li class="nav-item">
                     <a href="./UI/general.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>General</p>
+                      <p>通用</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./UI/icons.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Icons</p>
+                      <p>图标</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./UI/timeline.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Timeline</p>
+                      <p>时间线</p>
                     </a>
                   </li>
                 </ul>
@@ -465,7 +489,7 @@
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-pencil-square"></i>
                   <p>
-                    Forms
+                    表单
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
@@ -473,7 +497,7 @@
                   <li class="nav-item">
                     <a href="./forms/general.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>General Elements</p>
+                      <p>常用组件</p>
                     </a>
                   </li>
                 </ul>
@@ -482,7 +506,7 @@
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-table"></i>
                   <p>
-                    Tables
+                    表格
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
@@ -490,17 +514,18 @@
                   <li class="nav-item">
                     <a href="./tables/simple.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Simple Tables</p>
+                      <p>简单的表格</p>
                     </a>
                   </li>
                 </ul>
               </li>
-              <li class="nav-header">EXAMPLES</li>
+
+              <li class="nav-header">示例</li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-box-arrow-in-right"></i>
                   <p>
-                    Auth
+                    登录注册
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
@@ -509,7 +534,7 @@
                     <a href="#" class="nav-link">
                       <i class="nav-icon bi bi-box-arrow-in-right"></i>
                       <p>
-                        Version 1
+                        版本 1
                         <i class="nav-arrow bi bi-chevron-right"></i>
                       </p>
                     </a>
@@ -517,13 +542,13 @@
                       <li class="nav-item">
                         <a href="./examples/login.html" class="nav-link">
                           <i class="nav-icon bi bi-circle"></i>
-                          <p>Login</p>
+                          <p>登录</p>
                         </a>
                       </li>
                       <li class="nav-item">
                         <a href="./examples/register.html" class="nav-link">
                           <i class="nav-icon bi bi-circle"></i>
-                          <p>Register</p>
+                          <p>注册</p>
                         </a>
                       </li>
                     </ul>
@@ -532,7 +557,7 @@
                     <a href="#" class="nav-link">
                       <i class="nav-icon bi bi-box-arrow-in-right"></i>
                       <p>
-                        Version 2
+                        版本 2
                         <i class="nav-arrow bi bi-chevron-right"></i>
                       </p>
                     </a>
@@ -540,13 +565,13 @@
                       <li class="nav-item">
                         <a href="./examples/login-v2.html" class="nav-link">
                           <i class="nav-icon bi bi-circle"></i>
-                          <p>Login</p>
+                          <p>登录</p>
                         </a>
                       </li>
                       <li class="nav-item">
                         <a href="./examples/register-v2.html" class="nav-link">
                           <i class="nav-icon bi bi-circle"></i>
-                          <p>Register</p>
+                          <p>注册</p>
                         </a>
                       </li>
                     </ul>
@@ -554,35 +579,36 @@
                   <li class="nav-item">
                     <a href="./examples/lockscreen.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Lockscreen</p>
+                      <p>锁屏</p>
                     </a>
                   </li>
                 </ul>
               </li>
-              <li class="nav-header">DOCUMENTATIONS</li>
+
+              <li class="nav-header">文档</li>
               <li class="nav-item">
                 <a href="./docs/introduction.html" class="nav-link">
                   <i class="nav-icon bi bi-download"></i>
-                  <p>Installation</p>
+                  <p>安装</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="./docs/layout.html" class="nav-link">
                   <i class="nav-icon bi bi-grip-horizontal"></i>
-                  <p>Layout</p>
+                  <p>布局</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="./docs/color-mode.html" class="nav-link">
                   <i class="nav-icon bi bi-star-half"></i>
-                  <p>Color Mode</p>
+                  <p>明暗模式</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-ui-checks-grid"></i>
                   <p>
-                    Components
+                    组件
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
@@ -590,13 +616,13 @@
                   <li class="nav-item">
                     <a href="./docs/components/main-header.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Main Header</p>
+                      <p>头部</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./docs/components/main-sidebar.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Main Sidebar</p>
+                      <p>主侧边栏</p>
                     </a>
                   </li>
                 </ul>
@@ -613,7 +639,7 @@
                   <li class="nav-item">
                     <a href="./docs/javascript/treeview.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Treeview</p>
+                      <p>树形插件</p>
                     </a>
                   </li>
                 </ul>
@@ -621,13 +647,13 @@
               <li class="nav-item">
                 <a href="./docs/browser-support.html" class="nav-link">
                   <i class="nav-icon bi bi-browser-edge"></i>
-                  <p>Browser Support</p>
+                  <p>浏览器支持</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="./docs/how-to-contribute.html" class="nav-link">
                   <i class="nav-icon bi bi-hand-thumbs-up-fill"></i>
-                  <p>How To Contribute</p>
+                  <p>如何贡献</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -639,21 +665,22 @@
               <li class="nav-item">
                 <a href="./docs/license.html" class="nav-link">
                   <i class="nav-icon bi bi-patch-check-fill"></i>
-                  <p>License</p>
+                  <p>许可证</p>
                 </a>
               </li>
-              <li class="nav-header">MULTI LEVEL EXAMPLE</li>
+
+              <li class="nav-header">多级示例</li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-circle-fill"></i>
-                  <p>Level 1</p>
+                  <p>1 级</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-circle-fill"></i>
                   <p>
-                    Level 1
+                    1 级
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
@@ -661,14 +688,14 @@
                   <li class="nav-item">
                     <a href="#" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Level 2</p>
+                      <p>2 级</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="#" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>
-                        Level 2
+                        2 级
                         <i class="nav-arrow bi bi-chevron-right"></i>
                       </p>
                     </a>
@@ -676,19 +703,19 @@
                       <li class="nav-item">
                         <a href="#" class="nav-link">
                           <i class="nav-icon bi bi-record-circle-fill"></i>
-                          <p>Level 3</p>
+                          <p>3 级</p>
                         </a>
                       </li>
                       <li class="nav-item">
                         <a href="#" class="nav-link">
                           <i class="nav-icon bi bi-record-circle-fill"></i>
-                          <p>Level 3</p>
+                          <p>3 级</p>
                         </a>
                       </li>
                       <li class="nav-item">
                         <a href="#" class="nav-link">
                           <i class="nav-icon bi bi-record-circle-fill"></i>
-                          <p>Level 3</p>
+                          <p>3 级</p>
                         </a>
                       </li>
                     </ul>
@@ -696,7 +723,7 @@
                   <li class="nav-item">
                     <a href="#" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Level 2</p>
+                      <p>2 级</p>
                     </a>
                   </li>
                 </ul>
@@ -704,26 +731,27 @@
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-circle-fill"></i>
-                  <p>Level 1</p>
+                  <p>1 级</p>
                 </a>
               </li>
-              <li class="nav-header">LABELS</li>
+
+              <li class="nav-header">标签</li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-circle text-danger"></i>
-                  <p class="text">Important</p>
+                  <p class="text">重要</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-circle text-warning"></i>
-                  <p>Warning</p>
+                  <p>警告</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-circle text-info"></i>
-                  <p>Informational</p>
+                  <p>信息</p>
                 </a>
               </li>
             </ul>
@@ -741,11 +769,13 @@
           <div class="container-fluid">
             <!--begin::Row-->
             <div class="row">
-              <div class="col-sm-6"><h3 class="mb-0">Dashboard v3</h3></div>
+              <div class="col-sm-6">
+                <h3 class="mb-0">仪表盘 v3</h3>
+              </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Dashboard v3</li>
+                  <li class="breadcrumb-item"><a href="#">首页</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">仪表盘 v3</li>
                 </ol>
               </div>
             </div>
@@ -762,51 +792,62 @@
                 <div class="card mb-4">
                   <div class="card-header border-0">
                     <div class="d-flex justify-content-between">
-                      <h3 class="card-title">Online Store Visitors</h3>
+                      <h3 class="card-title">商城访客</h3>
                       <a
                         href="javascript:void(0);"
                         class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
-                        >View Report</a
+                        >查看报告</a
                       >
                     </div>
                   </div>
                   <div class="card-body">
                     <div class="d-flex">
                       <p class="d-flex flex-column">
-                        <span class="fw-bold fs-5">820</span> <span>Visitors Over Time</span>
+                        <span class="fw-bold fs-5">820</span>
+                        <span>近期访问</span>
                       </p>
                       <p class="ms-auto d-flex flex-column text-end">
                         <span class="text-success"> <i class="bi bi-arrow-up"></i> 12.5% </span>
-                        <span class="text-secondary">Since last week</span>
+                        <span class="text-secondary">自上周以来</span>
                       </p>
                     </div>
                     <!-- /.d-flex -->
-                    <div class="position-relative mb-4"><div id="visitors-chart"></div></div>
+
+                    <div class="position-relative mb-4">
+                      <div id="visitors-chart"></div>
+                    </div>
+
                     <div class="d-flex flex-row justify-content-end">
                       <span class="me-2">
-                        <i class="bi bi-square-fill text-primary"></i> This Week
+                        <i class="bi bi-square-fill text-primary"></i> 本周
                       </span>
-                      <span> <i class="bi bi-square-fill text-secondary"></i> Last Week </span>
+
+                      <span> <i class="bi bi-square-fill text-secondary"></i> 上周 </span>
                     </div>
                   </div>
                 </div>
                 <!-- /.card -->
+
                 <div class="card mb-4">
                   <div class="card-header border-0">
-                    <h3 class="card-title">Products</h3>
+                    <h3 class="card-title">产品</h3>
                     <div class="card-tools">
-                      <a href="#" class="btn btn-tool btn-sm"> <i class="bi bi-download"></i> </a>
-                      <a href="#" class="btn btn-tool btn-sm"> <i class="bi bi-list"></i> </a>
+                      <a href="#" class="btn btn-tool btn-sm">
+                        <i class="bi bi-download"></i>
+                      </a>
+                      <a href="#" class="btn btn-tool btn-sm">
+                        <i class="bi bi-list"></i>
+                      </a>
                     </div>
                   </div>
                   <div class="card-body table-responsive p-0">
                     <table class="table table-striped align-middle">
                       <thead>
                         <tr>
-                          <th>Product</th>
-                          <th>Price</th>
-                          <th>Sales</th>
-                          <th>More</th>
+                          <th>产品</th>
+                          <th>价格</th>
+                          <th>销量</th>
+                          <th>更多</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -817,7 +858,7 @@
                               alt="Product 1"
                               class="rounded-circle img-size-32 me-2"
                             />
-                            Some Product
+                            某产品
                           </td>
                           <td>$13 USD</td>
                           <td>
@@ -825,10 +866,12 @@
                               <i class="bi bi-arrow-up"></i>
                               12%
                             </small>
-                            12,000 Sold
+                            售出 12,000
                           </td>
                           <td>
-                            <a href="#" class="text-secondary"> <i class="bi bi-search"></i> </a>
+                            <a href="#" class="text-secondary">
+                              <i class="bi bi-search"></i>
+                            </a>
                           </td>
                         </tr>
                         <tr>
@@ -838,7 +881,7 @@
                               alt="Product 1"
                               class="rounded-circle img-size-32 me-2"
                             />
-                            Another Product
+                            另一个产品
                           </td>
                           <td>$29 USD</td>
                           <td>
@@ -846,10 +889,12 @@
                               <i class="bi bi-arrow-down"></i>
                               0.5%
                             </small>
-                            123,234 Sold
+                            售出 123,234
                           </td>
                           <td>
-                            <a href="#" class="text-secondary"> <i class="bi bi-search"></i> </a>
+                            <a href="#" class="text-secondary">
+                              <i class="bi bi-search"></i>
+                            </a>
                           </td>
                         </tr>
                         <tr>
@@ -859,7 +904,7 @@
                               alt="Product 1"
                               class="rounded-circle img-size-32 me-2"
                             />
-                            Amazing Product
+                            特殊产品
                           </td>
                           <td>$1,230 USD</td>
                           <td>
@@ -867,10 +912,12 @@
                               <i class="bi bi-arrow-down"></i>
                               3%
                             </small>
-                            198 Sold
+                            售出 198
                           </td>
                           <td>
-                            <a href="#" class="text-secondary"> <i class="bi bi-search"></i> </a>
+                            <a href="#" class="text-secondary">
+                              <i class="bi bi-search"></i>
+                            </a>
                           </td>
                         </tr>
                         <tr>
@@ -880,7 +927,7 @@
                               alt="Product 1"
                               class="rounded-circle img-size-32 me-2"
                             />
-                            Perfect Item
+                            完美物品
                             <span class="badge text-bg-danger">NEW</span>
                           </td>
                           <td>$199 USD</td>
@@ -889,10 +936,12 @@
                               <i class="bi bi-arrow-up"></i>
                               63%
                             </small>
-                            87 Sold
+                            售出 87
                           </td>
                           <td>
-                            <a href="#" class="text-secondary"> <i class="bi bi-search"></i> </a>
+                            <a href="#" class="text-secondary">
+                              <i class="bi bi-search"></i>
+                            </a>
                           </td>
                         </tr>
                       </tbody>
@@ -906,41 +955,52 @@
                 <div class="card mb-4">
                   <div class="card-header border-0">
                     <div class="d-flex justify-content-between">
-                      <h3 class="card-title">Sales</h3>
+                      <h3 class="card-title">销量</h3>
                       <a
                         href="javascript:void(0);"
                         class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
-                        >View Report</a
+                        >查看报告</a
                       >
                     </div>
                   </div>
                   <div class="card-body">
                     <div class="d-flex">
                       <p class="d-flex flex-column">
-                        <span class="fw-bold fs-5">$18,230.00</span> <span>Sales Over Time</span>
+                        <span class="fw-bold fs-5">$18,230.00</span>
+                        <span>销量</span>
                       </p>
                       <p class="ms-auto d-flex flex-column text-end">
                         <span class="text-success"> <i class="bi bi-arrow-up"></i> 33.1% </span>
-                        <span class="text-secondary">Since Past Year</span>
+                        <span class="text-secondary">自去年以来</span>
                       </p>
                     </div>
                     <!-- /.d-flex -->
-                    <div class="position-relative mb-4"><div id="sales-chart"></div></div>
+
+                    <div class="position-relative mb-4">
+                      <div id="sales-chart"></div>
+                    </div>
+
                     <div class="d-flex flex-row justify-content-end">
                       <span class="me-2">
-                        <i class="bi bi-square-fill text-primary"></i> This year
+                        <i class="bi bi-square-fill text-primary"></i> 今年
                       </span>
-                      <span> <i class="bi bi-square-fill text-secondary"></i> Last year </span>
+
+                      <span> <i class="bi bi-square-fill text-secondary"></i> 去年 </span>
                     </div>
                   </div>
                 </div>
                 <!-- /.card -->
+
                 <div class="card">
                   <div class="card-header border-0">
-                    <h3 class="card-title">Online Store Overview</h3>
+                    <h3 class="card-title">商城概览</h3>
                     <div class="card-tools">
-                      <a href="#" class="btn btn-sm btn-tool"> <i class="bi bi-download"></i> </a>
-                      <a href="#" class="btn btn-sm btn-tool"> <i class="bi bi-list"></i> </a>
+                      <a href="#" class="btn btn-sm btn-tool">
+                        <i class="bi bi-download"></i>
+                      </a>
+                      <a href="#" class="btn btn-sm btn-tool">
+                        <i class="bi bi-list"></i>
+                      </a>
                     </div>
                   </div>
                   <div class="card-body">
@@ -968,7 +1028,7 @@
                         <span class="fw-bold">
                           <i class="bi bi-graph-up-arrow text-success"></i> 12%
                         </span>
-                        <span class="text-secondary">CONVERSION RATE</span>
+                        <span class="text-secondary">转化率</span>
                       </p>
                     </div>
                     <!-- /.d-flex -->
@@ -996,7 +1056,7 @@
                         <span class="fw-bold">
                           <i class="bi bi-graph-up-arrow text-info"></i> 0.8%
                         </span>
-                        <span class="text-secondary">SALES RATE</span>
+                        <span class="text-secondary">销售率</span>
                       </p>
                     </div>
                     <!-- /.d-flex -->
@@ -1023,7 +1083,7 @@
                           <i class="bi bi-graph-down-arrow text-danger"></i>
                           1%
                         </span>
-                        <span class="text-secondary">REGISTRATION RATE</span>
+                        <span class="text-secondary">注册率</span>
                       </p>
                     </div>
                     <!-- /.d-flex -->
@@ -1042,14 +1102,14 @@
       <!--begin::Footer-->
       <footer class="app-footer">
         <!--begin::To the end-->
-        <div class="float-end d-none d-sm-inline">Anything you want</div>
+        <div class="float-end d-none d-sm-inline">任何你想要的</div>
         <!--end::To the end-->
         <!--begin::Copyright-->
         <strong>
-          Copyright &copy; 2014-2025&nbsp;
+          Copyright &copy; 2014-2026&nbsp;
           <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
         </strong>
-        All rights reserved.
+        保留所有权利
         <!--end::Copyright-->
       </footer>
       <!--end::Footer-->
@@ -1058,19 +1118,13 @@
     <!--begin::Script-->
     <!--begin::Third Party Plugin(OverlayScrollbars)-->
     <script
-      src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
+      src="./assets/overlayscrollbars/overlayscrollbars.browser.es6.min.js"
       crossorigin="anonymous"
     ></script>
     <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="./assets/popperjs/popper.min.js" crossorigin="anonymous"></script>
     <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="./assets/bootstrap/bootstrap.min.js" crossorigin="anonymous"></script>
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
     <script src="./js/adminlte.js"></script>
     <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
@@ -1083,7 +1137,15 @@
       };
       document.addEventListener('DOMContentLoaded', function () {
         const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
-        if (sidebarWrapper && OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined) {
+
+        // Disable OverlayScrollbars on mobile devices to prevent touch interference
+        const isMobile = window.innerWidth <= 992;
+
+        if (
+          sidebarWrapper &&
+          OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined &&
+          !isMobile
+        ) {
           OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
             scrollbars: {
               theme: Default.scrollbarTheme,
@@ -1095,26 +1157,29 @@
       });
     </script>
     <!--end::OverlayScrollbars Configure-->
-    <!-- OPTIONAL SCRIPTS -->
+
+    <!-- 可选脚本 -->
+
     <!-- apexcharts -->
     <script
-      src="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.min.js"
+      src="./assets/apexcharts/apexcharts.min.js"
       integrity="sha256-+vh8GkaU7C9/wbSLIcwq82tQ2wTf44aOHA8HlBMwRI8="
       crossorigin="anonymous"
     ></script>
+
     <script>
-      // NOTICE!! DO NOT USE ANY OF THIS JAVASCRIPT
-      // IT'S ALL JUST JUNK FOR DEMO
+      // 请注意！！！不要使用任何 javascript
+      // 它们是演示用的
       // ++++++++++++++++++++++++++++++++++++++++++
 
       const visitors_chart_options = {
         series: [
           {
-            name: 'High - 2023',
+            name: '高 - 2023',
             data: [100, 120, 170, 167, 180, 177, 160],
           },
           {
-            name: 'Low - 2023',
+            name: '低 - 2023',
             data: [60, 80, 70, 67, 80, 77, 100],
           },
         ],
@@ -1132,7 +1197,7 @@
         grid: {
           borderColor: '#e7e7e7',
           row: {
-            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+            colors: ['#f3f3f3', 'transparent'], // 该数组将在列上重复出现
             opacity: 0.5,
           },
         },
@@ -1143,7 +1208,7 @@
           size: 1,
         },
         xaxis: {
-          categories: ['22th', '23th', '24th', '25th', '26th', '27th', '28th'],
+          categories: ['22 日', '23 日', '24 日', '25 日', '26 日', '27 日', '28 日'],
         },
       };
 
@@ -1156,15 +1221,15 @@
       const sales_chart_options = {
         series: [
           {
-            name: 'Net Profit',
+            name: '净利润',
             data: [44, 55, 57, 56, 61, 58, 63, 60, 66],
           },
           {
-            name: 'Revenue',
+            name: '收益',
             data: [76, 85, 101, 98, 87, 105, 91, 114, 94],
           },
           {
-            name: 'Free Cash Flow',
+            name: '现金流',
             data: [35, 41, 36, 26, 45, 48, 52, 53, 41],
           },
         ],
@@ -1192,7 +1257,7 @@
           colors: ['transparent'],
         },
         xaxis: {
-          categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+          categories: ['二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', 'Oct'],
         },
         fill: {
           opacity: 1,
@@ -1200,7 +1265,7 @@
         tooltip: {
           y: {
             formatter: function (val) {
-              return '$ ' + val + ' thousands';
+              return '$ ' + val + ' 万';
             },
           },
         },
