@@ -9,7 +9,7 @@ AdminLTE 的所有显著变更都将记录在此文件中。
 
 ## [4.0.0-rc6] - 2025-12-08
 
-### Security
+### 安全
 
 - **修复了 4 个安全漏洞：** 解决了所有 npm 审计中的安全问题
   - 修复了 Astro 服务器岛屿中高严重级别的反射型 XSS 漏洞
@@ -118,7 +118,7 @@ AdminLTE 的所有显著变更都将记录在此文件中。
 ### 已修复
 - **Windows 构建兼容性：** 修复了 npm 脚本，通过将 Unix 特定的 shell 命令替换为 `shx` 来实现跨平台工作
   - 更新了 `copy-assets` 脚本以使用 `shx mkdir` 和 `shx cp` 命令
-  - 更新了 `flatten-build` 脚本以使用 `shx cp` 和 `shx rm` 命令  
+  - 更新了 `flatten-build` 脚本以使用 `shx cp` 和 `shx rm` 命令
   - 添加 `shx` 包作为开发依赖项，以支持跨平台 shell 命令
   - 解决了 Windows 系统上“命令语法不正确”的构建失败问题
 - **TeamViewer 模态框兼容性：** 修复了远程桌面兼容性的模态框渐变动画
@@ -314,7 +314,7 @@ cd dist && python3 -m http.server 8080
 
 #### **核心可访问性功能：**
 - **跳过导航：** 自动跳过链接到主要内容、导航和关键部分
-- **焦点管理：** 
+- **焦点管理：**
   - 增强的焦点指示器符合对比度要求
   - 模态框和下拉菜单的焦点陷阱
   - 逻辑制表符顺序管理
@@ -355,7 +355,7 @@ cd dist && python3 -m http.server 8080
   - 用于浏览器 UI 的主题颜色元标签
   - 增强的视口配置
   - 可访问性描述更新
-- **导航组件：** 
+- **导航组件：**
   - 正确的 ARIA 角色和标签
   - 语义化导航地标
   - 键盘导航支持
@@ -487,7 +487,7 @@ a11y.addLandmarks();
   - `npm run build` - 方便的开发构建命令
   - 增强的 `npm run production`，集成 bundlewatch
 
-#### 已更改  
+#### 已更改
 - **升级到 ES 模块：** 在 package.json 中添加 `"type": "module"`
 - **ESLint 现代化：** 完全升级到 ESLint v9，采用新的扁平配置格式
   - 从 `.eslintrc.json` 迁移到现代 `eslint.config.js`
@@ -587,4 +587,4 @@ a11y.addLandmarks();
 1. 运行 `npm install` 以获取最新依赖项
 2. 使用 `npm start` 进行开发
 3. 使用 `npm run production` 进行生产构建
-4. 检查任何自定义 ESLint 配置的兼容性 
+4. 检查任何自定义 ESLint 配置的兼容性
