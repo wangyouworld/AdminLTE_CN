@@ -5,14 +5,14 @@ import Topbar from "@components/dashboard/_topbar.astro"
 import Sidenav from "@components/dashboard/_sidenav.astro"
 import Scripts from "@components/_scripts.astro"
 
-const title = "AdminLTE 4 | Kanban Board"
+const title = "AdminLTE 4 | 看板"
 const path = "../../../dist"
 const mainPage = "pages"
 const page = "kanban";
 
-// Smart path resolution: calculate relative path based on directory depth
+// 智能路径解析：根据目录深度计算相对路径
 const pathname = Astro.url.pathname;
-// Only count directories, not the filename itself
+// 仅统计目录，不包括文件名本身
 const pathSegments = pathname.split('/').filter(segment => segment !== '');
 const depth = pathSegments.length > 0 ? pathSegments.length - 1 : 0;
 const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
@@ -28,61 +28,61 @@ type Card = {
 const lanes: { id: string; title: string; color: string; cards: Card[] }[] = [
   {
     id: "backlog",
-    title: "Backlog",
+    title: "待办事项",
     color: "secondary",
     cards: [
       {
-        title: "Audit unused SCSS variables",
-        desc: "Identify deprecated Bootstrap 5.3.4 variables and add comments.",
-        tag: { label: "tech debt", color: "secondary" },
+        title: "检查未使用的 SCSS 变量",
+        desc: "找出 Bootstrap 5.3.4 中已弃用的变量，并补充注释。",
+        tag: { label: "技术债务", color: "secondary" },
         assignees: ["DM"]
       },
       {
-        title: "Document hreflang setup",
-        tag: { label: "docs", color: "info" },
+        title: "为 hreflang 配置编写文档",
+        tag: { label: "文档", color: "info" },
         assignees: ["JD"]
       },
       {
-        title: "Investigate Safari iOS calendar drag bug",
+        title: "调查 Safari 浏览器在 iOS 上的日历拖拽 Bug",
         tag: { label: "bug", color: "danger" },
-        due: "May 28",
+        due: "5月28日",
         assignees: ["OB", "MK"]
       }
     ]
   },
   {
     id: "todo",
-    title: "To do",
+    title: "待办",
     color: "primary",
     cards: [
       {
-        title: "Add Tom Select recommended-integration doc",
-        desc: "Cover install, theming, single + multi select examples.",
-        tag: { label: "feature", color: "primary" },
-        due: "May 24",
+        title: "补充 Tom Select 集成文档",
+        desc: "包括安装方法、主题配置，以及单选/多选使用示例。",
+        tag: { label: "功能", color: "primary" },
+        due: "5月24日",
         assignees: ["JD"]
       },
       {
-        title: "Wire up profile page avatar upload",
-        tag: { label: "feature", color: "primary" },
+        title: "设置个人资料页面头像上传",
+        tag: { label: "功能", color: "primary" },
         assignees: ["EM"]
       }
     ]
   },
   {
     id: "in-progress",
-    title: "In progress",
+    title: "进行中",
     color: "warning",
     cards: [
       {
-        title: "Build kanban board demo",
-        desc: "SortableJS, draggable between lanes, MIT license.",
-        tag: { label: "feature", color: "primary" },
-        due: "Today",
+        title: "构建看板功能演示",
+        desc: "基于 SortableJS 实现跨列拖拽交互，采用 MIT 开源许可。",
+        tag: { label: "功能", color: "primary" },
+        due: "今天",
         assignees: ["JD"]
       },
       {
-        title: "Tabulator + FullCalendar integration QA",
+        title: "Tabulator + FullCalendar 集成测试/验收",
         tag: { label: "qa", color: "warning" },
         assignees: ["OB"]
       }
@@ -90,23 +90,23 @@ const lanes: { id: string; title: string; color: string; cards: Card[] }[] = [
   },
   {
     id: "done",
-    title: "Done",
+    title: "完成",
     color: "success",
     cards: [
       {
-        title: "Upgrade to Bootstrap 5.3.8",
-        tag: { label: "feature", color: "primary" },
+        title: "升级到 Bootstrap 到 5.3.8",
+        tag: { label: "功能", color: "primary" },
         assignees: ["DM"]
       },
       {
-        title: "Ship 8 Tier-1 page templates",
-        desc: "Profile, settings, invoice, pricing, FAQ, 404/500/maintenance.",
-        tag: { label: "feature", color: "primary" },
+        title: "发布 8 个一级页面模板",
+        desc: "涵盖个人资料页、设置页、发票页、定价页、常见问题页、404/500 错误页面及维护中页面。",
+        tag: { label: "功能", color: "primary" },
         assignees: ["JD", "OB"]
       },
       {
-        title: "Drop dead eslint-config-xo deps",
-        tag: { label: "tech debt", color: "secondary" },
+        title: "移除无用的 eslint-config-xo 依赖项",
+        tag: { label: "技术债务", color: "secondary" },
         assignees: ["DM"]
       }
     ]
@@ -115,7 +115,7 @@ const lanes: { id: string; title: string; color: string; cards: Card[] }[] = [
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <Head title={title} path={path} />
     <style is:inline>
@@ -207,12 +207,12 @@ const lanes: { id: string; title: string; color: string; cards: Card[] }[] = [
           <div class="container-fluid">
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">Kanban Board</h3>
+                <h3 class="mb-0">看板</h3>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Kanban</li>
+                  <li class="breadcrumb-item"><a href="#">首页</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">看板</li>
                 </ol>
               </div>
             </div>
@@ -223,19 +223,19 @@ const lanes: { id: string; title: string; color: string; cards: Card[] }[] = [
             <div class="d-flex justify-content-between align-items-center mb-3">
               <div>
                 <p class="text-secondary mb-0 small">
-                  Drag cards between lanes. Try dropping &ldquo;In progress&rdquo;
-                  items into &ldquo;Done&rdquo;.
+                  在各列之间拖拽卡片。尝试将 &ldquo;进行中&rdquo; 的条目拖放到 &ldquo;已完成&rdquo; 中。
+                  将项目标记为 &ldquo;完成&rdquo;。
                 </p>
               </div>
               <div class="btn-group btn-group-sm">
                 <button class="btn btn-outline-secondary" type="button">
-                  <i class="bi bi-funnel me-1" aria-hidden="true"></i>Filter
+                  <i class="bi bi-funnel me-1" aria-hidden="true"></i>过滤
                 </button>
                 <button class="btn btn-outline-secondary" type="button">
-                  <i class="bi bi-sort-down me-1" aria-hidden="true"></i>Sort
+                  <i class="bi bi-sort-down me-1" aria-hidden="true"></i>排序
                 </button>
                 <button class="btn btn-primary" type="button">
-                  <i class="bi bi-plus-lg me-1" aria-hidden="true"></i>Add lane
+                  <i class="bi bi-plus-lg me-1" aria-hidden="true"></i>新增列
                 </button>
               </div>
             </div>
@@ -257,8 +257,8 @@ const lanes: { id: string; title: string; color: string; cards: Card[] }[] = [
                       <button
                         class="btn btn-sm btn-link text-secondary p-0"
                         type="button"
-                        title="Lane actions"
-                        aria-label="Lane actions"
+                        title="列管理"
+                        aria-label="列管理"
                       >
                         <i class="bi bi-three-dots" aria-hidden="true" />
                       </button>
@@ -304,7 +304,7 @@ const lanes: { id: string; title: string; color: string; cards: Card[] }[] = [
                       data-add-card-for={lane.id}
                     >
                       <i class="bi bi-plus-lg me-1" aria-hidden="true" />
-                      Add card
+                      添加卡片
                     </button>
                   </div>
                 ))
@@ -317,7 +317,7 @@ const lanes: { id: string; title: string; color: string; cards: Card[] }[] = [
     </div>
     <Scripts path={path} />
     <script
-      src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.7/Sortable.min.js"
+      src={deploymentPath + "assets/sortablejs/Sortable.min.js"}
       crossorigin="anonymous"
       is:inline></script>
     <script is:inline>
@@ -343,7 +343,7 @@ const lanes: { id: string; title: string; color: string; cards: Card[] }[] = [
 
         document.querySelectorAll("[data-add-card-for]").forEach((btn) => {
           btn.addEventListener("click", () => {
-            const title = prompt("Card title:");
+            const title = prompt("卡片标题");
             if (!title) return;
             const laneId = btn.dataset.addCardFor;
             const lane = document.querySelector(
@@ -355,9 +355,9 @@ const lanes: { id: string; title: string; color: string; cards: Card[] }[] = [
               <p class="fw-semibold mb-1 small">${title.replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c]))}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="kanban-assignees">
-                  <span class="kanban-assignee" title="You">YO</span>
+                  <span class="kanban-assignee" title="你">YO</span>
                 </div>
-                <small class="text-secondary">just now</small>
+                <small class="text-secondary">刚才</small>
               </div>
             `;
             lane.append(card);

@@ -6,12 +6,12 @@ import MainHeader from "@components/docs/components/main-header.mdx"
 import Sidenav from "@components/dashboard/_sidenav.astro"
 import Scripts from "@components/_scripts.astro"
 
-const title = "Main Header Component | AdminLTE 4"
+const title = "头部组件 | AdminLTE 4"
 const path = "../../../../dist"
 const mainPage = "components"
 const page = "main-header"
 
-// Smart path resolution: calculate relative path based on directory depth
+// 智能路径解析：根据目录深度计算相对路径
 const pathname = Astro.url.pathname;
 const pathSegments = pathname.split('/').filter(segment => segment !== '');
 const depth = pathSegments.length > 0 ? pathSegments.length - 1 : 0;
@@ -19,7 +19,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <!--begin::Head-->
   <head>
     <Head title={title} path={path} />
@@ -40,13 +40,13 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             <!--begin::Row-->
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">Main Header Component</h3>
+                <h3 class="mb-0">头部组件</h3>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">Docs</a></li>
+                  <li class="breadcrumb-item"><a href="#">文档</a></li>
                   <li class="breadcrumb-item active" aria-current="page">
-                    Main Header Component
+                    头部组件
                   </li>
                 </ol>
               </div>
@@ -61,22 +61,22 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
           <!--begin::Container-->
           <div class="container-fluid">
             <div class="callout callout-warning mb-4">
-              <h5 class="fw-bold">Reminder!</h5>
+              <h5 class="fw-bold">留意！</h5>
               <p>
-                AdminLTE uses all of Bootstrap 5 components. It's a good start
-                to review the <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer" class="callout-link">
-                  Bootstrap documentation
-                </a> to get an idea of the
-                various components that this documentation <b>does not</b> cover.
+                AdminLTE 使用所有 Bootstrap 5 组件，
+                这是一个好的开始。
+                  查看 <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer" class="callout-link">Bootstrap 文档</a>
+                以了解
+                本文档中<b>未涵盖</b>的组件。
               </p>
             </div>
 
             <div class="callout callout-info mb-4">
-              <h5 class="fw-bold">Tips!</h5>
+              <h5 class="fw-bold">提示</h5>
               <p>
-                If you go through the example pages and would like to copy a
-                component, right-click on the component and choose “inspect
-                element” to get to the HTML quicker than scanning the HTML page.
+                在你浏览示例页面时，如果想使用某个组件，
+                则右键单击该组件并选择“检查”，
+                以便快速查看 HTML。
               </p>
             </div>
 
@@ -84,7 +84,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             <nav class="navbar navbar-expand bg-body">
               <!--begin::Container-->
               <div class="container-fluid">
-                <!-- Start navbar links -->
+                <!-- 导航栏开始 -->
                 <ul class="navbar-nav">
                   <li class="nav-item">
                     <a
@@ -97,13 +97,13 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                     </a>
                   </li>
                   <li class="nav-item d-none d-md-block">
-                    <a href="#" class="nav-link">Home</a>
+                    <a href="#" class="nav-link">首页</a>
                   </li>
                   <li class="nav-item d-none d-md-block">
-                    <a href="#" class="nav-link">Contact</a>
+                    <a href="#" class="nav-link">联系</a>
                   </li>
                 </ul>
-                <!-- End navbar links -->
+                <!-- 导航栏结束 -->
 
                 <ul class="navbar-nav ms-auto">
                   <!-- Navbar Search -->
@@ -128,12 +128,12 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                       class="dropdown-menu dropdown-menu-lg dropdown-menu-end"
                     >
                       <a href="#" class="dropdown-item">
-                        <!-- Message Start -->
+                        <!-- 消息开始 -->
                         <div class="d-flex">
                           <div class="flex-shrink-0">
                             <img
                               src={deploymentPath + "assets/img/user1-128x128.jpg"}
-                              alt="User Avatar"
+                              alt="用户头像"
                               class="img-size-50 rounded-circle me-3"
                             />
                           </div>
@@ -144,22 +144,22 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                                 <i class="bi bi-star-fill"></i>
                               </span>
                             </h3>
-                            <p class="fs-7">Call me whenever you can...</p>
+                            <p class="fs-7">有时间打电话给我……</p>
                             <p class="fs-7 text-secondary">
-                              <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                              <i class="bi bi-clock-fill me-1"></i> 4 小时前
                             </p>
                           </div>
                         </div>
-                        <!-- Message End -->
+                        <!-- 消息结束 -->
                       </a>
                       <div class="dropdown-divider"></div>
                       <a href="#" class="dropdown-item">
-                        <!-- Message Start -->
+                        <!-- 消息开始 -->
                         <div class="d-flex">
                           <div class="flex-shrink-0">
                             <img
                               src={deploymentPath + "assets/img/user8-128x128.jpg"}
-                              alt="User Avatar"
+                              alt="用户头像"
                               class="img-size-50 rounded-circle me-3"
                             />
                           </div>
@@ -170,22 +170,22 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                                 <i class="bi bi-star-fill"></i>
                               </span>
                             </h3>
-                            <p class="fs-7">I got your message bro</p>
+                            <p class="fs-7">我收到你的消息了，兄弟</p>
                             <p class="fs-7 text-secondary">
-                              <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                              <i class="bi bi-clock-fill me-1"></i> 4 小时前
                             </p>
                           </div>
                         </div>
-                        <!-- Message End -->
+                        <!-- 消息结束 -->
                       </a>
                       <div class="dropdown-divider"></div>
                       <a href="#" class="dropdown-item">
-                        <!-- Message Start -->
+                        <!-- 消息开始 -->
                         <div class="d-flex">
                           <div class="flex-shrink-0">
                             <img
                               src={deploymentPath + "assets/img/user3-128x128.jpg"}
-                              alt="User Avatar"
+                              alt="用户头像"
                               class="img-size-50 rounded-circle me-3"
                             />
                           </div>
@@ -196,17 +196,17 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                                 <i class="bi bi-star-fill"></i>
                               </span>
                             </h3>
-                            <p class="fs-7">The subject goes here</p>
+                            <p class="fs-7">主题在这里</p>
                             <p class="fs-7 text-secondary">
-                              <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                              <i class="bi bi-clock-fill me-1"></i> 4 小时前
                             </p>
                           </div>
                         </div>
-                        <!-- Message End -->
+                        <!-- 消息结束 -->
                       </a>
                       <div class="dropdown-divider"></div>
                       <a href="#" class="dropdown-item dropdown-footer">
-                        See All Messages
+                        查看所有消息
                       </a>
                     </div>
                   </li>
@@ -220,31 +220,31 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                       class="dropdown-menu dropdown-menu-lg dropdown-menu-end"
                     >
                       <span class="dropdown-item dropdown-header"
-                      >15 Notifications</span
+                      >15 条通知</span
                       >
                       <div class="dropdown-divider"></div>
                       <a href="#" class="dropdown-item">
-                        <i class="bi bi-envelope me-2"></i> 4 new messages
-                        <span class="float-end text-secondary fs-7">3 mins</span
+                        <i class="bi bi-envelope me-2"></i> 4 条新消息
+                        <span class="float-end text-secondary fs-7">3 分钟前</span
                         >
                       </a>
                       <div class="dropdown-divider"></div>
                       <a href="#" class="dropdown-item">
-                        <i class="bi bi-people-fill me-2"></i> 8 friend requests
+                        <i class="bi bi-people-fill me-2"></i> 8 条好友请求
                         <span class="float-end text-secondary fs-7">
-                          12 hours
+                          12 小时前
                         </span>
                       </a>
                       <div class="dropdown-divider"></div>
                       <a href="#" class="dropdown-item">
-                        <i class="bi bi-file-earmark-fill me-2"></i> 3 new reports
+                        <i class="bi bi-file-earmark-fill me-2"></i> 3 个新报告
                         <span class="float-end text-secondary fs-7">
-                          2 days
+                          2 天前
                         </span>
                       </a>
                       <div class="dropdown-divider"></div>
                       <a href="#" class="dropdown-item dropdown-footer">
-                        See All Notifications
+                        查看所有通知
                       </a>
                     </div>
                   </li>
@@ -257,7 +257,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                       <img
                         src={deploymentPath + "assets/img/user2-160x160.jpg"}
                         class="user-image rounded-circle shadow"
-                        alt="User Image"
+                        alt="用户头像"
                       />
                       <span class="d-none d-md-inline">Alexander Pierce</span>
                     </a>
@@ -269,12 +269,12 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         <img
                           src={deploymentPath + "assets/img/user2-160x160.jpg"}
                           class="rounded-circle shadow"
-                          alt="User Image"
+                          alt="用户头像"
                         />
 
                         <p>
-                          Alexander Pierce - Web Developer
-                          <small>Member since Nov. 2023</small>
+                          Alexander Pierce - 网页开发工程师
+                          <small>注册于 2023 年 11 月</small>
                         </p>
                       </li>
                       <!-- Menu Body -->
@@ -282,22 +282,22 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         <!--begin::Row-->
                         <div class="row">
                           <div class="col-4 text-center">
-                            <a href="#">Followers</a>
+                            <a href="#">关注</a>
                           </div>
                           <div class="col-4 text-center">
-                            <a href="#">Sales</a>
+                            <a href="#">销量</a>
                           </div>
                           <div class="col-4 text-center">
-                            <a href="#">Friends</a>
+                            <a href="#">好友</a>
                           </div>
                         </div>
                         <!--end::Row-->
                       </li>
                       <!-- Menu Footer-->
                       <li class="user-footer">
-                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                        <a href="#" class="btn btn-default btn-flat">资料</a>
                         <a href="#" class="btn btn-default btn-flat float-end">
-                          Sign out
+                          退出
                         </a>
                       </li>
                     </ul>

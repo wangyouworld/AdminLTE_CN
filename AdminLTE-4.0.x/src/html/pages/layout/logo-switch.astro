@@ -5,11 +5,11 @@ import Topbar from "@components/dashboard/_topbar.astro"
 import Scripts from "@components/_scripts.astro"
 import { convertPathToHtml } from "../../../utils/index.js"
 
-const title = "AdminLTE 4 | Sidebar Mini"
+const title = "AdminLTE 4 | 迷你侧边栏"
 const path = "../../../dist"
 const htmlPath = convertPathToHtml(path);
 
-// Smart path resolution: calculate relative path based on directory depth
+// 智能路径解析：根据目录深度计算相对路径
 const pathname = Astro.url.pathname;
 const pathSegments = pathname.split('/').filter(segment => segment !== '');
 const depth = pathSegments.length > 0 ? pathSegments.length - 1 : 0;
@@ -17,7 +17,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <!--begin::Head-->
   <head>
     <Head title={title} path={path} />
@@ -37,14 +37,14 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             <!--begin::Brand Image Small-->
             <img
               src={deploymentPath + "assets/img/AdminLTELogo.png"}
-              alt="AdminLTE Logo Small"
+              alt="小 AdminLTE Logo"
               class="brand-image-xl logo-xs opacity-75 shadow"
             />
             <!--end::Brand Image Small-->
             <!--begin::Brand Image Large-->
             <img
               src={deploymentPath + "assets/img/AdminLTEFullLogo.png"}
-              alt="AdminLTE Logo Large"
+              alt="大 AdminLTE Logo"
               class="brand-image-xs logo-xl opacity-75"
             />
             <!--end::Brand Image Large-->
@@ -62,18 +62,18 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
               role="menu"
               data-accordion="false"
             >
-              <li class="nav-header">MULTI LEVEL EXAMPLE</li>
+              <li class="nav-header">多级示例</li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-circle-fill"></i>
-                  <p>Level 1</p>
+                  <p>1 级</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-circle-fill"></i>
                   <p>
-                    Level 1
+                    1 级
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
@@ -81,14 +81,14 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                   <li class="nav-item">
                     <a href="#" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Level 2</p>
+                      <p>2 级</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="#" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>
-                        Level 2
+                        2 级
                         <i class="nav-arrow bi bi-chevron-right"></i>
                       </p>
                     </a>
@@ -96,19 +96,19 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                       <li class="nav-item">
                         <a href="#" class="nav-link">
                           <i class="nav-icon bi bi-record-circle-fill"></i>
-                          <p>Level 3</p>
+                          <p>3 级</p>
                         </a>
                       </li>
                       <li class="nav-item">
                         <a href="#" class="nav-link">
                           <i class="nav-icon bi bi-record-circle-fill"></i>
-                          <p>Level 3</p>
+                          <p>3 级</p>
                         </a>
                       </li>
                       <li class="nav-item">
                         <a href="#" class="nav-link">
                           <i class="nav-icon bi bi-record-circle-fill"></i>
-                          <p>Level 3</p>
+                          <p>3 级</p>
                         </a>
                       </li>
                     </ul>
@@ -116,7 +116,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                   <li class="nav-item">
                     <a href="#" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Level 2</p>
+                      <p>2 级</p>
                     </a>
                   </li>
                 </ul>
@@ -124,7 +124,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-circle-fill"></i>
-                  <p>Level 1</p>
+                  <p>1 级</p>
                 </a>
               </li>
             </ul>
@@ -143,13 +143,13 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             <!--begin::Row-->
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">Logo Switch</h3>
+                <h3 class="mb-0">Logo 开关</h3>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item"><a href="#">首页</a></li>
                   <li class="breadcrumb-item active" aria-current="page">
-                    Logo Switch
+                    Logo 开关
                   </li>
                 </ol>
               </div>
@@ -169,14 +169,14 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 <!-- Default box -->
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title">Title</h3>
+                    <h3 class="card-title">标题</h3>
 
                     <div class="card-tools">
                       <button
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-collapse"
-                        title="Collapse"
+                        title="折叠"
                       >
                         <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
                         <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
@@ -185,17 +185,17 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-remove"
-                        title="Remove"
+                        title="移除"
                       >
                         <i class="bi bi-x-lg"></i>
                       </button>
                     </div>
                   </div>
                   <div class="card-body">
-                    Start creating your amazing application!
+                    开始创建你的应用程序！
                   </div>
                   <!-- /.card-body -->
-                  <div class="card-footer">Footer</div>
+                  <div class="card-footer">底部</div>
                   <!-- /.card-footer-->
                 </div>
                 <!-- /.card -->

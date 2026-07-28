@@ -12,7 +12,7 @@ const page = "settings";
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <Head title={title} path={path} />
   </head>
@@ -25,12 +25,12 @@ const page = "settings";
           <div class="container-fluid">
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">Settings</h3>
+                <h3 class="mb-0">设置</h3>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Settings</li>
+                  <li class="breadcrumb-item"><a href="#">首页</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">设置</li>
                 </ol>
               </div>
             </div>
@@ -53,7 +53,7 @@ const page = "settings";
                     role="tab"
                     aria-selected="true"
                   >
-                    <i class="bi bi-person me-2" aria-hidden="true"></i>Account
+                    <i class="bi bi-person me-2" aria-hidden="true"></i>账户
                   </a>
                   <a
                     href="#notifications"
@@ -61,7 +61,7 @@ const page = "settings";
                     data-bs-toggle="pill"
                     role="tab"
                   >
-                    <i class="bi bi-bell me-2" aria-hidden="true"></i>Notifications
+                    <i class="bi bi-bell me-2" aria-hidden="true"></i>通知
                   </a>
                   <a
                     href="#security"
@@ -69,7 +69,7 @@ const page = "settings";
                     data-bs-toggle="pill"
                     role="tab"
                   >
-                    <i class="bi bi-shield-lock me-2" aria-hidden="true"></i>Security
+                    <i class="bi bi-shield-lock me-2" aria-hidden="true"></i>安全
                   </a>
                   <a
                     href="#billing"
@@ -77,7 +77,7 @@ const page = "settings";
                     data-bs-toggle="pill"
                     role="tab"
                   >
-                    <i class="bi bi-credit-card me-2" aria-hidden="true"></i>Billing
+                    <i class="bi bi-credit-card me-2" aria-hidden="true"></i>费用
                   </a>
                   <a
                     href="#danger"
@@ -89,7 +89,7 @@ const page = "settings";
                       class="bi bi-exclamation-triangle me-2"
                       aria-hidden="true"
                     ></i>
-                    Danger zone
+                    危险操作
                   </a>
                 </div>
               </div>
@@ -105,13 +105,13 @@ const page = "settings";
                   >
                     <div class="card">
                       <div class="card-header">
-                        <h3 class="card-title">Account</h3>
+                        <h3 class="card-title">账户</h3>
                       </div>
                       <div class="card-body">
                         <form class="row g-3">
                           <div class="col-md-6">
                             <label class="form-label" for="settings-name">
-                              Full name
+                              全名
                             </label>
                             <input
                               type="text"
@@ -122,7 +122,7 @@ const page = "settings";
                           </div>
                           <div class="col-md-6">
                             <label class="form-label" for="settings-email">
-                              Email
+                              邮箱
                             </label>
                             <input
                               type="email"
@@ -133,29 +133,29 @@ const page = "settings";
                           </div>
                           <div class="col-md-6">
                             <label class="form-label" for="settings-tz">
-                              Time zone
+                              时区
                             </label>
                             <select class="form-select" id="settings-tz">
                               <option>UTC</option>
-                              <option selected>America/Los_Angeles</option>
-                              <option>Europe/London</option>
-                              <option>Asia/Tokyo</option>
+                              <option selected>美国/洛杉矶</option>
+                              <option>欧洲/伦敦</option>
+                              <option>亚洲/东京</option>
                             </select>
                           </div>
                           <div class="col-md-6">
                             <label class="form-label" for="settings-lang">
-                              Language
+                              语言
                             </label>
                             <select class="form-select" id="settings-lang">
-                              <option selected>English</option>
-                              <option>Español</option>
-                              <option>Français</option>
-                              <option>Deutsch</option>
+                              <option selected>英语</option>
+                              <option>西班牙语</option>
+                              <option>法语</option>
+                              <option>德语</option>
                             </select>
                           </div>
                           <div class="col-12">
                             <button type="submit" class="btn btn-primary">
-                              Save changes
+                              保存修改
                             </button>
                           </div>
                         </form>
@@ -167,18 +167,18 @@ const page = "settings";
                   <div class="tab-pane fade" id="notifications" role="tabpanel">
                     <div class="card">
                       <div class="card-header">
-                        <h3 class="card-title">Notifications</h3>
+                        <h3 class="card-title">通知</h3>
                       </div>
                       <div class="card-body">
                         <p class="text-secondary">
-                          Choose what to be notified about.
+                          选择要接收的通知。
                         </p>
                         {
                           [
-                            ["Product updates", "Major releases and changelogs"],
-                            ["Security alerts", "Sign-in attempts and account changes"],
-                            ["Weekly digest", "A summary of activity in your workspace"],
-                            ["Mentions", "When a teammate @mentions you"]
+                            ["产品更新", "重要发布和更新日志"],
+                            ["安全提醒", "登录和账户变更"],
+                            ["每周摘要", "工作区中的活动摘要"],
+                            ["提及", "当队友 @提及 你时"]
                           ].map(([label, desc], i) => (
                             <div class="d-flex justify-content-between align-items-start py-2 border-bottom">
                               <div>
@@ -197,13 +197,13 @@ const page = "settings";
                                   class="visually-hidden"
                                   for={`notif-${i}`}
                                 >
-                                  Toggle {label}
+                                  切换 {label}
                                 </label>
                               </div>
                             </div>
                           ))
                         }
-                        <button class="btn btn-primary mt-3">Save preferences</button>
+                        <button class="btn btn-primary mt-3">保存设置</button>
                       </div>
                     </div>
                   </div>
@@ -212,13 +212,13 @@ const page = "settings";
                   <div class="tab-pane fade" id="security" role="tabpanel">
                     <div class="card">
                       <div class="card-header">
-                        <h3 class="card-title">Password</h3>
+                        <h3 class="card-title">密码</h3>
                       </div>
                       <div class="card-body">
                         <form class="row g-3">
                           <div class="col-md-12">
                             <label class="form-label" for="pwd-current">
-                              Current password
+                              当前密码
                             </label>
                             <input
                               type="password"
@@ -228,13 +228,13 @@ const page = "settings";
                           </div>
                           <div class="col-md-6">
                             <label class="form-label" for="pwd-new">
-                              New password
+                              新密码
                             </label>
                             <input type="password" class="form-control" id="pwd-new" />
                           </div>
                           <div class="col-md-6">
                             <label class="form-label" for="pwd-confirm">
-                              Confirm new password
+                              确认新密码
                             </label>
                             <input
                               type="password"
@@ -244,7 +244,7 @@ const page = "settings";
                           </div>
                           <div class="col-12">
                             <button type="submit" class="btn btn-primary">
-                              Update password
+                              更新密码
                             </button>
                           </div>
                         </form>
@@ -252,16 +252,16 @@ const page = "settings";
                     </div>
                     <div class="card mt-3">
                       <div class="card-header">
-                        <h3 class="card-title">Two-factor authentication</h3>
+                        <h3 class="card-title">双因素认证</h3>
                       </div>
                       <div class="card-body d-flex justify-content-between align-items-center">
                         <div>
-                          <p class="mb-0 fw-semibold">Authenticator app</p>
+                          <p class="mb-0 fw-semibold">身份验证 APP</p>
                           <small class="text-secondary">
-                            Use an authenticator app such as 1Password or Authy.
+                            使用 1Password 或 Authy 等身份验证 APP。
                           </small>
                         </div>
-                        <button class="btn btn-outline-primary">Enable</button>
+                        <button class="btn btn-outline-primary">启用</button>
                       </div>
                     </div>
                   </div>
@@ -270,64 +270,64 @@ const page = "settings";
                   <div class="tab-pane fade" id="billing" role="tabpanel">
                     <div class="card">
                       <div class="card-header">
-                        <h3 class="card-title">Current plan</h3>
+                        <h3 class="card-title">当前计划</h3>
                       </div>
                       <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-3">
                           <div>
-                            <p class="mb-0 fw-semibold">Pro plan</p>
+                            <p class="mb-0 fw-semibold">提前计划</p>
                             <small class="text-secondary">
-                              $29 / month &middot; Renews June 18, 2026
+                              每月 29 美元 · 2026 年 6 月 18 日续费
                             </small>
                           </div>
                           <a href="#" class="btn btn-outline-primary btn-sm">
-                            Change plan
+                            保存计划
                           </a>
                         </div>
                         <hr />
-                        <p class="fw-semibold mb-2">Payment method</p>
+                        <p class="fw-semibold mb-2">付款方式</p>
                         <div class="d-flex justify-content-between align-items-center">
                           <div>
                             <i
                               class="bi bi-credit-card-2-front me-2"
                               aria-hidden="true"
                             ></i>
-                            Visa ending in 4242
+                            尾号为 4242 的 Visa 卡
                           </div>
-                          <a href="#" class="btn btn-link btn-sm">Update</a>
+                          <a href="#" class="btn btn-link btn-sm">更新</a>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <!-- Danger zone -->
+                  <!-- 危险操作 -->
                   <div class="tab-pane fade" id="danger" role="tabpanel">
                     <div class="card border-danger">
                       <div class="card-header bg-danger-subtle">
-                        <h3 class="card-title text-danger">Danger zone</h3>
+                        <h3 class="card-title text-danger">危险操作</h3>
                       </div>
                       <div class="card-body">
                         <div class="d-flex justify-content-between align-items-start mb-3">
                           <div>
-                            <p class="mb-0 fw-semibold">Export account data</p>
+                            <p class="mb-0 fw-semibold">导出账户数据</p>
                             <small class="text-secondary">
-                              Download a copy of all your data as a ZIP archive.
+                              将所有数据下载为 ZIP 压缩包。
                             </small>
                           </div>
-                          <button class="btn btn-outline-secondary">Export</button>
+                          <button class="btn btn-outline-secondary">导出</button>
                         </div>
                         <hr />
                         <div class="d-flex justify-content-between align-items-start">
                           <div>
                             <p class="mb-0 fw-semibold text-danger">
-                              Delete account
+                              删除账户
                             </p>
                             <small class="text-secondary">
-                              This will permanently delete your account and all
-                              associated data. This cannot be undone.
+                              这将永久删除您的账户及所有关联数据。
+                              此操作不可撤销。
                             </small>
                           </div>
-                          <button class="btn btn-danger">Delete account</button>
+                          <button class="btn btn-danger">删除账户</button>
                         </div>
                       </div>
                     </div>

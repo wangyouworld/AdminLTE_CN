@@ -1,4 +1,4 @@
-The sidebar used in this page to the left provides an example of what your sidebar would look like. Construction of a sidebar:
+下方代码中展示了你的侧边栏大致的样子。侧边栏的构建方式如下：
 
 ```html
 <!--begin::Sidebar-->
@@ -31,11 +31,11 @@ The sidebar used in this page to the left provides an example of what your sideb
         role="menu"
         data-accordion="false"
       >
-        <li class="nav-header">Nav Header</li>
+        <li class="nav-header">导航栏标题</li>
         <li class="nav-item">
           <a href="./index.html" class="nav-link">
             <i class="nav-icon bi bi-circle-fill"></i>
-            <p>Level 1</p>
+            <p>层级 1</p>
           </a>
         </li>
         <li class="nav-item">
@@ -51,7 +51,7 @@ The sidebar used in this page to the left provides an example of what your sideb
               <a href="./index.html" class="nav-link">
                 <i class="nav-icon bi bi-circle"></i>
                 <p>
-                  Level 2 (Badge)
+                  2 级（徽章）
                   <span
                     class="nav-badge badge text-bg-secondary me-3"
                   >
@@ -63,7 +63,7 @@ The sidebar used in this page to the left provides an example of what your sideb
             <li class="nav-item">
               <a href="./index.html" class="nav-link">
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Level 2</p>
+                <p>层级 2</p>
               </a>
             </li>
           </ul>
@@ -71,7 +71,7 @@ The sidebar used in this page to the left provides an example of what your sideb
         <li class="nav-item">
           <a href="./index.html" class="nav-link active">
             <i class="nav-icon bi bi-circle-fill"></i>
-            <p>Level 1 Active</p>
+            <p>1 级活跃</p>
           </a>
         </li>
 
@@ -79,7 +79,7 @@ The sidebar used in this page to the left provides an example of what your sideb
           <a href="#" class="nav-link active">
             <i class="nav-icon bi bi-circle-fill"></i>
             <p>
-              Treeview Menu Open
+              Treeview 菜单打开
               <i class="nav-arrow bi bi-chevron-right"></i>
             </p>
           </a>
@@ -87,13 +87,13 @@ The sidebar used in this page to the left provides an example of what your sideb
             <li class="nav-item">
               <a href="./index.html" class="nav-link active">
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Level 2 Active</p>
+                <p>2 级活跃</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="./index.html" class="nav-link">
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Level 2</p>
+                <p>层级 2</p>
               </a>
             </li>
           </ul>
@@ -107,21 +107,21 @@ The sidebar used in this page to the left provides an example of what your sideb
 <!--end::Sidebar-->
 ```
 
-## Alternate Logo
+## 备用 Logo
 
-You can use two logo images instead of logo with text, you only need to change the markup to this:
+你可以使用两张 Logo 图片来替代带文字的 Logo，只需将 HTML 结构修改为如下所示：
 
 ```html
 <div class="sidebar-brand">
   <a href="./index.html" class="brand-link logo-switch">
     <img
       src="./assets/img/AdminLTELogo.png"
-      alt="AdminLTE Logo Small"
+      alt="AdminLTE 小 Logo"
       class="brand-image-xl logo-xs opacity-75 shadow"
     />
     <img
       src="./assets/img/AdminLTEFullLogo.png"
-      alt="AdminLTE Logo Large"
+      alt="AdminLTE 大 Logo"
       class="brand-image-xs logo-xl opacity-75"
     />
   </a>

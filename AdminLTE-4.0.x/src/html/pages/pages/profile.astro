@@ -5,14 +5,14 @@ import Topbar from "@components/dashboard/_topbar.astro"
 import Sidenav from "@components/dashboard/_sidenav.astro"
 import Scripts from "@components/_scripts.astro"
 
-const title = "AdminLTE 4 | User Profile"
+const title = "AdminLTE 4 | 用户资料"
 const path = "../../../dist"
 const mainPage = "pages"
 const page = "profile";
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <Head title={title} path={path} />
   </head>
@@ -25,13 +25,13 @@ const page = "profile";
           <div class="container-fluid">
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">User Profile</h3>
+                <h3 class="mb-0">用户资料</h3>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item"><a href="#">User</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Profile</li>
+                  <li class="breadcrumb-item"><a href="#">首页</a></li>
+                  <li class="breadcrumb-item"><a href="#">用户</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">资料</li>
                 </ol>
               </div>
             </div>
@@ -53,37 +53,37 @@ const page = "profile";
                       JD
                     </div>
                     <h3 class="h5 mb-0">Jane Doe</h3>
-                    <p class="text-secondary mb-3">Product Designer</p>
+                    <p class="text-secondary mb-3">产品设计师</p>
                     <ul class="list-group list-group-flush text-start small">
                       <li
                         class="list-group-item d-flex justify-content-between px-0"
                       >
-                        <span class="text-secondary">Followers</span>
+                        <span class="text-secondary">关注</span>
                         <span class="fw-semibold">1,322</span>
                       </li>
                       <li
                         class="list-group-item d-flex justify-content-between px-0"
                       >
-                        <span class="text-secondary">Following</span>
+                        <span class="text-secondary">粉丝</span>
                         <span class="fw-semibold">543</span>
                       </li>
                       <li
                         class="list-group-item d-flex justify-content-between px-0"
                       >
-                        <span class="text-secondary">Friends</span>
+                        <span class="text-secondary">好友</span>
                         <span class="fw-semibold">13,287</span>
                       </li>
                     </ul>
                     <a href="#" class="btn btn-primary w-100 mt-3">
                       <i class="bi bi-person-plus me-1" aria-hidden="true"></i>
-                      Follow
+                      关注
                     </a>
                   </div>
                 </div>
                 <!-- About details -->
                 <div class="card mt-3">
                   <div class="card-header">
-                    <h3 class="card-title">About</h3>
+                    <h3 class="card-title">关于</h3>
                   </div>
                   <div class="card-body small">
                     <p class="fw-semibold mb-1">
@@ -91,43 +91,43 @@ const page = "profile";
                         class="bi bi-mortarboard me-1 text-secondary"
                         aria-hidden="true"
                       ></i>
-                      Education
+                      教育经历
                     </p>
                     <p class="text-secondary mb-3">
-                      BS in Computer Science from the University of Tennessee at
-                      Knoxville
+                      田纳西大学诺克斯维尔分校
+                      计算机科学理学学士
                     </p>
                     <p class="fw-semibold mb-1">
                       <i
                         class="bi bi-geo-alt me-1 text-secondary"
                         aria-hidden="true"
                       ></i>
-                      Location
+                      位置
                     </p>
-                    <p class="text-secondary mb-3">Malibu, California</p>
+                    <p class="text-secondary mb-3">加利福尼亚州马里布</p>
                     <p class="fw-semibold mb-1">
                       <i
                         class="bi bi-tags me-1 text-secondary"
                         aria-hidden="true"
                       ></i>
-                      Skills
+                      技能
                     </p>
                     <p class="mb-3">
                       <span class="badge text-bg-secondary me-1">UI/UX</span>
                       <span class="badge text-bg-secondary me-1">Figma</span>
-                      <span class="badge text-bg-secondary me-1">Design Systems</span>
-                      <span class="badge text-bg-secondary">Research</span>
+                      <span class="badge text-bg-secondary me-1">设计系统</span>
+                      <span class="badge text-bg-secondary">研究</span>
                     </p>
                     <p class="fw-semibold mb-1">
                       <i
                         class="bi bi-pencil-square me-1 text-secondary"
                         aria-hidden="true"
                       ></i>
-                      Notes
+                      说明
                     </p>
                     <p class="text-secondary mb-0">
-                      Lorem ipsum represents a long-held tradition for designers,
-                      typographers and the like.
+                      他是望闻问切加摸心脏看舌头，主观加客观地乱用，
+                      可以说他用尽一切在无器械情况下能用的诊疗手段，但没有任何治疗手段。
                     </p>
                   </div>
                 </div>
@@ -152,7 +152,7 @@ const page = "profile";
                           role="tab"
                           aria-selected="true"
                         >
-                          Activity
+                          活动
                         </button>
                       </li>
                       <li class="nav-item" role="presentation">
@@ -165,7 +165,7 @@ const page = "profile";
                           role="tab"
                           aria-selected="false"
                         >
-                          Timeline
+                          时间线
                         </button>
                       </li>
                       <li class="nav-item" role="presentation">
@@ -178,7 +178,7 @@ const page = "profile";
                           role="tab"
                           aria-selected="false"
                         >
-                          Settings
+                          设置
                         </button>
                       </li>
                     </ul>
@@ -203,18 +203,18 @@ const page = "profile";
                           <div class="flex-grow-1">
                             <div class="d-flex justify-content-between">
                               <h4 class="h6 mb-0">Jane Doe</h4>
-                              <small class="text-secondary">2 hours ago</small>
+                              <small class="text-secondary">2 小时前</small>
                             </div>
                             <p class="mb-2">
-                              Shipped <a href="#">design-system v2.4</a> with a
-                              refreshed color palette and new motion primitives.
+                              已发布<a href="#">设计系统 v2.4</a>，
+                              包含更新的配色方案和全新的动画基础元素。
                             </p>
                             <a href="#" class="btn btn-sm btn-outline-secondary">
                               <i
                                 class="bi bi-hand-thumbs-up me-1"
                                 aria-hidden="true"
                               ></i>
-                              Like
+                              喜欢
                             </a>
                             <a
                               href="#"
@@ -224,7 +224,7 @@ const page = "profile";
                                 class="bi bi-chat me-1"
                                 aria-hidden="true"
                               ></i>
-                              Comment
+                              评论
                             </a>
                           </div>
                         </article>
@@ -239,12 +239,12 @@ const page = "profile";
                           <div class="flex-grow-1">
                             <div class="d-flex justify-content-between">
                               <h4 class="h6 mb-0">Jane Doe</h4>
-                              <small class="text-secondary">Yesterday</small>
+                              <small class="text-secondary">昨天</small>
                             </div>
                             <p class="mb-2">
-                              Posted a question in
-                              <a href="#">#design-help</a>: how should we handle
-                              focus rings on dark-themed CTA buttons?
+                              在 <a href="#">#design-help</a> 中
+                              发了一个问题：对于深色主题的行动按钮，
+                              我们该如何处理焦点环？
                             </p>
                           </div>
                         </article>
@@ -259,11 +259,11 @@ const page = "profile";
                           <div class="flex-grow-1">
                             <div class="d-flex justify-content-between">
                               <h4 class="h6 mb-0">Jane Doe</h4>
-                              <small class="text-secondary">3 days ago</small>
+                              <small class="text-secondary">3 天前</small>
                             </div>
                             <p class="mb-0">
-                              Updated her bio and added <em>Research</em> to her
-                              skills.
+                              更新了个人简介，
+                              并将<em>“研究”</em> 添加到技能中。
                             </p>
                           </div>
                         </article>
@@ -285,9 +285,9 @@ const page = "profile";
                             </span>
                             <div>
                               <p class="mb-0 fw-semibold">
-                                Released v2.4 of the design system
+                                发布设计系统 v2.4
                               </p>
-                              <small class="text-secondary">May 16, 2026</small>
+                              <small class="text-secondary">2026年5月16日</small>
                             </div>
                           </li>
                           <li class="d-flex gap-3 mb-3">
@@ -298,9 +298,9 @@ const page = "profile";
                             </span>
                             <div>
                               <p class="mb-0 fw-semibold">
-                                Spoke at the local UX meetup
+                                在本地用户体验交流会上发言
                               </p>
-                              <small class="text-secondary">April 22, 2026</small>
+                              <small class="text-secondary">2026年4月22日</small>
                             </div>
                           </li>
                           <li class="d-flex gap-3">
@@ -311,9 +311,9 @@ const page = "profile";
                             </span>
                             <div>
                               <p class="mb-0 fw-semibold">
-                                Joined the product team as Senior Designer
+                                加入产品团队担任高级设计师
                               </p>
-                              <small class="text-secondary">March 1, 2026</small>
+                              <small class="text-secondary">2026年3月1日</small>
                             </div>
                           </li>
                         </ul>
@@ -329,7 +329,7 @@ const page = "profile";
                         <form class="row g-3">
                           <div class="col-md-6">
                             <label class="form-label" for="profile-first">
-                              First name
+                              姓
                             </label>
                             <input
                               type="text"
@@ -340,7 +340,7 @@ const page = "profile";
                           </div>
                           <div class="col-md-6">
                             <label class="form-label" for="profile-last">
-                              Last name
+                              名
                             </label>
                             <input
                               type="text"
@@ -351,7 +351,7 @@ const page = "profile";
                           </div>
                           <div class="col-md-6">
                             <label class="form-label" for="profile-email">
-                              Email
+                              邮箱
                             </label>
                             <input
                               type="email"
@@ -362,13 +362,13 @@ const page = "profile";
                           </div>
                           <div class="col-md-6">
                             <label class="form-label" for="profile-role">
-                              Role
+                              职位
                             </label>
                             <input
                               type="text"
                               class="form-control"
                               id="profile-role"
-                              value="Product Designer"
+                              value="产品设计师"
                             />
                           </div>
                           <div class="col-12">
@@ -376,14 +376,14 @@ const page = "profile";
                             <textarea
                               class="form-control"
                               id="profile-bio"
-                              rows="4">Designer with a soft spot for design tokens and accessibility.</textarea>
+                              rows="4">设计师，偏爱设计令牌与无障碍设计。</textarea>
                           </div>
                           <div class="col-12">
                             <button type="submit" class="btn btn-primary">
-                              Save changes
+                              保存修改
                             </button>
                             <button type="reset" class="btn btn-outline-secondary ms-1">
-                              Cancel
+                              取消
                             </button>
                           </div>
                         </form>

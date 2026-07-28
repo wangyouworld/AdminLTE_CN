@@ -1,10 +1,10 @@
-AdminLTE is an HTML template — there's no build step required to use it. This page gets you to a working dashboard in about ten minutes, without npm, without a build pipeline, without learning Astro.
+AdminLTE 是一个 HTML 模板——使用它不需要任何构建步骤。本页将带您在十分钟内完成一个可用的仪表盘，无需 npm，无需构建流程，无需学习 Astro。
 
-If you're integrating AdminLTE into a real project, the [Installation](introduction.html) page covers npm, Composer, and source-build workflows.
+如果您正在将 AdminLTE 集成到实际项目中，[安装](introduction.html)页面涵盖了 npm、Composer 和源码构建工作流。
 
-##### 1. Grab the CDN snippets
+##### 1. 获取 CDN 代码片段
 
-Copy these tags into the `<head>` of a new HTML file. They pull AdminLTE, Bootstrap 5.3, Popper, OverlayScrollbars, and Bootstrap Icons from jsDelivr — no install needed.
+将这些标签复制到新 HTML 文件的 `<head>` 中。它们从 jsDelivr 拉取 AdminLTE、Bootstrap 5.3、Popper、OverlayScrollbars 和 Bootstrap Icons——无需安装。
 
 ```html
 <!-- AdminLTE 4 + Bootstrap 5.3 (CSS) -->
@@ -13,7 +13,7 @@ Copy these tags into the `<head>` of a new HTML file. They pull AdminLTE, Bootst
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@4.0.0/dist/css/adminlte.min.css" />
 ```
 
-And these just before `</body>`:
+并将以下内容放在 `</body>` 之前：
 
 ```html
 <!-- Bootstrap + Popper + AdminLTE (JS) -->
@@ -23,9 +23,9 @@ And these just before `</body>`:
 <script src="https://cdn.jsdelivr.net/npm/admin-lte@4.0.0/dist/js/adminlte.min.js"></script>
 ```
 
-##### 2. The minimum viable layout
+##### 2. 最小可用布局
 
-This is the smallest AdminLTE page that still feels like AdminLTE — a header, a collapsible sidebar, and a main content area. Drop it between the CSS and JS tags above:
+这是最小的 AdminLTE 风格页面——包含头部、可折叠侧边栏和主内容区域。将其放在上述 CSS 和 JS 标签之间：
 
 ```html
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
@@ -48,7 +48,7 @@ This is the smallest AdminLTE page that still feels like AdminLTE — a header, 
     <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
       <div class="sidebar-brand">
         <a href="#" class="brand-link">
-          <span class="brand-text fw-light">My Dashboard</span>
+          <span class="brand-text fw-light">我的仪表盘</span>
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -57,13 +57,13 @@ This is the smallest AdminLTE page that still feels like AdminLTE — a header, 
             <li class="nav-item">
               <a href="#" class="nav-link active">
                 <i class="nav-icon bi bi-speedometer"></i>
-                <p>Dashboard</p>
+                <p>仪表盘</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon bi bi-bar-chart"></i>
-                <p>Reports</p>
+                <p>报告</p>
               </a>
             </li>
           </ul>
@@ -75,15 +75,15 @@ This is the smallest AdminLTE page that still feels like AdminLTE — a header, 
     <main class="app-main">
       <div class="app-content-header">
         <div class="container-fluid">
-          <h3 class="mb-0">Hello, AdminLTE</h3>
+          <h3 class="mb-0">你好， AdminLTE</h3>
         </div>
       </div>
       <div class="app-content">
         <div class="container-fluid">
           <div class="card">
-            <div class="card-header"><h5 class="card-title">Welcome</h5></div>
+            <div class="card-header"><h5 class="card-title">欢迎</h5></div>
             <div class="card-body">
-              Edit this file to start building your dashboard.
+              编辑此文件以开始构建你的仪表盘。
             </div>
           </div>
         </div>
@@ -94,31 +94,31 @@ This is the smallest AdminLTE page that still feels like AdminLTE — a header, 
 </body>
 ```
 
-Open it in a browser. The hamburger button at the top-left collapses the sidebar — that's AdminLTE's [PushMenu](javascript/pushmenu.html) plugin working out of the box, wired by `data-lte-toggle="sidebar"`.
+在浏览器中打开它。左上角的汉堡按钮可以折叠侧边栏——这就是 AdminLTE 的 [PushMenu](javascript/pushmenu.html) 插件开箱即用的效果，通过 `data-lte-toggle="sidebar"` 进行绑定。
 
-##### 3. What's actually happening
+##### 3. 实际原理
 
-The four classes that do the heavy lifting:
+承担主要工作的 4 个类：
 
-| Class | What it does |
+| 类名 | 作用 |
 |---|---|
-| `app-wrapper` | The CSS grid root — defines header / sidebar / main / footer regions |
-| `app-header` | Stuck to the top of the viewport when `layout-fixed` is on the body |
-| `app-sidebar` | Collapsible side rail. Add `sidebar-expand-lg` to body to control breakpoint |
-| `app-main` | Scrollable content region — everything else lives here |
+| `app-wrapper` | CSS 网格根容器——定义页头/侧边栏/主内容/页脚区域 |
+| `app-header` | 当 body 上添加 `layout-fixed` 时，固定在页面顶部 |
+| `app-sidebar` | 可折叠侧边栏。在 body 上添加 `sidebar-expand-lg` 可控制不同屏幕下展开或折叠 |
+| `app-main` | 可滚动内容区域——内容部分都在这里 |
 
-The [Layout](layout.html) page covers the full wrapper structure and the responsive options.
+[布局](layout.html)页面涵盖了完整的包装器结构和响应式选项。
 
-##### 4. Add a working JavaScript widget
+##### 4. 添加一个可用的 JavaScript 小部件
 
-AdminLTE ships seven JavaScript plugins. All of them are wired via `data-lte-*` attributes — no JavaScript code needed.
+AdminLTE 内置了 7 个 JavaScript 插件。它们全部通过 `data-lte-*` 属性进行绑定——无需编写 JavaScript 代码。
 
-Drop this in the content area to see the card-widget plugin in action (try the buttons in the card header):
+将以下代码放入内容区，查看卡片插件的效果（试试卡片标题中的按钮）：
 
 ```html
 <div class="card">
   <div class="card-header">
-    <h5 class="card-title">Collapsible card</h5>
+    <h5 class="card-title">可折叠卡片</h5>
     <div class="card-tools">
       <button type="button" class="btn btn-sm btn-tool" data-lte-toggle="card-collapse">
         <i data-lte-icon="expand" class="bi bi-dash-lg"></i>
@@ -130,19 +130,19 @@ Drop this in the content area to see the card-widget plugin in action (try the b
     </div>
   </div>
   <div class="card-body">
-    Click the minus icon to collapse; the X to remove.
+    点击 -图标可  collapse; 点击 X 可删除。
   </div>
 </div>
 ```
 
-##### 5. Where to go next
+##### 5. 接下来去哪里
 
-You now have a working AdminLTE page. From here:
+您现在已拥有一个可用的 AdminLTE 页面。接下来：
 
-- **Make it pretty** → [Customization & Theming](customization.html) — change colors, fonts, and spacing via SCSS variables or CSS custom properties.
-- **Make it functional** → [JavaScript Plugins](javascript/layout.html) — full reference for all seven plugins.
-- **Make it dark** → [Color Mode](color-mode.html) — light/dark/auto toggle.
-- **Make it international** → [RTL Support](rtl.html) — right-to-left layouts for Arabic, Hebrew, Persian, etc.
-- **Add real widgets** → [Recommended Integrations](integrations.html) — date pickers, multi-selects, charts, rich text editors. AdminLTE keeps its dep tree lean; this page tells you which third-party libraries to drop in.
+- **美化它** → [自定义与主题](customization.html) — 通过 SCSS 变量或 CSS 自定义属性更改颜色、字体和间距。
+- **让它动起来** → [JavaScript 插件](javascript/layout.html) — 7 个插件的完整参考。
+- **让它变暗** → [明暗模式](color-mode.html) — 亮色/暗色/自动切换。
+- **让它国际化** → [RTL 支持](rtl.html) — 为阿拉伯语、希伯来语、波斯语等提供从右到左的布局。
+- **添加真正的部件** → [推荐集成](integrations.html) — 日期选择器、多选、图表、富文本编辑器。AdminLTE 保持精简的依赖；本页告诉您需要引入哪些第三方库。
 
-If you're upgrading an existing AdminLTE 3 project, see the [Migration from v3](migration.html) guide for breaking changes.
+如果您正在升级现有 AdminLTE 3 项目，请查看[从 v3 迁移](migration.html)指南，了解不兼容的变更。

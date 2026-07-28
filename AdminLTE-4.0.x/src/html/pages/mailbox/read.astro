@@ -5,7 +5,7 @@ import Topbar from "@components/dashboard/_topbar.astro"
 import Sidenav from "@components/dashboard/_sidenav.astro"
 import Scripts from "@components/_scripts.astro"
 
-const title = "AdminLTE 4 | Mailbox - Read"
+const title = "AdminLTE 4 | 邮箱 - 查看邮件"
 const path = "../../../dist"
 const htmlPath = ".."
 const mainPage = "mailbox"
@@ -13,7 +13,7 @@ const page = "read";
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <Head title={title} path={path} />
   </head>
@@ -26,15 +26,15 @@ const page = "read";
           <div class="container-fluid">
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">Read Message</h3>
+                <h3 class="mb-0">查看邮件</h3>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item"><a href="#">首页</a></li>
                   <li class="breadcrumb-item">
-                    <a href={htmlPath + "/mailbox/inbox.html"}>Mailbox</a>
+                    <a href={htmlPath + "/mailbox/inbox.html"}>邮箱</a>
                   </li>
-                  <li class="breadcrumb-item active" aria-current="page">Read</li>
+                  <li class="breadcrumb-item active" aria-current="page">查看</li>
                 </ol>
               </div>
             </div>
@@ -56,14 +56,14 @@ const page = "read";
                   <button
                     class="btn btn-outline-secondary"
                     type="button"
-                    title="Previous"
+                    title="上一页"
                   >
                     <i class="bi bi-chevron-up" aria-hidden="true"></i>
                   </button>
                   <button
                     class="btn btn-outline-secondary"
                     type="button"
-                    title="Next"
+                    title="下一页"
                   >
                     <i class="bi bi-chevron-down" aria-hidden="true"></i>
                   </button>
@@ -82,47 +82,47 @@ const page = "read";
                   <div class="flex-grow-1">
                     <div class="d-flex justify-content-between">
                       <div>
-                        <p class="mb-0 fw-semibold">Olivia Bennett</p>
+                        <p class="mb-0 fw-semibold">奥利维亚·贝内特</p>
                         <small class="text-secondary">
-                          olivia@example.com &mdash; to me
+                          olivia@example.com &mdash; 发给我
                         </small>
                       </div>
-                      <small class="text-secondary">10:42 AM &middot; 2 hours ago</small>
+                      <small class="text-secondary">上午 10:42 &middot; 2 小时前</small>
                     </div>
                   </div>
                 </div>
 
                 <!-- Body -->
                 <div class="mb-4">
-                  <p>Hey Jane,</p>
+                  <p>嗨，简，</p>
                   <p>
-                    Reviewed the v2.4 candidate this morning. Overall: looks
-                    great, ready to ship pending two small notes:
+                    今天上午审阅了 v2.4 版本的候选稿。
+                    看起来很棒，处理两个小问题后就可以发布：
                   </p>
                   <ol>
                     <li>
-                      Success state on form inputs feels a touch light against
-                      <code>bg-body-tertiary</code>. Can we bump the border
-                      contrast by ~10%?
+                      表单输入框的成功状态颜色
+                      与 <code>bg-body-tertiary</code> 相比略显浅淡。
+                      我们能否将边框对比度提升约 10%？
                     </li>
                     <li>
-                      The new focus ring is lovely on light theme but barely
-                      visible on dark. Worth a quick a11y pass before we cut the
-                      release.
+                      新的焦点环在浅色主题下效果很好，
+                      但在深色主题下几乎看不见。
+                      在发布前值得快速进行一次无障碍性检查。
                     </li>
                   </ol>
                   <p>
-                    Otherwise, big +1. Customers are going to love the
-                    motion primitives.
+                    除此之外，赞一个！
+                    客户一定会喜欢这些动画基础元素。
                   </p>
                   <p class="mb-0">
-                    Olivia<br />
-                    <small class="text-secondary">Sent from my laptop</small>
+                    奥利维亚<br />
+                    <small class="text-secondary">从我的笔记本电脑发送</small>
                   </p>
                 </div>
 
                 <!-- Attachments -->
-                <h6 class="fw-semibold">Attachments (2)</h6>
+                <h6 class="fw-semibold">附件 (2)</h6>
                 <div class="row g-2 mb-3">
                   <div class="col-md-6">
                     <div class="card">
@@ -132,7 +132,7 @@ const page = "read";
                           aria-hidden="true"
                         ></i>
                         <div class="flex-grow-1">
-                          <p class="mb-0 small fw-semibold">design-review.pdf</p>
+                          <p class="mb-0 small fw-semibold">设计审查.pdf</p>
                           <small class="text-secondary">1.4 MB</small>
                         </div>
                         <a href="#" class="btn btn-sm btn-outline-secondary">
@@ -149,7 +149,7 @@ const page = "read";
                           aria-hidden="true"
                         ></i>
                         <div class="flex-grow-1">
-                          <p class="mb-0 small fw-semibold">focus-ring-dark.png</p>
+                          <p class="mb-0 small fw-semibold">黑色焦点环.png</p>
                           <small class="text-secondary">320 KB</small>
                         </div>
                         <a href="#" class="btn btn-sm btn-outline-secondary">
@@ -165,17 +165,17 @@ const page = "read";
                   href={htmlPath + "/mailbox/compose.html"}
                   class="btn btn-primary"
                 >
-                  <i class="bi bi-reply me-1" aria-hidden="true"></i>Reply
+                  <i class="bi bi-reply me-1" aria-hidden="true"></i>回复
                 </a>
                 <button class="btn btn-outline-secondary" type="button">
                   <i class="bi bi-arrow-90deg-right me-1" aria-hidden="true"></i>
-                  Forward
+                  转发
                 </button>
                 <button class="btn btn-outline-secondary ms-auto" type="button">
-                  <i class="bi bi-archive me-1" aria-hidden="true"></i>Archive
+                  <i class="bi bi-archive me-1" aria-hidden="true"></i>归档
                 </button>
                 <button class="btn btn-outline-danger" type="button">
-                  <i class="bi bi-trash me-1" aria-hidden="true"></i>Delete
+                  <i class="bi bi-trash me-1" aria-hidden="true"></i>删除
                 </button>
               </div>
             </div>

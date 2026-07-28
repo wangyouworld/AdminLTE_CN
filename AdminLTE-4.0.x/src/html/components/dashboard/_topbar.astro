@@ -1,7 +1,7 @@
 ---
 import { convertPathToHtml } from "../../../utils/index.js"
 
-// Smart path resolution: calculate relative path based on directory depth
+// 智能路径解析：根据目录深度计算相对路径
 const pathname = Astro.url.pathname;
 const pathSegments = pathname.split('/').filter(segment => segment !== '');
 const depth = pathSegments.length > 0 ? pathSegments.length - 1 : 0;
@@ -29,13 +29,13 @@ const isDocsPage = pathname.includes("/docs/")
           <li class="nav-item d-none d-md-block">
             <a href={htmlPath + "/docs/introduction.html"} class="nav-link">
               <i class="bi bi-book me-1" aria-hidden="true" />
-              Documentation
+              文档
             </a>
           </li>
           <li class="nav-item d-none d-md-block">
             <a href={htmlPath + "/index.html"} class="nav-link">
               <i class="bi bi-arrow-left me-1" aria-hidden="true" />
-              Back to live preview
+              返回实时预览
             </a>
           </li>
         </> :
@@ -43,13 +43,13 @@ const isDocsPage = pathname.includes("/docs/")
           <li class="nav-item d-none d-md-block">
             <a href={htmlPath + "/index.html"} class="nav-link">
               <i class="bi bi-grid-1x2 me-1" aria-hidden="true" />
-              Live preview
+              实时预览
             </a>
           </li>
           <li class="nav-item d-none d-md-block">
             <a href={htmlPath + "/docs/introduction.html"} class="nav-link">
               <i class="bi bi-book me-1" aria-hidden="true" />
-              Documentation
+              文档
             </a>
           </li>
         </>}
@@ -79,7 +79,7 @@ const isDocsPage = pathname.includes("/docs/")
               <div class="flex-shrink-0">
                 <img
                   src={deploymentPath + "assets/img/user1-128x128.jpg"}
-                  alt="User Avatar"
+                  alt="用户头像"
                   class="img-size-50 rounded-circle me-3"
                 />
               </div>
@@ -90,9 +90,9 @@ const isDocsPage = pathname.includes("/docs/")
                   ><i class="bi bi-star-fill"></i></span
                   >
                 </h3>
-                <p class="fs-7">Call me whenever you can...</p>
+                <p class="fs-7">有时间打电话给我……</p>
                 <p class="fs-7 text-secondary">
-                  <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                  <i class="bi bi-clock-fill me-1"></i> 4 小时前
                 </p>
               </div>
             </div>
@@ -105,7 +105,7 @@ const isDocsPage = pathname.includes("/docs/")
               <div class="flex-shrink-0">
                 <img
                   src={deploymentPath + "assets/img/user8-128x128.jpg"}
-                  alt="User Avatar"
+                  alt="用户头像"
                   class="img-size-50 rounded-circle me-3"
                 />
               </div>
@@ -116,9 +116,9 @@ const isDocsPage = pathname.includes("/docs/")
                     <i class="bi bi-star-fill"></i>
                   </span>
                 </h3>
-                <p class="fs-7">I got your message bro</p>
+                <p class="fs-7">我收到你的消息了，兄弟</p>
                 <p class="fs-7 text-secondary">
-                  <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                  <i class="bi bi-clock-fill me-1"></i> 4 小时前
                 </p>
               </div>
             </div>
@@ -131,7 +131,7 @@ const isDocsPage = pathname.includes("/docs/")
               <div class="flex-shrink-0">
                 <img
                   src={deploymentPath + "assets/img/user3-128x128.jpg"}
-                  alt="User Avatar"
+                  alt="用户头像"
                   class="img-size-50 rounded-circle me-3"
                 />
               </div>
@@ -142,16 +142,16 @@ const isDocsPage = pathname.includes("/docs/")
                     <i class="bi bi-star-fill"></i>
                   </span>
                 </h3>
-                <p class="fs-7">The subject goes here</p>
+                <p class="fs-7">主题在这里</p>
                 <p class="fs-7 text-secondary">
-                  <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                  <i class="bi bi-clock-fill me-1"></i> 4 小时前
                 </p>
               </div>
             </div>
             <!--end::Message-->
           </a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+          <a href="#" class="dropdown-item dropdown-footer">查看所有消息</a>
         </div>
       </li>
       <!--end::Messages Dropdown Menu-->
@@ -163,25 +163,25 @@ const isDocsPage = pathname.includes("/docs/")
           <span class="navbar-badge badge text-bg-warning">15</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <span class="dropdown-item dropdown-header">15 条通知</span>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
-            <i class="bi bi-envelope me-2"></i> 4 new messages
-            <span class="float-end text-secondary fs-7">3 mins</span>
+            <i class="bi bi-envelope me-2"></i> 4 条新消息
+            <span class="float-end text-secondary fs-7">3 分钟前</span>
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
-            <i class="bi bi-people-fill me-2"></i> 8 friend requests
-            <span class="float-end text-secondary fs-7">12 hours</span>
+            <i class="bi bi-people-fill me-2"></i> 8 条好友请求
+            <span class="float-end text-secondary fs-7">12 小时前</span>
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
-            <i class="bi bi-file-earmark-fill me-2"></i> 3 new reports
-            <span class="float-end text-secondary fs-7">2 days</span>
+            <i class="bi bi-file-earmark-fill me-2"></i> 3 个新报告
+            <span class="float-end text-secondary fs-7">2 天前</span>
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">
-            See All Notifications
+            查看所有通知
           </a>
         </div>
       </li>
@@ -196,7 +196,7 @@ const isDocsPage = pathname.includes("/docs/")
       </li>
       <!--end::Fullscreen Toggle-->
 
-      <!--begin::Color Mode Toggle (#6010)-->
+      <!--begin::明暗模式切换 (#6010)-->
       <li class="nav-item dropdown">
         <a
           class="nav-link"
@@ -223,7 +223,7 @@ const isDocsPage = pathname.includes("/docs/")
               aria-pressed="false"
             >
               <i class="bi bi-sun-fill me-2"></i>
-              Light
+              明亮
               <i class="bi bi-check-lg ms-auto d-none"></i>
             </button>
           </li>
@@ -235,7 +235,7 @@ const isDocsPage = pathname.includes("/docs/")
               aria-pressed="false"
             >
               <i class="bi bi-moon-fill me-2"></i>
-              Dark
+              暗黑
               <i class="bi bi-check-lg ms-auto d-none"></i>
             </button>
           </li>
@@ -247,13 +247,13 @@ const isDocsPage = pathname.includes("/docs/")
               aria-pressed="true"
             >
               <i class="bi bi-circle-half me-2"></i>
-              Auto
+              自动
               <i class="bi bi-check-lg ms-auto d-none"></i>
             </button>
           </li>
         </ul>
       </li>
-      <!--end::Color Mode Toggle-->
+      <!--end::明暗模式切换-->
 
       <!--begin::User Menu Dropdown-->
       <li class="nav-item dropdown user-menu">
@@ -261,36 +261,36 @@ const isDocsPage = pathname.includes("/docs/")
           <img
             src={deploymentPath + "assets/img/user2-160x160.jpg"}
             class="user-image rounded-circle shadow"
-            alt="User Image"
+            alt="用户头像"
           />
           <span class="d-none d-md-inline">Alexander Pierce</span>
         </a>
         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-          <!--begin::User Image-->
+          <!--begin::用户头像-->
           <li class="user-header text-bg-primary">
             <img
               src={deploymentPath + "assets/img/user2-160x160.jpg"}
               class="rounded-circle shadow"
-              alt="User Image"
+              alt="用户头像"
             />
             <p>
-              Alexander Pierce - Web Developer
-              <small>Member since Nov. 2023</small>
+              Alexander Pierce - 网页开发工程师
+              <small>注册于 2023 年 11 月</small>
             </p>
           </li>
-          <!--end::User Image-->
+          <!--end::用户头像-->
           <!--begin::Menu Body-->
           <li class="user-body">
             <!--begin::Row-->
             <div class="row">
               <div class="col-4 text-center">
-                <a href="#">Followers</a>
+                <a href="#">关注</a>
               </div>
               <div class="col-4 text-center">
-                <a href="#">Sales</a>
+                <a href="#">销量</a>
               </div>
               <div class="col-4 text-center">
-                <a href="#">Friends</a>
+                <a href="#">好友</a>
               </div>
             </div>
             <!--end::Row-->
@@ -298,8 +298,8 @@ const isDocsPage = pathname.includes("/docs/")
           <!--end::Menu Body-->
           <!--begin::Menu Footer-->
           <li class="user-footer">
-            <a href="#" class="btn btn-outline-secondary">Profile</a>
-            <a href="#" class="btn btn-outline-danger float-end">Sign out</a>
+            <a href="#" class="btn btn-outline-secondary">资料</a>
+            <a href="#" class="btn btn-outline-danger float-end">退出</a>
           </li>
           <!--end::Menu Footer-->
         </ul>

@@ -1,66 +1,66 @@
-The CardWidget plugin provides collapse, expand, remove, and maximize functionality for card components.
+CardWidget 插件为卡片组件提供了折叠、展开、移除和最大化的功能。
 
-##### Usage
+##### 用法
 
-This plugin is activated via data attributes on buttons inside a `.card` element.
+该插件通过 `.card` 元素内部按钮上的 data 属性来激活。
 
-**Data API**
+**Data 属性**
 
-Add `data-lte-toggle="card-collapse"` to toggle card body visibility, `data-lte-toggle="card-remove"` to remove the card, or `data-lte-toggle="card-maximize"` to maximize it.
+添加 `data-lte-toggle="card-collapse"` 来切换卡片主体的可见性，添加 `data-lte-toggle="card-remove"` 来移除卡片，或添加 `data-lte-toggle="card-maximize"` 来最大化卡片。
 
 ```html
 <div class="card">
   <div class="card-header">
-    <h3 class="card-title">Card Title</h3>
+    <h3 class="card-title">卡片标题</h3>
     <div class="card-tools">
-      <button type="button" class="btn btn-tool" data-lte-toggle="card-collapse" title="Collapse">
+      <button type="button" class="btn btn-tool" data-lte-toggle="card-collapse" title="折叠">
         <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
         <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
       </button>
-      <button type="button" class="btn btn-tool" data-lte-toggle="card-maximize" title="Maximize">
+      <button type="button" class="btn btn-tool" data-lte-toggle="card-maximize" title="最大化">
         <i class="bi bi-fullscreen"></i>
       </button>
-      <button type="button" class="btn btn-tool" data-lte-toggle="card-remove" title="Remove">
+      <button type="button" class="btn btn-tool" data-lte-toggle="card-remove" title="移除">
         <i class="bi bi-x-lg"></i>
       </button>
     </div>
   </div>
-  <div class="card-body">Card content here.</div>
-  <div class="card-footer">Card footer</div>
+  <div class="card-body">这里是卡片内容。</div>
+  <div class="card-footer">卡片底部</div>
 </div>
 ```
 
-##### Events
+##### 事件
 
-The plugin dispatches the following events on the trigger element:
+该插件在触发元素上派发以下事件：
 
-| Event | Description |
+| 事件 | 描述 |
 |-------|-------------|
-| `collapsed.lte.card-widget` | Fired when the card body is collapsed. |
-| `expanded.lte.card-widget` | Fired when the card body is expanded. |
-| `remove.lte.card-widget` | Fired when the card is removed. |
-| `maximized.lte.card-widget` | Fired when the card is maximized. |
-| `minimized.lte.card-widget` | Fired when the card is minimized (restored from maximized). |
+| `collapsed.lte.card-widget` | 当卡片主体被折叠时触发。 |
+| `expanded.lte.card-widget` | 当卡片主体被展开时触发。 |
+| `remove.lte.card-widget` | 当卡片被移除时触发。 |
+| `maximized.lte.card-widget` | 当卡片被最大化时触发。 |
+| `minimized.lte.card-widget` | 当卡片被最小化时（从最大化状态恢复）触发。 |
 
-##### CSS Classes
+##### CSS 类
 
-| Class | Description |
+| 类名 | 描述 |
 |-------|-------------|
-| `collapsed-card` | Applied to the card when collapsed. |
-| `maximized-card` | Applied to the card when maximized. |
+| `collapsed-card` | 当卡片折叠时应用于卡片。 |
+| `maximized-card` | 当卡片最大化时应用于卡片。 |
 
-##### Configuration
+##### 配置
 
-The plugin reads no `data-*` configuration attributes. To customize behaviour, instantiate it programmatically and pass a config:
+该插件不读取 `data-*` 配置属性。要自定义行为，请通过编程方式实例化并传入配置对象：
 
-| Option | Default | Description |
+| 选项 | 默认值 | 描述 |
 |---|---|---|
-| `animationSpeed` | `500` | Slide animation duration in milliseconds. |
-| `collapseTrigger` | `[data-lte-toggle="card-collapse"]` | CSS selector for collapse buttons. |
-| `removeTrigger` | `[data-lte-toggle="card-remove"]` | CSS selector for remove buttons. |
-| `maximizeTrigger` | `[data-lte-toggle="card-maximize"]` | CSS selector for maximize buttons. |
+| `animationSpeed` | `500` | 滑动动画的持续时间（毫秒）。 |
+| `collapseTrigger` | `[data-lte-toggle="card-collapse"]` | 折叠按钮的 CSS 选择器。 |
+| `removeTrigger` | `[data-lte-toggle="card-remove"]` | 移除按钮的 CSS 选择器。 |
+| `maximizeTrigger` | `[data-lte-toggle="card-maximize"]` | 最大化按钮的 CSS 选择器。 |
 
-##### Programmatic API
+##### 调用方式
 
 ```js
 import { CardWidget } from "admin-lte"
@@ -68,28 +68,28 @@ import { CardWidget } from "admin-lte"
 const card = document.querySelector("#chart-card")
 const widget = new CardWidget(card, { animationSpeed: 250 })
 
-widget.maximize()     // expand to fullscreen
-widget.collapse()     // hide body and footer
-widget.expand()       // restore from collapsed
-widget.remove()       // animate out and remove from DOM
-widget.toggle()       // expand / collapse based on current state
-widget.toggleMaximize()  // maximize / minimize based on current state
+widget.maximize()     // 展开至全屏
+widget.collapse()     // 隐藏主体和页脚
+widget.expand()       // 从折叠状态恢复
+widget.remove()       // 以动画方式移出并从 DOM 中删除
+widget.toggle()       // 根据当前状态展开/折叠
+widget.toggleMaximize()  // 根据当前状态最大化/最小化
 ```
 
-###### Methods
+###### 方法
 
-| Method | Returns | Description |
+| 方法 | 返回值 | 描述 |
 |---|---|---|
-| `collapse()` | `void` | Slides up body and footer, adds `collapsed-card`. Fires `collapsed.lte.card-widget`. |
-| `expand()` | `void` | Slides down body and footer, removes `collapsed-card`. Fires `expanded.lte.card-widget`. |
-| `toggle()` | `void` | Calls `collapse()` or `expand()` based on the `collapsed-card` class. |
-| `maximize()` | `void` | Sets the card to fixed fullscreen positioning, adds `maximized-card`. Fires `maximized.lte.card-widget`. |
-| `minimize()` | `void` | Restores original size, removes `maximized-card`. Fires `minimized.lte.card-widget`. |
-| `toggleMaximize()` | `void` | Calls `maximize()` or `minimize()` based on the `maximized-card` class. |
-| `remove()` | `void` | Animates the card out and removes it from the DOM. Fires `remove.lte.card-widget`. |
+| `collapse()` | `void` | 向上滑动收起主体和页脚，添加 `collapsed-card` 类。触发 `collapsed.lte.card-widget` 事件。 |
+| `expand()` | `void` | 向下滑动展开主体和页脚，移除 `collapsed-card` 类。触发 `expanded.lte.card-widget` 事件。 |
+| `toggle()` | `void` | 根据 `collapsed-card` 类的存在情况调用 `collapse()` 或 `expand()`。 |
+| `maximize()` | `void` | 将卡片设置为固定全屏定位，添加 `maximized-card` 类。触发 `maximized.lte.card-widget` 事件。 |
+| `minimize()` | `void` | 恢复原始尺寸，移除 `maximized-card` 类。触发 `minimized.lte.card-widget` 事件。 |
+| `toggleMaximize()` | `void` | 根据 `maximized-card` 类的存在情况调用 `maximize()` 或 `minimize()`。 |
+| `remove()` | `void` | 以动画方式移除卡片并将其从 DOM 中删除。触发 `remove.lte.card-widget` 事件。 |
 
-##### Notes
+##### 注意事项
 
-- Nested cards are handled correctly: collapsing a parent card does not affect child cards.
-- Maximizing a card also adds `maximized-card` to `<html>` so global styles can react.
-- A card that's collapsed when you maximize it remembers that — the `was-collapsed` class tracks this state.
+- 嵌套卡片会被正确处理：折叠父级卡片不会影响子卡片。
+- 最大化卡片时也会给 `<html>` 添加 `maximized-card` 类，以便全局样式可以做出响应。
+- 如果在最大化时卡片处于折叠状态，它会记住这一状态——`was-collapsed` 类用于跟踪此状态。

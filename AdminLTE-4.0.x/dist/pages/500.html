@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>AdminLTE 4 | 500 Error Page</title>
+    <title>AdminLTE 4 | 500 错误页</title>
 
     <!--begin::Accessibility Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
@@ -12,15 +12,15 @@
     <!--end::Accessibility Meta Tags-->
 
     <!--begin::Primary Meta Tags-->
-    <meta name="title" content="AdminLTE 4 | 500 Error Page" />
+    <meta name="title" content="AdminLTE 4 | 500 错误页" />
     <meta name="author" content="ColorlibHQ" />
     <meta
       name="description"
-      content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS. Fully accessible with WCAG 2.1 AA compliance."
+      content="AdminLTE 是一款免费的 Bootstrap 5 管理员仪表盘，包含 30 个使用 Vanilla JS 构建的示例页面。完全符合 WCAG 2.1 AA 访问标准。"
     />
     <meta
       name="keywords"
-      content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard, accessible admin panel, WCAG compliant"
+      content="Bootstrap 5, Bootstrap 5 管理仪表盘,Bootstrap 5 仪表盘,Bootstrap 5 图表,Bootstrap 5 日历,Bootstrap 5 日期选择器,Bootstrap 5 表格,Bootstrap 5 数据表,vanilla js 数据表,colorlibhq, colorlibhq 仪表盘,colorlibhq 管理仪表盘, accessible admin panel, WCAG compliant"
     />
     <!--end::Primary Meta Tags-->
 
@@ -33,7 +33,7 @@
     <!--begin::Fonts-->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+      href="../assets/fontsource/index.css"
       integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
       crossorigin="anonymous"
       media="print"
@@ -44,7 +44,7 @@
     <!--begin::Third Party Plugin(OverlayScrollbars)-->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css"
+      href="../assets/overlayscrollbars/overlayscrollbars.min.css"
       crossorigin="anonymous"
     />
     <!--end::Third Party Plugin(OverlayScrollbars)-->
@@ -52,7 +52,7 @@
     <!--begin::Third Party Plugin(Bootstrap Icons)-->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+      href="../assets/bootstrap-icons/bootstrap-icons.min.css"
       crossorigin="anonymous"
     />
     <!--end::Third Party Plugin(Bootstrap Icons)-->
@@ -67,19 +67,19 @@
         <div class="row justify-content-center">
           <div class="col-md-8 col-lg-6 text-center">
             <div class="display-1 fw-bold text-danger lh-1 mb-3">500</div>
-            <h1 class="h3 mb-3">Something went wrong on our end.</h1>
+            <h1 class="h3 mb-3">系统内部错误。</h1>
             <p class="text-secondary mb-4">
-              The server encountered an unexpected condition. Our team has been notified. Please try
-              again in a moment, or contact support if the issue persists.
+              服务器遇到了意外情况。我们的团队已收到通知。 请稍后再试，如果问题持续存在，
+              请联系支持团队。
             </p>
             <div class="d-flex gap-2 justify-content-center">
               <a href="../index.html" class="btn btn-primary">
                 <i class="bi bi-arrow-left me-1" aria-hidden="true"></i>
-                Back to dashboard
+                返回首页
               </a>
               <a href="mailto:support@example.com" class="btn btn-outline-secondary">
                 <i class="bi bi-life-preserver me-1" aria-hidden="true"></i>
-                Contact support
+                联系支持
               </a>
             </div>
           </div>
@@ -88,19 +88,13 @@
     </main>
     <!--begin::Third Party Plugin(OverlayScrollbars)-->
     <script
-      src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
+      src="../assets/overlayscrollbars/overlayscrollbars.browser.es6.min.js"
       crossorigin="anonymous"
     ></script>
     <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="../assets/popperjs/popper.min.js" crossorigin="anonymous"></script>
     <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="../assets/bootstrap/bootstrap.min.js" crossorigin="anonymous"></script>
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
     <script src="../js/adminlte.js"></script>
     <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
@@ -132,7 +126,7 @@
         }
       });
     </script>
-    <!--end::OverlayScrollbars Configure--><!--begin::Color Mode Toggle (#6010)-->
+    <!--end::OverlayScrollbars Configure--><!--begin::明暗模式切换 (#6010)-->
     <script>
       (() => {
         'use strict';
@@ -196,6 +190,6 @@
         });
       })();
     </script>
-    <!--end::Color Mode Toggle-->
+    <!--end::明暗模式切换-->
   </body>
 </html>

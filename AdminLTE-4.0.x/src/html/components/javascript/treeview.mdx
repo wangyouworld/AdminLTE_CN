@@ -1,85 +1,85 @@
-The Treeview plugin converts a nested list into a collapsible tree where submenus expand and contract on click. It's what powers the sidebar navigation in the demo dashboards.
+Treeview 插件将嵌套列表转换为可折叠的树形结构，子菜单在点击时展开和收起。演示仪表板中的侧边栏导航就是由它驱动的。
 
-##### Usage
+##### 用法
 
-###### Data API
+###### Data 属性
 
-Add `data-lte-toggle="treeview"` to the parent `<ul>` or `<ol>`. Inside, mark items that have children with `.nav-item` and put the submenu in a nested `<ul class="nav-treeview">`:
+在父级 `<ul>` 或 `<ol>` 上添加 `data-lte-toggle="treeview"`。在其内部，使用 `.nav-item` 标记包含子项的条目，并将子菜单放在嵌套的 `<ul class="nav-treeview">` 中：
 
 ```html
 <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu">
   <li class="nav-item">
     <a class="nav-link" href="#">
       <i class="nav-icon bi bi-speedometer"></i>
-      <p>Dashboard</p>
+      <p>仪表盘</p>
     </a>
   </li>
   <li class="nav-item">
     <a href="#" class="nav-link">
       <i class="nav-icon bi bi-folder"></i>
       <p>
-        Reports
+        报告
         <i class="nav-arrow bi bi-chevron-right"></i>
       </p>
     </a>
     <ul class="nav nav-treeview">
       <li class="nav-item">
-        <a href="#" class="nav-link"><i class="nav-icon bi bi-circle"></i><p>Sales</p></a>
+        <a href="#" class="nav-link"><i class="nav-icon bi bi-circle"></i><p>销售</p></a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link"><i class="nav-icon bi bi-circle"></i><p>Traffic</p></a>
+        <a href="#" class="nav-link"><i class="nav-icon bi bi-circle"></i><p>交易</p></a>
       </li>
     </ul>
   </li>
 </ul>
 ```
 
-To start with a submenu pre-expanded, add `menu-open` to its `.nav-item`.
+若要让子菜单在初始时已展开，请在其 `.nav-item` 上添加 `menu-open`。
 
-##### Configuration
+##### 配置
 
-Configure via `data-*` attributes on the parent `<ul>`:
+通过父级 `<ul>` 上的 `data-*` 属性进行配置：
 
-| Attribute | Default | Description |
+| 属性 | 默认值 | 描述 |
 |---|---|---|
-| `data-accordion` | `true` | Close other open submenus when one opens. Set `false` for non-accordion behaviour (multiple submenus open at once). |
-| `data-animation-speed` | `300` | Slide animation duration in milliseconds. Set `0` to disable animation. |
+| `data-accordion` | `true` | 当一个子菜单打开时，关闭其他已打开的子菜单。设为 `false` 可启用非手风琴模式（允许多个子菜单同时打开）。 |
+| `data-animation-speed` | `300` | 滑动动画的持续时间（毫秒）。设为 `0` 可禁用动画。 |
 
 ```html
-<!-- Non-accordion mode: multiple submenus can stay open -->
+<!-- 非手风琴模式：多个子菜单可以保持打开状态 -->
 <ul class="nav sidebar-menu" data-lte-toggle="treeview" data-accordion="false">
   …
 </ul>
 
-<!-- Faster animation -->
+<!-- 更快的动画 -->
 <ul class="nav sidebar-menu" data-lte-toggle="treeview" data-animation-speed="150">
   …
 </ul>
 ```
 
-##### CSS Classes
+##### CSS 类
 
-| Class | Applied to | Description |
+| 类名 | 应用位置 | 描述 |
 |---|---|---|
-| `menu-open` | `.nav-item` (the parent of a submenu) | The submenu is currently expanded. |
-| `nav-treeview` | `<ul>` (nested) | Marks a submenu so the plugin recognises it. |
-| `nav-arrow` | `<i>` inside `.nav-link` | The chevron icon that rotates when the submenu opens. |
+| `menu-open` | `.nav-item` (子菜单的父级元素) | 表示该子菜单当前处于展开状态。 |
+| `nav-treeview` | `<ul>` （嵌套的） | 标记子菜单，以便插件识别它。 |
+| `nav-arrow` | `.nav-link` 内的 `<i>` | 箭头图标，在子菜单打开时会旋转。 |
 
-##### Events
+##### 事件
 
-| Event | Description |
+| 事件 | 描述 |
 |---|---|
-| `expanded.lte.treeview` | Fired on the `.nav-item` when its submenu opens. |
-| `collapsed.lte.treeview` | Fired on the `.nav-item` when its submenu closes. |
-| `load.lte.treeview` | Fired once per page load for any submenu that's already expanded via the `menu-open` class. |
+| `expanded.lte.treeview` | 当子菜单打开时，在对应的 `.nav-item` 上触发。 |
+| `collapsed.lte.treeview` | 当子菜单关闭时，在对应的 `.nav-item` 上触发。 |
+| `load.lte.treeview` | 在每次页面加载时，为所有已通过 `menu-open` 类展开的子菜单触发一次。 |
 
 ```js
 document.addEventListener("expanded.lte.treeview", (e) => {
-  console.log("Opened submenu inside:", e.target)
+  console.log("在内部打开子菜单：", e.target)
 })
 ```
 
-##### Programmatic API
+##### 调用方式
 
 ```js
 import { Treeview } from "admin-lte"
@@ -87,36 +87,36 @@ import { Treeview } from "admin-lte"
 const item = document.querySelector(".sidebar-menu .nav-item")
 const tv = new Treeview(item, { accordion: true, animationSpeed: 300 })
 
-tv.open()    // expand this item's submenu
-tv.close()   // collapse it
-tv.toggle()  // toggle
+tv.open()    // 展开项目子菜单
+tv.close()   // 收起
+tv.toggle()  // 切换
 ```
 
-###### Methods
+###### 方法
 
-| Method | Returns | Description |
+| 方法 | 返回值 | 描述 |
 |---|---|---|
-| `open()` | `void` | Expands the submenu. If `accordion` is `true`, closes sibling submenus first. Fires `expanded.lte.treeview`. |
-| `close()` | `void` | Collapses the submenu. Fires `collapsed.lte.treeview`. |
-| `toggle()` | `void` | Calls `open()` or `close()` based on current state. |
+| `open()` | `void` | 展开子菜单。如果 `accordion` 为 `true`，则先关闭同级子菜单。触发 `expanded.lte.treeview` 事件。 |
+| `close()` | `void` | 收起子菜单。触发 `collapsed.lte.treeview` 事件。 |
+| `toggle()` | `void` | 根据当前状态调用 `open()` 或 `close()`。 |
 
-##### Example
+##### 示例
 
 <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" style="background: var(--bs-tertiary-bg); padding: .5rem; border-radius: var(--bs-border-radius);">
   <li class="nav-item">
     <a class="nav-link" href="#">
-      <i class="nav-icon bi bi-circle"></i><p>One level</p>
+      <i class="nav-icon bi bi-circle"></i><p>一级</p>
     </a>
   </li>
   <li class="nav-item menu-open">
     <a class="nav-link" href="#">
       <i class="nav-icon bi bi-folder"></i>
-      <p>Multilevel <i class="nav-arrow bi bi-chevron-right"></i></p>
+      <p>多层级 <i class="nav-arrow bi bi-chevron-right"></i></p>
     </a>
     <ul class="nav nav-treeview">
       <li class="nav-item">
         <a href="#" class="nav-link">
-          <i class="nav-icon bi bi-circle"></i><p>Level 2</p>
+          <i class="nav-icon bi bi-circle"></i><p>层级 2</p>
         </a>
       </li>
     </ul>

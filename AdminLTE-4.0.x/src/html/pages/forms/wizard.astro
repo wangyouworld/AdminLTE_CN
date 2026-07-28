@@ -5,14 +5,14 @@ import Topbar from "@components/dashboard/_topbar.astro"
 import Sidenav from "@components/dashboard/_sidenav.astro"
 import Scripts from "@components/_scripts.astro"
 
-const title = "AdminLTE 4 | Form Wizard"
+const title = "AdminLTE 4 | 向导表单"
 const path = "../../../dist"
 const mainPage = "forms"
 const page = "wizard";
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <Head title={title} path={path} />
     <style is:inline>
@@ -85,13 +85,13 @@ const page = "wizard";
           <div class="container-fluid">
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">Form Wizard</h3>
+                <h3 class="mb-0">向导表单</h3>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item"><a href="#">Forms</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Wizard</li>
+                  <li class="breadcrumb-item"><a href="#">首页</a></li>
+                  <li class="breadcrumb-item"><a href="#">表单</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">向导</li>
                 </ol>
               </div>
             </div>
@@ -105,20 +105,20 @@ const page = "wizard";
                   <div class="card-body p-4">
                     <!-- Step indicators -->
                     <ol class="wizard-steps mb-4" id="wizard-steps">
-                      <li class="active" data-step="0">Account</li>
-                      <li data-step="1">Profile</li>
-                      <li data-step="2">Preferences</li>
-                      <li data-step="3">Review</li>
+                      <li class="active" data-step="0">账户</li>
+                      <li data-step="1">资料</li>
+                      <li data-step="2">偏好</li>
+                      <li data-step="3">预览</li>
                     </ol>
 
                     <!-- Form -->
                     <form id="wizard-form" novalidate>
                       <!-- Step 1 -->
                       <fieldset class="wizard-step" data-step="0">
-                        <h2 class="h5 mb-3">Create your account</h2>
+                        <h2 class="h5 mb-3">创建账户</h2>
                         <div class="row g-3">
                           <div class="col-md-6">
-                            <label class="form-label" for="wz-email">Email</label>
+                            <label class="form-label" for="wz-email">邮箱</label>
                             <input
                               type="email"
                               class="form-control"
@@ -126,12 +126,12 @@ const page = "wizard";
                               required
                             />
                             <div class="invalid-feedback">
-                              Please enter a valid email.
+                              请输入有效的邮箱地址。
                             </div>
                           </div>
                           <div class="col-md-6">
                             <label class="form-label" for="wz-username">
-                              Username
+                              用户名
                             </label>
                             <input
                               type="text"
@@ -141,12 +141,12 @@ const page = "wizard";
                               minlength="3"
                             />
                             <div class="invalid-feedback">
-                              Username must be at least 3 characters.
+                              用户名至少3个字符。
                             </div>
                           </div>
                           <div class="col-md-6">
                             <label class="form-label" for="wz-password">
-                              Password
+                              密码
                             </label>
                             <input
                               type="password"
@@ -156,12 +156,12 @@ const page = "wizard";
                               minlength="8"
                             />
                             <div class="invalid-feedback">
-                              Password must be at least 8 characters.
+                              密码必须至少8个字符。
                             </div>
                           </div>
                           <div class="col-md-6">
                             <label class="form-label" for="wz-password2">
-                              Confirm password
+                              确认密码
                             </label>
                             <input
                               type="password"
@@ -170,7 +170,7 @@ const page = "wizard";
                               required
                             />
                             <div class="invalid-feedback">
-                              Passwords must match.
+                              密码必须一致。
                             </div>
                           </div>
                         </div>
@@ -178,11 +178,11 @@ const page = "wizard";
 
                       <!-- Step 2 -->
                       <fieldset class="wizard-step d-none" data-step="1">
-                        <h2 class="h5 mb-3">Tell us about yourself</h2>
+                        <h2 class="h5 mb-3">介绍一下你自己</h2>
                         <div class="row g-3">
                           <div class="col-md-6">
                             <label class="form-label" for="wz-first">
-                              First name
+                              姓
                             </label>
                             <input
                               type="text"
@@ -191,12 +191,12 @@ const page = "wizard";
                               required
                             />
                             <div class="invalid-feedback">
-                              First name is required.
+                              请输入姓氏。
                             </div>
                           </div>
                           <div class="col-md-6">
                             <label class="form-label" for="wz-last">
-                              Last name
+                              名
                             </label>
                             <input
                               type="text"
@@ -205,12 +205,12 @@ const page = "wizard";
                               required
                             />
                             <div class="invalid-feedback">
-                              Last name is required.
+                              请输入名字。
                             </div>
                           </div>
                           <div class="col-md-6">
                             <label class="form-label" for="wz-company">
-                              Company
+                              公司
                             </label>
                             <input
                               type="text"
@@ -220,18 +220,18 @@ const page = "wizard";
                           </div>
                           <div class="col-md-6">
                             <label class="form-label" for="wz-role">
-                              Role
+                              职位
                             </label>
                             <select class="form-select" id="wz-role" required>
-                              <option value="">Choose&hellip;</option>
-                              <option>Founder / CEO</option>
-                              <option>Engineering</option>
-                              <option>Design</option>
-                              <option>Marketing</option>
-                              <option>Other</option>
+                              <option value="">选择&hellip;</option>
+                              <option>创始人 / 首席执行官</option>
+                              <option>工程师</option>
+                              <option>设计师</option>
+                              <option>销售员</option>
+                              <option>其他</option>
                             </select>
                             <div class="invalid-feedback">
-                              Please select a role.
+                              请选择你的职位。
                             </div>
                           </div>
                         </div>
@@ -239,7 +239,7 @@ const page = "wizard";
 
                       <!-- Step 3 -->
                       <fieldset class="wizard-step d-none" data-step="2">
-                        <h2 class="h5 mb-3">Notification preferences</h2>
+                        <h2 class="h5 mb-3">通知偏好</h2>
                         <div class="form-check form-switch mb-2">
                           <input
                             class="form-check-input"
@@ -249,7 +249,7 @@ const page = "wizard";
                             checked
                           />
                           <label class="form-check-label" for="wz-notif-product">
-                            Product updates &amp; releases
+                            产品更新 &amp; 发布
                           </label>
                         </div>
                         <div class="form-check form-switch mb-2">
@@ -261,7 +261,7 @@ const page = "wizard";
                             checked
                           />
                           <label class="form-check-label" for="wz-notif-security">
-                            Security alerts
+                            安全警报
                           </label>
                         </div>
                         <div class="form-check form-switch mb-3">
@@ -272,23 +272,23 @@ const page = "wizard";
                             role="switch"
                           />
                           <label class="form-check-label" for="wz-notif-marketing">
-                            Marketing &amp; tips
+                            营销 &amp;  技巧
                           </label>
                         </div>
                         <label class="form-label" for="wz-frequency">
-                          Digest frequency
+                          通知频率
                         </label>
                         <select class="form-select" id="wz-frequency">
-                          <option>Real time</option>
-                          <option selected>Daily</option>
-                          <option>Weekly</option>
-                          <option>Never</option>
+                          <option>实时</option>
+                          <option selected>每天</option>
+                          <option>每周</option>
+                          <option>关闭</option>
                         </select>
                       </fieldset>
 
                       <!-- Step 4 -->
                       <fieldset class="wizard-step d-none" data-step="3">
-                        <h2 class="h5 mb-3">Review &amp; confirm</h2>
+                        <h2 class="h5 mb-3">预览 &amp; 确认</h2>
                         <dl class="row mb-3" id="wz-summary"></dl>
                         <div class="form-check">
                           <input
@@ -298,10 +298,10 @@ const page = "wizard";
                             required
                           />
                           <label class="form-check-label" for="wz-terms">
-                            I agree to the <a href="#">terms of service</a>.
+                            我同意 <a href="#">服务条款</a>。
                           </label>
                           <div class="invalid-feedback">
-                            You must accept the terms to continue.
+                            您必须接受条款才能继续。
                           </div>
                         </div>
                       </fieldset>
@@ -315,14 +315,14 @@ const page = "wizard";
                           disabled
                         >
                           <i class="bi bi-arrow-left me-1" aria-hidden="true"></i>
-                          Previous
+                          上一步
                         </button>
                         <button
                           type="button"
                           class="btn btn-primary"
                           id="wz-next"
                         >
-                          Next
+                          下一步
                           <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
                         </button>
                         <button
@@ -331,7 +331,7 @@ const page = "wizard";
                           id="wz-submit"
                         >
                           <i class="bi bi-check-lg me-1" aria-hidden="true"></i>
-                          Submit
+                          提交
                         </button>
                       </div>
                     </form>
@@ -395,12 +395,12 @@ const page = "wizard";
           const summary = document.getElementById("wz-summary");
           const get = (id) => document.getElementById(id);
           const rows = [
-            ["Email", get("wz-email").value],
-            ["Username", get("wz-username").value],
-            ["Name", `${get("wz-first").value} ${get("wz-last").value}`],
-            ["Company", get("wz-company").value || "—"],
-            ["Role", get("wz-role").value || "—"],
-            ["Digest", get("wz-frequency").value]
+            ["邮箱", get("wz-email").value],
+            ["用户名", get("wz-username").value],
+            ["姓名", `${get("wz-first").value} ${get("wz-last").value}`],
+            ["公司", get("wz-company").value || "—"],
+            ["职位", get("wz-role").value || "—"],
+            ["通知频率", get("wz-frequency").value]
           ];
           summary.innerHTML = rows
             .map(
@@ -428,7 +428,7 @@ const page = "wizard";
         form.addEventListener("submit", (e) => {
           e.preventDefault();
           if (!validateStep(current)) return;
-          alert("Wizard complete! Form would submit here.");
+          alert("向导完成！表单将在此提交。");
         });
 
         show(0);

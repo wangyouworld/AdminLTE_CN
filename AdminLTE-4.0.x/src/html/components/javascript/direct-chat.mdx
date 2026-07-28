@@ -1,48 +1,48 @@
-The DirectChat plugin toggles the contacts pane in a direct chat widget.
+DirectChat 插件用于切换直接聊天小组件中的联系人面板。
 
-##### Usage
+##### 用法
 
-This plugin is activated via data attributes.
+该插件通过 data 属性激活。
 
-**Data API**
+**Data 属性**
 
-Add `data-lte-toggle="chat-pane"` to a button inside a `.direct-chat` container to toggle the contacts list.
+在 `.direct-chat` 容器内的按钮上添加 `data-lte-toggle="chat-pane"` 来切换联系人列表。
 
 ```html
 <div class="card direct-chat">
   <div class="card-header">
-    <h3 class="card-title">Direct Chat</h3>
+    <h3 class="card-title">聊天</h3>
     <div class="card-tools">
-      <button type="button" class="btn btn-tool" data-lte-toggle="chat-pane" title="Toggle Contacts">
+      <button type="button" class="btn btn-tool" data-lte-toggle="chat-pane" title="切换联系人">
         <i class="bi bi-people-fill"></i>
       </button>
     </div>
   </div>
   <div class="card-body">
     <div class="direct-chat-messages">
-      <!-- Chat messages go here -->
+      <!-- 聊天消息在这里 -->
     </div>
     <div class="direct-chat-contacts">
-      <!-- Contacts list goes here -->
+      <!-- 联系人列表在这里 -->
     </div>
   </div>
 </div>
 ```
 
-##### Events
+##### 事件
 
-| Event | Description |
+| 事件 | 描述 |
 |-------|-------------|
-| `expanded.lte.direct-chat` | Fired when the contacts pane is opened. |
-| `collapsed.lte.direct-chat` | Fired when the contacts pane is closed. |
+| `expanded.lte.direct-chat` | 当联系人面板打开时触发。 |
+| `collapsed.lte.direct-chat` | 当联系人面板关闭时触发。 |
 
-##### CSS Classes
+##### CSS 类
 
-| Class | Description |
+| 类名 | 描述 |
 |-------|-------------|
-| `direct-chat-contacts-open` | Applied to the `.direct-chat` container when the contacts pane is visible. |
+| `direct-chat-contacts-open` | 当联系人面板可见时，应用于 `.direct-chat` 容器。 |
 
-##### Programmatic API
+##### 调用方式
 
 ```js
 import { DirectChat } from "admin-lte"
@@ -50,13 +50,13 @@ import { DirectChat } from "admin-lte"
 const chat = document.querySelector(".direct-chat")
 const dc = new DirectChat(chat)
 
-dc.toggle()  // show or hide the contacts pane
+dc.toggle()  // 显示或隐藏联系人面板
 ```
 
-###### Methods
+###### 方法
 
-| Method | Returns | Description |
+| 方法 | 返回值 | 描述 |
 |---|---|---|
-| `toggle()` | `void` | Toggles the `direct-chat-contacts-open` class on the `.direct-chat` container. Fires `expanded.lte.direct-chat` or `collapsed.lte.direct-chat`. |
+| `toggle()` | `void` | 切换 `.direct-chat` 容器上的 `direct-chat-contacts-open` 类。触发 `expanded.lte.direct-chat` 或 `collapsed.lte.direct-chat` 事件。 |
 
-The constructor takes no config object — pass only the `.direct-chat` element.
+该构造函数不接受配置对象——只需传入 `.direct-chat` 元素即可。

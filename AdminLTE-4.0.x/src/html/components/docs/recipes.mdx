@@ -1,25 +1,25 @@
-Copy-paste solutions for the patterns that show up in every admin dashboard. Each recipe assumes you've followed [Getting Started](getting-started.html) and have a working AdminLTE page to build on.
+针对每个管理仪表盘中都会出现的模式，提供可直接复制粘贴的解决方案。每个方案都假定您已经按照[入门指南](getting-started.html)操作，并拥有一个可用的 AdminLTE 页面作为基础。
 
-##### A multi-level sidebar with icons, badges, and headers
+##### 带图标、徽章和标题的多级侧边栏
 
-The demo dashboards use this exact pattern. Group sections with `.nav-header`, indicate item depth with nested `.nav-treeview` lists, and use `.navbar-badge` for counts.
+演示仪表盘使用的就是这个模式。使用 `.nav-header` 对区域进行分组，使用嵌套的 `.nav-treeview` 列表表示项目层级深度，使用 `.navbar-badge` 显示计数。
 
 ```html
 <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
   <div class="sidebar-brand">
     <a href="/" class="brand-link">
-      <span class="brand-text fw-light">My Dashboard</span>
+      <span class="brand-text fw-light">我的仪表盘</span>
     </a>
   </div>
   <div class="sidebar-wrapper">
     <nav class="mt-2">
       <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu">
 
-        <li class="nav-header">MAIN</li>
+        <li class="nav-header">首页</li>
         <li class="nav-item">
           <a href="/" class="nav-link active">
             <i class="nav-icon bi bi-speedometer"></i>
-            <p>Dashboard</p>
+            <p>仪表盘</p>
           </a>
         </li>
 
@@ -27,26 +27,26 @@ The demo dashboards use this exact pattern. Group sections with `.nav-header`, i
           <a href="#" class="nav-link">
             <i class="nav-icon bi bi-folder"></i>
             <p>
-              Projects
+              项目
               <span class="badge text-bg-info ms-2">12</span>
               <i class="nav-arrow bi bi-chevron-right"></i>
             </p>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="#" class="nav-link"><i class="nav-icon bi bi-circle"></i><p>Active</p></a>
+              <a href="#" class="nav-link"><i class="nav-icon bi bi-circle"></i><p>活跃</p></a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link"><i class="nav-icon bi bi-circle"></i><p>Archived</p></a>
+              <a href="#" class="nav-link"><i class="nav-icon bi bi-circle"></i><p>归档</p></a>
             </li>
           </ul>
         </li>
 
-        <li class="nav-header">REPORTS</li>
+        <li class="nav-header">报告</li>
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon bi bi-bar-chart"></i>
-            <p>Sales</p>
+            <p>销售</p>
             <span class="badge text-bg-danger ms-auto">3</span>
           </a>
         </li>
@@ -57,11 +57,11 @@ The demo dashboards use this exact pattern. Group sections with `.nav-header`, i
 </aside>
 ```
 
-To mark the current page as active, server-render the `.active` class onto the matching `.nav-link`. For SPA frameworks, add it on route change.
+要将当前页面标记为激活状态，请在服务端将 `.active` 类渲染到对应的 `.nav-link` 上。对于 SPA 框架，在路由变更时添加它。
 
-##### Highlighting the active sidebar item from JavaScript
+##### 从 JavaScript 高亮当前侧边栏项
 
-If you're rendering the sidebar once and want client-side route highlighting:
+如果您是一次性渲染侧边栏，并希望客户端路由高亮：
 
 ```js
 function setActiveSidebarItem(href) {
@@ -70,18 +70,18 @@ function setActiveSidebarItem(href) {
   })
 }
 
-// Call on route change
+// 路线变更通知
 setActiveSidebarItem(window.location.pathname)
 ```
 
-##### Responsive data tables
+##### 响应式数据表格
 
-Wrap a `<table>` in `.table-responsive` so it gets a horizontal scrollbar on narrow viewports instead of overflowing the card.
+将 `<table>` 包裹在 `.table-responsive` 中，使其在窄视口下获得水平滚动条，而不是溢出卡片。
 
 ```html
 <div class="card">
   <div class="card-header">
-    <h3 class="card-title">Recent orders</h3>
+    <h3 class="card-title">最近订单</h3>
   </div>
   <div class="card-body p-0">
     <div class="table-responsive">
@@ -89,10 +89,10 @@ Wrap a `<table>` in `.table-responsive` so it gets a horizontal scrollbar on nar
         <thead>
           <tr>
             <th>#</th>
-            <th>Customer</th>
-            <th>Total</th>
-            <th>Status</th>
-            <th class="text-end">Actions</th>
+            <th>客户</th>
+            <th>合计</th>
+            <th>状态</th>
+            <th class="text-end">操作</th>
           </tr>
         </thead>
         <tbody>
@@ -104,9 +104,9 @@ Wrap a `<table>` in `.table-responsive` so it gets a horizontal scrollbar on nar
 </div>
 ```
 
-For interactive sorting/filtering/pagination, use [Tabulator](integrations.html#tabulator) — `tables/data.html` in the demo has a full example.
+如需交互式排序/筛选/分页，请使用 [Tabulator](integrations.html#tabulator)——演示中的 `tables/data.html` 有完整示例。
 
-##### A user dropdown in the topbar
+##### 顶部栏中的用户下拉菜单
 
 ```html
 <li class="nav-item dropdown user-menu">
@@ -117,29 +117,29 @@ For interactive sorting/filtering/pagination, use [Tabulator](integrations.html#
   <ul class="dropdown-menu dropdown-menu-end">
     <li>
       <a href="/profile" class="dropdown-item">
-        <i class="bi bi-person me-2"></i>Profile
+        <i class="bi bi-person me-2"></i>资料
       </a>
     </li>
     <li>
       <a href="/settings" class="dropdown-item">
-        <i class="bi bi-gear me-2"></i>Settings
+        <i class="bi bi-gear me-2"></i>设置
       </a>
     </li>
     <li><hr class="dropdown-divider"></li>
     <li>
       <a href="/logout" class="dropdown-item text-danger">
-        <i class="bi bi-box-arrow-right me-2"></i>Sign out
+        <i class="bi bi-box-arrow-right me-2"></i>退出
       </a>
     </li>
   </ul>
 </li>
 ```
 
-Put this inside the `<ul class="navbar-nav ms-auto">` in `.app-header`.
+将此代码放在 `.app-header` 中的 `<ul class="navbar-nav ms-auto">` 内部。
 
-##### A KPI card (small-box)
+##### KPI 卡片（small-box）
 
-The bright-coloured stat boxes at the top of most dashboards:
+大多数仪表盘顶部的彩色统计框：
 
 ```html
 <div class="row g-3">
@@ -147,36 +147,36 @@ The bright-coloured stat boxes at the top of most dashboards:
     <div class="small-box text-bg-primary">
       <div class="inner">
         <h3>150</h3>
-        <p>New orders</p>
+        <p>新订单</p>
       </div>
       <i class="bi bi-cart small-box-icon" aria-hidden="true"></i>
       <a href="#" class="small-box-footer link-light">
-        More info <i class="bi bi-arrow-right"></i>
+        更多信息 <i class="bi bi-arrow-right"></i>
       </a>
     </div>
   </div>
-  <!-- repeat 3 more times with different values + colours -->
+  <!-- 重复 3 次，使用不同的数值和颜色 -->
 </div>
 ```
 
-Swap `text-bg-primary` for `text-bg-success`, `text-bg-warning`, `text-bg-danger`, etc.
+将 `text-bg-primary` 替换为 `text-bg-success`、`text-bg-warning`、`text-bg-danger` 等。
 
-##### A breadcrumb + page-title row
+##### 面包屑 + 页面标题行
 
-This is the standard `.app-content-header` pattern used across every demo page:
+这是每个演示页面都使用的标准 `.app-content-header` 模式：
 
 ```html
 <div class="app-content-header">
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-6">
-        <h3 class="mb-0">Page Title</h3>
+        <h3 class="mb-0">页面标题</h3>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-end">
-          <li class="breadcrumb-item"><a href="/">Home</a></li>
-          <li class="breadcrumb-item"><a href="/section">Section</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Current page</li>
+          <li class="breadcrumb-item"><a href="/">首页</a></li>
+          <li class="breadcrumb-item"><a href="/section">章节</a></li>
+          <li class="breadcrumb-item active" aria-current="page">当前页</li>
         </ol>
       </div>
     </div>
@@ -184,9 +184,9 @@ This is the standard `.app-content-header` pattern used across every demo page:
 </div>
 ```
 
-##### A timeline
+##### 时间线
 
-For activity feeds, audit logs, or roadmap views:
+用于动态消息、审计日志或路线图视图：
 
 ```html
 <div class="timeline">
@@ -195,13 +195,13 @@ For activity feeds, audit logs, or roadmap views:
     <div class="timeline-item">
       <span class="time"><i class="bi bi-clock"></i> 12:05</span>
       <h3 class="timeline-header">
-        <a href="#">Olivia</a> sent you a message
+        <a href="#">Olivia</a> 给你发送一条消息
       </h3>
       <div class="timeline-body">
-        Hey, can we review the Q4 numbers tomorrow at 10?
+        嘿，我们明天10点能看一下第四季度的数字吗？
       </div>
       <div class="timeline-footer">
-        <a class="btn btn-primary btn-sm">Read more</a>
+        <a class="btn btn-primary btn-sm">查看更多</a>
       </div>
     </div>
   </div>
@@ -209,16 +209,16 @@ For activity feeds, audit logs, or roadmap views:
 </div>
 ```
 
-The timeline component lives in `_timeline.scss` and has variants. See [`/UI/timeline.html`](../UI/timeline.html) for the full set.
+时间线组件位于 `_timeline.scss` 中，并有多种变体。完整集合请参见 [`/UI/timeline.html`](../UI/timeline.html)。
 
-##### A direct-chat widget
+##### 直接聊天小部件
 
-The chat-style card used for live customer support, team chat, etc. Includes contact toggle and message bubbles.
+用于实时客户支持、团队聊天等的聊天风格卡片。包括联系人切换和消息气泡。
 
 ```html
 <div class="card direct-chat direct-chat-primary">
   <div class="card-header">
-    <h3 class="card-title">Direct Chat</h3>
+    <h3 class="card-title">聊天</h3>
     <div class="card-tools">
       <span class="badge text-bg-primary">3 new</span>
       <button type="button" class="btn btn-tool" data-lte-toggle="chat-pane" title="Contacts">
@@ -234,7 +234,7 @@ The chat-style card used for live customer support, team chat, etc. Includes con
           <span class="direct-chat-timestamp float-end">12:05</span>
         </div>
         <img class="direct-chat-img" src="/avatars/olivia.jpg" alt="" />
-        <div class="direct-chat-text">Hey, ready for the review?</div>
+        <div class="direct-chat-text">嘿，准备好了吗？</div>
       </div>
       <div class="direct-chat-msg right">
         <div class="direct-chat-infos clearfix">
@@ -242,11 +242,11 @@ The chat-style card used for live customer support, team chat, etc. Includes con
           <span class="direct-chat-timestamp float-start">12:06</span>
         </div>
         <img class="direct-chat-img" src="/avatars/me.jpg" alt="" />
-        <div class="direct-chat-text">Yes, on my way.</div>
+        <div class="direct-chat-text">是的，我准备好了！</div>
       </div>
     </div>
     <div class="direct-chat-contacts">
-      <!-- contacts list, shown when chat-pane toggled -->
+      <!-- 聊天面板切换时显示的联系人列表 -->
     </div>
   </div>
   <div class="card-footer">
@@ -262,14 +262,14 @@ The chat-style card used for live customer support, team chat, etc. Includes con
 </div>
 ```
 
-For a full-page chat application, see `/pages/chat.html` in the demo.
+如需完整的聊天页面应用，请参见演示中的 `/pages/chat.html`。
 
-##### Reacting to layout/sidebar changes
+##### 响应布局/侧边栏变更
 
-Listen for plugin events to coordinate with your own code — e.g., refit a chart when the sidebar collapses (so the chart re-measures its container width):
+监听插件事件以与您自己的代码协调——例如，当侧边栏折叠时重新适配图表（使图表重新测量其容器宽度）：
 
 ```js
-let chart = /* your ApexCharts instance */
+let chart = /* ApexCharts 实例 */
 
 document.addEventListener("collapse.lte.push-menu", () => {
   // wait for the transition to finish (~300ms by default)
@@ -281,9 +281,9 @@ document.addEventListener("open.lte.push-menu", () => {
 })
 ```
 
-The same pattern works for Tabulator, FullCalendar, and any other library that reads its container width on init.
+同样的模式适用于 Tabulator、FullCalendar 以及任何其他在初始化时读取容器宽度的库。
 
-##### Loading content into a card via fetch
+##### 通过 fetch 将内容加载到卡片中
 
 ```html
 <div class="card" id="users-card">
@@ -294,7 +294,7 @@ The same pattern works for Tabulator, FullCalendar, and any other library that r
     </div>
   </div>
   <div class="card-body p-0">
-    <div id="users-body" class="text-secondary p-3">Loading&hellip;</div>
+    <div id="users-body" class="text-secondary p-3">加载中&hellip;</div>
   </div>
 </div>
 
@@ -311,29 +311,29 @@ The same pattern works for Tabulator, FullCalendar, and any other library that r
 </script>
 ```
 
-##### Confirming destructive actions before submission
+##### 提交前确认破坏性操作
 
-Bootstrap modal + a tiny confirmation pattern:
+Bootstrap 模态框 + 一个简单的确认模式：
 
 ```html
 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDelete">
-  Delete account
+  删除账户
 </button>
 
 <div class="modal fade" id="confirmDelete" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Delete account?</h5>
+        <h5 class="modal-title">删除账户?</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
-        This permanently deletes your account and all associated data. This cannot be undone.
+        这将永久删除您的账户及所有相关数据，且无法恢复。
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
         <form action="/account/delete" method="POST" class="d-inline">
-          <button type="submit" class="btn btn-danger">Yes, delete it</button>
+          <button type="submit" class="btn btn-danger">是的，删除它！</button>
         </form>
       </div>
     </div>
@@ -341,10 +341,10 @@ Bootstrap modal + a tiny confirmation pattern:
 </div>
 ```
 
-The [Color Mode](color-mode.html), [Accessibility](javascript/accessibility.html), and the bundled JS handle Escape-to-close, focus trap, and keyboard navigation inside the modal automatically.
+[颜色模式](color-mode.html)、[无障碍访问](javascript/accessibility.html)以及捆绑的 JS 会自动处理模态框内的 Escape 关闭、焦点陷阱和键盘导航。
 
-##### Where to next
+##### 接下来去哪里
 
-- [JavaScript Plugins Overview](javascript/plugins-overview.html) — every plugin's event names and methods
-- [Recommended Integrations](integrations.html) — when you need more than what's in this list
-- [Customization](customization.html) — change colours, sidebar width, breakpoints
+- [JavaScript 插件概述](javascript/plugins-overview.html) —— 每个插件的事件名称和方法
+- [推荐集成](integrations.html) —— 当您需要的超出此列表时
+- [自定义](customization.html) —— 更改颜色、侧边栏宽度、breakpoint

@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Layout Blueprint | AdminLTE 4</title>
+    <title>布局结构 | AdminLTE 4</title>
 
     <!--begin::Accessibility Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
@@ -12,15 +12,15 @@
     <!--end::Accessibility Meta Tags-->
 
     <!--begin::Primary Meta Tags-->
-    <meta name="title" content="Layout Blueprint | AdminLTE 4" />
+    <meta name="title" content="布局结构 | AdminLTE 4" />
     <meta name="author" content="ColorlibHQ" />
     <meta
       name="description"
-      content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS. Fully accessible with WCAG 2.1 AA compliance."
+      content="AdminLTE 是一款免费的 Bootstrap 5 管理员仪表盘，包含 30 个使用 Vanilla JS 构建的示例页面。完全符合 WCAG 2.1 AA 访问标准。"
     />
     <meta
       name="keywords"
-      content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard, accessible admin panel, WCAG compliant"
+      content="Bootstrap 5, Bootstrap 5 管理仪表盘,Bootstrap 5 仪表盘,Bootstrap 5 图表,Bootstrap 5 日历,Bootstrap 5 日期选择器,Bootstrap 5 表格,Bootstrap 5 数据表,vanilla js 数据表,colorlibhq, colorlibhq 仪表盘,colorlibhq 管理仪表盘, accessible admin panel, WCAG compliant"
     />
     <!--end::Primary Meta Tags-->
 
@@ -33,7 +33,7 @@
     <!--begin::Fonts-->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+      href="../assets/fontsource/index.css"
       integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
       crossorigin="anonymous"
       media="print"
@@ -44,7 +44,7 @@
     <!--begin::Third Party Plugin(OverlayScrollbars)-->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css"
+      href="../assets/overlayscrollbars/overlayscrollbars.min.css"
       crossorigin="anonymous"
     />
     <!--end::Third Party Plugin(OverlayScrollbars)-->
@@ -52,7 +52,7 @@
     <!--begin::Third Party Plugin(Bootstrap Icons)-->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+      href="../assets/bootstrap-icons/bootstrap-icons.min.css"
       crossorigin="anonymous"
     />
     <!--end::Third Party Plugin(Bootstrap Icons)-->
@@ -78,13 +78,13 @@
             <li class="nav-item d-none d-md-block">
               <a href="../docs/introduction.html" class="nav-link">
                 <i class="bi bi-book me-1" aria-hidden="true"></i>
-                Documentation
+                文档
               </a>
             </li>
             <li class="nav-item d-none d-md-block">
               <a href="../index.html" class="nav-link">
                 <i class="bi bi-arrow-left me-1" aria-hidden="true"></i>
-                Back to live preview
+                返回实时预览
               </a>
             </li>
           </ul>
@@ -113,7 +113,7 @@
                     <div class="flex-shrink-0">
                       <img
                         src="../assets/img/user1-128x128.jpg"
-                        alt="User Avatar"
+                        alt="用户头像"
                         class="img-size-50 rounded-circle me-3"
                       />
                     </div>
@@ -124,9 +124,9 @@
                           ><i class="bi bi-star-fill"></i
                         ></span>
                       </h3>
-                      <p class="fs-7">Call me whenever you can...</p>
+                      <p class="fs-7">有时间打电话给我……</p>
                       <p class="fs-7 text-secondary">
-                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                        <i class="bi bi-clock-fill me-1"></i> 4 小时前
                       </p>
                     </div>
                   </div>
@@ -139,7 +139,7 @@
                     <div class="flex-shrink-0">
                       <img
                         src="../assets/img/user8-128x128.jpg"
-                        alt="User Avatar"
+                        alt="用户头像"
                         class="img-size-50 rounded-circle me-3"
                       />
                     </div>
@@ -150,9 +150,9 @@
                           <i class="bi bi-star-fill"></i>
                         </span>
                       </h3>
-                      <p class="fs-7">I got your message bro</p>
+                      <p class="fs-7">我收到你的消息了，兄弟</p>
                       <p class="fs-7 text-secondary">
-                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                        <i class="bi bi-clock-fill me-1"></i> 4 小时前
                       </p>
                     </div>
                   </div>
@@ -165,7 +165,7 @@
                     <div class="flex-shrink-0">
                       <img
                         src="../assets/img/user3-128x128.jpg"
-                        alt="User Avatar"
+                        alt="用户头像"
                         class="img-size-50 rounded-circle me-3"
                       />
                     </div>
@@ -176,16 +176,16 @@
                           <i class="bi bi-star-fill"></i>
                         </span>
                       </h3>
-                      <p class="fs-7">The subject goes here</p>
+                      <p class="fs-7">主题在这里</p>
                       <p class="fs-7 text-secondary">
-                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                        <i class="bi bi-clock-fill me-1"></i> 4 小时前
                       </p>
                     </div>
                   </div>
                   <!--end::Message-->
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+                <a href="#" class="dropdown-item dropdown-footer">查看所有消息</a>
               </div>
             </li>
             <!--end::Messages Dropdown Menu-->
@@ -197,24 +197,24 @@
                 <span class="navbar-badge badge text-bg-warning">15</span>
               </a>
               <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-                <span class="dropdown-item dropdown-header">15 Notifications</span>
+                <span class="dropdown-item dropdown-header">15 条通知</span>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item">
-                  <i class="bi bi-envelope me-2"></i> 4 new messages
-                  <span class="float-end text-secondary fs-7">3 mins</span>
+                  <i class="bi bi-envelope me-2"></i> 4 条新消息
+                  <span class="float-end text-secondary fs-7">3 分钟前</span>
                 </a>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item">
-                  <i class="bi bi-people-fill me-2"></i> 8 friend requests
-                  <span class="float-end text-secondary fs-7">12 hours</span>
+                  <i class="bi bi-people-fill me-2"></i> 8 条好友请求
+                  <span class="float-end text-secondary fs-7">12 小时前</span>
                 </a>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item">
-                  <i class="bi bi-file-earmark-fill me-2"></i> 3 new reports
-                  <span class="float-end text-secondary fs-7">2 days</span>
+                  <i class="bi bi-file-earmark-fill me-2"></i> 3 个新报告
+                  <span class="float-end text-secondary fs-7">2 天前</span>
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item dropdown-footer"> See All Notifications </a>
+                <a href="#" class="dropdown-item dropdown-footer"> 查看所有通知 </a>
               </div>
             </li>
             <!--end::Notifications Dropdown Menu-->
@@ -228,7 +228,7 @@
             </li>
             <!--end::Fullscreen Toggle-->
 
-            <!--begin::Color Mode Toggle (#6010)-->
+            <!--begin::明暗模式切换 (#6010)-->
             <li class="nav-item dropdown">
               <a
                 class="nav-link"
@@ -255,7 +255,7 @@
                     aria-pressed="false"
                   >
                     <i class="bi bi-sun-fill me-2"></i>
-                    Light
+                    明亮
                     <i class="bi bi-check-lg ms-auto d-none"></i>
                   </button>
                 </li>
@@ -267,7 +267,7 @@
                     aria-pressed="false"
                   >
                     <i class="bi bi-moon-fill me-2"></i>
-                    Dark
+                    暗黑
                     <i class="bi bi-check-lg ms-auto d-none"></i>
                   </button>
                 </li>
@@ -279,13 +279,13 @@
                     aria-pressed="true"
                   >
                     <i class="bi bi-circle-half me-2"></i>
-                    Auto
+                    自动
                     <i class="bi bi-check-lg ms-auto d-none"></i>
                   </button>
                 </li>
               </ul>
             </li>
-            <!--end::Color Mode Toggle-->
+            <!--end::明暗模式切换-->
 
             <!--begin::User Menu Dropdown-->
             <li class="nav-item dropdown user-menu">
@@ -293,36 +293,36 @@
                 <img
                   src="../assets/img/user2-160x160.jpg"
                   class="user-image rounded-circle shadow"
-                  alt="User Image"
+                  alt="用户头像"
                 />
                 <span class="d-none d-md-inline">Alexander Pierce</span>
               </a>
               <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-                <!--begin::User Image-->
+                <!--begin::用户头像-->
                 <li class="user-header text-bg-primary">
                   <img
                     src="../assets/img/user2-160x160.jpg"
                     class="rounded-circle shadow"
-                    alt="User Image"
+                    alt="用户头像"
                   />
                   <p>
-                    Alexander Pierce - Web Developer
-                    <small>Member since Nov. 2023</small>
+                    Alexander Pierce - 网页开发工程师
+                    <small>注册于 2023 年 11 月</small>
                   </p>
                 </li>
-                <!--end::User Image-->
+                <!--end::用户头像-->
                 <!--begin::Menu Body-->
                 <li class="user-body">
                   <!--begin::Row-->
                   <div class="row">
                     <div class="col-4 text-center">
-                      <a href="#">Followers</a>
+                      <a href="#">关注</a>
                     </div>
                     <div class="col-4 text-center">
-                      <a href="#">Sales</a>
+                      <a href="#">销量</a>
                     </div>
                     <div class="col-4 text-center">
-                      <a href="#">Friends</a>
+                      <a href="#">好友</a>
                     </div>
                   </div>
                   <!--end::Row-->
@@ -330,8 +330,8 @@
                 <!--end::Menu Body-->
                 <!--begin::Menu Footer-->
                 <li class="user-footer">
-                  <a href="#" class="btn btn-outline-secondary">Profile</a>
-                  <a href="#" class="btn btn-outline-danger float-end">Sign out</a>
+                  <a href="#" class="btn btn-outline-secondary">资料</a>
+                  <a href="#" class="btn btn-outline-danger float-end">退出</a>
                 </li>
                 <!--end::Menu Footer-->
               </ul>
@@ -354,7 +354,7 @@
               class="brand-image opacity-75 shadow"
             />
             <span class="brand-text fw-light">
-              AdminLTE 4 <span class="opacity-75">&middot; Docs</span>
+              AdminLTE 4 <span class="opacity-75">&middot; 文档</span>
             </span>
           </a>
         </div>
@@ -362,6 +362,17 @@
         <!--begin::Sidebar Wrapper-->
         <div class="sidebar-wrapper">
           <nav class="mt-2">
+            <!-- Back to preview CTA -->
+            <div class="px-3 pb-2">
+              <a
+                href="../index.html"
+                class="btn btn-sm btn-outline-light w-100 d-flex align-items-center justify-content-center gap-2"
+              >
+                <i class="bi bi-arrow-left" aria-hidden="true"></i>
+                返回实时预览
+              </a>
+            </div>
+
             <!--begin::Sidebar Menu-->
             <ul
               class="nav sidebar-menu flex-column"
@@ -371,64 +382,64 @@
               data-accordion="false"
               id="docs-navigation"
             >
-              <li class="nav-header">START HERE</li>
+              <li class="nav-header">开始</li>
               <li class="nav-item">
                 <a href="../docs/introduction.html" class="nav-link">
                   <i class="nav-icon bi bi-download"></i>
-                  <p>Installation</p>
+                  <p>安装</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="../docs/getting-started.html" class="nav-link">
                   <i class="nav-icon bi bi-rocket-takeoff"></i>
-                  <p>Getting Started</p>
+                  <p>入门指南</p>
                 </a>
               </li>
 
-              <li class="nav-header">FOUNDATIONS</li>
+              <li class="nav-header">基础</li>
               <li class="nav-item">
                 <a href="../docs/layout.html" class="nav-link">
                   <i class="nav-icon bi bi-grip-horizontal"></i>
-                  <p>Layout Classes</p>
+                  <p>布局类</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="../docs/layout-blueprint.html" class="nav-link active">
                   <i class="nav-icon bi bi-diagram-3"></i>
-                  <p>Layout Blueprint</p>
+                  <p>布局结构</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="../docs/customization.html" class="nav-link">
                   <i class="nav-icon bi bi-palette"></i>
-                  <p>Customization</p>
+                  <p>定制</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="../docs/color-mode.html" class="nav-link">
                   <i class="nav-icon bi bi-star-half"></i>
-                  <p>Color Mode</p>
+                  <p>明暗模式</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="../docs/rtl.html" class="nav-link">
                   <i class="nav-icon bi bi-text-paragraph"></i>
-                  <p>RTL Support</p>
+                  <p>RTL 支持</p>
                 </a>
               </li>
 
-              <li class="nav-header">BUILDING</li>
+              <li class="nav-header">构建</li>
               <li class="nav-item">
                 <a href="../docs/recipes.html" class="nav-link">
                   <i class="nav-icon bi bi-clipboard-check"></i>
-                  <p>Recipes</p>
+                  <p>方案</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-ui-checks-grid"></i>
                   <p>
-                    Components
+                    组件
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
@@ -436,13 +447,13 @@
                   <li class="nav-item">
                     <a href="../docs/components/main-header.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Main Header</p>
+                      <p>头部</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="../docs/components/main-sidebar.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Main Sidebar</p>
+                      <p>主侧边栏</p>
                     </a>
                   </li>
                 </ul>
@@ -451,7 +462,7 @@
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-filetype-js"></i>
                   <p>
-                    JavaScript Plugins
+                    JavaScript 插件
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
@@ -459,13 +470,13 @@
                   <li class="nav-item">
                     <a href="../docs/javascript/plugins-overview.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Overview</p>
+                      <p>概述</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="../docs/javascript/layout.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Layout</p>
+                      <p>布局</p>
                     </a>
                   </li>
                   <li class="nav-item">
@@ -477,31 +488,31 @@
                   <li class="nav-item">
                     <a href="../docs/javascript/treeview.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Treeview</p>
+                      <p>树形插件</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="../docs/javascript/card-widget.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Card Widget</p>
+                      <p>卡片小工具</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="../docs/javascript/direct-chat.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Direct Chat</p>
+                      <p>聊天</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="../docs/javascript/fullscreen.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Fullscreen</p>
+                      <p>全屏</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="../docs/javascript/accessibility.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Accessibility</p>
+                      <p>无障碍访问</p>
                     </a>
                   </li>
                 </ul>
@@ -509,31 +520,31 @@
               <li class="nav-item">
                 <a href="../docs/integrations.html" class="nav-link">
                   <i class="nav-icon bi bi-puzzle"></i>
-                  <p>Integrations</p>
+                  <p>集成</p>
                 </a>
               </li>
 
-              <li class="nav-header">SHIPPING</li>
+              <li class="nav-header">上线指南</li>
               <li class="nav-item">
                 <a href="../docs/migration.html" class="nav-link">
                   <i class="nav-icon bi bi-arrow-up-right-square"></i>
-                  <p>Migration from v3</p>
+                  <p>从 v3 迁移</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="../docs/deployment.html" class="nav-link">
                   <i class="nav-icon bi bi-cloud-upload"></i>
-                  <p>Deployment</p>
+                  <p>部署</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="../docs/browser-support.html" class="nav-link">
                   <i class="nav-icon bi bi-browser-chrome"></i>
-                  <p>Browser Support</p>
+                  <p>浏览器支持</p>
                 </a>
               </li>
 
-              <li class="nav-header">RESOURCES</li>
+              <li class="nav-header">资源</li>
               <li class="nav-item">
                 <a href="../docs/faq.html" class="nav-link">
                   <i class="nav-icon bi bi-question-circle"></i>
@@ -543,13 +554,13 @@
               <li class="nav-item">
                 <a href="../docs/how-to-contribute.html" class="nav-link">
                   <i class="nav-icon bi bi-people"></i>
-                  <p>Contributing</p>
+                  <p>贡献</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="../docs/license.html" class="nav-link">
                   <i class="nav-icon bi bi-patch-check"></i>
-                  <p>License</p>
+                  <p>许可证</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -568,17 +579,6 @@
               </li>
             </ul>
             <!--end::Sidebar Menu-->
-
-            <!-- Back to preview CTA (bottom of sidebar) -->
-            <div class="p-3 mt-3 border-top border-secondary border-opacity-25">
-              <a
-                href="../index.html"
-                class="btn btn-sm btn-outline-light w-100 d-flex align-items-center justify-content-center gap-2"
-              >
-                <i class="bi bi-arrow-left" aria-hidden="true"></i>
-                Back to live preview
-              </a>
-            </div>
           </nav>
         </div>
         <!--end::Sidebar Wrapper-->
@@ -589,12 +589,12 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">Layout Blueprint</h3>
+                <h3 class="mb-0">布局结构</h3>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">Docs</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Layout Blueprint</li>
+                  <li class="breadcrumb-item"><a href="#">文档</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">布局结构</li>
                 </ol>
               </div>
             </div>
@@ -607,12 +607,11 @@
                 <div class="card">
                   <div class="card-body">
                     <p>
-                      Every AdminLTE page follows the same structural blueprint: a wrapper that
-                      contains a header, a sidebar, a main content area, and (optionally) a footer.
-                      Understanding the four region classes is the difference between fighting the
-                      framework and using it productively.
+                      每个 AdminLTE
+                      页面都遵循相同的布局结构：一个包含页头、侧边栏、主内容区域和（可选）页脚的包装器。掌握这
+                      4 个类的用法，是区分”踩坑”和”高效开发”的关键。
                     </p>
-                    <h5 id="the-four-regions">The four regions</h5>
+                    <h5 id="4-个区域">4 个区域</h5>
                     <pre
                       class="astro-code dark-plus"
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
@@ -621,21 +620,21 @@
                     ><code><span class="line"><span>┌──────────────────────────────────────────┐</span></span>
 <span class="line"><span>│  .app-wrapper                            │</span></span>
 <span class="line"><span>│  ┌────────────────────────────────────┐  │</span></span>
-<span class="line"><span>│  │  .app-header                       │  │ ← topbar / navbar</span></span>
+<span class="line"><span>│  │  .app-header                       │  │ ← 顶部栏 / 导航栏</span></span>
 <span class="line"><span>│  ├──────────┬─────────────────────────┤  │</span></span>
 <span class="line"><span>│  │          │                         │  │</span></span>
-<span class="line"><span>│  │  .app-   │   .app-main             │  │ ← page content</span></span>
+<span class="line"><span>│  │  .app-   │   .app-main             │  │ ← 页面内容</span></span>
 <span class="line"><span>│  │ sidebar  │                         │  │</span></span>
 <span class="line"><span>│  │          │                         │  │</span></span>
 <span class="line"><span>│  ├──────────┴─────────────────────────┤  │</span></span>
-<span class="line"><span>│  │  .app-footer (optional)            │  │</span></span>
+<span class="line"><span>│  │  .app-footer (可选)            │  │</span></span>
 <span class="line"><span>│  └────────────────────────────────────┘  │</span></span>
 <span class="line"><span>└──────────────────────────────────────────┘</span></span></code></pre>
                     <p>
-                      The wrapper is a CSS grid container, the four children are grid areas. You
-                      don’t have to know that to use it — the markup pattern alone is sufficient.
+                      包装器是一个 CSS
+                      网格容器，四个子元素是网格区域。您不需要了解这些就能使用它——仅凭标记模式就足够了。
                     </p>
-                    <h5 id="minimal-markup">Minimal markup</h5>
+                    <h5 id="最小标记">最小标记</h5>
                     <pre
                       class="astro-code dark-plus"
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
@@ -650,25 +649,24 @@
 <span class="line"><span style="color:#808080">  &lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">body</span><span style="color:#808080">&gt;</span></span></code></pre>
                     <p>
-                      Order inside <code>.app-wrapper</code> doesn’t matter — the grid template
-                      positions each child by its class. Use whatever order reads cleanly.
+                      <code>.app-wrapper</code>
+                      内部的顺序无关紧要——网格模板通过类名定位每个子元素。按您觉得清晰的方式排列即可。
                     </p>
-                    <h5 id="region-reference">Region reference</h5>
+                    <h5 id="区域参考">区域参考</h5>
                     <h6 id="app-wrapper"><code>.app-wrapper</code></h6>
                     <p>
-                      The root container. Defines the grid template that positions header, sidebar,
-                      main, and footer. Always lives directly inside <code>&lt;body&gt;</code>.
+                      根容器。定义定位页头、侧边栏、主内容和页脚的网格模板。始终直接位于
+                      <code>&lt;body&gt;</code> 内部。
                     </p>
                     <p>
-                      You can add <code>.compact-mode</code> here (or anywhere up the tree) to
-                      reduce padding throughout the layout — useful for data-dense dashboards.
+                      您可以在此处（或向上任意层级）添加
+                      <code>.compact-mode</code> 来减少整个布局的内边距——适用于数据密集型的仪表盘。
                     </p>
                     <h6 id="app-header"><code>.app-header</code></h6>
                     <p>
-                      The top bar. Use Bootstrap’s navbar classes (<code
-                        >navbar navbar-expand bg-body</code
-                      >) for the visual. The header is where the sidebar toggle button lives — wire
-                      it with <code>data-lte-toggle=&quot;sidebar&quot;</code>:
+                      顶部栏。使用 Bootstrap 的导航栏类（<code>navbar navbar-expand bg-body</code
+                      >）来控制外观。侧边栏切换按钮位于页头中——使用
+                      <code>data-lte-toggle=&quot;sidebar&quot;</code> 进行绑定：
                     </p>
                     <pre
                       class="astro-code dark-plus"
@@ -679,13 +677,13 @@
 <span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">i</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;bi bi-list&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">i</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">a</span><span style="color:#808080">&gt;</span></span></code></pre>
                     <p>
-                      By default the header scrolls with the page. Add <code>.fixed-header</code> to
-                      <code>&lt;body&gt;</code> to pin it.
+                      默认情况下，页头随页面滚动。在 <code>&lt;body&gt;</code> 上添加
+                      <code>.fixed-header</code> 可将其固定。
                     </p>
                     <h6 id="app-sidebar"><code>.app-sidebar</code></h6>
                     <p>
-                      The side rail. Always contains two children: <code>.sidebar-brand</code> (logo
-                      / app name) and <code>.sidebar-wrapper</code> (the scrollable nav region).
+                      侧边栏。始终包含两个子元素：<code>.sidebar-brand</code>（Logo/应用名称）和
+                      <code>.sidebar-wrapper</code>（可滚动的导航区域）。
                     </p>
                     <pre
                       class="astro-code dark-plus"
@@ -695,23 +693,24 @@
                     ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">aside</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;app-sidebar bg-body-secondary shadow&quot;</span><span style="color:#9CDCFE"> data-bs-theme</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;dark&quot;</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;sidebar-brand&quot;</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">    &lt;</span><span style="color:#569CD6">a</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;/&quot;</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;brand-link&quot;</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">      &lt;</span><span style="color:#569CD6">span</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;brand-text fw-light&quot;</span><span style="color:#808080">&gt;</span><span style="color:#D4D4D4">My Dashboard</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">span</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">      &lt;</span><span style="color:#569CD6">span</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;brand-text fw-light&quot;</span><span style="color:#808080">&gt;</span><span style="color:#D4D4D4">我的仪表盘</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">span</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">    &lt;/</span><span style="color:#569CD6">a</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">  &lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;sidebar-wrapper&quot;</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">    &lt;</span><span style="color:#569CD6">nav</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;mt-2&quot;</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">      &lt;</span><span style="color:#569CD6">ul</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;nav sidebar-menu flex-column&quot;</span><span style="color:#9CDCFE"> data-lte-toggle</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;treeview&quot;</span><span style="color:#9CDCFE"> role</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;menu&quot;</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#6A9955">        &lt;!-- nav items --&gt;</span></span>
+<span class="line"><span style="color:#6A9955">        &lt;!-- 导航项目 --&gt;</span></span>
 <span class="line"><span style="color:#808080">      &lt;/</span><span style="color:#569CD6">ul</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">    &lt;/</span><span style="color:#569CD6">nav</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">  &lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">aside</span><span style="color:#808080">&gt;</span></span></code></pre>
                     <p>
-                      The <code>data-bs-theme=&quot;dark&quot;</code> on the sidebar gives you the
-                      dark-sidebar-on-light-page look from the demos. Drop it for a light sidebar.
+                      侧边栏上的
+                      <code>data-bs-theme=&quot;dark&quot;</code>
+                      可实现演示中亮色页面配暗色侧边栏的效果。移除它则可获得亮色侧边栏。
                     </p>
                     <h6 id="app-main"><code>.app-main</code></h6>
-                    <p>The page content region. Almost always contains two children:</p>
+                    <p>页面内容区域。几乎总是包含两个子元素：</p>
                     <pre
                       class="astro-code dark-plus"
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
@@ -719,21 +718,20 @@
                       data-language="html"
                     ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">main</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;app-main&quot;</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;app-content-header&quot;</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#6A9955">    &lt;!-- page title + breadcrumb --&gt;</span></span>
+<span class="line"><span style="color:#6A9955">    &lt;!-- 页面标题 + 面包屑 --&gt;</span></span>
 <span class="line"><span style="color:#808080">  &lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;app-content&quot;</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#6A9955">    &lt;!-- page body, cards, tables, charts, etc. --&gt;</span></span>
+<span class="line"><span style="color:#6A9955">    &lt;!-- 页面主体、卡片、表格、图表等。 --&gt;</span></span>
 <span class="line"><span style="color:#808080">  &lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">main</span><span style="color:#808080">&gt;</span></span></code></pre>
                     <p>
-                      <code>.app-content-header</code> is the title strip — typically an
-                      <code>&lt;h3&gt;</code> and a breadcrumb in a row.
-                      <code>.app-content</code> is everything below it. Both should wrap their
-                      children in <code>.container-fluid</code> (or <code>.container</code> for
-                      capped width).
+                      <code>.app-content-header</code> 是标题区域——通常包含一个
+                      <code>&lt;h3&gt;</code> 和面包屑导航。<code>.app-content</code>
+                      是其下方的所有内容。两者都应将子元素包裹在
+                      <code>.container-fluid</code> 中（或使用 <code>.container</code> 限制宽度）。
                     </p>
-                    <h6 id="app-footer-optional"><code>.app-footer</code> (optional)</h6>
-                    <p>A footer strip at the bottom of the wrapper:</p>
+                    <h6 id="app-footer-可选"><code>.app-footer</code> (可选)</h6>
+                    <p>包装器底部的页脚区域：</p>
                     <pre
                       class="astro-code dark-plus"
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
@@ -741,189 +739,184 @@
                       data-language="html"
                     ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">footer</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;app-footer&quot;</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;float-end d-none d-sm-inline&quot;</span><span style="color:#808080">&gt;</span><span style="color:#D4D4D4">Version 4.0.0</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">strong</span><span style="color:#808080">&gt;</span><span style="color:#569CD6">&amp;copy;</span><span style="color:#D4D4D4"> 2026 Your Company</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">strong</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">strong</span><span style="color:#808080">&gt;</span><span style="color:#569CD6">&amp;copy;</span><span style="color:#D4D4D4"> 2026 公司名称</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">strong</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">footer</span><span style="color:#808080">&gt;</span></span></code></pre>
                     <p>
-                      Add <code>.fixed-footer</code> to <code>&lt;body&gt;</code> to pin it to the
-                      bottom of the viewport.
+                      在 <code>&lt;body&gt;</code> 上添加
+                      <code>.fixed-footer</code> 可将其固定在页面底部。
                     </p>
-                    <h5 id="body-level-layout-modifiers">Body-level layout modifiers</h5>
+                    <h5 id="body-级布局修饰符">Body 级布局修饰符</h5>
                     <p>
-                      Layout behaviour is mostly controlled by classes on <code>&lt;body&gt;</code>,
-                      not <code>.app-wrapper</code>. The supported modifiers:
+                      布局行为主要由 <code>&lt;body&gt;</code> 上的类控制，而不是
+                      <code>.app-wrapper</code>。支持的修饰符：
                     </p>
 
                     <table>
                       <thead>
                         <tr>
-                          <th>Class</th>
-                          <th>What it does</th>
+                          <th>类名</th>
+                          <th>作用</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td><code>layout-fixed</code></td>
-                          <td>
-                            Sidebar gets its own scrollbar; only <code>.app-main</code> scrolls with
-                            the page
-                          </td>
+                          <td>侧边栏拥有自己的滚动条；只有 <code>.app-main</code> 随页面滚动</td>
                         </tr>
                         <tr>
                           <td><code>fixed-header</code></td>
                           <td>
-                            Sticky <code>.app-header</code> at the top; sidebar also pins (since
-                            v4.0.0)
+                            将 <code>.app-header</code> 固定在顶部；侧边栏也会固定（自 v4.0.0 起）
                           </td>
                         </tr>
                         <tr>
                           <td><code>fixed-footer</code></td>
-                          <td>Sticky <code>.app-footer</code> at the bottom</td>
+                          <td>将 <code>.app-footer</code> 固定在底部</td>
                         </tr>
                         <tr>
                           <td><code>sidebar-expand-{sm,md,lg,xl,xxl}</code></td>
                           <td>
-                            Breakpoint at which the sidebar transitions from off-canvas (mobile) to
-                            inline (desktop). <code>lg</code> is the default in the demos.
+                            侧边栏从 off-canvas（移动端）切换为 inline（桌面端）的
+                            breakpoint。演示中默认使用 <code>lg</code>
                           </td>
                         </tr>
                         <tr>
                           <td><code>sidebar-mini</code></td>
-                          <td>Collapses sidebar to icon-only mini state</td>
+                          <td>将侧边栏折叠为仅图标的小型状态</td>
                         </tr>
                         <tr>
                           <td><code>sidebar-mini sidebar-collapse</code></td>
-                          <td>Starts the page with the mini sidebar already collapsed</td>
+                          <td>页面加载时侧边栏已处于折叠的小型状态</td>
                         </tr>
                         <tr>
                           <td><code>sidebar-without-hover</code></td>
-                          <td>Disables the auto-expand-on-hover behaviour for the mini sidebar</td>
+                          <td>禁用迷你侧边栏的悬停自动展开行为</td>
                         </tr>
                         <tr>
                           <td><code>layout-rtl</code></td>
                           <td>
-                            Mirrors the layout for right-to-left languages (also requires
-                            <code>.rtl.css</code> and <code>dir=&quot;rtl&quot;</code> — see
-                            <a href="rtl.html">RTL Support</a>)
+                            为从右到左的语言镜像布局（还需要 <code>.rtl.css</code> 和
+                            <code>dir=&quot;rtl&quot;</code>——参见 <a href="rtl.html">RTL 支持</a>）
                           </td>
                         </tr>
                       </tbody>
                     </table>
                     <p>
-                      These compose. The demo dashboards use
-                      <code>class=&quot;layout-fixed sidebar-expand-lg bg-body-tertiary&quot;</code>
-                      — fixed-height with a desktop sidebar breakpoint at the
-                      <code>lg</code> (≥992px) boundary.
+                      这些类可以组合使用。演示仪表盘使用
+                      <code>class=&quot;layout-fixed sidebar-expand-lg bg-body-tertiary&quot;</code
+                      >——固定高度，桌面端侧边栏 breakpoint 为 <code>lg</code>（≥992px）。
                     </p>
-                    <h6 id="layout-variants-demo">Layout variants demo</h6>
+                    <h6 id="布局变体演示">布局变体演示</h6>
                     <p>
-                      The Layout section of the demo site (<code>/layout/*.html</code> files) ships
-                      eleven pre-built combinations:
+                      演示站点的 Layout 部分（<code>/layout/*.html</code>
+                      文件）提供了十一种预构建组合：
                     </p>
                     <ul>
                       <li>
-                        <a href="../layout/fixed-sidebar.html">Fixed Sidebar</a>,
-                        <a href="../layout/fixed-header.html">Fixed Header</a>,
-                        <a href="../layout/fixed-footer.html">Fixed Footer</a>,
-                        <a href="../layout/fixed-complete.html">Fixed Complete</a>
-                      </li>
-                      <li>
-                        <a href="../layout/unfixed-sidebar.html">Unfixed Sidebar</a>,
-                        <a href="../layout/sidebar-mini.html">Sidebar Mini</a>,
-                        <a href="../layout/collapsed-sidebar.html">Collapsed Sidebar</a>,
-                        <a href="../layout/collapsed-sidebar-without-hover.html"
-                          >Collapsed without hover</a
+                        <a href="../layout/fixed-sidebar.html">固定侧边栏</a>、<a
+                          href="../layout/fixed-header.html"
+                          >固定页头</a
+                        >、<a href="../layout/fixed-footer.html">固定页脚</a>、<a
+                          href="../layout/fixed-complete.html"
+                          >全固定</a
                         >
                       </li>
                       <li>
-                        <a href="../layout/layout-custom-area.html">Layout Custom Area</a>,
-                        <a href="../layout/logo-switch.html">Logo Switch</a>,
-                        <a href="../layout/layout-rtl.html">Layout RTL</a>
+                        <a href="../layout/unfixed-sidebar.html">非固定侧边栏</a>、<a
+                          href="../layout/sidebar-mini.html"
+                          >迷你侧边栏</a
+                        >、<a href="../layout/collapsed-sidebar.html">折叠侧边栏</a>、<a
+                          href="../layout/collapsed-sidebar-without-hover.html"
+                          >无悬停折叠</a
+                        >
+                      </li>
+                      <li>
+                        <a href="../layout/layout-custom-area.html">自定义区域布局</a>、<a
+                          href="../layout/logo-switch.html"
+                          >Logo 切换</a
+                        >、<a href="../layout/layout-rtl.html">RTL 布局</a>
                       </li>
                     </ul>
-                    <h5 id="responsive-behaviour">Responsive behaviour</h5>
+                    <h5 id="响应式行为">响应式行为</h5>
                     <p>
-                      At and above your <code>sidebar-expand-*</code> breakpoint, the sidebar is
-                      <strong>inline</strong> — visible in the grid alongside
-                      <code>.app-main</code>. Below the breakpoint, it becomes
-                      <strong>off-canvas</strong> — hidden by default and slid in from the left when
-                      the user clicks the hamburger toggle.
+                      在 <code>sidebar-expand-*</code> breakpoint 及以上，侧边栏为
+                      <strong>inline</strong> 状态——在网格中与 <code>.app-main</code> 并排可见。低于
+                      breakpoint 时，它变为
+                      <strong>off-canvas</strong>
+                      状态——默认隐藏，当用户点击汉堡菜单按钮时从左侧滑入。
                     </p>
-                    <p>Mobile-specific classes:</p>
+                    <p>移动端专用类：</p>
 
                     <table>
                       <thead>
                         <tr>
-                          <th>Class</th>
-                          <th>When applied</th>
-                          <th>Effect</th>
+                          <th>类名</th>
+                          <th>应用时机</th>
+                          <th>效果</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td><code>sidebar-open</code></td>
-                          <td>Body — when the user explicitly opens the mobile sidebar</td>
-                          <td>Slides the sidebar in over the content with an overlay</td>
+                          <td>Body——当用户主动打开移动端侧边栏时</td>
+                          <td>侧边栏带遮罩层从内容上方滑入</td>
                         </tr>
                         <tr>
                           <td><code>sidebar-collapse</code></td>
-                          <td>Body — set automatically when the user closes the mobile sidebar</td>
-                          <td>Hides the sidebar</td>
+                          <td>Body——当用户关闭移动端侧边栏时自动设置</td>
+                          <td>隐藏侧边栏</td>
                         </tr>
                       </tbody>
                     </table>
                     <p>
-                      These are managed by the
-                      <a href="javascript/pushmenu.html">PushMenu plugin</a> — you don’t write them
-                      yourself.
+                      这些由
+                      <a href="javascript/pushmenu.html">PushMenu 插件</a>管理——您无需自己编写。
                     </p>
-                    <h5 id="common-pitfalls">Common pitfalls</h5>
+                    <h5 id="常见问题">常见问题</h5>
                     <ul>
                       <li>
                         <strong
-                          >Forgetting <code>.container-fluid</code> inside
-                          <code>.app-content</code></strong
+                          >忘记在 <code>.app-content</code> 内部添加
+                          <code>.container-fluid</code></strong
                         >
-                        — the content lands flush against the screen edge. Wrap your content cards
-                        in a container.
+                        ——内容会紧贴屏幕边缘。请将内容卡片包裹在容器中。
                       </li>
                       <li>
-                        <strong>Putting the sidebar toggle outside <code>.app-header</code></strong>
-                        — it’ll still work, but the styling expects the navbar context.
+                        <strong>将侧边栏切换按钮放在 <code>.app-header</code> 外部</strong>
+                        ——它仍然可以工作，但样式预期是放在导航栏上下文中。
                       </li>
                       <li>
-                        <strong>Mixing <code>.app-*</code> and <code>.main-*</code> classes</strong>
-                        — <code>.main-*</code> is the AdminLTE 3 naming. Don’t combine them. See
-                        <a href="migration.html">Migration from v3</a>.
+                        <strong>混用 <code>.app-*</code> 和 <code>.main-*</code> 类</strong> ——<code
+                          >.main-*</code
+                        >
+                        是 AdminLTE 3 的命名方式。不要将它们组合使用。参见<a href="migration.html"
+                          >从 v3 迁移</a
+                        >。
                       </li>
                       <li>
                         <strong
-                          >Using <code>position: fixed</code> on something inside
-                          <code>.app-main</code></strong
+                          >在 <code>.app-main</code> 内部的元素上使用
+                          <code>position: fixed</code></strong
                         >
-                        — <code>layout-fixed</code> already gives <code>.app-main</code>
-                        <code>overflow: auto</code>. Children with <code>position: fixed</code> may
-                        behave unexpectedly. Use sticky positioning instead.
+                        ——<code>layout-fixed</code> 已经为 <code>.app-main</code> 设置了
+                        <code>overflow: auto</code>。使用
+                        <code>position: fixed</code> 的子元素可能会出现意外行为。请改用粘性定位。
                       </li>
                       <li>
-                        <strong>Hardcoding sidebar width in custom CSS</strong> — the sidebar width
-                        is exposed via the SCSS variable <code>$lte-sidebar-width</code>. If you
-                        need to know it from JavaScript, read the rendered
-                        <code>.app-sidebar</code> element’s computed width.
+                        <strong>在自定义 CSS 中硬编码侧边栏宽度</strong> ——侧边栏宽度通过 SCSS 变量
+                        <code>$lte-sidebar-width</code> 暴露。如果需要在 JavaScript
+                        中获取它，请读取渲染后的 <code>.app-sidebar</code> 元素的计算宽度。
                       </li>
                     </ul>
-                    <h5 id="where-to-next">Where to next</h5>
+                    <h5 id="接下来去哪里">接下来去哪里</h5>
                     <ul>
+                      <li><a href="layout.html">布局参考</a> —— 更底层的 CSS 类及其作用</li>
                       <li>
-                        <a href="layout.html">Layout reference</a> — the lower-level CSS classes and
-                        what they do
+                        <a href="javascript/pushmenu.html">PushMenu 插件</a> —— 侧边栏切换的实现
                       </li>
                       <li>
-                        <a href="javascript/pushmenu.html">PushMenu plugin</a> — the sidebar toggle
-                        implementation
-                      </li>
-                      <li>
-                        <a href="customization.html">Customization</a> — how to change sidebar
-                        width, breakpoint, and colours
+                        <a href="customization.html">自定义</a> —— 如何更改侧边栏宽度、breakpoint
+                        和颜色
                       </li>
                     </ul>
                   </div>
@@ -936,33 +929,27 @@
       <!--begin::Footer-->
       <footer class="app-footer">
         <!--begin::To the end-->
-        <div class="float-end d-none d-sm-inline">Anything you want</div>
+        <div class="float-end d-none d-sm-inline">任何你想要的</div>
         <!--end::To the end-->
         <!--begin::Copyright-->
         <strong>
           Copyright &copy; 2014-2026&nbsp;
           <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
         </strong>
-        All rights reserved.
+        保留所有权利
         <!--end::Copyright-->
       </footer>
       <!--end::Footer-->
     </div>
     <!--begin::Third Party Plugin(OverlayScrollbars)-->
     <script
-      src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
+      src="../assets/overlayscrollbars/overlayscrollbars.browser.es6.min.js"
       crossorigin="anonymous"
     ></script>
     <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="../assets/popperjs/popper.min.js" crossorigin="anonymous"></script>
     <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="../assets/bootstrap/bootstrap.min.js" crossorigin="anonymous"></script>
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
     <script src="../js/adminlte.js"></script>
     <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
@@ -994,7 +981,7 @@
         }
       });
     </script>
-    <!--end::OverlayScrollbars Configure--><!--begin::Color Mode Toggle (#6010)-->
+    <!--end::OverlayScrollbars Configure--><!--begin::明暗模式切换 (#6010)-->
     <script>
       (() => {
         'use strict';
@@ -1058,6 +1045,6 @@
         });
       })();
     </script>
-    <!--end::Color Mode Toggle-->
+    <!--end::明暗模式切换-->
   </body>
 </html>

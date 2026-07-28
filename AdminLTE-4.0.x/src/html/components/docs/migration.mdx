@@ -1,22 +1,22 @@
-AdminLTE 4 is a ground-up rewrite. It targets Bootstrap 5.3, drops jQuery, ships as TypeScript-authored vanilla JS, and reorganises the CSS class structure. If you're upgrading an AdminLTE 3 project, the changes below are the ones most likely to bite.
+AdminLTE 4 是一次从头开始的重写。它基于 Bootstrap 5.3，移除了 jQuery，以 TypeScript 编写的原生 JavaScript 发布，并重新组织了 CSS 类结构。如果你正在升级 AdminLTE 3 项目，以下变更是最可能带来影响的。
 
-##### The high-level summary
+##### 概要一览
 
 | | AdminLTE 3 | AdminLTE 4 |
 |---|---|---|
-| CSS framework | Bootstrap 4.6 | **Bootstrap 5.3** |
-| JavaScript | jQuery + vanilla | **Vanilla TypeScript only** |
-| Dark mode | Manual `.dark-mode` class | **`data-bs-theme` attribute (Bootstrap-native)** |
-| RTL | Separate `rtl.css` build | **Generated automatically via rtlcss** |
-| Browser support | IE 11 forks available | Modern evergreen browsers only |
-| Build tooling | Gulp | **Rollup + Sass + PostCSS** |
-| Icon library | FontAwesome | **Bootstrap Icons** (Lucide / Tabler Icons documented as alternatives) |
+| CSS 框架 | Bootstrap 4.6 | **Bootstrap 5.3** |
+| JavaScript | jQuery + vanilla | **仅原生 TypeScript** |
+| Dark mode | 手动设置 `.dark-mode` 类 | **`data-bs-theme` 属性（Bootstrap 原生）** |
+| RTL | 独立的 `rtl.css` 构建 | **通过 rtlcss 自动生成** |
+| 浏览器支持 | 提供 IE 11 兼容版本 | 仅支持现代浏览器 |
+| 构建工具 | Gulp | **Rollup + Sass + PostCSS** |
+| 图标库 | FontAwesome | **Bootstrap Icons** （Lucide / Tabler Icons 作为替代方案已文档化） |
 
-If your project relies on jQuery or IE 11, stay on AdminLTE 3 — those constraints are not reversible in v4.
+如果你的项目依赖 jQuery 或 IE 11，请继续使用 AdminLTE 3——这些限制在 v4 中不可逆。
 
-##### Class renames
+##### 类名重命名
 
-The most common find-and-replace work:
+最常见的查找替换工作：
 
 | AdminLTE 3 | AdminLTE 4 |
 |---|---|
@@ -29,15 +29,15 @@ The most common find-and-replace work:
 | `.content` | `.app-content` |
 | `.brand-link` (inside `.main-sidebar`) | `.sidebar-brand > .brand-link` |
 | `data-widget="pushmenu"` | `data-lte-toggle="sidebar"` |
-| `data-widget="treeview"` | `data-lte-toggle="treeview"` (on the parent menu) |
+| `data-widget="treeview"` | `data-lte-toggle="treeview"` （在父级菜单上） |
 | `data-widget="card-widget"` | `data-lte-toggle="card-collapse"`, `card-remove`, `card-maximize` |
 | `data-widget="fullscreen"` | `data-lte-toggle="fullscreen"` |
-| `data-widget="control-sidebar"` | (removed — Bootstrap offcanvas replaces this) |
-| `.dark-mode` (on `<body>`) | `data-bs-theme="dark"` (on any element) |
+| `data-widget="control-sidebar"` | （已移除——由 Bootstrap offcanvas 替代） |
+| `.dark-mode` (在 `<body>` 上) | `data-bs-theme="dark"` (（可在任意元素上）) |
 
-##### Bootstrap 4 → 5 utility renames
+##### Bootstrap 4 → 5 工具类重命名
 
-These come from Bootstrap itself, not AdminLTE, but they affect every page:
+这些来自 Bootstrap 本身，而非 AdminLTE，但它们会影响每个页面：
 
 | Bootstrap 4 | Bootstrap 5 |
 |---|---|
@@ -57,11 +57,11 @@ These come from Bootstrap itself, not AdminLTE, but they affect every page:
 | `.font-italic` | `.fst-italic` |
 | `.text-monospace` | `.font-monospace` |
 
-A regex find-replace handles most of this in a few minutes. The migration tool [`bootstrap-5-migration`](https://github.com/dbtek/bootstrap-5-migration) automates the bulk.
+使用正则表达式查找替换可以在几分钟内处理大部分内容。迁移工具 [`bootstrap-5-migration`](https://github.com/dbtek/bootstrap-5-migration) 可以自动完成批量替换。
 
-##### jQuery removal
+##### jQuery 移除
 
-If your app code calls AdminLTE 3 plugins via jQuery (`$('.sidebar').PushMenu()`, etc.), those calls no longer work. Replacements:
+如果你的应用代码通过 jQuery 调用 AdminLTE 3 插件（例如 `$('.sidebar').PushMenu()` 等），这些调用将不再有效。替代方案：
 
 ```js
 // AdminLTE 3
@@ -71,11 +71,11 @@ $('.sidebar-toggle').on('click', function () {
 ```
 
 ```js
-// AdminLTE 4 — the data-API does this for you
+// AdminLTE 4 — data 属性会为你完成这项工作
 // <a href="#" data-lte-toggle="sidebar">...</a>
 ```
 
-If you need programmatic control, import the plugin class directly:
+如果需要编程式控制，直接导入插件类：
 
 ```js
 import { PushMenu } from "admin-lte"
@@ -83,11 +83,11 @@ import { PushMenu } from "admin-lte"
 new PushMenu(document.querySelector(".sidebar-toggle")).toggle()
 ```
 
-All seven JS plugins (`Layout`, `CardWidget`, `Treeview`, `DirectChat`, `FullScreen`, `PushMenu`, plus `initAccessibility`) are exported from `admin-lte`.
+所有 7 个 JS 插件（`Layout`、`CardWidget`、`Treeview`、`DirectChat`、`FullScreen`、`PushMenu`，以及 `initAccessibility`）均从 `admin-lte` 导出。
 
-##### Dark mode
+##### 深色模式
 
-AdminLTE 3 used a `.dark-mode` class toggled on the `<body>`. AdminLTE 4 uses Bootstrap 5.3's native `data-bs-theme="dark"` attribute, which can be applied at any level — `<html>`, `<body>`, or a single component.
+AdminLTE 3 使用在 `<body>` 上切换的 `.dark-mode` 类。AdminLTE 4 使用 Bootstrap 5.3 原生的 `data-bs-theme="dark"` 属性，该属性可以应用于任何层级——`<html>`、`<body>` 或单个组件。
 
 ```html
 <!-- AdminLTE 3 -->
@@ -97,25 +97,25 @@ AdminLTE 3 used a `.dark-mode` class toggled on the `<body>`. AdminLTE 4 uses Bo
 <html data-bs-theme="dark">
 ```
 
-The included [Color Mode](color-mode.html) widget reads/writes this attribute and persists the user's choice in `localStorage`. See the [Color Mode](color-mode.html) docs page for the toggle implementation.
+内置的 [Color Mode](color-mode.html) 组件读取/写入此属性，并将用户的选择保存在 `localStorage` 中。有关切换实现，请参阅 [Color Mode](color-mode.html) 文档页面。
 
-##### CSS variables instead of `.bg-*` overrides
+##### 使用 CSS 变量替代 `.bg-*` 重写类
 
-AdminLTE 3 shipped a lot of one-off colour classes (`.bg-navy`, `.bg-purple`, `.bg-fuchsia`, etc.). In v4, prefer Bootstrap 5.3's CSS-variable model:
+AdminLTE 3 包含大量一次性的颜色类（如 `.bg-navy`、`.bg-purple`、`.bg-fuchsia` 等）。在 v4 中，推荐使用 Bootstrap 5.3 的 CSS 变量模型：
 
 ```html
 <!-- AdminLTE 3 -->
 <div class="card bg-navy">…</div>
 
-<!-- AdminLTE 4 — use Bootstrap utilities + CSS variables -->
+<!-- AdminLTE 4 — 使用 Bootstrap 工具 + CSS 变量，data 属性会为你自动处理 -->
 <div class="card text-bg-primary">…</div>
 ```
 
-For full retheming, override `--bs-primary` etc. on `:root`. See [Customization](customization.html).
+如需完整重新主题，请在 `:root` 上覆盖 `--bs-primary` 等变量。参见 [Customization](customization.html)。
 
-##### Icons
+##### 图标
 
-AdminLTE 3 demos used FontAwesome 6 free. AdminLTE 4 standardises on [Bootstrap Icons](https://icons.getbootstrap.com/) — they're SVG, lighter, MIT-licensed, and ship with Bootstrap's ecosystem.
+AdminLTE 3 演示使用 FontAwesome 6 免费版。AdminLTE 4 标准化使用 [Bootstrap Icons](https://icons.getbootstrap.com/)——它们是 SVG 格式、更轻量、MIT 许可，并与 Bootstrap 生态一同发布。
 
 ```html
 <!-- AdminLTE 3 -->
@@ -125,25 +125,25 @@ AdminLTE 3 demos used FontAwesome 6 free. AdminLTE 4 standardises on [Bootstrap 
 <i class="bi bi-house"></i>
 ```
 
-If you'd rather stick with FontAwesome (or use Lucide, Tabler Icons, Material Symbols, etc.), nothing in AdminLTE 4 forces Bootstrap Icons — load whichever icon font you prefer and replace the `<i>` classes. See [Recommended Integrations](integrations.html#icon-libraries) for the comparison table.
+如果你更愿意继续使用 FontAwesome（或使用 Lucide、Tabler Icons、Material Symbols 等），AdminLTE 4 中没有任何内容强制使用 Bootstrap Icons——加载你喜欢的任何图标字体并替换 `<i>` 类即可。参见 [Recommended Integrations](integrations.html#icon-libraries) 的对比表。
 
-##### Pages we haven't ported yet
+##### 尚未移植的页面
 
-The v3 demo includes pages that haven't all been recreated for v4. The v4 release notes cover the current page catalog. If you depend on a specific v3 page that hasn't been ported, please [open an issue](https://github.com/ColorlibHQ/AdminLTE/issues) — community contributions for missing pages are very welcome.
+v3 演示中包含的页面尚未全部为 v4 重新创建。v4 发布说明中涵盖了当前的页面目录。如果你依赖某个尚未移植的特定 v3 页面，请 [提交 issue](https://github.com/ColorlibHQ/AdminLTE/issues)——非常欢迎社区为缺失的页面贡献代码。
 
-##### Suggested migration order
+##### 建议的迁移顺序
 
-For an existing AdminLTE 3 project:
+对于现有的 AdminLTE 3 项目：
 
-1. **Branch first.** This is not a small change — keep `master` on v3 until v4 is stable.
-2. **Update CSS class names** with a find-replace pass using the table above. Most layouts compile but look broken until step 3.
-3. **Update `data-toggle` → `data-bs-toggle`** etc. across all your templates.
-4. **Replace `.dark-mode` toggle code** with `data-bs-theme` attribute writes.
-5. **Audit jQuery calls.** Either remove them (use the data API) or import plugin classes directly.
-6. **Test responsive breakpoints** — Bootstrap 5 added `xxl`. If you use breakpoint-specific utilities, double-check the new scale.
-7. **Re-test print views** — AdminLTE 4 fixed a print-layout issue (#5996); if you had custom print CSS, verify it still works.
+1. **先创建分支。** 这不是一个小改动——在 v4 稳定之前，保持 `master` 分支在 v3 上。
+2. **更新 CSS 类名**，使用上面的表格进行查找替换。大多数布局可以编译，但在第 3 步之前看起来是错乱的。
+3. **更新 `data-toggle` → `data-bs-toggle`** 等，覆盖所有模板。
+4. **将 `.dark-mode` 切换代码**替换为 `data-bs-theme` 属性写入。
+5. **审查 jQuery 调用。** 要么移除它们（使用 data 属性），要么直接导入插件类。
+6. **测试响应式 breakpoint**——Bootstrap 5 新增了 `xxl`。如果你使用了 breakpoint 特定的工具类，请仔细检查新的尺寸体系。
+7. **重新测试打印视图**——AdminLTE 4 修复了打印布局问题（#5996）；如果你有自定义打印 CSS，请验证其仍然有效。
 
-##### Help and discussion
+##### 帮助与讨论
 
-- Migration questions: [GitHub Discussions](https://github.com/ColorlibHQ/AdminLTE/discussions)
-- Found something we missed? [Open an issue](https://github.com/ColorlibHQ/AdminLTE/issues) tagged `migration`.
+- 迁移问题：[GitHub 讨论](https://github.com/ColorlibHQ/AdminLTE/discussions)
+- 发现我们遗漏了什么？[提交 issue](https://github.com/ColorlibHQ/AdminLTE/issues) 并标记 `migration`。

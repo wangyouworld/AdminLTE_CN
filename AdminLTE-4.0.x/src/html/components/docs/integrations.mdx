@@ -1,20 +1,20 @@
-AdminLTE deliberately ships a lean dependency tree. Rather than bundling every form widget or chart library, we recommend best-in-class third-party libraries you can drop in when you need them. Every library below is **MIT-licensed**, **actively maintained**, and **jQuery-free**.
+AdminLTE 有意保持精简的依赖树。我们不捆绑每一个表单组件或图表库，而是推荐一流的第三方库，你可以在需要时随时引入。下面的每个库都是 **MIT 许可**、**积极维护**且 **不依赖 jQuery** 的。
 
-Each section has a CDN-based "install" snippet and the minimum JavaScript needed to wire it up. You can swap CDN URLs for npm installs if you're using a bundler.
+每个部分都包含一个基于 CDN 的“安装”代码片段以及连接所需的最少 JavaScript。如果你使用打包工具，可以将 CDN URL 替换为 npm 安装方式。
 
-> **About the version numbers below:** every CDN URL pins a specific version (eg. `@4.6.13`) so the snippets stay reproducible. They were current as of the latest release, but third-party libraries publish new versions independently of AdminLTE. Before copying a snippet into production, check the library's homepage (linked in each section) for the latest version — and consider hosting a copy yourself rather than relying on the CDN long-term.
+> **关于以下版本号：** 每个 CDN URL 都固定了特定版本（例如 `@4.6.13`），以确保代码片段可复现。这些版本在最新发布时是有效的，但第三方库会独立于 AdminLTE 发布新版本。在将代码片段复制到生产环境之前，请查看每个部分中链接的库主页以获取最新版本——并考虑自行托管副本，而非长期依赖 CDN。
 
-##### Form widgets
+##### 表单组件
 
-###### Date / time picker — Flatpickr
+###### 日期/时间选择器 — Flatpickr
 
-[Flatpickr](https://flatpickr.js.org/) is a lightweight, no-dependency date and time picker.
+[Flatpickr](https://flatpickr.js.org/) 是一个轻量级、无依赖的日期和时间选择器。
 
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13"></script>
 
-<input type="text" class="form-control" id="datepicker" placeholder="Select a date" />
+<input type="text" class="form-control" id="datepicker" placeholder="选择日期" />
 
 <script>
   flatpickr("#datepicker", {
@@ -25,20 +25,20 @@ Each section has a CDN-based "install" snippet and the minimum JavaScript needed
 </script>
 ```
 
-Supports date ranges, time-only mode, multiple dates, and i18n out of the box.
+开箱即用地支持日期范围、仅时间模式、多日期选择和国际化。
 
-###### Multi-select / tag input — Tom Select
+###### 多选/标签输入 — Tom Select
 
-[Tom Select](https://tom-select.js.org/) is a vanilla-JS rewrite of Selectize. Great fit for searchable selects, tag inputs, and remote-data autocomplete.
+[Tom Select](https://tom-select.js.org/) 是 Selectize 的原生 JS 重写版本。非常适合可搜索下拉框、标签输入和远程数据自动完成。
 
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select@2.6.1/dist/css/tom-select.bootstrap5.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/tom-select@2.6.1/dist/js/tom-select.complete.min.js"></script>
 
-<select id="tags" class="form-control" multiple placeholder="Pick some tags">
-  <option value="design">Design</option>
-  <option value="dev">Development</option>
-  <option value="qa">QA</option>
+<select id="tags" class="form-control" multiple placeholder="选择标签">
+  <option value="design">设计</option>
+  <option value="dev">开发</option>
+  <option value="qa">质量保证</option>
 </select>
 
 <script>
@@ -46,11 +46,11 @@ Supports date ranges, time-only mode, multiple dates, and i18n out of the box.
 </script>
 ```
 
-Ships a `tom-select.bootstrap5.min.css` theme that matches Bootstrap form controls.
+附带 `tom-select.bootstrap5.min.css` 主题，与 Bootstrap 表单控件样式匹配。
 
-###### Range slider — noUiSlider
+###### 范围滑块 — noUiSlider
 
-[noUiSlider](https://refreshless.com/nouislider/) handles single, range, and multi-handle sliders with no dependencies.
+[noUiSlider](https://refreshless.com/nouislider/) 处理单值、范围和多手柄滑块，无依赖。
 
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.8.1/dist/nouislider.min.css" />
@@ -67,9 +67,9 @@ Ships a `tom-select.bootstrap5.min.css` theme that matches Bootstrap form contro
 </script>
 ```
 
-###### Color picker — Pickr
+###### 颜色选择器 — Pickr
 
-[Pickr](https://github.com/Simonwep/pickr) is a flat, modern color picker with multiple themes.
+[Pickr](https://github.com/Simonwep/pickr) 是一个扁平、现代的颜色选择器，支持多种主题。
 
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr@1.9.1/dist/themes/classic.min.css" />
@@ -87,9 +87,9 @@ Ships a `tom-select.bootstrap5.min.css` theme that matches Bootstrap form contro
 </script>
 ```
 
-###### Input mask — IMask
+###### 输入掩码 — IMask
 
-[IMask](https://imask.js.org/) handles phone numbers, credit cards, dates, currency — anything with a fixed pattern.
+[IMask](https://imask.js.org/) 处理电话号码、信用卡、日期、货币——任何具有固定格式的内容。
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/imask@7.6.1/dist/imask.min.js"></script>
@@ -101,11 +101,11 @@ Ships a `tom-select.bootstrap5.min.css` theme that matches Bootstrap form contro
 </script>
 ```
 
-##### File handling
+##### 文件处理
 
-###### File uploader — Dropzone
+###### 文件上传器 — Dropzone
 
-[Dropzone](https://www.dropzone.dev/) is the de-facto drag-and-drop uploader. The v6 rewrite is plain JavaScript (the older v5 had jQuery-coupled examples; v6+ does not).
+[Dropzone](https://www.dropzone.dev/) 是事实上的拖拽上传器。v6 重写版是纯 JavaScript（旧版 v5 有与 jQuery 耦合的示例；v6+ 没有）。
 
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropzone@6.0.0-beta.2/dist/dropzone.css" />
@@ -119,9 +119,9 @@ Ships a `tom-select.bootstrap5.min.css` theme that matches Bootstrap form contro
 </script>
 ```
 
-###### File uploader — FilePond
+###### 文件上传器 — FilePond
 
-[FilePond](https://pqina.nl/filepond/) is a more modern alternative with a polished UX and a plugin system for image preview, validation, EXIF, etc.
+[FilePond](https://pqina.nl/filepond/) 是一个更现代的替代方案，具有精致的用户体验和用于图像预览、验证、EXIF 等的插件系统。
 
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/filepond@4.32.12/dist/filepond.min.css" />
@@ -134,11 +134,11 @@ Ships a `tom-select.bootstrap5.min.css` theme that matches Bootstrap form contro
 </script>
 ```
 
-##### Rich text & markdown editors
+##### 富文本和 Markdown 编辑器
 
-###### Rich text — Quill
+###### 富文本 — Quill
 
-[Quill](https://quilljs.com/) is the best-supported open-source WYSIWYG editor. Lightweight, modular, no dependencies.
+[Quill](https://quilljs.com/) 是支持最好的开源所见即所得编辑器。轻量、模块化、无依赖。
 
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" />
@@ -149,14 +149,14 @@ Ships a `tom-select.bootstrap5.min.css` theme that matches Bootstrap form contro
 <script>
   new Quill("#editor", {
     theme: "snow",
-    placeholder: "Write something fancy&hellip;"
+    placeholder: "写点有趣的东西&hellip;"
   })
 </script>
 ```
 
 ###### Markdown — EasyMDE
 
-[EasyMDE](https://github.com/Ionaru/easy-markdown-editor) is the actively-maintained fork of SimpleMDE. Same look, same API, but still gets updates.
+[EasyMDE](https://github.com/Ionaru/easy-markdown-editor) 是 SimpleMDE 的积极维护分支。相同的界面，相同的 API，但仍持续获得更新。
 
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde@2.21.0/dist/easymde.min.css" />
@@ -171,7 +171,7 @@ Ships a `tom-select.bootstrap5.min.css` theme that matches Bootstrap form contro
 
 ###### WYSIWYG + Markdown — Toast UI Editor
 
-[Toast UI Editor](https://ui.toast.com/tui-editor) supports both markdown and WYSIWYG modes side-by-side. Best when you want users to pick their preferred mode.
+[Toast UI Editor](https://ui.toast.com/tui-editor) 同时支持 Markdown 和 WYSIWYG 模式并排显示。适合希望用户自行选择偏好模式的场景。
 
 ```html
 <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
@@ -189,11 +189,11 @@ Ships a `tom-select.bootstrap5.min.css` theme that matches Bootstrap form contro
 </script>
 ```
 
-##### Charts
+##### 图表
 
 ###### ApexCharts
 
-[ApexCharts](https://apexcharts.com/) is the chart library used in the AdminLTE dashboards. Modern look, animated, MIT.
+[ApexCharts](https://apexcharts.com/) 是 AdminLTE 仪表板中使用的图表库。现代外观、带动画、MIT 许可。
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/apexcharts@5.12.0/dist/apexcharts.min.js"></script>
@@ -202,16 +202,16 @@ Ships a `tom-select.bootstrap5.min.css` theme that matches Bootstrap form contro
 
 <script>
   new ApexCharts(document.querySelector("#chart"), {
-    chart: { type: "area", height: 300 },
-    series: [{ name: "Visits", data: [30, 40, 35, 50, 49, 60, 70] }],
-    xaxis: { categories: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] }
+    chart: { type: "区域", height: 300 },
+    series: [{ name: "访问量", data: [30, 40, 35, 50, 49, 60, 70] }],
+    xaxis: { categories: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"] }
   }).render()
 </script>
 ```
 
 ###### Chart.js
 
-[Chart.js](https://www.chartjs.org/) is the most-asked-for traditional chart library. Canvas-based, very wide chart-type support.
+[Chart.js](https://www.chartjs.org/) 是被问及最多的传统图表库。基于 Canvas，支持非常广泛的图表类型。
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1"></script>
@@ -222,18 +222,18 @@ Ships a `tom-select.bootstrap5.min.css` theme that matches Bootstrap form contro
   new Chart(document.getElementById("bar-chart"), {
     type: "bar",
     data: {
-      labels: ["Q1", "Q2", "Q3", "Q4"],
-      datasets: [{ label: "Revenue", data: [120, 190, 170, 230] }]
+      labels: ["一季度", "二季度", "三季度", "四季度"],
+      datasets: [{ label: "收入", data: [120, 190, 170, 230] }]
     }
   })
 </script>
 ```
 
-##### Data tables
+##### 数据表格
 
 ###### Tabulator
 
-[Tabulator](https://tabulator.info/) is the jQuery-free DataTables alternative used in `tables/data.html`. Sort, filter, paginate, edit, export — all built in.
+[Tabulator](https://tabulator.info/) 在 `tables/data.html` 中使用无需 jQuery 的 DataTables 替代方案。排序、筛选、分页、编辑、导出——全部内置。
 
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables@6.4.0/dist/css/tabulator_bootstrap5.min.css" />
@@ -249,18 +249,18 @@ Ships a `tom-select.bootstrap5.min.css` theme that matches Bootstrap form contro
     paginationSize: 10,
     columns: [
       { title: "ID", field: "id", width: 60 },
-      { title: "Name", field: "name", headerFilter: "input" },
-      { title: "Role", field: "role" }
+      { title: "名称", field: "name", headerFilter: "input" },
+      { title: "职位", field: "role" }
     ]
   })
 </script>
 ```
 
-##### Calendar
+##### 日历
 
 ###### FullCalendar
 
-[FullCalendar](https://fullcalendar.io/) is the calendar used in `pages/calendar.html`. Drag-and-drop scheduling, multiple views, recurrence, MIT.
+[FullCalendar](https://fullcalendar.io/) 是 [`/pages/calendar.html`](../pages/calendar.html) 中使用的日历。拖拽调度、多视图、重复事件、MIT 许可。
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js"></script>
@@ -271,24 +271,24 @@ Ships a `tom-select.bootstrap5.min.css` theme that matches Bootstrap form contro
   new FullCalendar.Calendar(document.getElementById("calendar"), {
     initialView: "dayGridMonth",
     headerToolbar: { start: "prev,next today", center: "title", end: "dayGridMonth,timeGridWeek,listWeek" },
-    events: [{ title: "Team standup", start: "2026-06-01" }]
+    events: [{ title: "团队晨会", start: "2026-06-01" }]
   }).render()
 </script>
 ```
 
-##### Drag and drop
+##### 拖拽
 
 ###### SortableJS
 
-[SortableJS](https://sortablejs.github.io/Sortable/) powers the kanban board demo. Reorder lists, drag between lists, touch-friendly. 31k stars.
+[SortableJS](https://sortablejs.github.io/Sortable/) 为看板演示提供支持。重新排序列表、在列表间拖拽、触控友好。31k Star。
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.7/Sortable.min.js"></script>
 
 <ul id="list" class="list-group">
-  <li class="list-group-item">Item 1</li>
-  <li class="list-group-item">Item 2</li>
-  <li class="list-group-item">Item 3</li>
+  <li class="list-group-item">项目 1</li>
+  <li class="list-group-item">项目 2</li>
+  <li class="list-group-item">项目 3</li>
 </ul>
 
 <script>
@@ -296,18 +296,18 @@ Ships a `tom-select.bootstrap5.min.css` theme that matches Bootstrap form contro
 </script>
 ```
 
-##### Lightbox / image viewer
+##### Lightbox / 图像查看器
 
 ###### GLightbox
 
-[GLightbox](https://biati-digital.github.io/glightbox/) is a vanilla-JS lightbox for images, videos, and inline content.
+[GLightbox](https://biati-digital.github.io/glightbox/) 是一个原生 JS Lightbox，用于图像、视频和内联内容。
 
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.1/dist/css/glightbox.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.1/dist/js/glightbox.min.js"></script>
 
 <a href="image-large.jpg" class="glightbox">
-  <img src="image-thumb.jpg" alt="Click to enlarge" />
+  <img src="image-thumb.jpg" alt="点击放大" />
 </a>
 
 <script>
@@ -315,27 +315,27 @@ Ships a `tom-select.bootstrap5.min.css` theme that matches Bootstrap form contro
 </script>
 ```
 
-##### Icon libraries
+##### 图标库
 
-AdminLTE ships [Bootstrap Icons](https://icons.getbootstrap.com/) by default — they're SVG-based, ~1,900 icons, and used throughout the demo. If you need more, these all work alongside AdminLTE:
+AdminLTE 默认附带 [Bootstrap Icons](https://icons.getbootstrap.com/) ——它们是基于 SVG 的，约 1,900 个图标，并在整个演示中使用。如果你需要更多，以下库都可以与 AdminLTE 配合使用：
 
-| Library | Icons | Notes |
+| 库 | 图标数量 | 备注 |
 |---|---|---|
-| [Bootstrap Icons](https://icons.getbootstrap.com/) | 1,900+ | Default, SVG, MIT |
-| [Lucide](https://lucide.dev/) | 1,500+ | Modern, SVG, ISC, very consistent style |
-| [Tabler Icons](https://tabler.io/icons) | 5,800+ | MIT, broadest free set available |
-| [Material Symbols](https://fonts.google.com/icons) | 3,500+ | Google, Apache 2.0, variable font |
-| [FontAwesome Free](https://fontawesome.com/icons) | 2,000+ free | Most-recognized, font-based |
-| [Phosphor](https://phosphoricons.com/) | 6,000+ | MIT, six weights |
+| [Bootstrap Icons](https://icons.getbootstrap.com/) | 1,900+ | 默认， SVG, MIT |
+| [Lucide](https://lucide.dev/) | 1,500+ | 现代， SVG, ISC, 风格非常统一 |
+| [Tabler Icons](https://tabler.io/icons) | 5,800+ | MIT, 可用的最广泛免费图标集 |
+| [Material Symbols](https://fonts.google.com/icons) | 3,500+ | Google, Apache 2.0, 可变字体 |
+| [FontAwesome Free](https://fontawesome.com/icons) | 2,000+ 免费 | 最知名，基于字体 |
+| [Phosphor](https://phosphoricons.com/) | 6,000+ | MIT, 六种字体效果 |
 
-Mix and match — they all coexist.
+可以混用——它们都能共存。
 
-##### A note on bundling
+##### 关于打包的说明
 
-The examples above use jsDelivr CDNs for copy-paste convenience. For production use, prefer:
+以上示例使用 jsDelivr CDN 是为了方便复制粘贴。在生产环境中，建议：
 
-1. **npm install + bundler** (Vite, Webpack, Rollup) — best for tree-shaking and version locking
-2. **Self-host** the minified bundles — avoids CDN downtime as a failure mode
-3. **CDN with `integrity` hashes** — fine for prototypes and demos
+1. **npm install + 打包工具**（Vite、Webpack、Rollup）——最适合 tree-shaking 和版本锁定
+2. **自托管** 压缩后的 bundle——避免 CDN 宕机成为故障模式
+3. **带 `integrity` 哈希的 CDN**——适用于原型和演示
 
-AdminLTE doesn't ship any of these libraries — keeping the framework's footprint small is intentional. Pick what you need, skip what you don't.
+AdminLTE 不附带这些库中的任何一个——保持框架体积小巧是刻意为之。按需选用，不需不用。

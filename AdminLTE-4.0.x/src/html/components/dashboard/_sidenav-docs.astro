@@ -3,7 +3,7 @@ import { convertPathToHtml } from "../../../utils/index.js"
 const { path, mainPage, page } = Astro.props
 const htmlPath = convertPathToHtml(path);
 
-// Smart path resolution: calculate relative path based on directory depth
+// 智能路径解析：根据目录深度计算相对路径
 const pathname = Astro.url.pathname;
 const pathSegments = pathname.split('/').filter(segment => segment !== '');
 const depth = pathSegments.length > 0 ? pathSegments.length - 1 : 0;
@@ -21,7 +21,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
         class="brand-image opacity-75 shadow"
       />
       <span class="brand-text fw-light">
-        AdminLTE 4 <span class="opacity-75">&middot; Docs</span>
+        AdminLTE 4 <span class="opacity-75">&middot; 文档</span>
       </span>
     </a>
   </div>
@@ -36,7 +36,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
           class="btn btn-sm btn-outline-light w-100 d-flex align-items-center justify-content-center gap-2"
         >
           <i class="bi bi-arrow-left" aria-hidden="true"></i>
-          Back to live preview
+          返回实时预览
         </a>
       </div>
 
@@ -49,14 +49,14 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
         data-accordion="false"
         id="docs-navigation"
       >
-        <li class="nav-header">START HERE</li>
+        <li class="nav-header">开始</li>
         <li class="nav-item">
           <a
             href={htmlPath + "/docs/introduction.html"}
             class:list={["nav-link", page === "introduction" && "active"]}
           >
             <i class="nav-icon bi bi-download"></i>
-            <p>Installation</p>
+            <p>安装</p>
           </a>
         </li>
         <li class="nav-item">
@@ -65,18 +65,18 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             class:list={["nav-link", page === "getting-started" && "active"]}
           >
             <i class="nav-icon bi bi-rocket-takeoff"></i>
-            <p>Getting Started</p>
+            <p>入门指南</p>
           </a>
         </li>
 
-        <li class="nav-header">FOUNDATIONS</li>
+        <li class="nav-header">基础</li>
         <li class="nav-item">
           <a
             href={htmlPath + "/docs/layout.html"}
-            class:list={["nav-link", page === "layout" && mainPage === "docs" && "active"]}
+            class:list={["nav-link", page === "layout" && mainPage === "文档" && "active"]}
           >
             <i class="nav-icon bi bi-grip-horizontal"></i>
-            <p>Layout Classes</p>
+            <p>布局类</p>
           </a>
         </li>
         <li class="nav-item">
@@ -85,7 +85,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             class:list={["nav-link", page === "layout-blueprint" && "active"]}
           >
             <i class="nav-icon bi bi-diagram-3"></i>
-            <p>Layout Blueprint</p>
+            <p>布局结构</p>
           </a>
         </li>
         <li class="nav-item">
@@ -94,7 +94,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             class:list={["nav-link", page === "customization" && "active"]}
           >
             <i class="nav-icon bi bi-palette"></i>
-            <p>Customization</p>
+            <p>定制</p>
           </a>
         </li>
         <li class="nav-item">
@@ -103,7 +103,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             class:list={["nav-link", page === "color-mode" && "active"]}
           >
             <i class="nav-icon bi bi-star-half"></i>
-            <p>Color Mode</p>
+            <p>明暗模式</p>
           </a>
         </li>
         <li class="nav-item">
@@ -112,18 +112,18 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             class:list={["nav-link", page === "rtl" && "active"]}
           >
             <i class="nav-icon bi bi-text-paragraph"></i>
-            <p>RTL Support</p>
+            <p>RTL 支持</p>
           </a>
         </li>
 
-        <li class="nav-header">BUILDING</li>
+        <li class="nav-header">构建</li>
         <li class="nav-item">
           <a
             href={htmlPath + "/docs/recipes.html"}
             class:list={["nav-link", page === "recipes" && "active"]}
           >
             <i class="nav-icon bi bi-clipboard-check"></i>
-            <p>Recipes</p>
+            <p>方案</p>
           </a>
         </li>
         <li class:list={["nav-item", mainPage === "components" && "menu-open"]}>
@@ -133,7 +133,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
           >
             <i class="nav-icon bi bi-ui-checks-grid"></i>
             <p>
-              Components
+              组件
               <i class="nav-arrow bi bi-chevron-right"></i>
             </p>
           </a>
@@ -144,7 +144,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "main-header" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Main Header</p>
+                <p>头部</p>
               </a>
             </li>
             <li class="nav-item">
@@ -153,7 +153,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "main-sidebar" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Main Sidebar</p>
+                <p>主侧边栏</p>
               </a>
             </li>
           </ul>
@@ -165,7 +165,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
           >
             <i class="nav-icon bi bi-filetype-js"></i>
             <p>
-              JavaScript Plugins
+              JavaScript 插件
               <i class="nav-arrow bi bi-chevron-right"></i>
             </p>
           </a>
@@ -176,7 +176,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "plugins-overview" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Overview</p>
+                <p>概述</p>
               </a>
             </li>
             <li class="nav-item">
@@ -185,7 +185,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "layout" && mainPage === "javascript" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Layout</p>
+                <p>布局</p>
               </a>
             </li>
             <li class="nav-item">
@@ -203,7 +203,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "treeview" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Treeview</p>
+                <p>树形插件</p>
               </a>
             </li>
             <li class="nav-item">
@@ -212,7 +212,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "card-widget" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Card Widget</p>
+                <p>卡片小工具</p>
               </a>
             </li>
             <li class="nav-item">
@@ -221,7 +221,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "direct-chat" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Direct Chat</p>
+                <p>聊天</p>
               </a>
             </li>
             <li class="nav-item">
@@ -230,7 +230,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "fullscreen" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Fullscreen</p>
+                <p>全屏</p>
               </a>
             </li>
             <li class="nav-item">
@@ -239,7 +239,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "accessibility" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Accessibility</p>
+                <p>无障碍访问</p>
               </a>
             </li>
           </ul>
@@ -250,18 +250,18 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             class:list={["nav-link", page === "integrations" && "active"]}
           >
             <i class="nav-icon bi bi-puzzle"></i>
-            <p>Integrations</p>
+            <p>集成</p>
           </a>
         </li>
 
-        <li class="nav-header">SHIPPING</li>
+        <li class="nav-header">上线指南</li>
         <li class="nav-item">
           <a
             href={htmlPath + "/docs/migration.html"}
             class:list={["nav-link", page === "migration" && "active"]}
           >
             <i class="nav-icon bi bi-arrow-up-right-square"></i>
-            <p>Migration from v3</p>
+            <p>从 v3 迁移</p>
           </a>
         </li>
         <li class="nav-item">
@@ -270,7 +270,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             class:list={["nav-link", page === "deployment" && "active"]}
           >
             <i class="nav-icon bi bi-cloud-upload"></i>
-            <p>Deployment</p>
+            <p>部署</p>
           </a>
         </li>
         <li class="nav-item">
@@ -279,11 +279,11 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             class:list={["nav-link", page === "browser-support" && "active"]}
           >
             <i class="nav-icon bi bi-browser-chrome"></i>
-            <p>Browser Support</p>
+            <p>浏览器支持</p>
           </a>
         </li>
 
-        <li class="nav-header">RESOURCES</li>
+        <li class="nav-header">资源</li>
         <li class="nav-item">
           <a
             href={htmlPath + "/docs/faq.html"}
@@ -299,7 +299,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             class:list={["nav-link", page === "how-to-contribute" && "active"]}
           >
             <i class="nav-icon bi bi-people"></i>
-            <p>Contributing</p>
+            <p>贡献</p>
           </a>
         </li>
         <li class="nav-item">
@@ -308,7 +308,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             class:list={["nav-link", page === "license" && "active"]}
           >
             <i class="nav-icon bi bi-patch-check"></i>
-            <p>License</p>
+            <p>许可证</p>
           </a>
         </li>
         <li class="nav-item">

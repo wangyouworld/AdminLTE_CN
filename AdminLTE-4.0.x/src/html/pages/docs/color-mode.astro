@@ -6,14 +6,14 @@ import Sidenav from "@components/dashboard/_sidenav.astro"
 import Scripts from "@components/_scripts.astro"
 import ColorMode from "@components/docs/color-mode.mdx"
 
-const title = "Color Mode | AdminLTE 4"
+const title = "明暗模式 | AdminLTE 4"
 const path = "../../../dist"
-const mainPage = "docs"
+const mainPage = "文档"
 const page = "color-mode";
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <!--begin::Head-->
   <head>
     <Head title={title} path={path} />
@@ -34,13 +34,13 @@ const page = "color-mode";
             <!--begin::Row-->
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">Color Mode Toggle</h3>
+                <h3 class="mb-0">明暗模式切换</h3>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">Docs</a></li>
+                  <li class="breadcrumb-item"><a href="#">文档</a></li>
                   <li class="breadcrumb-item active" aria-current="page">
-                    Color Mode
+                    明暗模式
                   </li>
                 </ol>
               </div>
@@ -58,11 +58,11 @@ const page = "color-mode";
             <div class="row g-4">
               <div class="col-12">
                 <div class="callout callout-info">
-                  <h5 class="fw-bold">Tips</h5>
+                  <h5 class="fw-bold">提示</h5>
                   <p>
                     <a href="https://getbootstrap.com/docs/5.3/customize/color-modes/" target="_blank" rel="noopener noreferrer" class="callout-link">
-                      Color modes in Bootstrap
-                    </a> allow you to switch between light and dark modes. You can do this using the data-bs-theme attribute. You can also create your own custom color modes.
+                      在 Bootstrap 中
+                    </a> 允许你在明暗模式之间切换。可以使用 data-bs-theme 属性来实现它。 你还可以创建自己的颜色模式。
 
                   </p>
                 </div>
@@ -84,10 +84,10 @@ const page = "color-mode";
                         >
                       </li>
                       <li class="nav-item d-none d-md-block">
-                        <a href="#" class="nav-link">Home</a>
+                        <a href="#" class="nav-link">首页</a>
                       </li>
                       <li class="nav-item d-none d-md-block">
-                        <a href="#" class="nav-link">Contact</a>
+                        <a href="#" class="nav-link">联系</a>
                       </li>
                     </ul>
                     <!--end::Start Navbar links-->
@@ -106,7 +106,7 @@ const page = "color-mode";
                             <i class="my-1"></i>
                           </span>
                           <span class="d-lg-none ms-2" id="bd-theme-text"
-                          >Toggle theme</span
+                          >切换主题</span
                           >
                         </button>
                         <ul
@@ -122,7 +122,7 @@ const page = "color-mode";
                               aria-pressed="false"
                             >
                               <i class="bi bi-sun-fill me-2"></i>
-                              Light
+                              明亮
                               <i class="bi bi-check-lg ms-auto d-none"></i>
                             </button>
                           </li>
@@ -134,7 +134,7 @@ const page = "color-mode";
                               aria-pressed="false"
                             >
                               <i class="bi bi-moon-fill me-2"></i>
-                              Dark
+                              暗黑
                               <i class="bi bi-check-lg ms-auto d-none"></i>
                             </button>
                           </li>
@@ -146,7 +146,7 @@ const page = "color-mode";
                               aria-pressed="true"
                             >
                               <i class="bi bi-circle-half me-2"></i>
-                              Auto
+                              自动
                               <i class="bi bi-check-lg ms-auto d-none"></i>
                             </button>
                           </li>
@@ -182,7 +182,7 @@ const page = "color-mode";
     <Scripts path={path} />
 
     <script is:inline>
-// Color Mode Toggler
+// 明暗模式切换
 (() => {
   "use strict"
 

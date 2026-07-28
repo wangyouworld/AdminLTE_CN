@@ -3,7 +3,7 @@ import { convertPathToHtml } from "../../../utils/index.js"
 const { path, mainPage, page } = Astro.props
 const htmlPath = convertPathToHtml(path);
 
-// Smart path resolution: calculate relative path based on directory depth
+// 智能路径解析：根据目录深度计算相对路径
 const pathname = Astro.url.pathname;
 const pathSegments = pathname.split('/').filter(segment => segment !== '');
 const depth = pathSegments.length > 0 ? pathSegments.length - 1 : 0;
@@ -40,7 +40,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
           class="btn btn-sm btn-outline-light w-100 d-flex align-items-center justify-content-center gap-2"
         >
           <i class="bi bi-book" aria-hidden="true"></i>
-          View documentation
+          查看文档
         </a>
       </div>
 
@@ -60,7 +60,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
           >
             <i class="nav-icon bi bi-speedometer"></i>
             <p>
-              Dashboard
+              仪表盘
               <i class="nav-arrow bi bi-chevron-right"></i>
             </p>
           </a>
@@ -71,7 +71,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "index" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Dashboard v1</p>
+                <p>仪表盘 v1</p>
               </a>
             </li>
             <li class="nav-item">
@@ -80,7 +80,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "index2" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Dashboard v2</p>
+                <p>仪表盘 v2</p>
               </a>
             </li>
             <li class="nav-item">
@@ -89,7 +89,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "index3" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Dashboard v3</p>
+                <p>仪表盘 v3</p>
               </a>
             </li>
           </ul>
@@ -100,7 +100,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             class:list={["nav-link", page === "theme-generate" && "active"]}
           >
             <i class="nav-icon bi bi-palette"></i>
-            <p>Theme Generate</p>
+            <p>生成主题</p>
           </a>
         </li>
         <li class:list={["nav-item", mainPage === "widgets" && "menu-open"]}>
@@ -110,7 +110,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
           >
             <i class="nav-icon bi bi-box-seam-fill"></i>
             <p>
-              Widgets
+              小部件
               <i class="nav-arrow bi bi-chevron-right"></i>
             </p>
           </a>
@@ -121,7 +121,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "small-box" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Small Box</p>
+                <p>小框</p>
               </a>
             </li>
             <li class="nav-item">
@@ -130,7 +130,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "info-box" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>info Box</p>
+                <p>信息框</p>
               </a>
             </li>
             <li class="nav-item">
@@ -139,7 +139,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "cards" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Cards</p>
+                <p>卡片</p>
               </a>
             </li>
           </ul>
@@ -151,7 +151,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
           >
             <i class="nav-icon bi bi-clipboard-fill"></i>
             <p>
-              Layout Options
+              布局选项
               <span class="nav-badge badge text-bg-secondary me-3"
               >7</span
               >
@@ -168,7 +168,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 ]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Default Sidebar</p>
+                <p>默认侧边栏</p>
               </a>
             </li>
             <li class="nav-item">
@@ -177,7 +177,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "fixed-sidebar" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Fixed Sidebar</p>
+                <p>固定侧边栏</p>
               </a>
             </li>
             <li class="nav-item">
@@ -186,7 +186,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "fixed-header" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Fixed Header</p>
+                <p>固定头部</p>
               </a>
             </li>
             <li class="nav-item">
@@ -195,7 +195,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "fixed-footer" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Fixed Footer</p>
+                <p>固定底部</p>
               </a>
             </li>
             <li class="nav-item">
@@ -204,7 +204,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "fixed-complete" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Fixed Complete</p>
+                <p>全部固定</p>
               </a>
             </li>
             <li class="nav-item">
@@ -213,7 +213,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "layout-custom-area" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Layout <small>+ Custom Area </small></p>
+                <p>布局 <small>+ 自定义区域 </small></p>
               </a>
             </li>
             <li class="nav-item">
@@ -222,7 +222,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "sidebar-mini" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Sidebar Mini</p>
+                <p>迷你侧边栏</p>
               </a>
             </li>
             <li class="nav-item">
@@ -234,7 +234,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 ]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Sidebar Mini <small>+ Collapsed</small></p>
+                <p>迷你侧边栏 <small>+ 折叠</small></p>
               </a>
             </li>
             <li class="nav-item">
@@ -246,7 +246,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 ]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Sidebar Mini <small>+ Collapsed + No Hover</small></p>
+                <p>迷你侧边栏 <small>+ 折叠 + 不悬停</small></p>
               </a>
             </li>
             <li class="nav-item">
@@ -255,7 +255,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "logo-switch" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Sidebar Mini <small>+ Logo Switch</small></p>
+                <p>迷你侧边栏 <small>+ Logo 开关</small></p>
               </a>
             </li>
             <li class="nav-item">
@@ -264,7 +264,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "layout-rtl" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Layout RTL</p>
+                <p>RTL 布局</p>
               </a>
             </li>
           </ul>
@@ -278,7 +278,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
           >
             <i class="nav-icon bi bi-tree-fill"></i>
             <p>
-              UI Elements
+              用户界面
               <i class="nav-arrow bi bi-chevron-right"></i>
             </p>
           </a>
@@ -289,7 +289,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "general" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>General</p>
+                <p>通用</p>
               </a>
             </li>
             <li class="nav-item">
@@ -298,7 +298,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "icons" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Icons</p>
+                <p>图标</p>
               </a>
             </li>
             <li class="nav-item">
@@ -307,7 +307,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "timeline" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Timeline</p>
+                <p>时间线</p>
               </a>
             </li>
           </ul>
@@ -319,7 +319,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
           >
             <i class="nav-icon bi bi-envelope"></i>
             <p>
-              Mailbox
+              邮箱
               <i class="nav-arrow bi bi-chevron-right"></i>
             </p>
           </a>
@@ -330,7 +330,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "inbox" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Inbox</p>
+                <p>收件箱</p>
               </a>
             </li>
             <li class="nav-item">
@@ -339,7 +339,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "read" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Read Message</p>
+                <p>查看邮件</p>
               </a>
             </li>
             <li class="nav-item">
@@ -348,7 +348,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "compose" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Compose</p>
+                <p>写信</p>
               </a>
             </li>
           </ul>
@@ -361,7 +361,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
           >
             <i class="nav-icon bi bi-pencil-square"></i>
             <p>
-              Forms
+              表单
               <i class="nav-arrow bi bi-chevron-right"></i>
             </p>
           </a>
@@ -372,7 +372,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "elements" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Elements</p>
+                <p>表单</p>
               </a>
             </li>
             <li class="nav-item">
@@ -381,7 +381,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "layout" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Layout</p>
+                <p>布局</p>
               </a>
             </li>
             <li class="nav-item">
@@ -390,7 +390,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "validation" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Validation</p>
+                <p>验证</p>
               </a>
             </li>
             <li class="nav-item">
@@ -399,7 +399,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "wizard" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Wizard</p>
+                <p>向导</p>
               </a>
             </li>
           </ul>
@@ -411,7 +411,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
           >
             <i class="nav-icon bi bi-table"></i>
             <p>
-              Tables
+              表格
               <i class="nav-arrow bi bi-chevron-right"></i>
             </p>
           </a>
@@ -422,7 +422,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "simple" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Simple Tables</p>
+                <p>简单的表格</p>
               </a>
             </li>
             <li class="nav-item">
@@ -431,13 +431,13 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "data" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Data Tables</p>
+                <p>数据表格</p>
               </a>
             </li>
           </ul>
         </li>
 
-        <li class="nav-header">PAGES</li>
+        <li class="nav-header">页面</li>
         <li class:list={["nav-item", mainPage === "pages" && "menu-open"]}>
           <a
             href="#"
@@ -445,7 +445,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
           >
             <i class="nav-icon bi bi-file-earmark-text"></i>
             <p>
-              Pages
+              页面
               <i class="nav-arrow bi bi-chevron-right"></i>
             </p>
           </a>
@@ -456,7 +456,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "profile" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Profile</p>
+                <p>资料</p>
               </a>
             </li>
             <li class="nav-item">
@@ -465,7 +465,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "settings" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Settings</p>
+                <p>设置</p>
               </a>
             </li>
             <li class="nav-item">
@@ -474,7 +474,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "invoice" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Invoice</p>
+                <p>发票</p>
               </a>
             </li>
             <li class="nav-item">
@@ -483,7 +483,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "calendar" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Calendar</p>
+                <p>日历</p>
               </a>
             </li>
             <li class="nav-item">
@@ -492,7 +492,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "kanban" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Kanban</p>
+                <p>看板</p>
               </a>
             </li>
             <li class="nav-item">
@@ -501,7 +501,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "chat" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Chat</p>
+                <p>聊天</p>
               </a>
             </li>
             <li class="nav-item">
@@ -510,7 +510,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "file-manager" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>File Manager</p>
+                <p>文件管理</p>
               </a>
             </li>
             <li class="nav-item">
@@ -519,7 +519,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "projects" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Projects</p>
+                <p>项目</p>
               </a>
             </li>
             <li class="nav-item">
@@ -528,7 +528,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 class:list={["nav-link", page === "pricing" && "active"]}
               >
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Pricing</p>
+                <p>价格</p>
               </a>
             </li>
             <li class="nav-item">
@@ -544,7 +544,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
               <a href="#" class="nav-link">
                 <i class="nav-icon bi bi-circle"></i>
                 <p>
-                  Error
+                  错误
                   <i class="nav-arrow bi bi-chevron-right"></i>
                 </p>
               </a>
@@ -564,7 +564,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 <li class="nav-item">
                   <a href={htmlPath + "/pages/maintenance.html"} class="nav-link">
                     <i class="nav-icon bi bi-circle"></i>
-                    <p>Maintenance</p>
+                    <p>维护</p>
                   </a>
                 </li>
               </ul>
@@ -572,12 +572,12 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
           </ul>
         </li>
 
-        <li class="nav-header">EXAMPLES</li>
+        <li class="nav-header">示例</li>
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon bi bi-box-arrow-in-right"></i>
             <p>
-              Auth
+              登录注册
               <i class="nav-arrow bi bi-chevron-right"></i>
             </p>
           </a>
@@ -586,7 +586,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
               <a href="#" class="nav-link">
                 <i class="nav-icon bi bi-box-arrow-in-right"></i>
                 <p>
-                  Version 1
+                  版本 1
                   <i class="nav-arrow bi bi-chevron-right"></i>
                 </p>
               </a>
@@ -594,13 +594,13 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 <li class="nav-item">
                   <a href={htmlPath + "/examples/login.html"} class="nav-link">
                     <i class="nav-icon bi bi-circle"></i>
-                    <p>Login</p>
+                    <p>登录</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href={htmlPath + "/examples/register.html"} class="nav-link">
                     <i class="nav-icon bi bi-circle"></i>
-                    <p>Register</p>
+                    <p>注册</p>
                   </a>
                 </li>
               </ul>
@@ -609,7 +609,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
               <a href="#" class="nav-link">
                 <i class="nav-icon bi bi-box-arrow-in-right"></i>
                 <p>
-                  Version 2
+                  版本 2
                   <i class="nav-arrow bi bi-chevron-right"></i>
                 </p>
               </a>
@@ -617,13 +617,13 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 <li class="nav-item">
                   <a href={htmlPath + "/examples/login-v2.html"} class="nav-link">
                     <i class="nav-icon bi bi-circle"></i>
-                    <p>Login</p>
+                    <p>登录</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href={htmlPath + "/examples/register-v2.html"} class="nav-link">
                     <i class="nav-icon bi bi-circle"></i>
-                    <p>Register</p>
+                    <p>注册</p>
                   </a>
                 </li>
               </ul>
@@ -631,25 +631,25 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             <li class="nav-item">
               <a href={htmlPath + "/examples/lockscreen.html"} class="nav-link">
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Lockscreen</p>
+                <p>锁屏</p>
               </a>
             </li>
           </ul>
         </li>
 
 
-        <li class="nav-header">MULTI LEVEL EXAMPLE</li>
+        <li class="nav-header">多级示例</li>
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon bi bi-circle-fill"></i>
-            <p>Level 1</p>
+            <p>1 级</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon bi bi-circle-fill"></i>
             <p>
-              Level 1
+              1 级
               <i class="nav-arrow bi bi-chevron-right"></i>
             </p>
           </a>
@@ -657,14 +657,14 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Level 2</p>
+                <p>2 级</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon bi bi-circle"></i>
                 <p>
-                  Level 2
+                  2 级
                   <i class="nav-arrow bi bi-chevron-right"></i>
                 </p>
               </a>
@@ -672,19 +672,19 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 <li class="nav-item">
                   <a href="#" class="nav-link">
                     <i class="nav-icon bi bi-record-circle-fill"></i>
-                    <p>Level 3</p>
+                    <p>3 级</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="#" class="nav-link">
                     <i class="nav-icon bi bi-record-circle-fill"></i>
-                    <p>Level 3</p>
+                    <p>3 级</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="#" class="nav-link">
                     <i class="nav-icon bi bi-record-circle-fill"></i>
-                    <p>Level 3</p>
+                    <p>3 级</p>
                   </a>
                 </li>
               </ul>
@@ -692,7 +692,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Level 2</p>
+                <p>2 级</p>
               </a>
             </li>
           </ul>
@@ -700,27 +700,27 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon bi bi-circle-fill"></i>
-            <p>Level 1</p>
+            <p>1 级</p>
           </a>
         </li>
 
-        <li class="nav-header">LABELS</li>
+        <li class="nav-header">标签</li>
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon bi bi-circle text-danger"></i>
-            <p class="text">Important</p>
+            <p class="text">重要</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon bi bi-circle text-warning"></i>
-            <p>Warning</p>
+            <p>警告</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon bi bi-circle text-info"></i>
-            <p>Informational</p>
+            <p>信息</p>
           </a>
         </li>
       </ul>

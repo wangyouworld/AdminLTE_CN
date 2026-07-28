@@ -5,14 +5,14 @@ import Topbar from "@components/dashboard/_topbar.astro"
 import Sidenav from "@components/dashboard/_sidenav.astro"
 import Scripts from "@components/_scripts.astro"
 
-const title = "AdminLTE 4 | Pricing"
+const title = "AdminLTE 4 | 价格"
 const path = "../../../dist"
 const mainPage = "pages"
 const page = "pricing";
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <Head title={title} path={path} />
   </head>
@@ -25,12 +25,12 @@ const page = "pricing";
           <div class="container-fluid">
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">Pricing</h3>
+                <h3 class="mb-0">价格</h3>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Pricing</li>
+                  <li class="breadcrumb-item"><a href="#">首页</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">价格</li>
                 </ol>
               </div>
             </div>
@@ -40,9 +40,9 @@ const page = "pricing";
           <div class="container-fluid">
             <!-- Headline -->
             <div class="text-center mb-4">
-              <h2 class="mb-2">Pick the plan that fits your team</h2>
+              <h2 class="mb-2">选择适合您团队的方案</h2>
               <p class="text-secondary mb-0">
-                Simple, transparent pricing. No hidden fees. Cancel any time.
+                价格透明简单，无隐形消费，随时可退订。
               </p>
             </div>
 
@@ -50,10 +50,10 @@ const page = "pricing";
             <div class="d-flex justify-content-center mb-4">
               <div class="btn-group" role="group" aria-label="Billing period">
                 <input type="radio" class="btn-check" name="billing" id="billing-monthly" checked />
-                <label class="btn btn-outline-primary" for="billing-monthly">Monthly</label>
+                <label class="btn btn-outline-primary" for="billing-monthly">每月</label>
                 <input type="radio" class="btn-check" name="billing" id="billing-yearly" />
                 <label class="btn btn-outline-primary" for="billing-yearly">
-                  Yearly <span class="badge text-bg-success ms-1">Save 20%</span>
+                  每年 <span class="badge text-bg-success ms-1">立省20%</span>
                 </label>
               </div>
             </div>
@@ -64,31 +64,31 @@ const page = "pricing";
               <div class="col">
                 <div class="card h-100">
                   <div class="card-body p-4">
-                    <h5 class="fw-semibold">Starter</h5>
+                    <h5 class="fw-semibold">免费</h5>
                     <p class="text-secondary small mb-3">
-                      For individuals getting started.
+                      适合初学者。
                     </p>
                     <div class="mb-3">
                       <span class="display-5 fw-bold">$0</span>
-                      <span class="text-secondary">/mo</span>
+                      <span class="text-secondary">/月</span>
                     </div>
-                    <a href="#" class="btn btn-outline-primary w-100 mb-3">Get started</a>
+                    <a href="#" class="btn btn-outline-primary w-100 mb-3">开始使用</a>
                     <ul class="list-unstyled small mb-0">
                       <li class="mb-2">
                         <i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>
-                        Up to 3 projects
+                        最多 3 个项目
                       </li>
                       <li class="mb-2">
                         <i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>
-                        Community support
+                        社区支持
                       </li>
                       <li class="mb-2">
                         <i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>
-                        1 GB storage
+                        1 GB 存储空间
                       </li>
                       <li class="text-secondary">
                         <i class="bi bi-dash-circle me-2" aria-hidden="true"></i>
-                        Advanced analytics
+                        高级分析
                       </li>
                     </ul>
                   </div>
@@ -99,33 +99,33 @@ const page = "pricing";
                 <div class="card h-100 border-primary shadow-sm position-relative">
                   <span
                     class="badge text-bg-primary position-absolute top-0 start-50 translate-middle"
-                  >Most popular</span>
+                  >最受欢迎</span>
                   <div class="card-body p-4">
-                    <h5 class="fw-semibold">Pro</h5>
+                    <h5 class="fw-semibold">专业版</h5>
                     <p class="text-secondary small mb-3">
-                      For growing teams that need more.
+                      适用于需要更多功能的成长型团队。
                     </p>
                     <div class="mb-3">
                       <span class="display-5 fw-bold">$29</span>
-                      <span class="text-secondary">/mo</span>
+                      <span class="text-secondary">/月</span>
                     </div>
-                    <a href="#" class="btn btn-primary w-100 mb-3">Start free trial</a>
+                    <a href="#" class="btn btn-primary w-100 mb-3">立即试用</a>
                     <ul class="list-unstyled small mb-0">
                       <li class="mb-2">
                         <i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>
-                        Unlimited projects
+                        无限项目
                       </li>
                       <li class="mb-2">
                         <i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>
-                        Priority email support
+                        优先邮件支持
                       </li>
                       <li class="mb-2">
                         <i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>
-                        100 GB storage
+                        100 GB 存储空间
                       </li>
                       <li class="mb-2">
                         <i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>
-                        Advanced analytics
+                        高级分析
                       </li>
                     </ul>
                   </div>
@@ -135,30 +135,30 @@ const page = "pricing";
               <div class="col">
                 <div class="card h-100">
                   <div class="card-body p-4">
-                    <h5 class="fw-semibold">Enterprise</h5>
+                    <h5 class="fw-semibold">企业版</h5>
                     <p class="text-secondary small mb-3">
-                      For organizations with custom needs.
+                      适合有定制化需求的组织。
                     </p>
                     <div class="mb-3">
-                      <span class="display-5 fw-bold">Custom</span>
+                      <span class="display-5 fw-bold">定制</span>
                     </div>
-                    <a href="#" class="btn btn-outline-primary w-100 mb-3">Contact sales</a>
+                    <a href="#" class="btn btn-outline-primary w-100 mb-3">联系销售</a>
                     <ul class="list-unstyled small mb-0">
                       <li class="mb-2">
                         <i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>
-                        Everything in Pro
+                        专业版所有功能
                       </li>
                       <li class="mb-2">
                         <i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>
-                        SSO &amp; SCIM
+                        单点登录 &amp; 跨域身份管理
                       </li>
                       <li class="mb-2">
                         <i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>
-                        Dedicated account manager
+                        专属客户经理
                       </li>
                       <li class="mb-2">
                         <i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>
-                        Custom SLA
+                        自定义 SLA
                       </li>
                     </ul>
                   </div>
@@ -169,40 +169,40 @@ const page = "pricing";
             <!-- Feature comparison table -->
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Compare features</h3>
+                <h3 class="card-title">功能比较</h3>
               </div>
               <div class="card-body p-0">
                 <div class="table-responsive">
                   <table class="table mb-0 align-middle">
                     <thead>
                       <tr>
-                        <th>Feature</th>
-                        <th class="text-center">Starter</th>
-                        <th class="text-center">Pro</th>
-                        <th class="text-center">Enterprise</th>
+                        <th>功能</th>
+                        <th class="text-center">免费</th>
+                        <th class="text-center">专业版</th>
+                        <th class="text-center">企业版</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>Projects</td>
+                        <td>项目</td>
                         <td class="text-center">3</td>
-                        <td class="text-center">Unlimited</td>
-                        <td class="text-center">Unlimited</td>
+                        <td class="text-center">无限制</td>
+                        <td class="text-center">无限制</td>
                       </tr>
                       <tr>
-                        <td>Storage</td>
+                        <td>存储</td>
                         <td class="text-center">1 GB</td>
                         <td class="text-center">100 GB</td>
-                        <td class="text-center">Custom</td>
+                        <td class="text-center">定制</td>
                       </tr>
                       <tr>
-                        <td>Team members</td>
+                        <td>团队成员</td>
                         <td class="text-center">1</td>
-                        <td class="text-center">Up to 20</td>
-                        <td class="text-center">Unlimited</td>
+                        <td class="text-center">上限 20</td>
+                        <td class="text-center">无限制</td>
                       </tr>
                       <tr>
-                        <td>Advanced analytics</td>
+                        <td>高级分析</td>
                         <td class="text-center">
                           <i class="bi bi-x-lg text-secondary" aria-hidden="true"></i>
                           <span class="visually-hidden">No</span>
@@ -217,7 +217,7 @@ const page = "pricing";
                         </td>
                       </tr>
                       <tr>
-                        <td>SSO &amp; SCIM</td>
+                        <td>单点登录 &amp; 跨域身份管理</td>
                         <td class="text-center">
                           <i class="bi bi-x-lg text-secondary" aria-hidden="true"></i>
                           <span class="visually-hidden">No</span>
@@ -232,10 +232,10 @@ const page = "pricing";
                         </td>
                       </tr>
                       <tr>
-                        <td>Support</td>
-                        <td class="text-center">Community</td>
-                        <td class="text-center">Priority email</td>
-                        <td class="text-center">Dedicated</td>
+                        <td>支持</td>
+                        <td class="text-center">社区</td>
+                        <td class="text-center">优先邮件</td>
+                        <td class="text-center">专属</td>
                       </tr>
                     </tbody>
                   </table>

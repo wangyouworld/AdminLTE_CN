@@ -5,26 +5,26 @@ import Topbar from "@components/dashboard/_topbar.astro"
 import Sidenav from "@components/dashboard/_sidenav.astro"
 import Scripts from "@components/_scripts.astro"
 
-const title = "AdminLTE 4 | Mailbox"
+const title = "AdminLTE 4 | 邮箱"
 const path = "../../../dist"
 const htmlPath = ".."
 const mainPage = "mailbox"
 const page = "inbox";
 
 const messages = [
-  { from: "Olivia Bennett", subject: "Re: design system v2.4 sign-off", preview: "Approved — a few small notes on the success state for forms.", time: "10:42 AM", unread: true, starred: true, label: "primary" },
-  { from: "GitHub", subject: "[fullcalendar/fullcalendar] PR #6912 merged", preview: "Allow custom render hooks for time grid axis labels.", time: "9:08 AM", unread: true, starred: false, label: "secondary" },
-  { from: "Stripe", subject: "Your May invoice is ready", preview: "Invoice INV-2026-00428 totaling $108.31 has been issued.", time: "8:15 AM", unread: true, starred: false, label: "success" },
-  { from: "Marcus Reyes", subject: "Lunch on Thursday?", preview: "Free around 1pm at the usual place. Let me know.", time: "Yesterday", unread: false, starred: true, label: "info" },
-  { from: "Linear", subject: "[ADM-441] Calendar drag-and-drop not working on Safari iOS", preview: "Reproduces consistently on iOS 18.4 in Safari and Chrome.", time: "Yesterday", unread: false, starred: false, label: "warning" },
-  { from: "Vercel", subject: "Deployment succeeded — production", preview: "main@a3c91fb deployed to production in 47s.", time: "May 16", unread: false, starred: false, label: "success" },
-  { from: "Sara Khan", subject: "Customer interview notes — Acme Corp", preview: "Three big themes: onboarding friction, billing visibility, mobile.", time: "May 15", unread: false, starred: false, label: "primary" },
-  { from: "AWS", subject: "Your monthly bill summary", preview: "Total charges for April 2026: $312.94. View in console.", time: "May 14", unread: false, starred: false, label: "danger" }
+  { from: "奥利维亚·贝内特", subject: "回复：设计系统 v2.4 签收", preview: "已批准——关于表单成功状态的一些小备注。", time: "上午 10:42", unread: true, starred: true, label: "primary" },
+  { from: "GitHub", subject: "[fullcalendar/fullcalendar] PR #6912 已合并", preview: "允许为时间网格轴标签自定义渲染钩子。", time: "上午 9:08", unread: true, starred: false, label: "secondary" },
+  { from: "Stripe", subject: "您的五月发票已就绪", preview: "发票 INV-2026-00428 总计 108.31 美元已开具。", time: "上午 8:15", unread: true, starred: false, label: "success" },
+  { from: "Marcus Reyes", subject: "周四一起吃午饭？", preview: "下午 1 点左右在老地方。有空告诉我一声。", time: "昨天", unread: false, starred: true, label: "info" },
+  { from: "Linear", subject: "[ADM-441] 日历拖拽功能在 Safari iOS 上无法使用", preview: "在 iOS 18.4 上的 Safari 和 Chrome 中可稳定复现。", time: "昨天", unread: false, starred: false, label: "warning" },
+  { from: "Vercel", subject: "部署成功——生产环境", preview: "main@a3c91fb 在 47 秒内部署到生产环境。", time: "5 月 16 日", unread: false, starred: false, label: "success" },
+  { from: "Sara Khan", subject: "客户访谈记录——Acme 公司", preview: "三大主题：新手问题、账单可见性、移动端。", time: "5 月 15 日", unread: false, starred: false, label: "primary" },
+  { from: "AWS", subject: "您的月度账单摘要", preview: "2026 年 4 月总费用：312.94 美元。请在控制台中查看。", time: "5 月 14 日", unread: false, starred: false, label: "danger" }
 ];
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <Head title={title} path={path} />
   </head>
@@ -37,12 +37,12 @@ const messages = [
           <div class="container-fluid">
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">Mailbox</h3>
+                <h3 class="mb-0">邮箱</h3>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Inbox</li>
+                  <li class="breadcrumb-item"><a href="#">首页</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">收件箱</li>
                 </ol>
               </div>
             </div>
@@ -58,11 +58,11 @@ const messages = [
                   class="btn btn-primary w-100 mb-3"
                 >
                   <i class="bi bi-pencil-square me-1" aria-hidden="true"></i>
-                  Compose
+                  写信
                 </a>
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title">Folders</h3>
+                    <h3 class="card-title">文件夹</h3>
                   </div>
                   <div class="card-body p-0">
                     <ul class="nav nav-pills flex-column mb-0">
@@ -72,14 +72,14 @@ const messages = [
                           class="nav-link active rounded-0 d-flex justify-content-between"
                         >
                           <span>
-                            <i class="bi bi-inbox me-2" aria-hidden="true"></i>Inbox
+                            <i class="bi bi-inbox me-2" aria-hidden="true"></i>收件箱
                           </span>
                           <span class="badge text-bg-primary">3</span>
                         </a>
                       </li>
                       <li class="nav-item">
                         <a href="#" class="nav-link rounded-0">
-                          <i class="bi bi-send me-2" aria-hidden="true"></i>Sent
+                          <i class="bi bi-send me-2" aria-hidden="true"></i>已发送
                         </a>
                       </li>
                       <li class="nav-item">
@@ -89,19 +89,19 @@ const messages = [
                         >
                           <span>
                             <i class="bi bi-file-earmark me-2" aria-hidden="true"></i>
-                            Drafts
+                            草稿
                           </span>
                           <span class="badge text-bg-secondary">2</span>
                         </a>
                       </li>
                       <li class="nav-item">
                         <a href="#" class="nav-link rounded-0">
-                          <i class="bi bi-star me-2" aria-hidden="true"></i>Starred
+                          <i class="bi bi-star me-2" aria-hidden="true"></i>标星
                         </a>
                       </li>
                       <li class="nav-item">
                         <a href="#" class="nav-link rounded-0">
-                          <i class="bi bi-archive me-2" aria-hidden="true"></i>Archive
+                          <i class="bi bi-archive me-2" aria-hidden="true"></i>归档
                         </a>
                       </li>
                       <li class="nav-item">
@@ -110,12 +110,12 @@ const messages = [
                             class="bi bi-exclamation-octagon me-2"
                             aria-hidden="true"
                           ></i>
-                          Spam
+                          垃圾邮件
                         </a>
                       </li>
                       <li class="nav-item">
                         <a href="#" class="nav-link rounded-0">
-                          <i class="bi bi-trash me-2" aria-hidden="true"></i>Trash
+                          <i class="bi bi-trash me-2" aria-hidden="true"></i>回收站
                         </a>
                       </li>
                     </ul>
@@ -123,7 +123,7 @@ const messages = [
                 </div>
                 <div class="card mt-3">
                   <div class="card-header">
-                    <h3 class="card-title">Labels</h3>
+                    <h3 class="card-title">标签</h3>
                   </div>
                   <div class="card-body p-0">
                     <ul class="nav flex-column mb-0">
@@ -134,7 +134,7 @@ const messages = [
                             style="font-size: 0.6rem;"
                             aria-hidden="true"
                           ></i>
-                          Customers
+                          客户
                         </a>
                       </li>
                       <li class="nav-item">
@@ -144,7 +144,7 @@ const messages = [
                             style="font-size: 0.6rem;"
                             aria-hidden="true"
                           ></i>
-                          Billing
+                          广告
                         </a>
                       </li>
                       <li class="nav-item">
@@ -154,7 +154,7 @@ const messages = [
                             style="font-size: 0.6rem;"
                             aria-hidden="true"
                           ></i>
-                          Internal
+                          内部
                         </a>
                       </li>
                     </ul>
@@ -166,7 +166,7 @@ const messages = [
               <div class="col-lg-9">
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title">Inbox</h3>
+                    <h3 class="card-title">收件箱</h3>
                     <div class="card-tools">
                       <div class="input-group input-group-sm" style="width: 16rem;">
                         <span class="input-group-text">
@@ -175,8 +175,8 @@ const messages = [
                         <input
                           type="search"
                           class="form-control"
-                          placeholder="Search mail&hellip;"
-                          aria-label="Search mail"
+                          placeholder="搜索邮件&hellip;"
+                          aria-label="搜索邮件"
                         />
                       </div>
                     </div>
@@ -192,7 +192,7 @@ const messages = [
                           id="select-all"
                         />
                         <label class="form-check-label visually-hidden" for="select-all">
-                          Select all
+                          全选
                         </label>
                       </div>
                       <div class="btn-group btn-group-sm ms-3">
@@ -206,7 +206,7 @@ const messages = [
                         <button
                           class="btn btn-outline-secondary"
                           type="button"
-                          title="Archive"
+                          title="存档"
                         >
                           <i class="bi bi-archive" aria-hidden="true"></i>
                         </button>
@@ -220,7 +220,7 @@ const messages = [
                         <button
                           class="btn btn-outline-secondary"
                           type="button"
-                          title="Delete"
+                          title="删除"
                         >
                           <i class="bi bi-trash" aria-hidden="true"></i>
                         </button>
@@ -248,14 +248,14 @@ const messages = [
                                 class="form-check-label visually-hidden"
                                 for={`msg-${idx}`}
                               >
-                                Select message from {m.from}
+                                选择邮件来自 {m.from}
                               </label>
                             </div>
                             <button
                               class="btn btn-link p-0 text-warning lh-1"
                               type="button"
-                              title={m.starred ? "Starred" : "Star"}
-                              aria-label={m.starred ? "Starred" : "Star"}
+                              title={m.starred ? "标星" : "Star"}
+                              aria-label={m.starred ? "标星" : "Star"}
                             >
                               <i
                                 class={

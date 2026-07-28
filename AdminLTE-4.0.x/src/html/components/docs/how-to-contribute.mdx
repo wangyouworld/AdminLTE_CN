@@ -1,34 +1,34 @@
-# Contributing to AdminLTE
+# 参与 AdminLTE 贡献
 
-Contributions are always **welcome and recommended**! Here is how for beginner's: [Get started with open source click here](https://youtu.be/GbqSvJs-6W4)
+我们始终**欢迎并推荐**大家贡献代码！初学者请参考这里：[点击此处开始开源之旅](https://youtu.be/GbqSvJs-6W4)
 
-1. Contribution Requirements :
-    * When you contribute, you agree to give a non-exclusive license to AdminLTE.io to use that contribution in any context as we (AdminLTE.io) see appropriate.
-    * If you use content provided by another party, it must be appropriately licensed using an [open source](https://opensource.org/licenses) license.
-    * Contributions are only accepted through GitHub pull requests.
-    * Finally, contributed code must work in all supported browsers (see above for browser support).
-2. Installation :
-    * Fork the repository ([here is the guide](https://help.github.com/articles/fork-a-repo/)).
-    * Clone to your machine
+1. 贡献要求：
+    * 当您贡献代码时，即表示您同意授予 AdminLTE.io 非独占许可，允许我们（AdminLTE.io）在任何我们认为合适的场景中使用该贡献。
+    * 如果您使用了第三方提供的内容，则必须通过[开源](https://opensource.org/licenses)许可证进行适当授权。
+    * 贡献仅通过 GitHub Pull Request 方式接受。
+    * 最后，贡献的代码必须在所有支持的浏览器中正常工作（浏览器支持请参见上文）。
+2. 安装步骤：
+    * Fork 该仓库（[指南参见此处](https://help.github.com/articles/fork-a-repo/)）。
+    * 克隆到本地
 
     ```bash
     git clone https://github.com/YOUR_USERNAME/AdminLTE.git
     ```
-    * Create a new branch from `master`
-3. Compile dist files (Development) :
-    * To compile the dist files you need Node.js 18 or higher/npm (node package manager)
-    * `npm install` (install npm deps)
-    * `npm run dev` (developer mode, autocompile with browsersync support for live demo)
-    * Make your changes only in `./src` Folder OR `package.json` in any files which are necessary for contribution
-    * Do not make changes in `./dist/**` Because it contains compiled files and do not include in PR (Pull Request)
-    * `npm run production` (compile css/js files and test all pages are perfectly working fine, before creating a pull request)
-4. Create a pull request to `master` branch
+    * 从 `master` 分支创建一个新分支
+3. 编译 dist 文件（开发环境）：
+    * 编译 dist 文件需要 Node.js 18 或更高版本以及 npm（Node 包管理器）
+    * `npm install`（安装 npm 依赖）
+    * `npm run dev`（开发者模式，自动编译并支持 Browsersync 实时演示）
+    * 请仅在 `./src` 文件夹或 `package.json` 中对贡献所需的文件进行修改
+    * 请勿在 `./dist/**` 中进行修改，因为该目录包含编译后的文件，且不应包含在 PR（Pull Request）中
+    * `npm run production`（编译 CSS/JS 文件，并在创建 Pull Request 之前测试所有页面是否完全正常工作）
+4. 向 `master` 分支发起 Pull Request
 
-## Online one-click setup for contributing
+## 一键在线贡献环境搭建
 
-You can use [Codespace](https://docs.github.com/en/codespaces) an online IDE which is free for Open Source for working on issues or making PRs (Pull Requests). With a single click it will launch a workspace and automatically:
+您可以使用 [Codespace](https://docs.github.com/en/codespaces)（一个在线 IDE，对开源项目免费）来处理 Issue 或发起 PR（Pull Request）。只需单击一次，它就会启动一个工作空间，并自动：
 
-- clone the `AdminLTE` repo.
-- Open with [Codespace](https://docs.github.com/en/codespaces) or [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
-- install the dependencies.
-- run `npm run dev` to start the server.
+- 克隆 `AdminLTE` 仓库。
+- 通过 [Codespace](https://docs.github.com/en/codespaces) 打开，或 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
+- 安装依赖。
+- 运行 `npm run dev` 启动服务器。

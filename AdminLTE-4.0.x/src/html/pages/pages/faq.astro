@@ -12,56 +12,56 @@ const page = "faq";
 
 const sections = [
   {
-    title: "Getting started",
+    title: "入门指南",
     icon: "rocket-takeoff",
     items: [
       {
-        q: "How do I create an account?",
-        a: "Click <strong>Sign up</strong> in the top-right corner, enter your email and a strong password, then verify your email to activate your workspace."
+        q: "如何创建账户？",
+        a: "点击右上角的 <strong>注册</strong>，输入您的电子邮箱和强密码，然后验证邮箱以激活您的工作区。"
       },
       {
-        q: "Can I try the product before paying?",
-        a: "Yes. Every paid plan includes a 14-day free trial. No credit card is required to start."
+        q: "我可以在付费之前试用产品吗？",
+        a: "可以。每个付费套餐均包含 14 天免费试用期。开始试用无需信用卡。"
       },
       {
-        q: "How do I invite teammates?",
-        a: "From <strong>Settings &rarr; Team</strong>, click <strong>Invite member</strong> and enter their email. They&rsquo;ll receive an invitation link valid for seven days."
+        q: "如何邀请团队成员？",
+        a: "在 <strong>设置 → 团队</strong> 中，点击 <strong>邀请成员</strong> 并输入他们的邮箱。他们将收到一封有效期七天的邀请链接。"
       }
     ]
   },
   {
-    title: "Billing &amp; plans",
+    title: "计费 &amp; 套餐",
     icon: "credit-card",
     items: [
       {
-        q: "Which payment methods do you accept?",
-        a: "We accept all major credit and debit cards. Annual Enterprise plans can be paid by invoice."
+        q: "你们接受哪些付款方式？",
+        a: "我们接受所有主流信用卡和借记卡。年度企业版套餐可通过发票支付。"
       },
       {
-        q: "Can I change my plan later?",
-        a: "Yes. Upgrades take effect immediately and are pro-rated. Downgrades take effect at the end of the current billing cycle."
+        q: "我之后可以更改套餐吗？",
+        a: "可以。升级立即生效并按比例计费。降级则在当前计费周期结束后生效。"
       },
       {
-        q: "Do you offer refunds?",
-        a: "We offer a full refund within 30 days of your first paid invoice, no questions asked."
+        q: "你们提供退款吗？",
+        a: "我们提供自首次付费发票开具之日起 30 天内全额退款，无需任何理由。"
       }
     ]
   },
   {
-    title: "Security &amp; privacy",
+    title: "安全 &amp; 隐私",
     icon: "shield-lock",
     items: [
       {
-        q: "Where is my data stored?",
-        a: "Data is stored in encrypted form in SOC 2-certified data centers. You can choose your region (US or EU) when you set up your workspace."
+        q: "我的数据存储在哪里？",
+        a: "数据以加密形式存储在符合 SOC 2 标准的数据中心中。您在创建工作区时可以选择所在区域（美国或欧盟）。"
       },
       {
-        q: "Do you support SSO?",
-        a: "Yes, on the Enterprise plan. We support SAML 2.0 and OIDC with providers including Okta, Azure AD, and Google Workspace."
+        q: "你们支持 SSO 吗？",
+        a: "支持，企业版套餐提供此功能。我们支持 SAML 2.0 和 OIDC 协议，兼容 Okta、Azure AD 和 Google Workspace 等身份提供商。"
       },
       {
-        q: "How can I export or delete my data?",
-        a: "You can export your data at any time from <strong>Settings &rarr; Data</strong>. Deletion requests are honored within 30 days per our DPA."
+        q: "如何导出或删除我的数据？",
+        a: "您可以随时通过 <strong>设置 → 数据</strong> 导出您的数据。删除请求将根据我们的数据处理协议（DPA）在 30 天内处理完成。"
       }
     ]
   }
@@ -69,7 +69,7 @@ const sections = [
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <Head title={title} path={path} />
   </head>
@@ -86,7 +86,7 @@ const sections = [
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item"><a href="#">首页</a></li>
                   <li class="breadcrumb-item active" aria-current="page">FAQ</li>
                 </ol>
               </div>
@@ -97,9 +97,9 @@ const sections = [
           <div class="container-fluid">
             <!-- Headline + search -->
             <div class="text-center mb-4">
-              <h2 class="mb-2">How can we help?</h2>
+              <h2 class="mb-2">需要帮忙吗？</h2>
               <p class="text-secondary mb-3">
-                Search our knowledge base, or browse the topics below.
+                搜索我们的知识库，或浏览下方主题。
               </p>
               <form
                 class="row g-2 justify-content-center"
@@ -114,8 +114,8 @@ const sections = [
                     <input
                       type="search"
                       class="form-control"
-                      placeholder="Search the FAQ&hellip;"
-                      aria-label="Search the FAQ"
+                      placeholder="搜索 FAQ&hellip;"
+                      aria-label="搜索 FAQ"
                     />
                   </div>
                 </div>
@@ -170,7 +170,7 @@ const sections = [
               }
             </div>
 
-            <!-- Still need help? -->
+            <!-- 还需要帮助吗？ -->
             <div class="card mt-4">
               <div class="card-body text-center py-4">
                 <i
@@ -178,14 +178,14 @@ const sections = [
                   style="font-size: 2.5rem;"
                   aria-hidden="true"
                 ></i>
-                <h3 class="h5 mt-3 mb-2">Still need help?</h3>
+                <h3 class="h5 mt-3 mb-2">还需要帮助吗？</h3>
                 <p class="text-secondary mb-3">
-                  Can&rsquo;t find what you&rsquo;re looking for? Our support team is happy
-                  to help.
+                  找不到您想要的内容？
+                  我们的支持团队很乐意为你提供帮助。
                 </p>
                 <a href="mailto:support@example.com" class="btn btn-primary">
                   <i class="bi bi-envelope me-1" aria-hidden="true"></i>
-                  Contact support
+                  联系支持
                 </a>
               </div>
             </div>

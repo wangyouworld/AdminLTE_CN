@@ -5,12 +5,12 @@ import Topbar from "@components/dashboard/_topbar.astro"
 import Sidenav from "@components/dashboard/_sidenav.astro"
 import Scripts from "@components/_scripts.astro"
 
-const title = "AdminLTE v4 | Dashboard"
+const title = "AdminLTE v4 | 仪表盘"
 const path = "../../dist"
 const mainPage = "dashboard"
 const page = "index";
 
-// Smart path resolution: calculate relative path based on directory depth
+// 智能路径解析：根据目录深度计算相对路径
 const pathname = Astro.url.pathname;
 const pathSegments = pathname.split('/').filter(segment => segment !== '');
 const depth = pathSegments.length > 0 ? pathSegments.length - 1 : 0;
@@ -18,7 +18,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <!--begin::Head-->
   <head>
     <Head title={title} path={path} />
@@ -26,7 +26,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
     <!-- apexcharts -->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css"
+      href={deploymentPath + "assets/apexcharts/apexcharts.css"}
       integrity="sha256-4MX+61mt9NVvvuPjUWdUdyfZfxSB1/Rf9WtqRHgG5S0="
       crossorigin="anonymous"
     />
@@ -34,7 +34,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
     <!-- jsvectormap -->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css"
+      href={deploymentPath + "assets/jsvectormap/jsvectormap.min.css"}
       integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4="
       crossorigin="anonymous"
     />
@@ -55,13 +55,13 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             <!--begin::Row-->
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">Dashboard</h3>
+                <h3 class="mb-0">仪表盘</h3>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item"><a href="#">首页</a></li>
                   <li class="breadcrumb-item active" aria-current="page">
-                    Dashboard
+                    仪表盘
                   </li>
                 </ol>
               </div>
@@ -79,12 +79,12 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             <div class="row">
               <!--begin::Col-->
               <div class="col-lg-3 col-6">
-                <!--begin::Small Box Widget 1-->
+                <!--begin::小框 Widget 1-->
                 <div class="small-box text-bg-primary">
                   <div class="inner">
                     <h3>150</h3>
 
-                    <p>New Orders</p>
+                    <p>新订单</p>
                   </div>
                   <svg
                     class="small-box-icon"
@@ -101,19 +101,19 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                     href="#"
                     class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover"
                   >
-                    More info <i class="bi bi-link-45deg"></i>
+                    更多信息 <i class="bi bi-link-45deg"></i>
                   </a>
                 </div>
-                <!--end::Small Box Widget 1-->
+                <!--end::小框 Widget 1-->
               </div>
               <!--end::Col-->
               <div class="col-lg-3 col-6">
-                <!--begin::Small Box Widget 2-->
+                <!--begin::小框 Widget 2-->
                 <div class="small-box text-bg-success">
                   <div class="inner">
                     <h3>53<sup class="fs-5">%</sup></h3>
 
-                    <p>Bounce Rate</p>
+                    <p>跳出率</p>
                   </div>
                   <svg
                     class="small-box-icon"
@@ -130,19 +130,19 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                     href="#"
                     class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover"
                   >
-                    More info <i class="bi bi-link-45deg"></i>
+                    更多信息 <i class="bi bi-link-45deg"></i>
                   </a>
                 </div>
-                <!--end::Small Box Widget 2-->
+                <!--end::小框 Widget 2-->
               </div>
               <!--end::Col-->
               <div class="col-lg-3 col-6">
-                <!--begin::Small Box Widget 3-->
+                <!--begin::小框 Widget 3-->
                 <div class="small-box text-bg-warning">
                   <div class="inner">
                     <h3>44</h3>
 
-                    <p>User Registrations</p>
+                    <p>用户注册</p>
                   </div>
                   <svg
                     class="small-box-icon"
@@ -159,19 +159,19 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                     href="#"
                     class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover"
                   >
-                    More info <i class="bi bi-link-45deg"></i>
+                    更多信息 <i class="bi bi-link-45deg"></i>
                   </a>
                 </div>
-                <!--end::Small Box Widget 3-->
+                <!--end::小框 Widget 3-->
               </div>
               <!--end::Col-->
               <div class="col-lg-3 col-6">
-                <!--begin::Small Box Widget 4-->
+                <!--begin::小框 Widget 4-->
                 <div class="small-box text-bg-danger">
                   <div class="inner">
                     <h3>65</h3>
 
-                    <p>Unique Visitors</p>
+                    <p>独立访客</p>
                   </div>
                   <svg
                     class="small-box-icon"
@@ -195,10 +195,10 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                     href="#"
                     class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover"
                   >
-                    More info <i class="bi bi-link-45deg"></i>
+                    更多信息 <i class="bi bi-link-45deg"></i>
                   </a>
                 </div>
-                <!--end::Small Box Widget 4-->
+                <!--end::小框 Widget 4-->
               </div>
               <!--end::Col-->
             </div>
@@ -209,7 +209,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
               <div class="col-lg-7 connectedSortable">
                 <div class="card mb-4">
                   <div class="card-header">
-                    <h3 class="card-title">Sales Value</h3>
+                    <h3 class="card-title">销售额</h3>
                   </div>
 
                   <div class="card-body">
@@ -218,14 +218,14 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 </div>
                 <!-- /.card -->
 
-                <!-- DIRECT CHAT -->
+                <!-- 聊天 -->
                 <div class="card direct-chat direct-chat-primary mb-4">
                   <div class="card-header">
-                    <h3 class="card-title">Direct Chat</h3>
+                    <h3 class="card-title">聊天</h3>
 
                     <div class="card-tools">
                       <span
-                        title="3 New Messages"
+                        title="3 条新消息"
                         class="badge text-bg-primary"
                       >
                         3
@@ -241,7 +241,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                       <button
                         type="button"
                         class="btn btn-tool"
-                        title="Contacts"
+                        title="联系人"
                         data-lte-toggle="chat-pane"
                       >
                         <i class="bi bi-chat-text-fill"></i>
@@ -266,18 +266,18 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             Alexander Pierce
                           </span>
                           <span class="direct-chat-timestamp float-end">
-                            23 Jan 2:00 pm
+                            1月23日 下午 2:00
                           </span>
                         </div>
                         <!-- /.direct-chat-infos -->
                         <img
                           class="direct-chat-img"
                           src={deploymentPath + "assets/img/user1-128x128.jpg"}
-                          alt="message user image"
+                          alt="用户头像"
                         />
                         <!-- /.direct-chat-img -->
                         <div class="direct-chat-text">
-                          Is this template really for free? That's unbelievable!
+                          这个模板真的是免费的吗？太不可思议了！
                         </div>
                         <!-- /.direct-chat-text -->
                       </div>
@@ -290,18 +290,18 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             Sarah Bullock
                           </span>
                           <span class="direct-chat-timestamp float-start">
-                            23 Jan 2:05 pm
+                            1月23日 下午2:05
                           </span>
                         </div>
                         <!-- /.direct-chat-infos -->
                         <img
                           class="direct-chat-img"
                           src={deploymentPath + "assets/img/user3-128x128.jpg"}
-                          alt="message user image"
+                          alt="用户头像"
                         />
                         <!-- /.direct-chat-img -->
                         <div class="direct-chat-text">
-                          You better believe it!
+                          是的，确实如此！
                         </div>
                         <!-- /.direct-chat-text -->
                       </div>
@@ -314,18 +314,18 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             Alexander Pierce
                           </span>
                           <span class="direct-chat-timestamp float-end">
-                            23 Jan 5:37 pm
+                            1月23日 下午5:37
                           </span>
                         </div>
                         <!-- /.direct-chat-infos -->
                         <img
                           class="direct-chat-img"
                           src={deploymentPath + "assets/img/user1-128x128.jpg"}
-                          alt="message user image"
+                          alt="用户头像"
                         />
                         <!-- /.direct-chat-img -->
                         <div class="direct-chat-text">
-                          Working with AdminLTE on a great new app! Wanna join?
+                          使用 AdminLTE 开发强大的应用！想加入吗？
                         </div>
                         <!-- /.direct-chat-text -->
                       </div>
@@ -338,17 +338,17 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             Sarah Bullock
                           </span>
                           <span class="direct-chat-timestamp float-start">
-                            23 Jan 6:10 pm
+                            1月23日 下午6:10
                           </span>
                         </div>
                         <!-- /.direct-chat-infos -->
                         <img
                           class="direct-chat-img"
                           src={deploymentPath + "assets/img/user3-128x128.jpg"}
-                          alt="message user image"
+                          alt="用户头像"
                         />
                         <!-- /.direct-chat-img -->
-                        <div class="direct-chat-text">I would love to.</div>
+                        <div class="direct-chat-text">是的，我想。</div>
                         <!-- /.direct-chat-text -->
                       </div>
                       <!-- /.direct-chat-msg -->
@@ -363,139 +363,139 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             <img
                               class="contacts-list-img"
                               src={deploymentPath + "assets/img/user1-128x128.jpg"}
-                              alt="User Avatar"
+                              alt="用户头像"
                             />
 
                             <div class="contacts-list-info">
                               <span class="contacts-list-name">
                                 Count Dracula
                                 <small class="contacts-list-date float-end">
-                                  2/28/2023
+                                  2023-2-28
                                 </small>
                               </span>
                               <span class="contacts-list-msg">
-                                How have you been? I was...
+                                你最近怎么样？我是……
                               </span>
                             </div>
                             <!-- /.contacts-list-info -->
                           </a>
                         </li>
-                        <!-- End Contact Item -->
+                        <!-- 聊天结束 -->
                         <li>
                           <a href="#">
                             <img
                               class="contacts-list-img"
                               src={deploymentPath + "assets/img/user7-128x128.jpg"}
-                              alt="User Avatar"
+                              alt="用户头像"
                             />
 
                             <div class="contacts-list-info">
                               <span class="contacts-list-name">
                                 Sarah Doe
                                 <small class="contacts-list-date float-end">
-                                  2/23/2023
+                                  2023-2-23
                                 </small>
                               </span>
                               <span class="contacts-list-msg">
-                                I will be waiting for...
+                                我会等……
                               </span>
                             </div>
                             <!-- /.contacts-list-info -->
                           </a>
                         </li>
-                        <!-- End Contact Item -->
+                        <!-- 聊天结束 -->
                         <li>
                           <a href="#">
                             <img
                               class="contacts-list-img"
                               src={deploymentPath + "assets/img/user3-128x128.jpg"}
-                              alt="User Avatar"
+                              alt="用户头像"
                             />
 
                             <div class="contacts-list-info">
                               <span class="contacts-list-name">
                                 Nadia Jolie
                                 <small class="contacts-list-date float-end">
-                                  2/20/2023
+                                  2023-2-20
                                 </small>
                               </span>
                               <span class="contacts-list-msg">
-                                I'll call you back at...
+                                我会打电话给你……
                               </span>
                             </div>
                             <!-- /.contacts-list-info -->
                           </a>
                         </li>
-                        <!-- End Contact Item -->
+                        <!-- 聊天结束 -->
                         <li>
                           <a href="#">
                             <img
                               class="contacts-list-img"
                               src={deploymentPath + "assets/img/user5-128x128.jpg"}
-                              alt="User Avatar"
+                              alt="用户头像"
                             />
 
                             <div class="contacts-list-info">
                               <span class="contacts-list-name">
                                 Nora S. Vans
                                 <small class="contacts-list-date float-end">
-                                  2/10/2023
+                                  2023-2-10
                                 </small>
                               </span>
                               <span class="contacts-list-msg">
-                                Where is your new...
+                                你的新……
                               </span>
                             </div>
                             <!-- /.contacts-list-info -->
                           </a>
                         </li>
-                        <!-- End Contact Item -->
+                        <!-- 聊天结束 -->
                         <li>
                           <a href="#">
                             <img
                               class="contacts-list-img"
                               src={deploymentPath + "assets/img/user6-128x128.jpg"}
-                              alt="User Avatar"
+                              alt="用户头像"
                             />
 
                             <div class="contacts-list-info">
                               <span class="contacts-list-name">
                                 John K.
                                 <small class="contacts-list-date float-end">
-                                  1/27/2023
+                                  2023-1-27
                                 </small>
                               </span>
                               <span class="contacts-list-msg">
-                                Can I take a look at...
+                                我能看看……
                               </span>
                             </div>
                             <!-- /.contacts-list-info -->
                           </a>
                         </li>
-                        <!-- End Contact Item -->
+                        <!-- 聊天结束 -->
                         <li>
                           <a href="#">
                             <img
                               class="contacts-list-img"
                               src={deploymentPath + "assets/img/user8-128x128.jpg"}
-                              alt="User Avatar"
+                              alt="用户头像"
                             />
 
                             <div class="contacts-list-info">
                               <span class="contacts-list-name">
                                 Kenneth M.
                                 <small class="contacts-list-date float-end">
-                                  1/4/2023
+                                  2023-1-4
                                 </small>
                               </span>
                               <span class="contacts-list-msg">
-                                Never mind I found...
+                                没关系我发现……
                               </span>
                             </div>
                             <!-- /.contacts-list-info -->
                           </a>
                         </li>
-                        <!-- End Contact Item -->
+                        <!-- 聊天结束 -->
                       </ul>
                       <!-- /.contacts-list -->
                     </div>
@@ -508,12 +508,12 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         <input
                           type="text"
                           name="message"
-                          placeholder="Type Message ..."
+                          placeholder="输入消息 ..."
                           class="form-control"
                         />
                         <span class="input-group-append">
                           <button type="button" class="btn btn-primary">
-                            Send
+                            发送
                           </button>
                         </span>
                       </div>
@@ -531,7 +531,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                   class="card text-white bg-primary bg-gradient border-primary mb-4"
                 >
                   <div class="card-header border-0">
-                    <h3 class="card-title">Sales Value</h3>
+                    <h3 class="card-title">销售额</h3>
                     <div class="card-tools">
                       <button
                         type="button"
@@ -551,15 +551,15 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                     <div class="row">
                       <div class="col-4 text-center">
                         <div id="sparkline-1" class="text-dark"></div>
-                        <div class="text-white">Visitors</div>
+                        <div class="text-white">访客</div>
                       </div>
                       <div class="col-4 text-center">
                         <div id="sparkline-2" class="text-dark"></div>
-                        <div class="text-white">Online</div>
+                        <div class="text-white">在线</div>
                       </div>
                       <div class="col-4 text-center">
                         <div id="sparkline-3" class="text-dark"></div>
-                        <div class="text-white">Sales</div>
+                        <div class="text-white">销量</div>
                       </div>
                     </div>
                     <!--end::Row-->
@@ -581,7 +581,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
     <!--begin::Script-->
     <Scripts path={path} />
 
-    <!-- OPTIONAL SCRIPTS -->
+    <!-- 可选脚本 -->
 
     <!-- sortablejs -->
     <script
@@ -605,24 +605,24 @@ cardHeaders.forEach(cardHeader => {
 
     <!-- apexcharts -->
     <script
-      src="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.min.js"
+      src={deploymentPath + "assets/apexcharts/apexcharts.min.js"}
       integrity="sha256-+vh8GkaU7C9/wbSLIcwq82tQ2wTf44aOHA8HlBMwRI8="
       crossorigin="anonymous"></script>
 
     <!-- ChartJS -->
     <script is:inline>
-// NOTICE!! DO NOT USE ANY OF THIS JAVASCRIPT
-// IT'S ALL JUST JUNK FOR DEMO
+// 请注意！！！不要使用任何 javascript
+// 它们是演示用的
 // ++++++++++++++++++++++++++++++++++++++++++
 
 const sales_chart_options = {
   series: [
     {
-      name: 'Digital Goods',
+      name: '数字产品',
       data: [28, 48, 40, 19, 86, 27, 90]
     },
     {
-      name: 'Electronics',
+      name: '电子产品',
       data: [65, 59, 80, 81, 56, 55, 40]
     }
   ],
@@ -657,7 +657,7 @@ const sales_chart_options = {
   },
   tooltip: {
     x: {
-      format: 'MMMM yyyy'
+      format: 'yyyy 年 MM 月'
     }
   }
 }
@@ -671,23 +671,23 @@ sales_chart.render()
 
     <!-- jsvectormap -->
     <script
-      src="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/js/jsvectormap.min.js"
+      src={deploymentPath + "assets/jsvectormap/jsvectormap.min.js"}
       integrity="sha256-/t1nN2956BT869E6H4V1dnt0X5pAQHPytli+1nTZm2Y="
       crossorigin="anonymous"></script>
     <script
-      src="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/maps/world.js"
+      src={deploymentPath + "assets/jsvectormap/world.js"}
       integrity="sha256-XPpPaZlU8S/HWf7FZLAncLg2SAkP8ScUTII89x9D3lY="
       crossorigin="anonymous"></script>
 
     <!-- jsvectormap -->
     <script is:inline>
-      // World map by jsVectorMap
+      // 世界地图 由 VectorMap
       new jsVectorMap({
         selector: '#world-map',
         map: 'world'
       });
 
-      // Sparkline charts
+      // 迷你图
       const option_sparkline1 = {
         series: [
           {

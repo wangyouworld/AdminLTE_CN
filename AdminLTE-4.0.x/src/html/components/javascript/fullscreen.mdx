@@ -1,12 +1,12 @@
-The FullScreen plugin toggles the browser's native fullscreen mode.
+FullScreen 插件用于切换浏览器的原生全屏模式。
 
-##### Usage
+##### 用法
 
-This plugin is activated via data attributes.
+该插件通过 data 属性激活。
 
-**Data API**
+**Data 属性**
 
-Add `data-lte-toggle="fullscreen"` to a button element. Use `data-lte-icon="maximize"` and `data-lte-icon="minimize"` on child icon elements to toggle their visibility.
+在按钮元素上添加 `data-lte-toggle="fullscreen"`。在子级图标元素上使用 `data-lte-icon="maximize"` 和 `data-lte-icon="minimize"` 来切换它们的可见性。
 
 ```html
 <button type="button" class="btn" data-lte-toggle="fullscreen">
@@ -15,14 +15,14 @@ Add `data-lte-toggle="fullscreen"` to a button element. Use `data-lte-icon="maxi
 </button>
 ```
 
-##### Events
+##### 事件
 
-| Event | Description |
+| 事件 | 描述 |
 |-------|-------------|
-| `maximized.lte.fullscreen` | Fired when entering fullscreen mode. |
-| `minimized.lte.fullscreen` | Fired when exiting fullscreen mode. |
+| `maximized.lte.fullscreen` | 进入全屏模式时触发。 |
+| `minimized.lte.fullscreen` | 退出全屏模式时触发。 |
 
-##### Programmatic API
+##### 调用方式
 
 ```js
 import { FullScreen } from "admin-lte"
@@ -30,23 +30,23 @@ import { FullScreen } from "admin-lte"
 const btn = document.querySelector('[data-lte-toggle="fullscreen"]')
 const fs = new FullScreen(btn)
 
-fs.toggleFullScreen()  // enter or exit based on current state
-fs.inFullScreen()      // request fullscreen
-fs.outFullscreen()     // exit fullscreen
+fs.toggleFullScreen()  // 根据当前状态进入或退出全屏
+fs.inFullScreen()      // 请求进入全屏
+fs.outFullscreen()     // 退出全屏
 ```
 
-###### Methods
+###### 方法
 
-| Method | Returns | Description |
+| 方法 | 返回值 | 描述 |
 |---|---|---|
-| `toggleFullScreen()` | `void` | Calls `inFullScreen()` if not in fullscreen, otherwise `outFullscreen()`. Checks `document.fullscreenEnabled` first. |
-| `inFullScreen()` | `void` | Calls `document.documentElement.requestFullscreen()`, toggles `.d-none` on the maximize/minimize icons. Fires `maximized.lte.fullscreen`. |
-| `outFullscreen()` | `void` | Calls `document.exitFullscreen()`, toggles `.d-none` on the maximize/minimize icons. Fires `minimized.lte.fullscreen`. |
+| `toggleFullScreen()` | `void` | 如果未处于全屏模式则调用 `inFullScreen()`，否则调用 `outFullscreen()`。首先检查 `document.fullscreenEnabled`。 |
+| `inFullScreen()` | `void` | 调用 `document.documentElement.requestFullscreen()`，切换最大化/最小化图标上的 `.d-none` 类。触发 `maximized.lte.fullscreen` 事件。 |
+| `outFullscreen()` | `void` | 调用 `document.exitFullscreen()`，切换最大化/最小化图标上的 `.d-none` 类。触发 `minimized.lte.fullscreen` 事件。 |
 
-The constructor takes no config — pass only the trigger element.
+该构造函数不接受配置——只需传入触发元素即可。
 
-##### Notes
+##### 注意事项
 
-- Requires browser support for the [Fullscreen API](https://developer.mozilla.org/docs/Web/API/Fullscreen_API). Check `document.fullscreenEnabled` before invoking.
-- The maximize icon is hidden via the `d-none` Bootstrap utility class (not inline `display`) so it doesn't override the icon library's natural display value — this works correctly with FontAwesome, Lucide, Tabler Icons, etc.
-- Fullscreen on `document.documentElement` (i.e. `<html>`) means the entire page goes fullscreen. To fullscreen just a card, use the [CardWidget `maximize()` method](card-widget.html#programmatic-api) instead.
+- 需要浏览器支持 [Fullscreen API](https://developer.mozilla.org/docs/Web/API/Fullscreen_API)。在调用之前请检查 `document.fullscreenEnabled`。
+- 最大化图标通过 Bootstrap 工具类 `d-none` 来隐藏（而非内联 `display` 样式），这样不会覆盖图标库的原生 display 值——这适用于 FontAwesome、Lucide、Tabler Icons 等图标库。
+- 对 `document.documentElement`（即 `<html>`）应用全屏意味着整个页面进入全屏模式。如果只想全屏显示单个卡片，请改用 [CardWidget 的 `maximize()` 方法](card-widget.html#programmatic-api)。

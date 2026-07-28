@@ -1,136 +1,136 @@
-AdminLTE inherits Bootstrap 5.3's CSS-custom-properties theming model and adds its own layer of SCSS variables on top. You can customize the look two ways:
+AdminLTE 继承了 Bootstrap 5.3 的 CSS 自定义属性主题模型，并在此基础上添加了自己的 SCSS 变量层。您可以通过两种方式自定义外观：
 
-1. **CSS custom properties** — quick, no build step, works on prebuilt CSS.
-2. **SCSS variables** — slower (requires a build), but lets you change anything including grid breakpoints and sidebar width.
+1. **CSS 自定义属性** —— 快速，无需构建步骤，适用于预编译的 CSS。
+2. **SCSS 变量** —— 较慢（需要构建），但允许您更改任何内容，包括网格 breakpoint 和侧边栏宽度。
 
-##### Quick wins with CSS variables
+##### 使用 CSS 变量的快速见效方式
 
-Bootstrap and AdminLTE expose dozens of CSS custom properties on `:root`. Override them in your own stylesheet to retheme without rebuilding:
+Bootstrap 和 AdminLTE 在 `:root` 上暴露了数十个 CSS 自定义属性。在您自己的样式表中覆盖主题样式，无需重新构建：
 
 ```css
 :root,
 [data-bs-theme="light"] {
-  --bs-primary: #6610f2;        /* swap Bootstrap's blue for purple */
+  --bs-primary: #6610f2;        /* 将 Bootstrap 的蓝色替换为紫色 */
   --bs-primary-rgb: 102, 16, 242;
   --bs-body-bg: #f3f4f6;
 }
 
 [data-bs-theme="dark"] {
-  --bs-body-bg: #14171c;        /* darker than Bootstrap's default */
+  --bs-body-bg: #14171c;        /* 比 Bootstrap 的默认颜色更深 */
   --bs-body-color: #e9ecef;
 }
 ```
 
-Components built on `var(--bs-primary)` (most of AdminLTE's chrome) pick this up automatically.
+基于 `var(--bs-primary)` 构建的组件（AdminLTE 的大部分界面元素）会自动应用这些更改。
 
-###### Common variables worth knowing
+###### 值得了解的常用变量
 
-| Variable | Default | What it controls |
+| 变量 | 默认值 | 控制内容 |
 |---|---|---|
-| `--bs-primary` | `#0d6efd` | Brand colour, used in active sidebar items, primary buttons |
-| `--bs-body-bg` | `#fff` (light) / `#212529` (dark) | Page background |
-| `--bs-body-color` | `#212529` | Default text colour |
-| `--bs-border-color` | `#dee2e6` | All hairline borders |
-| `--bs-border-radius` | `.375rem` | Default radius for cards, buttons, inputs |
-| `--bs-border-radius-lg` | `.5rem` | Larger radius, used for modals |
-| `--bs-font-sans-serif` | `system-ui, ...` | Default font stack |
+| `--bs-primary` | `#0d6efd` | 品牌色，用于激活的侧边栏项、主要按钮 |
+| `--bs-body-bg` | `#fff`（亮色）/ `#212529`（暗色） | 页面背景 |
+| `--bs-body-color` | `#212529` | 默认文字颜色 |
+| `--bs-border-color` | `#dee2e6` | 所有细边框 |
+| `--bs-border-radius` | `.375rem` | 卡片、按钮、输入框的默认圆角 |
+| `--bs-border-radius-lg` | `.5rem` | 较大圆角，用于模态框 |
+| `--bs-font-sans-serif` | `system-ui, ...` | 默认字体栈 |
 
-For the full list, see [Bootstrap CSS variables](https://getbootstrap.com/docs/5.3/customize/css-variables/).
+完整列表请参见 [Bootstrap CSS 变量](https://getbootstrap.com/docs/5.3/customize/css-variables/)。
 
-##### SCSS variables
+##### SCSS 变量
 
-If you're building from source (cloned the repo or installed via npm + your own bundler), edit [`src/scss/_variables.scss`](https://github.com/ColorlibHQ/AdminLTE/blob/master/src/scss/_variables.scss) and recompile.
+如果您是从源码构建（克隆了仓库或通过 npm + 自己的打包工具安装），请编辑 [`src/scss/_variables.scss`](https://github.com/ColorlibHQ/AdminLTE/blob/master/src/scss/_variables.scss) 并重新编译。
 
-The most-overridden variables, with their defaults:
+最常用的自定义变量及其默认值：
 
 ```scss
-// Sidebar
-$lte-sidebar-width:          250px;       // collapse to mini at ~70px
-$lte-sidebar-breakpoint:     lg;          // breakpoint at which sidebar starts off-canvas
+// 侧边栏
+$lte-sidebar-width:          250px;       // 缩小至约 70px 的迷你尺寸
+$lte-sidebar-breakpoint:     lg;          // 侧边栏开始变为 off-canvas 模式的 breakpoint
 $lte-sidebar-padding-x:      .5rem;
 $lte-sidebar-padding-y:      .5rem;
 
-// Sidebar colours (light theme)
+// 侧边栏颜色（浅色主题）
 $lte-sidebar-color:          $gray-800;
 $lte-sidebar-hover-bg:       rgba($black, .1);
 $lte-sidebar-active-color:   $black;
 $lte-sidebar-menu-active-bg: rgba($black, .1);
 
-// Header
+// 页眉
 $lte-app-header-height:      $nav-link-height + ($lte-app-header-link-padding-y * 2);
 $lte-app-header-bottom-border-color: var(--#{$prefix}border-color);
 
-// Transitions
+// 过渡
 $lte-transition-speed:       .3s;
 $lte-transition-fn:          ease-in-out;
 ```
 
-Bootstrap's own variables (button colours, font sizes, spacing scale, breakpoints) live in [`src/scss/_bootstrap-variables.scss`](https://github.com/ColorlibHQ/AdminLTE/blob/master/src/scss/_bootstrap-variables.scss). All values use `!default`, so override them in your own SCSS file *before* the import:
+Bootstrap 自身的变量（按钮颜色、字体大小、间距比例、breakpoint）位于 [`src/scss/_bootstrap-variables.scss`](https://github.com/ColorlibHQ/AdminLTE/blob/master/src/scss/_bootstrap-variables.scss)。所有值都使用了 `!default`，因此在导入*之前*在您自己的 SCSS 文件中覆盖它们：
 
 ```scss
 // my-theme.scss
 
-// 1. Your overrides FIRST
+// 1. 你覆盖优先
 $primary:                #6610f2;
 $lte-sidebar-width:      280px;
 $border-radius:          .25rem;
 
-// 2. Then import AdminLTE (which imports Bootstrap)
+// 2. 然后导入 AdminLTE（它会导入 Bootstrap）
 @import "node_modules/admin-lte/src/scss/adminlte";
 ```
 
-##### Recompiling SCSS
+##### 重新编译 SCSS
 
-If you cloned the repo, the build pipeline is already wired:
+如果您克隆了仓库，构建流程已经配置好：
 
 ```bash
 npm install
-npm run css           # one-off build → dist/css/
-npm run watch-css-main  # rebuild on save during development
+npm run css           # 一次性构建 → dist/css/
+npm run watch-css-main  # 开发过程中保存时自动重新构建
 ```
 
-For a project that uses AdminLTE as a dependency, point your bundler at `node_modules/admin-lte/src/scss/adminlte.scss`. Examples:
+对于将 AdminLTE 作为依赖项的项目，将您的打包工具指向 `node_modules/admin-lte/src/scss/adminlte.scss`。示例：
 
 ```js
 // Vite / Rollup / Webpack
 import "admin-lte/src/scss/adminlte.scss"
 ```
 
-##### Custom sidebar branding
+##### 自定义侧边栏品牌标识
 
-The `.sidebar-brand` element accepts text, an image, or both. Markup:
+`.sidebar-brand` 元素可以包含文本、图片，或两者兼有。标记：
 
 ```html
 <div class="sidebar-brand">
   <a href="/" class="brand-link">
     <img src="/assets/logo.svg" alt="Logo" class="brand-image opacity-75 shadow" />
-    <span class="brand-text fw-light">My Dashboard</span>
+    <span class="brand-text fw-light">我的仪表盘</span>
   </a>
 </div>
 ```
 
-To swap the logo when the sidebar collapses to its mini state, AdminLTE provides a built-in pattern — see the [Logo Switch layout demo](../layout/logo-switch.html) for the markup.
+要在侧边栏折叠为迷你状态时切换 Logo，AdminLTE 提供了内置模式——请查看 [Logo 切换布局演示](../layout/logo-switch.html) 了解标记方式。
 
-##### Dark mode customization
+##### 暗色模式自定义
 
-AdminLTE follows Bootstrap 5.3's `data-bs-theme` attribute system. To customize dark-mode colours, scope your variables under `[data-bs-theme="dark"]`:
+AdminLTE 遵循 Bootstrap 5.3 的 `data-bs-theme` 属性系统。要自定义暗色模式颜色，请将变量限定在 `[data-bs-theme="dark"]` 下：
 
 ```css
 [data-bs-theme="dark"] {
-  --bs-primary: #4dabf7;          /* lighter primary for dark backgrounds */
+  --bs-primary: #4dabf7;          /* 浅色主色调适用于深色背景 */
   --lte-sidebar-color: #e9ecef;
   --lte-sidebar-active-color: #fff;
 }
 ```
 
-The [Color Mode](color-mode.html) page covers the toggle markup and JavaScript that switches the attribute.
+[颜色模式](color-mode.html)页面涵盖了切换该属性的切换按钮标记和 JavaScript。
 
-##### Custom sidebar colour scheme
+##### 自定义侧边栏配色方案
 
-AdminLTE ships its sidebar styled for light mode, but the demos apply `data-bs-theme="dark"` on `.app-sidebar` to get the dark sidebar variant against a light page. You can mix and match:
+AdminLTE 默认提供亮色模式的侧边栏样式，但演示中在 `.app-sidebar` 上应用了 `data-bs-theme="dark"`，以在亮色页面上获得暗色侧边栏变体。您可以自由组合：
 
 ```html
-<!-- Light page, dark sidebar (the demo pattern) -->
+<!-- 浅色页面，深色侧边栏（演示模式） -->
 <body class="bg-body-tertiary">
   <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
     ...
@@ -139,7 +139,7 @@ AdminLTE ships its sidebar styled for light mode, but the demos apply `data-bs-t
 ```
 
 ```html
-<!-- Light page, light sidebar -->
+<!-- 亮色页面，亮色侧边栏 -->
 <body class="bg-body-tertiary">
   <aside class="app-sidebar bg-body shadow border-end">
     ...
@@ -147,26 +147,26 @@ AdminLTE ships its sidebar styled for light mode, but the demos apply `data-bs-t
 </body>
 ```
 
-##### Compact mode
+##### 紧凑模式
 
-Add `.compact-mode` to `.app-wrapper` (or anywhere up the tree) to reduce padding throughout the layout — handy for data-dense dashboards. The dimensions for compact mode come from the `*-compact` variables in `_variables.scss`.
+在 `.app-wrapper` 上添加 `.compact-mode`（或向上任意层级）可减少整个布局的内边距——适用于数据密集型的仪表盘。紧凑模式的尺寸来自 `_variables.scss` 中的 `*-compact` 变量。
 
 ```html
 <div class="app-wrapper compact-mode">
-  <!-- header, sidebar, main content with tighter spacing -->
+  <!-- 页眉、侧边栏和主要内容间距更紧密 -->
 </div>
 ```
 
-##### When to recompile vs. override at runtime
+##### 何时重新编译 vs. 运行时覆盖
 
-| Customization | CSS variables | SCSS rebuild |
+| 自定义项 | CSS 变量 | SCSS 重新编译 |
 |---|---|---|
-| Brand colours | ✅ | ✅ |
-| Body / text colours | ✅ | ✅ |
-| Border radius | ✅ | ✅ |
-| Sidebar width | ❌ (not a CSS var) | ✅ |
-| Breakpoint changes | ❌ | ✅ |
-| Spacing scale | ❌ | ✅ |
-| Font sizes | partial | ✅ (full control) |
+| 品牌色 | ✅ | ✅ |
+| 主体/文字颜色 | ✅ | ✅ |
+| 圆角 | ✅ | ✅ |
+| 侧边栏宽度 | ❌ (不是 CSS 变量) | ✅ |
+| breakpoint 更改 | ❌ | ✅ |
+| 间距比例 | ❌ | ✅ |
+| 字体大小 | 部分支持 | ✅（完全控制） |
 
-Use CSS variables for everything you can — it survives AdminLTE upgrades without merge conflicts. Reserve SCSS overrides for structural changes (sidebar width, breakpoints) that CSS variables don't cover.
+尽可能使用 CSS 变量进行所有自定义——这样可以在 AdminLTE 升级时避免合并冲突。将 SCSS 覆盖保留用于 CSS 变量无法覆盖的结构性更改（侧边栏宽度、breakpoint）。

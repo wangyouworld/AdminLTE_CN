@@ -1,28 +1,28 @@
-AdminLTE ships seven JavaScript plugins as a single bundle (`adminlte.js`). Each one is exported from the package root, can be triggered via `data-lte-*` attributes for declarative use, and exposes a programmatic API for code-driven control.
+AdminLTE 将 7 个 JavaScript 插件打包为一个单独的包（`adminlte.js`）。每个插件都从包根目录导出，可以通过 `data-lte-*` 属性以声明方式触发使用，并暴露出方法供代码驱动控制。
 
-##### At a glance
+##### 概览
 
-| Plugin | Data API | Programmatic | Documentation |
+| 插件 | Data 属性 | 方法 | 文档 |
 |---|---|---|---|
-| **PushMenu** | `data-lte-toggle="sidebar"` | `.toggle()` / `.expand()` / `.collapse()` | [Reference](pushmenu.html) |
-| **Treeview** | `data-lte-toggle="treeview"` on parent menu | `.toggle()` / `.open()` / `.close()` | [Reference](treeview.html) |
-| **CardWidget** | `data-lte-toggle="card-collapse"`, `card-remove`, `card-maximize` | `.toggle()` / `.collapse()` / `.expand()` / `.remove()` / `.maximize()` / `.minimize()` / `.toggleMaximize()` | [Reference](card-widget.html) |
-| **DirectChat** | `data-lte-toggle="chat-pane"` | `.toggle()` | [Reference](direct-chat.html) |
-| **FullScreen** | `data-lte-toggle="fullscreen"` | `.toggleFullScreen()` / `.inFullScreen()` / `.outFullscreen()` | [Reference](fullscreen.html) |
-| **Layout** | (auto-applied to `<body>`) | `.holdTransition(time)` | [Reference](layout.html) |
-| **AccessibilityManager** | (helper function: `initAccessibility()`) | `.announce()` / `.focusElement()` / `.trapFocus()` / `.addLandmarks()` | [Reference](accessibility.html) |
+| **PushMenu** | `data-lte-toggle="sidebar"` | `.toggle()` / `.expand()` / `.collapse()` |  [参考](pushmenu.html) |
+| **Treeview** | `data-lte-toggle="treeview"` 的父菜单上 | `.toggle()` / `.open()` / `.close()` |  [参考](treeview.html) |
+| **CardWidget** | `data-lte-toggle="card-collapse"`, `card-remove`, `card-maximize` | `.toggle()` / `.collapse()` / `.expand()` / `.remove()` / `.maximize()` / `.minimize()` / `.toggleMaximize()` |  [参考](card-widget.html) |
+| **DirectChat** | `data-lte-toggle="chat-pane"` | `.toggle()` |  [参考](direct-chat.html) |
+| **FullScreen** | `data-lte-toggle="fullscreen"` | `.toggleFullScreen()` / `.inFullScreen()` / `.outFullscreen()` |  [参考](fullscreen.html) |
+| **Layout** | (自动应用于 `<body>`) | `.holdTransition(time)` |  [参考](layout.html) |
+| **AccessibilityManager** | (helper function: `initAccessibility()`) | `.announce()` / `.focusElement()` / `.trapFocus()` / `.addLandmarks()` |  [参考](accessibility.html) |
 
-##### Two ways to use them
+##### 两种使用方式
 
-###### 1. Data API (declarative)
+###### 1. Data 属性（声明式）
 
-For most pages, the data API is enough — no JavaScript code required. Drop the right `data-lte-*` attribute on the trigger element and the bundle wires it up on page load:
+对于大多数页面，Data 属性就足够了——无需编写 JavaScript 代码。在触发元素上添加相应的 `data-lte-*` 属性，包会在页面加载时自动进行绑定：
 
 ```html
-<!-- Sidebar toggle -->
+<!-- 侧边栏切换 -->
 <button data-lte-toggle="sidebar">☰</button>
 
-<!-- Card collapse / remove / maximize -->
+<!-- 卡片折叠 / 移除 / 最大化 -->
 <div class="card">
   <div class="card-header">
     <h3 class="card-title">Title</h3>
@@ -37,113 +37,113 @@ For most pages, the data API is enough — no JavaScript code required. Drop the
 </div>
 ```
 
-The bundle attaches all data-API listeners on `DOMContentLoaded`. Dynamically-injected elements still work for the [PushMenu](pushmenu.html), [CardWidget](card-widget.html), and [Treeview](treeview.html) plugins, which use event delegation.
+该包在 `DOMContentLoaded` 事件上绑定所有 data-API 监听器。动态注入的元素仍然适用于 [PushMenu](pushmenu.html)、[CardWidget](card-widget.html) 和 [Treeview](treeview.html) 插件，因为它们使用事件委托。
 
-###### 2. Programmatic (imperative)
+###### 2. 程序化（命令式）
 
-When you need to control a plugin from your own code — eg. open the sidebar after a successful login, or expand a card on a route change — instantiate the class directly:
+当您需要从自己的代码中控制插件时——例如在登录成功后打开侧边栏，或在路由变更时展开卡片——直接实例化类即可：
 
 ```js
-// ESM (bundler import)
+// ESM (打包导入)
 import { PushMenu, CardWidget, Treeview } from "admin-lte"
 
-// Sidebar
+// 侧边栏
 new PushMenu(document.body, {}).expand()
 
-// Card maximize
+// 卡片最大化
 const card = document.querySelector("#chart-card")
 new CardWidget(card, {}).maximize()
 ```
 
-Or use the globals (UMD bundle, no build step):
+或使用全局变量（UMD 包，无需构建步骤）：
 
 ```html
 <script>
-  // The bundle assigns to window.adminlte
+  // 该捆绑包分配给 window.adminlte
   new adminlte.PushMenu(document.body, {}).expand()
 </script>
 ```
 
-##### Listening to plugin events
+##### 监听插件事件
 
-Every plugin fires a `CustomEvent` or `Event` on the element it operates on. Listen for these to coordinate with your own code:
+每个插件都会在其操作的元素上触发 `CustomEvent` 或 `Event`。监听这些事件以与您自己的代码协调：
 
 ```js
 document.addEventListener("expanded.lte.card-widget", (e) => {
-  console.log("Card expanded:", e.target)
+  console.log("卡片已展开：", e.target)
 })
 
 document.addEventListener("open.lte.push-menu", () => {
-  // user opened the sidebar — eg. analytics call
+  // 用户打开了侧边栏——例如分析调用
 })
 ```
 
-###### Event name reference
+###### 事件名称参考
 
-| Plugin | Event | Fired when |
+| 插件 | 事件 | 触发时机 |
 |---|---|---|
-| PushMenu | `open.lte.push-menu` | Sidebar expanded |
-| PushMenu | `collapse.lte.push-menu` | Sidebar collapsed |
-| Treeview | `expanded.lte.treeview` | Submenu opened |
-| Treeview | `collapsed.lte.treeview` | Submenu closed |
-| Treeview | `load.lte.treeview` | Pre-opened submenu detected on page load |
-| CardWidget | `expanded.lte.card-widget` | Card expanded |
-| CardWidget | `collapsed.lte.card-widget` | Card collapsed |
-| CardWidget | `remove.lte.card-widget` | Card removed |
-| CardWidget | `maximized.lte.card-widget` | Card maximized |
-| CardWidget | `minimized.lte.card-widget` | Card minimized |
-| DirectChat | `expanded.lte.direct-chat` | Contacts pane opened |
-| DirectChat | `collapsed.lte.direct-chat` | Contacts pane closed |
-| FullScreen | `maximized.lte.fullscreen` | Entered fullscreen |
-| FullScreen | `minimized.lte.fullscreen` | Exited fullscreen |
+| PushMenu | `open.lte.push-menu` | 侧边栏展开 |
+| PushMenu | `collapse.lte.push-menu` | 侧边栏折叠 | |
+| Treeview | `expanded.lte.treeview` | 子菜单打开 |
+| Treeview | `collapsed.lte.treeview` | 子菜单关闭 |
+| Treeview | `load.lte.treeview` | 页面加载时检测到预先打开的子菜单 |
+| CardWidget | `expanded.lte.card-widget` | 卡片展开 |
+| CardWidget | `collapsed.lte.card-widget` | 卡片折叠 |
+| CardWidget | `remove.lte.card-widget` | 卡片移除 |
+| CardWidget | `maximized.lte.card-widget` | 卡片最大化 |
+| CardWidget | `minimized.lte.card-widget` | 卡片最小化 |
+| DirectChat | `expanded.lte.direct-chat` | 联系人面板打开 |
+| DirectChat | `collapsed.lte.direct-chat` | 联系人面板关闭 |
+| FullScreen | `maximized.lte.fullscreen` | 进入全屏 |
+| FullScreen | `minimized.lte.fullscreen` | 退出全屏 |
 
-All events bubble. Attach listeners to `document` or `document.body` for global hooks, or to a specific card / sidebar element for scoped listeners.
+所有事件都会冒泡。将监听器绑定到 `document` 或 `document.body` 上用于全局钩子，或绑定到特定的卡片/侧边栏元素上用于作用域监听。
 
-##### Configuring via data attributes
+##### 通过 data 属性进行配置
 
-Some plugins read config from `data-*` attributes on their target element:
+部分插件会从其目标元素的 `data-*` 属性中读取配置：
 
 ```html
-<!-- Treeview — non-accordion (multiple submenus can be open at once) -->
+<!-- Treeview — 非折叠式（可同时打开多个子菜单） -->
 <ul class="nav sidebar-menu" data-lte-toggle="treeview" data-accordion="false">…</ul>
 
-<!-- Treeview — custom animation speed -->
+<!-- Treeview — 自定义动画速度 -->
 <ul class="nav sidebar-menu" data-lte-toggle="treeview" data-animation-speed="500">…</ul>
 
-<!-- Sidebar — opt into localStorage persistence (default: off) -->
+<!-- 侧边栏 — 启用本地存储持久化（默认：关闭）
 <aside class="app-sidebar" data-enable-persistence="true">…</aside>
 
-<!-- Sidebar — override the mobile breakpoint -->
+<!-- 侧边栏 — 重写移动设备 breakpoint -->
 <aside class="app-sidebar" data-sidebar-breakpoint="768">…</aside>
 ```
 
-Each plugin's reference page documents which attributes it supports.
+每个插件的参考页面都记录了其支持的属性。
 
-##### CSS classes the plugins manage
+##### 插件管理的 CSS 类
 
-The plugins toggle a small set of CSS classes that you can also style or react to:
+插件会切换一小部分 CSS 类，您也可以对这些类进行样式设置或响应：
 
-| Class | Set by | Where | Meaning |
+| 类名 | 设置者 | 位置 | 含义 |
 |---|---|---|---|
-| `sidebar-collapse` | PushMenu | `<body>` | Sidebar collapsed (desktop mini state, or mobile-closed) |
-| `sidebar-open` | PushMenu | `<body>` | Mobile sidebar explicitly opened by user |
-| `sidebar-mini` | PushMenu | `<body>` | Mini-sidebar mode active |
-| `menu-open` | Treeview | `.nav-item` | Submenu is currently expanded |
-| `collapsed-card` | CardWidget | `.card` | Card body/footer are collapsed |
-| `maximized-card` | CardWidget | `<html>` and `.card` | Card is in fullscreen mode |
-| `direct-chat-contacts-open` | DirectChat | `.direct-chat` | Contacts pane visible |
-| `hold-transition` | Layout | `<body>` | Transitions disabled briefly (during resize, etc.) |
-| `app-loaded` | Layout | `<body>` | Initial page-load animation finished |
-| `reduce-motion` | AccessibilityManager | `<body>` | OS `prefers-reduced-motion` detected |
+| `sidebar-collapse` | PushMenu | `<body>` | 侧边栏已折叠（桌面迷你状态，或移动端关闭） |
+| `sidebar-open` | PushMenu | `<body>` |用户明确打开了移动端侧边栏 |
+| `sidebar-mini` | PushMenu | `<body>` | 迷你侧边栏模式已激活 |
+| `menu-open` | Treeview | `.nav-item` | 子菜单当前已展开 |
+| `collapsed-card` | CardWidget | `.card` | 卡片主体/页脚已折叠 |
+| `maximized-card` | CardWidget | `<html>` 和 `.card` | 卡片处于全屏模式 |
+| `direct-chat-contacts-open` | DirectChat | `.direct-chat` | 联系人面板可见 |
+| `hold-transition` | Layout | `<body>` | 暂时禁用过渡动画（如调整大小时等） |
+| `app-loaded` | Layout | `<body>` | 初始页面加载动画已完成 |
+| `reduce-motion` | AccessibilityManager | `<body>` | 检测到操作系统 `prefers-reduced-motion` |
 
-##### Production vs source
+##### 生产环境 vs 源码
 
-The plugins live in [`src/ts/`](https://github.com/ColorlibHQ/master/src/ts) as TypeScript modules. The published `dist/js/adminlte.js` is a Rollup bundle of all seven, exporting them under a single `adminlte` namespace (UMD) or named imports (ESM).
+插件以 TypeScript 模块的形式位于 [`src/ts/`](https://github.com/ColorlibHQ/master/src/ts) 中。发布的 `dist/js/adminlte.js` 是所有 7 个插件的 Rollup 打包文件，在单个 `adminlte` 命名空间下导出（UMD）或以命名导入方式导出（ESM）。
 
-If you only need one or two plugins and care about bundle size, importing individual modules from `node_modules/admin-lte/src/ts/` will tree-shake — but you'll need TypeScript in your toolchain.
+如果您只需要其中一两个插件并且关注打包体积，从 `node_modules/admin-lte/src/ts/` 导入单个模块可以进行 tree-shake——但您的工具链中需要 TypeScript 支持。
 
-##### Where to next
+##### 接下来去哪里
 
-- Detailed reference for each plugin (links in the table above)
-- [Layout Blueprint](../layout-blueprint.html) — the structural classes the plugins operate on
-- [Accessibility](accessibility.html) — keyboard navigation, focus trapping, ARIA helpers
+- 每个插件的详细参考（上表中的链接）
+- [布局结构](../layout-blueprint.html) —— 插件所操作的结构类
+- [无障碍访问](accessibility.html) —— 键盘导航、焦点陷阱、ARIA 辅助

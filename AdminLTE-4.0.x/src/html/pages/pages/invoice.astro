@@ -11,9 +11,9 @@ const mainPage = "pages"
 const page = "invoice";
 
 const items = [
-  { qty: 1, name: "Pro plan subscription", desc: "May 18 - Jun 18, 2026", price: 29 },
-  { qty: 3, name: "Additional seats", desc: "Pro-rated for current period", price: 12.5 },
-  { qty: 1, name: "SMS notifications add-on", desc: "1,000 messages", price: 5 }
+  { qty: 1, name: "专业版套餐订阅", desc: "2026年5月18日 - 6月18日", price: 29 },
+  { qty: 3, name: "额外席位", desc: "按当前周期比例折算", price: 12.5 },
+  { qty: 1, name: "短信通知附加服务", desc: "1,000 条消息", price: 5 }
 ];
 const subtotal = items.reduce((s, i) => s + i.qty * i.price, 0);
 const tax = +(subtotal * 0.0825).toFixed(2);
@@ -22,7 +22,7 @@ const fmt = (n: number) => n.toFixed(2);
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <Head title={title} path={path} />
   </head>
@@ -35,12 +35,12 @@ const fmt = (n: number) => n.toFixed(2);
           <div class="container-fluid">
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">Invoice</h3>
+                <h3 class="mb-0">发票</h3>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Invoice</li>
+                  <li class="breadcrumb-item"><a href="#">首页</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">发票</li>
                 </ol>
               </div>
             </div>
@@ -55,13 +55,13 @@ const fmt = (n: number) => n.toFixed(2);
                 onclick="window.print()"
                 type="button"
               >
-                <i class="bi bi-printer me-1" aria-hidden="true"></i>Print
+                <i class="bi bi-printer me-1" aria-hidden="true"></i>打印
               </button>
               <a href="#" class="btn btn-outline-secondary">
                 <i class="bi bi-download me-1" aria-hidden="true"></i>PDF
               </a>
               <a href="#" class="btn btn-primary">
-                <i class="bi bi-send me-1" aria-hidden="true"></i>Send invoice
+                <i class="bi bi-send me-1" aria-hidden="true"></i>发送发票
               </a>
             </div>
 
@@ -72,36 +72,36 @@ const fmt = (n: number) => n.toFixed(2);
                   <div class="col-sm-6">
                     <h2 class="h4 mb-0 text-primary fw-semibold">AdminLTE, Inc.</h2>
                     <p class="text-secondary mb-0 small">
-                      795 Folsom Ave, Suite 600<br />
-                      San Francisco, CA 94107<br />
+                      加利福尼亚州旧金山福尔索姆大道 795 号 600 室<br />
+                      邮编 94107<br />
                       billing@example.com
                     </p>
                   </div>
                   <div class="col-sm-6 text-sm-end">
-                    <h1 class="h2 mb-1">Invoice</h1>
+                    <h1 class="h2 mb-1">发票</h1>
                     <p class="text-secondary mb-0">
                       <span class="fw-semibold">#</span>INV-2026-00428
                     </p>
-                    <span class="badge text-bg-success mt-1">Paid</span>
+                    <span class="badge text-bg-success mt-1">已付款</span>
                   </div>
                 </div>
 
                 <!-- Billing details -->
                 <div class="row mb-4">
                   <div class="col-sm-6">
-                    <p class="text-secondary small mb-1">Billed to</p>
-                    <p class="mb-0 fw-semibold">Acme Corporation</p>
+                    <p class="text-secondary small mb-1">账单寄送方</p>
+                    <p class="mb-0 fw-semibold">Acme 公司</p>
                     <p class="text-secondary small mb-0">
-                      Attn: Jane Doe<br />
-                      1234 Market Street<br />
-                      San Francisco, CA 94103
+                      注意：Jane Doe<br />
+                      旧金山，加利福尼亚州 邮编 94103<br />
+                      1234 市场街
                     </p>
                   </div>
                   <div class="col-sm-6 text-sm-end">
-                    <p class="text-secondary small mb-1">Issue date</p>
-                    <p class="mb-2">May 18, 2026</p>
-                    <p class="text-secondary small mb-1">Due date</p>
-                    <p class="mb-0">June 1, 2026</p>
+                    <p class="text-secondary small mb-1">开具日期</p>
+                    <p class="mb-2">2026年5月18日</p>
+                    <p class="text-secondary small mb-1">到期日期</p>
+                    <p class="mb-0">2026年6月1日</p>
                   </div>
                 </div>
 
@@ -110,15 +110,15 @@ const fmt = (n: number) => n.toFixed(2);
                   <table class="table align-middle mb-0">
                     <thead>
                       <tr>
-                        <th class="border-top-0">Description</th>
+                        <th class="border-top-0">描述</th>
                         <th class="border-top-0 text-end" style="width: 6rem;">
-                          Qty
+                          数量
                         </th>
                         <th class="border-top-0 text-end" style="width: 9rem;">
-                          Unit price
+                          单价
                         </th>
                         <th class="border-top-0 text-end" style="width: 9rem;">
-                          Amount
+                          金额
                         </th>
                       </tr>
                     </thead>
@@ -144,13 +144,13 @@ const fmt = (n: number) => n.toFixed(2);
                 <div class="row justify-content-end">
                   <div class="col-md-5 col-lg-4">
                     <dl class="row mb-0">
-                      <dt class="col-7 text-secondary fw-normal">Subtotal</dt>
+                      <dt class="col-7 text-secondary fw-normal">小计</dt>
                       <dd class="col-5 text-end mb-2">${fmt(subtotal)}</dd>
-                      <dt class="col-7 text-secondary fw-normal">Tax (8.25%)</dt>
+                      <dt class="col-7 text-secondary fw-normal">税费 (8.25%)</dt>
                       <dd class="col-5 text-end mb-2">${fmt(tax)}</dd>
-                      <dt class="col-7 fw-semibold border-top pt-2">Total due</dt>
+                      <dt class="col-7 fw-semibold border-top pt-2">总计</dt>
                       <dd class="col-5 text-end fw-semibold border-top pt-2 mb-0">
-                        ${fmt(total)} USD
+                        ${fmt(total)} 美元
                       </dd>
                     </dl>
                   </div>
@@ -159,9 +159,9 @@ const fmt = (n: number) => n.toFixed(2);
                 <!-- Footer note -->
                 <hr class="my-4" />
                 <p class="text-secondary small mb-0">
-                  Thanks for your business. Payment is due within 14 days. If
-                  you have any questions about this invoice, please contact
-                  <a href="mailto:billing@example.com">billing@example.com</a>.
+                  感谢您的惠顾。请于 14 日内完成付款。
+                  如有任何发票相关问题，请随时联系
+                  <a href="mailto:billing@example.com">billing@example.com</a>。
                 </p>
               </div>
             </div>

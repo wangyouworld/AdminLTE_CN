@@ -2,13 +2,13 @@
 import Head from "@components/_head.astro"
 import Scripts from "@components/_scripts.astro"
 
-const title = "AdminLTE 4 | 500 Error Page"
+const title = "AdminLTE 4 | 500 错误页"
 const path = "../../../dist"
 const htmlPath = "..";
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <Head title={title} path={path} />
   </head>
@@ -18,20 +18,20 @@ const htmlPath = "..";
         <div class="row justify-content-center">
           <div class="col-md-8 col-lg-6 text-center">
             <div class="display-1 fw-bold text-danger lh-1 mb-3">500</div>
-            <h1 class="h3 mb-3">Something went wrong on our end.</h1>
+            <h1 class="h3 mb-3">系统内部错误。</h1>
             <p class="text-secondary mb-4">
-              The server encountered an unexpected condition. Our team has been
-              notified. Please try again in a moment, or contact support if the
-              issue persists.
+              服务器遇到了意外情况。我们的团队已收到通知。
+              请稍后再试，如果问题持续存在，
+              请联系支持团队。
             </p>
             <div class="d-flex gap-2 justify-content-center">
               <a href={htmlPath + "/index.html"} class="btn btn-primary">
                 <i class="bi bi-arrow-left me-1" aria-hidden="true"></i>
-                Back to dashboard
+                返回首页
               </a>
               <a href="mailto:support@example.com" class="btn btn-outline-secondary">
                 <i class="bi bi-life-preserver me-1" aria-hidden="true"></i>
-                Contact support
+                联系支持
               </a>
             </div>
           </div>

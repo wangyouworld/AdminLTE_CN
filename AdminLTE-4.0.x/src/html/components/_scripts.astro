@@ -1,7 +1,7 @@
 ---
-// Smart path resolution: calculate relative path based on directory depth
+// 智能路径解析：根据目录深度计算相对路径
 const pathname = Astro.url.pathname;
-// Only count directories, not the filename itself
+// 仅统计目录，不包括文件名本身
 const pathSegments = pathname.split('/').filter(segment => segment !== '');
 const depth = pathSegments.length > 0 ? pathSegments.length - 1 : 0;
 const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
@@ -9,11 +9,11 @@ const adminlteJsUrl = deploymentPath + "js/adminlte.js";
 ---
 
 <!--begin::Third Party Plugin(OverlayScrollbars)-->
-<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js" crossorigin="anonymous"></script>
+<script src={deploymentPath + "assets/overlayscrollbars/overlayscrollbars.browser.es6.min.js"} crossorigin="anonymous"></script>
 <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src={deploymentPath + "assets/popperjs/popper.min.js"} crossorigin="anonymous"></script>
 <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script src={deploymentPath + "assets/bootstrap/bootstrap.min.js"} crossorigin="anonymous"></script>
 <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
 <script src={adminlteJsUrl} is:inline></script>
 <!--end::Required Plugin(AdminLTE)-->
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 <!--end::OverlayScrollbars Configure-->
 
-<!--begin::Color Mode Toggle (#6010)-->
+<!--begin::明暗模式切换 (#6010)-->
 <script is:inline>
 ;(() => {
   "use strict"
@@ -117,5 +117,5 @@ document.addEventListener("DOMContentLoaded", function () {
   })
 })()
 </script>
-<!--end::Color Mode Toggle-->
+<!--end::明暗模式切换-->
 

@@ -10,16 +10,16 @@ const path = "../../../dist"
 const mainPage = "pages"
 const page = "calendar";
 
-// Smart path resolution: calculate relative path based on directory depth
+// 智能路径解析：根据目录深度计算相对路径
 const pathname = Astro.url.pathname;
-// Only count directories, not the filename itself
+// 仅统计目录，不包括文件名本身
 const pathSegments = pathname.split('/').filter(segment => segment !== '');
 const depth = pathSegments.length > 0 ? pathSegments.length - 1 : 0;
 const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <Head title={title} path={path} />
     <style is:inline>
@@ -41,12 +41,12 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
           <div class="container-fluid">
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">Calendar</h3>
+                <h3 class="mb-0">日历</h3>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Calendar</li>
+                  <li class="breadcrumb-item"><a href="#">首页</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">日历</li>
                 </ol>
               </div>
             </div>
@@ -59,11 +59,11 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
               <div class="col-lg-3">
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title">Draggable events</h3>
+                    <h3 class="card-title">可拖动事件</h3>
                   </div>
                   <div class="card-body">
                     <p class="text-secondary small mb-3">
-                      Drag an event to the calendar to schedule it.
+                      将活动拖到日历中以安排它。
                     </p>
                     <div id="external-events">
                       <div
@@ -71,35 +71,35 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         data-color="#0d6efd"
                       >
                         <i class="bi bi-grip-vertical me-1" aria-hidden="true"></i>
-                        Team standup
+                        团队站会
                       </div>
                       <div
                         class="draggable-event badge text-bg-success p-2 mb-2 d-block text-start"
                         data-color="#198754"
                       >
                         <i class="bi bi-grip-vertical me-1" aria-hidden="true"></i>
-                        Customer call
+                        客户回访
                       </div>
                       <div
                         class="draggable-event badge text-bg-warning p-2 mb-2 d-block text-start"
                         data-color="#ffc107"
                       >
                         <i class="bi bi-grip-vertical me-1" aria-hidden="true"></i>
-                        Design review
+                        设计评审
                       </div>
                       <div
                         class="draggable-event badge text-bg-info p-2 mb-2 d-block text-start"
                         data-color="#0dcaf0"
                       >
                         <i class="bi bi-grip-vertical me-1" aria-hidden="true"></i>
-                        1:1 with manager
+                        与经理的一对一会议
                       </div>
                       <div
                         class="draggable-event badge text-bg-danger p-2 d-block text-start"
                         data-color="#dc3545"
                       >
                         <i class="bi bi-grip-vertical me-1" aria-hidden="true"></i>
-                        Release window
+                        发布时间窗口
                       </div>
                     </div>
                     <hr />
@@ -114,7 +114,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         class="form-check-label small"
                         for="remove-after-drop"
                       >
-                        Remove from list after dropping
+                        移除后从列表中删除
                       </label>
                     </div>
                   </div>
@@ -127,13 +127,13 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                     <div id="calendar"></div>
                   </div>
                   <div class="card-footer text-secondary small">
-                    Powered by
+                    由
                     <a
                       href="https://fullcalendar.io/"
                       target="_blank"
                       rel="noopener">FullCalendar 6</a
                     >
-                    &mdash; MIT licensed, jQuery-free.
+                    驱动 &mdash; 采用 MIT 许可证，无 jQuery 依赖。
                   </div>
                 </div>
               </div>
@@ -145,7 +145,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
     </div>
     <Scripts path={path} />
     <script
-      src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js"
+      src={deploymentPath + "assets/fullcalendar/index.global.min.js"}
       crossorigin="anonymous"></script>
     <script src={deploymentPath + "assets/fullcalendar/locales-all.global.min.js"} crossorigin="anonymous"></script>
     <script is:inline>
@@ -173,7 +173,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
         };
 
         const calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: "dayGridMonth",
+          initialView: "dayGridMonth", locale: 'zh-cn', locale: 'zh-cn',
           headerToolbar: {
             start: "prev,next today",
             center: "title",
@@ -189,7 +189,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             }
           },
           dateClick: (info) => {
-            const title = prompt("Event title:");
+            const title = prompt("事件标题：");
             if (title) {
               calendar.addEvent({
                 title: title,
@@ -199,16 +199,16 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             }
           },
           eventClick: (info) => {
-            if (confirm(`Delete "${info.event.title}"?`)) {
+            if (confirm(`删除 "${info.event.title}"?`)) {
               info.event.remove();
             }
           },
           events: [
-            { title: "Quarterly planning", start: offsetDay(-2), backgroundColor: "#0d6efd", borderColor: "#0d6efd" },
-            { title: "Onboarding session", start: offsetDay(1), backgroundColor: "#198754", borderColor: "#198754" },
-            { title: "Design review", start: offsetDay(3), end: offsetDay(4), backgroundColor: "#ffc107", borderColor: "#ffc107", textColor: "#000" },
-            { title: "Release v2.5", start: offsetDay(7), backgroundColor: "#dc3545", borderColor: "#dc3545" },
-            { title: "All-hands", start: offsetDay(10), backgroundColor: "#6f42c1", borderColor: "#6f42c1" }
+            { title: "季度规划", start: offsetDay(-2), backgroundColor: "#0d6efd", borderColor: "#0d6efd" },
+            { title: "入职培训", start: offsetDay(1), backgroundColor: "#198754", borderColor: "#198754" },
+            { title: "设计评审", start: offsetDay(3), end: offsetDay(4), backgroundColor: "#ffc107", borderColor: "#ffc107", textColor: "#000" },
+            { title: "发布 v2.5", start: offsetDay(7), backgroundColor: "#dc3545", borderColor: "#dc3545" },
+            { title: "全体成员", start: offsetDay(10), backgroundColor: "#6f42c1", borderColor: "#6f42c1" }
           ]
         });
 

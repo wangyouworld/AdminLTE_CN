@@ -1,37 +1,37 @@
-AdminLTE is a static HTML/CSS/JS template — there's nothing exotic about deploying it. But there are a handful of choices that meaningfully change page weight, time-to-interactive, and CDN reliability. This page documents the ones worth getting right.
+AdminLTE 是一个静态 HTML/CSS/JS 模板——部署它并没有什么特别之处。但有一些选择会显著影响页面体积、可交互时间和 CDN 可靠性。本页记录了这些值得正确处理的事项。
 
-##### What to deploy
+##### 部署什么
 
-The deployable artefact is everything under `dist/` plus your own HTML / server-rendered templates:
+可部署的产物是 `dist/` 下的所有内容，加上你自己的 HTML/服务端渲染模板：
 
 ```text
 dist/
-├── css/                ← stylesheets (LTR + RTL, dev + minified)
+├── css/                ← 样式表（LTR + RTL，开发版 + 压缩版）
 │   ├── adminlte.css
 │   ├── adminlte.min.css
 │   ├── adminlte.rtl.css
 │   └── adminlte.rtl.min.css
-├── js/                 ← JavaScript bundle (dev + minified)
+├── js/                 ← JavaScript 打包文件（开发版 + 压缩版）
 │   ├── adminlte.js
 │   └── adminlte.min.js
-└── assets/             ← demo images / fonts (replace with your own)
+└── assets/             ← 演示图片 / 字体（请替换为您的内容）
 ```
 
-You don't ship `src/`, `node_modules/`, or the demo HTML if you're embedding AdminLTE into your own app.
+如果你将 AdminLTE 嵌入到自己的应用中，则不需要发布 `src/`、`node_modules/` 或演示 HTML。
 
-##### Always use the `.min` variants in production
+##### 生产环境始终使用 `.min` 压缩版本
 
-The minified builds are the same code with whitespace stripped and identifiers shortened. For `adminlte.css` the saving is roughly 15-20%; for `adminlte.js` it's bigger (about 30% after gzip). The non-minified files are useful in development for readable source-map debugging — never serve them to users.
+压缩版本是相同的代码，只是去除了空白字符并缩短了标识符。对于 `adminlte.css`，节省大约 15-20%；对于 `adminlte.js`，节省更大（gzip 后约 30%）。未压缩文件在开发环境中对于可读的 source-map 调试很有用——切勿将它们提供给用户。
 
-| Asset | Dev | Production |
+| 资源 | 开发环境 | 生产环境 |
 |---|---|---|
-| Stylesheet | `dist/css/adminlte.css` | **`dist/css/adminlte.min.css`** |
-| Script | `dist/js/adminlte.js` | **`dist/js/adminlte.min.js`** |
-| RTL stylesheet | `dist/css/adminlte.rtl.css` | **`dist/css/adminlte.rtl.min.css`** |
+| 样式表 | `dist/css/adminlte.css` | **`dist/css/adminlte.min.css`** |
+| 脚本 | `dist/js/adminlte.js` | **`dist/js/adminlte.min.js`** |
+| RTL 样式表 | `dist/css/adminlte.rtl.css` | **`dist/css/adminlte.rtl.min.css`** |
 
-##### Compression at the edge
+##### 边缘压缩
 
-Make sure your web server / CDN gzips (or brotlis) responses for the relevant content types:
+确保你的 Web 服务器/CDN 对相关内容类型启用 gzip（或 brotli）压缩：
 
 ```nginx
 # nginx
@@ -45,28 +45,28 @@ gzip_comp_level 6;
 AddOutputFilterByType DEFLATE text/css application/javascript text/html image/svg+xml
 ```
 
-Cloudflare, Vercel, Netlify, and most managed hosting do this automatically. Verify with `curl -I -H "Accept-Encoding: gzip" your-page-url` and look for `content-encoding: gzip` in the response.
+Cloudflare、Vercel、Netlify 以及大多数托管服务都会自动执行此操作。使用 `curl -I -H "Accept-Encoding: gzip" your-page-url` 验证，并在响应中查找 `content-encoding: gzip`。
 
-##### Cache headers
+##### 缓存头
 
-The dist artefacts have content hashes in their filenames *only if you wire it up via your bundler* — AdminLTE itself ships fixed filenames. Two reasonable strategies:
+构建产物的文件名是否包含内容哈希，*取决于您是否通过构建工具进行配置*——AdminLTE 默认使用固定文件名。以下是两种合理的做法：
 
-1. **Short cache + version query string** (simple, works without a build pipeline):
+1. **短缓存 + 版本查询字符串**（简单，无需构建流程即可工作）：
 
    ```html
    <link rel="stylesheet" href="/dist/css/adminlte.min.css?v=4.0.0" />
    <script src="/dist/js/adminlte.min.js?v=4.0.0"></script>
    ```
 
-   Set `Cache-Control: public, max-age=86400` (1 day) at the server. Bump `?v=` on every release to force cache invalidation.
+   在服务器上设置 `Cache-Control: public, max-age=86400`（1 天）。每次发布时更新 `?v=` 以强制缓存失效。
 
-2. **Fingerprinted filenames** (production-grade, requires a bundler):
+2. **指纹文件名**（生产级，需要打包工具）：
 
-   Let your bundler emit `adminlte.[hash].min.css` and reference that hash in your HTML. Set `Cache-Control: public, max-age=31536000, immutable` (1 year). This is what Vite/Webpack/Rollup do by default if you import AdminLTE through them.
+   让你的打包工具生成 `adminlte.[hash].min.css` 并在 HTML 中引用该哈希值。设置 `Cache-Control: public, max-age=31536000, immutable`（1 年）。如果你通过 Vite/Webpack/Rollup 导入 AdminLTE，它们默认就是这样做的。
 
-##### CDN integrity hashes
+##### CDN 完整性哈希
 
-If you load AdminLTE from a public CDN (jsDelivr, unpkg), include a Subresource Integrity (SRI) hash so a compromised CDN can't serve malicious JavaScript silently:
+如果你从公共 CDN（jsDelivr、unpkg）加载 AdminLTE，请包含子资源完整性（SRI）哈希，以防止被入侵的 CDN 静默提供恶意 JavaScript：
 
 ```html
 <link
@@ -77,35 +77,35 @@ If you load AdminLTE from a public CDN (jsDelivr, unpkg), include a Subresource 
 />
 ```
 
-You can get the hash from the [jsDelivr file detail page](https://www.jsdelivr.com/package/npm/admin-lte) — click any file and copy the "SRI" line. Do the same for Bootstrap, Popper, OverlayScrollbars, and Bootstrap Icons.
+你可以从 [jsDelivr 文件详情页](https://www.jsdelivr.com/package/npm/admin-lte)获取哈希值——点击任意文件并复制 "SRI" 行。对 Bootstrap、Popper、OverlayScrollbars 和 Bootstrap Icons 也要做同样的操作。
 
-For private-hosted assets, generate the hash yourself:
+对于自托管的资源，自行生成哈希：
 
 ```bash
 openssl dgst -sha384 -binary dist/css/adminlte.min.css | openssl base64 -A
 ```
 
-##### Loading order matters
+##### 加载顺序很重要
 
-Get the script order right or things break silently:
+脚本顺序一定要放对，否则有些功能会悄无声息地失效：
 
 ```html
 <head>
-  <!-- 1. Bootstrap Icons (font CSS) — load first so icons render with the page -->
+  <!-- 1. Bootstrap Icons（字体 CSS）——首先加载，以便图标随页面一起渲染 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
 
-  <!-- 2. OverlayScrollbars (optional, for the sidebar scroller) -->
+  <!-- 2. OverlayScrollbars（可选，用于侧边栏滚动） -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css" />
 
-  <!-- 3. AdminLTE — includes Bootstrap CSS via its imports -->
+  <!-- 3. AdminLTE——通过其导入包含 Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@4.0.0/dist/css/adminlte.min.css" />
 </head>
 
 <body>
   …
 
-  <!-- Scripts at the END of body -->
-  <!-- 4. Popper (Bootstrap dependency for dropdowns/tooltips/popovers) -->
+  <!-- 脚本放在 body 末尾 -->
+  <!-- 4. Popper（Bootstrap 下拉菜单/工具提示/弹出框的依赖） -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
 
   <!-- 5. Bootstrap -->
@@ -114,27 +114,27 @@ Get the script order right or things break silently:
   <!-- 6. OverlayScrollbars -->
   <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"></script>
 
-  <!-- 7. AdminLTE — must load AFTER Bootstrap -->
+  <!-- 7. AdminLTE——必须在 Bootstrap 之后加载 -->
   <script src="https://cdn.jsdelivr.net/npm/admin-lte@4.0.0/dist/js/adminlte.min.js"></script>
 </body>
 ```
 
-##### Defer or async?
+##### Defer 还是 async？
 
-The AdminLTE bundle waits for `DOMContentLoaded` before wiring its data API, so `defer` is safe and recommended:
+AdminLTE 包会在 `DOMContentLoaded` 之后再挂载其 data API，因此 `defer` 是安全且推荐的：
 
 ```html
 <script defer src="/dist/js/adminlte.min.js"></script>
 ```
 
-Don't use `async` — the script could execute before its dependencies (Bootstrap, Popper) have parsed, and listeners would attach to elements that don't exist yet.
+不要使用 `async`——脚本可能会在其依赖（Bootstrap、Popper）解析完成之前执行，而监听器会附加到尚不存在的元素上。
 
-##### Critical CSS
+##### 关键 CSS
 
-For sub-1-second first paint, inline the styles that the above-the-fold layout uses (header + brand + first visible content) and load the rest of `adminlte.min.css` asynchronously:
+为了实现 1 秒以内的首次绘制，将首屏布局使用的样式（页眉 + 品牌 + 首个可见内容）内联，并异步加载其余的 `adminlte.min.css`：
 
 ```html
-<style>/* extracted critical CSS for /dashboard */</style>
+<style>/* 为 /dashboard 提取的关键 CSS */</style>
 
 <link
   rel="preload"
@@ -145,11 +145,11 @@ For sub-1-second first paint, inline the styles that the above-the-fold layout u
 <noscript><link rel="stylesheet" href="/dist/css/adminlte.min.css" /></noscript>
 ```
 
-Extract critical CSS with a tool like [Critters](https://github.com/GoogleChromeLabs/critters) or [Penthouse](https://github.com/pocketjoso/penthouse) as part of your build. For dashboards behind a login (where first-load speed matters less than for marketing pages), this is usually overkill.
+使用 [Critters](https://github.com/GoogleChromeLabs/critters) 或 [Penthouse](https://github.com/pocketjoso/penthouse) 等工具提取关键 CSS，作为构建流程的一部分。对于登录后的仪表板（首屏加载速度的重要性不如营销页面），这通常是多此一举。
 
-##### Preload key assets
+##### 预加载关键资源
 
-Push critical resources to the browser before it discovers them in the HTML:
+在浏览器从 HTML 中发现关键资源之前，将其推送至浏览器：
 
 ```html
 <link rel="preload" as="style" href="/dist/css/adminlte.min.css" />
@@ -157,34 +157,34 @@ Push critical resources to the browser before it discovers them in the HTML:
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 ```
 
-Only preload what's used on every page. Preloading per-route assets in a shared layout wastes bandwidth.
+只预加载每个页面都会用到的资源。在共享布局中预加载路由级资源会浪费带宽。
 
-##### Lazy-loading sub-pages
+##### 子页面懒加载
 
-If your dashboard has many routes and the JS is server-rendered HTML per route, prefer per-route CSS imports rather than one mega-stylesheet. AdminLTE's core CSS is small (~44KB gzipped) but page-specific styles (charts, calendars, tables) can add up — only load them where they're used.
+如果你的仪表板有很多路由，且 JS 是每个路由的服务端渲染 HTML，建议使用按路由导入 CSS，而非一个巨大的样式表。AdminLTE 的核心 CSS 很小（~44KB gzip），但页面特定样式（图表、日历、表格）会累积——只在需要的地方加载它们。
 
-For SPAs, code-split heavy integrations:
+对于 SPA，对重量级集成进行代码拆分：
 
 ```js
-// Don't bundle the calendar app into the main chunk
+// 不要将日历应用打包到主 chunk 中
 const Calendar = () => import("./Calendar.vue")
 ```
 
-##### Bundle size budget
+##### 打包体积预算
 
-The current published `dist/` artefacts gzip to:
+当前发布的 `dist/` 产物 gzip 后的大小：
 
-| Asset | Size (gzip) |
+| 资源 | 大小（gzip） |
 |---|---|
 | `adminlte.min.css` | ~40 KB |
 | `adminlte.rtl.min.css` | ~40 KB |
 | `adminlte.min.js` | ~5 KB |
 
-The full first-page payload (HTML + Bootstrap + AdminLTE + Bootstrap Icons + Popper + OverlayScrollbars) is around **180 KB gzipped** when loaded from CDN. The CI build enforces a `bundlewatch` check that fails if any asset crosses its budget.
+完整的首屏负载（HTML + Bootstrap + AdminLTE + Bootstrap Icons + Popper + OverlayScrollbars）从 CDN 加载时约为 **180 KB gzip**。CI 构建会强制执行 `bundlewatch` 检查，如果任何资源超出预算则会失败。
 
-##### Service workers / offline support
+##### Service Worker / 离线支持
 
-AdminLTE is just static files — caching them in a service worker works without changes. A minimal Workbox config:
+AdminLTE 只是静态文件——将其缓存在 service worker 中无需任何修改即可工作。一个最小化的 Workbox 配置：
 
 ```js
 import { precacheAndRoute } from "workbox-precaching"
@@ -192,19 +192,19 @@ import { precacheAndRoute } from "workbox-precaching"
 precacheAndRoute([
   { url: "/dist/css/adminlte.min.css", revision: "4.0.0" },
   { url: "/dist/js/adminlte.min.js", revision: "4.0.0" },
-  // ...your own pages
+  // ...你自己的页面
 ])
 ```
 
-##### Removing dev-only files before deploy
+##### 部署前移除开发专用文件
 
-If you're deploying the demo `dist/` folder verbatim, strip these patterns from the upload:
+如果你原样部署演示 `dist/` 文件夹，请从上传内容中剔除以下模式：
 
-- `*.map` (source maps — leak source code to anyone who opens devtools)
-- `**/html/` (the Astro intermediate build, if present)
-- `**/.astro/` (Astro cache)
+- `*.map` （source map——会将源代码泄露给任何打开 devtools 的人）
+- `**/html/` （Astro 中间构建产物，如果存在）
+- `**/.astro/` （Astro 缓存）
 
-For `rclone` / `rsync`:
+对于 `rclone` / `rsync`：
 
 ```bash
 rsync -avz --delete \
@@ -214,12 +214,12 @@ rsync -avz --delete \
   dist/ user@server:/var/www/your-app/
 ```
 
-##### A note on Cloudflare cache
+##### 关于 Cloudflare 缓存的说明
 
-Cloudflare's default Browser Cache TTL is 4 hours. If you push a new release and want users to see it immediately, [purge the affected paths](https://developers.cloudflare.com/cache/how-to/purge-cache/) from the Cloudflare dashboard or API. Otherwise, users on cached pages will see your old CSS / JS for up to four hours.
+Cloudflare 的默认浏览器缓存 TTL 为 4 小时。如果你发布了新版本并希望用户立即看到，请从 Cloudflare 仪表板或 API [清除受影响的路径](https://developers.cloudflare.com/cache/how-to/purge-cache/)。否则，访问缓存页面的用户将在最多四小时内看到旧的 CSS/JS。
 
-##### Where to next
+##### 接下来去哪里
 
-- [Customization](customization.html) — change colours, sidebar width, breakpoints before you deploy
-- [Recommended Integrations](integrations.html) — pick lightweight libraries for the things AdminLTE doesn't bundle
-- [Accessibility](javascript/accessibility.html) — make sure your deployed pages keep their a11y guarantees
+- [定制](customization.html)——在部署前更改颜色、侧边栏宽度、breakpoint
+- [推荐集成](integrations.html)——为 AdminLTE 未打包的功能选择轻量级库
+- [无障碍访问](javascript/accessibility.html)——确保你部署的页面保持其无障碍访问

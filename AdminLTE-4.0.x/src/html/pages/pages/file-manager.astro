@@ -5,7 +5,7 @@ import Topbar from "@components/dashboard/_topbar.astro"
 import Sidenav from "@components/dashboard/_sidenav.astro"
 import Scripts from "@components/_scripts.astro"
 
-const title = "AdminLTE 4 | File Manager"
+const title = "AdminLTE 4 | 文件管理"
 const path = "../../../dist"
 const mainPage = "pages"
 const page = "file-manager";
@@ -20,23 +20,23 @@ type FolderTree = {
 
 const tree: FolderTree[] = [
   {
-    name: "My Drive",
+    name: "我的空间",
     icon: "house",
     open: true,
     count: 24,
     children: [
-      { name: "Documents", icon: "folder", count: 12 },
-      { name: "Design", icon: "folder", count: 8, open: true, children: [
-        { name: "v2.4 candidates", icon: "folder", count: 4 },
-        { name: "Archive", icon: "folder", count: 28 }
+      { name: "文档", icon: "folder", count: 12 },
+      { name: "设计", icon: "folder", count: 8, open: true, children: [
+        { name: "v2.4 候选", icon: "folder", count: 4 },
+        { name: "存档", icon: "folder", count: 28 }
       ] },
-      { name: "Invoices", icon: "folder", count: 41 }
+      { name: "发票", icon: "folder", count: 41 }
     ]
   },
-  { name: "Shared with me", icon: "people", count: 9 },
-  { name: "Starred", icon: "star", count: 6 },
-  { name: "Recent", icon: "clock-history" },
-  { name: "Trash", icon: "trash", count: 3 }
+  { name: "分享给我的", icon: "people", count: 9 },
+  { name: "标星", icon: "star", count: 6 },
+  { name: "最近", icon: "clock-history" },
+  { name: "回收站", icon: "trash", count: 3 }
 ];
 
 type FileItem = {
@@ -48,15 +48,15 @@ type FileItem = {
 };
 
 const items: FileItem[] = [
-  { name: "Customer interviews", type: "folder", size: "—", modified: "Today" },
-  { name: "Q2 planning", type: "folder", size: "—", modified: "Yesterday", shared: true },
-  { name: "design-review.pdf", type: "pdf", size: "1.4 MB", modified: "10:42 AM" },
-  { name: "focus-ring-dark.png", type: "image", size: "320 KB", modified: "10:38 AM" },
-  { name: "INV-2026-00428.pdf", type: "pdf", size: "184 KB", modified: "Yesterday" },
-  { name: "roadmap.docx", type: "doc", size: "47 KB", modified: "Yesterday", shared: true },
-  { name: "analytics-may.xlsx", type: "sheet", size: "92 KB", modified: "May 16" },
-  { name: "site-export-2026-05.zip", type: "zip", size: "12.3 MB", modified: "May 14" },
-  { name: "main.tsx", type: "code", size: "8 KB", modified: "May 12" }
+  { name: "客户访谈", type: "folder", size: "—", modified: "今天" },
+  { name: "Q2 规划", type: "folder", size: "—", modified: "昨天", shared: true },
+  { name: "设计审查.pdf", type: "pdf", size: "1.4 MB", modified: "10:42" },
+  { name: "黑色焦点环.png", type: "image", size: "320 KB", modified: "10:38" },
+  { name: "INV-2026-00428.pdf", type: "pdf", size: "184 KB", modified: "昨天" },
+  { name: "roadmap.docx", type: "doc", size: "47 KB", modified: "昨天", shared: true },
+  { name: "analytics-may.xlsx", type: "sheet", size: "92 KB", modified: "5月16日" },
+  { name: "site-export-2026-05.zip", type: "zip", size: "12.3 MB", modified: "5月14日" },
+  { name: "main.tsx", type: "code", size: "8 KB", modified: "5月12日" }
 ];
 
 const iconFor: Record<FileItem["type"], { icon: string; color: string }> = {
@@ -73,7 +73,7 @@ const renderTree = (nodes: FolderTree[]) => nodes;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <Head title={title} path={path} />
   </head>
@@ -86,12 +86,12 @@ const renderTree = (nodes: FolderTree[]) => nodes;
           <div class="container-fluid">
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">File Manager</h3>
+                <h3 class="mb-0">文件管理</h3>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Files</li>
+                  <li class="breadcrumb-item"><a href="#">首页</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">文件管理</li>
                 </ol>
               </div>
             </div>
@@ -105,11 +105,11 @@ const renderTree = (nodes: FolderTree[]) => nodes;
                 <div class="d-grid gap-2 mb-3">
                   <button class="btn btn-primary" type="button">
                     <i class="bi bi-cloud-upload me-1" aria-hidden="true"></i>
-                    Upload files
+                    上传文件
                   </button>
                   <button class="btn btn-outline-secondary" type="button">
                     <i class="bi bi-folder-plus me-1" aria-hidden="true"></i>
-                    New folder
+                    创建文件夹
                   </button>
                 </div>
                 <div class="card">
@@ -183,7 +183,7 @@ const renderTree = (nodes: FolderTree[]) => nodes;
                   <div class="card-body">
                     <p class="fw-semibold mb-2 small">
                       <i class="bi bi-cloud me-1" aria-hidden="true"></i>
-                      Storage
+                      存储
                     </p>
                     <div class="progress mb-2" style="height: 8px;">
                       <div
@@ -196,7 +196,7 @@ const renderTree = (nodes: FolderTree[]) => nodes;
                       />
                     </div>
                     <small class="text-secondary">
-                      6.2 GB of 10 GB used
+                      已用 6.2 GB，共 10 GB
                     </small>
                   </div>
                 </div>
@@ -214,10 +214,10 @@ const renderTree = (nodes: FolderTree[]) => nodes;
                           </a>
                         </li>
                         <li class="breadcrumb-item">
-                          <a href="#">My Drive</a>
+                          <a href="#">我的空间</a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">
-                          Design
+                          设计
                         </li>
                       </ol>
                     </nav>
@@ -228,14 +228,14 @@ const renderTree = (nodes: FolderTree[]) => nodes;
                       <input
                         type="search"
                         class="form-control"
-                        placeholder="Search files&hellip;"
-                        aria-label="Search files"
+                        placeholder="搜索文件&hellip;"
+                        aria-label="搜索文件"
                       />
                     </div>
                     <div
                       class="btn-group btn-group-sm"
                       role="group"
-                      aria-label="View"
+                      aria-label="查看"
                     >
                       <input
                         type="radio"
@@ -279,7 +279,7 @@ const renderTree = (nodes: FolderTree[]) => nodes;
                                       class="bi bi-people-fill me-1"
                                       aria-hidden="true"
                                     />
-                                    Shared
+                                    共享
                                   </span>
                                 )}
                                 <div class="card-body d-flex flex-column justify-content-center pb-2">
@@ -300,7 +300,7 @@ const renderTree = (nodes: FolderTree[]) => nodes;
                                             class="bi bi-folder me-1"
                                             aria-hidden="true"
                                           />
-                                          Folder
+                                          文件夹
                                         </> :
                                         it.size}
                                     </span>
@@ -324,10 +324,10 @@ const renderTree = (nodes: FolderTree[]) => nodes;
                         <table class="table align-middle mb-0">
                           <thead>
                             <tr>
-                              <th>Name</th>
-                              <th>Size</th>
-                              <th>Modified</th>
-                              <th class="text-end">Actions</th>
+                              <th>文件名</th>
+                              <th>大小</th>
+                              <th>修改时间</th>
+                              <th class="text-end">操作</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -344,7 +344,7 @@ const renderTree = (nodes: FolderTree[]) => nodes;
                                       {it.name}
                                       {it.shared && (
                                         <span class="badge text-bg-info ms-2">
-                                          Shared
+                                          共享
                                         </span>
                                       )}
                                     </td>
@@ -355,7 +355,7 @@ const renderTree = (nodes: FolderTree[]) => nodes;
                                         <button
                                           class="btn btn-outline-secondary"
                                           type="button"
-                                          title="Download"
+                                          title="下载"
                                         >
                                           <i
                                             class="bi bi-download"
@@ -365,7 +365,7 @@ const renderTree = (nodes: FolderTree[]) => nodes;
                                         <button
                                           class="btn btn-outline-secondary"
                                           type="button"
-                                          title="Share"
+                                          title="共享"
                                         >
                                           <i
                                             class="bi bi-share"
@@ -375,7 +375,7 @@ const renderTree = (nodes: FolderTree[]) => nodes;
                                         <button
                                           class="btn btn-outline-danger"
                                           type="button"
-                                          title="Delete"
+                                          title="删除"
                                         >
                                           <i
                                             class="bi bi-trash"
@@ -394,7 +394,7 @@ const renderTree = (nodes: FolderTree[]) => nodes;
                     </div>
                   </div>
                   <div class="card-footer text-secondary small">
-                    {items.length} items
+                    {items.length} 项目
                   </div>
                 </div>
               </div>

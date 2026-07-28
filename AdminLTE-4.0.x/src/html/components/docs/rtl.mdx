@@ -1,17 +1,17 @@
-AdminLTE ships an RTL (right-to-left) stylesheet alongside the standard LTR one, generated from the same source via [`rtlcss`](https://rtlcss.com/). Use it for Arabic, Hebrew, Persian, Urdu, and any other right-to-left scripts.
+AdminLTE 在标准的 LTR（从左到右）样式表之外，还附带了一个 RTL（从右到左）样式表，通过 [`rtlcss`](https://rtlcss.com/) 从同一源码生成。用于阿拉伯语、希伯来语、波斯语、乌尔都语以及任何其他从右到左书写的语言。
 
-##### The pre-built RTL stylesheet
+##### 预构建的 RTL 样式表
 
-Every release publishes RTL variants of every CSS file:
+每个版本都会发布所有 CSS 文件的 RTL 变体：
 
 ```text
-dist/css/adminlte.css           ← LTR (default)
+dist/css/adminlte.css           ← LTR (默认)
 dist/css/adminlte.rtl.css       ← RTL
 dist/css/adminlte.min.css
 dist/css/adminlte.rtl.min.css
 ```
 
-To switch a page to RTL, swap the stylesheet and set `dir="rtl"` on the `<html>` element:
+要将页面切换为 RTL，请替换样式表并在 `<html>` 元素上设置 `dir="rtl"`：
 
 ```html
 <html lang="ar" dir="rtl">
@@ -19,74 +19,74 @@ To switch a page to RTL, swap the stylesheet and set `dir="rtl"` on the `<html>`
     <link rel="stylesheet" href="dist/css/adminlte.rtl.min.css" />
   </head>
   <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
-    <!-- ...same markup as LTR -->
+    <!-- ...与 LTR 相同的标记 -->
   </body>
 </html>
 ```
 
-That's it — the sidebar now docks to the right, scroll bars flip, padding/margin utilities mirror, and Bootstrap Icons stay LTR-safe (most icons aren't directional). For a live example, see [`layout/layout-rtl.html`](../layout/layout-rtl.html).
+就这么简单——侧边栏现在靠右停靠，滚动条翻转，内边距/外边距工具类镜像，Bootstrap Icons 保持 LTR 安全（大多数图标没有方向性）。使用示例，请参见 [`layout/layout-rtl.html`](../layout/layout-rtl.html)。
 
-##### Bootstrap's `dir="rtl"` attribute
+##### Bootstrap 的 `dir="rtl"` 属性
 
-Setting `dir="rtl"` triggers Bootstrap 5.3's logical property pathway as well — `.ms-*` becomes right-margin instead of left, `.float-start` floats right, etc. You don't need separate Bootstrap classes for RTL; the same utility names work in both directions.
+设置 `dir="rtl"` 也会触发 Bootstrap 5.3 的逻辑属性路径——`.ms-*` 变为右边距而非左边距，`.float-start` 变为右浮动等等。您不需要为 RTL 单独使用不同的 Bootstrap 类；相同的工具类名称在两种方向下都有效。
 
-##### When you have a mixed-language UI
+##### 当您有混合语言 UI 时
 
-If your app shows RTL content on an otherwise-LTR page (eg. an Arabic text block inside an English admin panel), you can scope `dir="rtl"` to a single element:
+如果您的应用在 LTR 页面中显示 RTL 内容（例如英文管理面板中的阿拉伯语文本块），您可以将 `dir="rtl"` 限定在单个元素上：
 
 ```html
 <body>
-  <!-- LTR app shell -->
+  <!-- LTR 应用外壳 -->
   <main dir="rtl" lang="ar">
-    <!-- this block only is RTL -->
+    <!-- 此区块仅支持从右到左（RTL） -->
   </main>
 </body>
 ```
 
-Bootstrap and AdminLTE handle nested direction switches correctly — the inner element's direction is what counts.
+Bootstrap 和 AdminLTE 能正确处理嵌套的方向切换——内部元素的方向优先。
 
-##### Building RTL yourself
+##### 自行构建 RTL
 
-If you're building AdminLTE from source and you've modified the SCSS, regenerate the RTL CSS:
+如果您从源码构建 AdminLTE 并修改了 SCSS，请重新生成 RTL CSS：
 
 ```bash
-npm run css-compile     # builds LTR
-npm run css-prefix      # adds autoprefixer
-npm run css-rtl         # generates *.rtl.css from the LTR output
+npm run css-compile     # 构建 LTR
+npm run css-prefix      # 添加自动添加浏览器前缀
+npm run css-rtl         # 从 LTR 输出生成 *.rtl.css 文件
 npm run css-minify
 ```
 
-The full pipeline is wired into `npm run css`, so most of the time you just run that.
+完整流程已集成到 `npm run css` 中，因此大多数情况下您只需运行该命令即可。
 
-The conversion is handled by [`postcss`](https://postcss.org/) running [`rtlcss`](https://rtlcss.com/) — both are already in devDependencies. If you need to opt-out a specific rule from the LTR-to-RTL flip, use rtlcss control directives in your SCSS:
+转换由运行 [`rtlcss`](https://rtlcss.com/) 的 [`postcss`](https://postcss.org/) 处理——两者都已在 devDependencies 中。如果您需要让某个特定规则不参与 LTR 到 RTL 的翻转，请在 SCSS 中使用 rtlcss 控制指令：
 
 ```scss
 .brand-link {
   /*rtl:ignore*/
-  margin-left: .5rem;   // stays left-margin in both LTR and RTL
+  margin-left: .5rem;   // 在左对齐和右对齐中都保持左缩进
 }
 ```
 
-##### What flips automatically
+##### 自动翻转的内容
 
-| Direction-aware property | Behaviour in RTL |
+| 方向感知属性 | RTL 中的行为 |
 |---|---|
-| `margin-left` / `padding-left` | Swapped to right |
-| `left`, `right` positioning | Swapped |
-| `text-align: left` / `right` | Swapped |
-| Bootstrap `.ms-*`, `.me-*`, `.float-start`, `.float-end` | Mirror via Bootstrap's logical properties |
-| `transform: translateX()` | Sign inverted |
-| Sidebar position | Docks to the right |
-| Dropdown menu open direction | Flips automatically (Bootstrap handles this) |
+| `margin-left` / `padding-left` | 交换为右侧 |
+| `left`, `right` positioning | 交换 |
+| `text-align: left` / `right` | 交换 |
+| Bootstrap `.ms-*`、`.me-*`、`.float-start`、`.float-end` | 通过 Bootstrap 的逻辑属性镜像 |
+| `transform: translateX()` | 符号反转 |
+| 侧边栏位置 | 靠右停靠 |
+| 下拉菜单展开方向 | 自动翻转（由 Bootstrap 处理） |
 
-##### What doesn't flip
+##### 不翻转的内容
 
-- Bootstrap Icons (SVG glyphs) — most icons are direction-neutral; arrows that *do* indicate direction (`bi-arrow-right`, `bi-chevron-right`, etc.) need to be manually swapped to their `-left` siblings.
-- Inline images, charts, and third-party widgets — their internal layout doesn't react to `dir`. Check each integration (ApexCharts, FullCalendar, Tabulator) for an RTL option.
-- Numbers — digits stay LTR even in RTL contexts (this is standard Unicode bidi behaviour, not a bug).
+- Bootstrap Icons（SVG 字形）——大多数图标是方向中性的；确实指示方向的箭头（`bi-arrow-right`、`bi-chevron-right` 等）需要手动替换为对应的 `-left` 版本。
+- 内联图片、图表和第三方小部件——它们的内部布局不会对 `dir` 做出响应。请检查每个集成（ApexCharts、FullCalendar、Tabulator）是否有 RTL 选项。
+- 数字——即使在 RTL 上下文中，数字仍然保持 LTR（这是标准的 Unicode 双向文本行为，不是 Bug）。
 
-##### Common gotchas
+##### 常见问题
 
-- **The `.min.css` minified RTL build is `.rtl.min.css`, not `.min.rtl.css`.** Filename order matters; the build script emits the former.
-- **Don't mix LTR and RTL stylesheets on the same page** — pick one. If you need a mixed-direction app, use `dir="rtl"` on the relevant subtree, not a separate stylesheet.
-- **Icon mirroring**: when you swap an icon for RTL, also update its `aria-label` if it indicates direction (eg. "Next page" should still say "Next page" — only the glyph rotates).
+- **压缩后的 RTL 构建文件是 `.rtl.min.css`，而不是 `.min.rtl.css`。** 文件名顺序很重要；构建脚本生成的是前者。
+- **不要在同一页面上混合使用 LTR 和 RTL 样式表** —— 选择其一。如果您需要混合方向的应用，请在相关的子树上使用 `dir="rtl"`，而不是使用单独的样式表。
+- **图标镜像**：当您为 RTL 替换图标时，如果它指示方向，也要更新其 `aria-label`（例如 "Next page" 仍应显示为 "Next page" —— 只有字形发生变化）。
