@@ -13,14 +13,14 @@ const page = "pushmenu";
 ---
 
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
   <!--begin::Head-->
   <head>
     <Head title={title} path={path} />
   </head>
   <!--end::Head-->
   <!--begin::Body-->
-  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary docs-page">
     <!--begin::App Wrapper-->
     <div class="app-wrapper">
       <Topbar path={path} />
@@ -38,7 +38,7 @@ const page = "pushmenu";
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">文档</a></li>
+                  <li class="breadcrumb-item"><a href="#">Docs</a></li>
                   <li class="breadcrumb-item active" aria-current="page">
                     Pushmenu Plugin
                   </li>
@@ -54,7 +54,15 @@ const page = "pushmenu";
         <div class="app-content">
           <!--begin::Container-->
           <div class="container-fluid">
-            <Pushmenu />
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <Pushmenu />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <!--end::Container-->
         </div>

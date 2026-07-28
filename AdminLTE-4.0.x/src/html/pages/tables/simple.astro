@@ -5,14 +5,14 @@ import Topbar from "@components/dashboard/_topbar.astro"
 import Sidenav from "@components/dashboard/_sidenav.astro"
 import Scripts from "@components/_scripts.astro"
 
-const title = "AdminLTE 4 | 简单的表格"
+const title = "AdminLTE 4 | Simple Tables"
 const path = "../../../dist"
 const mainPage = "tables"
 const page = "simple";
 ---
 
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
   <!--begin::Head-->
   <head>
     <Head title={title} path={path} />
@@ -33,13 +33,13 @@ const page = "simple";
             <!--begin::Row-->
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">简单的表格</h3>
+                <h3 class="mb-0">Simple Tables</h3>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">首页</a></li>
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
                   <li class="breadcrumb-item active" aria-current="page">
-                    简单的表格
+                    Simple Tables
                   </li>
                 </ol>
               </div>
@@ -58,7 +58,7 @@ const page = "simple";
               <div class="col-md-6">
                 <div class="card mb-4">
                   <div class="card-header">
-                    <h3 class="card-title">有边框</h3>
+                    <h3 class="card-title">Bordered Table</h3>
                   </div>
                   <!-- /.card-header -->
                   <div class="card-body">
@@ -66,15 +66,15 @@ const page = "simple";
                       <thead>
                         <tr>
                           <th style="width: 10px">#</th>
-                          <th>任务</th>
-                          <th>进度</th>
-                          <th style="width: 40px">标识</th>
+                          <th>Task</th>
+                          <th>Progress</th>
+                          <th style="width: 40px">Label</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr class="align-middle">
                           <td>1.</td>
-                          <td>更新软件</td>
+                          <td>Update software</td>
                           <td>
                             <div class="progress progress-xs">
                               <div
@@ -88,7 +88,7 @@ const page = "simple";
                         </tr>
                         <tr class="align-middle">
                           <td>2.</td>
-                          <td>清理数据库</td>
+                          <td>Clean database</td>
                           <td>
                             <div class="progress progress-xs">
                               <div
@@ -104,7 +104,7 @@ const page = "simple";
                         </tr>
                         <tr class="align-middle">
                           <td>3.</td>
-                          <td>计划任务运行中</td>
+                          <td>Cron job running</td>
                           <td>
                             <div
                               class="progress progress-xs progress-striped active"
@@ -122,7 +122,7 @@ const page = "simple";
                         </tr>
                         <tr class="align-middle">
                           <td>4.</td>
-                          <td>修复 BUG</td>
+                          <td>Fix and squish bugs</td>
                           <td>
                             <div
                               class="progress progress-xs progress-striped active"
@@ -166,7 +166,7 @@ const page = "simple";
 
                 <div class="card mb-4">
                   <div class="card-header">
-                    <h3 class="card-title">紧凑的表格</h3>
+                    <h3 class="card-title">Condensed Full Width Table</h3>
                   </div>
                   <!-- /.card-header -->
                   <div class="card-body p-0">
@@ -174,15 +174,15 @@ const page = "simple";
                       <thead>
                         <tr>
                           <th style="width: 10px">#</th>
-                          <th>任务</th>
-                          <th>进度</th>
-                          <th style="width: 40px">标识</th>
+                          <th>Task</th>
+                          <th>Progress</th>
+                          <th style="width: 40px">Label</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr class="align-middle">
                           <td>1.</td>
-                          <td>更新软件</td>
+                          <td>Update software</td>
                           <td>
                             <div class="progress progress-xs">
                               <div
@@ -196,7 +196,7 @@ const page = "simple";
                         </tr>
                         <tr class="align-middle">
                           <td>2.</td>
-                          <td>清理数据库</td>
+                          <td>Clean database</td>
                           <td>
                             <div class="progress progress-xs">
                               <div
@@ -212,7 +212,7 @@ const page = "simple";
                         </tr>
                         <tr class="align-middle">
                           <td>3.</td>
-                          <td>计划任务运行中</td>
+                          <td>Cron job running</td>
                           <td>
                             <div
                               class="progress progress-xs progress-striped active"
@@ -230,7 +230,7 @@ const page = "simple";
                         </tr>
                         <tr class="align-middle">
                           <td>4.</td>
-                          <td>修复 BUG</td>
+                          <td>Fix and squish bugs</td>
                           <td>
                             <div
                               class="progress progress-xs progress-striped active"
@@ -257,7 +257,7 @@ const page = "simple";
               <div class="col-md-6">
                 <div class="card mb-4">
                   <div class="card-header">
-                    <h3 class="card-title">全宽表格</h3>
+                    <h3 class="card-title">Simple Full Width Table</h3>
 
                     <div class="card-tools">
                       <ul class="pagination pagination-sm float-end">
@@ -285,15 +285,15 @@ const page = "simple";
                       <thead>
                         <tr>
                           <th style="width: 10px">#</th>
-                          <th>任务</th>
-                          <th>进度</th>
-                          <th style="width: 40px">标识</th>
+                          <th>Task</th>
+                          <th>Progress</th>
+                          <th style="width: 40px">Label</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr class="align-middle">
                           <td>1.</td>
-                          <td>更新软件</td>
+                          <td>Update software</td>
                           <td>
                             <div class="progress progress-xs">
                               <div
@@ -307,7 +307,7 @@ const page = "simple";
                         </tr>
                         <tr class="align-middle">
                           <td>2.</td>
-                          <td>清理数据库</td>
+                          <td>Clean database</td>
                           <td>
                             <div class="progress progress-xs">
                               <div
@@ -323,7 +323,7 @@ const page = "simple";
                         </tr>
                         <tr class="align-middle">
                           <td>3.</td>
-                          <td>计划任务运行中</td>
+                          <td>Cron job running</td>
                           <td>
                             <div
                               class="progress progress-xs progress-striped active"
@@ -341,7 +341,7 @@ const page = "simple";
                         </tr>
                         <tr class="align-middle">
                           <td>4.</td>
-                          <td>修复 BUG</td>
+                          <td>Fix and squish bugs</td>
                           <td>
                             <div
                               class="progress progress-xs progress-striped active"
@@ -366,7 +366,7 @@ const page = "simple";
 
                 <div class="card mb-4">
                   <div class="card-header">
-                    <h3 class="card-title">隔行换色</h3>
+                    <h3 class="card-title">Striped Full Width Table</h3>
                   </div>
                   <!-- /.card-header -->
                   <div class="card-body p-0">
@@ -374,15 +374,15 @@ const page = "simple";
                       <thead>
                         <tr>
                           <th style="width: 10px">#</th>
-                          <th>任务</th>
-                          <th>进度</th>
-                          <th style="width: 40px">标识</th>
+                          <th>Task</th>
+                          <th>Progress</th>
+                          <th style="width: 40px">Label</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr class="align-middle">
                           <td>1.</td>
-                          <td>更新软件</td>
+                          <td>Update software</td>
                           <td>
                             <div class="progress progress-xs">
                               <div
@@ -396,7 +396,7 @@ const page = "simple";
                         </tr>
                         <tr class="align-middle">
                           <td>2.</td>
-                          <td>清理数据库</td>
+                          <td>Clean database</td>
                           <td>
                             <div class="progress progress-xs">
                               <div
@@ -412,7 +412,7 @@ const page = "simple";
                         </tr>
                         <tr class="align-middle">
                           <td>3.</td>
-                          <td>计划任务运行中</td>
+                          <td>Cron job running</td>
                           <td>
                             <div
                               class="progress progress-xs progress-striped active"
@@ -430,7 +430,7 @@ const page = "simple";
                         </tr>
                         <tr class="align-middle">
                           <td>4.</td>
-                          <td>修复 BUG</td>
+                          <td>Fix and squish bugs</td>
                           <td>
                             <div
                               class="progress progress-xs progress-striped active"

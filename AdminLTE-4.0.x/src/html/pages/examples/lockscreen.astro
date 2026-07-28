@@ -2,7 +2,7 @@
 import Head from "@components/_head.astro"
 import Scripts from "@components/_scripts.astro"
 
-const title = "AdminLTE 4 | 锁屏"
+const title = "AdminLTE 4 | Lockscreen"
 const path = "../../../dist"
 const htmlPath = ".."
 const year = new Date().getFullYear();
@@ -15,7 +15,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
 ---
 
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
   <!--begin::Head-->
   <head>
     <Head title={title} path={path} />
@@ -32,15 +32,15 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
 
       <div class="lockscreen-item">
         <div class="lockscreen-image">
-          <img src={deploymentPath + "assets/img/user1-128x128.jpg"} alt="用户头像" />
+          <img src={deploymentPath + "assets/img/user1-128x128.jpg"} alt="User Image" />
         </div>
 
         <form class="lockscreen-credentials">
           <div class="input-group">
             <input
-              type="密码"
+              type="password"
               class="form-control shadow-none"
-              placeholder="密码"
+              placeholder="password"
             />
             <div class="input-group-text border-0 bg-transparent px-1">
               <button type="button" class="btn shadow-none">
@@ -52,15 +52,15 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
       </div>
 
       <div class="help-block text-center">
-        输入密码以恢复会话
+        Enter your password to retrieve your session
       </div>
       <div class="text-center">
-        <a href="login.html" class="text-decoration-none">或以其他用户登录</a>
+        <a href="login.html" class="text-decoration-none">Or sign in as a different user</a>
       </div>
       <div class="lockscreen-footer text-center">
         Copyright © 2014-{year} &nbsp;
         <b><a href="https://adminlte.io" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">AdminLTE.io</a></b> <br />
-        保留所有权利
+        All rights reserved
       </div>
     </div>
 

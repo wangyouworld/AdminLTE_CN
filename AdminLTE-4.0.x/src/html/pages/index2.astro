@@ -5,7 +5,7 @@ import Topbar from "@components/dashboard/_topbar.astro"
 import Sidenav from "@components/dashboard/_sidenav.astro"
 import Scripts from "@components/_scripts.astro"
 
-const title = "AdminLTE | 仪表盘 v2"
+const title = "AdminLTE | Dashboard v2"
 const path = "../../dist"
 const mainPage = "dashboard"
 const page = "index2";
@@ -18,7 +18,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
 ---
 
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <!--begin::Head-->
   <head>
     <Head title={title} path={path} />
@@ -26,7 +26,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
     <!-- apexcharts -->
     <link
       rel="stylesheet"
-      href={deploymentPath + "assets/apexcharts/apexcharts.css"}
+      href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css"
       integrity="sha256-4MX+61mt9NVvvuPjUWdUdyfZfxSB1/Rf9WtqRHgG5S0="
       crossorigin="anonymous"
     />
@@ -46,13 +46,13 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             <!--begin::Row-->
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">仪表盘 v2</h3>
+                <h3 class="mb-0">Dashboard v2</h3>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">首页</a></li>
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
                   <li class="breadcrumb-item active" aria-current="page">
-                    仪表盘 v2
+                    Dashboard v2
                   </li>
                 </ol>
               </div>
@@ -73,7 +73,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                   </span>
 
                   <div class="info-box-content">
-                    <span class="info-box-text">CPU 负载</span>
+                    <span class="info-box-text">CPU Traffic</span>
                     <span class="info-box-number">
                       10
                       <small>%</small>
@@ -91,7 +91,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                   </span>
 
                   <div class="info-box-content">
-                    <span class="info-box-text">喜欢</span>
+                    <span class="info-box-text">Likes</span>
                     <span class="info-box-number">41,410</span>
                   </div>
                   <!-- /.info-box-content -->
@@ -110,7 +110,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                   </span>
 
                   <div class="info-box-content">
-                    <span class="info-box-text">销量</span>
+                    <span class="info-box-text">Sales</span>
                     <span class="info-box-number">760</span>
                   </div>
                   <!-- /.info-box-content -->
@@ -125,7 +125,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                   </span>
 
                   <div class="info-box-content">
-                    <span class="info-box-text">新成员</span>
+                    <span class="info-box-text">New Members</span>
                     <span class="info-box-number">2,000</span>
                   </div>
                   <!-- /.info-box-content -->
@@ -141,7 +141,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
               <div class="col-md-12">
                 <div class="card mb-4">
                   <div class="card-header">
-                    <h5 class="card-title">月报</h5>
+                    <h5 class="card-title">Monthly Recap Report</h5>
 
                     <div class="card-tools">
                       <button
@@ -164,13 +164,13 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                           class="dropdown-menu dropdown-menu-end"
                           role="menu"
                         >
-                          <a href="#" class="dropdown-item">操作</a>
-                          <a href="#" class="dropdown-item">另一个操作</a>
+                          <a href="#" class="dropdown-item">Action</a>
+                          <a href="#" class="dropdown-item">Another action</a>
                           <a href="#" class="dropdown-item">
-                            其他
+                            Something else here
                           </a>
                           <a class="dropdown-divider"></a>
-                          <a href="#" class="dropdown-item">分隔符</a>
+                          <a href="#" class="dropdown-item">Separated link</a>
                         </div>
                       </div>
                       <button
@@ -188,7 +188,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                     <div class="row">
                       <div class="col-md-8">
                         <p class="text-center">
-                          <strong>销量: 2023年1月1日 - 2023年7月30日</strong>
+                          <strong>Sales: 1 Jan, 2023 - 30 Jul, 2023</strong>
                         </p>
 
                         <div id="sales-chart"></div>
@@ -196,11 +196,11 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                       <!-- /.col -->
                       <div class="col-md-4">
                         <p class="text-center">
-                          <strong>完成目标</strong>
+                          <strong>Goal Completion</strong>
                         </p>
 
                         <div class="progress-group">
-                          添加购物车
+                          Add Products to Cart
                           <span class="float-end"><b>160</b>/200</span>
                           <div class="progress progress-sm">
                             <div
@@ -213,7 +213,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         <!-- /.progress-group -->
 
                         <div class="progress-group">
-                          完成购买
+                          Complete Purchase
                           <span class="float-end"><b>310</b>/400</span>
                           <div class="progress progress-sm">
                             <div
@@ -226,7 +226,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
 
                         <!-- /.progress-group -->
                         <div class="progress-group">
-                          <span class="progress-text">访问高级页面</span>
+                          <span class="progress-text">Visit Premium Page</span>
                           <span class="float-end"><b>480</b>/800</span>
                           <div class="progress progress-sm">
                             <div
@@ -239,7 +239,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
 
                         <!-- /.progress-group -->
                         <div class="progress-group">
-                          发送咨询
+                          Send Inquiries
                           <span class="float-end"><b>250</b>/500</span>
                           <div class="progress progress-sm">
                             <div
@@ -265,7 +265,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             <i class="bi bi-caret-up-fill"></i> 17%
                           </span>
                           <h5 class="fw-bold mb-0">$35,210.43</h5>
-                          <span class="text-uppercase">总收入</span>
+                          <span class="text-uppercase">TOTAL REVENUE</span>
                         </div>
                       </div>
 
@@ -276,7 +276,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             <i class="bi bi-caret-left-fill"></i> 0%
                           </span>
                           <h5 class="fw-bold mb-0">$10,390.90</h5>
-                          <span class="text-uppercase">总费用</span>
+                          <span class="text-uppercase">TOTAL COST</span>
                         </div>
                       </div>
                       <!-- /.col -->
@@ -286,7 +286,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             <i class="bi bi-caret-up-fill"></i> 20%
                           </span>
                           <h5 class="fw-bold mb-0">$24,813.53</h5>
-                          <span class="text-uppercase">利润总额</span>
+                          <span class="text-uppercase">TOTAL PROFIT</span>
                         </div>
                       </div>
                       <!-- /.col -->
@@ -296,7 +296,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             <i class="bi bi-caret-down-fill"></i> 18%
                           </span>
                           <h5 class="fw-bold mb-0">1200</h5>
-                          <span class="text-uppercase">完成目标</span>
+                          <span class="text-uppercase">GOAL COMPLETIONS</span>
                         </div>
                       </div>
                     </div>
@@ -317,14 +317,14 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 <!--begin::Row-->
                 <div class="row g-4 mb-4">
                   <div class="col-md-6">
-                    <!-- 聊天 -->
+                    <!-- DIRECT CHAT -->
                     <div class="card direct-chat direct-chat-warning">
                       <div class="card-header">
-                        <h3 class="card-title">聊天</h3>
+                        <h3 class="card-title">Direct Chat</h3>
 
                         <div class="card-tools">
                           <span
-                            title="3 条新消息"
+                            title="3 New Messages"
                             class="badge text-bg-warning"
                           >
                             3
@@ -341,7 +341,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                           <button
                             type="button"
                             class="btn btn-tool"
-                            title="联系人"
+                            title="Contacts"
                             data-lte-toggle="chat-pane"
                           >
                             <i class="bi bi-chat-text-fill"></i>
@@ -366,19 +366,19 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                                 Alexander Pierce
                               </span>
                               <span class="direct-chat-timestamp float-end">
-                                1月23日 下午 2:00
+                                23 Jan 2:00 pm
                               </span>
                             </div>
                             <!-- /.direct-chat-infos -->
                             <img
                               class="direct-chat-img"
                               src={deploymentPath + "assets/img/user1-128x128.jpg"}
-                              alt="用户头像"
+                              alt="message user image"
                             />
                             <!-- /.direct-chat-img -->
                             <div class="direct-chat-text">
-                              这个模板真的是免费的吗？
-                              太不可思议了！
+                              Is this template really for free? That's
+                              unbelievable!
                             </div>
                             <!-- /.direct-chat-text -->
                           </div>
@@ -391,18 +391,18 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                                 Sarah Bullock
                               </span>
                               <span class="direct-chat-timestamp float-start">
-                                1月23日 下午2:05
+                                23 Jan 2:05 pm
                               </span>
                             </div>
                             <!-- /.direct-chat-infos -->
                             <img
                               class="direct-chat-img"
                               src={deploymentPath + "assets/img/user3-128x128.jpg"}
-                              alt="用户头像"
+                              alt="message user image"
                             />
                             <!-- /.direct-chat-img -->
                             <div class="direct-chat-text">
-                              是的，确实如此！
+                              You better believe it!
                             </div>
                             <!-- /.direct-chat-text -->
                           </div>
@@ -415,19 +415,19 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                                 Alexander Pierce
                               </span>
                               <span class="direct-chat-timestamp float-end">
-                                1月23日 下午5:37
+                                23 Jan 5:37 pm
                               </span>
                             </div>
                             <!-- /.direct-chat-infos -->
                             <img
                               class="direct-chat-img"
                               src={deploymentPath + "assets/img/user1-128x128.jpg"}
-                              alt="用户头像"
+                              alt="message user image"
                             />
                             <!-- /.direct-chat-img -->
                             <div class="direct-chat-text">
-                              使用 AdminLTE 开发强大的应用！
-                              想加入吗？
+                              Working with AdminLTE on a great new app! Wanna
+                              join?
                             </div>
                             <!-- /.direct-chat-text -->
                           </div>
@@ -440,17 +440,17 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                                 Sarah Bullock
                               </span>
                               <span class="direct-chat-timestamp float-start">
-                                1月23日 下午6:10
+                                23 Jan 6:10 pm
                               </span>
                             </div>
                             <!-- /.direct-chat-infos -->
                             <img
                               class="direct-chat-img"
                               src={deploymentPath + "assets/img/user3-128x128.jpg"}
-                              alt="用户头像"
+                              alt="message user image"
                             />
                             <!-- /.direct-chat-img -->
-                            <div class="direct-chat-text">是的，我想。</div>
+                            <div class="direct-chat-text">I would love to.</div>
                             <!-- /.direct-chat-text -->
                           </div>
                           <!-- /.direct-chat-msg -->
@@ -465,139 +465,139 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                                 <img
                                   class="contacts-list-img"
                                   src={deploymentPath + "assets/img/user1-128x128.jpg"}
-                                  alt="用户头像"
+                                  alt="User Avatar"
                                 />
 
                                 <div class="contacts-list-info">
                                   <span class="contacts-list-name">
                                     Count Dracula
                                     <small class="contacts-list-date float-end">
-                                      2023-2-28
+                                      2/28/2023
                                     </small>
                                   </span>
                                   <span class="contacts-list-msg">
-                                    你最近怎么样？我是……
+                                    How have you been? I was...
                                   </span>
                                 </div>
                                 <!-- /.contacts-list-info -->
                               </a>
                             </li>
-                            <!-- 聊天结束 -->
+                            <!-- End Contact Item -->
                             <li>
                               <a href="#">
                                 <img
                                   class="contacts-list-img"
                                   src={deploymentPath + "assets/img/user7-128x128.jpg"}
-                                  alt="用户头像"
+                                  alt="User Avatar"
                                 />
 
                                 <div class="contacts-list-info">
                                   <span class="contacts-list-name">
                                     Sarah Doe
                                     <small class="contacts-list-date float-end">
-                                      2023-2-23
+                                      2/23/2023
                                     </small>
                                   </span>
                                   <span class="contacts-list-msg">
-                                    我会等……
+                                    I will be waiting for...
                                   </span>
                                 </div>
                                 <!-- /.contacts-list-info -->
                               </a>
                             </li>
-                            <!-- 聊天结束 -->
+                            <!-- End Contact Item -->
                             <li>
                               <a href="#">
                                 <img
                                   class="contacts-list-img"
                                   src={deploymentPath + "assets/img/user3-128x128.jpg"}
-                                  alt="用户头像"
+                                  alt="User Avatar"
                                 />
 
                                 <div class="contacts-list-info">
                                   <span class="contacts-list-name">
                                     Nadia Jolie
                                     <small class="contacts-list-date float-end">
-                                      2023-2-20
+                                      2/20/2023
                                     </small>
                                   </span>
                                   <span class="contacts-list-msg">
-                                    我会打电话给你……
+                                    I'll call you back at...
                                   </span>
                                 </div>
                                 <!-- /.contacts-list-info -->
                               </a>
                             </li>
-                            <!-- 聊天结束 -->
+                            <!-- End Contact Item -->
                             <li>
                               <a href="#">
                                 <img
                                   class="contacts-list-img"
                                   src={deploymentPath + "assets/img/user5-128x128.jpg"}
-                                  alt="用户头像"
+                                  alt="User Avatar"
                                 />
 
                                 <div class="contacts-list-info">
                                   <span class="contacts-list-name">
                                     Nora S. Vans
                                     <small class="contacts-list-date float-end">
-                                      2023-2-10
+                                      2/10/2023
                                     </small>
                                   </span>
                                   <span class="contacts-list-msg">
-                                    你的新……
+                                    Where is your new...
                                   </span>
                                 </div>
                                 <!-- /.contacts-list-info -->
                               </a>
                             </li>
-                            <!-- 聊天结束 -->
+                            <!-- End Contact Item -->
                             <li>
                               <a href="#">
                                 <img
                                   class="contacts-list-img"
                                   src={deploymentPath + "assets/img/user6-128x128.jpg"}
-                                  alt="用户头像"
+                                  alt="User Avatar"
                                 />
 
                                 <div class="contacts-list-info">
                                   <span class="contacts-list-name">
                                     John K.
                                     <small class="contacts-list-date float-end">
-                                      2023-1-27
+                                      1/27/2023
                                     </small>
                                   </span>
                                   <span class="contacts-list-msg">
-                                    我能看看……
+                                    Can I take a look at...
                                   </span>
                                 </div>
                                 <!-- /.contacts-list-info -->
                               </a>
                             </li>
-                            <!-- 聊天结束 -->
+                            <!-- End Contact Item -->
                             <li>
                               <a href="#">
                                 <img
                                   class="contacts-list-img"
                                   src={deploymentPath + "assets/img/user8-128x128.jpg"}
-                                  alt="用户头像"
+                                  alt="User Avatar"
                                 />
 
                                 <div class="contacts-list-info">
                                   <span class="contacts-list-name">
                                     Kenneth M.
                                     <small class="contacts-list-date float-end">
-                                      2023-1-4
+                                      1/4/2023
                                     </small>
                                   </span>
                                   <span class="contacts-list-msg">
-                                    没关系我发现……
+                                    Never mind I found...
                                   </span>
                                 </div>
                                 <!-- /.contacts-list-info -->
                               </a>
                             </li>
-                            <!-- 聊天结束 -->
+                            <!-- End Contact Item -->
                           </ul>
                           <!-- /.contacts-list -->
                         </div>
@@ -610,12 +610,12 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             <input
                               type="text"
                               name="message"
-                              placeholder="输入消息 ..."
+                              placeholder="Type Message ..."
                               class="form-control"
                             />
                             <span class="input-group-append">
                               <button type="button" class="btn btn-warning">
-                                发送
+                                Send
                               </button>
                             </span>
                           </div>
@@ -631,11 +631,11 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                     <!-- USERS LIST -->
                     <div class="card">
                       <div class="card-header">
-                        <h3 class="card-title">最新成员</h3>
+                        <h3 class="card-title">Latest Members</h3>
 
                         <div class="card-tools">
                           <span class="badge text-bg-danger">
-                            8 位新成员
+                            8 New Members
                           </span>
                           <button
                             type="button"
@@ -662,7 +662,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             <img
                               class="img-fluid rounded-circle"
                               src={deploymentPath + "assets/img/user1-128x128.jpg"}
-                              alt="用户头像"
+                              alt="User Image"
                             />
                             <a
                               class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0"
@@ -670,13 +670,13 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             >
                               Alexander Pierce
                             </a>
-                            <div class="fs-8">今天</div>
+                            <div class="fs-8">Today</div>
                           </div>
                           <div class="col-3 p-2">
                             <img
                               class="img-fluid rounded-circle"
                               src={deploymentPath + "assets/img/user1-128x128.jpg"}
-                              alt="用户头像"
+                              alt="User Image"
                             />
                             <a
                               class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0"
@@ -684,13 +684,13 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             >
                               Norman
                             </a>
-                            <div class="fs-8">昨天</div>
+                            <div class="fs-8">Yesterday</div>
                           </div>
                           <div class="col-3 p-2">
                             <img
                               class="img-fluid rounded-circle"
                               src={deploymentPath + "assets/img/user7-128x128.jpg"}
-                              alt="用户头像"
+                              alt="User Image"
                             />
                             <a
                               class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0"
@@ -698,13 +698,13 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             >
                               Jane
                             </a>
-                            <div class="fs-8">1月12日</div>
+                            <div class="fs-8">12 Jan</div>
                           </div>
                           <div class="col-3 p-2">
                             <img
                               class="img-fluid rounded-circle"
                               src={deploymentPath + "assets/img/user6-128x128.jpg"}
-                              alt="用户头像"
+                              alt="User Image"
                             />
                             <a
                               class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0"
@@ -712,13 +712,13 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             >
                               John
                             </a>
-                            <div class="fs-8">1月12日</div>
+                            <div class="fs-8">12 Jan</div>
                           </div>
                           <div class="col-3 p-2">
                             <img
                               class="img-fluid rounded-circle"
                               src={deploymentPath + "assets/img/user2-160x160.jpg"}
-                              alt="用户头像"
+                              alt="User Image"
                             />
                             <a
                               class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0"
@@ -726,13 +726,13 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             >
                               Alexander
                             </a>
-                            <div class="fs-8">1月13日</div>
+                            <div class="fs-8">13 Jan</div>
                           </div>
                           <div class="col-3 p-2">
                             <img
                               class="img-fluid rounded-circle"
                               src={deploymentPath + "assets/img/user5-128x128.jpg"}
-                              alt="用户头像"
+                              alt="User Image"
                             />
                             <a
                               class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0"
@@ -740,13 +740,13 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             >
                               Sarah
                             </a>
-                            <div class="fs-8">1月14日</div>
+                            <div class="fs-8">14 Jan</div>
                           </div>
                           <div class="col-3 p-2">
                             <img
                               class="img-fluid rounded-circle"
                               src={deploymentPath + "assets/img/user4-128x128.jpg"}
-                              alt="用户头像"
+                              alt="User Image"
                             />
                             <a
                               class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0"
@@ -754,13 +754,13 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             >
                               Nora
                             </a>
-                            <div class="fs-8">1月15日</div>
+                            <div class="fs-8">15 Jan</div>
                           </div>
                           <div class="col-3 p-2">
                             <img
                               class="img-fluid rounded-circle"
                               src={deploymentPath + "assets/img/user3-128x128.jpg"}
-                              alt="用户头像"
+                              alt="User Image"
                             />
                             <a
                               class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0"
@@ -768,14 +768,14 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             >
                               Nadia
                             </a>
-                            <div class="fs-8">1月15日</div>
+                            <div class="fs-8">15 Jan</div>
                           </div>
                         </div>
                         <!-- /.users-list -->
                       </div>
                       <!-- /.card-body -->
                       <div class="card-footer text-center">
-                        <a href="javascript:" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">查看所有用户</a>
+                        <a href="javascript:" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">View All Users</a>
                       </div>
                       <!-- /.card-footer -->
                     </div>
@@ -788,7 +788,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 <!--begin::Latest Order Widget-->
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title">最新订单</h3>
+                    <h3 class="card-title">Latest Orders</h3>
 
                     <div class="card-tools">
                       <button
@@ -814,10 +814,10 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                       <table class="table m-0">
                         <thead>
                           <tr>
-                            <th>订单号</th>
-                            <th>项目</th>
-                            <th>状态</th>
-                            <th>人气</th>
+                            <th>Order ID</th>
+                            <th>Item</th>
+                            <th>Status</th>
+                            <th>Popularity</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -825,10 +825,10 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             <td>
                               <a href="pages/examples/invoice.html" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">OR9842</a>
                             </td>
-                            <td>使命召唤 4</td>
+                            <td>Call of Duty IV</td>
                             <td>
                               <span class="badge text-bg-success">
-                                已发货
+                                Shipped
                               </span>
                             </td>
                             <td>
@@ -839,9 +839,9 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             <td>
                               <a href="pages/examples/invoice.html" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">OR1848</a>
                             </td>
-                            <td>三星智能电视</td>
+                            <td>Samsung Smart TV</td>
                             <td>
-                              <span class="badge text-bg-warning">待处理</span>
+                              <span class="badge text-bg-warning">Pending</span>
                             </td>
                             <td>
                               <div id="table-sparkline-2"></div>
@@ -854,7 +854,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             <td>iPhone 6 Plus</td>
                             <td>
                               <span class="badge text-bg-danger">
-                                已交付
+                                Delivered
                               </span>
                             </td>
                             <td>
@@ -865,9 +865,9 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             <td>
                               <a href="pages/examples/invoice.html" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">OR7429</a>
                             </td>
-                            <td>三星智能电视</td>
+                            <td>Samsung Smart TV</td>
                             <td>
-                              <span class="badge text-bg-info">处理中</span>
+                              <span class="badge text-bg-info">Processing</span>
                             </td>
                             <td>
                               <div id="table-sparkline-4"></div>
@@ -877,9 +877,9 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             <td>
                               <a href="pages/examples/invoice.html" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">OR1848</a>
                             </td>
-                            <td>三星智能电视</td>
+                            <td>Samsung Smart TV</td>
                             <td>
-                              <span class="badge text-bg-warning">待处理</span>
+                              <span class="badge text-bg-warning">Pending</span>
                             </td>
                             <td>
                               <div id="table-sparkline-5"></div>
@@ -892,7 +892,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             <td>iPhone 6 Plus</td>
                             <td>
                               <span class="badge text-bg-danger">
-                                已交付
+                                Delivered
                               </span>
                             </td>
                             <td>
@@ -903,9 +903,9 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             <td>
                               <a href="pages/examples/invoice.html" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">OR9842</a>
                             </td>
-                            <td>使命召唤 4</td>
+                            <td>Call of Duty IV</td>
                             <td>
-                              <span class="badge text-bg-success">已发货</span>
+                              <span class="badge text-bg-success">Shipped</span>
                             </td>
                             <td>
                               <div id="table-sparkline-7"></div>
@@ -922,13 +922,13 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                       href="javascript:void(0)"
                       class="btn btn-sm btn-primary float-start"
                     >
-                      新订单
+                      Place New Order
                     </a>
                     <a
                       href="javascript:void(0)"
                       class="btn btn-sm btn-secondary float-end"
                     >
-                      查看所有订单
+                      View All Orders
                     </a>
                   </div>
                   <!-- /.card-footer -->
@@ -938,14 +938,14 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
               <!-- /.col -->
 
               <div class="col-md-4">
-                <!-- 信息框es Style 2 -->
+                <!-- Info Boxes Style 2 -->
                 <div class="info-box mb-3 text-bg-warning">
                   <span class="info-box-icon">
                     <i class="bi bi-tag-fill"></i>
                   </span>
 
                   <div class="info-box-content">
-                    <span class="info-box-text">库存</span>
+                    <span class="info-box-text">Inventory</span>
                     <span class="info-box-number">5,200</span>
                   </div>
                   <!-- /.info-box-content -->
@@ -957,7 +957,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                   </span>
 
                   <div class="info-box-content">
-                    <span class="info-box-text">涉及</span>
+                    <span class="info-box-text">Mentions</span>
                     <span class="info-box-number">92,050</span>
                   </div>
                   <!-- /.info-box-content -->
@@ -969,7 +969,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                   </span>
 
                   <div class="info-box-content">
-                    <span class="info-box-text">下载</span>
+                    <span class="info-box-text">Downloads</span>
                     <span class="info-box-number">114,381</span>
                   </div>
                   <!-- /.info-box-content -->
@@ -981,7 +981,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                   </span>
 
                   <div class="info-box-content">
-                    <span class="info-box-text">消息</span>
+                    <span class="info-box-text">Direct Messages</span>
                     <span class="info-box-number">163,921</span>
                   </div>
                   <!-- /.info-box-content -->
@@ -990,7 +990,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
 
                 <div class="card mb-4">
                   <div class="card-header">
-                    <h3 class="card-title">浏览器信息</h3>
+                    <h3 class="card-title">Browser Usage</h3>
 
                     <div class="card-tools">
                       <button
@@ -1026,7 +1026,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                     <ul class="nav nav-pills flex-column">
                       <li class="nav-item">
                         <a href="#" class="nav-link">
-                          美国
+                          United States of America
                           <span class="float-end text-danger">
                             <i class="bi bi-arrow-down fs-7"></i>
                              12%
@@ -1035,7 +1035,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                       </li>
                       <li class="nav-item">
                         <a href="#" class="nav-link">
-                          印度
+                          India
                           <span class="float-end text-success">
                             <i class="bi bi-arrow-up fs-7"></i> 4%
                           </span>
@@ -1043,7 +1043,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                       </li>
                       <li class="nav-item">
                         <a href="#" class="nav-link">
-                          中国
+                          China
                           <span class="float-end text-info">
                             <i class="bi bi-arrow-left fs-7"></i> 0%
                           </span>
@@ -1058,7 +1058,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 <!-- PRODUCT LIST -->
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title">近期新增产品</h3>
+                    <h3 class="card-title">Recently Added Products</h3>
 
                     <div class="card-tools">
                       <button
@@ -1091,13 +1091,13 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         </div>
                         <div class="col-10">
                           <a href="javascript:void(0)" class="fw-bold">
-                            三星电视
+                            Samsung TV
                             <span class="badge text-bg-warning float-end">
                               $1800
                             </span>
                           </a>
                           <div class="text-truncate">
-                            三星 32英寸 1080p 60Hz LED 智能高清电视。
+                            Samsung 32" 1080p 60Hz LED Smart HDTV.
                           </div>
                         </div>
                       </div>
@@ -1112,13 +1112,13 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         </div>
                         <div class="col-10">
                           <a href="javascript:void(0)" class="fw-bold">
-                            自行车
+                            Bicycle
                             <span class="badge text-bg-info float-end">
                               $700
                             </span>
                           </a>
                           <div class="text-truncate">
-                            26 英寸 Mongoose Dolomite 男式速7，海军蓝。
+                            26" Mongoose Dolomite Men's 7-speed, Navy Blue.
                           </div>
                         </div>
                       </div>
@@ -1139,8 +1139,8 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             </span>
                           </a>
                           <div class="text-truncate">
-                            Xbox One 主机包含
-                            《光环:士官长合集》。
+                            Xbox One Console Bundle with Halo Master Chief
+                            Collection.
                           </div>
                         </div>
                       </div>
@@ -1155,13 +1155,13 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         </div>
                         <div class="col-10">
                           <a href="javascript:void(0)" class="fw-bold">
-                            PS 4
+                            PlayStation 4
                             <span class="badge text-bg-success float-end">
                               $399
                             </span>
                           </a>
                           <div class="text-truncate">
-                            PS 4 500GB 主机（PS4）
+                            PlayStation 4 500GB Console (PS4)
                           </div>
                         </div>
                       </div>
@@ -1171,7 +1171,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                   <!-- /.card-body -->
                   <div class="card-footer text-center">
                     <a href="javascript:void(0)" class="uppercase">
-                      查看所有产品
+                      View All Products
                     </a>
                   </div>
                   <!-- /.card-footer -->
@@ -1193,36 +1193,36 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
     <!--begin::Script-->
     <Scripts path={path} />
 
-    <!-- 可选脚本 -->
+    <!-- OPTIONAL SCRIPTS -->
 
     <!-- apexcharts -->
     <script
-      src={deploymentPath + "assets/apexcharts/apexcharts.min.js"}
+      src="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.min.js"
       integrity="sha256-+vh8GkaU7C9/wbSLIcwq82tQ2wTf44aOHA8HlBMwRI8="
       crossorigin="anonymous"></script>
 
     <script is:inline>
-// 请注意！！！不要使用任何 javascript
-// 它们是演示用的
+// NOTICE!! DO NOT USE ANY OF THIS JAVASCRIPT
+// IT'S ALL JUST JUNK FOR DEMO
 // ++++++++++++++++++++++++++++++++++++++++++
 
 /* apexcharts
        * -------
-       * 这里我们将使用 apexcharts 创建一些图表
+       * Here we will create a few charts using apexcharts
        */
 
 //-----------------------
-// - 月度销售图表 -
+// - MONTHLY SALES CHART -
 //-----------------------
 
 const sales_chart_options = {
   series: [
     {
-      name: "数字产品",
+      name: "Digital Goods",
       data: [28, 48, 40, 19, 86, 27, 90]
     },
     {
-      name: "电子产品",
+      name: "Electronics",
       data: [65, 59, 80, 81, 56, 55, 40]
     }
   ],
@@ -1257,7 +1257,7 @@ const sales_chart_options = {
   },
   tooltip: {
     x: {
-      format: "yyyy 年 MM 月"
+      format: "MMMM yyyy"
     }
   }
 }
@@ -1269,7 +1269,7 @@ const sales_chart = new ApexCharts(
 sales_chart.render()
 
 //---------------------------
-// - 结束 月度销售图表 -
+// - END MONTHLY SALES CHART -
 //---------------------------
 
 function createSparklineChart(selector, data) {
@@ -1342,13 +1342,16 @@ createSparklineChart("#table-sparkline-6", table_sparkline_6_data)
 createSparklineChart("#table-sparkline-7", table_sparkline_7_data)
 
 //-------------
-// - 饼形图 -
+// - PIE CHART -
 //-------------
 
 const pie_chart_options = {
   series: [700, 500, 400, 600, 300, 100],
   chart: {
-    type: "donut"
+    type: "donut",
+    // Pin an explicit height to avoid an ApexCharts ResizeObserver feedback
+    // loop on browser zoom (most visible on Edge). Fixes #6019.
+    height: 350
   },
   labels: ["Chrome", "Edge", "FireFox", "Safari", "Opera", "IE"],
   dataLabels: {
@@ -1371,7 +1374,7 @@ const pie_chart = new ApexCharts(
 pie_chart.render()
 
 //-----------------
-// - 结束 饼形图 -
+// - END PIE CHART -
 //-----------------
     </script>
     <!--end::Script-->

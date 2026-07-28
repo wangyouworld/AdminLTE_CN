@@ -6,21 +6,21 @@ import Sidenav from "@components/dashboard/_sidenav.astro"
 import Scripts from "@components/_scripts.astro"
 import Introduction from "@components/docs/introduction.mdx"
 
-const title = "介绍 | AdminLTE 4"
+const title = "Introduction | AdminLTE 4"
 const path = "../../../dist"
 const mainPage = "docs"
 const page = "introduction";
 ---
 
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
   <!--begin::Head-->
   <head>
     <Head title={title} path={path} />
   </head>
   <!--end::Head-->
   <!--begin::Body-->
-  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary docs-page">
     <!--begin::App Wrapper-->
     <div class="app-wrapper">
       <Topbar path={path} />
@@ -34,13 +34,13 @@ const page = "introduction";
             <!--begin::Row-->
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">介绍</h3>
+                <h3 class="mb-0">Introduction</h3>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">文档</a></li>
+                  <li class="breadcrumb-item"><a href="#">Docs</a></li>
                   <li class="breadcrumb-item active" aria-current="page">
-                    介绍
+                    Introduction
                   </li>
                 </ol>
               </div>
@@ -54,7 +54,15 @@ const page = "introduction";
         <div class="app-content">
           <!--begin::Container-->
           <div class="container-fluid">
-            <Introduction />
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <Introduction />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <!--end::Container-->
         </div>

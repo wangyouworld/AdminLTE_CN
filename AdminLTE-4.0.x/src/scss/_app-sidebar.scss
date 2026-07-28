@@ -78,6 +78,7 @@
   padding-right: $lte-sidebar-padding-x;
   padding-bottom: $lte-sidebar-padding-y;
   padding-left: $lte-sidebar-padding-x;
+  overscroll-behavior: contain;
   @include scrollbar-color-gray();
   @include scrollbar-width-thin();
 
@@ -105,31 +106,31 @@
 
   // Sidebar Menu. First level links
   .sidebar-menu > .nav-item {
-    &.menu-open {
-      .nav-link.active:not(:hover) {
-        --#{$lte-prefix}sidebar-menu-active-bg: transparent;
-      }
-    }
-
     // links
     > .nav-link {
-      &:active,
+      color: var(--#{$lte-prefix}sidebar-color);
+
+      &:hover,
       &:focus {
-        color: var(--#{$lte-prefix}sidebar-color);
+        color: var(--#{$lte-prefix}sidebar-hover-color);
+        background-color: var(--#{$lte-prefix}sidebar-hover-bg);
+      }
+
+      &.active {
+        color: var(--#{$lte-prefix}sidebar-menu-active-color);
+        background-color: var(--#{$lte-prefix}sidebar-menu-active-bg);
       }
     }
 
-    > .nav-link.active:not(:hover) {
-      color: var(--#{$lte-prefix}sidebar-menu-active-color);
-      background-color: var(--#{$lte-prefix}sidebar-menu-active-bg);
-    }
-
-    // Hover and active states
-    &.menu-open > .nav-link,
-    &:hover > .nav-link,
-    > .nav-link:focus  {
+    // Open state
+    &.menu-open > .nav-link {
       color: var(--#{$lte-prefix}sidebar-hover-color);
       background-color: var(--#{$lte-prefix}sidebar-hover-bg);
+
+      &.active {
+        color: var(--#{$lte-prefix}sidebar-menu-active-color);
+        background-color: var(--#{$lte-prefix}sidebar-menu-active-bg);
+      }
     }
 
     // First Level Submenu
@@ -161,21 +162,13 @@
         &:hover,
         &:focus {
           color: var(--#{$lte-prefix}sidebar-submenu-hover-color);
-          // background-color: var(--#{$lte-prefix}sidebar-submenu-hover-bg);
+          background-color: var(--#{$lte-prefix}sidebar-submenu-hover-bg);
         }
-      }
 
-      > .nav-link.active {
-        &,
-        &:hover,
-        &:focus {
+        &.active {
           color: var(--#{$lte-prefix}sidebar-submenu-active-color);
           background-color: var(--#{$lte-prefix}sidebar-submenu-active-bg);
         }
-      }
-
-      > .nav-link:hover {
-        background-color: var(--#{$lte-prefix}sidebar-submenu-hover-bg);
       }
     }
   }
@@ -240,10 +233,6 @@
     display: none;
     padding: 0;
     list-style: none;
-
-    .nav-indent & {
-      padding-left: $lte-sidebar-padding-x;
-    }
   }
 
   .menu-open {
@@ -265,6 +254,12 @@
   .nav-link > p > .nav-arrow {
     right: 1rem !important; // place at end in LTR
     left: auto !important;
+  }
+}
+
+.nav-indent {
+  .nav-treeview {
+    padding-left: $lte-sidebar-padding-x;
   }
 }
 
@@ -403,55 +398,59 @@
     animation-fill-mode: both;
   }
 
-  .app-sidebar:hover {
-    min-width: var(--#{$lte-prefix}sidebar-width);
-    max-width: var(--#{$lte-prefix}sidebar-width);
+  &:not(.sidebar-without-hover) {
+    .app-sidebar:hover {
+      min-width: var(--#{$lte-prefix}sidebar-width);
+      max-width: var(--#{$lte-prefix}sidebar-width);
 
-    .sidebar-menu .nav-header {
-      display: inline;
-    }
+      .sidebar-menu .nav-header {
+        display: inline;
+      }
 
-    .sidebar-menu .nav-link {
-      width: auto;
-    }
+      .sidebar-menu .nav-link {
+        width: auto;
+      }
 
-    .sidebar-menu .nav-link p,
-    .brand-text,
-    .logo-xl {
-      width: auto;
-      margin-left: 0;
-      visibility: visible;
-      animation-name: fadeIn;
-      animation-duration: $lte-transition-speed;
-      animation-fill-mode: both;
-    }
+      .sidebar-menu .nav-link p,
+      .brand-text,
+      .logo-xl {
+        width: auto;
+        margin-left: 0;
+        visibility: visible;
+        animation-name: fadeIn;
+        animation-duration: $lte-transition-speed;
+        animation-fill-mode: both;
+      }
 
-    .brand-text {
-      display: inline;
-      max-width: inherit;
-      margin-left: .5rem;
-      animation-name: fadeIn;
-      animation-duration: $lte-transition-speed;
-      animation-fill-mode: both;
-    }
-    .nav-badge,
-    .nav-arrow {
-      display: inline-block;
-      visibility: visible;
-      animation-name: fadeIn;
-      animation-duration: $lte-transition-speed;
-      animation-fill-mode: both;
-      animation-delay: $lte-transition-speed;
-    }
+      .brand-text {
+        display: inline;
+        max-width: inherit;
+        margin-left: .5rem;
+        animation-name: fadeIn;
+        animation-duration: $lte-transition-speed;
+        animation-fill-mode: both;
+      }
 
-    .nav-link p {
-      padding-left: .5rem;
-    }
-    .logo-xs {
-      visibility: hidden;
-      animation-name: fadeOut;
-      animation-duration: $lte-transition-speed;
-      animation-fill-mode: both;
+      .nav-badge,
+      .nav-arrow {
+        display: inline-block;
+        visibility: visible;
+        animation-name: fadeIn;
+        animation-duration: $lte-transition-speed;
+        animation-fill-mode: both;
+        animation-delay: $lte-transition-speed;
+      }
+
+      .nav-link p {
+        padding-left: .5rem;
+      }
+
+      .logo-xs {
+        visibility: hidden;
+        animation-name: fadeOut;
+        animation-duration: $lte-transition-speed;
+        animation-fill-mode: both;
+      }
     }
   }
 }

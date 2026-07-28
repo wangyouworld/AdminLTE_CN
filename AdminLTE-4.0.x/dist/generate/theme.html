@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <!--begin::Head-->
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>AdminLTE 4 | 自定义主题</title>
+    <title>AdminLTE 4 | Theme Customize</title>
 
     <!--begin::Accessibility Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
@@ -13,15 +13,15 @@
     <!--end::Accessibility Meta Tags-->
 
     <!--begin::Primary Meta Tags-->
-    <meta name="title" content="AdminLTE 4 | 自定义主题" />
+    <meta name="title" content="AdminLTE 4 | Theme Customize" />
     <meta name="author" content="ColorlibHQ" />
     <meta
       name="description"
-      content="AdminLTE 是一款免费的 Bootstrap 5 管理控制面板，包含 30 个使用 Vanilla JS 的示例页面。 Fully accessible with WCAG 2.1 AA compliance."
+      content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS. Fully accessible with WCAG 2.1 AA compliance."
     />
     <meta
       name="keywords"
-      content="Bootstrap 5, Bootstrap 5 管理仪表盘,Bootstrap 5 仪表盘,Bootstrap 5 图表,Bootstrap 5 日历,Bootstrap 5 日期选择器,Bootstrap 5 表格,Bootstrap 5 数据表,vanilla js 数据表,colorlibhq, colorlibhq 仪表盘,colorlibhq 管理仪表盘, accessible admin panel, WCAG compliant"
+      content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard, accessible admin panel, WCAG compliant"
     />
     <!--end::Primary Meta Tags-->
 
@@ -34,7 +34,7 @@
     <!--begin::Fonts-->
     <link
       rel="stylesheet"
-      href="../assets/fontsource/index.css"
+      href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
       integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
       crossorigin="anonymous"
       media="print"
@@ -45,7 +45,7 @@
     <!--begin::Third Party Plugin(OverlayScrollbars)-->
     <link
       rel="stylesheet"
-      href="../assets/overlayscrollbars/overlayscrollbars.min.css"
+      href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css"
       crossorigin="anonymous"
     />
     <!--end::Third Party Plugin(OverlayScrollbars)-->
@@ -53,7 +53,7 @@
     <!--begin::Third Party Plugin(Bootstrap Icons)-->
     <link
       rel="stylesheet"
-      href="../assets/bootstrap-icons/bootstrap-icons.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
       crossorigin="anonymous"
     />
     <!--end::Third Party Plugin(Bootstrap Icons)-->
@@ -78,11 +78,18 @@
                 <i class="bi bi-list"></i>
               </a>
             </li>
+
             <li class="nav-item d-none d-md-block">
-              <a href="#" class="nav-link">首页</a>
+              <a href="../index.html" class="nav-link">
+                <i class="bi bi-grid-1x2 me-1" aria-hidden="true"></i>
+                Live preview
+              </a>
             </li>
             <li class="nav-item d-none d-md-block">
-              <a href="#" class="nav-link">联系</a>
+              <a href="../docs/introduction.html" class="nav-link">
+                <i class="bi bi-book me-1" aria-hidden="true"></i>
+                Documentation
+              </a>
             </li>
           </ul>
           <!--end::Start Navbar Links-->
@@ -110,7 +117,7 @@
                     <div class="flex-shrink-0">
                       <img
                         src="../assets/img/user1-128x128.jpg"
-                        alt="用户头像"
+                        alt="User Avatar"
                         class="img-size-50 rounded-circle me-3"
                       />
                     </div>
@@ -121,9 +128,9 @@
                           ><i class="bi bi-star-fill"></i
                         ></span>
                       </h3>
-                      <p class="fs-7">有时间打电话给我……</p>
+                      <p class="fs-7">Call me whenever you can...</p>
                       <p class="fs-7 text-secondary">
-                        <i class="bi bi-clock-fill me-1"></i> 4 小时前
+                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
                       </p>
                     </div>
                   </div>
@@ -136,7 +143,7 @@
                     <div class="flex-shrink-0">
                       <img
                         src="../assets/img/user8-128x128.jpg"
-                        alt="用户头像"
+                        alt="User Avatar"
                         class="img-size-50 rounded-circle me-3"
                       />
                     </div>
@@ -147,9 +154,9 @@
                           <i class="bi bi-star-fill"></i>
                         </span>
                       </h3>
-                      <p class="fs-7">我收到你的消息了，兄弟</p>
+                      <p class="fs-7">I got your message bro</p>
                       <p class="fs-7 text-secondary">
-                        <i class="bi bi-clock-fill me-1"></i> 4 小时前
+                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
                       </p>
                     </div>
                   </div>
@@ -162,7 +169,7 @@
                     <div class="flex-shrink-0">
                       <img
                         src="../assets/img/user3-128x128.jpg"
-                        alt="用户头像"
+                        alt="User Avatar"
                         class="img-size-50 rounded-circle me-3"
                       />
                     </div>
@@ -173,16 +180,16 @@
                           <i class="bi bi-star-fill"></i>
                         </span>
                       </h3>
-                      <p class="fs-7">主题在这里</p>
+                      <p class="fs-7">The subject goes here</p>
                       <p class="fs-7 text-secondary">
-                        <i class="bi bi-clock-fill me-1"></i> 4 小时前
+                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
                       </p>
                     </div>
                   </div>
                   <!--end::Message-->
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item dropdown-footer">查看所有消息</a>
+                <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
               </div>
             </li>
             <!--end::Messages Dropdown Menu-->
@@ -194,24 +201,24 @@
                 <span class="navbar-badge badge text-bg-warning">15</span>
               </a>
               <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-                <span class="dropdown-item dropdown-header">15 条通知</span>
+                <span class="dropdown-item dropdown-header">15 Notifications</span>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item">
-                  <i class="bi bi-envelope me-2"></i> 4 条新消息
-                  <span class="float-end text-secondary fs-7">3 分钟前</span>
+                  <i class="bi bi-envelope me-2"></i> 4 new messages
+                  <span class="float-end text-secondary fs-7">3 mins</span>
                 </a>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item">
-                  <i class="bi bi-people-fill me-2"></i> 8 条好友请求
-                  <span class="float-end text-secondary fs-7">12 小时前</span>
+                  <i class="bi bi-people-fill me-2"></i> 8 friend requests
+                  <span class="float-end text-secondary fs-7">12 hours</span>
                 </a>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item">
-                  <i class="bi bi-file-earmark-fill me-2"></i> 3 个新报告
-                  <span class="float-end text-secondary fs-7">2 天前</span>
+                  <i class="bi bi-file-earmark-fill me-2"></i> 3 new reports
+                  <span class="float-end text-secondary fs-7">2 days</span>
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item dropdown-footer"> 查看所有通知 </a>
+                <a href="#" class="dropdown-item dropdown-footer"> See All Notifications </a>
               </div>
             </li>
             <!--end::Notifications Dropdown Menu-->
@@ -220,10 +227,69 @@
             <li class="nav-item">
               <a class="nav-link" href="#" data-lte-toggle="fullscreen">
                 <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
-                <i data-lte-icon="minimize" class="bi bi-fullscreen-exit" style="display: none"></i>
+                <i data-lte-icon="minimize" class="bi bi-fullscreen-exit d-none"></i>
               </a>
             </li>
             <!--end::Fullscreen Toggle-->
+
+            <!--begin::Color Mode Toggle (#6010)-->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                id="bd-theme"
+                aria-label="Toggle color scheme"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="bi bi-sun-fill" data-lte-theme-icon="light"></i>
+                <i class="bi bi-moon-fill d-none" data-lte-theme-icon="dark"></i>
+                <i class="bi bi-circle-half d-none" data-lte-theme-icon="auto"></i>
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="bd-theme"
+                style="--bs-dropdown-min-width: 8rem"
+              >
+                <li>
+                  <button
+                    type="button"
+                    class="dropdown-item d-flex align-items-center"
+                    data-bs-theme-value="light"
+                    aria-pressed="false"
+                  >
+                    <i class="bi bi-sun-fill me-2"></i>
+                    Light
+                    <i class="bi bi-check-lg ms-auto d-none"></i>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="dropdown-item d-flex align-items-center"
+                    data-bs-theme-value="dark"
+                    aria-pressed="false"
+                  >
+                    <i class="bi bi-moon-fill me-2"></i>
+                    Dark
+                    <i class="bi bi-check-lg ms-auto d-none"></i>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="dropdown-item d-flex align-items-center active"
+                    data-bs-theme-value="auto"
+                    aria-pressed="true"
+                  >
+                    <i class="bi bi-circle-half me-2"></i>
+                    Auto
+                    <i class="bi bi-check-lg ms-auto d-none"></i>
+                  </button>
+                </li>
+              </ul>
+            </li>
+            <!--end::Color Mode Toggle-->
 
             <!--begin::User Menu Dropdown-->
             <li class="nav-item dropdown user-menu">
@@ -231,36 +297,36 @@
                 <img
                   src="../assets/img/user2-160x160.jpg"
                   class="user-image rounded-circle shadow"
-                  alt="用户头像"
+                  alt="User Image"
                 />
                 <span class="d-none d-md-inline">Alexander Pierce</span>
               </a>
               <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-                <!--begin::用户头像-->
+                <!--begin::User Image-->
                 <li class="user-header text-bg-primary">
                   <img
                     src="../assets/img/user2-160x160.jpg"
                     class="rounded-circle shadow"
-                    alt="用户头像"
+                    alt="User Image"
                   />
                   <p>
-                    Alexander Pierce - 网页开发工程师
-                    <small>注册于 2023 年 11 月</small>
+                    Alexander Pierce - Web Developer
+                    <small>Member since Nov. 2023</small>
                   </p>
                 </li>
-                <!--end::用户头像-->
+                <!--end::User Image-->
                 <!--begin::Menu Body-->
                 <li class="user-body">
                   <!--begin::Row-->
                   <div class="row">
                     <div class="col-4 text-center">
-                      <a href="#">关注</a>
+                      <a href="#">Followers</a>
                     </div>
                     <div class="col-4 text-center">
-                      <a href="#">销量</a>
+                      <a href="#">Sales</a>
                     </div>
                     <div class="col-4 text-center">
-                      <a href="#">好友</a>
+                      <a href="#">Friends</a>
                     </div>
                   </div>
                   <!--end::Row-->
@@ -268,8 +334,8 @@
                 <!--end::Menu Body-->
                 <!--begin::Menu Footer-->
                 <li class="user-footer">
-                  <a href="#" class="btn btn-outline-secondary">资料</a>
-                  <a href="#" class="btn btn-outline-danger float-end">退出</a>
+                  <a href="#" class="btn btn-outline-secondary">Profile</a>
+                  <a href="#" class="btn btn-outline-danger float-end">Sign out</a>
                 </li>
                 <!--end::Menu Footer-->
               </ul>
@@ -312,18 +378,18 @@
               role="menu"
               data-accordion="false"
             >
-              <li class="nav-header">多级示例</li>
+              <li class="nav-header">MULTI LEVEL EXAMPLE</li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-circle-fill"></i>
-                  <p>1 级</p>
+                  <p>Level 1</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-circle-fill"></i>
                   <p>
-                    1 级
+                    Level 1
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
@@ -331,14 +397,14 @@
                   <li class="nav-item">
                     <a href="#" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>2 级</p>
+                      <p>Level 2</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="#" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>
-                        2 级
+                        Level 2
                         <i class="nav-arrow bi bi-chevron-right"></i>
                       </p>
                     </a>
@@ -346,19 +412,19 @@
                       <li class="nav-item">
                         <a href="#" class="nav-link">
                           <i class="nav-icon bi bi-record-circle-fill"></i>
-                          <p>3 级</p>
+                          <p>Level 3</p>
                         </a>
                       </li>
                       <li class="nav-item">
                         <a href="#" class="nav-link">
                           <i class="nav-icon bi bi-record-circle-fill"></i>
-                          <p>3 级</p>
+                          <p>Level 3</p>
                         </a>
                       </li>
                       <li class="nav-item">
                         <a href="#" class="nav-link">
                           <i class="nav-icon bi bi-record-circle-fill"></i>
-                          <p>3 级</p>
+                          <p>Level 3</p>
                         </a>
                       </li>
                     </ul>
@@ -366,7 +432,7 @@
                   <li class="nav-item">
                     <a href="#" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>2 级</p>
+                      <p>Level 2</p>
                     </a>
                   </li>
                 </ul>
@@ -374,7 +440,7 @@
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-circle-fill"></i>
-                  <p>1 级</p>
+                  <p>Level 1</p>
                 </a>
               </li>
             </ul>
@@ -394,14 +460,14 @@
             <div class="row">
               <!--begin::Col-->
               <div class="col-sm-6">
-                <h3 class="mb-0">自定义主题</h3>
+                <h3 class="mb-0">Theme Customize</h3>
               </div>
               <!--end::Col-->
               <!--begin::Col-->
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">首页</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">自定义主题</li>
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Theme Customize</li>
                 </ol>
               </div>
               <!--end::Col-->
@@ -424,7 +490,7 @@
                   <!--begin::Card Header-->
                   <div class="card-header">
                     <!--begin::Card Title-->
-                    <h3 class="card-title">侧边栏主题</h3>
+                    <h3 class="card-title">Sidebar Theme</h3>
                     <!--end::Card Title-->
 
                     <!--begin::Card Toolbar-->
@@ -437,7 +503,7 @@
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-remove"
-                        title="移除"
+                        title="Remove"
                       >
                         <i class="bi bi-x-lg"></i>
                       </button>
@@ -454,11 +520,11 @@
                         <select
                           id="sidebar-color-modes"
                           class="form-select form-select-lg"
-                          aria-label="Sidebar 明暗模式 Select"
+                          aria-label="Sidebar Color Mode Select"
                         >
-                          <option value="">---选择---</option>
-                          <option value="dark">暗黑</option>
-                          <option value="light">高亮</option>
+                          <option value="">---Select---</option>
+                          <option value="dark">Dark</option>
+                          <option value="light">Light</option>
                         </select>
                       </div>
                       <!--end::Col-->
@@ -469,7 +535,7 @@
                           class="form-select form-select-lg"
                           aria-label="Sidebar Color Select"
                         >
-                          <option value="">---选择---</option>
+                          <option value="">---Select---</option>
                         </select>
                       </div>
                       <!--end::Col-->
@@ -484,12 +550,12 @@
                   <!--end::Card Body-->
                   <!--begin::Card Footer-->
                   <div class="card-footer">
-                    查看更多颜色
+                    Check more color in
                     <a
                       href="https://getbootstrap.com/docs/5.3/utilities/background/"
                       target="_blank"
                       class="link-primary"
-                      >Bootstrap 背景颜色</a
+                      >Bootstrap Background Colors</a
                     >
                   </div>
                   <!--end::Card Footer-->
@@ -501,7 +567,7 @@
                   <!--begin::Card Header-->
                   <div class="card-header">
                     <!--begin::Card Title-->
-                    <h3 class="card-title">导航栏主题</h3>
+                    <h3 class="card-title">Navbar Theme</h3>
                     <!--end::Card Title-->
 
                     <!--begin::Card Toolbar-->
@@ -514,7 +580,7 @@
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-remove"
-                        title="移除"
+                        title="Remove"
                       >
                         <i class="bi bi-x-lg"></i>
                       </button>
@@ -531,11 +597,11 @@
                         <select
                           id="navbar-color-modes"
                           class="form-select form-select-lg"
-                          aria-label="Navbar 明暗模式 Select"
+                          aria-label="Navbar Color Mode Select"
                         >
-                          <option value="">---选择---</option>
-                          <option value="dark">暗黑</option>
-                          <option value="light">高亮</option>
+                          <option value="">---Select---</option>
+                          <option value="dark">Dark</option>
+                          <option value="light">Light</option>
                         </select>
                       </div>
                       <!--end::Col-->
@@ -546,7 +612,7 @@
                           class="form-select form-select-lg"
                           aria-label="Navbar Color Select"
                         >
-                          <option value="">---选择---</option>
+                          <option value="">---Select---</option>
                         </select>
                       </div>
                       <!--end::Col-->
@@ -561,12 +627,12 @@
                   <!--end::Card Body-->
                   <!--begin::Card Footer-->
                   <div class="card-footer">
-                    查看更多颜色
+                    Check more color in
                     <a
                       href="https://getbootstrap.com/docs/5.3/utilities/background/"
                       target="_blank"
                       class="link-primary"
-                      >Bootstrap 背景颜色</a
+                      >Bootstrap Background Colors</a
                     >
                   </div>
                   <!--end::Card Footer-->
@@ -591,7 +657,7 @@
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-remove"
-                        title="移除"
+                        title="Remove"
                       >
                         <i class="bi bi-x-lg"></i>
                       </button>
@@ -608,11 +674,11 @@
                         <select
                           id="footer-color-modes"
                           class="form-select form-select-lg"
-                          aria-label="Footer 明暗模式 Select"
+                          aria-label="Footer Color Mode Select"
                         >
-                          <option value="">---选择---</option>
-                          <option value="dark">暗黑</option>
-                          <option value="light">高亮</option>
+                          <option value="">---Select---</option>
+                          <option value="dark">Dark</option>
+                          <option value="light">Light</option>
                         </select>
                       </div>
                       <!--end::Col-->
@@ -623,7 +689,7 @@
                           class="form-select form-select-lg"
                           aria-label="Footer Color Select"
                         >
-                          <option value="">---选择---</option>
+                          <option value="">---Select---</option>
                         </select>
                       </div>
                       <!--end::Col-->
@@ -638,12 +704,12 @@
                   <!--end::Card Body-->
                   <!--begin::Card Footer-->
                   <div class="card-footer">
-                    查看更多颜色
+                    Check more color in
                     <a
                       href="https://getbootstrap.com/docs/5.3/utilities/background/"
                       target="_blank"
                       class="link-primary"
-                      >Bootstrap 背景颜色</a
+                      >Bootstrap Background Colors</a
                     >
                   </div>
                   <!--end::Card Footer-->
@@ -662,14 +728,14 @@
       <!--begin::Footer-->
       <footer class="app-footer">
         <!--begin::To the end-->
-        <div class="float-end d-none d-sm-inline">任何你想要的</div>
+        <div class="float-end d-none d-sm-inline">Anything you want</div>
         <!--end::To the end-->
         <!--begin::Copyright-->
         <strong>
           Copyright &copy; 2014-2026&nbsp;
           <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
         </strong>
-        保留所有权利
+        All rights reserved.
         <!--end::Copyright-->
       </footer>
       <!--end::Footer-->
@@ -678,13 +744,19 @@
     <!--begin::Script-->
     <!--begin::Third Party Plugin(OverlayScrollbars)-->
     <script
-      src="../assets/overlayscrollbars/overlayscrollbars.browser.es6.min.js"
+      src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
       crossorigin="anonymous"
     ></script>
     <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
-    <script src="../assets/popperjs/popper.min.js" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      crossorigin="anonymous"
+    ></script>
     <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
-    <script src="../assets/bootstrap/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
+      crossorigin="anonymous"
+    ></script>
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
     <script src="../js/adminlte.js"></script>
     <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
@@ -716,7 +788,71 @@
         }
       });
     </script>
-    <!--end::OverlayScrollbars Configure-->
+    <!--end::OverlayScrollbars Configure--><!--begin::Color Mode Toggle (#6010)-->
+    <script>
+      (() => {
+        'use strict';
+
+        const STORAGE_KEY = 'lte-theme';
+
+        const getStoredTheme = () => localStorage.getItem(STORAGE_KEY);
+        const setStoredTheme = (theme) => localStorage.setItem(STORAGE_KEY, theme);
+
+        const prefersDark = () => globalThis.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        const getPreferredTheme = () => {
+          const stored = getStoredTheme();
+          if (stored) return stored;
+          return prefersDark() ? 'dark' : 'light';
+        };
+
+        const setTheme = (theme) => {
+          const resolved = theme === 'auto' ? (prefersDark() ? 'dark' : 'light') : theme;
+          document.documentElement.setAttribute('data-bs-theme', resolved);
+        };
+
+        setTheme(getPreferredTheme());
+
+        const showActiveTheme = (theme) => {
+          // Highlight the active dropdown option
+          document.querySelectorAll('[data-bs-theme-value]').forEach((el) => {
+            el.classList.remove('active');
+            el.setAttribute('aria-pressed', 'false');
+            const check = el.querySelector('.bi-check-lg');
+            if (check) check.classList.add('d-none');
+          });
+          const active = document.querySelector(`[data-bs-theme-value="${theme}"]`);
+          if (active) {
+            active.classList.add('active');
+            active.setAttribute('aria-pressed', 'true');
+            const check = active.querySelector('.bi-check-lg');
+            if (check) check.classList.remove('d-none');
+          }
+          // Sync the topbar trigger icon
+          document.querySelectorAll('[data-lte-theme-icon]').forEach((icon) => {
+            icon.classList.toggle('d-none', icon.dataset.lteThemeIcon !== theme);
+          });
+        };
+
+        globalThis.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+          const stored = getStoredTheme();
+          if (!stored || stored === 'auto') setTheme(getPreferredTheme());
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+          showActiveTheme(getPreferredTheme());
+          document.querySelectorAll('[data-bs-theme-value]').forEach((toggle) => {
+            toggle.addEventListener('click', () => {
+              const theme = toggle.getAttribute('data-bs-theme-value');
+              setStoredTheme(theme);
+              setTheme(theme);
+              showActiveTheme(theme);
+            });
+          });
+        });
+      })();
+    </script>
+    <!--end::Color Mode Toggle-->
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const appSidebar = document.querySelector('.app-sidebar');

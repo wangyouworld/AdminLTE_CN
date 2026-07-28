@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <!--begin::Head-->
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>AdminLTE | 仪表盘 v2</title>
+    <title>AdminLTE | Dashboard v2</title>
 
     <!--begin::Accessibility Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
@@ -13,15 +13,15 @@
     <!--end::Accessibility Meta Tags-->
 
     <!--begin::Primary Meta Tags-->
-    <meta name="title" content="AdminLTE | 仪表盘 v2" />
+    <meta name="title" content="AdminLTE | Dashboard v2" />
     <meta name="author" content="ColorlibHQ" />
     <meta
       name="description"
-      content="AdminLTE 是一款免费的 Bootstrap 5 管理控制面板，包含 30 个使用 Vanilla JS 的示例页面。 Fully accessible with WCAG 2.1 AA compliance."
+      content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS. Fully accessible with WCAG 2.1 AA compliance."
     />
     <meta
       name="keywords"
-      content="Bootstrap 5, Bootstrap 5 管理仪表盘,Bootstrap 5 仪表盘,Bootstrap 5 图表,Bootstrap 5 日历,Bootstrap 5 日期选择器,Bootstrap 5 表格,Bootstrap 5 数据表,vanilla js 数据表,colorlibhq, colorlibhq 仪表盘,colorlibhq 管理仪表盘, accessible admin panel, WCAG compliant"
+      content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard, accessible admin panel, WCAG compliant"
     />
     <!--end::Primary Meta Tags-->
 
@@ -34,7 +34,7 @@
     <!--begin::Fonts-->
     <link
       rel="stylesheet"
-      href="./assets/fontsource/index.css"
+      href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
       integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
       crossorigin="anonymous"
       media="print"
@@ -45,7 +45,7 @@
     <!--begin::Third Party Plugin(OverlayScrollbars)-->
     <link
       rel="stylesheet"
-      href="./assets/overlayscrollbars/overlayscrollbars.min.css"
+      href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css"
       crossorigin="anonymous"
     />
     <!--end::Third Party Plugin(OverlayScrollbars)-->
@@ -53,7 +53,7 @@
     <!--begin::Third Party Plugin(Bootstrap Icons)-->
     <link
       rel="stylesheet"
-      href="./assets/bootstrap-icons/bootstrap-icons.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
       crossorigin="anonymous"
     />
     <!--end::Third Party Plugin(Bootstrap Icons)-->
@@ -65,7 +65,7 @@
     <!-- apexcharts -->
     <link
       rel="stylesheet"
-      href="./assets/apexcharts/apexcharts.css"
+      href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css"
       integrity="sha256-4MX+61mt9NVvvuPjUWdUdyfZfxSB1/Rf9WtqRHgG5S0="
       crossorigin="anonymous"
     />
@@ -85,11 +85,18 @@
                 <i class="bi bi-list"></i>
               </a>
             </li>
+
             <li class="nav-item d-none d-md-block">
-              <a href="#" class="nav-link">首页</a>
+              <a href="./index.html" class="nav-link">
+                <i class="bi bi-grid-1x2 me-1" aria-hidden="true"></i>
+                Live preview
+              </a>
             </li>
             <li class="nav-item d-none d-md-block">
-              <a href="#" class="nav-link">联系</a>
+              <a href="./docs/introduction.html" class="nav-link">
+                <i class="bi bi-book me-1" aria-hidden="true"></i>
+                Documentation
+              </a>
             </li>
           </ul>
           <!--end::Start Navbar Links-->
@@ -117,7 +124,7 @@
                     <div class="flex-shrink-0">
                       <img
                         src="./assets/img/user1-128x128.jpg"
-                        alt="用户头像"
+                        alt="User Avatar"
                         class="img-size-50 rounded-circle me-3"
                       />
                     </div>
@@ -128,9 +135,9 @@
                           ><i class="bi bi-star-fill"></i
                         ></span>
                       </h3>
-                      <p class="fs-7">有时间打电话给我……</p>
+                      <p class="fs-7">Call me whenever you can...</p>
                       <p class="fs-7 text-secondary">
-                        <i class="bi bi-clock-fill me-1"></i> 4 小时前
+                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
                       </p>
                     </div>
                   </div>
@@ -143,7 +150,7 @@
                     <div class="flex-shrink-0">
                       <img
                         src="./assets/img/user8-128x128.jpg"
-                        alt="用户头像"
+                        alt="User Avatar"
                         class="img-size-50 rounded-circle me-3"
                       />
                     </div>
@@ -154,9 +161,9 @@
                           <i class="bi bi-star-fill"></i>
                         </span>
                       </h3>
-                      <p class="fs-7">我收到你的消息了，兄弟</p>
+                      <p class="fs-7">I got your message bro</p>
                       <p class="fs-7 text-secondary">
-                        <i class="bi bi-clock-fill me-1"></i> 4 小时前
+                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
                       </p>
                     </div>
                   </div>
@@ -169,7 +176,7 @@
                     <div class="flex-shrink-0">
                       <img
                         src="./assets/img/user3-128x128.jpg"
-                        alt="用户头像"
+                        alt="User Avatar"
                         class="img-size-50 rounded-circle me-3"
                       />
                     </div>
@@ -180,16 +187,16 @@
                           <i class="bi bi-star-fill"></i>
                         </span>
                       </h3>
-                      <p class="fs-7">主题在这里</p>
+                      <p class="fs-7">The subject goes here</p>
                       <p class="fs-7 text-secondary">
-                        <i class="bi bi-clock-fill me-1"></i> 4 小时前
+                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
                       </p>
                     </div>
                   </div>
                   <!--end::Message-->
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item dropdown-footer">查看所有消息</a>
+                <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
               </div>
             </li>
             <!--end::Messages Dropdown Menu-->
@@ -201,24 +208,24 @@
                 <span class="navbar-badge badge text-bg-warning">15</span>
               </a>
               <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-                <span class="dropdown-item dropdown-header">15 条通知</span>
+                <span class="dropdown-item dropdown-header">15 Notifications</span>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item">
-                  <i class="bi bi-envelope me-2"></i> 4 条新消息
-                  <span class="float-end text-secondary fs-7">3 分钟前</span>
+                  <i class="bi bi-envelope me-2"></i> 4 new messages
+                  <span class="float-end text-secondary fs-7">3 mins</span>
                 </a>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item">
-                  <i class="bi bi-people-fill me-2"></i> 8 条好友请求
-                  <span class="float-end text-secondary fs-7">12 小时前</span>
+                  <i class="bi bi-people-fill me-2"></i> 8 friend requests
+                  <span class="float-end text-secondary fs-7">12 hours</span>
                 </a>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item">
-                  <i class="bi bi-file-earmark-fill me-2"></i> 3 个新报告
-                  <span class="float-end text-secondary fs-7">2 天前</span>
+                  <i class="bi bi-file-earmark-fill me-2"></i> 3 new reports
+                  <span class="float-end text-secondary fs-7">2 days</span>
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item dropdown-footer"> 查看所有通知 </a>
+                <a href="#" class="dropdown-item dropdown-footer"> See All Notifications </a>
               </div>
             </li>
             <!--end::Notifications Dropdown Menu-->
@@ -227,10 +234,69 @@
             <li class="nav-item">
               <a class="nav-link" href="#" data-lte-toggle="fullscreen">
                 <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
-                <i data-lte-icon="minimize" class="bi bi-fullscreen-exit" style="display: none"></i>
+                <i data-lte-icon="minimize" class="bi bi-fullscreen-exit d-none"></i>
               </a>
             </li>
             <!--end::Fullscreen Toggle-->
+
+            <!--begin::Color Mode Toggle (#6010)-->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                id="bd-theme"
+                aria-label="Toggle color scheme"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="bi bi-sun-fill" data-lte-theme-icon="light"></i>
+                <i class="bi bi-moon-fill d-none" data-lte-theme-icon="dark"></i>
+                <i class="bi bi-circle-half d-none" data-lte-theme-icon="auto"></i>
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="bd-theme"
+                style="--bs-dropdown-min-width: 8rem"
+              >
+                <li>
+                  <button
+                    type="button"
+                    class="dropdown-item d-flex align-items-center"
+                    data-bs-theme-value="light"
+                    aria-pressed="false"
+                  >
+                    <i class="bi bi-sun-fill me-2"></i>
+                    Light
+                    <i class="bi bi-check-lg ms-auto d-none"></i>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="dropdown-item d-flex align-items-center"
+                    data-bs-theme-value="dark"
+                    aria-pressed="false"
+                  >
+                    <i class="bi bi-moon-fill me-2"></i>
+                    Dark
+                    <i class="bi bi-check-lg ms-auto d-none"></i>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="dropdown-item d-flex align-items-center active"
+                    data-bs-theme-value="auto"
+                    aria-pressed="true"
+                  >
+                    <i class="bi bi-circle-half me-2"></i>
+                    Auto
+                    <i class="bi bi-check-lg ms-auto d-none"></i>
+                  </button>
+                </li>
+              </ul>
+            </li>
+            <!--end::Color Mode Toggle-->
 
             <!--begin::User Menu Dropdown-->
             <li class="nav-item dropdown user-menu">
@@ -238,36 +304,36 @@
                 <img
                   src="./assets/img/user2-160x160.jpg"
                   class="user-image rounded-circle shadow"
-                  alt="用户头像"
+                  alt="User Image"
                 />
                 <span class="d-none d-md-inline">Alexander Pierce</span>
               </a>
               <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-                <!--begin::用户头像-->
+                <!--begin::User Image-->
                 <li class="user-header text-bg-primary">
                   <img
                     src="./assets/img/user2-160x160.jpg"
                     class="rounded-circle shadow"
-                    alt="用户头像"
+                    alt="User Image"
                   />
                   <p>
-                    Alexander Pierce - 网页开发工程师
-                    <small>注册于 2023 年 11 月</small>
+                    Alexander Pierce - Web Developer
+                    <small>Member since Nov. 2023</small>
                   </p>
                 </li>
-                <!--end::用户头像-->
+                <!--end::User Image-->
                 <!--begin::Menu Body-->
                 <li class="user-body">
                   <!--begin::Row-->
                   <div class="row">
                     <div class="col-4 text-center">
-                      <a href="#">关注</a>
+                      <a href="#">Followers</a>
                     </div>
                     <div class="col-4 text-center">
-                      <a href="#">销量</a>
+                      <a href="#">Sales</a>
                     </div>
                     <div class="col-4 text-center">
-                      <a href="#">好友</a>
+                      <a href="#">Friends</a>
                     </div>
                   </div>
                   <!--end::Row-->
@@ -275,8 +341,8 @@
                 <!--end::Menu Body-->
                 <!--begin::Menu Footer-->
                 <li class="user-footer">
-                  <a href="#" class="btn btn-outline-secondary">资料</a>
-                  <a href="#" class="btn btn-outline-danger float-end">退出</a>
+                  <a href="#" class="btn btn-outline-secondary">Profile</a>
+                  <a href="#" class="btn btn-outline-danger float-end">Sign out</a>
                 </li>
                 <!--end::Menu Footer-->
               </ul>
@@ -324,7 +390,7 @@
                 <a href="#" class="nav-link active">
                   <i class="nav-icon bi bi-speedometer"></i>
                   <p>
-                    仪表盘
+                    Dashboard
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
@@ -332,19 +398,19 @@
                   <li class="nav-item">
                     <a href="./index.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>仪表盘 v1</p>
+                      <p>Dashboard v1</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./index2.html" class="nav-link active">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>仪表盘 v2</p>
+                      <p>Dashboard v2</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./index3.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>仪表盘 v3</p>
+                      <p>Dashboard v3</p>
                     </a>
                   </li>
                 </ul>
@@ -352,14 +418,14 @@
               <li class="nav-item">
                 <a href="./generate/theme.html" class="nav-link">
                   <i class="nav-icon bi bi-palette"></i>
-                  <p>生成主题</p>
+                  <p>Theme Generate</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-box-seam-fill"></i>
                   <p>
-                    小部件
+                    Widgets
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
@@ -367,19 +433,19 @@
                   <li class="nav-item">
                     <a href="./widgets/small-box.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>小框</p>
+                      <p>Small Box</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./widgets/info-box.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>信息框</p>
+                      <p>info Box</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./widgets/cards.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>卡片</p>
+                      <p>Cards</p>
                     </a>
                   </li>
                 </ul>
@@ -388,8 +454,8 @@
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-clipboard-fill"></i>
                   <p>
-                    布局选项
-                    <span class="nav-badge badge text-bg-secondary me-3">6</span>
+                    Layout Options
+                    <span class="nav-badge badge text-bg-secondary me-3">7</span>
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
@@ -397,61 +463,67 @@
                   <li class="nav-item">
                     <a href="./layout/unfixed-sidebar.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>默认侧边栏</p>
+                      <p>Default Sidebar</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./layout/fixed-sidebar.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>固定侧边栏</p>
+                      <p>Fixed Sidebar</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./layout/fixed-header.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>固定头部</p>
+                      <p>Fixed Header</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./layout/fixed-footer.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>固定底部</p>
+                      <p>Fixed Footer</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./layout/fixed-complete.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>全部固定</p>
+                      <p>Fixed Complete</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./layout/layout-custom-area.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>布局 <small>+ 自定义区域 </small></p>
+                      <p>Layout <small>+ Custom Area </small></p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./layout/sidebar-mini.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>迷你侧边栏</p>
+                      <p>Sidebar Mini</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./layout/collapsed-sidebar.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>迷你侧边栏 <small>+ 折叠</small></p>
+                      <p>Sidebar Mini <small>+ Collapsed</small></p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./layout/collapsed-sidebar-without-hover.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Sidebar Mini <small>+ Collapsed + No Hover</small></p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./layout/logo-switch.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>迷你侧边栏 <small>+ Logo 开关</small></p>
+                      <p>Sidebar Mini <small>+ Logo Switch</small></p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./layout/layout-rtl.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>RTL 布局</p>
+                      <p>Layout RTL</p>
                     </a>
                   </li>
                 </ul>
@@ -460,7 +532,7 @@
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-tree-fill"></i>
                   <p>
-                    用户界面
+                    UI Elements
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
@@ -468,36 +540,84 @@
                   <li class="nav-item">
                     <a href="./UI/general.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>通用</p>
+                      <p>General</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./UI/icons.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>图标</p>
+                      <p>Icons</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./UI/timeline.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>时间线</p>
+                      <p>Timeline</p>
                     </a>
                   </li>
                 </ul>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon bi bi-pencil-square"></i>
+                  <i class="nav-icon bi bi-envelope"></i>
                   <p>
-                    表单
+                    Mailbox
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="./forms/general.html" class="nav-link">
+                    <a href="./mailbox/inbox.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>常用组件</p>
+                      <p>Inbox</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./mailbox/read.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Read Message</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./mailbox/compose.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Compose</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-pencil-square"></i>
+                  <p>
+                    Forms
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="./forms/elements.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Elements</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./forms/layout.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Layout</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./forms/validation.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Validation</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./forms/wizard.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Wizard</p>
                     </a>
                   </li>
                 </ul>
@@ -506,7 +626,7 @@
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-table"></i>
                   <p>
-                    表格
+                    Tables
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
@@ -514,18 +634,126 @@
                   <li class="nav-item">
                     <a href="./tables/simple.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>简单的表格</p>
+                      <p>Simple Tables</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./tables/data.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Data Tables</p>
                     </a>
                   </li>
                 </ul>
               </li>
 
-              <li class="nav-header">示例</li>
+              <li class="nav-header">PAGES</li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-file-earmark-text"></i>
+                  <p>
+                    Pages
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="./pages/profile.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Profile</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./pages/settings.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Settings</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./pages/invoice.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Invoice</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./pages/calendar.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Calendar</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./pages/kanban.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Kanban</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./pages/chat.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Chat</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./pages/file-manager.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>File Manager</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./pages/projects.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Projects</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./pages/pricing.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Pricing</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./pages/faq.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>FAQ</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>
+                        Error
+                        <i class="nav-arrow bi bi-chevron-right"></i>
+                      </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="./pages/404.html" class="nav-link">
+                          <i class="nav-icon bi bi-circle"></i>
+                          <p>404</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="./pages/500.html" class="nav-link">
+                          <i class="nav-icon bi bi-circle"></i>
+                          <p>500</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="./pages/maintenance.html" class="nav-link">
+                          <i class="nav-icon bi bi-circle"></i>
+                          <p>Maintenance</p>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nav-header">EXAMPLES</li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-box-arrow-in-right"></i>
                   <p>
-                    登录注册
+                    Auth
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
@@ -534,7 +762,7 @@
                     <a href="#" class="nav-link">
                       <i class="nav-icon bi bi-box-arrow-in-right"></i>
                       <p>
-                        版本 1
+                        Version 1
                         <i class="nav-arrow bi bi-chevron-right"></i>
                       </p>
                     </a>
@@ -542,13 +770,13 @@
                       <li class="nav-item">
                         <a href="./examples/login.html" class="nav-link">
                           <i class="nav-icon bi bi-circle"></i>
-                          <p>登录</p>
+                          <p>Login</p>
                         </a>
                       </li>
                       <li class="nav-item">
                         <a href="./examples/register.html" class="nav-link">
                           <i class="nav-icon bi bi-circle"></i>
-                          <p>注册</p>
+                          <p>Register</p>
                         </a>
                       </li>
                     </ul>
@@ -557,7 +785,7 @@
                     <a href="#" class="nav-link">
                       <i class="nav-icon bi bi-box-arrow-in-right"></i>
                       <p>
-                        版本 2
+                        Version 2
                         <i class="nav-arrow bi bi-chevron-right"></i>
                       </p>
                     </a>
@@ -565,13 +793,13 @@
                       <li class="nav-item">
                         <a href="./examples/login-v2.html" class="nav-link">
                           <i class="nav-icon bi bi-circle"></i>
-                          <p>登录</p>
+                          <p>Login</p>
                         </a>
                       </li>
                       <li class="nav-item">
                         <a href="./examples/register-v2.html" class="nav-link">
                           <i class="nav-icon bi bi-circle"></i>
-                          <p>注册</p>
+                          <p>Register</p>
                         </a>
                       </li>
                     </ul>
@@ -579,108 +807,24 @@
                   <li class="nav-item">
                     <a href="./examples/lockscreen.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>锁屏</p>
+                      <p>Lockscreen</p>
                     </a>
                   </li>
                 </ul>
               </li>
 
-              <li class="nav-header">文档</li>
-              <li class="nav-item">
-                <a href="./docs/introduction.html" class="nav-link">
-                  <i class="nav-icon bi bi-download"></i>
-                  <p>安装</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./docs/layout.html" class="nav-link">
-                  <i class="nav-icon bi bi-grip-horizontal"></i>
-                  <p>布局</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./docs/color-mode.html" class="nav-link">
-                  <i class="nav-icon bi bi-star-half"></i>
-                  <p>明暗模式</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon bi bi-ui-checks-grid"></i>
-                  <p>
-                    组件
-                    <i class="nav-arrow bi bi-chevron-right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="./docs/components/main-header.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>头部</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="./docs/components/main-sidebar.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>主侧边栏</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon bi bi-filetype-js"></i>
-                  <p>
-                    Javascript
-                    <i class="nav-arrow bi bi-chevron-right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="./docs/javascript/treeview.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>树形插件</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a href="./docs/browser-support.html" class="nav-link">
-                  <i class="nav-icon bi bi-browser-edge"></i>
-                  <p>浏览器支持</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./docs/how-to-contribute.html" class="nav-link">
-                  <i class="nav-icon bi bi-hand-thumbs-up-fill"></i>
-                  <p>如何贡献</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./docs/faq.html" class="nav-link">
-                  <i class="nav-icon bi bi-question-circle-fill"></i>
-                  <p>FAQ</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./docs/license.html" class="nav-link">
-                  <i class="nav-icon bi bi-patch-check-fill"></i>
-                  <p>许可证</p>
-                </a>
-              </li>
-
-              <li class="nav-header">多级示例</li>
+              <li class="nav-header">MULTI LEVEL EXAMPLE</li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-circle-fill"></i>
-                  <p>1 级</p>
+                  <p>Level 1</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-circle-fill"></i>
                   <p>
-                    1 级
+                    Level 1
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
@@ -688,14 +832,14 @@
                   <li class="nav-item">
                     <a href="#" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>2 级</p>
+                      <p>Level 2</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="#" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>
-                        2 级
+                        Level 2
                         <i class="nav-arrow bi bi-chevron-right"></i>
                       </p>
                     </a>
@@ -703,19 +847,19 @@
                       <li class="nav-item">
                         <a href="#" class="nav-link">
                           <i class="nav-icon bi bi-record-circle-fill"></i>
-                          <p>3 级</p>
+                          <p>Level 3</p>
                         </a>
                       </li>
                       <li class="nav-item">
                         <a href="#" class="nav-link">
                           <i class="nav-icon bi bi-record-circle-fill"></i>
-                          <p>3 级</p>
+                          <p>Level 3</p>
                         </a>
                       </li>
                       <li class="nav-item">
                         <a href="#" class="nav-link">
                           <i class="nav-icon bi bi-record-circle-fill"></i>
-                          <p>3 级</p>
+                          <p>Level 3</p>
                         </a>
                       </li>
                     </ul>
@@ -723,7 +867,7 @@
                   <li class="nav-item">
                     <a href="#" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>2 级</p>
+                      <p>Level 2</p>
                     </a>
                   </li>
                 </ul>
@@ -731,31 +875,42 @@
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-circle-fill"></i>
-                  <p>1 级</p>
+                  <p>Level 1</p>
                 </a>
               </li>
 
-              <li class="nav-header">标签</li>
+              <li class="nav-header">LABELS</li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-circle text-danger"></i>
-                  <p class="text">重要</p>
+                  <p class="text">Important</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-circle text-warning"></i>
-                  <p>警告</p>
+                  <p>Warning</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-circle text-info"></i>
-                  <p>信息</p>
+                  <p>Informational</p>
                 </a>
               </li>
             </ul>
             <!--end::Sidebar Menu-->
+
+            <!-- Docs CTA (bottom of sidebar) -->
+            <div class="p-3 mt-3 border-top border-secondary border-opacity-25">
+              <a
+                href="./docs/introduction.html"
+                class="btn btn-sm btn-outline-light w-100 d-flex align-items-center justify-content-center gap-2"
+              >
+                <i class="bi bi-book" aria-hidden="true"></i>
+                View documentation
+              </a>
+            </div>
           </nav>
         </div>
         <!--end::Sidebar Wrapper-->
@@ -770,12 +925,12 @@
             <!--begin::Row-->
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">仪表盘 v2</h3>
+                <h3 class="mb-0">Dashboard v2</h3>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">首页</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">仪表盘 v2</li>
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Dashboard v2</li>
                 </ol>
               </div>
             </div>
@@ -795,7 +950,7 @@
                   </span>
 
                   <div class="info-box-content">
-                    <span class="info-box-text">CPU 负载</span>
+                    <span class="info-box-text">CPU Traffic</span>
                     <span class="info-box-number">
                       10
                       <small>%</small>
@@ -813,7 +968,7 @@
                   </span>
 
                   <div class="info-box-content">
-                    <span class="info-box-text">喜欢</span>
+                    <span class="info-box-text">Likes</span>
                     <span class="info-box-number">41,410</span>
                   </div>
                   <!-- /.info-box-content -->
@@ -832,7 +987,7 @@
                   </span>
 
                   <div class="info-box-content">
-                    <span class="info-box-text">销量</span>
+                    <span class="info-box-text">Sales</span>
                     <span class="info-box-number">760</span>
                   </div>
                   <!-- /.info-box-content -->
@@ -847,7 +1002,7 @@
                   </span>
 
                   <div class="info-box-content">
-                    <span class="info-box-text">新成员</span>
+                    <span class="info-box-text">New Members</span>
                     <span class="info-box-number">2,000</span>
                   </div>
                   <!-- /.info-box-content -->
@@ -863,7 +1018,7 @@
               <div class="col-md-12">
                 <div class="card mb-4">
                   <div class="card-header">
-                    <h5 class="card-title">月报</h5>
+                    <h5 class="card-title">Monthly Recap Report</h5>
 
                     <div class="card-tools">
                       <button type="button" class="btn btn-tool" data-lte-toggle="card-collapse">
@@ -879,11 +1034,11 @@
                           <i class="bi bi-wrench"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-end" role="menu">
-                          <a href="#" class="dropdown-item">操作</a>
-                          <a href="#" class="dropdown-item">另一个操作</a>
-                          <a href="#" class="dropdown-item"> 其他 </a>
+                          <a href="#" class="dropdown-item">Action</a>
+                          <a href="#" class="dropdown-item">Another action</a>
+                          <a href="#" class="dropdown-item"> Something else here </a>
                           <a class="dropdown-divider"></a>
-                          <a href="#" class="dropdown-item">分隔符</a>
+                          <a href="#" class="dropdown-item">Separated link</a>
                         </div>
                       </div>
                       <button type="button" class="btn btn-tool" data-lte-toggle="card-remove">
@@ -897,7 +1052,7 @@
                     <div class="row">
                       <div class="col-md-8">
                         <p class="text-center">
-                          <strong>销量: 2023年1月1日 - 2023年7月30日</strong>
+                          <strong>Sales: 1 Jan, 2023 - 30 Jul, 2023</strong>
                         </p>
 
                         <div id="sales-chart"></div>
@@ -905,11 +1060,11 @@
                       <!-- /.col -->
                       <div class="col-md-4">
                         <p class="text-center">
-                          <strong>完成目标</strong>
+                          <strong>Goal Completion</strong>
                         </p>
 
                         <div class="progress-group">
-                          添加购物车
+                          Add Products to Cart
                           <span class="float-end"><b>160</b>/200</span>
                           <div class="progress progress-sm">
                             <div class="progress-bar text-bg-primary" style="width: 80%"></div>
@@ -918,7 +1073,7 @@
                         <!-- /.progress-group -->
 
                         <div class="progress-group">
-                          完成购买
+                          Complete Purchase
                           <span class="float-end"><b>310</b>/400</span>
                           <div class="progress progress-sm">
                             <div class="progress-bar text-bg-danger" style="width: 75%"></div>
@@ -927,7 +1082,7 @@
 
                         <!-- /.progress-group -->
                         <div class="progress-group">
-                          <span class="progress-text">访问高级页面</span>
+                          <span class="progress-text">Visit Premium Page</span>
                           <span class="float-end"><b>480</b>/800</span>
                           <div class="progress progress-sm">
                             <div class="progress-bar text-bg-success" style="width: 60%"></div>
@@ -936,7 +1091,7 @@
 
                         <!-- /.progress-group -->
                         <div class="progress-group">
-                          发送咨询
+                          Send Inquiries
                           <span class="float-end"><b>250</b>/500</span>
                           <div class="progress progress-sm">
                             <div class="progress-bar text-bg-warning" style="width: 50%"></div>
@@ -958,7 +1113,7 @@
                             <i class="bi bi-caret-up-fill"></i> 17%
                           </span>
                           <h5 class="fw-bold mb-0">$35,210.43</h5>
-                          <span class="text-uppercase">总收入</span>
+                          <span class="text-uppercase">TOTAL REVENUE</span>
                         </div>
                       </div>
 
@@ -967,7 +1122,7 @@
                         <div class="text-center border-end">
                           <span class="text-info"> <i class="bi bi-caret-left-fill"></i> 0% </span>
                           <h5 class="fw-bold mb-0">$10,390.90</h5>
-                          <span class="text-uppercase">总费用</span>
+                          <span class="text-uppercase">TOTAL COST</span>
                         </div>
                       </div>
                       <!-- /.col -->
@@ -977,7 +1132,7 @@
                             <i class="bi bi-caret-up-fill"></i> 20%
                           </span>
                           <h5 class="fw-bold mb-0">$24,813.53</h5>
-                          <span class="text-uppercase">利润总额</span>
+                          <span class="text-uppercase">TOTAL PROFIT</span>
                         </div>
                       </div>
                       <!-- /.col -->
@@ -987,7 +1142,7 @@
                             <i class="bi bi-caret-down-fill"></i> 18%
                           </span>
                           <h5 class="fw-bold mb-0">1200</h5>
-                          <span class="text-uppercase">完成目标</span>
+                          <span class="text-uppercase">GOAL COMPLETIONS</span>
                         </div>
                       </div>
                     </div>
@@ -1008,13 +1163,13 @@
                 <!--begin::Row-->
                 <div class="row g-4 mb-4">
                   <div class="col-md-6">
-                    <!-- 聊天 -->
+                    <!-- DIRECT CHAT -->
                     <div class="card direct-chat direct-chat-warning">
                       <div class="card-header">
-                        <h3 class="card-title">聊天</h3>
+                        <h3 class="card-title">Direct Chat</h3>
 
                         <div class="card-tools">
-                          <span title="3 条新消息" class="badge text-bg-warning"> 3 </span>
+                          <span title="3 New Messages" class="badge text-bg-warning"> 3 </span>
                           <button
                             type="button"
                             class="btn btn-tool"
@@ -1026,7 +1181,7 @@
                           <button
                             type="button"
                             class="btn btn-tool"
-                            title="联系人"
+                            title="Contacts"
                             data-lte-toggle="chat-pane"
                           >
                             <i class="bi bi-chat-text-fill"></i>
@@ -1044,19 +1199,17 @@
                           <div class="direct-chat-msg">
                             <div class="direct-chat-infos clearfix">
                               <span class="direct-chat-name float-start"> Alexander Pierce </span>
-                              <span class="direct-chat-timestamp float-end">
-                                1月23日 下午 2:00
-                              </span>
+                              <span class="direct-chat-timestamp float-end"> 23 Jan 2:00 pm </span>
                             </div>
                             <!-- /.direct-chat-infos -->
                             <img
                               class="direct-chat-img"
                               src="./assets/img/user1-128x128.jpg"
-                              alt="用户头像"
+                              alt="message user image"
                             />
                             <!-- /.direct-chat-img -->
                             <div class="direct-chat-text">
-                              这个模板真的是免费的吗？ 太不可思议了！
+                              Is this template really for free? That's unbelievable!
                             </div>
                             <!-- /.direct-chat-text -->
                           </div>
@@ -1067,17 +1220,17 @@
                             <div class="direct-chat-infos clearfix">
                               <span class="direct-chat-name float-end"> Sarah Bullock </span>
                               <span class="direct-chat-timestamp float-start">
-                                1月23日 下午2:05
+                                23 Jan 2:05 pm
                               </span>
                             </div>
                             <!-- /.direct-chat-infos -->
                             <img
                               class="direct-chat-img"
                               src="./assets/img/user3-128x128.jpg"
-                              alt="用户头像"
+                              alt="message user image"
                             />
                             <!-- /.direct-chat-img -->
-                            <div class="direct-chat-text">是的，确实如此！</div>
+                            <div class="direct-chat-text">You better believe it!</div>
                             <!-- /.direct-chat-text -->
                           </div>
                           <!-- /.direct-chat-msg -->
@@ -1086,19 +1239,17 @@
                           <div class="direct-chat-msg">
                             <div class="direct-chat-infos clearfix">
                               <span class="direct-chat-name float-start"> Alexander Pierce </span>
-                              <span class="direct-chat-timestamp float-end">
-                                1月23日 下午5:37
-                              </span>
+                              <span class="direct-chat-timestamp float-end"> 23 Jan 5:37 pm </span>
                             </div>
                             <!-- /.direct-chat-infos -->
                             <img
                               class="direct-chat-img"
                               src="./assets/img/user1-128x128.jpg"
-                              alt="用户头像"
+                              alt="message user image"
                             />
                             <!-- /.direct-chat-img -->
                             <div class="direct-chat-text">
-                              使用 AdminLTE 开发强大的应用！ 想加入吗？
+                              Working with AdminLTE on a great new app! Wanna join?
                             </div>
                             <!-- /.direct-chat-text -->
                           </div>
@@ -1109,17 +1260,17 @@
                             <div class="direct-chat-infos clearfix">
                               <span class="direct-chat-name float-end"> Sarah Bullock </span>
                               <span class="direct-chat-timestamp float-start">
-                                1月23日 下午6:10
+                                23 Jan 6:10 pm
                               </span>
                             </div>
                             <!-- /.direct-chat-infos -->
                             <img
                               class="direct-chat-img"
                               src="./assets/img/user3-128x128.jpg"
-                              alt="用户头像"
+                              alt="message user image"
                             />
                             <!-- /.direct-chat-img -->
-                            <div class="direct-chat-text">是的，我想。</div>
+                            <div class="direct-chat-text">I would love to.</div>
                             <!-- /.direct-chat-text -->
                           </div>
                           <!-- /.direct-chat-msg -->
@@ -1134,115 +1285,117 @@
                                 <img
                                   class="contacts-list-img"
                                   src="./assets/img/user1-128x128.jpg"
-                                  alt="用户头像"
+                                  alt="User Avatar"
                                 />
 
                                 <div class="contacts-list-info">
                                   <span class="contacts-list-name">
                                     Count Dracula
-                                    <small class="contacts-list-date float-end"> 2023-2-28 </small>
+                                    <small class="contacts-list-date float-end"> 2/28/2023 </small>
                                   </span>
-                                  <span class="contacts-list-msg"> 你最近怎么样？我是…… </span>
+                                  <span class="contacts-list-msg">
+                                    How have you been? I was...
+                                  </span>
                                 </div>
                                 <!-- /.contacts-list-info -->
                               </a>
                             </li>
-                            <!-- 聊天结束 -->
+                            <!-- End Contact Item -->
                             <li>
                               <a href="#">
                                 <img
                                   class="contacts-list-img"
                                   src="./assets/img/user7-128x128.jpg"
-                                  alt="用户头像"
+                                  alt="User Avatar"
                                 />
 
                                 <div class="contacts-list-info">
                                   <span class="contacts-list-name">
                                     Sarah Doe
-                                    <small class="contacts-list-date float-end"> 2023-2-23 </small>
+                                    <small class="contacts-list-date float-end"> 2/23/2023 </small>
                                   </span>
-                                  <span class="contacts-list-msg"> 我会等…… </span>
+                                  <span class="contacts-list-msg"> I will be waiting for... </span>
                                 </div>
                                 <!-- /.contacts-list-info -->
                               </a>
                             </li>
-                            <!-- 聊天结束 -->
+                            <!-- End Contact Item -->
                             <li>
                               <a href="#">
                                 <img
                                   class="contacts-list-img"
                                   src="./assets/img/user3-128x128.jpg"
-                                  alt="用户头像"
+                                  alt="User Avatar"
                                 />
 
                                 <div class="contacts-list-info">
                                   <span class="contacts-list-name">
                                     Nadia Jolie
-                                    <small class="contacts-list-date float-end"> 2023-2-20 </small>
+                                    <small class="contacts-list-date float-end"> 2/20/2023 </small>
                                   </span>
-                                  <span class="contacts-list-msg"> 我会打电话给你…… </span>
+                                  <span class="contacts-list-msg"> I'll call you back at... </span>
                                 </div>
                                 <!-- /.contacts-list-info -->
                               </a>
                             </li>
-                            <!-- 聊天结束 -->
+                            <!-- End Contact Item -->
                             <li>
                               <a href="#">
                                 <img
                                   class="contacts-list-img"
                                   src="./assets/img/user5-128x128.jpg"
-                                  alt="用户头像"
+                                  alt="User Avatar"
                                 />
 
                                 <div class="contacts-list-info">
                                   <span class="contacts-list-name">
                                     Nora S. Vans
-                                    <small class="contacts-list-date float-end"> 2023-2-10 </small>
+                                    <small class="contacts-list-date float-end"> 2/10/2023 </small>
                                   </span>
-                                  <span class="contacts-list-msg"> 你的新…… </span>
+                                  <span class="contacts-list-msg"> Where is your new... </span>
                                 </div>
                                 <!-- /.contacts-list-info -->
                               </a>
                             </li>
-                            <!-- 聊天结束 -->
+                            <!-- End Contact Item -->
                             <li>
                               <a href="#">
                                 <img
                                   class="contacts-list-img"
                                   src="./assets/img/user6-128x128.jpg"
-                                  alt="用户头像"
+                                  alt="User Avatar"
                                 />
 
                                 <div class="contacts-list-info">
                                   <span class="contacts-list-name">
                                     John K.
-                                    <small class="contacts-list-date float-end"> 2023-1-27 </small>
+                                    <small class="contacts-list-date float-end"> 1/27/2023 </small>
                                   </span>
-                                  <span class="contacts-list-msg"> 我能看看…… </span>
+                                  <span class="contacts-list-msg"> Can I take a look at... </span>
                                 </div>
                                 <!-- /.contacts-list-info -->
                               </a>
                             </li>
-                            <!-- 聊天结束 -->
+                            <!-- End Contact Item -->
                             <li>
                               <a href="#">
                                 <img
                                   class="contacts-list-img"
                                   src="./assets/img/user8-128x128.jpg"
-                                  alt="用户头像"
+                                  alt="User Avatar"
                                 />
 
                                 <div class="contacts-list-info">
                                   <span class="contacts-list-name">
                                     Kenneth M.
-                                    <small class="contacts-list-date float-end"> 2023-1-4 </small>
+                                    <small class="contacts-list-date float-end"> 1/4/2023 </small>
                                   </span>
-                                  <span class="contacts-list-msg"> 没关系我发现…… </span>
+                                  <span class="contacts-list-msg"> Never mind I found... </span>
                                 </div>
                                 <!-- /.contacts-list-info -->
                               </a>
                             </li>
-                            <!-- 聊天结束 -->
+                            <!-- End Contact Item -->
                           </ul>
                           <!-- /.contacts-list -->
                         </div>
@@ -1255,11 +1408,11 @@
                             <input
                               type="text"
                               name="message"
-                              placeholder="输入消息 ..."
+                              placeholder="Type Message ..."
                               class="form-control"
                             />
                             <span class="input-group-append">
-                              <button type="button" class="btn btn-warning">发送</button>
+                              <button type="button" class="btn btn-warning">Send</button>
                             </span>
                           </div>
                         </form>
@@ -1274,10 +1427,10 @@
                     <!-- USERS LIST -->
                     <div class="card">
                       <div class="card-header">
-                        <h3 class="card-title">最新成员</h3>
+                        <h3 class="card-title">Latest Members</h3>
 
                         <div class="card-tools">
-                          <span class="badge text-bg-danger"> 8 位新成员 </span>
+                          <span class="badge text-bg-danger"> 8 New Members </span>
                           <button
                             type="button"
                             class="btn btn-tool"
@@ -1298,7 +1451,7 @@
                             <img
                               class="img-fluid rounded-circle"
                               src="./assets/img/user1-128x128.jpg"
-                              alt="用户头像"
+                              alt="User Image"
                             />
                             <a
                               class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0"
@@ -1306,13 +1459,13 @@
                             >
                               Alexander Pierce
                             </a>
-                            <div class="fs-8">今天</div>
+                            <div class="fs-8">Today</div>
                           </div>
                           <div class="col-3 p-2">
                             <img
                               class="img-fluid rounded-circle"
                               src="./assets/img/user1-128x128.jpg"
-                              alt="用户头像"
+                              alt="User Image"
                             />
                             <a
                               class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0"
@@ -1320,13 +1473,13 @@
                             >
                               Norman
                             </a>
-                            <div class="fs-8">昨天</div>
+                            <div class="fs-8">Yesterday</div>
                           </div>
                           <div class="col-3 p-2">
                             <img
                               class="img-fluid rounded-circle"
                               src="./assets/img/user7-128x128.jpg"
-                              alt="用户头像"
+                              alt="User Image"
                             />
                             <a
                               class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0"
@@ -1334,13 +1487,13 @@
                             >
                               Jane
                             </a>
-                            <div class="fs-8">1月12日</div>
+                            <div class="fs-8">12 Jan</div>
                           </div>
                           <div class="col-3 p-2">
                             <img
                               class="img-fluid rounded-circle"
                               src="./assets/img/user6-128x128.jpg"
-                              alt="用户头像"
+                              alt="User Image"
                             />
                             <a
                               class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0"
@@ -1348,13 +1501,13 @@
                             >
                               John
                             </a>
-                            <div class="fs-8">1月12日</div>
+                            <div class="fs-8">12 Jan</div>
                           </div>
                           <div class="col-3 p-2">
                             <img
                               class="img-fluid rounded-circle"
                               src="./assets/img/user2-160x160.jpg"
-                              alt="用户头像"
+                              alt="User Image"
                             />
                             <a
                               class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0"
@@ -1362,13 +1515,13 @@
                             >
                               Alexander
                             </a>
-                            <div class="fs-8">1月13日</div>
+                            <div class="fs-8">13 Jan</div>
                           </div>
                           <div class="col-3 p-2">
                             <img
                               class="img-fluid rounded-circle"
                               src="./assets/img/user5-128x128.jpg"
-                              alt="用户头像"
+                              alt="User Image"
                             />
                             <a
                               class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0"
@@ -1376,13 +1529,13 @@
                             >
                               Sarah
                             </a>
-                            <div class="fs-8">1月14日</div>
+                            <div class="fs-8">14 Jan</div>
                           </div>
                           <div class="col-3 p-2">
                             <img
                               class="img-fluid rounded-circle"
                               src="./assets/img/user4-128x128.jpg"
-                              alt="用户头像"
+                              alt="User Image"
                             />
                             <a
                               class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0"
@@ -1390,13 +1543,13 @@
                             >
                               Nora
                             </a>
-                            <div class="fs-8">1月15日</div>
+                            <div class="fs-8">15 Jan</div>
                           </div>
                           <div class="col-3 p-2">
                             <img
                               class="img-fluid rounded-circle"
                               src="./assets/img/user3-128x128.jpg"
-                              alt="用户头像"
+                              alt="User Image"
                             />
                             <a
                               class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0"
@@ -1404,7 +1557,7 @@
                             >
                               Nadia
                             </a>
-                            <div class="fs-8">1月15日</div>
+                            <div class="fs-8">15 Jan</div>
                           </div>
                         </div>
                         <!-- /.users-list -->
@@ -1414,7 +1567,7 @@
                         <a
                           href="javascript:"
                           class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
-                          >查看所有用户</a
+                          >View All Users</a
                         >
                       </div>
                       <!-- /.card-footer -->
@@ -1428,7 +1581,7 @@
                 <!--begin::Latest Order Widget-->
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title">最新订单</h3>
+                    <h3 class="card-title">Latest Orders</h3>
 
                     <div class="card-tools">
                       <button type="button" class="btn btn-tool" data-lte-toggle="card-collapse">
@@ -1446,10 +1599,10 @@
                       <table class="table m-0">
                         <thead>
                           <tr>
-                            <th>订单号</th>
-                            <th>项目</th>
-                            <th>状态</th>
-                            <th>人气</th>
+                            <th>Order ID</th>
+                            <th>Item</th>
+                            <th>Status</th>
+                            <th>Popularity</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -1461,9 +1614,9 @@
                                 >OR9842</a
                               >
                             </td>
-                            <td>使命召唤 4</td>
+                            <td>Call of Duty IV</td>
                             <td>
-                              <span class="badge text-bg-success"> 已发货 </span>
+                              <span class="badge text-bg-success"> Shipped </span>
                             </td>
                             <td>
                               <div id="table-sparkline-1"></div>
@@ -1477,9 +1630,9 @@
                                 >OR1848</a
                               >
                             </td>
-                            <td>三星智能电视</td>
+                            <td>Samsung Smart TV</td>
                             <td>
-                              <span class="badge text-bg-warning">待处理</span>
+                              <span class="badge text-bg-warning">Pending</span>
                             </td>
                             <td>
                               <div id="table-sparkline-2"></div>
@@ -1495,7 +1648,7 @@
                             </td>
                             <td>iPhone 6 Plus</td>
                             <td>
-                              <span class="badge text-bg-danger"> 已交付 </span>
+                              <span class="badge text-bg-danger"> Delivered </span>
                             </td>
                             <td>
                               <div id="table-sparkline-3"></div>
@@ -1509,9 +1662,9 @@
                                 >OR7429</a
                               >
                             </td>
-                            <td>三星智能电视</td>
+                            <td>Samsung Smart TV</td>
                             <td>
-                              <span class="badge text-bg-info">处理中</span>
+                              <span class="badge text-bg-info">Processing</span>
                             </td>
                             <td>
                               <div id="table-sparkline-4"></div>
@@ -1525,9 +1678,9 @@
                                 >OR1848</a
                               >
                             </td>
-                            <td>三星智能电视</td>
+                            <td>Samsung Smart TV</td>
                             <td>
-                              <span class="badge text-bg-warning">待处理</span>
+                              <span class="badge text-bg-warning">Pending</span>
                             </td>
                             <td>
                               <div id="table-sparkline-5"></div>
@@ -1543,7 +1696,7 @@
                             </td>
                             <td>iPhone 6 Plus</td>
                             <td>
-                              <span class="badge text-bg-danger"> 已交付 </span>
+                              <span class="badge text-bg-danger"> Delivered </span>
                             </td>
                             <td>
                               <div id="table-sparkline-6"></div>
@@ -1557,9 +1710,9 @@
                                 >OR9842</a
                               >
                             </td>
-                            <td>使命召唤 4</td>
+                            <td>Call of Duty IV</td>
                             <td>
-                              <span class="badge text-bg-success">已发货</span>
+                              <span class="badge text-bg-success">Shipped</span>
                             </td>
                             <td>
                               <div id="table-sparkline-7"></div>
@@ -1573,10 +1726,10 @@
                   <!-- /.card-body -->
                   <div class="card-footer clearfix">
                     <a href="javascript:void(0)" class="btn btn-sm btn-primary float-start">
-                      新订单
+                      Place New Order
                     </a>
                     <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-end">
-                      查看所有订单
+                      View All Orders
                     </a>
                   </div>
                   <!-- /.card-footer -->
@@ -1586,14 +1739,14 @@
               <!-- /.col -->
 
               <div class="col-md-4">
-                <!-- 信息框es Style 2 -->
+                <!-- Info Boxes Style 2 -->
                 <div class="info-box mb-3 text-bg-warning">
                   <span class="info-box-icon">
                     <i class="bi bi-tag-fill"></i>
                   </span>
 
                   <div class="info-box-content">
-                    <span class="info-box-text">库存</span>
+                    <span class="info-box-text">Inventory</span>
                     <span class="info-box-number">5,200</span>
                   </div>
                   <!-- /.info-box-content -->
@@ -1605,7 +1758,7 @@
                   </span>
 
                   <div class="info-box-content">
-                    <span class="info-box-text">涉及</span>
+                    <span class="info-box-text">Mentions</span>
                     <span class="info-box-number">92,050</span>
                   </div>
                   <!-- /.info-box-content -->
@@ -1617,7 +1770,7 @@
                   </span>
 
                   <div class="info-box-content">
-                    <span class="info-box-text">下载</span>
+                    <span class="info-box-text">Downloads</span>
                     <span class="info-box-number">114,381</span>
                   </div>
                   <!-- /.info-box-content -->
@@ -1629,7 +1782,7 @@
                   </span>
 
                   <div class="info-box-content">
-                    <span class="info-box-text">消息</span>
+                    <span class="info-box-text">Direct Messages</span>
                     <span class="info-box-number">163,921</span>
                   </div>
                   <!-- /.info-box-content -->
@@ -1638,7 +1791,7 @@
 
                 <div class="card mb-4">
                   <div class="card-header">
-                    <h3 class="card-title">浏览器信息</h3>
+                    <h3 class="card-title">Browser Usage</h3>
 
                     <div class="card-tools">
                       <button type="button" class="btn btn-tool" data-lte-toggle="card-collapse">
@@ -1666,7 +1819,7 @@
                     <ul class="nav nav-pills flex-column">
                       <li class="nav-item">
                         <a href="#" class="nav-link">
-                          美国
+                          United States of America
                           <span class="float-end text-danger">
                             <i class="bi bi-arrow-down fs-7"></i>
                             12%
@@ -1675,7 +1828,7 @@
                       </li>
                       <li class="nav-item">
                         <a href="#" class="nav-link">
-                          印度
+                          India
                           <span class="float-end text-success">
                             <i class="bi bi-arrow-up fs-7"></i> 4%
                           </span>
@@ -1683,7 +1836,7 @@
                       </li>
                       <li class="nav-item">
                         <a href="#" class="nav-link">
-                          中国
+                          China
                           <span class="float-end text-info">
                             <i class="bi bi-arrow-left fs-7"></i> 0%
                           </span>
@@ -1698,7 +1851,7 @@
                 <!-- PRODUCT LIST -->
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title">近期新增产品</h3>
+                    <h3 class="card-title">Recently Added Products</h3>
 
                     <div class="card-tools">
                       <button type="button" class="btn btn-tool" data-lte-toggle="card-collapse">
@@ -1723,10 +1876,10 @@
                         </div>
                         <div class="col-10">
                           <a href="javascript:void(0)" class="fw-bold">
-                            三星电视
+                            Samsung TV
                             <span class="badge text-bg-warning float-end"> $1800 </span>
                           </a>
-                          <div class="text-truncate">三星 32英寸 1080p 60Hz LED 智能高清电视。</div>
+                          <div class="text-truncate">Samsung 32" 1080p 60Hz LED Smart HDTV.</div>
                         </div>
                       </div>
                       <!-- /.item -->
@@ -1740,11 +1893,11 @@
                         </div>
                         <div class="col-10">
                           <a href="javascript:void(0)" class="fw-bold">
-                            自行车
+                            Bicycle
                             <span class="badge text-bg-info float-end"> $700 </span>
                           </a>
                           <div class="text-truncate">
-                            26 英寸 Mongoose Dolomite 男式速7，海军蓝。
+                            26" Mongoose Dolomite Men's 7-speed, Navy Blue.
                           </div>
                         </div>
                       </div>
@@ -1762,7 +1915,9 @@
                             Xbox One
                             <span class="badge text-bg-danger float-end"> $350 </span>
                           </a>
-                          <div class="text-truncate">Xbox One 主机包含 《光环:士官长合集》。</div>
+                          <div class="text-truncate">
+                            Xbox One Console Bundle with Halo Master Chief Collection.
+                          </div>
                         </div>
                       </div>
                       <!-- /.item -->
@@ -1776,10 +1931,10 @@
                         </div>
                         <div class="col-10">
                           <a href="javascript:void(0)" class="fw-bold">
-                            PS 4
+                            PlayStation 4
                             <span class="badge text-bg-success float-end"> $399 </span>
                           </a>
-                          <div class="text-truncate">PS 4 500GB 主机（PS4）</div>
+                          <div class="text-truncate">PlayStation 4 500GB Console (PS4)</div>
                         </div>
                       </div>
                       <!-- /.item -->
@@ -1787,7 +1942,7 @@
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer text-center">
-                    <a href="javascript:void(0)" class="uppercase"> 查看所有产品 </a>
+                    <a href="javascript:void(0)" class="uppercase"> View All Products </a>
                   </div>
                   <!-- /.card-footer -->
                 </div>
@@ -1805,14 +1960,14 @@
       <!--begin::Footer-->
       <footer class="app-footer">
         <!--begin::To the end-->
-        <div class="float-end d-none d-sm-inline">任何你想要的</div>
+        <div class="float-end d-none d-sm-inline">Anything you want</div>
         <!--end::To the end-->
         <!--begin::Copyright-->
         <strong>
           Copyright &copy; 2014-2026&nbsp;
           <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
         </strong>
-        保留所有权利
+        All rights reserved.
         <!--end::Copyright-->
       </footer>
       <!--end::Footer-->
@@ -1821,13 +1976,19 @@
     <!--begin::Script-->
     <!--begin::Third Party Plugin(OverlayScrollbars)-->
     <script
-      src="./assets/overlayscrollbars/overlayscrollbars.browser.es6.min.js"
+      src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
       crossorigin="anonymous"
     ></script>
     <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
-    <script src="./assets/popperjs/popper.min.js" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      crossorigin="anonymous"
+    ></script>
     <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
-    <script src="./assets/bootstrap/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
+      crossorigin="anonymous"
+    ></script>
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
     <script src="./js/adminlte.js"></script>
     <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
@@ -1859,39 +2020,103 @@
         }
       });
     </script>
-    <!--end::OverlayScrollbars Configure-->
+    <!--end::OverlayScrollbars Configure--><!--begin::Color Mode Toggle (#6010)-->
+    <script>
+      (() => {
+        'use strict';
 
-    <!-- 可选脚本 -->
+        const STORAGE_KEY = 'lte-theme';
+
+        const getStoredTheme = () => localStorage.getItem(STORAGE_KEY);
+        const setStoredTheme = (theme) => localStorage.setItem(STORAGE_KEY, theme);
+
+        const prefersDark = () => globalThis.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        const getPreferredTheme = () => {
+          const stored = getStoredTheme();
+          if (stored) return stored;
+          return prefersDark() ? 'dark' : 'light';
+        };
+
+        const setTheme = (theme) => {
+          const resolved = theme === 'auto' ? (prefersDark() ? 'dark' : 'light') : theme;
+          document.documentElement.setAttribute('data-bs-theme', resolved);
+        };
+
+        setTheme(getPreferredTheme());
+
+        const showActiveTheme = (theme) => {
+          // Highlight the active dropdown option
+          document.querySelectorAll('[data-bs-theme-value]').forEach((el) => {
+            el.classList.remove('active');
+            el.setAttribute('aria-pressed', 'false');
+            const check = el.querySelector('.bi-check-lg');
+            if (check) check.classList.add('d-none');
+          });
+          const active = document.querySelector(`[data-bs-theme-value="${theme}"]`);
+          if (active) {
+            active.classList.add('active');
+            active.setAttribute('aria-pressed', 'true');
+            const check = active.querySelector('.bi-check-lg');
+            if (check) check.classList.remove('d-none');
+          }
+          // Sync the topbar trigger icon
+          document.querySelectorAll('[data-lte-theme-icon]').forEach((icon) => {
+            icon.classList.toggle('d-none', icon.dataset.lteThemeIcon !== theme);
+          });
+        };
+
+        globalThis.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+          const stored = getStoredTheme();
+          if (!stored || stored === 'auto') setTheme(getPreferredTheme());
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+          showActiveTheme(getPreferredTheme());
+          document.querySelectorAll('[data-bs-theme-value]').forEach((toggle) => {
+            toggle.addEventListener('click', () => {
+              const theme = toggle.getAttribute('data-bs-theme-value');
+              setStoredTheme(theme);
+              setTheme(theme);
+              showActiveTheme(theme);
+            });
+          });
+        });
+      })();
+    </script>
+    <!--end::Color Mode Toggle-->
+
+    <!-- OPTIONAL SCRIPTS -->
 
     <!-- apexcharts -->
     <script
-      src="./assets/apexcharts/apexcharts.min.js"
+      src="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.min.js"
       integrity="sha256-+vh8GkaU7C9/wbSLIcwq82tQ2wTf44aOHA8HlBMwRI8="
       crossorigin="anonymous"
     ></script>
 
     <script>
-      // 请注意！！！不要使用任何 javascript
-      // 它们是演示用的
+      // NOTICE!! DO NOT USE ANY OF THIS JAVASCRIPT
+      // IT'S ALL JUST JUNK FOR DEMO
       // ++++++++++++++++++++++++++++++++++++++++++
 
       /* apexcharts
        * -------
-       * 这里我们将使用 apexcharts 创建一些图表
+       * Here we will create a few charts using apexcharts
        */
 
       //-----------------------
-      // - 月度销售图表 -
+      // - MONTHLY SALES CHART -
       //-----------------------
 
       const sales_chart_options = {
         series: [
           {
-            name: '数字产品',
+            name: 'Digital Goods',
             data: [28, 48, 40, 19, 86, 27, 90],
           },
           {
-            name: '电子产品',
+            name: 'Electronics',
             data: [65, 59, 80, 81, 56, 55, 40],
           },
         ],
@@ -1926,7 +2151,7 @@
         },
         tooltip: {
           x: {
-            format: 'yyyy 年 MM 月',
+            format: 'MMMM yyyy',
           },
         },
       };
@@ -1938,7 +2163,7 @@
       sales_chart.render();
 
       //---------------------------
-      // - 结束 月度销售图表 -
+      // - END MONTHLY SALES CHART -
       //---------------------------
 
       function createSparklineChart(selector, data) {
@@ -1997,13 +2222,16 @@
       createSparklineChart('#table-sparkline-7', table_sparkline_7_data);
 
       //-------------
-      // - 饼形图 -
+      // - PIE CHART -
       //-------------
 
       const pie_chart_options = {
         series: [700, 500, 400, 600, 300, 100],
         chart: {
           type: 'donut',
+          // Pin an explicit height to avoid an ApexCharts ResizeObserver feedback
+          // loop on browser zoom (most visible on Edge). Fixes #6019.
+          height: 350,
         },
         labels: ['Chrome', 'Edge', 'FireFox', 'Safari', 'Opera', 'IE'],
         dataLabels: {
@@ -2016,7 +2244,7 @@
       pie_chart.render();
 
       //-----------------
-      // - 结束 饼形图 -
+      // - END PIE CHART -
       //-----------------
     </script>
     <!--end::Script-->

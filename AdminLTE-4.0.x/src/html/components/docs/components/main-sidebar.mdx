@@ -1,4 +1,4 @@
-左侧页面的侧边栏提供了示例：
+The sidebar used in this page to the left provides an example of what your sidebar would look like. Construction of a sidebar:
 
 ```html
 <!--begin::Sidebar-->
@@ -31,18 +31,18 @@
         role="menu"
         data-accordion="false"
       >
-        <li class="nav-header">导航栏</li>
+        <li class="nav-header">Nav Header</li>
         <li class="nav-item">
           <a href="./index.html" class="nav-link">
             <i class="nav-icon bi bi-circle-fill"></i>
-            <p>1 级</p>
+            <p>Level 1</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon bi bi-circle-fill"></i>
             <p>
-              树形
+              Treeview
               <i class="nav-arrow bi bi-chevron-right"></i>
             </p>
           </a>
@@ -51,7 +51,7 @@
               <a href="./index.html" class="nav-link">
                 <i class="nav-icon bi bi-circle"></i>
                 <p>
-                  2 级（徽章）
+                  Level 2 (Badge)
                   <span
                     class="nav-badge badge text-bg-secondary me-3"
                   >
@@ -63,7 +63,7 @@
             <li class="nav-item">
               <a href="./index.html" class="nav-link">
                 <i class="nav-icon bi bi-circle"></i>
-                <p>2 级</p>
+                <p>Level 2</p>
               </a>
             </li>
           </ul>
@@ -71,7 +71,7 @@
         <li class="nav-item">
           <a href="./index.html" class="nav-link active">
             <i class="nav-icon bi bi-circle-fill"></i>
-            <p>1 级激活</p>
+            <p>Level 1 Active</p>
           </a>
         </li>
 
@@ -79,7 +79,7 @@
           <a href="#" class="nav-link active">
             <i class="nav-icon bi bi-circle-fill"></i>
             <p>
-              展开树形菜单
+              Treeview Menu Open
               <i class="nav-arrow bi bi-chevron-right"></i>
             </p>
           </a>
@@ -87,13 +87,13 @@
             <li class="nav-item">
               <a href="./index.html" class="nav-link active">
                 <i class="nav-icon bi bi-circle"></i>
-                <p>2 级激活</p>
+                <p>Level 2 Active</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="./index.html" class="nav-link">
                 <i class="nav-icon bi bi-circle"></i>
-                <p>2 级</p>
+                <p>Level 2</p>
               </a>
             </li>
           </ul>
@@ -109,19 +109,19 @@
 
 ## Alternate Logo
 
-你可以使用两个 LOGO 图像，而不是带有文字的 LOGO，只需要将标记更改为：
+You can use two logo images instead of logo with text, you only need to change the markup to this:
 
 ```html
 <div class="sidebar-brand">
   <a href="./index.html" class="brand-link logo-switch">
     <img
       src="./assets/img/AdminLTELogo.png"
-      alt="AdminLTE 小 Logo"
+      alt="AdminLTE Logo Small"
       class="brand-image-xl logo-xs opacity-75 shadow"
     />
     <img
       src="./assets/img/AdminLTEFullLogo.png"
-      alt="AdminLTE 大 Logo"
+      alt="AdminLTE Logo Large"
       class="brand-image-xs logo-xl opacity-75"
     />
   </a>

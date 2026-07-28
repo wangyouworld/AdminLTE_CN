@@ -4,7 +4,7 @@
 {deploymentPath + "assets/apexcharts/apexcharts.css"}
 "https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css"
 {deploymentPath + "assets/jsvectormap/jsvectormap.min.css"}
-"https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"
+"https://cdn.jsdelivr.net/npm/sortablejs@1.15.7/Sortable.min.js"
 {deploymentPath + "assets/sortablejs/Sortable.min.js"}
 "https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.min.js"
 {deploymentPath + "assets/apexcharts/apexcharts.min.js"}
@@ -24,6 +24,12 @@
 {deploymentPath + "assets/bootstrap/bootstrap.min.js"}
 "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
 {deploymentPath + "assets/popperjs/popper.min.js"}
+"https://cdn.jsdelivr.net/npm/tabulator-tables@6.4.0/dist/js/tabulator.min.js"
+{deploymentPath + "assets/tabulator-tables/tabulator.min.js"}
+"https://cdn.jsdelivr.net/npm/tabulator-tables@6.4.0/dist/css/tabulator_bootstrap5.min.css"
+{deploymentPath + "assets/tabulator-tables/tabulator_bootstrap5.min.css"}
+"https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js"
+{deploymentPath + "assets/fullcalendar/index.global.min.js"}
 "AdminLTE v4 | Dashboard"
 "AdminLTE v4 | 仪表盘"
 Dashboard
@@ -375,9 +381,9 @@ Tips</h5>
 Color modes in Bootstrap
 在 Bootstrap 中
 allow you to switch between light and dark modes. You can do this using the data-bs-theme attribute. You can also create your own custom color
-允许你在明暗模式之间切换。可以使用 data-bs-theme 属性来实现它。你还可以创建自己的颜色
+允许你在明暗模式之间切换。可以使用 data-bs-theme 属性来实现它。
 modes.
-模式。
+你还可以创建自己的颜色模式。
 Contact</
 联系</
 Toggle theme
@@ -406,26 +412,26 @@ Layout
 布局
 The <a href="/starter.html" target="_blank" rel="noopener noreferrer"  class="callout-link">
 如果你想从头开始 <a href="/starter.html" target="_blank" rel="noopener noreferrer"  class="callout-link">
-starter page
+starter pages
 起始页
+are a good place to start building your app from scratch.
+是从零构建你的应用程序的好地方。
 </a> is a good place to start building your app if you’d like to
 </a>是一个开始构建
 start from scratch.
 应用的好地方。
 The layout consists of five major parts:
 布局由五个主要部分组成:
-Wrapper <code>.app-wrapper</code> . A div that wraps the whole site.
-容器 <code>.app-wrapper</code>：包含整个页面的 div 容器。
-Main Header <code>.app-header</code> . Contains the logo and navbar.
-头部 <code>.app-header</code>：包含 logo 和导航栏。
-Main Sidebar <code>.app-sidebar</code> . Contains the sidebar user
-侧边栏 <code>.app-sidebar</code>：包含侧边栏的用户面板和菜单
-panel and menu.
-和菜单。
-Content <code>.app-main</code> . Contains the page header and content.
-内容 <code>.app-main</code>：包含页面标题和内容。
-Main Footer <code>.app-footer</code> . Contains the footer.
-底部 <code>.app-footer</code>：包含页脚，如版权声明。
+Wrapper <code>.app-wrapper</code> &mdash; a div that wraps the whole site.
+使用 <code>.app-wrapper</code> &mdash; 包裹整个站点的 div 容器。
+Main Header <code>.app-header</code> &mdash; contains the logo and navbar.
+页头 <code>.app-header</code> &mdash; 包含 Logo 和导航栏。
+Main Sidebar <code>.app-sidebar</code> &mdash; contains the sidebar user panel and menu.
+侧边栏 <code>.app-sidebar</code> &mdash; 包含侧边栏用户面板和菜单。
+Content <code>.app-main</code> &mdash; contains the page header and content.
+内容区域 <code>.app-main</code> &mdash; 包含页面标题和内容。
+Main Footer <code>.app-footer</code> &mdash; contains the footer.
+页脚 <code>.app-footer</code> &mdash; 包含页脚内容。
 Layout Options
 布局选项
 AdminLTE v4 provides a set of options to apply to your main
@@ -433,11 +439,11 @@ AdminLTE v4 提供了一系列选项，
 layout. Each one of these classes can be added to the
 这些类中的每一个都可以添加到 <code>body</code> 标签上，
 <code>body</code> tag to get the desired goal.
-以达到所需的效果。
+以达到所需效果。
 Fixed Sidebar: use the class <code>.layout-fixed</code> to get a
-固定侧边栏：使用 <code>.layout-fixed</code> 来固定侧边栏。
+固定侧边栏：使用 <code>.layout-fixed</code> 来
 fixed sidebar.
-来固定侧边栏。
+固定侧边栏。
 Mini Sidebar on Toggle: use the class
 手动折叠侧边栏：
 <code>.sidebar-expand-* .sidebar-mini</code>
@@ -451,11 +457,11 @@ Collapsed Sidebar: use the class
 have a collapsed sidebar upon loading.
 在加载后会自动折叠侧边栏。
 title = "License
-title = "版权
+title = "许可证
 License</h3>
-版权</h3>
+许可证</h3>
 License
-版权
+许可证
 Main Header Component
 头部组件
 Reminder!</h5>
@@ -478,8 +484,8 @@ element” to get to the HTML quicker than scanning the HTML page.
 以便快速查看 HTML。
 Call me whenever you can...
 有时间打电话给我……
-4 Hours Ago
-4 小时前
+Hours Ago
+小时前
 I got your message bro
 我收到你的消息了，兄弟
 The subject goes here
@@ -520,8 +526,8 @@ Treeview Plugin
 树形插件
 | Lockscreen
 | 锁屏
-"password"
-"密码"
+password
+密码
 Enter your password to retrieve your session
 输入密码以恢复会话
 Or sign in as a different user
@@ -533,6 +539,8 @@ Login Page
 Sign in to start your session
 帐户登录
 Remember Me
+记住我
+Remember me
 记住我
 Sign In
 登录
@@ -668,6 +676,10 @@ Sidebar Mini
 迷你侧边栏
 Collapsed Sidebar
 可折叠侧边栏
+Without Hover
+无悬停
+No Hover
+不悬停
 Title</h3>
 标题</h3>
 "Collapse"
@@ -1067,7 +1079,7 @@ data-bs-title="这里还有一个"
 data-bs-title="The last tip!">your own</a
 data-bs-title="最后一个提示！">你的</a
 > site or project.
-网站和项目中使用。
+> 网站和项目中使用。
 Spinner</
 旋转</
 Loading...</
@@ -1114,12 +1126,10 @@ View comment
 查看评论
 3 Jan. 2023
 2023年1月3日
-2 days ago
-2 天前
+days ago
+天前
 uploaded new photos
 上传了新照片
-5 days ago
-5 天前
 shared a video
 分享了视频
 See comments
@@ -1302,3 +1312,1369 @@ Fixed Complete
 全部固定
 Fixed Footer
 固定底部
+View documentation
+查看文档
+Documentation
+文档
+Back to live preview
+返回实时预览
+Live preview
+实时预览
+Mailbox
+邮箱
+Mailbox - Compose
+邮箱 - 写信
+Mailbox - Read
+邮箱 - 查看邮件
+<Inbox
+<收件箱
+Read Message
+查看邮件
+>Read
+>查看
+>Compose
+>写信
+<p>Elements</p>
+<p>表单</p>
+<p>Validation</p>
+<p>验证</p>
+<p>Wizard</p>
+<p>向导</p>
+Data Tables
+数据表格
+Pages
+页面
+<p>Settings</p>
+<p>设置</p>
+<p>Invoice</p>
+<p>发票</p>
+<p>Calendar</p>
+<p>日历</p>
+<p>Kanban</p>
+<p>看板</p>
+<p>Chat</p>
+<p>聊天</p>
+<p>File Manager</p>
+<p>文件管理</p>
+<p>Projects</p>
+<p>项目</p>
+<p>Pricing</p>
+<p>价格</p>
+Error
+错误
+<p>Maintenance</p>
+<p>维护</p>
+Mailbox<
+邮箱<
+Compose
+写信
+Folders<
+文件夹<
+>Sent
+>已发送
+Drafts
+草稿
+>Starred
+>标星
+>Archive
+>归档
+Spam
+垃圾邮件
+>Trash
+>回收站
+>Labels
+>标签
+Customers
+客户
+Billing
+广告
+Internal
+内部
+Search mail
+搜索邮件
+Select all
+全选
+Select message from {
+选择邮件来自 {
+{ from: "Olivia Bennett", subject: "Re: design system v2.4 sign-off", preview: "Approved — a few small notes on the success state for forms.", time: "10:42 AM", unread: true, starred: true, label: "primary" },
+{ from: "Olivia Bennett", subject: "回复：设计系统 v2.4 签收", preview: "已批准——关于表单成功状态的一些小备注。", time: "上午 10:42", unread: true, starred: true, label: "primary" },
+{ from: "GitHub", subject: "[fullcalendar/fullcalendar] PR #6912 merged", preview: "Allow custom render hooks for time grid axis labels.", time: "9:08 AM", unread: true, starred: false, label: "secondary" },
+{ from: "GitHub", subject: "[fullcalendar/fullcalendar] PR #6912 已合并", preview: "允许为时间网格轴标签自定义渲染钩子。", time: "上午 9:08", unread: true, starred: false, label: "secondary" },
+{ from: "Stripe", subject: "Your May invoice is ready", preview: "Invoice INV-2026-00428 totaling $108.31 has been issued.", time: "8:15 AM", unread: true, starred: false, label: "success" },
+{ from: "Stripe", subject: "您的五月发票已就绪", preview: "发票 INV-2026-00428 总计 108.31 美元已开具。", time: "上午 8:15", unread: true, starred: false, label: "success" },
+{ from: "Marcus Reyes", subject: "Lunch on Thursday?", preview: "Free around 1pm at the usual place. Let me know.", time: "Yesterday", unread: false, starred: true, label: "info" },
+{ from: "Marcus Reyes", subject: "周四一起吃午饭？", preview: "下午 1 点左右在老地方。有空告诉我一声。", time: "昨天", unread: false, starred: true, label: "info" },
+{ from: "Linear", subject: "[ADM-441] Calendar drag-and-drop not working on Safari iOS", preview: "Reproduces consistently on iOS 18.4 in Safari and Chrome.", time: "Yesterday", unread: false, starred: false, label: "warning" },
+{ from: "Linear", subject: "[ADM-441] 日历拖拽功能在 Safari iOS 上无法使用", preview: "在 iOS 18.4 上的 Safari 和 Chrome 中可稳定复现。", time: "昨天", unread: false, starred: false, label: "warning" },
+{ from: "Vercel", subject: "Deployment succeeded — production", preview: "main@a3c91fb deployed to production in 47s.", time: "May 16", unread: false, starred: false, label: "success" },
+{ from: "Vercel", subject: "部署成功——生产环境", preview: "main@a3c91fb 在 47 秒内部署到生产环境。", time: "5 月 16 日", unread: false, starred: false, label: "success" },
+{ from: "Sara Khan", subject: "Customer interview notes — Acme Corp", preview: "Three big themes: onboarding friction, billing visibility, mobile.", time: "May 15", unread: false, starred: false, label: "primary" },
+{ from: "Sara Khan", subject: "客户访谈记录——Acme Corp", preview: "三大主题：新手问题、账单可见性、移动端。", time: "5 月 15 日", unread: false, starred: false, label: "primary" },
+{ from: "AWS", subject: "Your monthly bill summary", preview: "Total charges for April 2026: $312.94. View in console.", time: "May 14", unread: false, starred: false, label: "danger" }
+{ from: "AWS", subject: "您的月度账单摘要", preview: "2026 年 4 月总费用：312.94 美元。请在控制台中查看。", time: "5 月 14 日", unread: false, starred: false, label: "danger" }
+hours ago
+小时前
+to me
+发给我
+Hey Jane,
+嗨，简，
+Reviewed the v2.4 candidate this morning. Overall: looks
+今天上午审阅了 v2.4 版本的候选稿。
+great, ready to ship pending two small notes:
+看起来很棒，处理两个小问题后就可以发布：
+Success state on form inputs feels a touch light against
+表单输入框的成功状态颜色
+<code>bg-body-tertiary</code>. Can we bump the border
+与 <code>bg-body-tertiary</code> 相比略显浅淡。
+contrast by ~10%?
+我们能否将边框对比度提升约 10%？
+The new focus ring is lovely on light theme but barely
+新的焦点环在浅色主题下效果很好，
+visible on dark. Worth a quick a11y pass before we cut the
+但在深色主题下几乎看不见。
+release.
+在发布前值得快速进行一次无障碍性检查。
+Otherwise, big +1. Customers are going to love the
+除此之外，赞一个！
+motion primitives.
+客户一定会喜欢这些动画基础元素。
+Sent from my laptop
+从我的笔记本电脑发送
+Attachments (2)
+附件 (2)
+Olivia Bennett
+奥利维亚·贝内特
+Olivia<
+奥利维亚<
+design-review.pdf
+设计审查.pdf
+focus-ring-dark.png
+黑色焦点环.png
+>Reply
+>回复
+Forward
+转发
+>Delete
+>删除
+Compose Message
+写信
+>Mailbox
+>邮箱
+New Message
+新邮件
+>To
+>发给
+>Cc
+>抄送
+>Bcc
+>密送
+>Subject
+>主题
+>Message
+>内容
+placeholder="Write your message
+placeholder="输入你的内容
+Hook up a rich-text editor such as
+连接一个富文本编辑器，例如
+or
+或
+to upgrade this textarea.
+升级此文本框。
+>Attachments
+>附件
+>Send
+>发送
+Save draft
+保存草稿
+>Discard
+>废弃
+Form Elements
+表单
+>Elements
+>表单
+For detailed documentation visit
+详细文档请访问
+Bootstrap Forms</a>.
+Bootstrap 表单</a>。
+Checks &amp; Radios
+复选 &amp; 单选
+Checkboxes
+复选
+>Default
+>默认
+>Pre-checked
+>已选中
+Option one
+选项 1
+Option two
+选项 2
+>Switches
+>开关选项
+>Notifications
+>通知
+>Auto-save
+>自动保存
+Selects, Ranges &amp; File
+下拉、范围选择 &amp; 上传文件
+Open this select menu
+打开下拉菜单
+>One
+>选项 1
+>Two
+>选项 2
+>Three
+>选项 3
+>Multi-select
+>多选
+>Apple
+>苹果
+>Orange
+>橙子
+>Pear
+>梨
+>Mango
+>芒果
+>Range
+>范围选择
+>Multiple files
+>上传多文件
+>Color
+>颜色
+Floating Labels
+浮动标签
+Leave a comment here
+在此留下评论
+Disabled &amp; Readonly
+禁用 &amp; 只读
+Disabled text
+禁用文本
+Readonly text
+只读文本
+Can't touch this
+不能选择
+Read me, but don't write me
+可查看，不可编辑
+Disabled select
+禁用下拉选项
+Locked option
+锁定选项
+Can't check this
+不能选中
+Layout patterns built on Bootstrap's grid +
+基于 Bootstrap 的网格和表单布局工具构建的
+utilities.
+布局模板。
+Inline Form
+内联表单
+>Preference
+>偏好
+Choose&hellip;
+选择&hellip;
+>Validation
+>验证
+Built on
+基于
+Bootstrap's native form validation
+Bootstrap 的原生表单验证功能
+— submit each form to see the feedback. The wiring script lives at the bottom of this page.
+——提交每个表单以查看反馈。相关脚本位于本页面底部。
+Custom Validation
+自定义验证
+Browser Defaults &amp; Tooltips
+浏览器默认设置 &amp; 提示信息
+>California
+>加利福尼亚
+>Washington
+>华盛顿
+>Tennessee
+>田纳西州
+For browser-native validation feedback, omit
+对于原生浏览器验证反馈，
+<code>novalidate</code> and the <code>.needs-validation</code> class.
+请省略 <code>novalidate</code> 和 <code>.needs-validation</code>类。
+Submit (browser default)
+提交（浏览器默认）
+Add <code>.needs-validation-tooltip</code> in place of
+使用 <code>.needs-validation-tooltip</code> 替
+<code>.needs-validation</code> to swap inline feedback for floating tooltips.
+换为 <code>.needs-validation</code>，即可把行内验证反馈改为浮动提示框样式。
+// Enable Bootstrap-style validation for forms marked with .needs-validation
+// 启用 Bootstrap 风格的表单验证，适用于标记为 .needs-validation
+// or .needs-validation-tooltip. Prevents submission if any field is invalid.
+// 或 .needs-validation-tooltip 的表单。如果任何字段无效，将阻止提交。
+Form Wizard
+向导表单
+>Forms
+>表单
+>Wizard
+>向导
+>Account
+>账户
+>Preferences
+>偏好
+>Review
+>预览
+Create your account
+创建账户
+Please enter a valid email.
+请输入有效的邮箱地址。
+Username
+用户名
+Username must be at least 3 characters.
+用户名至少3个字符。
+Password
+密码
+Password must be at least 8 characters.
+密码必须至少8个字符。
+Confirm password
+确认密码
+Passwords must match.
+密码必须一致。
+Tell us about yourself
+介绍一下你自己
+First name is required.
+请输入姓氏。
+Last name is required.
+请输入名字。
+Company
+公司
+Role
+职位
+>Founder / CEO
+>创始人 / 首席执行官
+>Engineering
+>工程师
+>Design
+>设计师
+>Marketing
+>销售员
+>Other
+>其他
+Please select a role.
+请选择你的职位。
+Notification preferences
+通知偏好
+Product updates &amp; releases
+产品更新 &amp; 发布
+Security alerts
+安全警报
+Marketing &amp; tips
+营销 &amp;  技巧
+Digest frequency
+通知频率
+Real time
+实时
+>Daily
+>每天
+>Weekly
+>每周
+>Never
+>关闭
+Review &amp; confirm
+预览 &amp; 确认
+I agree to the <a href="#">terms of service</a>.
+我同意 <a href="#">服务条款</a>。
+You must accept the terms to continue.
+您必须接受条款才能继续。
+Previous
+上一步
+Next
+下一步
+Submit
+提交
+Wizard complete! Form would submit here.
+向导完成！表单将在此提交。
+>Tables
+>表格
+>Data
+>数据表格
+Filter rows&hellip;
+筛选行&hellip;
+Export CSV
+导出 CSV
+Export JSON
+导出 JSON
+Print
+打印
+Powered by
+由
+&mdash; vanilla JS, no jQuery required.
+&mdash; 提供支持 — 基于纯 JS，无需 jQuery。
+title: "Name"
+title: "名字"
+title: "Role"
+title: "规则"
+title: "Status"
+title: "状态"
+title: "Joined"
+title: "加入"
+User Profile
+用户资料
+Product Designer
+产品设计师
+>Following
+>粉丝
+>About
+>关于
+Education
+教育经历
+BS in Computer Science from the University of Tennessee at
+田纳西大学诺克斯维尔分校
+Knoxville
+计算机科学理学学士
+Location
+位置
+Malibu, California
+加利福尼亚州马里布
+Skills
+技能
+Design Systems
+设计系统
+>Research
+>研究
+Notes
+说明
+Lorem ipsum represents a long-held tradition for designers,
+他是望闻问切加摸心脏看舌头，主观加客观地乱用，
+typographers and the like.
+可以说他用尽一切在无器械情况下能用的诊疗手段，但没有任何治疗手段。
+Activity
+活动
+Settings
+设置
+Shipped <a href="#">design-system v2.4</a> with a
+已发布<a href="#">设计系统 v2.4</a>，
+refreshed color palette and new motion primitives.
+包含更新的配色方案和全新的动画基础元素。
+Like
+喜欢
+Comment
+评论
+Posted a question in
+在 <a href="#">#design-help</a> 中
+<a href="#">#design-help</a>: how should we handle
+发了一个问题：对于深色主题的行动按钮，
+focus rings on dark-themed CTA buttons?
+我们该如何处理焦点环？
+Updated her bio and added <em>Research</em> to her
+更新了个人简介，
+skills.
+并将<em>“研究”</em> 添加到技能中。
+Released v2.4 of the design system
+发布设计系统 v2.4
+May 16, 2026
+2026年5月16日
+Spoke at the local UX meetup
+在本地用户体验交流会上发言
+April 22, 2026
+2026年4月22日
+Joined the product team as Senior Designer
+加入产品团队担任高级设计师
+March 1, 2026
+2026年3月1日
+Email
+邮箱
+Designer with a soft spot for design tokens and accessibility.
+设计师，偏爱设计令牌与无障碍设计。
+Save changes
+保存修改
+Cancel
+取消
+>Settings
+>设置
+>Security
+>安全
+>Billing
+>费用
+Danger zone
+危险操作
+Full name
+全名
+Time zone
+时区
+America/Los_Angeles
+美国/洛杉矶
+Europe/London
+欧洲/伦敦
+Asia/Tokyo
+亚洲/东京
+Language
+语言
+>English
+>英语
+>Español
+>西班牙语
+>Français
+>法语
+>Deutsch
+>德语
+Choose what to be notified about.
+选择要接收的通知。
+["Product updates", "Major releases and changelogs"],
+["产品更新", "重要发布和更新日志"],
+["Security alerts", "Sign-in attempts and account changes"],
+["安全提醒", "登录和账户变更"],
+["Weekly digest", "A summary of activity in your workspace"],
+["每周摘要", "工作区中的活动摘要"],
+["Mentions", "When a teammate @mentions you"]
+["提及", "当队友 @提及 你时"]
+Toggle {label}
+切换 {label}
+Save preferences
+保存设置
+Current password
+当前密码
+New password
+新密码
+Confirm new password
+确认新密码
+Update password
+更新密码
+Two-factor authentication
+双因素认证
+Authenticator app
+身份验证 APP
+Use an authenticator app such as 1Password or Authy.
+使用 1Password 或 Authy 等身份验证 APP。
+>Enable
+>启用
+Current plan
+当前计划
+Pro plan
+提前计划
+$29 / month &middot; Renews June 18, 2026
+每月 29 美元 · 2026 年 6 月 18 日续费
+Change plan
+保存计划
+Payment method
+付款方式
+Visa ending in 4242
+尾号为 4242 的 Visa 卡
+>Update
+>更新
+Export account data
+导出账户数据
+Download a copy of all your data as a ZIP archive.
+将所有数据下载为 ZIP 压缩包。
+>Export
+>导出
+Delete account
+删除账户
+This will permanently delete your account and all
+这将永久删除您的账户及所有关联数据。
+associated data. This cannot be undone.
+此操作不可撤销。
+Delete account
+删除账户
+>Invoice
+>发票
+>Print
+>打印
+Send invoice
+发送发票
+795 Folsom Ave, Suite 600
+加利福尼亚州旧金山福尔索姆大道 795 号 600 室
+San Francisco, CA 94107
+邮编 94107
+>Paid
+>已付款
+Billed to
+账单寄送方
+Attn: Jane Doe
+注意：Jane Doe
+1234 Market Street
+旧金山，加利福尼亚州 邮编 94103
+San Francisco, CA 94103
+1234 市场街
+Issue date
+开具日期
+May 18, 2026
+2026年5月18日
+Due date
+到期日期
+June 1, 2026
+2026年6月1日
+>Description
+>描述
+Qty
+数量
+Unit price
+单价
+Amount
+金额
+>Subtotal
+>小计
+>Tax
+>税费
+Total due
+总计
+${fmt(total)} USD
+${fmt(total)} 美元
+Thanks for your business. Payment is due within 14 days. If
+感谢您的惠顾。请于 14 日内完成付款。
+you have any questions about this invoice, please contact
+如有任何发票相关问题，请随时联系
+billing@example.com</a>.
+billing@example.com</a>。
+>Calendar
+>日历
+Draggable events
+可拖动事件
+Drag an event to the calendar to schedule it.
+将活动拖到日历中以安排它。
+Team standup
+团队站会
+Customer call
+客户回访
+Design review
+设计评审
+1:1 with manager
+与经理的一对一会议
+Release window
+发布时间窗口
+Remove from list after dropping
+移除后从列表中删除
+&mdash; MIT licensed, jQuery-free.
+驱动 &mdash; 采用 MIT 许可证，无 jQuery 依赖。
+Quarterly planning
+季度规划
+Onboarding session
+入职培训
+Release v2.5
+发布 v2.5
+All-hands
+全体成员
+initialView: "dayGridMonth",
+initialView: "dayGridMonth", locale: 'zh-cn',
+Event title:
+事件标题：
+`Delete "
+`删除 "
+Smart path resolution: calculate relative path based on directory depth
+智能路径解析：根据目录深度计算相对路径
+Only count directories, not the filename itself
+仅统计目录，不包括文件名本身
+Kanban Board
+看板
+"Backlog"
+"待办事项"
+Audit unused SCSS variables
+检查未使用的 SCSS 变量
+Identify deprecated Bootstrap 5.3.4 variables and add comments.
+找出 Bootstrap 5.3.4 中已弃用的变量，并补充注释。
+tech debt
+技术债务
+Document hreflang setup
+为 hreflang 配置编写文档
+"docs"
+"文档"
+Investigate Safari iOS calendar drag bug
+调查 Safari 浏览器在 iOS 上的日历拖拽 Bug
+May 28
+5月28日
+"To do"
+"待办"
+Add Tom Select recommended-integration doc
+补充 Tom Select 集成文档
+Cover install, theming, single + multi select examples.
+包括安装方法、主题配置，以及单选/多选使用示例。
+"feature"
+"功能"
+May 24
+5月24日
+Wire up profile page avatar upload
+设置个人资料页面头像上传
+In progress
+进行中
+Build kanban board demo
+构建看板功能演示
+SortableJS, draggable between lanes, MIT license.
+基于 SortableJS 实现跨列拖拽交互，采用 MIT 开源许可。
+"Today"
+"今天"
+Tabulator + FullCalendar integration QA
+Tabulator + FullCalendar 集成测试/验收
+"Done"
+"完成"
+Upgrade to Bootstrap 5.3.8
+升级到 Bootstrap 到 5.3.8
+Ship 8 Tier-1 page templates
+发布 8 个一级页面模板
+Profile, settings, invoice, pricing, FAQ, 404/500/maintenance.
+涵盖个人资料页、设置页、发票页、定价页、常见问题页、404/500 错误页面及维护中页面。
+Drop dead eslint-config-xo deps
+移除无用的 eslint-config-xo 依赖项
+>Kanban
+>看板
+Drag cards between lanes. Try dropping &ldquo;In progress&rdquo;
+在各列之间拖拽卡片。尝试将 &ldquo;进行中&rdquo; 的条目拖放到 &ldquo;已完成&rdquo; 中。
+items into &ldquo;Done&rdquo;.
+将项目标记为 &ldquo;完成&rdquo;。
+Add card
+添加卡片
+Search projects
+搜索项目
+Yearly <
+每年 <
+>Filter
+>过滤
+>Sort
+>排序
+>Add lane
+>新增列
+"Lane actions"
+"列管理"
+title="You"
+title="你"
+just now
+刚才
+Card title:
+卡片标题
+| Chat
+| 聊天
+last: "Approved — a few small notes…", time: "2m"
+last: "已批准 — 有几处小备注……", time: "2分钟前"
+last: "Lunch Thursday?", time: "1h"
+last: "周四一起吃午饭？", time: "1小时前"
+last: "Customer interview notes are up.", time: "3h"
+last: "客户访谈笔记已上传。", time: "3小时前"
+last: "PR is ready for review.", time: "Yesterday"
+last: "PR 已准备好接受审核。", time: "昨天"
+last: "Heading out, see you Mon.", time: "Yesterday"
+last: "先走了，周一见。", time: "昨天"
+last: "Pushed the calendar fix.", time: "May 16"
+last: "已推送日历修复。", time: "5月16日"
+last: "Adding you to the design crit.", time: "May 15"
+last: "把你加进设计评审了。", time: "5月15日"
+"me" | "them"
+"我" | "对方"
+{ who: "them", text: "Hey Jane! Did you get a chance to look at the v2.4 candidate?", time: "10:38 AM" },
+{ who: "对方", text: "嘿 Jane！有空看看 v2.4 的候选版吗？", time: "10:38" },
+{ who: "me", text: "Just finished going through it. Overall really solid — the new motion primitives are great.", time: "10:40 AM" },
+{ who: "我", text: "刚看完。总体很棒——新的交互效果特别好。", time: "10:40" },
+{ who: "them", text: "Glad you like them. Any concerns?", time: "10:40 AM" },
+{ who: "对方", text: "喜欢就好。有啥问题不？", time: "10:40" },
+{ who: "me", text: "Two small things: the success state on form inputs feels light, and the focus ring is barely visible on dark theme.", time: "10:41 AM" },
+{ who: "我", text: "有两个小地方：表单输入的成功状态视觉上偏弱，暗色主题下的焦点环几乎看不清。", time: "10:41" },
+{ who: "them", text: "Yeah, that focus ring issue has been bugging me too. I’ll bump the contrast and ping you for another look.", time: "10:42 AM" },
+{ who: "对方", text: "嗯，焦点环那个问题我也一直挺烦的。我调一下对比度再叫你看一眼。", time: "10:42" },
+{ who: "me", text: "Sounds good. Otherwise, ship it!", time: "10:42 AM" }
+{ who: "我", text: "好嘞。别的没问题，发布吧！", time: "10:42" }
+>Chat
+>聊天
+Search contacts
+搜索联系人
+Online &middot; typing&hellip;
+在线 &middot; 输入中&hellip;
+"Attach"
+"附加"
+Type a message
+输入一条消息
+"Emoji"
+"表情"
+File Manager
+文件管理
+{ name: "Customer interviews", type: "folder", size: "—", modified: "Today" },
+{ name: "客户访谈", type: "folder", size: "—", modified: "今天" },
+{ name: "Q2 planning", type: "folder", size: "—", modified: "Yesterday", shared: true },
+{ name: "Q2 规划", type: "folder", size: "—", modified: "昨天", shared: true },
+{ name: "design-review.pdf", type: "pdf", size: "1.4 MB", modified: "10:42 AM" },
+{ name: "design-review.pdf", type: "pdf", size: "1.4 MB", modified: "10:42" },
+{ name: "focus-ring-dark.png", type: "image", size: "320 KB", modified: "10:38 AM" },
+{ name: "focus-ring-dark.png", type: "image", size: "320 KB", modified: "10:38" },
+{ name: "INV-2026-00428.pdf", type: "pdf", size: "184 KB", modified: "Yesterday" },
+{ name: "INV-2026-00428.pdf", type: "pdf", size: "184 KB", modified: "昨天" },
+{ name: "roadmap.docx", type: "doc", size: "47 KB", modified: "Yesterday", shared: true },
+{ name: "roadmap.docx", type: "doc", size: "47 KB", modified: "昨天", shared: true },
+{ name: "analytics-may.xlsx", type: "sheet", size: "92 KB", modified: "May 16" },
+{ name: "analytics-may.xlsx", type: "sheet", size: "92 KB", modified: "5月16日" },
+{ name: "site-export-2026-05.zip", type: "zip", size: "12.3 MB", modified: "May 14" },
+{ name: "site-export-2026-05.zip", type: "zip", size: "12.3 MB", modified: "5月14日" },
+{ name: "main.tsx", type: "code", size: "8 KB", modified: "May 12" }
+{ name: "main.tsx", type: "code", size: "8 KB", modified: "5月12日" }
+>Files
+>文件管理
+Upload files
+上传文件
+New folder
+创建文件夹
+Storage
+存储
+6.2 GB of 10 GB used
+已用 6.2 GB，共 10 GB
+My Drive
+我的空间
+Design
+设计
+Search files
+搜索文件
+Shared
+共享
+Folder
+文件夹
+<th>Name</th>
+<th>文件名</th>
+<th>Size</th>
+<th>大小</th>
+<th>Modified</th>
+<th>修改时间</th>
+<th class="text-end">Actions</th>
+<th class="text-end">操作</th>
+"Download"
+"下载"
+"Share"
+"共享"
+"Delete"
+"删除"
+{items.length} items
+{items.length} 项目
+| Projects
+| 项目
+"On track"
+"正常"
+"At risk"
+"风险"
+"Delayed"
+"延期"
+"Completed"
+"完成"
+"Low"
+"低"
+"Medium"
+"中"
+"High"
+"高"
+AdminLTE 4 Release
+AdminLTE 4 发布
+"Internal"
+"内部"
+Jun 14, 2026
+2026年6月14日
+Marketing Site Redesign
+营销网站重新设计
+Acme Corp
+Acme 公司
+Jul 02, 2026
+2026年7月2日
+Mobile App v2
+移动应用 v2
+Nimbus Labs
+Nimbus 实验室
+Aug 18, 2026
+2026年8月18日
+Analytics Pipeline
+数据分析流水线
+May 30, 2026
+2026年5月30日
+Brand Style Guide
+品牌设计规范
+May 09, 2026
+2026年5月9日
+Onboarding Email Flow
+引导邮件流程
+Jun 22, 2026
+2026年6月22日
+>Projects
+>项目
+Active projects
+活跃项目
+On track
+正常
+At risk / delayed
+风险 / 延期
+>Completed
+>完成
+All projects
+所有项目
+All statuses
+所有状态
+>On track
+>正常
+>At risk
+>风险
+>Delayed
+>延期
+New project
+新增项目
+>Project
+>项目
+>Team
+>团队
+>Budget
+>预算
+>Due
+>截止日期
+>Priority
+>优先级
+>Actions
+>操作
+"View"
+"查看"
+"Edit"
+"编辑"
+"More"
+"更多"
+Showing {projects.length} of {projects.length}
+共 {projects.length} 个项目
+| Pricing
+| 价格
+>Pricing
+>价格
+Pick the plan that fits your team
+选择适合您团队的方案
+Simple, transparent pricing. No hidden fees. Cancel any time.
+价格透明简单，无隐形消费，随时可退订。
+>Monthly
+>每月
+Save 20%
+立省20%
+>Starter
+>免费
+For individuals getting started.
+适合初学者。
+>Pro
+>专业版
+/mo
+/月
+Get started
+开始使用
+Up to 3 projects
+最多 3 个项目
+Community support
+社区支持
+GB storage
+GB 存储空间
+Advanced analytics
+高级分析
+Most popular
+最受欢迎
+For growing teams that need more.
+适用于需要更多功能的成长型团队。
+Start free trial
+立即试用
+Unlimited projects
+无限项目
+Priority email support
+优先邮件支持
+>Enterprise
+>企业版
+For organizations with custom needs.
+适合有定制化需求的组织。
+>Custom
+>定制
+Contact sales
+联系销售
+Everything in Pro
+专业版所有功能
+SSO &amp; SCIM
+单点登录 &amp; 跨域身份管理
+Dedicated account manager
+专属客户经理
+Custom SLA
+自定义 SLA
+Compare features
+功能比较
+>Feature
+>功能
+>Unlimited
+>无限制
+Team members
+团队成员
+Up to 20
+上限 20
+>Support
+>支持
+>Community
+>社区
+Priority email
+优先邮件
+>Dedicated
+>专属
+Getting started
+入门指南
+q: "How do I create an account?",
+q: "如何创建账户？",
+a: "Click <strong>Sign up</strong> in the top-right corner, enter your email and a strong password, then verify your email to activate your workspace."
+a: "点击右上角的 <strong>注册</strong>，输入您的电子邮箱和强密码，然后验证邮箱以激活您的工作区。"
+q: "Can I try the product before paying?",
+q: "我可以在付费之前试用产品吗？",
+a: "Yes. Every paid plan includes a 14-day free trial. No credit card is required to start."
+a: "可以。每个付费套餐均包含 14 天免费试用期。开始试用无需信用卡。"
+q: "How do I invite teammates?",
+q: "如何邀请团队成员？",
+a: "From <strong>Settings &rarr; Team</strong>, click <strong>Invite member</strong> and enter their email. They&rsquo;ll receive an invitation link valid for seven days."
+a: "在 <strong>设置 → 团队</strong> 中，点击 <strong>邀请成员</strong> 并输入他们的邮箱。他们将收到一封有效期七天的邀请链接。"
+Billing &amp; plans
+计费 &amp; 套餐
+q: "Which payment methods do you accept?",
+q: "你们接受哪些付款方式？",
+a: "We accept all major credit and debit cards. Annual Enterprise plans can be paid by invoice."
+a: "我们接受所有主流信用卡和借记卡。年度企业版套餐可通过发票支付。"
+q: "Can I change my plan later?",
+q: "我之后可以更改套餐吗？",
+a: "Yes. Upgrades take effect immediately and are pro-rated. Downgrades take effect at the end of the current billing cycle."
+a: "可以。升级立即生效并按比例计费。降级则在当前计费周期结束后生效。"
+q: "Do you offer refunds?",
+q: "你们提供退款吗？",
+a: "We offer a full refund within 30 days of your first paid invoice, no questions asked."
+a: "我们提供自首次付费发票开具之日起 30 天内全额退款，无需任何理由。"
+Security &amp; privacy
+安全 &amp; 隐私
+q: "Where is my data stored?",
+q: "我的数据存储在哪里？",
+a: "Data is stored in encrypted form in SOC 2-certified data centers. You can choose your region (US or EU) when you set up your workspace."
+a: "数据以加密形式存储在符合 SOC 2 标准的数据中心中。您在创建工作区时可以选择所在区域（美国或欧盟）。"
+q: "Do you support SSO?",
+q: "你们支持 SSO 吗？",
+a: "Yes, on the Enterprise plan. We support SAML 2.0 and OIDC with providers including Okta, Azure AD, and Google Workspace."
+a: "支持，企业版套餐提供此功能。我们支持 SAML 2.0 和 OIDC 协议，兼容 Okta、Azure AD 和 Google Workspace 等身份提供商。"
+q: "How can I export or delete my data?",
+q: "如何导出或删除我的数据？",
+a: "You can export your data at any time from <strong>Settings &rarr; Data</strong>. Deletion requests are honored within 30 days per our DPA."
+a: "您可以随时通过 <strong>设置 → 数据</strong> 导出您的数据。删除请求将根据我们的数据处理协议（DPA）在 30 天内处理完成。"
+How can we help?
+需要帮忙吗？
+Search our knowledge base, or browse the topics below.
+搜索我们的知识库，或浏览下方主题。
+Search the FAQ
+搜索 FAQ
+Still need help?
+还需要帮助吗？
+Can&rsquo;t find what you&rsquo;re looking for? Our support team is happy
+找不到您想要的内容？
+to help.
+我们的支持团队很乐意为你提供帮助。
+Contact support
+联系支持
+Error Page
+错误页
+Oops! Page not found.
+哎呀！页面未找到。
+We could not find the page you were looking for. Meanwhile, you
+页面找不到了。您可以回首页，
+may return to the dashboard or try searching for what you need.
+或者搜一下想找的内容。
+Search&hellip;
+搜索&hellip;
+Back to dashboard
+返回首页
+Something went wrong on our end.
+系统内部错误。
+The server encountered an unexpected condition. Our team has been
+服务器遇到了意外情况。我们的团队已收到通知。
+notified. Please try again in a moment, or contact support if the
+请稍后再试，如果问题持续存在，
+issue persists.
+请联系支持团队。
+| Maintenance
+| 维护中
+We&rsquo;ll be right back.
+系统维护中，稍后恢复。
+The application is undergoing scheduled maintenance. We expect to
+应用正在按计划进行维护。我们预计很快就会恢复上线。
+be back online shortly. Thanks for your patience.
+感谢您的耐心等待。
+Estimated completion
+预计剩余时间
+In approximately 30 minutes
+约 30 分钟
+For urgent issues, reach us at
+紧急情况，请联系我们
+Layout Blueprint
+布局结构
+Customization & Theming
+定制与主题设计
+Customization &amp; Theming
+定制 &amp; 主题设计
+Customization
+定制
+RTL Support
+RTL 支持
+Common Patterns & Recipes
+常见模式与方案
+Common Patterns &amp; Recipes
+常见模式 &amp; 方案
+Recipes
+方案
+JavaScript Plugins Overview
+JavaScript 插件概述
+Overview
+概述
+Layout Plugin
+布局插件
+Pushmenu Plugin
+Pushmenu 插件
+START HERE
+开始
+>FOUNDATIONS
+>基础
+Layout Classes
+布局类
+>Customization
+>定制
+>Recipes
+>方案
+JavaScript Plugins
+JavaScript 插件
+>Overview
+>概述
+Card Widget
+卡片小工具
+>Fullscreen
+>全屏
+>Accessibility
+>无障碍访问
+>Integrations
+>集成
+>Migration from
+>从 v3 迁移
+>Deployment
+>部署
+>Contributing
+>贡献
+Card Widget Plugin |
+卡片小工具 |
+Direct Chat Plugin |
+Direct Chat Plugin |
+Fullscreen Plugin
+全屏插件
+Accessibility Module
+无障碍访问
+Recommended Integrations
+推荐集成
+>SHIPPING
+>上线指南
+>BUILDING
+>构建
+Migration from v3
+从 v3 迁移
+Migration
+迁移
+Deployment & Performance
+部署与性能
+Deployment
+部署
+Getting started
+开始
+q: "What is AdminLTE, exactly?",
+q: "AdminLTE 到底是什么？",
+a: `A free, MIT-licensed admin dashboard <em>template</em>. It's a set of HTML, CSS, and JavaScript files built on top of Bootstrap 5.3 — not a framework, not an npm component library. You drop it into your project, modify the markup to suit your app, and ship.`
+a: `一个免费的、MIT 许可的管理后台<em>模板</em>。它是一套基于 Bootstrap 5.3 构建的 HTML、CSS 和 JavaScript 文件——不是框架，也不是 npm 组件库。你只需将它放入你的项目，修改标记以适配你的应用，然后发布即可。`
+q: "Do I need a build step to use it?",
+q: "使用它需要构建步骤吗？",
+a: `No. The <a href="getting-started.html">Getting Started</a> guide shows the CDN-only approach — copy four <code>&lt;link&gt;</code> tags and four <code>&lt;script&gt;</code> tags into your HTML and you're done. The npm-based workflow is there if you want to customise SCSS variables or tree-shake the JavaScript.`
+a: `不需要。<a href="getting-started.html">入门指南</a>展示了纯 CDN 方式——将四个 <code>&lt;link&gt;</code> 标签和四个 <code>&lt;script&gt;</code> 标签复制到你的 HTML 中就完成了。如果你想要自定义 SCSS 变量或对 JavaScript 进行摇树优化，也可以使用基于 npm 的工作流。`
+q: "Which Bootstrap version does v4 require?",
+q: "v4 需要哪个版本的 Bootstrap？",
+a: `Bootstrap 5.3.x. The current <code>package.json</code> pins 5.3.8 — older 5.3 minors should work but aren't tested. Bootstrap 5.0 / 5.1 / 5.2 will not work (the color-mode and <code>data-bs-theme</code> system landed in 5.3).`
+a: `Bootstrap 5.3.x。当前 <code>package.json</code> 锁定为 5.3.8——更早的 5.3 小版本应该也能用，但未经测试。Bootstrap 5.0 / 5.1 / 5.2 将无法使用（颜色模式和 <code>data-bs-theme</code> 系统是在 5.3 中引入的）。`
+q: "Can I use AdminLTE 4 with jQuery?",
+q: "我可以在 AdminLTE 4 中使用 jQuery 吗？",
+a: `You don't <em>need</em> jQuery — AdminLTE 4's JavaScript is vanilla. If your existing app already uses jQuery, it'll coexist fine. But none of AdminLTE 4's own plugins call into jQuery, and there are no <code>$.fn.xxx()</code> plugin shims.`
+a: `你<em>不需要</em> jQuery——AdminLTE 4 的 JavaScript 是原生 JS。如果你现有的应用已经使用了 jQuery，它们可以很好地共存。但 AdminLTE 4 自身的插件都不会调用 jQuery，也没有 <code>$.fn.xxx()</code> 这类插件垫片。`
+Framework integrations
+框架整合
+q: "Can AdminLTE be used with WordPress?",
+q: "AdminLTE 可以用于 WordPress 吗？",
+a: `Yes — it's just HTML/CSS/JS. The typical path is to build a custom WordPress theme that wraps AdminLTE's markup around <code>wp_head()</code>, <code>wp_footer()</code>, and WordPress's loops. AdminLTE doesn't ship a WordPress-specific build; the work of porting nav-walker classes and authentication forms is yours.`
+a: `可以——它只是 HTML/CSS/JS。典型的做法是构建一个自定义 WordPress 主题，将 AdminLTE 的标记包裹在 <code>wp_head()</code>、<code>wp_footer()</code> 和 WordPress 循环周围。AdminLTE 不提供针对 WordPress 的专用构建版本；移植导航 Walker 类和认证表单的工作需要由你来完成。`
+q: "Laravel? Symfony? Yii? Django? Rails?",
+q: "Laravel？Symfony？Yii？Django？Rails？",
+a: `All workable. AdminLTE is a server-rendered template — copy the demo pages into your views/templates, replace static content with your framework's template variables, and wire up routes/auth as usual. Community Composer/Packagist packages exist for Laravel and Symfony, though they typically lag the upstream version — verify they ship v4 before you depend on them.`
+a: `都可以使用。AdminLTE 是一个服务端渲染模板——将演示页面复制到你的视图/模板中，将静态内容替换为你框架的模板变量，然后像往常一样配置路由/认证即可。社区中有针对 Laravel 和 Symfony 的 Composer/Packagist 包，但它们通常会落后于上游版本——在依赖它们之前，请先确认它们提供的是 v4 版本。`
+a: `<p>Workable but less natural. AdminLTE's JavaScript plugins use DOM lifecycle hooks (<code>DOMContentLoaded</code>, MutationObserver patterns) which fight with framework reconciliation. If you're using a SPA framework, consider:</p>
+a: `<p>可以使用但不太自然。AdminLTE 的 JavaScript 插件使用 DOM 生命周期钩子（<code>DOMContentLoaded</code>、MutationObserver 模式），这些会与框架的协调机制产生冲突。如果你使用 SPA 框架，请考虑：</p>
+<li>Using AdminLTE <em>only</em> for CSS — keep the visual style, but write your own React/Vue components for the interactive parts.</li>
+<li><em>仅</em>将 AdminLTE 用于 CSS——保留视觉风格，但为交互部分自行编写 React/Vue 组件。</li>
+<li>Or pick a component library built for your framework (PrimeReact, Vuetify, etc.).</li>
+<li>或者选择专为你的框架构建的组件库（PrimeReact、Vuetify 等）。</li>
+<p class="mb-0">We don't recommend wrapping AdminLTE's jQuery-era plugins in SPA framework components — it's a maintenance burden that outweighs the visual win.</p>`
+<p class="mb-0">我们不建议将 AdminLTE 的 jQuery 时代插件封装在 SPA 框架组件中——这会带来维护负担，得不偿失。</p>`
+"Customization"
+"定制"
+q: "How do I change the primary colour?",
+q: "如何更改主色？",
+a: `<p>Override <code>--bs-primary</code> (and its RGB counterpart) on <code>:root</code>:</p>
+a: `<p>在 <code>:root</code> 中覆盖 <code>--bs-primary</code>（及其对应的 RGB 值）：</p>
+<p class="mb-0">For deeper control (sidebar width, breakpoints, spacing scale), see <a href="customization.html">Customization &amp; Theming</a>.</p>`
+<p class="mb-0">如需更深层控制（侧边栏宽度、breakpoint、间距比例），请参阅<a href="customization.html">自定义与主题</a>。</p>`
+q: "How do I add a date picker / multi-select / rich text editor?",
+q: "如何添加日期选择器 / 多选 / 富文本编辑器？",
+a: `AdminLTE deliberately doesn't bundle these — they'd bloat the framework. The <a href="integrations.html">Recommended Integrations</a> page lists best-in-class third-party libraries (Flatpickr, Tom Select, Quill, etc.) with copy-paste install snippets.`
+a: `AdminLTE 刻意不捆绑这些组件——它们会使框架变得臃肿。<a href="integrations.html">推荐集成</a>页面列出了一流的第三方库（Flatpickr、Tom Select、Quill 等），并附有可复制粘贴的安装代码片段。`
+q: "Can I use FontAwesome instead of Bootstrap Icons?",
+q: "我可以使用 FontAwesome 代替 Bootstrap Icons 吗？",
+a: `Yes. Bootstrap Icons is the default in the demos because it's MIT, ships with Bootstrap, and is SVG-based — but nothing in AdminLTE's CSS or JS requires it. Drop in FontAwesome's stylesheet and replace <code>&lt;i class="bi bi-x"&gt;</code> with <code>&lt;i class="fas fa-x"&gt;</code> throughout.`
+a: `可以。演示中默认使用 Bootstrap Icons，是因为它采用 MIT 许可、随 Bootstrap 一同提供，并且基于 SVG——但 AdminLTE 的 CSS 或 JS 中没有任何部分强制要求使用它。引入 FontAwesome 的样式表，然后将全文中的 <code>&lt;i class="bi bi-x"&gt;</code> 替换为 <code>&lt;i class="fas fa-x"&gt;</code> 即可。`
+Versions and updates
+版本与更新
+q: "How do I get notified of new versions?",
+q: "我如何获取新版本的通知？",
+a: `<a href="https://github.com/ColorlibHQ/AdminLTE">Watch the GitHub repo</a> (Releases-only mode) or subscribe to the RSS feed at <code>https://github.com/ColorlibHQ/AdminLTE/releases.atom</code>.`
+a: `<a href="https://github.com/ColorlibHQ/AdminLTE">关注 GitHub 仓库</a>（仅限 Releases 模式），或订阅 RSS 源：<code>https://github.com/ColorlibHQ/AdminLTE/releases.atom</code>。`
+q: "Where's the AdminLTE 3 documentation?",
+q: "AdminLTE 3 的文档在哪里？",
+a: `Still online at <a href="https://adminlte.io/docs/3.2/">adminlte.io/docs/3.2</a> and earlier versions are linked there. The v3 branch on GitHub continues to receive critical bug fixes; new features land in v4 only.`
+a: `仍然在线，地址为 <a href="https://adminlte.io/docs/3.2/">adminlte.io/docs/3.2</a>，更早版本的文档也在那里提供链接。GitHub 上的 v3 分支会继续接收关键错误修复；新功能仅会在 v4 中发布。`
+q: "How do I upgrade from v3 to v4?",
+q: "如何从 v3 升级到 v4？",
+a: `See the dedicated <a href="migration.html">Migration from v3</a> guide. The short version: class names changed (<code>.wrapper</code> → <code>.app-wrapper</code>), <code>data-toggle</code> → <code>data-bs-toggle</code>, dark mode uses <code>data-bs-theme</code> instead of <code>.dark-mode</code>, and jQuery isn't required anymore.`
+a: `请参阅专门的<a href="migration.html">从 v3 迁移</a>指南。简而言之：类名发生了变化（<code>.wrapper</code> → <code>.app-wrapper</code>），<code>data-toggle</code> → <code>data-bs-toggle</code>，深色模式使用 <code>data-bs-theme</code> 替代 <code>.dark-mode</code>，并且不再需要 jQuery。`
+"Licensing"
+"许可"
+q: "Is AdminLTE free for commercial use?",
+q: "AdminLTE 可以免费用于商业用途吗？",
+a: `Yes — MIT licensed. You can use it in commercial products, SaaS apps, client work, anything. The only requirement is preserving the copyright notice in the source files (<code>adminlte.css</code> / <code>adminlte.js</code>). You don't need to display attribution in the UI.`
+a: `可以——采用 MIT 许可。你可以将其用于商业产品、SaaS 应用、客户项目等任何场景。唯一的要求是在源文件（<code>adminlte.css</code> / <code>adminlte.js</code>）中保留版权声明。你不需要在界面中显示署名信息。`
+q: "Do I need to credit AdminLTE in my app?",
+q: "我需要在应用中注明 AdminLTE 的出处吗？",
+a: `No. The MIT license requires you to keep the licence notice in the source files you distribute — that's it. You don't have to mention AdminLTE in the rendered UI, your About page, or your README.`
+a: `不需要。MIT 许可要求你在分发的源文件中保留许可声明——仅此而已。你不必在渲染后的界面、关于页面或 README 中提及 AdminLTE。`
+q: "Can I sell a product made with AdminLTE?",
+q: "我可以销售使用 AdminLTE 制作的产品吗？",
+a: `Yes. The MIT license explicitly permits this. You can also resell modified versions of AdminLTE itself (theme marketplaces frequently do this) — just preserve the original copyright notice.`
+a: `可以。MIT 许可明确允许这样做。你还可以转售 AdminLTE 本身的修改版本（主题市场经常这样做）——只需保留原始版权声明即可。`
+"Troubleshooting"
+"故障排除"
+q: "The sidebar doesn't collapse when I click the hamburger menu.",
+q: "点击侧边栏按钮，侧边栏没有收起。",
+a: `Check that the PushMenu plugin is loaded. It's bundled into <code>adminlte.js</code> — make sure the script tag is on the page and <em>after</em> the markup it operates on. Also verify your hamburger button has <code>data-lte-toggle="sidebar"</code> (not <code>data-widget="pushmenu"</code>, which is the v3 attribute).`
+a: `请检查 PushMenu 插件是否已加载。它已捆绑在 <code>adminlte.js</code> 中——请确保该脚本标签在页面上，并且位于其操作的目标标记<em>之后</em>。同时，请确认你的汉堡按钮使用了 <code>data-lte-toggle="sidebar"</code>（而不是 v3 版本的属性 <code>data-widget="pushmenu"</code>）。`
+q: "Dark mode doesn't persist after refresh.",
+q: "深色模式在刷新后不会保持。",
+a: `The included <a href="color-mode.html">Color Mode</a> toggle writes to <code>localStorage</code> under the key <code>lte-theme</code>. If you're using a different toggle implementation, make sure it both sets <code>document.documentElement.setAttribute('data-bs-theme', ...)</code> and writes to localStorage on change.`
+a: `内置的<a href="color-mode.html">明暗模式</a>切换后会以 <code>lte-theme</code> 为键名写入 <code>localStorage</code>。如果你使用了不同的切换实现，请确保它既设置了 <code>document.documentElement.setAttribute('data-bs-theme', ...)</code>，又在变更时写入 localStorage。`
+q: "Bootstrap modal closes when I press Escape, but the AdminLTE sidebar closes too.",
+q: "按 ESC 键时 Bootstrap 模态框关闭了，但 AdminLTE 的侧边栏也同时收起了。",
+a: `Fixed in v4.0.0 (#5993). If you're still seeing this, you're on an older RC — update to the latest.`
+a: `该问题已在 v4.0.0 中修复（#5993）。如果你仍然遇到此问题，说明你使用的是较旧的 RC 版本——请更新到最新版本。`
+q: "My custom SCSS doesn't override AdminLTE's defaults.",
+q: "我自定义的 SCSS 没有覆盖 AdminLTE 的默认值。",
+a: `Put your overrides <em>before</em> the <code>@import</code> of AdminLTE's SCSS. AdminLTE uses <code>!default</code> on its variables, which means the first declaration wins. See <a href="customization.html#scss-variables">Customization &amp; Theming</a> for the import order.`
+a: `请将你的覆盖内容放在 AdminLTE 的 SCSS <code>@import</code> 之<em>前</em>。AdminLTE 在其变量上使用了 <code>!default</code>，这意味着首次声明的值生效。有关导入顺序，请参阅<a href="customization.html#scss-variables">自定义与主题</a>。`
+q: "<code>npm install</code> fails with peer dependency errors.",
+q: "<code>npm install</code> 因 peer 依赖错误而失败。",
+a: `We use an npm <code>overrides</code> block in <code>package.json</code> to keep peers happy — make sure you're on npm 8.3+ which respects them. If you're on an older npm, install with <code>--legacy-peer-deps</code>.`
+a: `我们在 <code>package.json</code> 中使用了 npm 的 <code>overrides</code> 区块来解决 peer 依赖问题——请确保你使用的 npm 版本为 8.3+，该版本支持此配置。如果你使用的是更旧的 npm 版本，请使用 <code>--legacy-peer-deps</code> 进行安装。`
+Frequently Asked Questions
+常见问题
+Quick answers to the {totalQuestions} questions we get asked most often.
+最常被问到的 {totalQuestions} 个问题，快速解答。
+Use the search to jump to anything, or click a topic below.
+使用搜索功能跳转至任意内容，或点击下方主题。
+"Search the FAQ
+"搜索 FAQ
+No questions match your search. Try a different keyword or
+没有找到与您搜索匹配的问题。请尝试其他关键词，或
+open a Discussion
+发起讨论
+Open a discussion on GitHub or browse the documentation for more
+在 GitHub 上发起讨论，
+in-depth answers.
+或浏览文档以获取更深入的解答。
+Open a Discussion
+发起讨论
+Browse Documentation
+浏览文档
+FAQ live search + clear button
+常见问题实时搜索 + 清除按钮
+Open matching items when searching so users see context
+搜索时打开匹配项，以便用户看到上下文
+Hide entire sections that have no visible items
+隐藏没有可见项目的整个部分
+Smooth scroll to section on chip click + offset for sticky header
+点击标签时平滑滚动至对应章节，并自动偏移标题栏的高度
+AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS. Fully accessible with WCAG 2.1 AA compliance.
+AdminLTE 是一款免费的 Bootstrap 5 管理员仪表盘，包含 30 个使用 Vanilla JS 构建的示例页面。完全符合 WCAG 2.1 AA 访问标准。
+Mailbox"
+邮箱"
+>Inbox
+>收件箱
+>Users
+>用户
+>PAGES
+>页面
+Follow
+关注
+Getting Started
+入门指南
+The <
+<
+>RESOURCES
+>资源
+Footer Theme
+底部主题
+10:42 AM
+上午 10:42
+>Select
+>下拉菜单
+Submit (tooltip)
+提交（tooltip）
+"Name"
+"姓名"
+"Company"
+"公司"
+"Role"
+"职位"
+"Digest"
+"通知频率"
+"Admin"
+"管理员"
+"Editor"
+"编辑"
+"Viewer"
+"访客"
+"Active"
+"活跃"
+"Invited"
+"已邀请"
+"Suspended"
+"已暂停"
+"Admin", "Editor", "Viewer"
+"管理员", "编辑", "访客"
+"Active", "Invited", "Suspended"
+"活跃", "已邀请", "已暂停"
+sorter: "date",
+sorter: (a, b) => {return new Date(a) - new Date(b);},
+>User
+>用户
+{ qty: 1, name: "Pro plan subscription", desc: "May 18 - Jun 18, 2026", price: 29 },
+{ qty: 1, name: "专业版套餐订阅", desc: "2026年5月18日 - 6月18日", price: 29 },
+{ qty: 3, name: "Additional seats", desc: "Pro-rated for current period", price: 12.5 },
+{ qty: 3, name: "额外席位", desc: "按当前周期比例折算", price: 12.5 },
+{ qty: 1, name: "SMS notifications add-on", desc: "1,000 messages", price: 5 }
+{ qty: 1, name: "短信通知附加服务", desc: "1,000 条消息", price: 5 }
+>Acme Corporation
+>Acme 公司
+"Documents"
+"文档"
+"Design"
+"设计"
+"v2.4 candidates"
+"v2.4 候选"
+"Archive"
+"存档"
+"Invoices"
+"发票"
+"Shared with me"
+"分享给我的"
+"Starred"
+"标星"
+"Recent"
+"最近"
+"Trash"
+"回收站"
+>Storage
+>存储
+Tips!
+提示
+Start navbar links
+导航栏开始
+End navbar links
+导航栏结束
+Message Start
+消息开始
+Message End
+消息结束
+"question" : "questions"
+"个问题" : "个问题"

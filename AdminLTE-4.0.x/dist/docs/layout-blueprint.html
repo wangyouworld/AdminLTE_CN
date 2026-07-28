@@ -1,0 +1,1063 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Layout Blueprint | AdminLTE 4</title>
+
+    <!--begin::Accessibility Meta Tags-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#007bff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
+    <!--end::Accessibility Meta Tags-->
+
+    <!--begin::Primary Meta Tags-->
+    <meta name="title" content="Layout Blueprint | AdminLTE 4" />
+    <meta name="author" content="ColorlibHQ" />
+    <meta
+      name="description"
+      content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS. Fully accessible with WCAG 2.1 AA compliance."
+    />
+    <meta
+      name="keywords"
+      content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard, accessible admin panel, WCAG compliant"
+    />
+    <!--end::Primary Meta Tags-->
+
+    <!--begin::Accessibility Features-->
+    <!-- Skip links will be dynamically added by accessibility.js -->
+    <meta name="supported-color-schemes" content="light dark" />
+    <link rel="preload" href="../css/adminlte.css" as="style" />
+    <!--end::Accessibility Features-->
+
+    <!--begin::Fonts-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+      integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
+      crossorigin="anonymous"
+      media="print"
+      onload="this.media = 'all'"
+    />
+    <!--end::Fonts-->
+
+    <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css"
+      crossorigin="anonymous"
+    />
+    <!--end::Third Party Plugin(OverlayScrollbars)-->
+
+    <!--begin::Third Party Plugin(Bootstrap Icons)-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+      crossorigin="anonymous"
+    />
+    <!--end::Third Party Plugin(Bootstrap Icons)-->
+
+    <!--begin::Required Plugin(AdminLTE)-->
+    <link rel="stylesheet" href="../css/adminlte.css" />
+    <!--end::Required Plugin(AdminLTE)-->
+  </head>
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary docs-page">
+    <div class="app-wrapper">
+      <!--begin::Header-->
+      <nav class="app-header navbar navbar-expand bg-body">
+        <!--begin::Container-->
+        <div class="container-fluid">
+          <!--begin::Start Navbar Links-->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
+                <i class="bi bi-list"></i>
+              </a>
+            </li>
+
+            <li class="nav-item d-none d-md-block">
+              <a href="../docs/introduction.html" class="nav-link">
+                <i class="bi bi-book me-1" aria-hidden="true"></i>
+                Documentation
+              </a>
+            </li>
+            <li class="nav-item d-none d-md-block">
+              <a href="../index.html" class="nav-link">
+                <i class="bi bi-arrow-left me-1" aria-hidden="true"></i>
+                Back to live preview
+              </a>
+            </li>
+          </ul>
+          <!--end::Start Navbar Links-->
+
+          <!--begin::End Navbar Links-->
+          <ul class="navbar-nav ms-auto">
+            <!--begin::Navbar Search-->
+            <li class="nav-item">
+              <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+                <i class="bi bi-search"></i>
+              </a>
+            </li>
+            <!--end::Navbar Search-->
+
+            <!--begin::Messages Dropdown Menu-->
+            <li class="nav-item dropdown">
+              <a class="nav-link" data-bs-toggle="dropdown" href="#">
+                <i class="bi bi-chat-text"></i>
+                <span class="navbar-badge badge text-bg-danger">3</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <a href="#" class="dropdown-item">
+                  <!--begin::Message-->
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img
+                        src="../assets/img/user1-128x128.jpg"
+                        alt="User Avatar"
+                        class="img-size-50 rounded-circle me-3"
+                      />
+                    </div>
+                    <div class="flex-grow-1">
+                      <h3 class="dropdown-item-title">
+                        Brad Diesel
+                        <span class="float-end fs-7 text-danger"
+                          ><i class="bi bi-star-fill"></i
+                        ></span>
+                      </h3>
+                      <p class="fs-7">Call me whenever you can...</p>
+                      <p class="fs-7 text-secondary">
+                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                      </p>
+                    </div>
+                  </div>
+                  <!--end::Message-->
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <!--begin::Message-->
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img
+                        src="../assets/img/user8-128x128.jpg"
+                        alt="User Avatar"
+                        class="img-size-50 rounded-circle me-3"
+                      />
+                    </div>
+                    <div class="flex-grow-1">
+                      <h3 class="dropdown-item-title">
+                        John Pierce
+                        <span class="float-end fs-7 text-secondary">
+                          <i class="bi bi-star-fill"></i>
+                        </span>
+                      </h3>
+                      <p class="fs-7">I got your message bro</p>
+                      <p class="fs-7 text-secondary">
+                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                      </p>
+                    </div>
+                  </div>
+                  <!--end::Message-->
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <!--begin::Message-->
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img
+                        src="../assets/img/user3-128x128.jpg"
+                        alt="User Avatar"
+                        class="img-size-50 rounded-circle me-3"
+                      />
+                    </div>
+                    <div class="flex-grow-1">
+                      <h3 class="dropdown-item-title">
+                        Nora Silvester
+                        <span class="float-end fs-7 text-warning">
+                          <i class="bi bi-star-fill"></i>
+                        </span>
+                      </h3>
+                      <p class="fs-7">The subject goes here</p>
+                      <p class="fs-7 text-secondary">
+                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                      </p>
+                    </div>
+                  </div>
+                  <!--end::Message-->
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+              </div>
+            </li>
+            <!--end::Messages Dropdown Menu-->
+
+            <!--begin::Notifications Dropdown Menu-->
+            <li class="nav-item dropdown">
+              <a class="nav-link" data-bs-toggle="dropdown" href="#">
+                <i class="bi bi-bell-fill"></i>
+                <span class="navbar-badge badge text-bg-warning">15</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <span class="dropdown-item dropdown-header">15 Notifications</span>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="bi bi-envelope me-2"></i> 4 new messages
+                  <span class="float-end text-secondary fs-7">3 mins</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="bi bi-people-fill me-2"></i> 8 friend requests
+                  <span class="float-end text-secondary fs-7">12 hours</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="bi bi-file-earmark-fill me-2"></i> 3 new reports
+                  <span class="float-end text-secondary fs-7">2 days</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item dropdown-footer"> See All Notifications </a>
+              </div>
+            </li>
+            <!--end::Notifications Dropdown Menu-->
+
+            <!--begin::Fullscreen Toggle-->
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-lte-toggle="fullscreen">
+                <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
+                <i data-lte-icon="minimize" class="bi bi-fullscreen-exit d-none"></i>
+              </a>
+            </li>
+            <!--end::Fullscreen Toggle-->
+
+            <!--begin::Color Mode Toggle (#6010)-->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                id="bd-theme"
+                aria-label="Toggle color scheme"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="bi bi-sun-fill" data-lte-theme-icon="light"></i>
+                <i class="bi bi-moon-fill d-none" data-lte-theme-icon="dark"></i>
+                <i class="bi bi-circle-half d-none" data-lte-theme-icon="auto"></i>
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="bd-theme"
+                style="--bs-dropdown-min-width: 8rem"
+              >
+                <li>
+                  <button
+                    type="button"
+                    class="dropdown-item d-flex align-items-center"
+                    data-bs-theme-value="light"
+                    aria-pressed="false"
+                  >
+                    <i class="bi bi-sun-fill me-2"></i>
+                    Light
+                    <i class="bi bi-check-lg ms-auto d-none"></i>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="dropdown-item d-flex align-items-center"
+                    data-bs-theme-value="dark"
+                    aria-pressed="false"
+                  >
+                    <i class="bi bi-moon-fill me-2"></i>
+                    Dark
+                    <i class="bi bi-check-lg ms-auto d-none"></i>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="dropdown-item d-flex align-items-center active"
+                    data-bs-theme-value="auto"
+                    aria-pressed="true"
+                  >
+                    <i class="bi bi-circle-half me-2"></i>
+                    Auto
+                    <i class="bi bi-check-lg ms-auto d-none"></i>
+                  </button>
+                </li>
+              </ul>
+            </li>
+            <!--end::Color Mode Toggle-->
+
+            <!--begin::User Menu Dropdown-->
+            <li class="nav-item dropdown user-menu">
+              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                <img
+                  src="../assets/img/user2-160x160.jpg"
+                  class="user-image rounded-circle shadow"
+                  alt="User Image"
+                />
+                <span class="d-none d-md-inline">Alexander Pierce</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <!--begin::User Image-->
+                <li class="user-header text-bg-primary">
+                  <img
+                    src="../assets/img/user2-160x160.jpg"
+                    class="rounded-circle shadow"
+                    alt="User Image"
+                  />
+                  <p>
+                    Alexander Pierce - Web Developer
+                    <small>Member since Nov. 2023</small>
+                  </p>
+                </li>
+                <!--end::User Image-->
+                <!--begin::Menu Body-->
+                <li class="user-body">
+                  <!--begin::Row-->
+                  <div class="row">
+                    <div class="col-4 text-center">
+                      <a href="#">Followers</a>
+                    </div>
+                    <div class="col-4 text-center">
+                      <a href="#">Sales</a>
+                    </div>
+                    <div class="col-4 text-center">
+                      <a href="#">Friends</a>
+                    </div>
+                  </div>
+                  <!--end::Row-->
+                </li>
+                <!--end::Menu Body-->
+                <!--begin::Menu Footer-->
+                <li class="user-footer">
+                  <a href="#" class="btn btn-outline-secondary">Profile</a>
+                  <a href="#" class="btn btn-outline-danger float-end">Sign out</a>
+                </li>
+                <!--end::Menu Footer-->
+              </ul>
+            </li>
+            <!--end::User Menu Dropdown-->
+          </ul>
+          <!--end::End Navbar Links-->
+        </div>
+        <!--end::Container-->
+      </nav>
+      <!--end::Header-->
+      <!--begin::Sidebar (docs mode)-->
+      <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+        <!--begin::Sidebar Brand-->
+        <div class="sidebar-brand">
+          <a href="../docs/introduction.html" class="brand-link">
+            <img
+              src="../assets/img/AdminLTELogo.png"
+              alt="AdminLTE Logo"
+              class="brand-image opacity-75 shadow"
+            />
+            <span class="brand-text fw-light">
+              AdminLTE 4 <span class="opacity-75">&middot; Docs</span>
+            </span>
+          </a>
+        </div>
+        <!--end::Sidebar Brand-->
+        <!--begin::Sidebar Wrapper-->
+        <div class="sidebar-wrapper">
+          <nav class="mt-2">
+            <!--begin::Sidebar Menu-->
+            <ul
+              class="nav sidebar-menu flex-column"
+              data-lte-toggle="treeview"
+              role="navigation"
+              aria-label="Documentation navigation"
+              data-accordion="false"
+              id="docs-navigation"
+            >
+              <li class="nav-header">START HERE</li>
+              <li class="nav-item">
+                <a href="../docs/introduction.html" class="nav-link">
+                  <i class="nav-icon bi bi-download"></i>
+                  <p>Installation</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/getting-started.html" class="nav-link">
+                  <i class="nav-icon bi bi-rocket-takeoff"></i>
+                  <p>Getting Started</p>
+                </a>
+              </li>
+
+              <li class="nav-header">FOUNDATIONS</li>
+              <li class="nav-item">
+                <a href="../docs/layout.html" class="nav-link">
+                  <i class="nav-icon bi bi-grip-horizontal"></i>
+                  <p>Layout Classes</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/layout-blueprint.html" class="nav-link active">
+                  <i class="nav-icon bi bi-diagram-3"></i>
+                  <p>Layout Blueprint</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/customization.html" class="nav-link">
+                  <i class="nav-icon bi bi-palette"></i>
+                  <p>Customization</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/color-mode.html" class="nav-link">
+                  <i class="nav-icon bi bi-star-half"></i>
+                  <p>Color Mode</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/rtl.html" class="nav-link">
+                  <i class="nav-icon bi bi-text-paragraph"></i>
+                  <p>RTL Support</p>
+                </a>
+              </li>
+
+              <li class="nav-header">BUILDING</li>
+              <li class="nav-item">
+                <a href="../docs/recipes.html" class="nav-link">
+                  <i class="nav-icon bi bi-clipboard-check"></i>
+                  <p>Recipes</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-ui-checks-grid"></i>
+                  <p>
+                    Components
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="../docs/components/main-header.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Main Header</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/components/main-sidebar.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Main Sidebar</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-filetype-js"></i>
+                  <p>
+                    JavaScript Plugins
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="../docs/javascript/plugins-overview.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Overview</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/layout.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Layout</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/pushmenu.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>PushMenu</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/treeview.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Treeview</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/card-widget.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Card Widget</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/direct-chat.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Direct Chat</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/fullscreen.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Fullscreen</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/accessibility.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Accessibility</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/integrations.html" class="nav-link">
+                  <i class="nav-icon bi bi-puzzle"></i>
+                  <p>Integrations</p>
+                </a>
+              </li>
+
+              <li class="nav-header">SHIPPING</li>
+              <li class="nav-item">
+                <a href="../docs/migration.html" class="nav-link">
+                  <i class="nav-icon bi bi-arrow-up-right-square"></i>
+                  <p>Migration from v3</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/deployment.html" class="nav-link">
+                  <i class="nav-icon bi bi-cloud-upload"></i>
+                  <p>Deployment</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/browser-support.html" class="nav-link">
+                  <i class="nav-icon bi bi-browser-chrome"></i>
+                  <p>Browser Support</p>
+                </a>
+              </li>
+
+              <li class="nav-header">RESOURCES</li>
+              <li class="nav-item">
+                <a href="../docs/faq.html" class="nav-link">
+                  <i class="nav-icon bi bi-question-circle"></i>
+                  <p>FAQ</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/how-to-contribute.html" class="nav-link">
+                  <i class="nav-icon bi bi-people"></i>
+                  <p>Contributing</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/license.html" class="nav-link">
+                  <i class="nav-icon bi bi-patch-check"></i>
+                  <p>License</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  href="https://github.com/ColorlibHQ/AdminLTE"
+                  target="_blank"
+                  rel="noopener"
+                  class="nav-link"
+                >
+                  <i class="nav-icon bi bi-github"></i>
+                  <p>
+                    GitHub
+                    <i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i>
+                  </p>
+                </a>
+              </li>
+            </ul>
+            <!--end::Sidebar Menu-->
+
+            <!-- Back to preview CTA (bottom of sidebar) -->
+            <div class="p-3 mt-3 border-top border-secondary border-opacity-25">
+              <a
+                href="../index.html"
+                class="btn btn-sm btn-outline-light w-100 d-flex align-items-center justify-content-center gap-2"
+              >
+                <i class="bi bi-arrow-left" aria-hidden="true"></i>
+                Back to live preview
+              </a>
+            </div>
+          </nav>
+        </div>
+        <!--end::Sidebar Wrapper-->
+      </aside>
+      <!--end::Sidebar (docs mode)-->
+      <main class="app-main">
+        <div class="app-content-header">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6">
+                <h3 class="mb-0">Layout Blueprint</h3>
+              </div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                  <li class="breadcrumb-item"><a href="#">Docs</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Layout Blueprint</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="app-content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <p>
+                      Every AdminLTE page follows the same structural blueprint: a wrapper that
+                      contains a header, a sidebar, a main content area, and (optionally) a footer.
+                      Understanding the four region classes is the difference between fighting the
+                      framework and using it productively.
+                    </p>
+                    <h5 id="the-four-regions">The four regions</h5>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="text"
+                    ><code><span class="line"><span>┌──────────────────────────────────────────┐</span></span>
+<span class="line"><span>│  .app-wrapper                            │</span></span>
+<span class="line"><span>│  ┌────────────────────────────────────┐  │</span></span>
+<span class="line"><span>│  │  .app-header                       │  │ ← topbar / navbar</span></span>
+<span class="line"><span>│  ├──────────┬─────────────────────────┤  │</span></span>
+<span class="line"><span>│  │          │                         │  │</span></span>
+<span class="line"><span>│  │  .app-   │   .app-main             │  │ ← page content</span></span>
+<span class="line"><span>│  │ sidebar  │                         │  │</span></span>
+<span class="line"><span>│  │          │                         │  │</span></span>
+<span class="line"><span>│  ├──────────┴─────────────────────────┤  │</span></span>
+<span class="line"><span>│  │  .app-footer (optional)            │  │</span></span>
+<span class="line"><span>│  └────────────────────────────────────┘  │</span></span>
+<span class="line"><span>└──────────────────────────────────────────┘</span></span></code></pre>
+                    <p>
+                      The wrapper is a CSS grid container, the four children are grid areas. You
+                      don’t have to know that to use it — the markup pattern alone is sufficient.
+                    </p>
+                    <h5 id="minimal-markup">Minimal markup</h5>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="html"
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">body</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;layout-fixed sidebar-expand-lg bg-body-tertiary&quot;</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;app-wrapper&quot;</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">    &lt;</span><span style="color:#569CD6">nav</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;app-header navbar navbar-expand bg-body&quot;</span><span style="color:#808080">&gt;</span><span style="color:#D4D4D4">…</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">nav</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">    &lt;</span><span style="color:#569CD6">aside</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;app-sidebar bg-body-secondary shadow&quot;</span><span style="color:#9CDCFE"> data-bs-theme</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;dark&quot;</span><span style="color:#808080">&gt;</span><span style="color:#D4D4D4">…</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">aside</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">    &lt;</span><span style="color:#569CD6">main</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;app-main&quot;</span><span style="color:#808080">&gt;</span><span style="color:#D4D4D4">…</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">main</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">    &lt;</span><span style="color:#569CD6">footer</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;app-footer&quot;</span><span style="color:#808080">&gt;</span><span style="color:#D4D4D4">…</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">footer</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">body</span><span style="color:#808080">&gt;</span></span></code></pre>
+                    <p>
+                      Order inside <code>.app-wrapper</code> doesn’t matter — the grid template
+                      positions each child by its class. Use whatever order reads cleanly.
+                    </p>
+                    <h5 id="region-reference">Region reference</h5>
+                    <h6 id="app-wrapper"><code>.app-wrapper</code></h6>
+                    <p>
+                      The root container. Defines the grid template that positions header, sidebar,
+                      main, and footer. Always lives directly inside <code>&lt;body&gt;</code>.
+                    </p>
+                    <p>
+                      You can add <code>.compact-mode</code> here (or anywhere up the tree) to
+                      reduce padding throughout the layout — useful for data-dense dashboards.
+                    </p>
+                    <h6 id="app-header"><code>.app-header</code></h6>
+                    <p>
+                      The top bar. Use Bootstrap’s navbar classes (<code
+                        >navbar navbar-expand bg-body</code
+                      >) for the visual. The header is where the sidebar toggle button lives — wire
+                      it with <code>data-lte-toggle=&quot;sidebar&quot;</code>:
+                    </p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="html"
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">a</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;nav-link&quot;</span><span style="color:#9CDCFE"> data-lte-toggle</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;sidebar&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;#&quot;</span><span style="color:#9CDCFE"> role</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;button&quot;</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">i</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;bi bi-list&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">i</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">a</span><span style="color:#808080">&gt;</span></span></code></pre>
+                    <p>
+                      By default the header scrolls with the page. Add <code>.fixed-header</code> to
+                      <code>&lt;body&gt;</code> to pin it.
+                    </p>
+                    <h6 id="app-sidebar"><code>.app-sidebar</code></h6>
+                    <p>
+                      The side rail. Always contains two children: <code>.sidebar-brand</code> (logo
+                      / app name) and <code>.sidebar-wrapper</code> (the scrollable nav region).
+                    </p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="html"
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">aside</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;app-sidebar bg-body-secondary shadow&quot;</span><span style="color:#9CDCFE"> data-bs-theme</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;dark&quot;</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;sidebar-brand&quot;</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">    &lt;</span><span style="color:#569CD6">a</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;/&quot;</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;brand-link&quot;</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">      &lt;</span><span style="color:#569CD6">span</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;brand-text fw-light&quot;</span><span style="color:#808080">&gt;</span><span style="color:#D4D4D4">My Dashboard</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">span</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">    &lt;/</span><span style="color:#569CD6">a</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;sidebar-wrapper&quot;</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">    &lt;</span><span style="color:#569CD6">nav</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;mt-2&quot;</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">      &lt;</span><span style="color:#569CD6">ul</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;nav sidebar-menu flex-column&quot;</span><span style="color:#9CDCFE"> data-lte-toggle</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;treeview&quot;</span><span style="color:#9CDCFE"> role</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;menu&quot;</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#6A9955">        &lt;!-- nav items --&gt;</span></span>
+<span class="line"><span style="color:#808080">      &lt;/</span><span style="color:#569CD6">ul</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">    &lt;/</span><span style="color:#569CD6">nav</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">aside</span><span style="color:#808080">&gt;</span></span></code></pre>
+                    <p>
+                      The <code>data-bs-theme=&quot;dark&quot;</code> on the sidebar gives you the
+                      dark-sidebar-on-light-page look from the demos. Drop it for a light sidebar.
+                    </p>
+                    <h6 id="app-main"><code>.app-main</code></h6>
+                    <p>The page content region. Almost always contains two children:</p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="html"
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">main</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;app-main&quot;</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;app-content-header&quot;</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#6A9955">    &lt;!-- page title + breadcrumb --&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;app-content&quot;</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#6A9955">    &lt;!-- page body, cards, tables, charts, etc. --&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">main</span><span style="color:#808080">&gt;</span></span></code></pre>
+                    <p>
+                      <code>.app-content-header</code> is the title strip — typically an
+                      <code>&lt;h3&gt;</code> and a breadcrumb in a row.
+                      <code>.app-content</code> is everything below it. Both should wrap their
+                      children in <code>.container-fluid</code> (or <code>.container</code> for
+                      capped width).
+                    </p>
+                    <h6 id="app-footer-optional"><code>.app-footer</code> (optional)</h6>
+                    <p>A footer strip at the bottom of the wrapper:</p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="html"
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">footer</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;app-footer&quot;</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;float-end d-none d-sm-inline&quot;</span><span style="color:#808080">&gt;</span><span style="color:#D4D4D4">Version 4.0.0</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">strong</span><span style="color:#808080">&gt;</span><span style="color:#569CD6">&amp;copy;</span><span style="color:#D4D4D4"> 2026 Your Company</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">strong</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">footer</span><span style="color:#808080">&gt;</span></span></code></pre>
+                    <p>
+                      Add <code>.fixed-footer</code> to <code>&lt;body&gt;</code> to pin it to the
+                      bottom of the viewport.
+                    </p>
+                    <h5 id="body-level-layout-modifiers">Body-level layout modifiers</h5>
+                    <p>
+                      Layout behaviour is mostly controlled by classes on <code>&lt;body&gt;</code>,
+                      not <code>.app-wrapper</code>. The supported modifiers:
+                    </p>
+
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Class</th>
+                          <th>What it does</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><code>layout-fixed</code></td>
+                          <td>
+                            Sidebar gets its own scrollbar; only <code>.app-main</code> scrolls with
+                            the page
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><code>fixed-header</code></td>
+                          <td>
+                            Sticky <code>.app-header</code> at the top; sidebar also pins (since
+                            v4.0.0)
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><code>fixed-footer</code></td>
+                          <td>Sticky <code>.app-footer</code> at the bottom</td>
+                        </tr>
+                        <tr>
+                          <td><code>sidebar-expand-{sm,md,lg,xl,xxl}</code></td>
+                          <td>
+                            Breakpoint at which the sidebar transitions from off-canvas (mobile) to
+                            inline (desktop). <code>lg</code> is the default in the demos.
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><code>sidebar-mini</code></td>
+                          <td>Collapses sidebar to icon-only mini state</td>
+                        </tr>
+                        <tr>
+                          <td><code>sidebar-mini sidebar-collapse</code></td>
+                          <td>Starts the page with the mini sidebar already collapsed</td>
+                        </tr>
+                        <tr>
+                          <td><code>sidebar-without-hover</code></td>
+                          <td>Disables the auto-expand-on-hover behaviour for the mini sidebar</td>
+                        </tr>
+                        <tr>
+                          <td><code>layout-rtl</code></td>
+                          <td>
+                            Mirrors the layout for right-to-left languages (also requires
+                            <code>.rtl.css</code> and <code>dir=&quot;rtl&quot;</code> — see
+                            <a href="rtl.html">RTL Support</a>)
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <p>
+                      These compose. The demo dashboards use
+                      <code>class=&quot;layout-fixed sidebar-expand-lg bg-body-tertiary&quot;</code>
+                      — fixed-height with a desktop sidebar breakpoint at the
+                      <code>lg</code> (≥992px) boundary.
+                    </p>
+                    <h6 id="layout-variants-demo">Layout variants demo</h6>
+                    <p>
+                      The Layout section of the demo site (<code>/layout/*.html</code> files) ships
+                      eleven pre-built combinations:
+                    </p>
+                    <ul>
+                      <li>
+                        <a href="../layout/fixed-sidebar.html">Fixed Sidebar</a>,
+                        <a href="../layout/fixed-header.html">Fixed Header</a>,
+                        <a href="../layout/fixed-footer.html">Fixed Footer</a>,
+                        <a href="../layout/fixed-complete.html">Fixed Complete</a>
+                      </li>
+                      <li>
+                        <a href="../layout/unfixed-sidebar.html">Unfixed Sidebar</a>,
+                        <a href="../layout/sidebar-mini.html">Sidebar Mini</a>,
+                        <a href="../layout/collapsed-sidebar.html">Collapsed Sidebar</a>,
+                        <a href="../layout/collapsed-sidebar-without-hover.html"
+                          >Collapsed without hover</a
+                        >
+                      </li>
+                      <li>
+                        <a href="../layout/layout-custom-area.html">Layout Custom Area</a>,
+                        <a href="../layout/logo-switch.html">Logo Switch</a>,
+                        <a href="../layout/layout-rtl.html">Layout RTL</a>
+                      </li>
+                    </ul>
+                    <h5 id="responsive-behaviour">Responsive behaviour</h5>
+                    <p>
+                      At and above your <code>sidebar-expand-*</code> breakpoint, the sidebar is
+                      <strong>inline</strong> — visible in the grid alongside
+                      <code>.app-main</code>. Below the breakpoint, it becomes
+                      <strong>off-canvas</strong> — hidden by default and slid in from the left when
+                      the user clicks the hamburger toggle.
+                    </p>
+                    <p>Mobile-specific classes:</p>
+
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Class</th>
+                          <th>When applied</th>
+                          <th>Effect</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><code>sidebar-open</code></td>
+                          <td>Body — when the user explicitly opens the mobile sidebar</td>
+                          <td>Slides the sidebar in over the content with an overlay</td>
+                        </tr>
+                        <tr>
+                          <td><code>sidebar-collapse</code></td>
+                          <td>Body — set automatically when the user closes the mobile sidebar</td>
+                          <td>Hides the sidebar</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <p>
+                      These are managed by the
+                      <a href="javascript/pushmenu.html">PushMenu plugin</a> — you don’t write them
+                      yourself.
+                    </p>
+                    <h5 id="common-pitfalls">Common pitfalls</h5>
+                    <ul>
+                      <li>
+                        <strong
+                          >Forgetting <code>.container-fluid</code> inside
+                          <code>.app-content</code></strong
+                        >
+                        — the content lands flush against the screen edge. Wrap your content cards
+                        in a container.
+                      </li>
+                      <li>
+                        <strong>Putting the sidebar toggle outside <code>.app-header</code></strong>
+                        — it’ll still work, but the styling expects the navbar context.
+                      </li>
+                      <li>
+                        <strong>Mixing <code>.app-*</code> and <code>.main-*</code> classes</strong>
+                        — <code>.main-*</code> is the AdminLTE 3 naming. Don’t combine them. See
+                        <a href="migration.html">Migration from v3</a>.
+                      </li>
+                      <li>
+                        <strong
+                          >Using <code>position: fixed</code> on something inside
+                          <code>.app-main</code></strong
+                        >
+                        — <code>layout-fixed</code> already gives <code>.app-main</code>
+                        <code>overflow: auto</code>. Children with <code>position: fixed</code> may
+                        behave unexpectedly. Use sticky positioning instead.
+                      </li>
+                      <li>
+                        <strong>Hardcoding sidebar width in custom CSS</strong> — the sidebar width
+                        is exposed via the SCSS variable <code>$lte-sidebar-width</code>. If you
+                        need to know it from JavaScript, read the rendered
+                        <code>.app-sidebar</code> element’s computed width.
+                      </li>
+                    </ul>
+                    <h5 id="where-to-next">Where to next</h5>
+                    <ul>
+                      <li>
+                        <a href="layout.html">Layout reference</a> — the lower-level CSS classes and
+                        what they do
+                      </li>
+                      <li>
+                        <a href="javascript/pushmenu.html">PushMenu plugin</a> — the sidebar toggle
+                        implementation
+                      </li>
+                      <li>
+                        <a href="customization.html">Customization</a> — how to change sidebar
+                        width, breakpoint, and colours
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!--begin::Footer-->
+      <footer class="app-footer">
+        <!--begin::To the end-->
+        <div class="float-end d-none d-sm-inline">Anything you want</div>
+        <!--end::To the end-->
+        <!--begin::Copyright-->
+        <strong>
+          Copyright &copy; 2014-2026&nbsp;
+          <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
+        </strong>
+        All rights reserved.
+        <!--end::Copyright-->
+      </footer>
+      <!--end::Footer-->
+    </div>
+    <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
+    <script src="../js/adminlte.js"></script>
+    <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+    <script>
+      const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
+      const Default = {
+        scrollbarTheme: 'os-theme-light',
+        scrollbarAutoHide: 'leave',
+        scrollbarClickScroll: true,
+      };
+      document.addEventListener('DOMContentLoaded', function () {
+        const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+
+        // Disable OverlayScrollbars on mobile devices to prevent touch interference
+        const isMobile = window.innerWidth <= 992;
+
+        if (
+          sidebarWrapper &&
+          OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined &&
+          !isMobile
+        ) {
+          OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+            scrollbars: {
+              theme: Default.scrollbarTheme,
+              autoHide: Default.scrollbarAutoHide,
+              clickScroll: Default.scrollbarClickScroll,
+            },
+          });
+        }
+      });
+    </script>
+    <!--end::OverlayScrollbars Configure--><!--begin::Color Mode Toggle (#6010)-->
+    <script>
+      (() => {
+        'use strict';
+
+        const STORAGE_KEY = 'lte-theme';
+
+        const getStoredTheme = () => localStorage.getItem(STORAGE_KEY);
+        const setStoredTheme = (theme) => localStorage.setItem(STORAGE_KEY, theme);
+
+        const prefersDark = () => globalThis.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        const getPreferredTheme = () => {
+          const stored = getStoredTheme();
+          if (stored) return stored;
+          return prefersDark() ? 'dark' : 'light';
+        };
+
+        const setTheme = (theme) => {
+          const resolved = theme === 'auto' ? (prefersDark() ? 'dark' : 'light') : theme;
+          document.documentElement.setAttribute('data-bs-theme', resolved);
+        };
+
+        setTheme(getPreferredTheme());
+
+        const showActiveTheme = (theme) => {
+          // Highlight the active dropdown option
+          document.querySelectorAll('[data-bs-theme-value]').forEach((el) => {
+            el.classList.remove('active');
+            el.setAttribute('aria-pressed', 'false');
+            const check = el.querySelector('.bi-check-lg');
+            if (check) check.classList.add('d-none');
+          });
+          const active = document.querySelector(`[data-bs-theme-value="${theme}"]`);
+          if (active) {
+            active.classList.add('active');
+            active.setAttribute('aria-pressed', 'true');
+            const check = active.querySelector('.bi-check-lg');
+            if (check) check.classList.remove('d-none');
+          }
+          // Sync the topbar trigger icon
+          document.querySelectorAll('[data-lte-theme-icon]').forEach((icon) => {
+            icon.classList.toggle('d-none', icon.dataset.lteThemeIcon !== theme);
+          });
+        };
+
+        globalThis.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+          const stored = getStoredTheme();
+          if (!stored || stored === 'auto') setTheme(getPreferredTheme());
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+          showActiveTheme(getPreferredTheme());
+          document.querySelectorAll('[data-bs-theme-value]').forEach((toggle) => {
+            toggle.addEventListener('click', () => {
+              const theme = toggle.getAttribute('data-bs-theme-value');
+              setStoredTheme(theme);
+              setTheme(theme);
+              showActiveTheme(theme);
+            });
+          });
+        });
+      })();
+    </script>
+    <!--end::Color Mode Toggle-->
+  </body>
+</html>

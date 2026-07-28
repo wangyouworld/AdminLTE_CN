@@ -5,14 +5,14 @@ import Topbar from "@components/dashboard/_topbar.astro"
 import Sidenav from "@components/dashboard/_sidenav.astro"
 import Scripts from "@components/_scripts.astro"
 
-const title = "AdminLTE 4 | 迷你侧边栏"
+const title = "AdminLTE 4 | Sidebar Mini"
 const path = "../../../dist"
 const mainPage = "layout"
 const page = "collapsed-sidebar";
 ---
 
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
   <!--begin::Head-->
   <head>
     <Head title={title} path={path} />
@@ -35,13 +35,13 @@ const page = "collapsed-sidebar";
             <!--begin::Row-->
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">可折叠侧边栏</h3>
+                <h3 class="mb-0">Collapsed Sidebar</h3>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">首页</a></li>
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
                   <li class="breadcrumb-item active" aria-current="page">
-                    可折叠侧边栏
+                    Collapsed Sidebar
                   </li>
                 </ol>
               </div>
@@ -61,14 +61,14 @@ const page = "collapsed-sidebar";
                 <!-- Default box -->
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title">标题</h3>
+                    <h3 class="card-title">Title</h3>
 
                     <div class="card-tools">
                       <button
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-collapse"
-                        title="折叠"
+                        title="Collapse"
                       >
                         <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
                         <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
@@ -77,17 +77,17 @@ const page = "collapsed-sidebar";
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-remove"
-                        title="移除"
+                        title="Remove"
                       >
                         <i class="bi bi-x-lg"></i>
                       </button>
                     </div>
                   </div>
                   <div class="card-body">
-                    开始创建你的应用程序！
+                    Start creating your amazing application!
                   </div>
                   <!-- /.card-body -->
-                  <div class="card-footer">底部</div>
+                  <div class="card-footer">Footer</div>
                   <!-- /.card-footer-->
                 </div>
                 <!-- /.card -->

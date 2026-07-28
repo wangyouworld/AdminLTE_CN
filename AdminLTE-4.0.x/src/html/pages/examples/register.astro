@@ -2,13 +2,13 @@
 import Head from "@components/_head.astro"
 import Scripts from "@components/_scripts.astro"
 
-const title = "AdminLTE 4 | 注册页"
+const title = "AdminLTE 4 | Register Page"
 const path = "../../../dist"
 const htmlPath = "..";
 ---
 
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
   <!--begin::Head-->
   <head>
     <Head title={title} path={path} />
@@ -23,26 +23,26 @@ const htmlPath = "..";
       <!-- /.register-logo -->
       <div class="card">
         <div class="card-body register-card-body">
-          <p class="register-box-msg">注册新会员</p>
+          <p class="register-box-msg">Register a new membership</p>
 
           <form action={htmlPath + "/index3.html"} method="post">
             <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="全名" />
+              <input type="text" class="form-control" placeholder="Full Name" />
               <div class="input-group-text">
                 <span class="bi bi-person"></span>
               </div>
             </div>
             <div class="input-group mb-3">
-              <input type="email" class="form-control" placeholder="邮箱" />
+              <input type="email" class="form-control" placeholder="Email" />
               <div class="input-group-text">
                 <span class="bi bi-envelope"></span>
               </div>
             </div>
             <div class="input-group mb-3">
               <input
-                type="密码"
+                type="password"
                 class="form-control"
-                placeholder="密码"
+                placeholder="Password"
               />
               <div class="input-group-text">
                 <span class="bi bi-lock-fill"></span>
@@ -59,14 +59,14 @@ const htmlPath = "..";
                     id="flexCheckDefault"
                   />
                   <label class="form-check-label" for="flexCheckDefault">
-                    我同意这些<a href="#">条款</a>
+                    I agree to the <a href="#">terms</a>
                   </label>
                 </div>
               </div>
               <!-- /.col -->
               <div class="col-4">
                 <div class="d-grid gap-2">
-                  <button type="submit" class="btn btn-primary">登录</button>
+                  <button type="submit" class="btn btn-primary">Sign In</button>
                 </div>
               </div>
               <!-- /.col -->
@@ -75,19 +75,19 @@ const htmlPath = "..";
           </form>
 
           <div class="social-auth-links text-center mb-3 d-grid gap-2">
-            <p>- 或 -</p>
+            <p>- OR -</p>
             <a href="#" class="btn btn-primary">
-              <i class="bi bi-facebook me-2"></i> 通过 Facebook 登录
+              <i class="bi bi-facebook me-2"></i> Sign in using Facebook
             </a>
             <a href="#" class="btn btn-danger">
-              <i class="bi bi-google me-2"></i> 通过 Google+ 登录
+              <i class="bi bi-google me-2"></i> Sign in using Google+
             </a>
           </div>
           <!-- /.social-auth-links -->
 
           <p class="mb-0">
             <a href="login.html" class="text-center">
-              我已经有账号了
+              I already have a membership
             </a>
           </p>
         </div>

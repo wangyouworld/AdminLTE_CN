@@ -1,4 +1,4 @@
-# [AdminLTE - Bootstrap 5 管理面板](https://adminlte.io)
+# [AdminLTE - Bootstrap 5 Admin Dashboard](https://adminlte.io)
 
 [![npm version](https://img.shields.io/npm/v/admin-lte/latest.svg)](https://www.npmjs.com/package/admin-lte)
 [![Packagist](https://img.shields.io/packagist/v/almasaeed2010/adminlte.svg)](https://packagist.org/packages/almasaeed2010/adminlte)
@@ -6,116 +6,142 @@
 [![Discord Invite](https://img.shields.io/badge/discord-join%20now-green)](https://discord.gg/jfdvjwFqfz)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1277b36b-08f3-43fa-826a-4b4d24614b3c/deploy-status)](https://app.netlify.com/sites/adminlte-v4/deploys)
 
-**AdminLTE** 是一个自响应式管理框架。基于 **[Bootstrap 5](https://getbootstrap.com/)** 框架和 JavaScript 插件。
-高度可定制且易于使用。适用于多种屏幕，小到移动设备大到台式机。
+**AdminLTE** is a fully responsive administration template. Based on **[Bootstrap 5](https://getbootstrap.com/)** framework and also the JavaScript plugins.
+Highly customizable and easy to use. Fits many screen resolutions from small mobile devices to large desktops.
 
-## v4.0.0-rc6 版本更新内容
+## What's New in v4.0.0
 
-**安全与功能更新** - 重要的安全修复措施以及新的侧边栏持久化功能：
+The first stable release of the v4 line — a ground-up rewrite on Bootstrap 5.3 with no jQuery. Highlights:
 
-- **安全修复** - 解决了 4 个漏洞（Astro 中的跨站脚本攻击、授权绕过、未清理的属性）
-- **侧边栏状态持久化** - 侧边栏现在能够在页面刷新时记住其折叠/展开的状态
-- **Node.js 22** - 将所有 GitHub Actions 工作流更新为 Node.js 22 版本（支持至 2027 年）
-- **最新依赖项** - 更新了 15 个以上的包，包括 Astro 5.16.4、Prettier 3.7.4、Rollup 4.53.3
-- **CI/CD 改进** - 将 CodeQL 工作流更新至 v3 版本，修复了发布工作流的错误
+**18 new demo pages**
 
-**核心改进：**
+- Apps: Calendar (FullCalendar), Kanban (SortableJS), Chat, File Manager, Projects, Mailbox (Inbox / Read / Compose)
+- Forms: Wizard (4-step with validation)
+- Tables: Data Tables (Tabulator — jQuery-free)
+- Pages: Profile, Settings, Invoice, Pricing, FAQ
+- Errors: 404, 500, Maintenance
 
-- ✅ 没有安全漏洞 - 所有 npm 审计问题均已解决
-- ✅ 侧边栏状态会保存在本地存储中（可配置、支持服务器端渲染、具备移动设备适配能力）
-- ✅ GitHub Actions 使用 Node.js 22 版本（从现在起持续活跃直至 2027 年 4 月）
-- ✅ CodeQL 安全扫描已更新至最新 v3 版本的动作
-- ✅ 发布流程已修复，以实现正确的资产打包
+**Documentation overhaul**
 
-**安装最新版本：**
+- New pages: Getting Started, Customization & Theming, RTL Support, Migration from v3, Layout Blueprint, Recipes, Deployment & Performance, Recommended Integrations, JavaScript Plugins Overview
+- Rewritten Introduction with four labelled install paths (CDN / npm / source / Composer)
+- FAQ rebuilt as a custom page with hero, live search, section chips, and an accordion of 19 questions across six topics
+- Split sidebar navigation: dashboard demo and docs each have their own nav, no more docs entries cluttering the live preview
+- Reading-friendly typography across all docs pages, with constrained line length, prose-tuned heading rhythm, styled reference tables, info callouts, and pill inline code
+
+**Six issue fixes**
+
+- `bi-circle-half` for the Auto color-mode icon (#6028)
+- `table-head-fixed` respects dark mode (#6026)
+- Fullscreen icon toggles `.d-none` instead of inline `display` so it works with any icon library (#6021)
+- Sidebar (including brand) stays pinned when using `fixed-header` (#6020)
+- Pie chart on `index2.html` no longer flickers on browser zoom (#6019)
+- Color-mode toggle now visible by default in the topbar with localStorage persistence (#6010)
+
+**Major dependency upgrades**
+
+- ESLint 9 → 10, TypeScript 5.9 → 6, Stylelint 16 → 17
+- Astro 6.0 → 6.3, autoprefixer / postcss / rollup / sass / terser refreshed
+- Bootstrap 5.3.8, Node 22 LTS in CI
+- Dropped dead `eslint-plugin-import`, `eslint-config-xo*`, and the legacy `.eslintrc.json`
+- npm `overrides` for `yaml` + `stylelint-config-twbs-bootstrap` so `npm install` runs without `--legacy-peer-deps` and reports **0 vulnerabilities**
+
+**Breaking changes from v3**
+
+- Class renames: `.wrapper` → `.app-wrapper`, `.main-header` → `.app-header`, `.main-sidebar` → `.app-sidebar`, `.content-wrapper` → `.app-main`
+- Data attributes: `data-toggle` → `data-bs-toggle`, `data-widget="pushmenu"` → `data-lte-toggle="sidebar"`, `data-widget="treeview"` → `data-lte-toggle="treeview"`
+- Dark mode: `.dark-mode` body class → `data-bs-theme="dark"` attribute (Bootstrap 5.3 native)
+- jQuery no longer required; plugins are vanilla TypeScript
+
+See the dedicated [Migration from v3](https://adminlte.io/themes/v4/docs/migration.html) guide and the [CHANGELOG.md](CHANGELOG.md) for the full list.
+
+**Install:**
 ```bash
-npm install admin-lte@4.0.0-rc6
+npm install admin-lte@4.0.0
 ```
 
-完整变更详见[更新日志](CHANGELOG.md)
+## Looking for Premium Templates?
 
-## 寻找高级模板？
+AdminLTE.io just opened a new premium templates page. Hand picked to ensure the best quality and the most affordable
+prices. Visit <https://adminlte.io/premium> for more information.
 
-AdminLTE.io 刚刚开通了一个高级模板网站，精选以确保最佳质量和最实惠的价格。
-访问 <https://adminlte.io/premium> 了解更多信息。
+!["AdminLTE Presentation"](https://adminlte.io/AdminLTE3.png "AdminLTE Presentation")
 
-!["预览 AdminLTE"](https://adminlte.io/AdminLTE3.png "预览 AdminLTE")
+**AdminLTE** has been carefully coded with clear comments in all of its JS, SCSS and HTML files.
+SCSS has been used to increase code customizability.
 
-**AdminLTE** 所有的 JS、SCSS 和 HTML 文件均经过精心编码，并带有清晰的注释。
-SCSS 已用于提高代码的可定制性。
+## Quick start
 
-## 快速开始
+### Development
 
-### 开发指南
+To start developing with AdminLTE:
 
-开始使用 AdminLTE 进行开发的步骤：
+1. **Install dependencies:** `npm install`
+2. **Start development server:** `npm start` *(opens browser at http://localhost:3000)*
+3. **Start coding!** Files auto-compile and refresh on changes
 
-1. **安装依赖项**：执行 `npm install`
-2. **启动开发服务器**：运行 `npm start` *(自动在浏览器打开 http://localhost:3000)*
-3. **开始编码！** 文件修改后将自动编译并刷新页面
+### Production Build
 
-### 生产环境构建
+To build for production:
 
-构建生产版本的流程：
+1. **Full production build:** `npm run production` *(includes linting and optimization)*
+2. **Quick build:** `npm run build` *(faster for development/testing)*
 
-1. **完整生产构建**：执行 `npm run production` *(包含代码校验与优化)*
-2. **快速构建**：运行 `npm run build` *(适用于开发/测试的快速构建)*
+### Available Scripts
 
-### 可用脚本命令
+- `npm start` - Start development server with file watching
+- `npm run build` - Build all assets for development
+- `npm run production` - Full production build with linting and bundlewatch
+- `npm run lint` - Run all linters (JS, CSS, docs, lockfile)
+- `npm run css` - Build CSS only
+- `npm run js` - Build JavaScript only
 
-- `npm start` - 启动带文件监听的开发服务器
-- `npm run build` - 构建开发环境所需资源
-- `npm run production` - 执行完整生产构建（含代码校验与 bundlewatch 检查）
-- `npm run lint` - 运行所有校验器（JS/CSS/文档/lockfile）
-- `npm run css` - 仅构建 CSS 文件
-- `npm run js` - 仅构建 JavaScript 文件
+## Browser Support
 
-## 浏览器兼容性
+AdminLTE supports all modern browsers with the latest Bootstrap 5.3.8:
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
 
-AdminLTE基于最新版 Bootstrap 5.3.7 支持所有现代浏览器：
-- Chrome（最新版）
-- Firefox（最新版）
-- Safari（最新版）
-- Edge（最新版）
+## Platform Support
 
-## 平台兼容性
+AdminLTE v4 build scripts work cross-platform:
+- **Windows** - Command Prompt, PowerShell, Git Bash
+- **macOS** - Terminal, iTerm2
+- **Linux** - Bash, Zsh, and other Unix shells
 
-AdminLTE v4 构建脚本支持跨平台运行：
-- **Windows** - 命令 提示符/PowerShell/Git Bash
-- **macOS** - 终端/iTerm2
-- **Linux** - Bash/Zsh 及其他 Unix shell 环境
+All npm scripts use cross-platform utilities to ensure consistent behavior across different operating systems.
 
-所有 npm 脚本均使用跨平台工具，确保在不同操作系统上表现一致。
+## Security & Production Deployment
 
-## 安全与生产部署
+### Important Security Notice
 
-### 重要安全提示
+AdminLTE is a **UI template** - when deploying to production, follow these critical guidelines:
 
-AdminLTE 是一款**用户界面模板**——在进行生产部署时，请遵循以下关键准则：
+**What to Deploy:**
+- Only compiled production assets: `dist/js/adminlte.min.js` and `dist/css/adminlte.min.css`
+- Your application-specific files
 
-**部署内容：**
-- 仅包含编译后的生产资源：`dist/js/adminlte.min.js` 和 `dist/css/adminlte.min.css`
-- 应用中特定文件
+**What NOT to Deploy:**
+- `node_modules/` directory
+- Demo/example HTML files (index.html, index2.html, index3.html, etc.)
+- Source files (`src/` directory)
+- Development configuration files
 
-**不应部署的内容：**
-- `node_modules/` 目录
-- 演示/示例 HTML 文件（index.html、index2.html、index3.html 等）
-- 源文件（`src/` 目录）
-- 开发配置文件
+**CVE-2021-36471 Notice:**
+This CVE is **disputed** and does not represent a vulnerability in AdminLTE. It refers to demo pages being accessible when developers incorrectly deploy example files to production. AdminLTE v4 has a clear separation between development demos and production assets. See [SECURITY.md](SECURITY.md) for complete details.
 
-**CVE-2021-36471 警告：**
-此 CVE 信息存在争议，并不代表 AdminLTE 存在漏洞。它指的是在开发人员错误地将示例文件部署到生产环境时，演示页面能够被访问到。AdminLTE 4 版本明确区分了开发演示内容和生产资源。有关详细信息，请参阅 [SECURITY.md](SECURITY.md) 文件。
-
-**生产版本：**
+**Production Build:**
 ```bash
-npm run production  # 在 dist/ 目录中构建优化后的资产文件
+npm run production  # Builds optimized assets in dist/
 ```
 
-有关详细的安全指南、认证要求以及最佳实践，请参阅 [SECURITY.md](SECURITY.md)。
+For detailed security guidelines, authentication requirements, and best practices, see [SECURITY.md](SECURITY.md).
 
-## 赞助
+## Sponsorship
 
-通过成为赞助者或捐赠者来支持 AdminLTE 的开发工作。
+Support AdminLTE development by becoming a sponsor or donor.
 
 <p align="center">
   <a href="https://github.com/sponsors/danny007in">
@@ -127,7 +153,7 @@ npm run production  # 在 dist/ 目录中构建优化后的资产文件
   </a>
 </p>
 
-## 我们的赞助商
+## Our Sponsors
 
 <p align="center">
   <a href="https://github.com/spizzo14"><img src="https://unavatar.io/github/spizzo14?fallback=https%3A%2F%2Fraw.githubusercontent.com%2FJamesIves%2Fgithub-sponsors-readme-action%2Fdev%2F.github%2Fassets%2Fplaceholder.png" width="50" height="50" alt="User avatar: spizzo14" loading="lazy" /></a>&nbsp;&nbsp;
@@ -140,29 +166,29 @@ npm run production  # 在 dist/ 目录中构建优化后的资产文件
 </p>
 
 <p align="center">
-  <a href="https://github.com/sponsors/danny007in">你的虚拟形象在这里吗？请成为赞助商吧</a>
+  <a href="https://github.com/sponsors/danny007in">Your avatar here? Become a sponsor</a>
 </p>
 
-## 贡献
+## Contributing
 
-- 非常欢迎
-- 其他参考资料请查看 [AdminLTE v4 贡献指南](https://github.com/ColorlibHQ/AdminLTE#contributing)
-- 首先，你应该对 NodeJS 有一些了解
-- Github 知识
-- 安装 NodeJS LTS 版本
-- 将代码克隆你的计算机并更改为 `master` 分支
-- 进入克隆后的文件夹
-- 在 cli/bash 中运行 `npm install`，它会从 `package.json` 中安装依赖
-- 安装完成后，请运行 `npm start`
-- 太棒了，请将您的修改通过PR提交到`master`分支。
+- Highly welcome.
+- For your extra reference check [AdminLTE v4 Contribution Guide](https://github.com/ColorlibHQ/AdminLTE#contributing)
+- First thing first, you should have bit knowledge about NodeJS.
+- Github Knowledge.
+- Install NodeJS LTS version.
+- Clone this Repository to your machine and change to `master` branch.
+- Go to Cloned Folder.
+- In cli/bash run `npm install` it will install dependency from `package.json`.
+- After installation completes, run `npm start`
+- Cool, Send your changes in PR to `master` branch.
 
 
-## 许可证
+## License
 
-AdminLTE 是一个开源项目，由 [AdminLTE.io](https://adminlte.io) 授权，许可协议使用 [MIT](https://opensource.org/licenses/MIT)。
-AdminLTE.io 保留在未来更改许可的权利。
+AdminLTE is an open source project by [AdminLTE.io](https://adminlte.io) that is licensed under [MIT](https://opensource.org/licenses/MIT).
+AdminLTE.io reserves the right to change the license of future releases.
 
-## 图片来源
+## Image Credits
 
 - [Pixeden](http://www.pixeden.com/psd-web-elements/flat-responsive-showcase-psd)
 - [Graphicsfuel](https://www.graphicsfuel.com/2013/02/13-high-resolution-blur-backgrounds/)

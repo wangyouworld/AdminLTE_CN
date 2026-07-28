@@ -1,0 +1,1121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Deployment &amp; Performance | AdminLTE 4</title>
+
+    <!--begin::Accessibility Meta Tags-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#007bff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
+    <!--end::Accessibility Meta Tags-->
+
+    <!--begin::Primary Meta Tags-->
+    <meta name="title" content="Deployment &amp; Performance | AdminLTE 4" />
+    <meta name="author" content="ColorlibHQ" />
+    <meta
+      name="description"
+      content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS. Fully accessible with WCAG 2.1 AA compliance."
+    />
+    <meta
+      name="keywords"
+      content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard, accessible admin panel, WCAG compliant"
+    />
+    <!--end::Primary Meta Tags-->
+
+    <!--begin::Accessibility Features-->
+    <!-- Skip links will be dynamically added by accessibility.js -->
+    <meta name="supported-color-schemes" content="light dark" />
+    <link rel="preload" href="../css/adminlte.css" as="style" />
+    <!--end::Accessibility Features-->
+
+    <!--begin::Fonts-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+      integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
+      crossorigin="anonymous"
+      media="print"
+      onload="this.media = 'all'"
+    />
+    <!--end::Fonts-->
+
+    <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css"
+      crossorigin="anonymous"
+    />
+    <!--end::Third Party Plugin(OverlayScrollbars)-->
+
+    <!--begin::Third Party Plugin(Bootstrap Icons)-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+      crossorigin="anonymous"
+    />
+    <!--end::Third Party Plugin(Bootstrap Icons)-->
+
+    <!--begin::Required Plugin(AdminLTE)-->
+    <link rel="stylesheet" href="../css/adminlte.css" />
+    <!--end::Required Plugin(AdminLTE)-->
+  </head>
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary docs-page">
+    <div class="app-wrapper">
+      <!--begin::Header-->
+      <nav class="app-header navbar navbar-expand bg-body">
+        <!--begin::Container-->
+        <div class="container-fluid">
+          <!--begin::Start Navbar Links-->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
+                <i class="bi bi-list"></i>
+              </a>
+            </li>
+
+            <li class="nav-item d-none d-md-block">
+              <a href="../docs/introduction.html" class="nav-link">
+                <i class="bi bi-book me-1" aria-hidden="true"></i>
+                Documentation
+              </a>
+            </li>
+            <li class="nav-item d-none d-md-block">
+              <a href="../index.html" class="nav-link">
+                <i class="bi bi-arrow-left me-1" aria-hidden="true"></i>
+                Back to live preview
+              </a>
+            </li>
+          </ul>
+          <!--end::Start Navbar Links-->
+
+          <!--begin::End Navbar Links-->
+          <ul class="navbar-nav ms-auto">
+            <!--begin::Navbar Search-->
+            <li class="nav-item">
+              <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+                <i class="bi bi-search"></i>
+              </a>
+            </li>
+            <!--end::Navbar Search-->
+
+            <!--begin::Messages Dropdown Menu-->
+            <li class="nav-item dropdown">
+              <a class="nav-link" data-bs-toggle="dropdown" href="#">
+                <i class="bi bi-chat-text"></i>
+                <span class="navbar-badge badge text-bg-danger">3</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <a href="#" class="dropdown-item">
+                  <!--begin::Message-->
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img
+                        src="../assets/img/user1-128x128.jpg"
+                        alt="User Avatar"
+                        class="img-size-50 rounded-circle me-3"
+                      />
+                    </div>
+                    <div class="flex-grow-1">
+                      <h3 class="dropdown-item-title">
+                        Brad Diesel
+                        <span class="float-end fs-7 text-danger"
+                          ><i class="bi bi-star-fill"></i
+                        ></span>
+                      </h3>
+                      <p class="fs-7">Call me whenever you can...</p>
+                      <p class="fs-7 text-secondary">
+                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                      </p>
+                    </div>
+                  </div>
+                  <!--end::Message-->
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <!--begin::Message-->
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img
+                        src="../assets/img/user8-128x128.jpg"
+                        alt="User Avatar"
+                        class="img-size-50 rounded-circle me-3"
+                      />
+                    </div>
+                    <div class="flex-grow-1">
+                      <h3 class="dropdown-item-title">
+                        John Pierce
+                        <span class="float-end fs-7 text-secondary">
+                          <i class="bi bi-star-fill"></i>
+                        </span>
+                      </h3>
+                      <p class="fs-7">I got your message bro</p>
+                      <p class="fs-7 text-secondary">
+                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                      </p>
+                    </div>
+                  </div>
+                  <!--end::Message-->
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <!--begin::Message-->
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img
+                        src="../assets/img/user3-128x128.jpg"
+                        alt="User Avatar"
+                        class="img-size-50 rounded-circle me-3"
+                      />
+                    </div>
+                    <div class="flex-grow-1">
+                      <h3 class="dropdown-item-title">
+                        Nora Silvester
+                        <span class="float-end fs-7 text-warning">
+                          <i class="bi bi-star-fill"></i>
+                        </span>
+                      </h3>
+                      <p class="fs-7">The subject goes here</p>
+                      <p class="fs-7 text-secondary">
+                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                      </p>
+                    </div>
+                  </div>
+                  <!--end::Message-->
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+              </div>
+            </li>
+            <!--end::Messages Dropdown Menu-->
+
+            <!--begin::Notifications Dropdown Menu-->
+            <li class="nav-item dropdown">
+              <a class="nav-link" data-bs-toggle="dropdown" href="#">
+                <i class="bi bi-bell-fill"></i>
+                <span class="navbar-badge badge text-bg-warning">15</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <span class="dropdown-item dropdown-header">15 Notifications</span>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="bi bi-envelope me-2"></i> 4 new messages
+                  <span class="float-end text-secondary fs-7">3 mins</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="bi bi-people-fill me-2"></i> 8 friend requests
+                  <span class="float-end text-secondary fs-7">12 hours</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="bi bi-file-earmark-fill me-2"></i> 3 new reports
+                  <span class="float-end text-secondary fs-7">2 days</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item dropdown-footer"> See All Notifications </a>
+              </div>
+            </li>
+            <!--end::Notifications Dropdown Menu-->
+
+            <!--begin::Fullscreen Toggle-->
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-lte-toggle="fullscreen">
+                <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
+                <i data-lte-icon="minimize" class="bi bi-fullscreen-exit d-none"></i>
+              </a>
+            </li>
+            <!--end::Fullscreen Toggle-->
+
+            <!--begin::Color Mode Toggle (#6010)-->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                id="bd-theme"
+                aria-label="Toggle color scheme"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="bi bi-sun-fill" data-lte-theme-icon="light"></i>
+                <i class="bi bi-moon-fill d-none" data-lte-theme-icon="dark"></i>
+                <i class="bi bi-circle-half d-none" data-lte-theme-icon="auto"></i>
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="bd-theme"
+                style="--bs-dropdown-min-width: 8rem"
+              >
+                <li>
+                  <button
+                    type="button"
+                    class="dropdown-item d-flex align-items-center"
+                    data-bs-theme-value="light"
+                    aria-pressed="false"
+                  >
+                    <i class="bi bi-sun-fill me-2"></i>
+                    Light
+                    <i class="bi bi-check-lg ms-auto d-none"></i>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="dropdown-item d-flex align-items-center"
+                    data-bs-theme-value="dark"
+                    aria-pressed="false"
+                  >
+                    <i class="bi bi-moon-fill me-2"></i>
+                    Dark
+                    <i class="bi bi-check-lg ms-auto d-none"></i>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="dropdown-item d-flex align-items-center active"
+                    data-bs-theme-value="auto"
+                    aria-pressed="true"
+                  >
+                    <i class="bi bi-circle-half me-2"></i>
+                    Auto
+                    <i class="bi bi-check-lg ms-auto d-none"></i>
+                  </button>
+                </li>
+              </ul>
+            </li>
+            <!--end::Color Mode Toggle-->
+
+            <!--begin::User Menu Dropdown-->
+            <li class="nav-item dropdown user-menu">
+              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                <img
+                  src="../assets/img/user2-160x160.jpg"
+                  class="user-image rounded-circle shadow"
+                  alt="User Image"
+                />
+                <span class="d-none d-md-inline">Alexander Pierce</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <!--begin::User Image-->
+                <li class="user-header text-bg-primary">
+                  <img
+                    src="../assets/img/user2-160x160.jpg"
+                    class="rounded-circle shadow"
+                    alt="User Image"
+                  />
+                  <p>
+                    Alexander Pierce - Web Developer
+                    <small>Member since Nov. 2023</small>
+                  </p>
+                </li>
+                <!--end::User Image-->
+                <!--begin::Menu Body-->
+                <li class="user-body">
+                  <!--begin::Row-->
+                  <div class="row">
+                    <div class="col-4 text-center">
+                      <a href="#">Followers</a>
+                    </div>
+                    <div class="col-4 text-center">
+                      <a href="#">Sales</a>
+                    </div>
+                    <div class="col-4 text-center">
+                      <a href="#">Friends</a>
+                    </div>
+                  </div>
+                  <!--end::Row-->
+                </li>
+                <!--end::Menu Body-->
+                <!--begin::Menu Footer-->
+                <li class="user-footer">
+                  <a href="#" class="btn btn-outline-secondary">Profile</a>
+                  <a href="#" class="btn btn-outline-danger float-end">Sign out</a>
+                </li>
+                <!--end::Menu Footer-->
+              </ul>
+            </li>
+            <!--end::User Menu Dropdown-->
+          </ul>
+          <!--end::End Navbar Links-->
+        </div>
+        <!--end::Container-->
+      </nav>
+      <!--end::Header-->
+      <!--begin::Sidebar (docs mode)-->
+      <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+        <!--begin::Sidebar Brand-->
+        <div class="sidebar-brand">
+          <a href="../docs/introduction.html" class="brand-link">
+            <img
+              src="../assets/img/AdminLTELogo.png"
+              alt="AdminLTE Logo"
+              class="brand-image opacity-75 shadow"
+            />
+            <span class="brand-text fw-light">
+              AdminLTE 4 <span class="opacity-75">&middot; Docs</span>
+            </span>
+          </a>
+        </div>
+        <!--end::Sidebar Brand-->
+        <!--begin::Sidebar Wrapper-->
+        <div class="sidebar-wrapper">
+          <nav class="mt-2">
+            <!--begin::Sidebar Menu-->
+            <ul
+              class="nav sidebar-menu flex-column"
+              data-lte-toggle="treeview"
+              role="navigation"
+              aria-label="Documentation navigation"
+              data-accordion="false"
+              id="docs-navigation"
+            >
+              <li class="nav-header">START HERE</li>
+              <li class="nav-item">
+                <a href="../docs/introduction.html" class="nav-link">
+                  <i class="nav-icon bi bi-download"></i>
+                  <p>Installation</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/getting-started.html" class="nav-link">
+                  <i class="nav-icon bi bi-rocket-takeoff"></i>
+                  <p>Getting Started</p>
+                </a>
+              </li>
+
+              <li class="nav-header">FOUNDATIONS</li>
+              <li class="nav-item">
+                <a href="../docs/layout.html" class="nav-link">
+                  <i class="nav-icon bi bi-grip-horizontal"></i>
+                  <p>Layout Classes</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/layout-blueprint.html" class="nav-link">
+                  <i class="nav-icon bi bi-diagram-3"></i>
+                  <p>Layout Blueprint</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/customization.html" class="nav-link">
+                  <i class="nav-icon bi bi-palette"></i>
+                  <p>Customization</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/color-mode.html" class="nav-link">
+                  <i class="nav-icon bi bi-star-half"></i>
+                  <p>Color Mode</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/rtl.html" class="nav-link">
+                  <i class="nav-icon bi bi-text-paragraph"></i>
+                  <p>RTL Support</p>
+                </a>
+              </li>
+
+              <li class="nav-header">BUILDING</li>
+              <li class="nav-item">
+                <a href="../docs/recipes.html" class="nav-link">
+                  <i class="nav-icon bi bi-clipboard-check"></i>
+                  <p>Recipes</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-ui-checks-grid"></i>
+                  <p>
+                    Components
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="../docs/components/main-header.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Main Header</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/components/main-sidebar.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Main Sidebar</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-filetype-js"></i>
+                  <p>
+                    JavaScript Plugins
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="../docs/javascript/plugins-overview.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Overview</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/layout.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Layout</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/pushmenu.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>PushMenu</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/treeview.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Treeview</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/card-widget.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Card Widget</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/direct-chat.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Direct Chat</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/fullscreen.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Fullscreen</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/accessibility.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Accessibility</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/integrations.html" class="nav-link">
+                  <i class="nav-icon bi bi-puzzle"></i>
+                  <p>Integrations</p>
+                </a>
+              </li>
+
+              <li class="nav-header">SHIPPING</li>
+              <li class="nav-item">
+                <a href="../docs/migration.html" class="nav-link">
+                  <i class="nav-icon bi bi-arrow-up-right-square"></i>
+                  <p>Migration from v3</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/deployment.html" class="nav-link active">
+                  <i class="nav-icon bi bi-cloud-upload"></i>
+                  <p>Deployment</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/browser-support.html" class="nav-link">
+                  <i class="nav-icon bi bi-browser-chrome"></i>
+                  <p>Browser Support</p>
+                </a>
+              </li>
+
+              <li class="nav-header">RESOURCES</li>
+              <li class="nav-item">
+                <a href="../docs/faq.html" class="nav-link">
+                  <i class="nav-icon bi bi-question-circle"></i>
+                  <p>FAQ</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/how-to-contribute.html" class="nav-link">
+                  <i class="nav-icon bi bi-people"></i>
+                  <p>Contributing</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/license.html" class="nav-link">
+                  <i class="nav-icon bi bi-patch-check"></i>
+                  <p>License</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  href="https://github.com/ColorlibHQ/AdminLTE"
+                  target="_blank"
+                  rel="noopener"
+                  class="nav-link"
+                >
+                  <i class="nav-icon bi bi-github"></i>
+                  <p>
+                    GitHub
+                    <i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i>
+                  </p>
+                </a>
+              </li>
+            </ul>
+            <!--end::Sidebar Menu-->
+
+            <!-- Back to preview CTA (bottom of sidebar) -->
+            <div class="p-3 mt-3 border-top border-secondary border-opacity-25">
+              <a
+                href="../index.html"
+                class="btn btn-sm btn-outline-light w-100 d-flex align-items-center justify-content-center gap-2"
+              >
+                <i class="bi bi-arrow-left" aria-hidden="true"></i>
+                Back to live preview
+              </a>
+            </div>
+          </nav>
+        </div>
+        <!--end::Sidebar Wrapper-->
+      </aside>
+      <!--end::Sidebar (docs mode)-->
+      <main class="app-main">
+        <div class="app-content-header">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6">
+                <h3 class="mb-0">Deployment &amp; Performance</h3>
+              </div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                  <li class="breadcrumb-item"><a href="#">Docs</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Deployment</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="app-content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <p>
+                      AdminLTE is a static HTML/CSS/JS template — there’s nothing exotic about
+                      deploying it. But there are a handful of choices that meaningfully change page
+                      weight, time-to-interactive, and CDN reliability. This page documents the ones
+                      worth getting right.
+                    </p>
+                    <h5 id="what-to-deploy">What to deploy</h5>
+                    <p>
+                      The deployable artefact is everything under <code>dist/</code> plus your own
+                      HTML / server-rendered templates:
+                    </p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="text"
+                    ><code><span class="line"><span>dist/</span></span>
+<span class="line"><span>├── css/                ← stylesheets (LTR + RTL, dev + minified)</span></span>
+<span class="line"><span>│   ├── adminlte.css</span></span>
+<span class="line"><span>│   ├── adminlte.min.css</span></span>
+<span class="line"><span>│   ├── adminlte.rtl.css</span></span>
+<span class="line"><span>│   └── adminlte.rtl.min.css</span></span>
+<span class="line"><span>├── js/                 ← JavaScript bundle (dev + minified)</span></span>
+<span class="line"><span>│   ├── adminlte.js</span></span>
+<span class="line"><span>│   └── adminlte.min.js</span></span>
+<span class="line"><span>└── assets/             ← demo images / fonts (replace with your own)</span></span></code></pre>
+                    <p>
+                      You don’t ship <code>src/</code>, <code>node_modules/</code>, or the demo HTML
+                      if you’re embedding AdminLTE into your own app.
+                    </p>
+                    <h5 id="always-use-the-min-variants-in-production">
+                      Always use the <code>.min</code> variants in production
+                    </h5>
+                    <p>
+                      The minified builds are the same code with whitespace stripped and identifiers
+                      shortened. For <code>adminlte.css</code> the saving is roughly 15-20%; for
+                      <code>adminlte.js</code> it’s bigger (about 30% after gzip). The non-minified
+                      files are useful in development for readable source-map debugging — never
+                      serve them to users.
+                    </p>
+
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Asset</th>
+                          <th>Dev</th>
+                          <th>Production</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Stylesheet</td>
+                          <td><code>dist/css/adminlte.css</code></td>
+                          <td>
+                            <strong><code>dist/css/adminlte.min.css</code></strong>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Script</td>
+                          <td><code>dist/js/adminlte.js</code></td>
+                          <td>
+                            <strong><code>dist/js/adminlte.min.js</code></strong>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>RTL stylesheet</td>
+                          <td><code>dist/css/adminlte.rtl.css</code></td>
+                          <td>
+                            <strong><code>dist/css/adminlte.rtl.min.css</code></strong>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h5 id="compression-at-the-edge">Compression at the edge</h5>
+                    <p>
+                      Make sure your web server / CDN gzips (or brotlis) responses for the relevant
+                      content types:
+                    </p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="nginx"
+                    ><code><span class="line"><span style="color:#6A9955"># nginx</span></span>
+<span class="line"><span style="color:#569CD6">gzip on</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#569CD6">gzip_types </span><span style="color:#D4D4D4">text/css application/javascript text/html image/svg+xml;</span></span>
+<span class="line"><span style="color:#569CD6">gzip_comp_level </span><span style="color:#B5CEA8">6</span><span style="color:#D4D4D4">;</span></span></code></pre>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="apache"
+                    ><code><span class="line"><span style="color:#6A9955"># Apache</span></span>
+<span class="line"><span style="color:#569CD6">AddOutputFilterByType</span><span style="color:#D4D4D4"> DEFLATE text/css application/javascript text/html image/svg+xml</span></span></code></pre>
+                    <p>
+                      Cloudflare, Vercel, Netlify, and most managed hosting do this automatically.
+                      Verify with
+                      <code>curl -I -H &quot;Accept-Encoding: gzip&quot; your-page-url</code> and
+                      look for <code>content-encoding: gzip</code> in the response.
+                    </p>
+                    <h5 id="cache-headers">Cache headers</h5>
+                    <p>
+                      The dist artefacts have content hashes in their filenames
+                      <em>only if you wire it up via your bundler</em> — AdminLTE itself ships fixed
+                      filenames. Two reasonable strategies:
+                    </p>
+                    <ol>
+                      <li>
+                        <p>
+                          <strong>Short cache + version query string</strong> (simple, works without
+                          a build pipeline):
+                        </p>
+                        <pre
+                          class="astro-code dark-plus"
+                          style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                          tabindex="0"
+                          data-language="html"
+                        ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;/dist/css/adminlte.min.css?v=4.0.0&quot;</span><span style="color:#808080"> /&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;/dist/js/adminlte.min.js?v=4.0.0&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span></code></pre>
+                        <p>
+                          Set <code>Cache-Control: public, max-age=86400</code> (1 day) at the
+                          server. Bump <code>?v=</code> on every release to force cache
+                          invalidation.
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>Fingerprinted filenames</strong> (production-grade, requires a
+                          bundler):
+                        </p>
+                        <p>
+                          Let your bundler emit <code>adminlte.[hash].min.css</code> and reference
+                          that hash in your HTML. Set
+                          <code>Cache-Control: public, max-age=31536000, immutable</code> (1 year).
+                          This is what Vite/Webpack/Rollup do by default if you import AdminLTE
+                          through them.
+                        </p>
+                      </li>
+                    </ol>
+                    <h5 id="cdn-integrity-hashes">CDN integrity hashes</h5>
+                    <p>
+                      If you load AdminLTE from a public CDN (jsDelivr, unpkg), include a
+                      Subresource Integrity (SRI) hash so a compromised CDN can’t serve malicious
+                      JavaScript silently:
+                    </p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="html"
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span></span>
+<span class="line"><span style="color:#9CDCFE">  rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span></span>
+<span class="line"><span style="color:#9CDCFE">  href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/admin-lte@4.0.0/dist/css/adminlte.min.css&quot;</span></span>
+<span class="line"><span style="color:#9CDCFE">  integrity</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;sha384-PASTE_THE_HASH_HERE&quot;</span></span>
+<span class="line"><span style="color:#9CDCFE">  crossorigin</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;anonymous&quot;</span></span>
+<span class="line"><span style="color:#808080">/&gt;</span></span></code></pre>
+                    <p>
+                      You can get the hash from the
+                      <a href="https://www.jsdelivr.com/package/npm/admin-lte"
+                        >jsDelivr file detail page</a
+                      >
+                      — click any file and copy the “SRI” line. Do the same for Bootstrap, Popper,
+                      OverlayScrollbars, and Bootstrap Icons.
+                    </p>
+                    <p>For private-hosted assets, generate the hash yourself:</p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="bash"
+                    ><code><span class="line"><span style="color:#DCDCAA">openssl</span><span style="color:#CE9178"> dgst</span><span style="color:#569CD6"> -sha384</span><span style="color:#569CD6"> -binary</span><span style="color:#CE9178"> dist/css/adminlte.min.css</span><span style="color:#D4D4D4"> | </span><span style="color:#DCDCAA">openssl</span><span style="color:#CE9178"> base64</span><span style="color:#569CD6"> -A</span></span></code></pre>
+                    <h5 id="loading-order-matters">Loading order matters</h5>
+                    <p>Get the script order right or things break silently:</p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="html"
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">head</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#6A9955">  &lt;!-- 1. Bootstrap Icons (font CSS) — load first so icons render with the page --&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">  &lt;!-- 2. OverlayScrollbars (optional, for the sidebar scroller) --&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">  &lt;!-- 3. AdminLTE — includes Bootstrap CSS via its imports --&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/admin-lte@4.0.0/dist/css/adminlte.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">head</span><span style="color:#808080">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">body</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#D4D4D4">  …</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">  &lt;!-- Scripts at the END of body --&gt;</span></span>
+<span class="line"><span style="color:#6A9955">  &lt;!-- 4. Popper (Bootstrap dependency for dropdowns/tooltips/popovers) --&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">  &lt;!-- 5. Bootstrap --&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">  &lt;!-- 6. OverlayScrollbars --&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">  &lt;!-- 7. AdminLTE — must load AFTER Bootstrap --&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/admin-lte@4.0.0/dist/js/adminlte.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">body</span><span style="color:#808080">&gt;</span></span></code></pre>
+                    <h5 id="defer-or-async">Defer or async?</h5>
+                    <p>
+                      The AdminLTE bundle waits for <code>DOMContentLoaded</code> before wiring its
+                      data API, so <code>defer</code> is safe and recommended:
+                    </p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="html"
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> defer</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;/dist/js/adminlte.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span></code></pre>
+                    <p>
+                      Don’t use <code>async</code> — the script could execute before its
+                      dependencies (Bootstrap, Popper) have parsed, and listeners would attach to
+                      elements that don’t exist yet.
+                    </p>
+                    <h5 id="critical-css">Critical CSS</h5>
+                    <p>
+                      For sub-1-second first paint, inline the styles that the above-the-fold layout
+                      uses (header + brand + first visible content) and load the rest of
+                      <code>adminlte.min.css</code> asynchronously:
+                    </p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="html"
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">style</span><span style="color:#808080">&gt;</span><span style="color:#6A9955">/* extracted critical CSS for /dashboard */</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">style</span><span style="color:#808080">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span></span>
+<span class="line"><span style="color:#9CDCFE">  rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;preload&quot;</span></span>
+<span class="line"><span style="color:#9CDCFE">  as</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;style&quot;</span></span>
+<span class="line"><span style="color:#9CDCFE">  href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;/dist/css/adminlte.min.css&quot;</span></span>
+<span class="line"><span style="color:#9CDCFE">  onload</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;</span><span style="color:#569CD6">this</span><span style="color:#CE9178">.</span><span style="color:#9CDCFE">onload</span><span style="color:#D4D4D4">=</span><span style="color:#569CD6">null</span><span style="color:#CE9178">;</span><span style="color:#569CD6">this</span><span style="color:#CE9178">.</span><span style="color:#9CDCFE">rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&#39;stylesheet&#39;&quot;</span></span>
+<span class="line"><span style="color:#808080">/&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">noscript</span><span style="color:#808080">&gt;&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;/dist/css/adminlte.min.css&quot;</span><span style="color:#808080"> /&gt;&lt;/</span><span style="color:#569CD6">noscript</span><span style="color:#808080">&gt;</span></span></code></pre>
+                    <p>
+                      Extract critical CSS with a tool like
+                      <a href="https://github.com/GoogleChromeLabs/critters">Critters</a> or
+                      <a href="https://github.com/pocketjoso/penthouse">Penthouse</a> as part of
+                      your build. For dashboards behind a login (where first-load speed matters less
+                      than for marketing pages), this is usually overkill.
+                    </p>
+                    <h5 id="preload-key-assets">Preload key assets</h5>
+                    <p>
+                      Push critical resources to the browser before it discovers them in the HTML:
+                    </p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="html"
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;preload&quot;</span><span style="color:#9CDCFE"> as</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;style&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;/dist/css/adminlte.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;preload&quot;</span><span style="color:#9CDCFE"> as</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;font&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;/fonts/source-sans-3.woff2&quot;</span><span style="color:#9CDCFE"> type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;font/woff2&quot;</span><span style="color:#9CDCFE"> crossorigin</span><span style="color:#808080"> /&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;preconnect&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net&quot;</span><span style="color:#9CDCFE"> crossorigin</span><span style="color:#808080"> /&gt;</span></span></code></pre>
+                    <p>
+                      Only preload what’s used on every page. Preloading per-route assets in a
+                      shared layout wastes bandwidth.
+                    </p>
+                    <h5 id="lazy-loading-sub-pages">Lazy-loading sub-pages</h5>
+                    <p>
+                      If your dashboard has many routes and the JS is server-rendered HTML per
+                      route, prefer per-route CSS imports rather than one mega-stylesheet.
+                      AdminLTE’s core CSS is small (~44KB gzipped) but page-specific styles (charts,
+                      calendars, tables) can add up — only load them where they’re used.
+                    </p>
+                    <p>For SPAs, code-split heavy integrations:</p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="js"
+                    ><code><span class="line"><span style="color:#6A9955">// Don&#39;t bundle the calendar app into the main chunk</span></span>
+<span class="line"><span style="color:#569CD6">const</span><span style="color:#DCDCAA"> Calendar</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=&gt;</span><span style="color:#569CD6"> import</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;./Calendar.vue&quot;</span><span style="color:#D4D4D4">)</span></span></code></pre>
+                    <h5 id="bundle-size-budget">Bundle size budget</h5>
+                    <p>The current published <code>dist/</code> artefacts gzip to:</p>
+
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Asset</th>
+                          <th>Size (gzip)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><code>adminlte.min.css</code></td>
+                          <td>~40 KB</td>
+                        </tr>
+                        <tr>
+                          <td><code>adminlte.rtl.min.css</code></td>
+                          <td>~40 KB</td>
+                        </tr>
+                        <tr>
+                          <td><code>adminlte.min.js</code></td>
+                          <td>~5 KB</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <p>
+                      The full first-page payload (HTML + Bootstrap + AdminLTE + Bootstrap Icons +
+                      Popper + OverlayScrollbars) is around <strong>180 KB gzipped</strong> when
+                      loaded from CDN. The CI build enforces a <code>bundlewatch</code> check that
+                      fails if any asset crosses its budget.
+                    </p>
+                    <h5 id="service-workers--offline-support">Service workers / offline support</h5>
+                    <p>
+                      AdminLTE is just static files — caching them in a service worker works without
+                      changes. A minimal Workbox config:
+                    </p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="js"
+                    ><code><span class="line"><span style="color:#C586C0">import</span><span style="color:#D4D4D4"> { </span><span style="color:#9CDCFE">precacheAndRoute</span><span style="color:#D4D4D4"> } </span><span style="color:#C586C0">from</span><span style="color:#CE9178"> &quot;workbox-precaching&quot;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">precacheAndRoute</span><span style="color:#D4D4D4">([</span></span>
+<span class="line"><span style="color:#D4D4D4">  { </span><span style="color:#9CDCFE">url:</span><span style="color:#CE9178"> &quot;/dist/css/adminlte.min.css&quot;</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">revision:</span><span style="color:#CE9178"> &quot;4.0.0&quot;</span><span style="color:#D4D4D4"> },</span></span>
+<span class="line"><span style="color:#D4D4D4">  { </span><span style="color:#9CDCFE">url:</span><span style="color:#CE9178"> &quot;/dist/js/adminlte.min.js&quot;</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">revision:</span><span style="color:#CE9178"> &quot;4.0.0&quot;</span><span style="color:#D4D4D4"> },</span></span>
+<span class="line"><span style="color:#6A9955">  // ...your own pages</span></span>
+<span class="line"><span style="color:#D4D4D4">])</span></span></code></pre>
+                    <h5 id="removing-dev-only-files-before-deploy">
+                      Removing dev-only files before deploy
+                    </h5>
+                    <p>
+                      If you’re deploying the demo <code>dist/</code> folder verbatim, strip these
+                      patterns from the upload:
+                    </p>
+                    <ul>
+                      <li>
+                        <code>*.map</code> (source maps — leak source code to anyone who opens
+                        devtools)
+                      </li>
+                      <li><code>**/html/</code> (the Astro intermediate build, if present)</li>
+                      <li><code>**/.astro/</code> (Astro cache)</li>
+                    </ul>
+                    <p>For <code>rclone</code> / <code>rsync</code>:</p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="bash"
+                    ><code><span class="line"><span style="color:#DCDCAA">rsync</span><span style="color:#569CD6"> -avz</span><span style="color:#569CD6"> --delete</span><span style="color:#D7BA7D"> \</span></span>
+<span class="line"><span style="color:#569CD6">  --exclude=</span><span style="color:#CE9178">&#39;*.map&#39;</span><span style="color:#D7BA7D"> \</span></span>
+<span class="line"><span style="color:#569CD6">  --exclude=</span><span style="color:#CE9178">&#39;html/&#39;</span><span style="color:#D7BA7D"> \</span></span>
+<span class="line"><span style="color:#569CD6">  --exclude=</span><span style="color:#CE9178">&#39;.astro/&#39;</span><span style="color:#D7BA7D"> \</span></span>
+<span class="line"><span style="color:#CE9178">  dist/</span><span style="color:#CE9178"> user@server:/var/www/your-app/</span></span></code></pre>
+                    <h5 id="a-note-on-cloudflare-cache">A note on Cloudflare cache</h5>
+                    <p>
+                      Cloudflare’s default Browser Cache TTL is 4 hours. If you push a new release
+                      and want users to see it immediately,
+                      <a href="https://developers.cloudflare.com/cache/how-to/purge-cache/"
+                        >purge the affected paths</a
+                      >
+                      from the Cloudflare dashboard or API. Otherwise, users on cached pages will
+                      see your old CSS / JS for up to four hours.
+                    </p>
+                    <h5 id="where-to-next">Where to next</h5>
+                    <ul>
+                      <li>
+                        <a href="customization.html">Customization</a> — change colours, sidebar
+                        width, breakpoints before you deploy
+                      </li>
+                      <li>
+                        <a href="integrations.html">Recommended Integrations</a> — pick lightweight
+                        libraries for the things AdminLTE doesn’t bundle
+                      </li>
+                      <li>
+                        <a href="javascript/accessibility.html">Accessibility</a> — make sure your
+                        deployed pages keep their a11y guarantees
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!--begin::Footer-->
+      <footer class="app-footer">
+        <!--begin::To the end-->
+        <div class="float-end d-none d-sm-inline">Anything you want</div>
+        <!--end::To the end-->
+        <!--begin::Copyright-->
+        <strong>
+          Copyright &copy; 2014-2026&nbsp;
+          <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
+        </strong>
+        All rights reserved.
+        <!--end::Copyright-->
+      </footer>
+      <!--end::Footer-->
+    </div>
+    <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
+    <script src="../js/adminlte.js"></script>
+    <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+    <script>
+      const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
+      const Default = {
+        scrollbarTheme: 'os-theme-light',
+        scrollbarAutoHide: 'leave',
+        scrollbarClickScroll: true,
+      };
+      document.addEventListener('DOMContentLoaded', function () {
+        const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+
+        // Disable OverlayScrollbars on mobile devices to prevent touch interference
+        const isMobile = window.innerWidth <= 992;
+
+        if (
+          sidebarWrapper &&
+          OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined &&
+          !isMobile
+        ) {
+          OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+            scrollbars: {
+              theme: Default.scrollbarTheme,
+              autoHide: Default.scrollbarAutoHide,
+              clickScroll: Default.scrollbarClickScroll,
+            },
+          });
+        }
+      });
+    </script>
+    <!--end::OverlayScrollbars Configure--><!--begin::Color Mode Toggle (#6010)-->
+    <script>
+      (() => {
+        'use strict';
+
+        const STORAGE_KEY = 'lte-theme';
+
+        const getStoredTheme = () => localStorage.getItem(STORAGE_KEY);
+        const setStoredTheme = (theme) => localStorage.setItem(STORAGE_KEY, theme);
+
+        const prefersDark = () => globalThis.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        const getPreferredTheme = () => {
+          const stored = getStoredTheme();
+          if (stored) return stored;
+          return prefersDark() ? 'dark' : 'light';
+        };
+
+        const setTheme = (theme) => {
+          const resolved = theme === 'auto' ? (prefersDark() ? 'dark' : 'light') : theme;
+          document.documentElement.setAttribute('data-bs-theme', resolved);
+        };
+
+        setTheme(getPreferredTheme());
+
+        const showActiveTheme = (theme) => {
+          // Highlight the active dropdown option
+          document.querySelectorAll('[data-bs-theme-value]').forEach((el) => {
+            el.classList.remove('active');
+            el.setAttribute('aria-pressed', 'false');
+            const check = el.querySelector('.bi-check-lg');
+            if (check) check.classList.add('d-none');
+          });
+          const active = document.querySelector(`[data-bs-theme-value="${theme}"]`);
+          if (active) {
+            active.classList.add('active');
+            active.setAttribute('aria-pressed', 'true');
+            const check = active.querySelector('.bi-check-lg');
+            if (check) check.classList.remove('d-none');
+          }
+          // Sync the topbar trigger icon
+          document.querySelectorAll('[data-lte-theme-icon]').forEach((icon) => {
+            icon.classList.toggle('d-none', icon.dataset.lteThemeIcon !== theme);
+          });
+        };
+
+        globalThis.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+          const stored = getStoredTheme();
+          if (!stored || stored === 'auto') setTheme(getPreferredTheme());
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+          showActiveTheme(getPreferredTheme());
+          document.querySelectorAll('[data-bs-theme-value]').forEach((toggle) => {
+            toggle.addEventListener('click', () => {
+              const theme = toggle.getAttribute('data-bs-theme-value');
+              setStoredTheme(theme);
+              setTheme(theme);
+              showActiveTheme(theme);
+            });
+          });
+        });
+      })();
+    </script>
+    <!--end::Color Mode Toggle-->
+  </body>
+</html>

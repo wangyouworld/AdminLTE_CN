@@ -5,21 +5,21 @@ import Topbar from "@components/dashboard/_topbar.astro"
 import Sidenav from "@components/dashboard/_sidenav.astro"
 import Scripts from "@components/_scripts.astro"
 
-const title = "布局 | AdminLTE 4"
+const title = "Layout | AdminLTE 4"
 const path = "../../../dist"
 const mainPage = "docs"
 const page = "layout";
 ---
 
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
   <!--begin::Head-->
   <head>
     <Head title={title} path={path} />
   </head>
   <!--end::Head-->
   <!--begin::Body-->
-  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary docs-page">
     <!--begin::App Wrapper-->
     <div class="app-wrapper">
       <Topbar path={path} />
@@ -33,13 +33,13 @@ const page = "layout";
             <!--begin::Row-->
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">布局</h3>
+                <h3 class="mb-0">Layout</h3>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">文档</a></li>
+                  <li class="breadcrumb-item"><a href="#">Docs</a></li>
                   <li class="breadcrumb-item active" aria-current="page">
-                    布局
+                    Layout
                   </li>
                 </ol>
               </div>
@@ -52,58 +52,58 @@ const page = "layout";
         <!--begin::App Content-->
         <div class="app-content">
           <div class="container-fluid">
-            <div class="callout callout-info mb-4">
-              <h5 class="fw-bold">提示</h5>
-              <p>
-                如果你想从头开始 <a href="/starter.html" target="_blank" rel="noopener noreferrer"  class="callout-link">
-                  起始页
-                </a>是一个开始构建
-                应用的好地方。
-              </p>
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="callout callout-info mb-4">
+                      <h5 class="fw-bold">Tips</h5>
+                      <p>
+                        The <a href="https://github.com/ColorlibHQ/AdminLTE/tree/master/dist" target="_blank" rel="noopener noreferrer" class="callout-link">
+                          starter pages
+                        </a> are a good place to start building your app from scratch.
+                      </p>
+                    </div>
+
+                    <p>The layout consists of five major parts:</p>
+                    <ul>
+                      <li>
+                        Wrapper <code>.app-wrapper</code> &mdash; a div that wraps the whole site.
+                      </li>
+                      <li>
+                        Main Header <code>.app-header</code> &mdash; contains the logo and navbar.
+                      </li>
+                      <li>
+                        Main Sidebar <code>.app-sidebar</code> &mdash; contains the sidebar user panel and menu.
+                      </li>
+                      <li>
+                        Content <code>.app-main</code> &mdash; contains the page header and content.
+                      </li>
+                      <li>
+                        Main Footer <code>.app-footer</code> &mdash; contains the footer.
+                      </li>
+                    </ul>
+
+                    <h4>Layout Options</h4>
+                    <p>
+                      AdminLTE v4 provides a set of options to apply to your main layout. Each one of these classes can be added to the
+                      <code>body</code> tag to get the desired goal.
+                    </p>
+                    <ul>
+                      <li>
+                        Fixed Sidebar: use the class <code>.layout-fixed</code> to get a fixed sidebar.
+                      </li>
+                      <li>
+                        Mini Sidebar on Toggle: use the class <code>.sidebar-expand-* .sidebar-mini</code> to have a collapsed sidebar upon loading.
+                      </li>
+                      <li>
+                        Collapsed Sidebar: use the class <code>.sidebar-expand-* .sidebar-mini .sidebar-collapse</code> to have a collapsed sidebar upon loading.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
-
-            <p>布局由五个主要部分组成:</p>
-            <ul>
-              <li>
-                容器 <code>.app-wrapper</code>：包含整个页面的 div 容器。
-              </li>
-              <li>
-                头部 <code>.app-header</code>：包含 logo 和导航栏。
-              </li>
-              <li>
-                侧边栏 <code>.app-sidebar</code>：包含侧边栏的用户面板和菜单
-                和菜单。
-              </li>
-              <li>
-                内容 <code>.app-main</code>：包含页面标题和内容。
-              </li>
-              <li>
-                底部 <code>.app-footer</code>：包含页脚，如版权声明。
-              </li>
-            </ul>
-
-            <h4>布局选项</h4>
-            <p>
-              AdminLTE v4 提供了一系列选项，
-              这些类中的每一个都可以添加到 <code>body</code> 标签上，
-              以达到所需的效果。
-            </p>
-            <ul>
-              <li>
-                固定侧边栏：使用 <code>.layout-fixed</code> 来固定侧边栏。
-                来固定侧边栏。
-              </li>
-              <li>
-                手动折叠侧边栏：
-                使用 <code>.sidebar-expand-* .sidebar-mini</code> 类，
-                在加载后，可以手动折叠侧边栏。
-              </li>
-              <li>
-                自动折叠侧边栏：
-                使用 <code>.sidebar-expand-* .sidebar-mini .sidebar-collapse</code> 类，
-                在加载后会自动折叠侧边栏。
-              </li>
-            </ul>
           </div>
           <!-- /.container-fluid -->
         </div>

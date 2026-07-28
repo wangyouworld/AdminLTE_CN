@@ -6,21 +6,21 @@ import Sidenav from "@components/dashboard/_sidenav.astro"
 import Scripts from "@components/_scripts.astro"
 import ColorMode from "@components/docs/color-mode.mdx"
 
-const title = "明暗模式 | AdminLTE 4"
+const title = "Color Mode | AdminLTE 4"
 const path = "../../../dist"
 const mainPage = "docs"
 const page = "color-mode";
 ---
 
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
   <!--begin::Head-->
   <head>
     <Head title={title} path={path} />
   </head>
   <!--end::Head-->
   <!--begin::Body-->
-  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary docs-page">
     <!--begin::App Wrapper-->
     <div class="app-wrapper">
       <Topbar path={path} />
@@ -34,13 +34,13 @@ const page = "color-mode";
             <!--begin::Row-->
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">明暗模式切换</h3>
+                <h3 class="mb-0">Color Mode Toggle</h3>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">文档</a></li>
+                  <li class="breadcrumb-item"><a href="#">Docs</a></li>
                   <li class="breadcrumb-item active" aria-current="page">
-                    明暗模式
+                    Color Mode
                   </li>
                 </ol>
               </div>
@@ -58,11 +58,11 @@ const page = "color-mode";
             <div class="row g-4">
               <div class="col-12">
                 <div class="callout callout-info">
-                  <h5 class="fw-bold">提示</h5>
+                  <h5 class="fw-bold">Tips</h5>
                   <p>
                     <a href="https://getbootstrap.com/docs/5.3/customize/color-modes/" target="_blank" rel="noopener noreferrer" class="callout-link">
-                      在 Bootstrap 中
-                    </a> 允许你在明暗模式之间切换。可以使用 data-bs-theme 属性来实现它。你还可以创建自己的颜色 模式。
+                      Color modes in Bootstrap
+                    </a> allow you to switch between light and dark modes. You can do this using the data-bs-theme attribute. You can also create your own custom color modes.
 
                   </p>
                 </div>
@@ -84,10 +84,10 @@ const page = "color-mode";
                         >
                       </li>
                       <li class="nav-item d-none d-md-block">
-                        <a href="#" class="nav-link">首页</a>
+                        <a href="#" class="nav-link">Home</a>
                       </li>
                       <li class="nav-item d-none d-md-block">
-                        <a href="#" class="nav-link">联系</a>
+                        <a href="#" class="nav-link">Contact</a>
                       </li>
                     </ul>
                     <!--end::Start Navbar links-->
@@ -106,7 +106,7 @@ const page = "color-mode";
                             <i class="my-1"></i>
                           </span>
                           <span class="d-lg-none ms-2" id="bd-theme-text"
-                          >切换主题</span
+                          >Toggle theme</span
                           >
                         </button>
                         <ul
@@ -122,7 +122,7 @@ const page = "color-mode";
                               aria-pressed="false"
                             >
                               <i class="bi bi-sun-fill me-2"></i>
-                              明亮
+                              Light
                               <i class="bi bi-check-lg ms-auto d-none"></i>
                             </button>
                           </li>
@@ -134,7 +134,7 @@ const page = "color-mode";
                               aria-pressed="false"
                             >
                               <i class="bi bi-moon-fill me-2"></i>
-                              暗黑
+                              Dark
                               <i class="bi bi-check-lg ms-auto d-none"></i>
                             </button>
                           </li>
@@ -145,9 +145,8 @@ const page = "color-mode";
                               data-bs-theme-value="auto"
                               aria-pressed="true"
                             >
-                              <i class="bi bi-circle-fill-half-stroke me-2"
-                              ></i>
-                              自动
+                              <i class="bi bi-circle-half me-2"></i>
+                              Auto
                               <i class="bi bi-check-lg ms-auto d-none"></i>
                             </button>
                           </li>
@@ -162,7 +161,11 @@ const page = "color-mode";
               </div>
               <!-- Start column -->
               <div class="col-12">
-                <ColorMode />
+                <div class="card">
+                  <div class="card-body">
+                    <ColorMode />
+                  </div>
+                </div>
               </div>
             </div>
             <!--end::Row-->
@@ -179,7 +182,7 @@ const page = "color-mode";
     <Scripts path={path} />
 
     <script is:inline>
-// 明暗模式切换
+// Color Mode Toggler
 (() => {
   "use strict"
 
