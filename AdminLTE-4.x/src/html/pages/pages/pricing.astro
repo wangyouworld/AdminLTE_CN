@@ -1,0 +1,254 @@
+---
+import Head from "@components/_head.astro"
+import Footer from "@components/dashboard/_footer.astro"
+import Topbar from "@components/dashboard/_topbar.astro"
+import Sidenav from "@components/dashboard/_sidenav.astro"
+import Scripts from "@components/_scripts.astro"
+
+const title = "AdminLTE 4 | 价格"
+const path = "../../../dist"
+const mainPage = "pages"
+const page = "pricing";
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <Head title={title} path={path} />
+  </head>
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <div class="app-wrapper">
+      <Topbar path={path} />
+      <Sidenav path={path} mainPage={mainPage} page={page} />
+      <main class="app-main">
+        <div class="app-content-header">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6">
+                <h1 class="mb-0 fs-3">价格</h1>
+              </div>
+              <div class="col-sm-6">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">首页</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">价格</li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="app-content">
+          <div class="container-fluid">
+            <!-- Headline -->
+            <div class="text-center mb-4">
+              <h2 class="mb-2">选择适合您团队的方案</h2>
+              <p class="text-secondary mb-0">
+                价格透明简单，无隐形消费，随时可退订。
+              </p>
+            </div>
+
+            <!-- Billing toggle -->
+            <div class="d-flex justify-content-center mb-4">
+              <div class="btn-group" role="group" aria-label="Billing period">
+                <input type="radio" class="btn-check" name="billing" id="billing-monthly" checked />
+                <label class="btn btn-outline-primary" for="billing-monthly">每月</label>
+                <input type="radio" class="btn-check" name="billing" id="billing-yearly" />
+                <label class="btn btn-outline-primary" for="billing-yearly">
+                  每年 <span class="badge text-bg-success ms-1">立省20%</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Plans -->
+            <div class="row g-4 row-cols-1 row-cols-md-3 mb-4">
+              <!-- Starter -->
+              <div class="col">
+                <div class="card h-100">
+                  <div class="card-body p-4">
+                    <h5 class="fw-semibold">免费</h5>
+                    <p class="text-secondary small mb-3">
+                      适合初学者。
+                    </p>
+                    <div class="mb-3">
+                      <span class="display-5 fw-bold">$0</span>
+                      <span class="text-secondary">/月</span>
+                    </div>
+                    <a href="#" class="btn btn-outline-primary w-100 mb-3">开始使用</a>
+                    <ul class="list-unstyled small mb-0">
+                      <li class="mb-2">
+                        <i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>
+                        最多 3 个项目
+                      </li>
+                      <li class="mb-2">
+                        <i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>
+                        社区支持
+                      </li>
+                      <li class="mb-2">
+                        <i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>
+                        1 GB 存储空间
+                      </li>
+                      <li class="text-secondary">
+                        <i class="bi bi-dash-circle me-2" aria-hidden="true"></i>
+                        高级分析
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- Pro (highlighted) -->
+              <div class="col">
+                <div class="card h-100 border-primary shadow-sm position-relative">
+                  <span
+                    class="badge text-bg-primary position-absolute top-0 start-50 translate-middle"
+                  >最受欢迎</span>
+                  <div class="card-body p-4">
+                    <h5 class="fw-semibold">专业版</h5>
+                    <p class="text-secondary small mb-3">
+                      适用于需要更多功能的成长型团队。
+                    </p>
+                    <div class="mb-3">
+                      <span class="display-5 fw-bold">$29</span>
+                      <span class="text-secondary">/月</span>
+                    </div>
+                    <a href="#" class="btn btn-primary w-100 mb-3">立即试用</a>
+                    <ul class="list-unstyled small mb-0">
+                      <li class="mb-2">
+                        <i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>
+                        无限项目
+                      </li>
+                      <li class="mb-2">
+                        <i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>
+                        优先邮件支持
+                      </li>
+                      <li class="mb-2">
+                        <i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>
+                        100 GB 存储空间
+                      </li>
+                      <li class="mb-2">
+                        <i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>
+                        高级分析
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- Enterprise -->
+              <div class="col">
+                <div class="card h-100">
+                  <div class="card-body p-4">
+                    <h5 class="fw-semibold">企业版</h5>
+                    <p class="text-secondary small mb-3">
+                      适合有定制化需求的组织。
+                    </p>
+                    <div class="mb-3">
+                      <span class="display-5 fw-bold">定制</span>
+                    </div>
+                    <a href="#" class="btn btn-outline-primary w-100 mb-3">联系销售</a>
+                    <ul class="list-unstyled small mb-0">
+                      <li class="mb-2">
+                        <i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>
+                        专业版所有功能
+                      </li>
+                      <li class="mb-2">
+                        <i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>
+                        单点登录 &amp; 跨域身份管理
+                      </li>
+                      <li class="mb-2">
+                        <i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>
+                        专属客户经理
+                      </li>
+                      <li class="mb-2">
+                        <i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>
+                        自定义 SLA
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Feature comparison table -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">功能比较</h3>
+              </div>
+              <div class="card-body p-0">
+                <div class="table-responsive">
+                  <table class="table mb-0 align-middle">
+                    <thead>
+                      <tr>
+                        <th>功能</th>
+                        <th class="text-center">免费</th>
+                        <th class="text-center">专业版</th>
+                        <th class="text-center">企业版</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>项目</td>
+                        <td class="text-center">3</td>
+                        <td class="text-center">无限制</td>
+                        <td class="text-center">无限制</td>
+                      </tr>
+                      <tr>
+                        <td>存储</td>
+                        <td class="text-center">1 GB</td>
+                        <td class="text-center">100 GB</td>
+                        <td class="text-center">定制</td>
+                      </tr>
+                      <tr>
+                        <td>团队成员</td>
+                        <td class="text-center">1</td>
+                        <td class="text-center">上限 20</td>
+                        <td class="text-center">无限制</td>
+                      </tr>
+                      <tr>
+                        <td>高级分析</td>
+                        <td class="text-center">
+                          <i class="bi bi-x-lg text-secondary" aria-hidden="true"></i>
+                          <span class="visually-hidden">No</span>
+                        </td>
+                        <td class="text-center">
+                          <i class="bi bi-check-lg text-success" aria-hidden="true"></i>
+                          <span class="visually-hidden">Yes</span>
+                        </td>
+                        <td class="text-center">
+                          <i class="bi bi-check-lg text-success" aria-hidden="true"></i>
+                          <span class="visually-hidden">Yes</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>单点登录 &amp; 跨域身份管理</td>
+                        <td class="text-center">
+                          <i class="bi bi-x-lg text-secondary" aria-hidden="true"></i>
+                          <span class="visually-hidden">No</span>
+                        </td>
+                        <td class="text-center">
+                          <i class="bi bi-x-lg text-secondary" aria-hidden="true"></i>
+                          <span class="visually-hidden">No</span>
+                        </td>
+                        <td class="text-center">
+                          <i class="bi bi-check-lg text-success" aria-hidden="true"></i>
+                          <span class="visually-hidden">Yes</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>支持</td>
+                        <td class="text-center">社区</td>
+                        <td class="text-center">优先邮件</td>
+                        <td class="text-center">专属</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </div>
+    <Scripts path={path} />
+  </body>
+</html>

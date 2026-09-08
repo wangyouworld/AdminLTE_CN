@@ -1,0 +1,1332 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>FAQ | AdminLTE 4</title>
+
+    <!--begin::Theme Init (prevents flash of incorrect theme on load, #6043)-->
+    <script>
+      (() => {
+        'use strict';
+        const STORAGE_KEY = 'lte-theme';
+        let stored = null;
+        try {
+          stored = localStorage.getItem(STORAGE_KEY);
+        } catch {
+          // localStorage may be unavailable (private mode, sandboxed iframe).
+        }
+        const prefersDark = globalThis.matchMedia('(prefers-color-scheme: dark)').matches;
+        // Mirror the resolution in _scripts.astro: explicit "dark"/"light" win,
+        // otherwise ("auto" or unset) fall back to the OS preference.
+        let resolved = 'light';
+        if (stored === 'dark' || stored === 'light') {
+          resolved = stored;
+        } else if (prefersDark) {
+          resolved = 'dark';
+        }
+        document.documentElement.setAttribute('data-bs-theme', resolved);
+        document.documentElement.style.colorScheme = resolved;
+      })();
+    </script>
+    <!--end::Theme Init-->
+
+    <!--begin::Accessibility Meta Tags-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#007bff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
+    <!--end::Accessibility Meta Tags-->
+
+    <!--begin::Primary Meta Tags-->
+    <meta name="title" content="FAQ | AdminLTE 4" />
+    <meta name="author" content="ColorlibHQ" />
+    <meta
+      name="description"
+      content="AdminLTE 是一款免费的 Bootstrap 5 管理员仪表板模板，包含近 50 个示例页面，采用纯 JavaScript 构建，并注重可访问性设计。"
+    />
+    <meta
+      name="keywords"
+      content="Bootstrap 5, Bootstrap 5 管理仪表盘,Bootstrap 5 仪表盘,Bootstrap 5 图表,Bootstrap 5 日历,Bootstrap 5 日期选择器,Bootstrap 5 表格,Bootstrap 5 数据表,vanilla js 数据表,colorlibhq, colorlibhq 仪表盘,colorlibhq 管理仪表盘, accessible admin panel"
+    />
+    <!--end::Primary Meta Tags-->
+
+    <!--begin::Accessibility Features-->
+    <!-- Skip links will be dynamically added by accessibility.js -->
+    <meta name="supported-color-schemes" content="light dark" />
+    <link rel="preload" href="../css/adminlte.css" as="style" />
+    <!--end::Accessibility Features-->
+
+    <!--begin::Fonts-->
+    <link
+      rel="stylesheet"
+      href="../assets/fontsource/index.css"
+      integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
+      crossorigin="anonymous"
+      media="print"
+      onload="this.media = 'all'"
+    />
+    <!--end::Fonts-->
+
+    <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <link
+      rel="stylesheet"
+      href="../assets/overlayscrollbars/overlayscrollbars.min.css"
+      crossorigin="anonymous"
+    />
+    <!--end::Third Party Plugin(OverlayScrollbars)-->
+
+    <!--begin::Third Party Plugin(Bootstrap Icons)-->
+    <link
+      rel="stylesheet"
+      href="../assets/bootstrap-icons/bootstrap-icons.min.css"
+      crossorigin="anonymous"
+    />
+    <!--end::Third Party Plugin(Bootstrap Icons)-->
+
+    <!--begin::Required Plugin(AdminLTE)-->
+    <link rel="stylesheet" href="../css/adminlte.css" />
+    <!--end::Required Plugin(AdminLTE)-->
+    <link rel="stylesheet" href="../css/adminlte-docs.css" />
+  </head>
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary docs-page faq-page">
+    <div class="app-wrapper">
+      <!--begin::Header-->
+      <nav class="app-header navbar navbar-expand bg-body">
+        <!--begin::Container-->
+        <div class="container-fluid">
+          <!--begin::Start Navbar Links-->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                data-lte-toggle="sidebar"
+                href="#"
+                role="button"
+                aria-label="Toggle sidebar"
+              >
+                <i class="bi bi-list"></i>
+              </a>
+            </li>
+
+            <li class="nav-item d-none d-md-block">
+              <a href="../docs/introduction.html" class="nav-link">
+                <i class="bi bi-book me-1" aria-hidden="true"></i>
+                文档
+              </a>
+            </li>
+            <li class="nav-item d-none d-md-block">
+              <a href="../index.html" class="nav-link">
+                <i class="bi bi-arrow-left me-1" aria-hidden="true"></i>
+                返回实时预览
+              </a>
+            </li>
+          </ul>
+          <!--end::Start Navbar Links-->
+
+          <!--begin::End Navbar Links-->
+          <ul class="navbar-nav ms-auto">
+            <!--begin::Messages Dropdown Menu-->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                data-bs-toggle="dropdown"
+                href="#"
+                aria-label="Messages: 3 unread"
+              >
+                <i class="bi bi-chat-text"></i>
+                <span class="navbar-badge badge text-bg-danger">3</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <a href="#" class="dropdown-item">
+                  <!--begin::Message-->
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img
+                        src="../assets/img/user1-128x128.jpg"
+                        alt=""
+                        class="img-size-50 rounded-circle me-3"
+                      />
+                    </div>
+                    <div class="flex-grow-1">
+                      <p class="dropdown-item-title">
+                        Brad Diesel
+                        <span class="float-end fs-7 text-danger"
+                          ><i class="bi bi-star-fill"></i
+                        ></span>
+                      </p>
+                      <p class="fs-7">有时间打电话给我……</p>
+                      <p class="fs-7 text-secondary">
+                        <i class="bi bi-clock-fill me-1"></i> 4 小时前
+                      </p>
+                    </div>
+                  </div>
+                  <!--end::Message-->
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <!--begin::Message-->
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img
+                        src="../assets/img/user8-128x128.jpg"
+                        alt=""
+                        class="img-size-50 rounded-circle me-3"
+                      />
+                    </div>
+                    <div class="flex-grow-1">
+                      <p class="dropdown-item-title">
+                        John Pierce
+                        <span class="float-end fs-7 text-secondary">
+                          <i class="bi bi-star-fill"></i>
+                        </span>
+                      </p>
+                      <p class="fs-7">我收到你的消息了，兄弟</p>
+                      <p class="fs-7 text-secondary">
+                        <i class="bi bi-clock-fill me-1"></i> 4 小时前
+                      </p>
+                    </div>
+                  </div>
+                  <!--end::Message-->
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <!--begin::Message-->
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img
+                        src="../assets/img/user3-128x128.jpg"
+                        alt=""
+                        class="img-size-50 rounded-circle me-3"
+                      />
+                    </div>
+                    <div class="flex-grow-1">
+                      <p class="dropdown-item-title">
+                        Nora Silvester
+                        <span class="float-end fs-7 text-warning">
+                          <i class="bi bi-star-fill"></i>
+                        </span>
+                      </p>
+                      <p class="fs-7">主题在这里</p>
+                      <p class="fs-7 text-secondary">
+                        <i class="bi bi-clock-fill me-1"></i> 4 小时前
+                      </p>
+                    </div>
+                  </div>
+                  <!--end::Message-->
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item dropdown-footer">查看所有消息</a>
+              </div>
+            </li>
+            <!--end::Messages Dropdown Menu-->
+
+            <!--begin::Notifications Dropdown Menu-->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                data-bs-toggle="dropdown"
+                href="#"
+                aria-label="Notifications: 15 unread"
+              >
+                <i class="bi bi-bell-fill"></i>
+                <span class="navbar-badge badge text-bg-warning">15</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <span class="dropdown-item dropdown-header">15 条通知</span>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="bi bi-envelope me-2"></i> 4 条新消息
+                  <span class="float-end text-secondary fs-7">3 分钟前</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="bi bi-people-fill me-2"></i> 8 条好友请求
+                  <span class="float-end text-secondary fs-7">12 小时前</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="bi bi-file-earmark-fill me-2"></i> 3 个新报告
+                  <span class="float-end text-secondary fs-7">2 天前</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item dropdown-footer"> 查看所有通知 </a>
+              </div>
+            </li>
+            <!--end::Notifications Dropdown Menu-->
+
+            <!--begin::Fullscreen Toggle-->
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="#"
+                data-lte-toggle="fullscreen"
+                aria-label="Toggle fullscreen"
+              >
+                <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
+                <i data-lte-icon="minimize" class="bi bi-fullscreen-exit d-none"></i>
+              </a>
+            </li>
+            <!--end::Fullscreen Toggle-->
+
+            <!--begin::明暗模式切换 (#6010)-->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                id="bd-theme"
+                aria-label="Toggle color scheme"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="bi bi-sun-fill" data-lte-theme-icon="light"></i>
+                <i class="bi bi-moon-fill d-none" data-lte-theme-icon="dark"></i>
+                <i class="bi bi-circle-half d-none" data-lte-theme-icon="auto"></i>
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="bd-theme"
+                style="--bs-dropdown-min-width: 8rem"
+              >
+                <li>
+                  <button
+                    type="button"
+                    class="dropdown-item d-flex align-items-center"
+                    data-bs-theme-value="light"
+                    aria-pressed="false"
+                  >
+                    <i class="bi bi-sun-fill me-2"></i>
+                    明亮
+                    <i class="bi bi-check-lg ms-auto d-none"></i>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="dropdown-item d-flex align-items-center"
+                    data-bs-theme-value="dark"
+                    aria-pressed="false"
+                  >
+                    <i class="bi bi-moon-fill me-2"></i>
+                    暗黑
+                    <i class="bi bi-check-lg ms-auto d-none"></i>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="dropdown-item d-flex align-items-center active"
+                    data-bs-theme-value="auto"
+                    aria-pressed="true"
+                  >
+                    <i class="bi bi-circle-half me-2"></i>
+                    自动
+                    <i class="bi bi-check-lg ms-auto d-none"></i>
+                  </button>
+                </li>
+              </ul>
+            </li>
+            <!--end::明暗模式切换-->
+
+            <!--begin::User Menu Dropdown-->
+            <li class="nav-item dropdown user-menu">
+              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                <img
+                  src="../assets/img/user2-160x160.jpg"
+                  class="user-image rounded-circle shadow"
+                  alt="亚历山大·皮尔斯"
+                />
+                <span class="d-none d-md-inline">亚历山大·皮尔斯</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <!--begin::用户头像-->
+                <li class="user-header text-bg-primary">
+                  <img
+                    src="../assets/img/user2-160x160.jpg"
+                    class="rounded-circle shadow"
+                    alt="亚历山大·皮尔斯"
+                  />
+                  <p>
+                    亚历山大·皮尔斯 - 网页开发工程师
+                    <small>注册于 2023 年 11 月</small>
+                  </p>
+                </li>
+                <!--end::用户头像-->
+                <!--begin::Menu Body-->
+                <li class="user-body">
+                  <!--begin::Row-->
+                  <div class="row">
+                    <div class="col-4 text-center">
+                      <a href="#">关注</a>
+                    </div>
+                    <div class="col-4 text-center">
+                      <a href="#">销量</a>
+                    </div>
+                    <div class="col-4 text-center">
+                      <a href="#">好友</a>
+                    </div>
+                  </div>
+                  <!--end::Row-->
+                </li>
+                <!--end::Menu Body-->
+                <!--begin::Menu Footer-->
+                <li class="user-footer">
+                  <a href="#" class="btn btn-outline-secondary">资料</a>
+                  <a href="#" class="btn btn-outline-danger float-end">退出</a>
+                </li>
+                <!--end::Menu Footer-->
+              </ul>
+            </li>
+            <!--end::User Menu Dropdown-->
+          </ul>
+          <!--end::End Navbar Links-->
+        </div>
+        <!--end::Container-->
+      </nav>
+      <!--end::Header-->
+      <!--begin::Sidebar (docs mode)-->
+      <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+        <!--begin::Sidebar Brand-->
+        <div class="sidebar-brand">
+          <a href="../docs/introduction.html" class="brand-link">
+            <img
+              src="../assets/img/AdminLTELogo.png"
+              alt="AdminLTE Logo"
+              class="brand-image opacity-75 shadow"
+            />
+            <span class="brand-text fw-light">
+              AdminLTE 4 <span class="opacity-75">&middot; 文档</span>
+            </span>
+          </a>
+        </div>
+        <!--end::Sidebar Brand-->
+        <!--begin::Sidebar Wrapper-->
+        <div class="sidebar-wrapper">
+          <nav class="mt-2" aria-label="Documentation navigation">
+            <!--begin::Sidebar Menu-->
+            <ul
+              class="nav sidebar-menu flex-column"
+              data-lte-toggle="treeview"
+              data-accordion="false"
+              id="docs-navigation"
+            >
+              <li class="nav-header">开始</li>
+              <li class="nav-item">
+                <a href="../docs/introduction.html" class="nav-link">
+                  <i class="nav-icon bi bi-download"></i>
+                  <p>安装</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/getting-started.html" class="nav-link">
+                  <i class="nav-icon bi bi-rocket-takeoff"></i>
+                  <p>入门指南</p>
+                </a>
+              </li>
+
+              <li class="nav-header">基础</li>
+              <li class="nav-item">
+                <a href="../docs/layout.html" class="nav-link">
+                  <i class="nav-icon bi bi-grip-horizontal"></i>
+                  <p>布局类</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/layout-blueprint.html" class="nav-link">
+                  <i class="nav-icon bi bi-diagram-3"></i>
+                  <p>布局结构</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/customization.html" class="nav-link">
+                  <i class="nav-icon bi bi-palette"></i>
+                  <p>定制</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/color-mode.html" class="nav-link">
+                  <i class="nav-icon bi bi-star-half"></i>
+                  <p>明暗模式</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/rtl.html" class="nav-link">
+                  <i class="nav-icon bi bi-text-paragraph"></i>
+                  <p>RTL 支持</p>
+                </a>
+              </li>
+
+              <li class="nav-header">构建</li>
+              <li class="nav-item">
+                <a href="../docs/recipes.html" class="nav-link">
+                  <i class="nav-icon bi bi-clipboard-check"></i>
+                  <p>方案</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-ui-checks-grid"></i>
+                  <p>
+                    组件
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="../docs/components/main-header.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>头部</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/components/main-sidebar.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>主侧边栏</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-filetype-js"></i>
+                  <p>
+                    JavaScript 插件
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="../docs/javascript/plugins-overview.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>概述</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/layout.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>布局</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/pushmenu.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>PushMenu</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/treeview.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>树形插件</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/card-widget.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>卡片小工具</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/direct-chat.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>聊天</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/fullscreen.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>全屏</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/accessibility.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>无障碍访问</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/integrations.html" class="nav-link">
+                  <i class="nav-icon bi bi-puzzle"></i>
+                  <p>集成</p>
+                </a>
+              </li>
+
+              <li class="nav-header">上线指南</li>
+              <li class="nav-item">
+                <a href="../docs/migration.html" class="nav-link">
+                  <i class="nav-icon bi bi-arrow-up-right-square"></i>
+                  <p>从 v3 迁移</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/deployment.html" class="nav-link">
+                  <i class="nav-icon bi bi-cloud-upload"></i>
+                  <p>部署</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/browser-support.html" class="nav-link">
+                  <i class="nav-icon bi bi-browser-chrome"></i>
+                  <p>浏览器支持</p>
+                </a>
+              </li>
+
+              <li class="nav-header">资源</li>
+              <li class="nav-item">
+                <a href="../docs/faq.html" class="nav-link active">
+                  <i class="nav-icon bi bi-question-circle"></i>
+                  <p>FAQ</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/how-to-contribute.html" class="nav-link">
+                  <i class="nav-icon bi bi-people"></i>
+                  <p>贡献</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/license.html" class="nav-link">
+                  <i class="nav-icon bi bi-patch-check"></i>
+                  <p>许可证</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  href="https://github.com/ColorlibHQ/AdminLTE"
+                  target="_blank"
+                  rel="noopener"
+                  class="nav-link"
+                >
+                  <i class="nav-icon bi bi-github"></i>
+                  <p>
+                    GitHub
+                    <i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i>
+                  </p>
+                </a>
+              </li>
+            </ul>
+            <!--end::Sidebar Menu-->
+
+            <!-- Back to preview CTA (bottom of sidebar) -->
+            <div class="p-3 mt-3 border-top border-secondary border-opacity-25">
+              <a
+                href="../index.html"
+                class="btn btn-sm btn-outline-light w-100 d-flex align-items-center justify-content-center gap-2"
+              >
+                <i class="bi bi-arrow-left" aria-hidden="true"></i>
+                返回实时预览
+              </a>
+            </div>
+          </nav>
+        </div>
+        <!--end::Sidebar Wrapper-->
+      </aside>
+      <!--end::Sidebar (docs mode)-->
+      <main class="app-main">
+        <div class="app-content-header">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6">
+                <h1 class="mb-0 fs-3">FAQ</h1>
+              </div>
+              <div class="col-sm-6">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">文档</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">FAQ</li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="app-content">
+          <div class="container-fluid">
+            <!-- Hero -->
+            <section class="faq-hero text-center mb-4">
+              <span class="faq-hero-eyebrow">
+                <i class="bi bi-patch-question-fill" aria-hidden="true"></i>
+                常见问题
+              </span>
+              <h1 class="faq-hero-title">需要帮忙吗？</h1>
+              <p class="faq-hero-lead">
+                最常被问到的 21 个问题，快速解答。 使用搜索功能跳转至任意内容，或点击下方主题。
+              </p>
+              <form class="faq-search" role="search" onsubmit="return false;">
+                <i class="bi bi-search faq-search-icon" aria-hidden="true"></i>
+                <input
+                  type="search"
+                  id="faq-search-input"
+                  class="form-control form-control-lg"
+                  placeholder="搜索 FAQ&hellip;"
+                  aria-label="搜索 FAQ"
+                  autocomplete="off"
+                />
+                <button
+                  type="button"
+                  class="faq-search-clear d-none"
+                  id="faq-search-clear"
+                  aria-label="Clear search"
+                >
+                  <i class="bi bi-x-lg" aria-hidden="true"></i>
+                </button>
+              </form>
+              <p class="faq-empty-state d-none" id="faq-empty-state">
+                <i class="bi bi-emoji-frown" aria-hidden="true"></i>
+                没有找到与您搜索匹配的问题。请尝试其他关键词，或
+                <a
+                  href="https://github.com/ColorlibHQ/AdminLTE/discussions"
+                  target="_blank"
+                  rel="noopener"
+                  >发起讨论</a
+                >.
+              </p>
+            </section>
+
+            <!-- Section nav chips -->
+            <nav class="faq-chips mb-4" aria-label="FAQ sections">
+              <a href="#getting-started" class="faq-chip faq-chip-primary">
+                <i class="bi bi-rocket-takeoff" aria-hidden="true"></i>
+                <span>入门指南</span>
+                <span class="faq-chip-count">4</span> </a
+              ><a href="#framework-integrations" class="faq-chip faq-chip-info">
+                <i class="bi bi-puzzle" aria-hidden="true"></i>
+                <span>框架整合</span>
+                <span class="faq-chip-count">3</span> </a
+              ><a href="#customization" class="faq-chip faq-chip-warning">
+                <i class="bi bi-palette" aria-hidden="true"></i>
+                <span>定制</span>
+                <span class="faq-chip-count">3</span> </a
+              ><a href="#versions" class="faq-chip faq-chip-success">
+                <i class="bi bi-arrow-clockwise" aria-hidden="true"></i>
+                <span>版本与更新</span>
+                <span class="faq-chip-count">3</span> </a
+              ><a href="#licensing" class="faq-chip faq-chip-secondary">
+                <i class="bi bi-shield-check" aria-hidden="true"></i>
+                <span>许可</span>
+                <span class="faq-chip-count">3</span> </a
+              ><a href="#troubleshooting" class="faq-chip faq-chip-danger">
+                <i class="bi bi-wrench-adjustable" aria-hidden="true"></i>
+                <span>故障排除</span>
+                <span class="faq-chip-count">5</span>
+              </a>
+            </nav>
+
+            <!-- Sections -->
+            <div class="faq-sections">
+              <section id="getting-started" class="faq-section" data-faq-section>
+                <header class="faq-section-header faq-section-primary">
+                  <span class="faq-section-icon">
+                    <i class="bi bi-rocket-takeoff" aria-hidden="true"></i>
+                  </span>
+                  <div>
+                    <h2 class="faq-section-title">入门指南</h2>
+                    <p class="faq-section-count">4 个问题</p>
+                  </div>
+                </header>
+                <div class="faq-section-items">
+                  <details class="faq-item" data-faq-item>
+                    <summary>
+                      <span class="faq-q-icon">
+                        <i class="bi bi-question-lg" aria-hidden="true"></i>
+                      </span>
+                      <span class="faq-q-text">AdminLTE 到底是什么？</span>
+                      <span class="faq-q-chevron">
+                        <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                      </span>
+                    </summary>
+                    <div class="faq-answer">
+                      一个免费的、MIT 许可的管理后台<em>模板</em>。它是一套基于 Bootstrap 5.3 构建的
+                      HTML、CSS 和 JavaScript 文件——不是框架，也不是 npm
+                      组件库。你只需将它放入你的项目，修改标记以适配你的应用，然后发布即可。
+                    </div>
+                  </details>
+                  <details class="faq-item" data-faq-item>
+                    <summary>
+                      <span class="faq-q-icon">
+                        <i class="bi bi-question-lg" aria-hidden="true"></i>
+                      </span>
+                      <span class="faq-q-text">使用它需要构建步骤吗？</span>
+                      <span class="faq-q-chevron">
+                        <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                      </span>
+                    </summary>
+                    <div class="faq-answer">
+                      不需要。<a href="getting-started.html">入门指南</a>展示了纯 CDN 方式——将四个
+                      <code>&lt;link&gt;</code> 标签和四个
+                      <code>&lt;script&gt;</code> 标签复制到你的 HTML 中就完成了。如果你想要自定义
+                      SCSS 变量或对 JavaScript 进行摇树优化，也可以使用基于 npm 的工作流。
+                    </div>
+                  </details>
+                  <details class="faq-item" data-faq-item>
+                    <summary>
+                      <span class="faq-q-icon">
+                        <i class="bi bi-question-lg" aria-hidden="true"></i>
+                      </span>
+                      <span class="faq-q-text">v4 需要哪个版本的 Bootstrap？</span>
+                      <span class="faq-q-chevron">
+                        <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                      </span>
+                    </summary>
+                    <div class="faq-answer">
+                      Bootstrap 5.3.x。当前 <code>package.json</code> 锁定为 5.3.8——更早的 5.3
+                      小版本应该也能用，但未经测试。Bootstrap 5.0 / 5.1 / 5.2 将无法使用（颜色模式和
+                      <code>data-bs-theme</code> 系统是在 5.3 中引入的）。
+                    </div>
+                  </details>
+                  <details class="faq-item" data-faq-item>
+                    <summary>
+                      <span class="faq-q-icon">
+                        <i class="bi bi-question-lg" aria-hidden="true"></i>
+                      </span>
+                      <span class="faq-q-text">我可以在 AdminLTE 4 中使用 jQuery 吗？</span>
+                      <span class="faq-q-chevron">
+                        <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                      </span>
+                    </summary>
+                    <div class="faq-answer">
+                      你<em>不需要</em> jQuery——AdminLTE 4 的 JavaScript 是原生
+                      JS。如果你现有的应用已经使用了 jQuery，它们可以很好地共存。但 AdminLTE 4
+                      自身的插件都不会调用 jQuery，也没有 <code>$.fn.xxx()</code> 这类插件垫片。
+                    </div>
+                  </details>
+                </div>
+              </section>
+              <section id="framework-integrations" class="faq-section" data-faq-section>
+                <header class="faq-section-header faq-section-info">
+                  <span class="faq-section-icon">
+                    <i class="bi bi-puzzle" aria-hidden="true"></i>
+                  </span>
+                  <div>
+                    <h2 class="faq-section-title">框架整合</h2>
+                    <p class="faq-section-count">3 个问题</p>
+                  </div>
+                </header>
+                <div class="faq-section-items">
+                  <details class="faq-item" data-faq-item>
+                    <summary>
+                      <span class="faq-q-icon">
+                        <i class="bi bi-question-lg" aria-hidden="true"></i>
+                      </span>
+                      <span class="faq-q-text">AdminLTE 可以用于 WordPress 吗？</span>
+                      <span class="faq-q-chevron">
+                        <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                      </span>
+                    </summary>
+                    <div class="faq-answer">
+                      可以——它只是 HTML/CSS/JS。典型的做法是构建一个自定义 WordPress 主题，将
+                      AdminLTE 的标记包裹在 <code>wp_head()</code>、<code>wp_footer()</code> 和
+                      WordPress 循环周围。AdminLTE 不提供针对 WordPress 的专用构建版本；移植导航
+                      Walker 类和认证表单的工作需要由你来完成。
+                    </div>
+                  </details>
+                  <details class="faq-item" data-faq-item>
+                    <summary>
+                      <span class="faq-q-icon">
+                        <i class="bi bi-question-lg" aria-hidden="true"></i>
+                      </span>
+                      <span class="faq-q-text">Laravel？Symfony？Yii？Django？Rails？</span>
+                      <span class="faq-q-chevron">
+                        <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                      </span>
+                    </summary>
+                    <div class="faq-answer">
+                      都可以使用。AdminLTE
+                      是一个服务端渲染模板——将演示页面复制到你的视图/模板中，将静态内容替换为你框架的模板变量，然后像往常一样配置路由/认证即可。社区中有针对
+                      Laravel 和 Symfony 的 Composer/Packagist
+                      包，但它们通常会落后于上游版本——在依赖它们之前，请先确认它们提供的是 v4 版本。
+                    </div>
+                  </details>
+                  <details class="faq-item" data-faq-item>
+                    <summary>
+                      <span class="faq-q-icon">
+                        <i class="bi bi-question-lg" aria-hidden="true"></i>
+                      </span>
+                      <span class="faq-q-text">React, Vue, Svelte, Angular?</span>
+                      <span class="faq-q-chevron">
+                        <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                      </span>
+                    </summary>
+                    <div class="faq-answer">
+                      <p>
+                        可以使用但不太自然。AdminLTE 的 JavaScript 插件使用 DOM
+                        生命周期钩子（<code>DOMContentLoaded</code>、MutationObserver
+                        模式），这些会与框架的协调机制产生冲突。如果你使用 SPA 框架，请考虑：
+                      </p>
+                      <ul>
+                        <li>
+                          <em>仅</em>将 AdminLTE 用于 CSS——保留视觉风格，但为交互部分自行编写
+                          React/Vue 组件。
+                        </li>
+                        <li>或者选择专为你的框架构建的组件库（PrimeReact、Vuetify 等）。</li>
+                      </ul>
+                      <p class="mb-0">
+                        我们不建议将 AdminLTE 的 jQuery 时代插件封装在 SPA
+                        框架组件中——这会带来维护负担，得不偿失。
+                      </p>
+                    </div>
+                  </details>
+                </div>
+              </section>
+              <section id="customization" class="faq-section" data-faq-section>
+                <header class="faq-section-header faq-section-warning">
+                  <span class="faq-section-icon">
+                    <i class="bi bi-palette" aria-hidden="true"></i>
+                  </span>
+                  <div>
+                    <h2 class="faq-section-title">定制</h2>
+                    <p class="faq-section-count">3 个问题</p>
+                  </div>
+                </header>
+                <div class="faq-section-items">
+                  <details class="faq-item" data-faq-item>
+                    <summary>
+                      <span class="faq-q-icon">
+                        <i class="bi bi-question-lg" aria-hidden="true"></i>
+                      </span>
+                      <span class="faq-q-text">如何更改主色？</span>
+                      <span class="faq-q-chevron">
+                        <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                      </span>
+                    </summary>
+                    <div class="faq-answer">
+                      <p>
+                        在 <code>:root</code> 中覆盖 <code>--bs-primary</code>（及其对应的 RGB
+                        值）：
+                      </p>
+                      <pre class="astro-code"><code>:root {
+  --bs-primary: #6610f2;
+  --bs-primary-rgb: 102, 16, 242;
+}</code></pre>
+                      <p class="mb-0">
+                        如需更深层控制（侧边栏宽度、breakpoint、间距比例），请参阅<a
+                          href="customization.html"
+                          >自定义与主题</a
+                        >。
+                      </p>
+                    </div>
+                  </details>
+                  <details class="faq-item" data-faq-item>
+                    <summary>
+                      <span class="faq-q-icon">
+                        <i class="bi bi-question-lg" aria-hidden="true"></i>
+                      </span>
+                      <span class="faq-q-text">如何添加日期选择器 / 多选 / 富文本编辑器？</span>
+                      <span class="faq-q-chevron">
+                        <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                      </span>
+                    </summary>
+                    <div class="faq-answer">
+                      AdminLTE 刻意不捆绑这些组件——它们会使框架变得臃肿。<a href="integrations.html"
+                        >推荐集成</a
+                      >页面列出了一流的第三方库（Flatpickr、Tom Select、Quill
+                      等），并附有可复制粘贴的安装代码片段。
+                    </div>
+                  </details>
+                  <details class="faq-item" data-faq-item>
+                    <summary>
+                      <span class="faq-q-icon">
+                        <i class="bi bi-question-lg" aria-hidden="true"></i>
+                      </span>
+                      <span class="faq-q-text"
+                        >我可以使用 FontAwesome 代替 Bootstrap Icons 吗？</span
+                      >
+                      <span class="faq-q-chevron">
+                        <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                      </span>
+                    </summary>
+                    <div class="faq-answer">
+                      可以。演示中默认使用 Bootstrap Icons，是因为它采用 MIT 许可、随 Bootstrap
+                      一同提供，并且基于 SVG——但 AdminLTE 的 CSS 或 JS
+                      中没有任何部分强制要求使用它。引入 FontAwesome 的样式表，然后将全文中的
+                      <code>&lt;i class="bi bi-x"&gt;</code> 替换为
+                      <code>&lt;i class="fas fa-x"&gt;</code> 即可。
+                    </div>
+                  </details>
+                </div>
+              </section>
+              <section id="versions" class="faq-section" data-faq-section>
+                <header class="faq-section-header faq-section-success">
+                  <span class="faq-section-icon">
+                    <i class="bi bi-arrow-clockwise" aria-hidden="true"></i>
+                  </span>
+                  <div>
+                    <h2 class="faq-section-title">版本与更新</h2>
+                    <p class="faq-section-count">3 个问题</p>
+                  </div>
+                </header>
+                <div class="faq-section-items">
+                  <details class="faq-item" data-faq-item>
+                    <summary>
+                      <span class="faq-q-icon">
+                        <i class="bi bi-question-lg" aria-hidden="true"></i>
+                      </span>
+                      <span class="faq-q-text">我如何获取新版本的通知？</span>
+                      <span class="faq-q-chevron">
+                        <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                      </span>
+                    </summary>
+                    <div class="faq-answer">
+                      <a href="https://github.com/ColorlibHQ/AdminLTE">关注 GitHub 仓库</a>（仅限
+                      Releases 模式），或订阅 RSS
+                      源：<code>https://github.com/ColorlibHQ/AdminLTE/releases.atom</code>。
+                    </div>
+                  </details>
+                  <details class="faq-item" data-faq-item>
+                    <summary>
+                      <span class="faq-q-icon">
+                        <i class="bi bi-question-lg" aria-hidden="true"></i>
+                      </span>
+                      <span class="faq-q-text">AdminLTE 3 的文档在哪里？</span>
+                      <span class="faq-q-chevron">
+                        <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                      </span>
+                    </summary>
+                    <div class="faq-answer">
+                      仍然在线，地址为
+                      <a href="https://adminlte.io/docs/3.2/">adminlte.io/docs/3.2</a
+                      >，更早版本的文档也在那里提供链接。GitHub 上的 v3
+                      分支会继续接收关键错误修复；新功能仅会在 v4 中发布。
+                    </div>
+                  </details>
+                  <details class="faq-item" data-faq-item>
+                    <summary>
+                      <span class="faq-q-icon">
+                        <i class="bi bi-question-lg" aria-hidden="true"></i>
+                      </span>
+                      <span class="faq-q-text">如何从 v3 升级到 v4？</span>
+                      <span class="faq-q-chevron">
+                        <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                      </span>
+                    </summary>
+                    <div class="faq-answer">
+                      请参阅专门的<a href="migration.html">从 v3 迁移</a
+                      >指南。简而言之：类名发生了变化（<code>.wrapper</code> →
+                      <code>.app-wrapper</code>），<code>data-toggle</code> →
+                      <code>data-bs-toggle</code>，深色模式使用 <code>data-bs-theme</code> 替代
+                      <code>.dark-mode</code>，并且不再需要 jQuery。
+                    </div>
+                  </details>
+                </div>
+              </section>
+              <section id="licensing" class="faq-section" data-faq-section>
+                <header class="faq-section-header faq-section-secondary">
+                  <span class="faq-section-icon">
+                    <i class="bi bi-shield-check" aria-hidden="true"></i>
+                  </span>
+                  <div>
+                    <h2 class="faq-section-title">许可</h2>
+                    <p class="faq-section-count">3 个问题</p>
+                  </div>
+                </header>
+                <div class="faq-section-items">
+                  <details class="faq-item" data-faq-item>
+                    <summary>
+                      <span class="faq-q-icon">
+                        <i class="bi bi-question-lg" aria-hidden="true"></i>
+                      </span>
+                      <span class="faq-q-text">AdminLTE 可以免费用于商业用途吗？</span>
+                      <span class="faq-q-chevron">
+                        <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                      </span>
+                    </summary>
+                    <div class="faq-answer">
+                      可以——采用 MIT 许可。你可以将其用于商业产品、SaaS
+                      应用、客户项目等任何场景。唯一的要求是在源文件（<code>adminlte.css</code> /
+                      <code>adminlte.js</code>）中保留版权声明。你不需要在界面中显示署名信息。
+                    </div>
+                  </details>
+                  <details class="faq-item" data-faq-item>
+                    <summary>
+                      <span class="faq-q-icon">
+                        <i class="bi bi-question-lg" aria-hidden="true"></i>
+                      </span>
+                      <span class="faq-q-text">我需要在应用中注明 AdminLTE 的出处吗？</span>
+                      <span class="faq-q-chevron">
+                        <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                      </span>
+                    </summary>
+                    <div class="faq-answer">
+                      不需要。MIT
+                      许可要求你在分发的源文件中保留许可声明——仅此而已。你不必在渲染后的界面、关于页面或
+                      README 中提及 AdminLTE。
+                    </div>
+                  </details>
+                  <details class="faq-item" data-faq-item>
+                    <summary>
+                      <span class="faq-q-icon">
+                        <i class="bi bi-question-lg" aria-hidden="true"></i>
+                      </span>
+                      <span class="faq-q-text">我可以销售使用 AdminLTE 制作的产品吗？</span>
+                      <span class="faq-q-chevron">
+                        <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                      </span>
+                    </summary>
+                    <div class="faq-answer">
+                      可以。MIT 许可明确允许这样做。你还可以转售 AdminLTE
+                      本身的修改版本（主题市场经常这样做）——只需保留原始版权声明即可。
+                    </div>
+                  </details>
+                </div>
+              </section>
+              <section id="troubleshooting" class="faq-section" data-faq-section>
+                <header class="faq-section-header faq-section-danger">
+                  <span class="faq-section-icon">
+                    <i class="bi bi-wrench-adjustable" aria-hidden="true"></i>
+                  </span>
+                  <div>
+                    <h2 class="faq-section-title">故障排除</h2>
+                    <p class="faq-section-count">5 个问题</p>
+                  </div>
+                </header>
+                <div class="faq-section-items">
+                  <details class="faq-item" data-faq-item>
+                    <summary>
+                      <span class="faq-q-icon">
+                        <i class="bi bi-question-lg" aria-hidden="true"></i>
+                      </span>
+                      <span class="faq-q-text">点击侧边栏按钮，侧边栏没有收起。</span>
+                      <span class="faq-q-chevron">
+                        <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                      </span>
+                    </summary>
+                    <div class="faq-answer">
+                      请检查 PushMenu 插件是否已加载。它已捆绑在
+                      <code>adminlte.js</code>
+                      中——请确保该脚本标签在页面上，并且位于其操作的目标标记<em>之后</em>。同时，请确认你的汉堡按钮使用了
+                      <code>data-lte-toggle="sidebar"</code>（而不是 v3 版本的属性
+                      <code>data-widget="pushmenu"</code>）。
+                    </div>
+                  </details>
+                  <details class="faq-item" data-faq-item>
+                    <summary>
+                      <span class="faq-q-icon">
+                        <i class="bi bi-question-lg" aria-hidden="true"></i>
+                      </span>
+                      <span class="faq-q-text">深色模式在刷新后不会保持。</span>
+                      <span class="faq-q-chevron">
+                        <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                      </span>
+                    </summary>
+                    <div class="faq-answer">
+                      内置的<a href="color-mode.html">明暗模式</a>切换后会以
+                      <code>lte-theme</code> 为键名写入
+                      <code>localStorage</code>。如果你使用了不同的切换实现，请确保它既设置了
+                      <code>document.documentElement.setAttribute('data-bs-theme', ...)</code
+                      >，又在变更时写入 localStorage。
+                    </div>
+                  </details>
+                  <details class="faq-item" data-faq-item>
+                    <summary>
+                      <span class="faq-q-icon">
+                        <i class="bi bi-question-lg" aria-hidden="true"></i>
+                      </span>
+                      <span class="faq-q-text"
+                        >按 ESC 键时 Bootstrap 模态框关闭了，但 AdminLTE
+                        的侧边栏也同时收起了。</span
+                      >
+                      <span class="faq-q-chevron">
+                        <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                      </span>
+                    </summary>
+                    <div class="faq-answer">
+                      该问题已在 v4.0.0 中修复（#5993）。如果你仍然遇到此问题，说明你使用的是较旧的
+                      RC 版本——请更新到最新版本。
+                    </div>
+                  </details>
+                  <details class="faq-item" data-faq-item>
+                    <summary>
+                      <span class="faq-q-icon">
+                        <i class="bi bi-question-lg" aria-hidden="true"></i>
+                      </span>
+                      <span class="faq-q-text">我自定义的 SCSS 没有覆盖 AdminLTE 的默认值。</span>
+                      <span class="faq-q-chevron">
+                        <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                      </span>
+                    </summary>
+                    <div class="faq-answer">
+                      请将你的覆盖内容放在 AdminLTE 的 SCSS
+                      <code>@import</code> 之<em>前</em>。AdminLTE 在其变量上使用了
+                      <code>!default</code>，这意味着首次声明的值生效。有关导入顺序，请参阅<a
+                        href="customization.html#scss-variables"
+                        >自定义与主题</a
+                      >。
+                    </div>
+                  </details>
+                  <details class="faq-item" data-faq-item>
+                    <summary>
+                      <span class="faq-q-icon">
+                        <i class="bi bi-question-lg" aria-hidden="true"></i>
+                      </span>
+                      <span class="faq-q-text"
+                        ><code>npm install</code> 因 peer 依赖错误而失败。</span
+                      >
+                      <span class="faq-q-chevron">
+                        <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                      </span>
+                    </summary>
+                    <div class="faq-answer">
+                      我们在 <code>package.json</code> 中使用了 npm 的
+                      <code>overrides</code> 区块来解决 peer 依赖问题——请确保你使用的 npm 版本为
+                      8.3+，该版本支持此配置。如果你使用的是更旧的 npm 版本，请使用
+                      <code>--legacy-peer-deps</code> 进行安装。
+                    </div>
+                  </details>
+                </div>
+              </section>
+            </div>
+
+            <!-- CTA footer -->
+            <section class="faq-cta mt-5">
+              <div class="faq-cta-icon">
+                <i class="bi bi-chat-quote" aria-hidden="true"></i>
+              </div>
+              <h2>还需要帮助吗？</h2>
+              <p>在 GitHub 上发起讨论， 或浏览文档以获取更深入的解答。</p>
+              <div class="faq-cta-actions">
+                <a
+                  href="https://github.com/ColorlibHQ/AdminLTE/discussions"
+                  target="_blank"
+                  rel="noopener"
+                  class="btn btn-primary"
+                >
+                  <i class="bi bi-github me-2" aria-hidden="true"></i>
+                  发起讨论
+                </a>
+                <a href="introduction.html" class="btn btn-outline-secondary">
+                  <i class="bi bi-book me-2" aria-hidden="true"></i>
+                  浏览文档
+                </a>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+      <!--begin::Footer-->
+      <footer class="app-footer">
+        <!--begin::To the end-->
+        <div class="float-end d-none d-sm-inline">任何你想要的</div>
+        <!--end::To the end-->
+        <!--begin::Copyright-->
+        <strong>
+          Copyright &copy; 2014-2026&nbsp;
+          <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
+        </strong>
+        保留所有权利
+        <!--end::Copyright-->
+      </footer>
+      <!--end::Footer-->
+    </div>
+    <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <script
+      src="../assets/overlayscrollbars/overlayscrollbars.browser.es6.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
+    <script src="../assets/popperjs/popper.min.js" crossorigin="anonymous"></script>
+    <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
+    <script src="../js/adminlte.js"></script>
+    <!--end::Required Plugin(AdminLTE)-->
+    <!--begin::OverlayScrollbars Configure-->
+    <script>
+      const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
+      const Default = {
+        scrollbarTheme: 'os-theme-light',
+        scrollbarAutoHide: 'leave',
+        scrollbarClickScroll: true,
+      };
+      document.addEventListener('DOMContentLoaded', function () {
+        const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+
+        // Disable OverlayScrollbars on mobile devices to prevent touch interference
+        const isMobile = window.innerWidth <= 992;
+
+        if (
+          sidebarWrapper &&
+          OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined &&
+          !isMobile
+        ) {
+          OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+            scrollbars: {
+              theme: Default.scrollbarTheme,
+              autoHide: Default.scrollbarAutoHide,
+              clickScroll: Default.scrollbarClickScroll,
+            },
+          });
+        }
+      });
+    </script>
+    <!--end::OverlayScrollbars Configure-->
+
+    <!--begin::明暗模式切换-->
+    <!-- The light/dark/auto switcher ships in adminlte.js as the ColorMode
+     module (since 4.1) — no page script needed. Only the no-flash snippet
+     in <head> stays inline, because it must run before first paint. -->
+    <!--end::明暗模式切换-->
+
+    <script>
+      // 常见问题实时搜索 + 清除按钮
+      (() => {
+        'use strict';
+        const input = document.getElementById('faq-search-input');
+        const clearBtn = document.getElementById('faq-search-clear');
+        const emptyState = document.getElementById('faq-empty-state');
+        if (!input) return;
+
+        const items = Array.from(document.querySelectorAll('[data-faq-item]'));
+        const sections = Array.from(document.querySelectorAll('[data-faq-section]'));
+
+        const normalize = (s) => s.toLowerCase().trim();
+
+        const filter = (query) => {
+          const q = normalize(query);
+          clearBtn.classList.toggle('d-none', q.length === 0);
+
+          let visibleTotal = 0;
+          for (const item of items) {
+            const text = item.textContent || '';
+            const matches = q === '' || normalize(text).includes(q);
+            item.classList.toggle('d-none', !matches);
+            // 搜索时打开匹配项，以便用户看到上下文
+            item.open = q !== '' && matches;
+            if (matches) visibleTotal++;
+          }
+
+          // 隐藏没有可见项目的整个部分
+          for (const section of sections) {
+            const hasVisible = section.querySelectorAll('[data-faq-item]:not(.d-none)').length > 0;
+            section.classList.toggle('d-none', !hasVisible);
+          }
+
+          emptyState.classList.toggle('d-none', visibleTotal !== 0);
+        };
+
+        input.addEventListener('input', (e) => filter(e.target.value));
+
+        clearBtn.addEventListener('click', () => {
+          input.value = '';
+          filter('');
+          input.focus();
+        });
+
+        // 点击标签时平滑滚动至对应章节，并自动偏移标题栏的高度
+        for (const chip of document.querySelectorAll('.faq-chip')) {
+          chip.addEventListener('click', (e) => {
+            const id = chip.getAttribute('href')?.replace('#', '');
+            if (!id) return;
+            const target = document.getElementById(id);
+            if (!target) return;
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            history.replaceState(null, '', '#' + id);
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,179 @@
+AdminLTE 继承了 Bootstrap 5.3 的 CSS 自定义属性主题模型，并在此基础上添加了自己的 SCSS 变量层。您可以通过两种方式自定义外观：
+
+1. **CSS 自定义属性** —— 快速，无需构建步骤，适用于预编译的 CSS。
+2. **SCSS 变量** —— 较慢（需要构建），但允许您更改任何内容，包括网格 breakpoint 和侧边栏宽度。
+
+##### 使用 CSS 变量的快速见效方式
+
+Bootstrap 和 AdminLTE 在 `:root` 上暴露了数十个 CSS 自定义属性。在您自己的样式表中覆盖主题样式，无需重新构建：
+
+```css
+:root,
+[data-bs-theme="light"] {
+  --bs-primary: #6610f2;        /* 将 Bootstrap 的蓝色替换为紫色 */
+  --bs-primary-rgb: 102, 16, 242;
+  --bs-body-bg: #f3f4f6;
+}
+
+[data-bs-theme="dark"] {
+  --bs-body-bg: #14171c;        /* 比 Bootstrap 的默认颜色更深 */
+  --bs-body-color: #e9ecef;
+}
+```
+
+基于 `var(--bs-primary)` 构建的组件（AdminLTE 的大部分界面元素）会自动应用这些更改。
+
+###### 值得了解的常用变量
+
+| 变量 | 默认值 | 控制内容 |
+|---|---|---|
+| `--bs-primary` | `#0d6efd` | 品牌色，用于激活的侧边栏项、主要按钮 |
+| `--bs-body-bg` | `#fff`（亮色）/ `#212529`（暗色） | 页面背景 |
+| `--bs-body-color` | `#212529` | 默认文字颜色 |
+| `--bs-border-color` | `#dee2e6` | 所有细边框 |
+| `--bs-border-radius` | `.375rem` | 卡片、按钮、输入框的默认圆角 |
+| `--bs-border-radius-lg` | `.5rem` | 较大圆角，用于模态框 |
+| `--bs-font-sans-serif` | `system-ui, ...` | 默认字体栈 |
+
+完整列表请参见 [Bootstrap CSS 变量](https://getbootstrap.com/docs/5.3/customize/css-variables/)。
+
+##### SCSS 变量
+
+如果您是从源码构建（克隆了仓库或通过 npm + 自己的打包工具安装），请编辑 [`src/scss/_variables.scss`](https://github.com/ColorlibHQ/AdminLTE/blob/master/src/scss/_variables.scss) 并重新编译。
+
+最常用的自定义变量及其默认值：
+
+```scss
+// 侧边栏
+$lte-sidebar-width:          250px;       // 缩小至约 70px 的迷你尺寸
+$lte-sidebar-breakpoint:     lg;          // 侧边栏开始变为 off-canvas 模式的 breakpoint
+$lte-sidebar-padding-x:      .5rem;
+$lte-sidebar-padding-y:      .5rem;
+
+// 侧边栏颜色（浅色主题）
+$lte-sidebar-color:          $gray-800;
+$lte-sidebar-hover-bg:       rgba($black, .1);
+$lte-sidebar-active-color:   $black;
+$lte-sidebar-menu-active-bg: rgba($black, .1);
+
+// 页眉
+$lte-app-header-height:      $nav-link-height + ($lte-app-header-link-padding-y * 2);
+$lte-app-header-bottom-border-color: var(--#{$prefix}border-color);
+
+// 过渡
+$lte-transition-speed:       .3s;
+$lte-transition-fn:          ease-in-out;
+```
+
+AdminLTE 修改了大约十个 Bootstrap 默认值，位于 [`src/scss/_bootstrap-overrides.scss`](https://github.com/ColorlibHQ/AdminLTE/blob/master/src/scss/_bootstrap-overrides.scss)；其余所有 Bootstrap 变量（按钮颜色、间距比例、响应式断点）均保持其原始默认值。所有值均使用 `!default`，因此请在导入前于自己的 SCSS 文件中进行覆盖：
+
+```scss
+// my-theme.scss
+
+// 1. 你覆盖优先
+$primary:                #6610f2;
+$lte-sidebar-width:      280px;
+$border-radius:          .25rem;
+
+// 2. 然后导入 AdminLTE（它会导入 Bootstrap）
+@import "node_modules/admin-lte/src/scss/adminlte";
+```
+
+> **注意：** 编译 Sass 源码需要先安装 `bootstrap`——
+> 自 4.1 版起，它是 `admin-lte` 的对等依赖项
+> （npm 会随之一同自动安装）。请确保
+>  Sass 编译器能识别 `bootstrap/...` 这类导入路径，方法是将 `node_modules` 加入加载路径。
+> 例如通过命令行参数 `sass --load-path=node_modules`，或在 Vite 中配置
+> `css: { preprocessorOptions: { scss: { loadPaths: ["node_modules"] } } }`。
+
+##### 重新编译 SCSS
+
+如果您克隆了仓库，构建流程已经配置好：
+
+```bash
+npm install
+npm run css           # 一次性构建 → dist/css/
+npm run watch-css-main  # 开发过程中保存时自动重新构建
+```
+
+对于将 AdminLTE 作为依赖项的项目，将您的打包工具指向 `node_modules/admin-lte/src/scss/adminlte.scss`。示例：
+
+```js
+// Vite / Rollup / Webpack
+import "admin-lte/src/scss/adminlte.scss"
+```
+
+##### 自定义侧边栏品牌标识
+
+`.sidebar-brand` 元素可以包含文本、图片，或两者兼有。标记：
+
+```html
+<div class="sidebar-brand">
+  <a href="/" class="brand-link">
+    <img src="/assets/logo.svg" alt="Logo" class="brand-image opacity-75 shadow" />
+    <span class="brand-text fw-light">我的仪表盘</span>
+  </a>
+</div>
+```
+
+要在侧边栏折叠为迷你状态时切换 Logo，AdminLTE 提供了内置模式——请查看 [Logo 切换布局演示](../layout/logo-switch.html) 了解标记方式。
+
+##### 暗色模式自定义
+
+AdminLTE 遵循 Bootstrap 5.3 的 `data-bs-theme` 属性系统。要自定义暗色模式颜色，请将变量限定在 `[data-bs-theme="dark"]` 下：
+
+```css
+[data-bs-theme="dark"] {
+  --bs-primary: #4dabf7;          /* 浅色主色调适用于深色背景 */
+  --lte-sidebar-color: #e9ecef;
+  --lte-sidebar-active-color: #fff;
+}
+```
+
+[颜色模式](color-mode.html)页面涵盖了切换该属性的切换按钮标记和 JavaScript。
+
+##### 自定义侧边栏配色方案
+
+AdminLTE 默认提供亮色模式的侧边栏样式，但演示中在 `.app-sidebar` 上应用了 `data-bs-theme="dark"`，以在亮色页面上获得暗色侧边栏变体。您可以自由组合：
+
+```html
+<!-- 浅色页面，深色侧边栏（演示模式） -->
+<body class="bg-body-tertiary">
+  <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+    ...
+  </aside>
+</body>
+```
+
+```html
+<!-- 亮色页面，亮色侧边栏 -->
+<body class="bg-body-tertiary">
+  <aside class="app-sidebar bg-body shadow border-end">
+    ...
+  </aside>
+</body>
+```
+
+##### 紧凑模式
+
+在 `.app-wrapper` 上添加 `.compact-mode`（或向上任意层级）可减少整个布局的内边距——适用于数据密集型的仪表盘。紧凑模式的尺寸来自 `_variables.scss` 中的 `*-compact` 变量。
+
+```html
+<div class="app-wrapper compact-mode">
+  <!-- 页眉、侧边栏和主要内容间距更紧密 -->
+</div>
+```
+
+##### 何时重新编译 vs. 运行时覆盖
+
+| 自定义项 | CSS 变量 | SCSS 重新编译 |
+|---|---|---|
+| 品牌色 | ✅ | ✅ |
+| 主体/文字颜色 | ✅ | ✅ |
+| 圆角 | ✅ | ✅ |
+| 侧边栏宽度 | ❌ (不是 CSS 变量) | ✅ |
+| breakpoint 更改 | ❌ | ✅ |
+| 间距比例 | ❌ | ✅ |
+| 字体大小 | 部分支持 | ✅（完全控制） |
+
+尽可能使用 CSS 变量进行所有自定义——这样可以在 AdminLTE 升级时避免合并冲突。将 SCSS 覆盖保留用于 CSS 变量无法覆盖的结构性更改（侧边栏宽度、breakpoint）。

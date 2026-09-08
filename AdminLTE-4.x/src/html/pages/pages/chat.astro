@@ -1,0 +1,366 @@
+---
+import Head from "@components/_head.astro"
+import Footer from "@components/dashboard/_footer.astro"
+import Topbar from "@components/dashboard/_topbar.astro"
+import Sidenav from "@components/dashboard/_sidenav.astro"
+import Scripts from "@components/_scripts.astro"
+
+const title = "AdminLTE 4 | 聊天"
+const path = "../../../dist"
+const mainPage = "pages"
+const page = "chat";
+
+const contacts = [
+  { name: "奥利维亚·贝内特", initials: "OB", color: "primary", last: "已批准 — 有几处小备注……", time: "2分钟前", unread: 2, online: true, active: true },
+  { name: "Marcus Reyes", initials: "MR", color: "success", last: "周四一起吃午饭？", time: "1小时前", unread: 0, online: true, active: false },
+  { name: "Sara Khan", initials: "SK", color: "info", last: "客户访谈笔记已上传。", time: "3小时前", unread: 0, online: false, active: false },
+  { name: "Diego Smania", initials: "DS", color: "warning", last: "PR 已准备好接受审核。", time: "昨天", unread: 1, online: false, active: false },
+  { name: "艾玛·达斯温", initials: "ED", color: "danger", last: "先走了，周一见。", time: "昨天", unread: 0, online: false, active: false },
+  { name: "利亚姆·卡特", initials: "LC", color: "primary", last: "已推送日历修复。", time: "5月16日", unread: 0, online: true, active: false },
+  { name: "艾娃·福斯特", initials: "AF", color: "secondary", last: "把你加进设计评审了。", time: "5月15日", unread: 0, online: false, active: false }
+];
+
+type Message = {
+  who: "我" | "对方";
+  text: string;
+  time: string;
+};
+
+const messages: Message[] = [
+  { who: "对方", text: "嘿 Jane！有空看看 v2.4 的候选版吗？", time: "10:38" },
+  { who: "我", text: "刚看完。总体很棒——新的交互效果特别好。", time: "10:40" },
+  { who: "对方", text: "喜欢就好。有啥问题不？", time: "10:40" },
+  { who: "我", text: "有两个小地方：表单输入的成功状态视觉上偏弱，暗色主题下的焦点环几乎看不清。", time: "10:41" },
+  { who: "对方", text: "嗯，焦点环那个问题我也一直挺烦的。我调一下对比度再叫你看一眼。", time: "10:42" },
+  { who: "我", text: "好嘞。别的没问题，发布吧！", time: "10:42" }
+];
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <Head title={title} path={path} />
+    <style is:inline>
+      .chat-app {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        gap: 0;
+        height: calc(100vh - 14rem);
+        min-height: 32rem;
+        border-radius: var(--bs-border-radius);
+        overflow: hidden;
+        background: var(--bs-body-bg);
+        border: 1px solid var(--bs-border-color);
+      }
+      @media (max-width: 768px) {
+        .chat-app {
+          grid-template-columns: 1fr;
+        }
+        .chat-app .chat-contacts {
+          display: none;
+        }
+      }
+      .chat-contacts {
+        background: var(--bs-tertiary-bg);
+        border-right: 1px solid var(--bs-border-color);
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+      }
+      .chat-contact {
+        display: flex;
+        gap: .75rem;
+        padding: .75rem 1rem;
+        cursor: pointer;
+        border-bottom: 1px solid var(--bs-border-color);
+        text-decoration: none;
+        color: inherit;
+      }
+      .chat-contact:hover {
+        background: var(--bs-body-bg);
+      }
+      .chat-contact.active {
+        background: var(--bs-body-bg);
+        border-left: 3px solid var(--bs-primary);
+        padding-left: calc(1rem - 3px);
+      }
+      .chat-avatar {
+        position: relative;
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: .8rem;
+      }
+      .chat-avatar.online::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 10px;
+        height: 10px;
+        background: var(--bs-success);
+        border: 2px solid var(--bs-body-bg);
+        border-radius: 50%;
+      }
+      .chat-conversation {
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+      }
+      .chat-header {
+        padding: .75rem 1rem;
+        border-bottom: 1px solid var(--bs-border-color);
+        display: flex;
+        align-items: center;
+        gap: .75rem;
+      }
+      .chat-messages {
+        flex: 1;
+        overflow-y: auto;
+        padding: 1rem;
+        background: var(--bs-tertiary-bg);
+      }
+      .chat-message {
+        display: flex;
+        margin-bottom: .75rem;
+      }
+      .chat-message.me {
+        justify-content: flex-end;
+      }
+      .chat-bubble {
+        max-width: 70%;
+        padding: .5rem .75rem;
+        border-radius: 1rem;
+        font-size: .9rem;
+        line-height: 1.4;
+      }
+      .chat-message.them .chat-bubble {
+        background: var(--bs-body-bg);
+        border: 1px solid var(--bs-border-color);
+        border-bottom-left-radius: .25rem;
+      }
+      .chat-message.me .chat-bubble {
+        background: var(--bs-primary);
+        color: #fff;
+        border-bottom-right-radius: .25rem;
+      }
+      .chat-time {
+        font-size: .7rem;
+        opacity: .7;
+        display: block;
+        margin-top: .15rem;
+      }
+      .chat-composer {
+        padding: .75rem;
+        border-top: 1px solid var(--bs-border-color);
+      }
+    </style>
+  </head>
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <div class="app-wrapper">
+      <Topbar path={path} />
+      <Sidenav path={path} mainPage={mainPage} page={page} />
+      <main class="app-main">
+        <div class="app-content-header">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6">
+                <h1 class="mb-0 fs-3">聊天</h1>
+              </div>
+              <div class="col-sm-6">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">首页</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">聊天</li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="app-content">
+          <div class="container-fluid">
+            <div class="chat-app">
+              <!-- Contacts -->
+              <aside class="chat-contacts">
+                <div class="p-3 border-bottom">
+                  <div class="input-group input-group-sm">
+                    <span class="input-group-text bg-body">
+                      <i class="bi bi-search" aria-hidden="true"></i>
+                    </span>
+                    <input
+                      type="search"
+                      class="form-control"
+                      placeholder="搜索联系人&hellip;"
+                      aria-label="搜索联系人"
+                    />
+                  </div>
+                </div>
+                <div class="flex-grow-1 overflow-auto">
+                  {
+                    contacts.map((c) => (
+                      <a
+                        href="#"
+                        class:list={["chat-contact", c.active && "active"]}
+                      >
+                        <span
+                          class:list={[
+                            "chat-avatar",
+                            `bg-${c.color}-subtle`,
+                            `text-${c.color}`,
+                            c.online && "online"
+                          ]}
+                        >
+                          {c.initials}
+                        </span>
+                        <div class="flex-grow-1 overflow-hidden">
+                          <div class="d-flex justify-content-between">
+                            <p
+                              class:list={[
+                                "mb-0 text-truncate",
+                                c.unread > 0 && "fw-semibold"
+                              ]}
+                            >
+                              {c.name}
+                            </p>
+                            <small class="text-secondary flex-shrink-0 ms-2">
+                              {c.time}
+                            </small>
+                          </div>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <small
+                              class:list={[
+                                "text-truncate",
+                                c.unread > 0 ? "fw-semibold" : "text-secondary"
+                              ]}
+                            >
+                              {c.last}
+                            </small>
+                            {c.unread > 0 && (
+                              <span class="badge text-bg-primary rounded-pill ms-2">
+                                {c.unread}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      </a>
+                    ))
+                  }
+                </div>
+              </aside>
+
+              <!-- Conversation -->
+              <section class="chat-conversation">
+                <header class="chat-header">
+                  <span class="chat-avatar bg-primary-subtle text-primary online">
+                    OB
+                  </span>
+                  <div class="flex-grow-1">
+                    <p class="mb-0 fw-semibold">奥利维亚·贝内特</p>
+                    <small class="text-success">
+                      <i
+                        class="bi bi-circle-fill"
+                        style="font-size: .5rem;"
+                        aria-hidden="true"
+                      ></i>
+                      在线 &middot; 输入中&hellip;
+                    </small>
+                  </div>
+                  <div class="btn-group btn-group-sm">
+                    <button class="btn btn-outline-secondary" type="button" title="Call">
+                      <i class="bi bi-telephone" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn-outline-secondary" type="button" title="Video call">
+                      <i class="bi bi-camera-video" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn-outline-secondary" type="button" title="更多">
+                      <i class="bi bi-three-dots-vertical" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </header>
+
+                <div class="chat-messages" id="chat-messages">
+                  {
+                    messages.map((m) => (
+                      <div class:list={["chat-message", m.who]}>
+                        <div class="chat-bubble">
+                          {m.text}
+                          <span class="chat-time">{m.time}</span>
+                        </div>
+                      </div>
+                    ))
+                  }
+                </div>
+
+                <form class="chat-composer" id="chat-composer">
+                  <div class="input-group">
+                    <button
+                      class="btn btn-outline-secondary"
+                      type="button"
+                      title="附加"
+                    >
+                      <i class="bi bi-paperclip" aria-hidden="true"></i>
+                    </button>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="输入一条消息&hellip;"
+                      aria-label="输入一条消息"
+                      id="chat-input"
+                    />
+                    <button
+                      class="btn btn-outline-secondary"
+                      type="button"
+                      title="表情"
+                    >
+                      <i class="bi bi-emoji-smile" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn-primary" type="submit">
+                      <i class="bi bi-send" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </form>
+              </section>
+            </div>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </div>
+    <Scripts path={path} />
+    <script is:inline>
+      const fmtTime = () =>
+        new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("chat-composer");
+        const input = document.getElementById("chat-input");
+        const list = document.getElementById("chat-messages");
+
+        list.scrollTop = list.scrollHeight;
+
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const text = input.value.trim();
+          if (!text) return;
+          const wrap = document.createElement("div");
+          wrap.className = "chat-message me";
+          wrap.innerHTML = `<div class="chat-bubble"></div>`;
+          wrap.firstChild.textContent = text;
+          const time = document.createElement("span");
+          time.className = "chat-time";
+          time.textContent = fmtTime();
+          wrap.firstChild.append(time);
+          list.append(wrap);
+          input.value = "";
+          list.scrollTop = list.scrollHeight;
+        });
+      });
+    </script>
+  </body>
+</html>

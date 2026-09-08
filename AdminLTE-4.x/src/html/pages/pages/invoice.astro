@@ -1,0 +1,177 @@
+---
+import Head from "@components/_head.astro"
+import Footer from "@components/dashboard/_footer.astro"
+import Topbar from "@components/dashboard/_topbar.astro"
+import Sidenav from "@components/dashboard/_sidenav.astro"
+import Scripts from "@components/_scripts.astro"
+
+const title = "AdminLTE 4 | Invoice"
+const path = "../../../dist"
+const mainPage = "pages"
+const page = "invoice";
+
+const items = [
+  { qty: 1, name: "专业版套餐订阅", desc: "2026年5月18日 - 6月18日", price: 29 },
+  { qty: 3, name: "额外席位", desc: "按当前周期比例折算", price: 12.5 },
+  { qty: 1, name: "短信通知附加服务", desc: "1,000 条消息", price: 5 }
+];
+const subtotal = items.reduce((s, i) => s + i.qty * i.price, 0);
+const tax = +(subtotal * 0.0825).toFixed(2);
+const total = +(subtotal + tax).toFixed(2);
+const fmt = (n: number) => n.toFixed(2);
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <Head title={title} path={path} />
+  </head>
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <div class="app-wrapper">
+      <Topbar path={path} />
+      <Sidenav path={path} mainPage={mainPage} page={page} />
+      <main class="app-main">
+        <div class="app-content-header">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6">
+                <h1 class="mb-0 fs-3">发票</h1>
+              </div>
+              <div class="col-sm-6">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">首页</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">发票</li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="app-content">
+          <div class="container-fluid">
+            <!-- Action bar (hidden on print) -->
+            <div class="d-flex justify-content-end gap-2 mb-3 d-print-none">
+              <button
+                class="btn btn-outline-secondary"
+                onclick="window.print()"
+                type="button"
+              >
+                <i class="bi bi-printer me-1" aria-hidden="true"></i>打印
+              </button>
+              <a href="#" class="btn btn-outline-secondary">
+                <i class="bi bi-download me-1" aria-hidden="true"></i>PDF
+              </a>
+              <a href="#" class="btn btn-primary">
+                <i class="bi bi-send me-1" aria-hidden="true"></i>发送发票
+              </a>
+            </div>
+
+            <div class="card">
+              <div class="card-body p-4 p-md-5">
+                <!-- Header -->
+                <div class="row mb-4">
+                  <div class="col-sm-6">
+                    <h2 class="h4 mb-0 text-primary fw-semibold">AdminLTE, Inc.</h2>
+                    <p class="text-secondary mb-0 small">
+                      加利福尼亚州旧金山福尔索姆大道 795 号 600 室<br />
+                      邮编 94107<br />
+                      billing@example.com
+                    </p>
+                  </div>
+                  <div class="col-sm-6 text-sm-end">
+                    <h1 class="h2 mb-1">发票</h1>
+                    <p class="text-secondary mb-0">
+                      <span class="fw-semibold">#</span>INV-2026-00428
+                    </p>
+                    <span class="badge text-bg-success mt-1">已付款</span>
+                  </div>
+                </div>
+
+                <!-- Billing details -->
+                <div class="row mb-4">
+                  <div class="col-sm-6">
+                    <p class="text-secondary small mb-1">账单寄送方</p>
+                    <p class="mb-0 fw-semibold">Acme 公司</p>
+                    <p class="text-secondary small mb-0">
+                      注意：Jane Doe<br />
+                      旧金山，加利福尼亚州 邮编 94103<br />
+                      1234 市场街
+                    </p>
+                  </div>
+                  <div class="col-sm-6 text-sm-end">
+                    <p class="text-secondary small mb-1">开具日期</p>
+                    <p class="mb-2">2026年5月18日</p>
+                    <p class="text-secondary small mb-1">到期日期</p>
+                    <p class="mb-0">2026年6月1日</p>
+                  </div>
+                </div>
+
+                <!-- Items -->
+                <div class="table-responsive mb-3">
+                  <table class="table align-middle mb-0">
+                    <thead>
+                      <tr>
+                        <th class="border-top-0">描述</th>
+                        <th class="border-top-0 text-end" style="width: 6rem;">
+                          数量
+                        </th>
+                        <th class="border-top-0 text-end" style="width: 9rem;">
+                          单价
+                        </th>
+                        <th class="border-top-0 text-end" style="width: 9rem;">
+                          金额
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {
+                        items.map((it) => (
+                          <tr>
+                            <td>
+                              <p class="mb-0 fw-semibold">{it.name}</p>
+                              <small class="text-secondary">{it.desc}</small>
+                            </td>
+                            <td class="text-end">{it.qty}</td>
+                            <td class="text-end">${fmt(it.price)}</td>
+                            <td class="text-end">${fmt(it.qty * it.price)}</td>
+                          </tr>
+                        ))
+                      }
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- Totals -->
+                <div class="row justify-content-end">
+                  <div class="col-md-5 col-lg-4">
+                    <dl class="row mb-0">
+                      <dt class="col-7 text-secondary fw-normal">小计</dt>
+                      <dd class="col-5 text-end mb-2">${fmt(subtotal)}</dd>
+                      <dt class="col-7 text-secondary fw-normal">税费 (8.25%)</dt>
+                      <dd class="col-5 text-end mb-2">${fmt(tax)}</dd>
+                      <dt class="col-7 fw-semibold border-top pt-2">总计</dt>
+                      <dd class="col-5 text-end fw-semibold border-top pt-2 mb-0">
+                        ${fmt(total)} 美元
+                      </dd>
+                    </dl>
+                  </div>
+                </div>
+
+                <!-- Footer note -->
+                <hr class="my-4" />
+                <p class="text-secondary small mb-0">
+                  感谢您的惠顾。请于 14 日内完成付款。
+                  如有任何发票相关问题，请随时联系
+                  <a href="mailto:billing@example.com">billing@example.com</a>。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </div>
+    <Scripts path={path} />
+  </body>
+</html>

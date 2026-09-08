@@ -1,0 +1,376 @@
+---
+import Head from "@components/_head.astro"
+import Footer from "@components/dashboard/_footer.astro"
+import Topbar from "@components/dashboard/_topbar.astro"
+import Sidenav from "@components/dashboard/_sidenav.astro"
+import Scripts from "@components/_scripts.astro"
+
+const title = "FAQ | AdminLTE 4"
+const path = "../../../dist"
+const mainPage = "文档"
+const page = "faq";
+
+type Qa = { q: string; a: string }
+type Section = { id: string; title: string; icon: string; tone: string; items: Qa[] }
+
+const sections: Section[] = [
+  {
+    id: "getting-started",
+    title: "入门指南",
+    icon: "rocket-takeoff",
+    tone: "primary",
+    items: [
+      {
+        q: "AdminLTE 到底是什么？",
+        a: `一个免费的、MIT 许可的管理后台<em>模板</em>。它是一套基于 Bootstrap 5.3 构建的 HTML、CSS 和 JavaScript 文件——不是框架，也不是 npm 组件库。你只需将它放入你的项目，修改标记以适配你的应用，然后发布即可。`
+      },
+      {
+        q: "使用它需要构建步骤吗？",
+        a: `不需要。<a href="getting-started.html">入门指南</a>展示了纯 CDN 方式——将四个 <code>&lt;link&gt;</code> 标签和四个 <code>&lt;script&gt;</code> 标签复制到你的 HTML 中就完成了。如果你想要自定义 SCSS 变量或对 JavaScript 进行摇树优化，也可以使用基于 npm 的工作流。`
+      },
+      {
+        q: "v4 需要哪个版本的 Bootstrap？",
+        a: `Bootstrap 5.3.x。当前 <code>package.json</code> 锁定为 5.3.8——更早的 5.3 小版本应该也能用，但未经测试。Bootstrap 5.0 / 5.1 / 5.2 将无法使用（颜色模式和 <code>data-bs-theme</code> 系统是在 5.3 中引入的）。`
+      },
+      {
+        q: "我可以在 AdminLTE 4 中使用 jQuery 吗？",
+        a: `你<em>不需要</em> jQuery——AdminLTE 4 的 JavaScript 是原生 JS。如果你现有的应用已经使用了 jQuery，它们可以很好地共存。但 AdminLTE 4 自身的插件都不会调用 jQuery，也没有 <code>$.fn.xxx()</code> 这类插件垫片。`
+      }
+    ]
+  },
+  {
+    id: "framework-integrations",
+    title: "框架整合",
+    icon: "puzzle",
+    tone: "info",
+    items: [
+      {
+        q: "AdminLTE 可以用于 WordPress 吗？",
+        a: `可以——它只是 HTML/CSS/JS。典型的做法是构建一个自定义 WordPress 主题，将 AdminLTE 的标记包裹在 <code>wp_head()</code>、<code>wp_footer()</code> 和 WordPress 循环周围。AdminLTE 不提供针对 WordPress 的专用构建版本；移植导航 Walker 类和认证表单的工作需要由你来完成。`
+      },
+      {
+        q: "Laravel？Symfony？Yii？Django？Rails？",
+        a: `都可以使用。AdminLTE 是一个服务端渲染模板——将演示页面复制到你的视图/模板中，将静态内容替换为你框架的模板变量，然后像往常一样配置路由/认证即可。社区中有针对 Laravel 和 Symfony 的 Composer/Packagist 包，但它们通常会落后于上游版本——在依赖它们之前，请先确认它们提供的是 v4 版本。`
+      },
+      {
+        q: "React, Vue, Svelte, Angular?",
+        a: `<p>可以使用但不太自然。AdminLTE 的 JavaScript 插件使用 DOM 生命周期钩子（<code>DOMContentLoaded</code>、MutationObserver 模式），这些会与框架的协调机制产生冲突。如果你使用 SPA 框架，请考虑：</p>
+<ul>
+  <li><em>仅</em>将 AdminLTE 用于 CSS——保留视觉风格，但为交互部分自行编写 React/Vue 组件。</li>
+  <li>或者选择专为你的框架构建的组件库（PrimeReact、Vuetify 等）。</li>
+</ul>
+<p class="mb-0">我们不建议将 AdminLTE 的 jQuery 时代插件封装在 SPA 框架组件中——这会带来维护负担，得不偿失。</p>`
+      }
+    ]
+  },
+  {
+    id: "customization",
+    title: "定制",
+    icon: "palette",
+    tone: "warning",
+    items: [
+      {
+        q: "如何更改主色？",
+        a: `<p>在 <code>:root</code> 中覆盖 <code>--bs-primary</code>（及其对应的 RGB 值）：</p>
+<pre class="astro-code"><code>:root {
+  --bs-primary: #6610f2;
+  --bs-primary-rgb: 102, 16, 242;
+}</code></pre>
+<p class="mb-0">如需更深层控制（侧边栏宽度、breakpoint、间距比例），请参阅<a href="customization.html">自定义与主题</a>。</p>`
+      },
+      {
+        q: "如何添加日期选择器 / 多选 / 富文本编辑器？",
+        a: `AdminLTE 刻意不捆绑这些组件——它们会使框架变得臃肿。<a href="integrations.html">推荐集成</a>页面列出了一流的第三方库（Flatpickr、Tom Select、Quill 等），并附有可复制粘贴的安装代码片段。`
+      },
+      {
+        q: "我可以使用 FontAwesome 代替 Bootstrap Icons 吗？",
+        a: `可以。演示中默认使用 Bootstrap Icons，是因为它采用 MIT 许可、随 Bootstrap 一同提供，并且基于 SVG——但 AdminLTE 的 CSS 或 JS 中没有任何部分强制要求使用它。引入 FontAwesome 的样式表，然后将全文中的 <code>&lt;i class="bi bi-x"&gt;</code> 替换为 <code>&lt;i class="fas fa-x"&gt;</code> 即可。`
+      }
+    ]
+  },
+  {
+    id: "versions",
+    title: "版本与更新",
+    icon: "arrow-clockwise",
+    tone: "success",
+    items: [
+      {
+        q: "我如何获取新版本的通知？",
+        a: `<a href="https://github.com/ColorlibHQ/AdminLTE">关注 GitHub 仓库</a>（仅限 Releases 模式），或订阅 RSS 源：<code>https://github.com/ColorlibHQ/AdminLTE/releases.atom</code>。`
+      },
+      {
+        q: "AdminLTE 3 的文档在哪里？",
+        a: `仍然在线，地址为 <a href="https://adminlte.io/docs/3.2/">adminlte.io/docs/3.2</a>，更早版本的文档也在那里提供链接。GitHub 上的 v3 分支会继续接收关键错误修复；新功能仅会在 v4 中发布。`
+      },
+      {
+        q: "如何从 v3 升级到 v4？",
+        a: `请参阅专门的<a href="migration.html">从 v3 迁移</a>指南。简而言之：类名发生了变化（<code>.wrapper</code> → <code>.app-wrapper</code>），<code>data-toggle</code> → <code>data-bs-toggle</code>，深色模式使用 <code>data-bs-theme</code> 替代 <code>.dark-mode</code>，并且不再需要 jQuery。`
+      }
+    ]
+  },
+  {
+    id: "licensing",
+    title: "许可",
+    icon: "shield-check",
+    tone: "secondary",
+    items: [
+      {
+        q: "AdminLTE 可以免费用于商业用途吗？",
+        a: `可以——采用 MIT 许可。你可以将其用于商业产品、SaaS 应用、客户项目等任何场景。唯一的要求是在源文件（<code>adminlte.css</code> / <code>adminlte.js</code>）中保留版权声明。你不需要在界面中显示署名信息。`
+      },
+      {
+        q: "我需要在应用中注明 AdminLTE 的出处吗？",
+        a: `不需要。MIT 许可要求你在分发的源文件中保留许可声明——仅此而已。你不必在渲染后的界面、关于页面或 README 中提及 AdminLTE。`
+      },
+      {
+        q: "我可以销售使用 AdminLTE 制作的产品吗？",
+        a: `可以。MIT 许可明确允许这样做。你还可以转售 AdminLTE 本身的修改版本（主题市场经常这样做）——只需保留原始版权声明即可。`
+      }
+    ]
+  },
+  {
+    id: "troubleshooting",
+    title: "故障排除",
+    icon: "wrench-adjustable",
+    tone: "danger",
+    items: [
+      {
+        q: "点击侧边栏按钮，侧边栏没有收起。",
+        a: `请检查 PushMenu 插件是否已加载。它已捆绑在 <code>adminlte.js</code> 中——请确保该脚本标签在页面上，并且位于其操作的目标标记<em>之后</em>。同时，请确认你的汉堡按钮使用了 <code>data-lte-toggle="sidebar"</code>（而不是 v3 版本的属性 <code>data-widget="pushmenu"</code>）。`
+      },
+      {
+        q: "深色模式在刷新后不会保持。",
+        a: `内置的<a href="color-mode.html">明暗模式</a>切换后会以 <code>lte-theme</code> 为键名写入 <code>localStorage</code>。如果你使用了不同的切换实现，请确保它既设置了 <code>document.documentElement.setAttribute('data-bs-theme', ...)</code>，又在变更时写入 localStorage。`
+      },
+      {
+        q: "按 ESC 键时 Bootstrap 模态框关闭了，但 AdminLTE 的侧边栏也同时收起了。",
+        a: `该问题已在 v4.0.0 中修复（#5993）。如果你仍然遇到此问题，说明你使用的是较旧的 RC 版本——请更新到最新版本。`
+      },
+      {
+        q: "我自定义的 SCSS 没有覆盖 AdminLTE 的默认值。",
+        a: `请将你的覆盖内容放在 AdminLTE 的 SCSS <code>@import</code> 之<em>前</em>。AdminLTE 在其变量上使用了 <code>!default</code>，这意味着首次声明的值生效。有关导入顺序，请参阅<a href="customization.html#scss-variables">自定义与主题</a>。`
+      },
+      {
+        q: "<code>npm install</code> 因 peer 依赖错误而失败。",
+        a: `我们在 <code>package.json</code> 中使用了 npm 的 <code>overrides</code> 区块来解决 peer 依赖问题——请确保你使用的 npm 版本为 8.3+，该版本支持此配置。如果你使用的是更旧的 npm 版本，请使用 <code>--legacy-peer-deps</code> 进行安装。`
+      }
+    ]
+  }
+];
+
+const totalQuestions = sections.reduce((sum, s) => sum + s.items.length, 0);
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <Head title={title} path={path} />
+  </head>
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary docs-page faq-page">
+    <div class="app-wrapper">
+      <Topbar path={path} />
+      <Sidenav path={path} mainPage={mainPage} page={page} />
+      <main class="app-main">
+        <div class="app-content-header">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6">
+                <h1 class="mb-0 fs-3">FAQ</h1>
+              </div>
+              <div class="col-sm-6">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">文档</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">FAQ</li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="app-content">
+          <div class="container-fluid">
+
+            <!-- Hero -->
+            <section class="faq-hero text-center mb-4">
+              <span class="faq-hero-eyebrow">
+                <i class="bi bi-patch-question-fill" aria-hidden="true"></i>
+                常见问题
+              </span>
+              <h1 class="faq-hero-title">需要帮忙吗？</h1>
+              <p class="faq-hero-lead">
+                最常被问到的 {totalQuestions} 个问题，快速解答。
+                使用搜索功能跳转至任意内容，或点击下方主题。
+              </p>
+              <form class="faq-search" role="search" onsubmit="return false;">
+                <i class="bi bi-search faq-search-icon" aria-hidden="true"></i>
+                <input
+                  type="search"
+                  id="faq-search-input"
+                  class="form-control form-control-lg"
+                  placeholder="搜索 FAQ&hellip;"
+                  aria-label="搜索 FAQ"
+                  autocomplete="off"
+                />
+                <button
+                  type="button"
+                  class="faq-search-clear d-none"
+                  id="faq-search-clear"
+                  aria-label="Clear search"
+                >
+                  <i class="bi bi-x-lg" aria-hidden="true"></i>
+                </button>
+              </form>
+              <p class="faq-empty-state d-none" id="faq-empty-state">
+                <i class="bi bi-emoji-frown" aria-hidden="true"></i>
+                没有找到与您搜索匹配的问题。请尝试其他关键词，或
+                <a href="https://github.com/ColorlibHQ/AdminLTE/discussions" target="_blank" rel="noopener">发起讨论</a>.
+              </p>
+            </section>
+
+            <!-- Section nav chips -->
+            <nav class="faq-chips mb-4" aria-label="FAQ sections">
+              {
+                sections.map((s) => (
+                  <a href={`#${s.id}`} class={`faq-chip faq-chip-${s.tone}`}>
+                    <i class={`bi bi-${s.icon}`} aria-hidden="true"></i>
+                    <span>{s.title}</span>
+                    <span class="faq-chip-count">{s.items.length}</span>
+                  </a>
+                ))
+              }
+            </nav>
+
+            <!-- Sections -->
+            <div class="faq-sections">
+              {
+                sections.map((section) => (
+                  <section id={section.id} class="faq-section" data-faq-section>
+                    <header class={`faq-section-header faq-section-${section.tone}`}>
+                      <span class="faq-section-icon">
+                        <i class={`bi bi-${section.icon}`} aria-hidden="true" />
+                      </span>
+                      <div>
+                        <h2 class="faq-section-title">{section.title}</h2>
+                        <p class="faq-section-count">
+                          {section.items.length} {section.items.length === 1 ? "个问题" : "个问题"}
+                        </p>
+                      </div>
+                    </header>
+                    <div class="faq-section-items">
+                      {section.items.map((item) => (
+                        <details class="faq-item" data-faq-item>
+                          <summary>
+                            <span class="faq-q-icon">
+                              <i class="bi bi-question-lg" aria-hidden="true" />
+                            </span>
+                            <span class="faq-q-text" set:html={item.q} />
+                            <span class="faq-q-chevron">
+                              <i class="bi bi-chevron-down" aria-hidden="true" />
+                            </span>
+                          </summary>
+                          <div class="faq-answer" set:html={item.a} />
+                        </details>
+                      ))}
+                    </div>
+                  </section>
+                ))
+              }
+            </div>
+
+            <!-- CTA footer -->
+            <section class="faq-cta mt-5">
+              <div class="faq-cta-icon">
+                <i class="bi bi-chat-quote" aria-hidden="true"></i>
+              </div>
+              <h2>还需要帮助吗？</h2>
+              <p>
+                在 GitHub 上发起讨论，
+                或浏览文档以获取更深入的解答。
+              </p>
+              <div class="faq-cta-actions">
+                <a
+                  href="https://github.com/ColorlibHQ/AdminLTE/discussions"
+                  target="_blank"
+                  rel="noopener"
+                  class="btn btn-primary"
+                >
+                  <i class="bi bi-github me-2" aria-hidden="true"></i>
+                  发起讨论
+                </a>
+                <a href="introduction.html" class="btn btn-outline-secondary">
+                  <i class="bi bi-book me-2" aria-hidden="true"></i>
+                  浏览文档
+                </a>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </div>
+    <Scripts path={path} />
+
+    <script is:inline>
+      // 常见问题实时搜索 + 清除按钮
+      ;(() => {
+        "use strict"
+        const input = document.getElementById("faq-search-input")
+        const clearBtn = document.getElementById("faq-search-clear")
+        const emptyState = document.getElementById("faq-empty-state")
+        if (!input) return
+
+        const items = Array.from(document.querySelectorAll("[data-faq-item]"))
+        const sections = Array.from(document.querySelectorAll("[data-faq-section]"))
+
+        const normalize = (s) => s.toLowerCase().trim()
+
+        const filter = (query) => {
+          const q = normalize(query)
+          clearBtn.classList.toggle("d-none", q.length === 0)
+
+          let visibleTotal = 0
+          for (const item of items) {
+            const text = item.textContent || ""
+            const matches = q === "" || normalize(text).includes(q)
+            item.classList.toggle("d-none", !matches)
+            // 搜索时打开匹配项，以便用户看到上下文
+            item.open = q !== "" && matches
+            if (matches) visibleTotal++
+          }
+
+          // 隐藏没有可见项目的整个部分
+          for (const section of sections) {
+            const hasVisible = section.querySelectorAll(
+              "[data-faq-item]:not(.d-none)"
+            ).length > 0
+            section.classList.toggle("d-none", !hasVisible)
+          }
+
+          emptyState.classList.toggle("d-none", visibleTotal !== 0)
+        }
+
+        input.addEventListener("input", (e) => filter(e.target.value))
+
+        clearBtn.addEventListener("click", () => {
+          input.value = ""
+          filter("")
+          input.focus()
+        })
+
+        // 点击标签时平滑滚动至对应章节，并自动偏移标题栏的高度
+        for (const chip of document.querySelectorAll(".faq-chip")) {
+          chip.addEventListener("click", (e) => {
+            const id = chip.getAttribute("href")?.replace("#", "")
+            if (!id) return
+            const target = document.getElementById(id)
+            if (!target) return
+            e.preventDefault()
+            target.scrollIntoView({ behavior: "smooth", block: "start" })
+            history.replaceState(null, "", "#" + id)
+          })
+        }
+      })()
+    </script>
+  </body>
+</html>

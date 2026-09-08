@@ -1,0 +1,96 @@
+AdminLTE 原生支持 Bootstrap 5.3 颜色模式（浅色、深色和自动）。自 4.1 起，切换器作为 **ColorMode** 模块内置于 `adminlte.js` 中——你不再需要将脚本复制到页面中。
+
+##### 工作原理
+
+- 所选模式保存在 `localStorage` 中，键名为 `lte-theme`。
+- `auto` 遵循操作系统的 `prefers-color-scheme`，并在操作系统偏好发生变化时实时更新。
+- 解析后的模式以 `data-bs-theme="light|dark"` 的形式应用于 `<html>`，因此所有 Bootstrap 和 AdminLTE 组件都会自动适配。
+
+##### 标记
+
+在任何位置添加带有 `data-bs-theme-value` 的切换按钮即可——模块会自动绑定它们。可选的 `data-lte-theme-icon` 元素用作当前选择的状态指示器（演示版在顶栏触发器中使用了它们）：
+
+```html
+<li class="nav-item dropdown">
+  <a
+    class="nav-link"
+    href="#"
+    id="bd-theme"
+    aria-label="Toggle color scheme"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    <i class="bi bi-sun-fill" data-lte-theme-icon="light"></i>
+    <i class="bi bi-moon-fill d-none" data-lte-theme-icon="dark"></i>
+    <i class="bi bi-circle-half d-none" data-lte-theme-icon="auto"></i>
+  </a>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme">
+    <li>
+      <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+        <i class="bi bi-sun-fill me-2"></i>
+        明亮
+        <i class="bi bi-check-lg ms-auto d-none"></i>
+      </button>
+    </li>
+    <li>
+      <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+        <i class="bi bi-moon-fill me-2"></i>
+        暗黑
+        <i class="bi bi-check-lg ms-auto d-none"></i>
+      </button>
+    </li>
+    <li>
+      <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+        <i class="bi bi-circle-half me-2"></i>
+        自动
+        <i class="bi bi-check-lg ms-auto d-none"></i>
+      </button>
+    </li>
+  </ul>
+</li>
+```
+
+该模块会在每个 `[data-bs-theme-value]` 按钮上同步维护 `active` 类、`aria-pressed` 状态以及 `.bi-check-lg` 勾选标记。
+
+##### JavaScript API
+
+```js
+import { ColorMode } from "admin-lte"
+
+const colorMode = new ColorMode()
+
+colorMode.getPreferredTheme() // "light" | "dark" | "auto"
+colorMode.setTheme("dark")    // 应用 + 持续 + 同步切换
+
+// 响应变化（文档触发）
+document.addEventListener("changed.lte.color-mode", (event) => {
+  console.log(event.detail.theme)    // what the user chose: "light" | "dark" | "auto"
+  console.log(event.detail.resolved) // what got applied:    "light" | "dark"
+})
+```
+
+##### 防止主题错误闪烁
+
+该模块在 DOM 就绪后运行，因此页面还应在*首次绘制之前*，通过在 `<head>` 中添加一小段内联代码来应用存储的主题（这是唯一必须保持内联的部分——参见 `#6043`）：
+
+```html
+<script>
+  (() => {
+    "use strict"
+    let stored = null
+    try { stored = localStorage.getItem("lte-theme") } catch {}
+    const prefersDark = matchMedia("(prefers-color-scheme: dark)").matches
+    const resolved = (stored === "dark" || stored === "light") ? stored : (prefersDark ? "dark" : "light")
+    document.documentElement.setAttribute("data-bs-theme", resolved)
+    document.documentElement.style.colorScheme = resolved
+  })()
+</script>
+```
+
+##### 区域颜色模式
+
+`data-bs-theme` 不仅可以在 `<html>` 上使用，也可以在任何元素上使用——例如，在整体为浅色布局中，让侧边栏保持深色：
+
+```html
+<aside class="app-sidebar" data-bs-theme="dark">...</aside>
+```

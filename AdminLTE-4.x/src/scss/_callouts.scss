@@ -1,0 +1,50 @@
+//
+// Callouts
+//
+
+.callout {
+  padding: 1.25rem;
+  color: var(--#{$lte-prefix}callout-color, inherit);
+  background-color: var(--#{$lte-prefix}callout-bg, var(--bs-gray-100));
+  border-left: .25rem solid var(--#{$lte-prefix}callout-border, var(--bs-gray-300));
+
+  // Tint plain links and inline code to the variant's emphasis color so they
+  // stay readable on the subtle background (falls back to the defaults in an
+  // unvarianted callout).
+  a {
+    color: var(--#{$lte-prefix}callout-link, var(--#{$prefix}link-color));
+  }
+
+  code {
+    color: var(--#{$lte-prefix}callout-code-color, var(--#{$prefix}code-color));
+  }
+
+  .callout-link {
+    font-weight: $lte-callout-link-font-weight;
+    color: var(--#{$prefix}callout-link-color);
+  }
+
+  h4 {
+    margin-bottom: .25rem;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  + .callout {
+    margin-top: -.25rem;
+  }
+}
+
+// Variations
+@each $name, $color in $theme-colors {
+  .callout-#{$name} {
+    --#{$lte-prefix}callout-color: var(--#{$prefix}#{$name}-text-emphasis);
+    --#{$lte-prefix}callout-bg: var(--#{$prefix}#{$name}-bg-subtle);
+    --#{$lte-prefix}callout-border: var(--#{$prefix}#{$name}-border-subtle);
+    --#{$lte-prefix}callout-link: var(--#{$prefix}#{$name}-text-emphasis);
+    --#{$lte-prefix}callout-code-color: var(--#{$prefix}#{$name}-text-emphasis);
+    --#{$prefix}callout-link-color: var(--#{$prefix}#{$name}-text-emphasis);
+  }
+}

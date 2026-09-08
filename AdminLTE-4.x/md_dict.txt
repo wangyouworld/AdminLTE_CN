@@ -1,0 +1,2310 @@
+[AdminLTE - Bootstrap 5 Admin Dashboard](https://adminlte.io)
+[AdminLTE - Bootstrap 5 管理面板](https://adminlte.io)
+**AdminLTE** is a fully responsive administration template. Based on **[Bootstrap 5](https://getbootstrap.com/)** framework and also the JavaScript plugins.
+**AdminLTE** 是一个自响应式管理框架。基于 **[Bootstrap 5](https://getbootstrap.com/)** 框架和 JavaScript 插件。
+Highly customizable and easy to use. Fits many screen resolutions from small mobile devices to large desktops.
+高度可定制且易于使用。适用于多种屏幕，小到移动设备大到台式机。
+Looking for Premium Templates?
+寻找高级模板？
+AdminLTE.io just opened a new premium templates page. Hand picked to ensure the best quality and the most affordable
+AdminLTE.io 刚刚开通了一个高级模板网站，精选以确保最佳质量和最实惠的价格。
+prices. Visit <https://adminlte.io/premium> for more information.
+访问 <https://adminlte.io/premium> 了解更多信息。
+AdminLTE Presentation
+预览 AdminLTE
+**AdminLTE** has been carefully coded with clear comments in all of its JS, SCSS and HTML files.
+**AdminLTE** 所有的 JS、SCSS 和 HTML 文件均经过精心编码，并带有清晰的注释。
+SCSS has been used to increase code customizability.
+SCSS 已用于提高代码的可定制性。
+Quick start
+快速开始
+Compile dist files
+编译 dist 文件
+To compile the dist files you need Node.js/npm, clone/download the repo then:
+要编译 dist 文件，你需要 Node.js/npm，克隆/下载仓库，然后:
+(install npm deps)
+（安装依赖）
+_Optional:_ `npm run dev` (developer mode, autocompile with browsersync support for live demo)
+_可选：_ `npm run dev` （开发者模式，支持在线预览自动编译）
+(compile css/js files)
+（编译 css/js 文件）
+## Contributing
+## 贡献
+Highly welcome.
+非常欢迎
+For your extra reference check [AdminLTE v4 Contribution Guide](https://github.com/ColorlibHQ/AdminLTE#contributing)
+其他参考资料请查看 [AdminLTE v4 贡献指南](https://github.com/ColorlibHQ/AdminLTE#contributing)
+First thing first, you should have bit knowledge about NodeJS.
+首先，你应该对 NodeJS 有一些了解
+Github Knowledge.
+Github 知识
+Install NodeJS LTS version.
+安装 NodeJS LTS 版本
+Clone this Repository to your machine and change to `master` branch.
+将代码克隆你的计算机并更改为 `master` 分支
+Go to Cloned Folder.
+进入克隆后的文件夹
+In cli/bash run `npm install` it will install dependency from `package.json`.
+在 cli/bash 中运行 `npm install`，它会从 `package.json` 中安装依赖
+After installation completes, run `npm run dev`
+安装完成后，运行 `npm run dev`
+Cool, Send urs changes in PR to `master` branch.
+将 PR 中的更改发送到 `master` 分支
+## Sponsorship
+## 赞助
+Support AdminLTE development by becoming a sponsor or donor.
+通过成为赞助者或捐赠者来支持 AdminLTE 的开发工作。
+[Github Sponsors](https://github.com/sponsors/danny007in) or
+通过 [Github 赞助](https://github.com/sponsors/danny007in) 或者使用
+## License
+## 许可证
+AdminLTE is an open source project by [AdminLTE.io](https://adminlte.io) that is licensed under [MIT](https://opensource.org/licenses/MIT).
+AdminLTE 是一个开源项目，由 [AdminLTE.io](https://adminlte.io) 授权，许可协议使用 [MIT](https://opensource.org/licenses/MIT)。
+AdminLTE.io reserves the right to change the license of future releases.
+AdminLTE.io 保留在未来更改许可的权利。
+Image Credits
+图片来源
+# Contributor Covenant Code of Conduct
+# 贡献者公约
+## Our Pledge
+## 我们的承诺
+In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.
+为了营造一个开放且友善的环境，我们作为贡献者和维护者，承诺确保参与本项目及社区的所有人都能免受骚扰，无论其年龄、体型、残障、民族、性别认同与表达、经验水平、国籍、外貌、种族、宗教或性取向如何。
+## Our Standards
+## 我们的标准
+Examples of behavior that contributes to creating a positive environment include:
+有助于创造积极环境的行为包括：
+- Using welcoming and inclusive language
+- 使用友善和包容的语言
+- Being respectful of differing viewpoints and experiences
+- 尊重不同的观点与经历
+- Gracefully accepting constructive criticism
+- 优雅地接受建设性批评
+- Focusing on what is best for the community
+- 关注对社区最有利的事情
+- Showing empathy towards other community members
+- 对其他社区成员展现同理心
+Examples of unacceptable behavior by participants include:
+参与者不应出现的行为包括：
+- The use of sexualized language or imagery and unwelcome sexual attention or advances
+- 使用带有性暗示的语言或图像，以及不受欢迎的性关注或挑逗
+- Trolling, insulting/derogatory comments, and personal or political attacks
+- 恶意挑衅、侮辱性或贬低性言论，以及人身或政治攻击
+- Public or private harassment
+- 公开或私下的骚扰行为
+- Publishing others' private information, such as a physical or electronic address, without explicit permission
+- 未经明确许可，公开他人的私人信息（如住址或电子邮箱）
+- Other conduct which could reasonably be considered inappropriate in a professional setting
+- 其他在专业场合中被认为不当的行为
+## Our Responsibilities
+## 我们的责任
+Project maintainers are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response to any instances of unacceptable behavior.
+项目维护者有责任明确可接受行为的标准，并应对任何不可接受的行为采取适当且公正的纠正措施。
+Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, or to ban temporarily or permanently any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful.
+项目维护者有权删除、编辑或拒绝不符合本行为准则的评论、提交、代码、Wiki 编辑、问题及其他贡献，并可暂时或永久禁止任何贡献者参与项目，前提是其行为被视为不当、威胁性、冒犯性或有害的。
+## Scope
+## 适用范围
+This Code of Conduct applies both within project spaces and in public spaces when an individual is representing the project or its community. Examples of representing a project or community include using an official project e-mail address, posting via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by project maintainers.
+本行为准则适用于项目空间及公共场合中代表项目或社区的个人行为。代表项目或社区的行为包括但不限于：使用官方项目邮箱、通过官方社交媒体账号发布内容，或作为指定代表参与线上或线下活动。项目维护者可进一步定义和澄清代表项目的行为范围。
+## Enforcement
+## 执行
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at https://colorlib.com/wp/contact-us/. The project team will review and investigate all complaints, and will respond in a way that it deems appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.
+如发现滥用、骚扰或其他不可接受的行为，请通过 https://colorlib.com/wp/contact-us/ 联系项目团队。项目团队将审核并调查所有投诉，并根据情况采取适当的措施。项目团队有义务对举报者的身份保密。具体的执行政策可能会另行公布。
+Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project's leadership.
+未真诚遵守或执行本行为准则的项目维护者，可能会面临项目领导层决定的临时或永久性后果。
+## Attribution
+## 来源
+This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org/), version 1.4, available at <https://www.contributor-covenant.org/version/1/4/code-of-conduct/>
+本行为准则改编自 [Contributor Covenant](https://www.contributor-covenant.org/) 1.4 版，原文可查阅 <https://www.contributor-covenant.org/version/1/4/code-of-conduct/>。
+What's New in v4.0.0-rc3
+v4.0.0-rc3 版本更新内容
+**Production Deployment & Cross-Platform Compatibility** - This release resolves critical production deployment issues:
+**生产环境部署与跨平台兼容性** - 该版本修复了关键的生产环境部署问题：
+- **Fixed Production Builds** - Resolved CSS/JS path issues, sidebar navigation, and image loading in all deployment scenarios
+- **修复生产构建** - 解决了所有部署场景下的 CSS/JS 路径问题、侧边栏导航及图片加载异常
+- **Smart Path Resolution** - Automatic relative path calculation works for root deployment, sub-folders, and CDN hosting
+- **智能路径解析** - 自动计算相对路径，完美支持根目录部署、子目录部署及 CDN 托管
+- **RTL CSS Fix** - Eliminated rtlcss interference with standard LTR production builds
+- **RTL样式修复** - 消除了 rtlcss 对标准 LTR 生产构建的干扰
+- **Updated Dependencies** - Bootstrap 5.3.7, Bootstrap Icons 1.13.1, OverlayScrollbars 2.11.0
+- **依赖项更新** - Bootstrap 5.3.7、Bootstrap Icons 1.13.1、OverlayScrollbars 2.11.0
+- **Zero Console Errors** - Fixed all CDN integrity mismatches and runtime issues
+- **零控制台报错** - 修复所有 CDN 完整性校验不匹配及运行时问题
+- **FTP/Static Host Ready** - Perfect compatibility with traditional hosting and modern static platforms
+- **FTP/静态托管就绪** - 完美兼容传统托管与现代静态平台
+**Key Improvements:**
+**核心改进：**
+- ✅ Development and production environments now behave identically
+- ✅ 开发环境与生产环境表现完全一致
+- ✅ Images, CSS, and JavaScript load correctly in any deployment structure
+- ✅ 图片/CSS/JavaScript 在任何部署结构下均可正确加载
+- ✅ Sidebar navigation displays properly with badges and arrow indicators
+- ✅ 侧边栏导航正常显示徽章与箭头指示器
+- ✅ All CDN resources load without console errors
+- ✅ 所有 CDN 资源加载无控制台报错
+- ✅ Complete production build included in repository for easy deployment
+- ✅ 代码库包含完整生产构建版本，部署更便捷
+See the [CHANGELOG.md](CHANGELOG.md) for complete details.
+完整变更详见[更新日志](CHANGELOG.md)
+### Development
+### 开发指南
+To start developing with AdminLTE:
+开始使用 AdminLTE 进行开发的步骤：
+1. **Install dependencies:** `npm install`
+1. **安装依赖项**：执行 `npm install`
+2. **Start development server:** `npm start` *(opens browser at http://localhost:3000)*
+2. **启动开发服务器**：运行 `npm start` *(自动在浏览器打开 http://localhost:3000)*
+3. **Start coding!** Files auto-compile and refresh on changes
+3. **开始编码！** 文件修改后将自动编译并刷新页面
+### Production Build
+### 生产环境构建
+To build for production:
+构建生产版本的流程：
+1. **Full production build:** `npm run production` *(includes linting and optimization)*
+1. **完整生产构建**：执行 `npm run production` *(包含代码校验与优化)*
+2. **Quick build:** `npm run build` *(faster for development/testing)*
+2. **快速构建**：运行 `npm run build` *(适用于开发/测试的快速构建)*
+### Available Scripts
+### 可用脚本命令
+- `npm start` - Start development server with file watching
+- `npm start` - 启动带文件监听的开发服务器
+- `npm run build` - Build all assets for development
+- `npm run build` - 构建开发环境所需资源
+- `npm run production` - Full production build with linting and bundlewatch
+- `npm run production` - 执行完整生产构建（含代码校验与 bundlewatch 检查）
+- `npm run lint` - Run all linters (JS, CSS, docs, lockfile)
+- `npm run lint` - 运行所有校验器（JS/CSS/文档/lockfile）
+- `npm run css` - Build CSS only
+- `npm run css` - 仅构建 CSS 文件
+- `npm run js` - Build JavaScript only
+- `npm run js` - 仅构建 JavaScript 文件
+## Browser Support
+## 浏览器兼容性
+AdminLTE supports all modern browsers with the latest Bootstrap 5.3.7:
+AdminLTE基于最新版 Bootstrap 5.3.7 支持所有现代浏览器：
+- Chrome (latest)
+- Chrome（最新版）
+- Firefox (latest)
+- Firefox（最新版）
+- Safari (latest)
+- Safari（最新版）
+- Edge (latest)
+- Edge（最新版）
+## Platform Support
+## 平台兼容性
+AdminLTE v4 build scripts work cross-platform:
+AdminLTE v4 构建脚本支持跨平台运行：
+- **Windows** - Command Prompt, PowerShell, Git Bash
+- **Windows** - 命令 提示符/PowerShell/Git Bash
+- **macOS** - Terminal, iTerm2
+- **macOS** - 终端/iTerm2
+- **Linux** - Bash, Zsh, and other Unix shells
+- **Linux** - Bash/Zsh 及其他 Unix shell 环境
+All npm scripts use cross-platform utilities to ensure consistent behavior across different operating systems.
+所有 npm 脚本均使用跨平台工具，确保在不同操作系统上表现一致。
+- After installation completes, run `npm start`
+- 安装完成后，请运行 `npm start`
+- Cool, Send your changes in PR to `master` branch.
+- 太棒了，请将您的修改通过PR提交到`master`分支。
+# AdminLTE Accessibility Compliance - WCAG 2.1 AA
+# AdminLTE 无障碍合规性 - WCAG 2.1 AA 标准
+## Overview
+## 概述
+AdminLTE has been enhanced with comprehensive accessibility features to meet **WCAG 2.1 AA** standards. This implementation ensures the template is usable by all users, including those with disabilities who may use assistive technologies like screen readers, keyboard navigation, or voice control software.
+AdminLTE 已全面增强无障碍功能，符合 **WCAG 2.1 AA** 标准。这些改进确保所有用户（包括使用屏幕阅读器、键盘导航或语音控制软件等辅助技术的残障人士）都能顺畅使用本模板。
+## 🎯 WCAG 2.1 AA Compliance Features
+## 🎯 WCAG 2.1 AA 合规特性
+### **Principle 1: Perceivable**
+### **原则一：可感知**
+#### 1.1 Text Alternatives
+#### 1.1 文本替代
+- ✅ **All decorative icons have `aria-hidden="true"`**
+- ✅ 所有装饰性图标均添加 `aria-hidden="true"`
+- ✅ **Meaningful images have appropriate `alt` text**
+- ✅ 功能性图片配有恰当的 `alt` 文本
+- ✅ **Icon fonts use screen reader friendly approaches**
+- ✅ 图标字体采用屏幕阅读器友好方案
+#### 1.3 Adaptable
+#### 1.3 适应性
+- ✅ **Semantic HTML structure with proper landmarks**
+- ✅ 符合语义的HTML结构及地标标记
+- ✅ **Form labels properly associated with inputs**
+- ✅ 表单标签与输入框正确关联
+- ✅ **Table headers have correct `scope` attributes**
+- ✅ 表格标题含有效 `scope` 属性
+- ✅ **Lists use proper `<ul>`, `<ol>`, `<li>` structure**
+- ✅ 列表使用标准 `<ul>`/`<ol>`/`<li>` 结构
+- ✅ **Heading hierarchy follows logical order (h1 → h2 → h3)**
+- ✅ 标题层级遵循逻辑顺序（h1 → h2 → h3）
+#### 1.4 Distinguishable
+#### 1.4 可辨别
+- ✅ **Color contrast ratios meet 4.5:1 minimum for normal text**
+- ✅ 普通文本颜色对比度达 4.5:1 最低标准
+- ✅ **Color contrast ratios meet 3:1 minimum for large text**
+- ✅ 大号文本颜色对比度达 3:1 最低标准
+- ✅ **Information not conveyed by color alone**
+- ✅ 信息不依赖单一颜色传递
+- ✅ **Text can be resized up to 200% without loss of functionality**
+- ✅ 支持 200% 文本缩放不影响功能
+- ✅ **Focus indicators are clearly visible**
+- ✅ 焦点指示器清晰可见
+### **Principle 2: Operable**
+### **原则二：可操作**
+#### 2.1 Keyboard Accessible
+#### 2.1 键盘可访问
+- ✅ **All interactive elements are keyboard accessible**
+- ✅ 所有交互元素支持键盘操作
+- ✅ **Tab order is logical and predictable**
+- ✅ Tab键顺序符合逻辑预期
+- ✅ **No keyboard traps exist**
+- ✅ 无键盘焦点陷阱
+- ✅ **Skip links to bypass repetitive content**
+- ✅ 提供跳过重复内容的快捷链接
+- ✅ **Arrow key navigation for menus**
+- ✅ 方向键导航菜单
+- ✅ **Escape key closes modals and dropdowns**
+- ✅ ESC 键关闭弹窗和下拉框
+#### 2.2 Enough Time
+#### 2.2 充足时间
+- ✅ **No time limits on user interactions**
+- ✅ 无操作时间限制
+- ✅ **Animations can be paused or disabled**
+- ✅ 动画可暂停或禁用
+#### 2.3 Seizures and Physical Reactions
+#### 2.3 癫痫发作与身体反应
+- ✅ **No content flashes more than 3 times per second**
+- ✅ 内容闪烁频率不超过每秒3次
+- ✅ **Respects `prefers-reduced-motion` user preference**
+- ✅ 遵循系统级减弱动画偏好设置
+- ✅ **Animation duration can be controlled**
+- ✅ 动画时长可控
+#### 2.4 Navigable
+#### 2.4 可导航
+- ✅ **Skip links to main content and navigation**
+- ✅ 直达主内容与导航的快捷链接
+- ✅ **Descriptive page titles**
+- ✅ 描述性页面标题
+- ✅ **Meaningful link text (no "click here")**
+- ✅ 有意义的链接文本（避免"点击这里"）
+- ✅ **Focus order matches visual order**
+- ✅ 焦点顺序与视觉顺序一致
+- ✅ **Focus is clearly visible**
+- ✅ 焦点状态清晰可见
+- ✅ **Multiple ways to navigate (menus, breadcrumbs, search)**
+- ✅ 提供多种导航方式（菜单、面包屑、搜索）
+#### 2.5 Input Modalities
+#### 2.5 输入模式
+- ✅ **Touch targets are at least 44×44 pixels**
+- ✅ 触控区域不小于 44×44 像素
+- ✅ **Drag operations have keyboard alternatives**
+- ✅ 拖拽操作提供键盘替代方案
+- ✅ **Touch gestures have alternatives**
+- ✅ 触控手势有替代交互方式
+### **Principle 3: Understandable**
+### **原则三：可理解**
+#### 3.1 Readable
+#### 3.1 可读性
+- ✅ **Language of page is declared (`lang="en"`)**
+- ✅ 声明页面语言（`lang="en"`）
+- ✅ **Language changes are marked up**
+- ✅ 标记语言变化部分
+- ✅ **Unusual words have definitions or explanations**
+- ✅ 生僻词汇提供解释说明
+#### 3.2 Predictable
+#### 3.2 可预测
+- ✅ **Navigation is consistent across pages**
+- ✅ 跨页面导航保持一致性
+- ✅ **Components behave predictably**
+- ✅ 组件行为符合预期
+- ✅ **Form submission doesn't cause unexpected context changes**
+- ✅ 表单提交不会引发意外跳转
+#### 3.3 Input Assistance
+#### 3.3 输入辅助
+- ✅ **Error messages are clearly identified**
+- ✅ 错误信息明确标识
+- ✅ **Form field requirements are indicated**
+- ✅ 标注必填表单字段
+- ✅ **Error suggestions are provided when possible**
+- ✅ 尽可能提供纠错建议
+- ✅ **Form validation messages are announced to screen readers**
+- ✅ 表单验证信息可被屏幕阅读器播报
+### **Principle 4: Robust**
+### **原则四：健壮性**
+#### 4.1 Compatible
+#### 4.1 兼容性
+- ✅ **Valid HTML markup**
+- ✅ 符合HTML规范
+- ✅ **Proper ARIA attributes and roles**
+- ✅ 正确的ARIA属性和角色
+- ✅ **Compatible with assistive technologies**
+- ✅ 兼容主流辅助技术
+- ✅ **Status messages are announced (`aria-live` regions)**
+- ✅ 状态消息通过`aria-live`区域播报
+## 🛠️ Implementation Details
+## 🛠️ 实现细节
+### **Skip Links Implementation**
+### **跳转链接实现方式**
+<!-- Automatically added by accessibility.js -->
+<!-- 自动添加 accessibility.js -->
+Skip to main content
+跳转到主内容
+Skip to navigation
+跳转到导航
+### **ARIA Live Regions**
+### **ARIA 动态区域**
+Automatically created for status announcements
+自动创建的状态通知区域
+### **Enhanced Focus Management**
+### **增强型焦点管理**
+- **Modal Focus Trap**: Focus is contained within modals
+- **模态框焦点锁定**：焦点始终保持在当前模态框内
+- **Dropdown Navigation**: Arrow keys navigate menu items
+- **下拉菜单导航**：支持方向键切换菜单项
+- **Focus Restoration**: Previous focus restored when modals close
+- **焦点恢复**：关闭模态框后自动还原先前焦点位置
+- **Escape Key Support**: ESC closes modals and dropdowns
+- **ESC 键支持**：通过ESC键关闭模态框和下拉菜单
+### **Form Accessibility**
+### **表单无障碍实现**
+Example of accessible form with error handling
+带错误处理的无障碍表单示例
+Email address <span class="required-indicator sr-only">(required)</span>
+电子邮箱 <span class="required-indicator sr-only">(必填)</span>
+We'll never share your email with anyone else.
+我们绝不会与他人共享您的邮箱地址
+### **Table Accessibility**
+### **无障碍表格实现**
+Accessible table structure
+符合无障碍标准的表格结构
+<caption>Monthly Sales Data</caption>
+<caption>月度销售数据</caption>
+<th scope="col">Month</th>
+<th scope="col">月份</th>
+<th scope="col">Sales</th>
+<th scope="col">销售额</th>
+<th scope="col">Growth</th>
+<th scope="col">增长率</th>
+### **Navigation Landmarks**
+### **导航地标区域**
+<!-- Semantic navigation structure -->
+<!-- 语义化导航结构 -->
+<p>Widgets <i class="nav-arrow bi bi-chevron-right" aria-hidden="true"></i></p>
+<p>小部件 <i class="nav-arrow bi bi-chevron-right" aria-hidden="true"></i></p>
+<!-- Submenu items -->
+<!-- 子菜单项 -->
+## 🎨 Accessible Color Palette
+## 🎨 无障碍配色方案
+### **High Contrast Colors (4.5:1 ratio minimum)**
+### **高对比度色彩（最低 4.5:1 比率）**
+- **Primary Accessible**: `#003d82` (4.5:1 on white)
+- **主色调优化版**: `#003d82`（白底对比度 4.5:1）
+- **Success Accessible**: `#0f5132` (4.5:1 on white)
+- **成功色优化版**: `#0f5132`（白底对比度 4.5:1）
+- **Danger Accessible**: `#842029` (4.5:1 on white)
+- **危险色优化版**: `#842029`（白底对比度 4.5:1）
+- **Warning Accessible**: `#664d03` (4.5:1 on white)
+- **警告色优化版**: `#664d03`（白底对比度 4.5:1）
+### **Dark Mode Support**
+### **深色模式支持**
+## 📱 Responsive & Touch Accessibility
+## 📱 响应式与触控无障碍
+### **Touch Target Sizes**
+### **触控目标尺寸**
+- **Standard buttons**: Minimum 44×44 pixels
+- **标准按钮**：最小 44×44 像素
+- **Icon buttons**: Minimum 44×44 pixels touch area
+- **图标按钮**：最小 44×44 像素触控区域
+- **Small interactive elements**: Minimum 24×24 pixels (when grouped)
+- **组合小元素**：分组时最小 24×24 像素
+### **Responsive Considerations**
+### **响应式设计考量**
+- **Zoom support**: Up to 200% zoom without horizontal scrolling
+- **缩放支持**：支持 200% 页面缩放且不出现横向滚动条
+- **Mobile navigation**: Touch-friendly collapsible menus
+- **移动端导航**：采用触控友好的可折叠菜单设计
+- **Orientation support**: Works in both portrait and landscape
+- **屏幕方向适配**：完美兼容竖屏与横屏显示模式
+## 🔧 JavaScript Accessibility API
+## 🔧 JavaScript 可访问性 API
+### **AccessibilityManager Class**
+### **访问权限管理器类**
+// Initialize with full features
+// 初始化时启用全部功能
+// Public API methods
+// 公共 API 方法
+Form submitted successfully
+表单提交成功
+### **Utility Functions**
+### **工具函数**
+// Check color contrast
+// 检查颜色对比度
+// Generate unique IDs
+// 生成唯一标识符
+// Check if element is focusable
+// 检查元素是否可聚焦
+## 🧪 Testing & Validation
+## 🧪 测试与验证
+### **Automated Testing Tools**
+### **自动化测试工具**
+- **axe-core**: Automated accessibility testing
+- **axe-core**：自动化无障碍测试
+- **WAVE**: Web accessibility evaluation
+- **WAVE**：网页无障碍评估
+- **Lighthouse**: Accessibility audit included
+- **Lighthouse**：内置无障碍审计
+### **Manual Testing Checklist**
+### **人工检查清单**
+- [ ] Navigate entire interface using only keyboard
+- [ ] 仅用键盘完成全界面导航
+- [ ] Test with screen reader (NVDA, JAWS, VoiceOver)
+- [ ] 使用屏幕阅读器测试（NVDA/JAWS/VoiceOver）
+- [ ] Verify color contrast ratios
+- [ ] 验证色彩对比度
+- [ ] Test with 200% zoom
+- [ ] 200% 缩放测试
+- [ ] Verify reduced motion preferences
+- [ ] 验证减弱动画偏好
+- [ ] Test touch interactions on mobile
+- [ ] 移动端触控交互测试
+### **Screen Reader Testing**
+### **屏幕阅读器测试**
+# Test announcements
+# 测试通知
+New message received
+收到新消息
+Test form errors
+测试表单错误
+Please enter a valid email address
+请输入有效的电子邮件地址
+## 📚 Browser Support
+## 🌐 浏览器支持
+### **Modern Browser Support (ES2022 Compatible)**
+### **现代浏览器支持（ES2022兼容）**
+- **Chrome**: 97+ (97% coverage)
+- **Chrome**：97+（覆盖率97%）
+- **Firefox**: 104+ (95% coverage)
+- **Firefox**：104+（覆盖率95%）
+- **Safari**: 15.4+ (92% coverage)
+- **Safari**：15.4+（覆盖率92%）
+- **Edge**: 97+ (94% coverage)
+- **Edge**：97+（覆盖率94%）
+### **Assistive Technology Support**
+### **辅助技术支持**
+## 🚀 Performance Impact
+## 🚀 性能影响
+### **Bundle Size Impact**
+### **打包体积影响**
+- **CSS**: +12KB (compressed)
+- **CSS**：增加 12KB（压缩后）
+- **JavaScript**: +8KB (compressed)
+- **JavaScript**：增加 8KB（压缩后）
+- **Total Impact**: ~20KB additional payload
+- **总影响**：额外负载约 20KB
+### **Runtime Performance**
+### **运行时性能**
+- **Initialization**: ~5ms on modern devices
+- **初始化**：现代设备上约 5ms
+- **Focus Management**: <1ms per interaction
+- **焦点管理**：每次交互 <1ms
+- **Announcements**: <1ms per message
+- **播报通知**：每条消息 <1ms
+## 📖 Usage Examples
+## 📖 用法示例
+### **Basic Setup**
+### **基础设置**
+<!-- Enhanced accessibility meta tags -->
+<!-- 增强的可访问性元标签 -->
+<!-- AdminLTE CSS with accessibility styles -->
+<!-- 包含无障碍样式的 AdminLTE CSS -->
+<!-- Skip links automatically added -->
+<!-- 自动添加的跳过导航链接 -->
+<!-- Main content with proper landmarks -->
+<!-- 带有正确地标角色的主要内容区 -->
+<!-- AdminLTE JS with accessibility features -->
+<!-- 包含无障碍功能的 AdminLTE JS -->
+### **Custom Configuration**
+### **自定义配置**
+// Initialize with custom settings
+// 使用自定义设置初始化
+// Enable screen reader announcements
+// 启用屏幕阅读器播报
+// Add skip navigation links
+// 添加跳过导航链接
+// Enhanced focus handling
+// 增强焦点管理
+// Arrow key navigation
+// 启用键盘方向键导航
+// Disable if animations are critical
+// 如果动画效果很关键则禁用此选项
+// Add custom announcements
+// 添加自定义播报信息
+accessibility.announce("Data saved successfully", "polite")
+accessibility.announce("数据保存成功", "polite")
+// Focus specific elements
+// 聚焦到特定元素
+## 🔄 Future Enhancements
+## 🔄 未来改进计划
+### **Roadmap for Additional Features**
+### **新增功能路线图**
+- [ ] Voice navigation support
+- [ ] 语音导航支持
+- [ ] Enhanced keyboard shortcuts
+- [ ] 增强型键盘快捷键
+- [ ] Customizable contrast themes
+- [ ] 可自定义对比度主题
+- [ ] Advanced screen reader optimization
+- [ ] 高级屏幕阅读器优化
+- [ ] Internationalization (i18n) support
+- [ ] 国际化(i18n)支持
+- [ ] Right-to-left (RTL) accessibility improvements
+- [ ] 从右至左(RTL)的无障碍改进
+### **Community Contributions**
+### **社区贡献指南**
+We welcome contributions to improve accessibility further. Please:
+我们诚邀您参与改进无障碍功能，请遵循以下原则：
+1. Follow WCAG 2.1 AA guidelines
+1. 遵守 WCAG 2.1 AA 标准
+2. Test with multiple assistive technologies
+2. 使用多种辅助技术进行测试
+3. Document any new features thoroughly
+3. 完整记录所有新功能
+4. Include automated tests where possible
+4. 尽可能包含自动化测试
+## 📞 Support & Resources
+## 📞 支持与资源
+### **Documentation**
+### **文档**
+- [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
+- [WCAG 2.1 指南](https://www.w3.org/WAI/WCAG21/quickref/)
+- [ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/)
+- [ARIA 开发实践](https://www.w3.org/WAI/ARIA/apg/)
+- [WebAIM Resources](https://webaim.org/)
+- [WebAIM 资源中心](https://webaim.org/)
+### **Testing Tools**
+### **测试工具**
+- [axe-core](https://github.com/dequelabs/axe-core)
+- [axe-core 无障碍测试库](https://github.com/dequelabs/axe-core)
+- [WAVE Web Accessibility Evaluator](https://wave.webaim.org/)
+- [WAVE 网页无障碍评估工具](https://wave.webaim.org/)
+- [Lighthouse Accessibility](https://developers.google.com/web/tools/lighthouse/)
+- [Lighthouse 无障碍检测](https://developers.google.com/web/tools/lighthouse/)
+### **Screen Readers**
+### **屏幕阅读器**
+- [NVDA (Free)](https://www.nvaccess.org/)
+- [NVDA (免费版)](https://www.nvaccess.org/)
+- [JAWS (Commercial)](https://www.freedomscientific.com/products/software/jaws/)
+- [JAWS (商业版)](https://www.freedomscientific.com/products/software/jaws/)
+- [VoiceOver (Built-in on macOS/iOS)](https://support.apple.com/guide/voiceover/)
+- [VoiceOver (macOS/iOS 内置)](https://support.apple.com/guide/voiceover/)
+**AdminLTE v4.0.0** - Now with comprehensive WCAG 2.1 AA accessibility compliance!
+**AdminLTE v4.0.0** - 现已全面符合 WCAG 2.1 AA 无障碍标准！🎉
+# Changelog
+# 更新日志
+All notable changes to AdminLTE will be documented in this file.
+AdminLTE 的所有显著变更都将记录在此文件中。
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+格式基于 [记录变更日志](https://keepachangelog.com/en/1.0.0/)，
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+本项目遵循 [语义化版本控制](https://semver.org/spec/v2.0.0.html)。
+## [Unreleased]
+## [未发布]
+### Updated
+### 已更新
+- **Dependencies:** Updated 8 packages to latest versions
+- **依赖项：** 8 个包已更新至最新版本
+### Fixed
+### 已修复
+- **Windows Build Compatibility:** Fixed npm scripts to work cross-platform by replacing Unix-specific shell commands with `shx`
+- **Windows 构建兼容性：** 修复了 npm 脚本，通过将 Unix 特定的 shell 命令替换为 `shx` 来实现跨平台工作
+- Updated `copy-assets` script to use `shx mkdir` and `shx cp` commands
+- 更新了 `copy-assets` 脚本以使用 `shx mkdir` 和 `shx cp` 命令
+- Updated `flatten-build` script to use `shx cp` and `shx rm` commands
+- 更新了 `flatten-build` 脚本以使用 `shx cp` 和 `shx rm` 命令
+- Added `shx` package as dev dependency for cross-platform shell command support
+- 添加 `shx` 包作为开发依赖项，以支持跨平台 shell 命令
+- Resolves build failures on Windows systems with "The syntax of the command is incorrect" errors
+- 解决了 Windows 系统上“命令语法不正确”的构建失败问题
+- **TeamViewer Modal Compatibility:** Fixed modal fade animations for remote desktop compatibility
+- **TeamViewer 模态框兼容性：** 修复了远程桌面兼容性的模态框渐变动画
+- Updated accessibility CSS to use `transition: none` and `opacity: 1` instead of `display: block`
+- 更新了可访问性 CSS，使用 `transition: none` 和 `opacity: 1` 而不是 `display: block`
+- Maintains WCAG 2.1 AA compliance while ensuring modals work properly in TeamViewer sessions
+- 在确保模态框在 TeamViewer 会话中正常工作的同时，保持 WCAG 2.1 AA 合规性
+- Added specific transform overrides for modal dialogs in reduced motion mode
+- 为减速模式下的模态对话框添加了特定的转换覆盖
+- **Mobile Sidebar Scrolling:** Fixed sidebar closing unexpectedly when scrolling on mobile devices
+- **移动侧边栏滚动：** 修复了在移动设备上滚动时侧边栏意外关闭的问题
+- Updated touch event handling to differentiate between tap and scroll gestures
+- 更新了触摸事件处理以区分点击和滚动手势
+- Added proper overflow properties to sidebar wrapper for mobile viewport
+- 为移动视口添加了侧边栏包装器的正确溢出属性
+- Sidebar now remains open during scroll operations on touch devices
+- 在触摸设备上滚动操作期间，侧边栏现在保持打开状态
+- Resolves issue where scrolling in sidebar would immediately close it on mobile browsers
+- 解决了在移动浏览器上在侧边栏中滚动会立即关闭侧边栏的问题
+- **Image Path Resolution:** Fixed mobile image loading by using relative paths in HTML
+- **图像路径解析：** 通过在 HTML 中使用相对路径修复了移动图像加载问题
+- **Root Cause:** Absolute paths like `/assets/img/user.jpg` caused 404 errors on mobile
+- **根本原因：** 像 `/assets/img/user.jpg` 这样的绝对路径在移动设备上导致 404 错误
+- **Solution:** Generate relative image paths in Astro components based on page location
+- **解决方案：** 根据页面位置在 Astro 组件中生成相对图像路径
+- **Result:** Images now load correctly on all devices and deployment scenarios
+- **结果：** 图像现在在所有设备和部署场景中都能正确加载
+### Production Deployment & Cross-Platform Compatibility
+### 生产部署与跨平台兼容性
+This release resolves critical production deployment issues and ensures consistent behavior between development and production environments across different deployment scenarios.
+此版本解决了关键的生产部署问题，并确保了开发和生产环境在不同部署场景下的一致行为。
+### 🚀 **Production Deployment Fixes**
+### 🚀 **生产部署修复**
+#### **Path Resolution System**
+#### **路径解析系统**
+- **Smart Path Resolution:** Implemented intelligent relative path calculation for all assets
+- **智能路径解析：** 对所有资产实施了智能相对路径计算
+- CSS/JS paths automatically adjust based on page depth (e.g., `./css/` for root, `../css/` for sub-pages)
+- CSS/JS 路径根据页面深度自动调整（例如，根目录为 `./css/`，子页面为 `../css/`）
+- Image paths dynamically corrected at runtime for any deployment structure
+- 图像路径在运行时动态更正，适用于任何部署结构
+- Works seamlessly for root deployment, sub-folder deployment, and CDN hosting
+- 无缝适用于根目录部署、子文件夹部署和 CDN 托管
+#### **RTL CSS Processing Fix**
+#### **RTL CSS 处理修复**
+- **PostCSS Configuration:** Fixed `rtlcss` plugin interference with LTR builds
+- **PostCSS 配置：** 修复了 `rtlcss` 插件对 LTR 构建的干扰
+- `rtlcss` now only runs during RTL-specific builds (`NODE_ENV=RTL`)
+- `rtlcss` 现在只在 RTL 特定的构建期间运行（`NODE_ENV=RTL`）
+- Prevents automatic left/right property flipping in standard production builds
+- 防止在标准生产构建中自动翻转左/右属性
+- Maintains separate `.rtl.css` files for right-to-left language support
+- 为从右到左语言支持维护独立的 `.rtl.css` 文件
+#### **Image Loading Resolution**
+#### **图像加载解析**
+- **Runtime Image Path Fix:** Added intelligent image path correction script
+- **运行时图像路径修复：** 添加了智能图像路径校正脚本
+- Detects deployment context from working CSS/JS paths
+- 从工作的 CSS/JS 路径检测部署上下文
+- Automatically converts absolute image paths (`/assets/img/...`) to relative paths
+- 自动将绝对图像路径（`/assets/img/...`）转换为相对路径
+- Ensures images load correctly regardless of deployment sub-folder structure
+- 确保图像无论部署子文件夹结构如何都能正确加载
+### 🎨 **UI/Navigation Improvements**
+### 🎨 **UI/导航改进**
+#### **Sidebar Navigation Fixed**
+#### **侧边栏导航修复**
+- **Badge & Arrow Positioning:** Resolved sidebar layout issues
+- **徽章与箭头定位：** 解决了侧边栏布局问题
+- Fixed nav badges overlapping text elements
+- 修复了导航徽章与文本元素重叠的问题
+- Restored chevron arrow indicators for expandable menu items
+- 恢复了可展开菜单项的 V 形箭头指示器
+- Corrected spacing and visual hierarchy in sidebar navigation
+- 纠正了侧边栏导航中的间距和视觉层次
+- Added `sidebar-open` class to all layouts for consistent styling
+- 为所有布局添加了 `sidebar-open` 类以实现一致的样式
+#### **Cross-Device Consistency**
+#### **跨设备一致性**
+- **Full-Width Navigation Links:** Enhanced clickable areas
+- **全宽导航链接：** 增强了可点击区域
+- Set `.sidebar-menu .nav-link { width: 100%; }` for better UX
+- 设置 `.sidebar-menu .nav-link { width: 100%; }` 以获得更好的用户体验
+- Ensures badges and arrows align properly at the far right edge
+- 确保徽章和箭头在最右侧正确对齐
+- Maintains proper spacing across all screen sizes and devices
+- 在所有屏幕尺寸和设备上保持适当的间距
+### 📦 **CDN & Dependencies**
+### 📦 **CDN 和依赖项**
+#### **Updated to Latest Stable Versions**
+#### **更新到最新稳定版本**
+- **Bootstrap:** v5.3.3 → v5.3.7 (latest stable)
+- **Bootstrap：** v5.3.3 → v5.3.7（最新稳定版）
+- **Bootstrap Icons:** v1.11.3 → v1.13.1 (latest with new icons)
+- **Bootstrap 图标：** v1.11.3 → v1.13.1（最新版，含新图标）
+- **OverlayScrollbars:** v2.10.1 → v2.11.0 (performance improvements)
+- **OverlayScrollbars：** v2.10.1 → v2.11.0（性能改进）
+- **PopperJS:** v2.11.8 (confirmed latest - no change needed)
+- **PopperJS：** v2.11.8（确认最新 - 无需更改）
+#### **Integrity Attribute Removal**
+#### **完整性属性移除**
+- **SRI-Free CDN Loading:** Removed `integrity` attributes from all CDN resources
+- **无 SRI CDN 加载：** 从所有 CDN 资源中删除了 `integrity` 属性
+- Prevents "Failed to find a valid digest" console errors
+- 防止“无法找到有效的摘要”控制台错误
+- Allows CDN providers to update files without breaking existing links
+- 允许 CDN 提供商更新文件而不破坏现有链接
+- Maintains `crossorigin="anonymous"` for security while removing brittle SRI checks
+- 保持 `crossorigin="anonymous"` 以确保安全性，同时移除脆弱的 SRI 检查
+### 🛠️ **Build System Enhancements**
+### 🛠️ **构建系统增强**
+#### **Development vs Production Parity**
+#### **开发与生产环境对等**
+- **Unified Asset Pipeline:** Both dev and production now use identical asset resolution
+- **统一资产管道：** 开发和生产现在都使用相同的资产解析
+- Development copies fresh CSS/JS to `src/html/public/` for hot-reloading
+- 开发将新的 CSS/JS 复制到 `src/html/public/` 用于热重载
+- Production builds CSS/JS to `dist/css/` and `dist/js/` then flattens structure
+- 生产将 CSS/JS 构建到 `dist/css/` 和 `dist/js/`，然后展平结构
+- Smart path resolution ensures consistent behavior in both environments
+- 智能路径解析确保在两个环境中的一致行为
+#### **Git Repository Cleanup**
+#### **Git 仓库清理**
+- **Production Build Distribution:** Added complete `dist/` folder to repository
+- **生产构建分发：** 将完整的 `dist/` 文件夹添加到仓库
+- Provides ready-to-use production files for immediate deployment
+- 提供即时部署的即用型生产文件
+- Simplifies distribution and CDN access via jsDelivr
+- 简化了通过 jsDelivr 进行的分发和 CDN 访问
+- Enables direct download without requiring Node.js build environment
+- 无需 Node.js 构建环境即可直接下载
+### 🐛 **Critical Bug Fixes**
+### 🐛 **关键错误修复**
+#### **Console Errors Eliminated**
+#### **控制台错误已消除**
+- **SortableJS Loading:** Fixed CDN integrity mismatch for SortableJS
+- **SortableJS 加载：** 修复了 SortableJS 的 CDN 完整性不匹配问题
+- **Asset Path Errors:** Resolved 404 errors for images in sub-folder deployments
+- **资产路径错误：** 解决了子文件夹部署中图像的 404 错误
+- **ESLint Compliance:** Fixed `prefer-global-this` and `prefer-string-slice` linting issues
+- **ESLint 合规性：** 修复了 `prefer-global-this` 和 `prefer-string-slice` linting 问题
+#### **Cross-Browser Compatibility**
+#### **跨浏览器兼容性**
+- **Modern Browser Support:** Updated all CDN references to use stable, versioned URLs
+- **现代浏览器支持：** 更新所有 CDN 引用以使用稳定的版本化 URL
+- **Legacy Browser Fallbacks:** Maintained compatibility while leveraging modern features
+- **旧版浏览器回退：** 在利用现代功能的同时保持兼容性
+- **Touch Device Optimization:** Enhanced touch target sizing and navigation
+- **触摸设备优化：** 增强了触摸目标尺寸和导航
+### 📊 **Performance & Reliability**
+### 📊 **性能与可靠性**
+#### **Bundle Analysis**
+#### **包分析**
+- **Size Optimization:** All bundle watch checks pass with updated thresholds
+- **大小优化：** 所有包监视检查均通过更新的阈值
+- **Loading Performance:** Faster initial page load with optimized asset delivery
+- **加载性能：** 通过优化的资产交付，初始页面加载更快
+- **Runtime Performance:** Minimal overhead from path resolution scripts (<1ms execution)
+- **运行时性能：** 路径解析脚本开销极小（执行时间 <1ms）
+#### **Deployment Versatility**
+#### **部署多功能性**
+- **FTP Deployment:** Full support for traditional FTP/SFTP deployment workflows
+- **FTP 部署：** 完全支持传统的 FTP/SFTP 部署工作流程
+- **Static Hosting:** Compatible with GitHub Pages, Netlify, Vercel, Cloudflare Pages
+- **静态托管：** 兼容 GitHub Pages、Netlify、Vercel、Cloudflare Pages
+- **Sub-folder Deployment:** Works seamlessly when deployed to `/themes/v4/` or similar paths
+- **子文件夹部署：** 部署到 `/themes/v4/` 或类似路径时无缝工作
+- **CDN Integration:** Ready for integration with content delivery networks
+- **CDN 集成：** 已准备好与内容分发网络集成
+### 🎯 **Quality Assurance**
+### 🎯 **质量保证**
+#### **Testing Coverage**
+#### **测试覆盖率**
+- **Development Environment:** `npm run dev` - all features verified working
+- **开发环境：** `npm run dev` - 所有功能均已验证正常工作
+- **Production Build:** `npm run production` - 37 pages built successfully, 0 errors
+- **生产构建：** `npm run production` - 37 个页面成功构建，0 个错误
+- **Static Serving:** `python3 -m http.server` - full functionality confirmed
+- **静态服务：** `python3 -m http.server` - 完整功能已确认
+- **Sub-folder Deployment:** Tested with various deployment paths and structures
+- **子文件夹部署：** 已使用各种部署路径和结构进行测试
+#### **Linting & Standards**
+#### **代码检查和标准**
+- **Zero Linting Errors:** Complete compliance with ESLint and StyleLint rules
+- **零拼写错误：** 完全符合 ESLint 和 StyleLint 规则
+- **Code Consistency:** Unified code style across all JavaScript and CSS files
+- **代码一致性：** 所有 JavaScript 和 CSS 文件统一的代码风格
+- **Best Practices:** Modern ES2022+ patterns with proper browser compatibility
+- **最佳实践：** 具有适当浏览器兼容性的现代 ES2022+ 模式
+### 🚀 **Deployment Guide**
+### 🚀 **部署指南**
+#### **Quick Start**
+#### **快速开始**
+# Deploy via FTP (upload entire dist/ folder contents)
+# 通过 FTP 部署（上传整个 dist/ 文件夹内容）
+# Or serve locally for testing
+# 或者在本地提供服务进行测试
+#### **Deployment Scenarios**
+#### **部署场景**
+1. **Root Deployment:** Upload `dist/` contents to `public_html/` or equivalent
+1. **根目录部署：** 将 `dist/` 内容上传到 `public_html/` 或等效目录
+2. **Sub-folder Deployment:** Upload `dist/` contents to `public_html/admin/` or similar
+2. **子文件夹部署：** 将 `dist/` 内容上传到 `public_html/admin/` 或类似目录
+3. **Static Host Deployment:** Point build directory to `dist/` in your hosting platform
+3. **静态主机部署：** 在您的托管平台中将构建目录指向 `dist/`
+4. **CDN Integration:** Upload assets to CDN and update paths as needed
+4. **CDN 集成：** 将资产上传到 CDN 并根据需要更新路径
+### 📋 **Migration Notes**
+### 📋 **迁移说明**
+#### **From 4.0.0-rc2 to 4.0.0-rc3**
+#### **从 4.0.0-rc2 到 4.0.0-rc3**
+**Automatic Updates (No Action Required):**
+**自动更新（无需操作）：**
+- Path resolution works automatically in all deployment scenarios
+- 路径解析在所有部署场景中自动工作
+- Image loading is fixed without any HTML changes needed
+- 图像加载已修复，无需任何 HTML 更改
+- Sidebar navigation displays correctly with proper spacing and indicators
+- 侧边栏导航显示正确，具有适当的间距和指示器
+- All CDN resources load without console errors
+- 所有 CDN 资源加载无控制台错误
+**Recommended Actions:**
+**推荐操作：**
+- Remove any manual path fixes you may have implemented
+- 移除您可能已实现的任何手动路径修复
+- Update your deployment process to use the new `dist/` structure
+- 更新您的部署过程以使用新的 `dist/` 结构
+- Verify image loading in your specific deployment environment
+- 在您的特定部署环境中验证图像加载
+- Test both development (`npm run dev`) and production builds
+- 测试开发 (`npm run dev`) 和生产构建
+**Breaking Changes:**
+**重大更改：**
+- None - this release is fully backward compatible with existing HTML and CSS
+- 无 - 此版本完全向后兼容现有 HTML 和 CSS
+### ES2022 Modernization & Accessibility Compliance
+### ES2022 现代化与可访问性合规性
+This release modernizes AdminLTE to ES2022 standards and implements comprehensive WCAG 2.1 AA accessibility compliance, making it one of the most accessible admin templates available.
+此版本将 AdminLTE 现代化到 ES2022 标准，并实现了全面的 WCAG 2.1 AA 可访问性合规性，使其成为最易访问的管理模板之一。
+### JavaScript & Build System
+### JavaScript 与构建系统
+#### 🚀 **ES2022 Upgrade**
+#### 🚀 **ES2022 升级**
+- **TypeScript Target:** Upgraded from ES6 to ES2022
+- **TypeScript 目标：** 从 ES6 升级到 ES2022
+- Enables modern JavaScript features: optional chaining, nullish coalescing, class fields
+- 启用现代 JavaScript 功能：可选链、空值合并、类字段
+- Improved performance with native modern browser optimizations
+- 通过原生现代浏览器优化提高性能
+- Better tree-shaking and smaller bundle sizes
+- 更好的 Tree-shaking 和更小的包大小
+- **Browser Support:** Updated `.browserslistrc` for ES2022 compatibility
+- **浏览器支持：** 更新 `.browserslistrc` 以实现 ES2022 兼容性
+- Chrome ≥97, Firefox ≥104, Safari ≥15.4, Edge ≥97
+- Chrome ≥97, Firefox ≥104, Safari ≥15.4, Edge ≥97
+- Removed Internet Explorer support (end-of-life)
+- 移除对 Internet Explorer 的支持（已终止服务）
+- **Build Configuration:** Enhanced Rollup configuration
+- **构建配置：** 增强了 Rollup 配置
+- Native ES2022 module output
+- 原生 ES2022 模块输出
+- Improved source map generation
+- 改进了源映射生成
+- TypeScript integration optimization
+- TypeScript 集成优化
+### ♿ **Accessibility Features**
+### ♿ **可访问性功能**
+#### **WCAG 2.1 AA Compliance Implementation**
+#### **WCAG 2.1 AA 合规性实现**
+- **New Accessibility Module:** Complete `AccessibilityManager` class (`src/ts/accessibility.ts`)
+- **新可访问性模块：** 完整的 `AccessibilityManager` 类 (`src/ts/accessibility.ts`)
+- Automatic skip links generation and management
+- 自动生成和管理跳过链接
+- ARIA live regions for dynamic content announcements
+- 用于动态内容公告的 ARIA 实时区域
+- Enhanced focus management and keyboard navigation
+- 增强的焦点管理和键盘导航
+- Screen reader compatibility (JAWS, NVDA, VoiceOver)
+- 屏幕阅读器兼容性（JAWS、NVDA、VoiceOver）
+- Form validation with accessible error handling
+- 带有可访问错误处理的表单验证
+#### **Core Accessibility Features:**
+#### **核心可访问性功能：**
+- **Skip Navigation:** Automatic skip links to main content, navigation, and key sections
+- **跳过导航：** 自动跳过链接到主要内容、导航和关键部分
+- **Focus Management:**
+- **焦点管理：**
+- Enhanced focus indicators meeting contrast requirements
+- 增强的焦点指示器符合对比度要求
+- Focus trapping for modals and dropdowns
+- 模态框和下拉菜单的焦点陷阱
+- Logical tab order management
+- 逻辑制表符顺序管理
+- **Keyboard Navigation:**
+- **键盘导航：**
+- Full keyboard accessibility for all interactive elements
+- 所有交互式元素的完整键盘可访问性
+- Arrow key navigation for menus and tree views
+- 菜单和树视图的箭头键导航
+- Escape key handling for closing modals/dropdowns
+- 模态框/下拉菜单关闭的 Escape 键处理
+- **Screen Reader Support:**
+- **屏幕阅读器支持：**
+- Proper ARIA labels, roles, and properties
+- 适当的 ARIA 标签、角色和属性
+- Live region announcements for dynamic content
+- 动态内容的实时区域公告
+- Semantic HTML structure with landmarks
+- 带有地标的语义化 HTML 结构
+- **Form Accessibility:**
+- **表单可访问性：**
+- Automatic error identification and announcement
+- 自动错误识别和公告
+- Required field indicators
+- 必填字段指示器
+- Proper label associations
+- 适当的标签关联
+#### **Responsive Design & Preferences:**
+#### **响应式设计与偏好设置：**
+- **Reduced Motion:** Respects `prefers-reduced-motion` for users with vestibular disorders
+- **减少动画：** 尊重 `prefers-reduced-motion`，适用于有前庭疾病的用户
+- **High Contrast:** Enhanced support for high contrast mode
+- **高对比度：** 增强对高对比度模式的支持
+- **Touch Targets:** Minimum 44×44 pixel touch targets (WCAG 2.5.8)
+- **触摸目标：** 最小 44×44 像素触摸目标 (WCAG 2.5.8)
+- **Color Contrast:** All color combinations meet 4.5:1 contrast ratio requirement
+- **颜色对比度：** 所有颜色组合都满足 4.5:1 的对比度要求
+### 🎨 **Accessibility Styles**
+### 🎨 **可访问性样式**
+#### **New Stylesheet:** `src/scss/_accessibility.scss`
+#### **新样式表：** `src/scss/_accessibility.scss`
+- **Skip Link Styling:** Visually hidden until focused, proper positioning
+- **跳过链接样式：** 在聚焦前视觉隐藏，正确定位
+- **Enhanced Focus Indicators:** 3px outline with high contrast colors
+- **增强焦点指示器：** 3px 轮廓，高对比度颜色
+- **Screen Reader Utilities:** `.sr-only` and `.sr-only-focusable` classes
+- **屏幕阅读器工具：** `.sr-only` 和 `.sr-only-focusable` 类
+- **Touch Target Sizing:** Utilities for ensuring minimum touch target sizes
+- **触摸目标大小：** 确保最小触摸目标大小的实用工具
+- **Accessible Color Palette:** Pre-defined colors meeting contrast requirements
+- **可访问颜色调色板：** 预定义的符合对比度要求的颜色
+- **Print Accessibility:** Enhanced print styles with visible URLs and borders
+- **打印可访问性：** 增强的打印样式，带有可见 URL 和边框
+### 🏗️ **Component Improvements**
+### 🏗️ **组件改进**
+#### **Enhanced Components:**
+#### **增强组件：**
+- **Header Component:** Improved meta tags with accessibility features
+- **头部组件：** 改进了带有可访问性功能的元标签
+- Color scheme support (`light`/`dark`)
+- 配色方案支持（`light`/`dark`）
+- Theme color meta tags for browser UI
+- 用于浏览器 UI 的主题颜色元标签
+- Enhanced viewport configuration
+- 增强的视口配置
+- Accessibility description updates
+- 可访问性描述更新
+- **Navigation Components:**
+- **导航组件：**
+- Proper ARIA roles and labels
+- 正确的 ARIA 角色和标签
+- Semantic navigation landmarks
+- 语义化导航地标
+- Keyboard navigation support
+- 键盘导航支持
+- Screen reader announcements
+- 屏幕阅读器公告
+### 📚 **Documentation & Compliance**
+### 📚 **文档与合规性**
+#### **Added:**
+#### **已添加：**
+- **`ACCESSIBILITY-COMPLIANCE.md`:** Comprehensive documentation
+- **`ACCESSIBILITY-COMPLIANCE.md`：** 综合文档
+- Implementation guide for developers
+- 开发者实施指南
+- Testing procedures and tools
+- 测试程序和工具
+- Browser and assistive technology compatibility
+- 浏览器和辅助技术兼容性
+- API documentation for accessibility features
+- 可访问性功能的 API 文档
+- Usage examples and best practices
+- 使用示例和最佳实践
+#### **API Reference:**
+#### **API 参考：**
+// Initialize accessibility features
+// 初始化可访问性功能
+// Enable live announcements
+// 启用实时公告
+// Full keyboard support
+// 完整的键盘支持
+// Respect motion preferences
+// 尊重动画偏好设置
+// Public methods
+// 公共方法
+'Content updated'
+'内容已更新'
+### 🔧 **Technical Improvements**
+### 🔧 **技术改进**
+#### **Build System:**
+#### **构建系统：**
+- **Zero Linting Errors:** All CSS and JavaScript pass strict linting rules
+- **零拼写错误：** 所有 CSS 和 JavaScript 都通过严格的 Linting 规则
+- **Bundle Impact:** Minimal size increase (~23KB total for accessibility features)
+- **捆绑包影响：** 大小增加最小（可访问性功能总共约 23KB）
+- **Performance:** <5ms initialization time for accessibility features
+- **性能：** 可访问性功能的初始化时间 <5ms
+- **Integration:** Seamless integration with existing AdminLTE architecture
+- **集成：** 与现有 AdminLTE 架构无缝集成
+#### **Browser Compatibility:**
+#### **浏览器兼容性：**
+- **Modern Browsers:** Full ES2022 support in target browsers
+- **现代浏览器：** 目标浏览器中完全支持 ES2022
+- **Assistive Technology:** Tested with leading screen readers
+- **辅助技术：** 已使用主流屏幕阅读器进行测试
+- **Mobile Support:** Enhanced touch and mobile accessibility
+- **移动支持：** 增强了触摸和移动可访问性
+- **Legacy Graceful Degradation:** Core functionality maintained for older browsers
+- **旧版优雅降级：** 较旧浏览器仍保留核心功能
+### 🐛 **Bug Fixes**
+### 🐛 **错误修复**
+#### **Layout Issues:**
+#### **布局问题：**
+- **Sidebar Component:** Fixed corrupted navigation structure
+- **侧边栏组件：** 修复了损坏的导航结构
+- **Header Navigation:** Resolved parsing errors in Astro components
+- **头部导航：** 解决了 Astro 组件中的解析错误
+- **CSS Compilation:** Fixed SASS deprecation warnings and property order issues
+- **CSS 编译：** 修复了 SASS 弃用警告和属性顺序问题
+- **Focus Indicators:** Corrected outline and focus ring implementations
+- **焦点指示器：** 修正了轮廓和焦点环实现
+#### **Linting Compliance:**
+#### **Linting 合规性：**
+- **CSS:** Fixed 72+ StyleLint violations in accessibility styles
+- **CSS：** 修复了可访问性样式中 72+ 个 StyleLint 违规
+- **JavaScript:** Resolved ESLint violations for numeric separators and function scoping
+- **JavaScript：** 解决了数字分隔符和函数作用域的 ESLint 违规
+- **TypeScript:** Fixed compilation errors with modern syntax
+- **TypeScript：** 修复了现代语法导致的编译错误
+### 📊 **Performance Metrics**
+### 📊 **性能指标**
+#### **Bundle Sizes:**
+#### **包大小：**
+(includes full accessibility features)
+（包含所有可访问性功能）
+(includes AccessibilityManager)
+（包含 AccessibilityManager）
+<10KB additional for complete accessibility suite
+完整的可访问性套件额外增加 <10KB
+#### **Lighthouse Scores:**
+#### **Lighthouse 评分：**
+- **Accessibility:** 100% (WCAG 2.1 AA compliant)
+- **可访问性：** 100%（符合 WCAG 2.1 AA）
+- **Performance:** Maintained existing performance levels
+- **性能：** 保持现有性能水平
+- **Best Practices:** Improved with modern JavaScript patterns
+- **最佳实践：** 通过现代 JavaScript 模式得到改进
+### 🎯 **Standards Compliance**
+### 🎯 **标准合规性**
+#### **WCAG 2.1 AA Requirements Met:**
+#### **已满足 WCAG 2.1 AA 要求：**
+- **1. Perceivable:** Text alternatives, semantic structure, color contrast
+- **1. 可感知：** 文本替代、语义结构、颜色对比度
+- **2. Operable:** Keyboard accessibility, no seizure triggers, sufficient time
+- **2. 可操作：** 键盘可访问性、无癫痫触发、充足时间
+- **3. Understandable:** Readable content, predictable functionality, input assistance
+- **3. 可理解：** 可读内容、可预测功能、输入辅助
+- **4. Robust:** Valid markup, assistive technology compatibility
+- **4. 健壮性：** 有效标记、辅助技术兼容性
+#### **Additional Standards:**
+#### **其他标准：**
+- **Section 508:** US federal accessibility requirements
+- **508 条款：** 美国联邦可访问性要求
+- **EN 301 549:** European accessibility standard
+- **EN 301 549：** 欧洲可访问性标准
+- **ADA Compliance:** Americans with Disabilities Act requirements
+- **ADA 合规性：** 美国残疾人法案要求
+### 🚀 **Migration Guide**
+### 🚀 **迁移指南**
+#### **From 4.0.0-rc1 to 4.0.0-rc2:**
+#### **从 4.0.0-rc1 到 4.0.0-rc2：**
+**Automatic Features (No Action Required):**
+**自动功能（无需操作）：**
+- Accessibility features initialize automatically
+- 可访问性功能自动初始化
+- Skip links appear automatically for keyboard users
+- 跳过链接自动为键盘用户显示
+- Focus management works out-of-the-box
+- 焦点管理开箱即用
+- Screen reader announcements are enabled by default
+- 屏幕阅读器公告默认启用
+**Optional Enhancements:**
+**可选增强：**
+**For Developers:**
+**对于开发者：**
+- Include accessibility utilities: `import { accessibilityUtils } from './adminlte.js'`
+- 包含可访问性工具：`import { accessibilityUtils } from './adminlte.js'`
+- Use new CSS classes: `.sr-only`, `.touch-target`, `.text-accessible-*`
+- 使用新的 CSS 类：`.sr-only`、`.touch-target`、`.text-accessible-*`
+- Test with screen readers and keyboard navigation
+- 使用屏幕阅读器和键盘导航进行测试
+### Major Modernization Release
+### 主要现代化发布
+This release represents a complete modernization of the AdminLTE codebase, bringing it up to current standards with the latest tooling, dependencies, and best practices.
+此版本代表了 AdminLTE 代码库的彻底现代化，使其符合最新的工具、依赖项和最佳实践。
+### Infrastructure & Tooling
+### 基础设施与工具
+#### Added
+#### 已添加
+- **New npm scripts for better developer experience:**
+- **新的 npm 脚本，提供更好的开发者体验：**
+- `npm start` - Quick development server launch
+- `npm start` - 快速启动开发服务器
+- `npm run build` - Convenient build command for development
+- `npm run build` - 方便的开发构建命令
+- Enhanced `npm run production` with bundlewatch integration
+- 增强的 `npm run production`，集成 bundlewatch
+#### Changed
+#### 已更改
+- **Upgraded to ES Modules:** Added `"type": "module"` to package.json
+- **升级到 ES 模块：** 在 package.json 中添加 `"type": "module"`
+- **ESLint modernization:** Complete upgrade to ESLint v9 with new flat configuration format
+- **ESLint 现代化：** 完全升级到 ESLint v9，采用新的扁平配置格式
+- Migrated from `.eslintrc.json` to modern `eslint.config.js`
+- 从 `.eslintrc.json` 迁移到现代 `eslint.config.js`
+- Updated all ESLint plugins to latest versions
+- 将所有 ESLint 插件更新到最新版本
+- Resolved 700+ linting issues through automated fixes
+- 通过自动化修复解决了 700 多个 linting 问题
+- **Astro configuration:** Added `output: 'static'` for proper static site generation
+- **Astro 配置：** 添加 `output: 'static'` 以实现正确的静态站点生成
+- **Build optimizations:** Enhanced Rollup and PostCSS configurations for ES modules
+- **构建优化：** 增强了 Rollup 和 PostCSS 对 ES 模块的配置
+### Dependencies
+### 依赖项
+#### Updated
+#### 已更新
+- **Major version upgrades:**
+- **主要版本升级：**
+- **Minor/patch updates (50+ packages):**
+- **次要/补丁更新（50 多个包）：**
+- And many more...
+- 还有更多...
+### Security & Quality
+### 安全与质量
+#### Fixed
+#### 已修复
+- **Resolved all npm security vulnerabilities** (0 vulnerabilities remaining)
+- **解决了所有 npm 安全漏洞**（剩余 0 个漏洞）
+- **Updated browserslist database** to latest browser compatibility data
+- **更新了 browserslist 数据库**到最新的浏览器兼容性数据
+- **Fixed all deprecation warnings** from SASS and other build tools
+- **修复了 SASS 和其他构建工具的所有弃用警告**
+#### Improved
+#### 已改进
+- **Code quality:** Zero linting errors across JavaScript, TypeScript, CSS, and Astro files
+- **代码质量：** JavaScript、TypeScript、CSS 和 Astro 文件中零 linting 错误
+- **Bundle optimization:** All assets pass bundlewatch size thresholds
+- **捆绑包优化：** 所有资产都通过 bundlewatch 大小阈值
+- **Build reliability:** Complete production build pipeline works end-to-end
+- **构建可靠性：** 完整的生产构建管道端到端工作
+### Code Cleanup
+### 代码清理
+#### Removed
+#### 已移除
+- **Technical debt cleanup:**
+- **技术债务清理：**
+- Removed incomplete TODO comments and dead code
+- 删除了未完成的 TODO 注释和死代码
+- Cleaned up unused variables and imports
+- 清理了未使用的变量和导入
+- Standardized code formatting across all files
+- 统一了所有文件的代码格式
+#### Fixed
+#### 已修复
+- **ESLint configuration conflicts** between different rule sets
+- 不同规则集之间的 **ESLint 配置冲突**
+- **Module import issues** with JSON imports in ES modules
+- ES 模块中 JSON 导入的 **模块导入问题**
+- **Circular dependency warnings** in build tools
+- 构建工具中的 **循环依赖警告**
+### Development Experience
+### 开发体验
+#### Enhanced
+#### 已增强
+- **Faster development startup** with optimized watch tasks
+- 通过优化的监视任务实现**更快的开发启动**
+- **Cleaner build output** with suppressed non-critical warnings
+- 通过抑制非关键警告实现**更干净的构建输出**
+- **Better error reporting** with modern linting tools
+- 借助现代 linting 工具实现**更好的错误报告**
+- **Improved script organization** with consistent naming conventions
+- 通过一致的命名约定实现**改进的脚本组织**
+### Browser & Platform Support
+### 浏览器与平台支持
+#### Maintained
+#### 已维护
+- **Full Bootstrap 5.3.7 compatibility**
+- **完全兼容 Bootstrap 5.3.7**
+- **Modern browser support** with updated browserslist
+- 通过更新 browserslist 实现**现代浏览器支持**
+- **Static site generation** with Astro 5.x
+- 使用 Astro 5.x 进行**静态站点生成**
+- **RTL (Right-to-Left) language support**
+- **RTL（从右到左）语言支持**
+## Previous Versions
+## 以前的版本
+### [4.0.0-beta3] and earlier
+### [4.0.0-beta3] 及更早版本
+- Legacy versions with previous dependency sets
+- 具有先前依赖集的老版本
+- See git history for detailed changes in earlier versions
+- 有关早期版本的详细更改，请参阅 git 历史记录
+## Migration Guide
+## 迁移指南
+### From 4.0.0-beta3 to 4.0.0-rc1
+### 从 4.0.0-beta3 到 4.0.0-rc1
+**For Users:**
+**对于用户：**
+- No breaking changes in the compiled CSS/JS output
+- 编译后的 CSS/JS 输出中没有重大更改
+- All existing HTML templates remain fully compatible
+- 所有现有 HTML 模板保持完全兼容
+- CDN links and package imports work as before
+- CDN 链接和包导入与以前一样工作
+**For Developers:**
+**对于开发者：**
+- Update your npm scripts if you were using custom ones
+- 如果您使用的是自定义 npm 脚本，请更新它们
+- The new `npm start` command replaces manual `npm run dev`
+- 新的 `npm start` 命令取代了手动 `npm run dev`
+- ESLint configuration is now in `eslint.config.js` (old `.eslintrc.json` removed)
+- ESLint 配置现在位于 `eslint.config.js` 中（旧的 `.eslintrc.json` 已删除）
+- Build process now requires Node.js ES modules support
+- 构建过程现在需要 Node.js ES 模块支持
+**Recommended Actions:**
+**推荐操作：**
+1. Run `npm install` to get latest dependencies
+1. 运行 `npm install` 以获取最新依赖项
+2. Use `npm start` for development
+2. 使用 `npm start` 进行开发
+3. Use `npm run production` for production builds
+3. 使用 `npm run production` 进行生产构建
+4. Review any custom ESLint configurations for compatibility
+4. 检查任何自定义 ESLint 配置的兼容性
+Add accessibility-enhanced form
+添加无障碍功能到表单
+Use accessible color classes
+使用易于识别的颜色类别
+Success message
+发送消息
+# Build for production
+# 生产环境构建
+- **Fixed 4 Security Vulnerabilities:** Resolved all npm audit security issues
+- **修复了 4 个安全漏洞：** 解决了所有 npm 审计中的安全问题
+- Fixed high severity reflected XSS vulnerability in Astro server islands
+- 修复了 Astro 服务器岛屿中高严重级别的反射型 XSS 漏洞
+- Fixed moderate severity authentication bypass via url.pathname in Astro
+- 修复了通过 Astro 中的 url.pathname 实现的中等严重级别的身份验证绕过漏洞
+- Fixed moderate severity stored XSS in Astro Cloudflare adapter /_image endpoint
+- 修复了 Astro Cloudflare 适配器 /_image 端点中的中等严重级别的存储型 XSS 漏洞
+- Fixed moderate severity unsanitized class attribute in mdast-util-to-hast
+- 修复了 mdast-util-to-hast 中未对类属性进行清理的中等严重级别漏洞
+- All vulnerabilities resolved by updating to Astro 5.16.4+
+- 所有漏洞均已通过更新至 Astro 5.16.4 及以上版本得以解决
+- **Sidebar State Persistence:** New feature to remember sidebar collapsed/expanded state
+- **侧边栏状态保存功能：** 新增功能，可保存侧边栏收起/展开状态
+- Sidebar state now persists across page refreshes using localStorage
+- 现在，侧边栏状态在页面刷新时仍能保持不变，通过使用 localStorage 实现
+- Configurable via `enablePersistence` option (default: `true`)
+- 可通过 `enablePersistence` 选项进行配置（默认值：`true`）
+- SSR-safe implementation with proper environment checks
+- 采用安全的服务器端渲染实现方式，并进行了适当的环境检查
+- Mobile-aware: doesn't restore state on small screens (respects responsive breakpoints)
+- 对移动设备友好：在小屏幕上不会恢复状态（会遵循响应式断点）
+- Graceful error handling for private browsing mode
+- 对私有浏览模式提供优雅的错误处理
+- Storage key: `lte.sidebar.state`
+- 存储键：`lte.sidebar.state`
+- **GitHub Actions:** Updated all workflows to Node.js 22 (from Node.js 18)
+- **GitHub Actions：** 将所有工作流更新为使用 Node.js 22 版本（从之前的 Node.js 18 版本升级而来）
+- Node.js 18 reached End-of-Life on April 30, 2025
+- Node.js 18 于 2025 年 4 月 30 日达到生命周期结束期
+- Node.js 22 is the current Active LTS (supported until April 2027)
+- Node.js 22 是当前的活跃长期支持版本（将持续支持至 2027 年 4 月）
+- Updated `setup-node` action from v3 to v4 across all workflows
+- 在所有工作流中将 `setup-node` 操作从 v3 升级到 v4
+- Updated CodeQL actions from v2 to v3
+- 将 CodeQL 操作从 v2 升级到 v3
+- Added `FORCE_COLOR: 2` environment variable to codeql.yml for consistency
+- 在 codeql.yml 中添加 `FORCE_COLOR： 2` 环境变量以保持一致性
+- **Release Workflow:** Fixed zip command in release.yml
+- **发布流程：** 在 release.yml 中修正了 zip 命令
+- Corrected `-d` flag to `-r` for recursive directory zipping
+- 将 `-d` 标志更正为 `-r` 以实现递归目录压缩
+- Fixed filename inconsistency in release artifacts
+- 修正了发布成果文件中的文件名不一致问题
+- **Nested Card Expand Icon:** Fixed issue #5909 where nested collapsed cards didn't show expand icon
+- **嵌套卡片展开图标：** 解决了 #5909 问题，即嵌套折叠的卡片不会显示展开图标
+- Updated CSS selectors to use direct child (>) scoping for card state icons
+- 更新了 CSS 选择器，使用直接子元素（>）范围来定位卡片状态图标
+- Collapse/expand icons now correctly display for nested cards independently
+- 嵌套卡片的折叠/展开图标现在能够独立正确显示
+- Card body/footer display rules now only affect direct children, not nested cards
+- 卡片主体/页脚的显示规则现在仅影响直接子元素，而不影响嵌套卡片
+- **Card Widget JavaScript:** Fixed nested card collapse/expand affecting child cards
+- **卡片组件 JavaScript：** 解决了嵌套卡片的折叠/展开影响子卡片的问题
+- Added `:scope >` selector to only target direct card-body/footer children
+- 添加了 `:scope >` 选择器，仅针对直接的卡片主体/页脚子元素
+- Prevents parent card collapse from affecting nested card animations
+- 防止父卡片的折叠影响嵌套卡片的动画效果
+- **Dependencies:**
+- **依赖项更新：**
+Updated 15+ packages to latest versions
+已更新 15+ 软件包至最新版本
+Updated 17+ packages to latest versions for improved security and performance
+已将 17+ 软件包更新至最新版本，以提升安全性与性能。
+ (major version)
+ (major 版本)
+- **Security Vulnerabilities:**
+- **安全漏洞：**
+Resolved 2 security issues
+解决了 2 个安全问题
+- Fixed high severity DoS vulnerability in axios (updated to 0.30.2+)
+- 修复了 axios 中的高严重性拒绝服务漏洞（已更新至 0.30.2 及以上版本）
+- Fixed critical vulnerability in form-data random function (updated to 4.0.4+)
+- 修复了 form-data 随机函数中的严重漏洞（已更新至 4.0.4 及以上版本）
+Removed `.eslintignore` file
+移除 `.eslintignore` 文件
+- ESLint ignores are now properly configured in `eslint.config.js`
+- ESLint 的忽略规则现已在 `eslint.config.js` 文件中正确设置
+- Eliminates deprecation warnings in ESLint 9.x
+- 在 ESLint 9.x 版本中消除了弃用警告
+## What's New in v4.0.0-rc6
+## v4.0.0-rc6 版本更新内容
+**Security & Feature Release** - Important security fixes and new sidebar persistence feature:
+**安全与功能更新** - 重要的安全修复措施以及新的侧边栏持久化功能：
+- **Security Fixes** - Resolved 4 vulnerabilities (XSS in Astro, auth bypass, unsanitized attributes)
+- **安全修复** - 解决了 4 个漏洞（Astro 中的跨站脚本攻击、授权绕过、未清理的属性）
+- **Sidebar State Persistence** - Sidebar now remembers collapsed/expanded state across page refreshes
+- **侧边栏状态持久化** - 侧边栏现在能够在页面刷新时记住其折叠/展开的状态
+- **Node.js 22** - Updated all GitHub Actions workflows to Node.js 22 LTS (supported until 2027)
+- **Node.js 22** - 将所有 GitHub Actions 工作流更新为 Node.js 22 版本（支持至 2027 年）
+- **Latest Dependencies** - 15+ packages updated including Astro 5.16.4, Prettier 3.7.4, Rollup 4.53.3
+- **最新依赖项** - 更新了 15 个以上的包，包括 Astro 5.16.4、Prettier 3.7.4、Rollup 4.53.3
+- **CI/CD Improvements** - Updated CodeQL actions to v3, fixed release workflow bugs
+- **CI/CD 改进** - 将 CodeQL 工作流更新至 v3 版本，修复了发布工作流的错误
+- ✅ Zero security vulnerabilities - all npm audit issues resolved
+- ✅ 没有安全漏洞 - 所有 npm 审计问题均已解决
+- ✅ Sidebar state persists in localStorage (configurable, SSR-safe, mobile-aware)
+- ✅ 侧边栏状态会保存在本地存储中（可配置、支持服务器端渲染、具备移动设备适配能力）
+- ✅ GitHub Actions use Node.js 22 (Active LTS until April 2027)
+- ✅ GitHub Actions 使用 Node.js 22 版本（从现在起持续活跃直至 2027 年 4 月）
+- ✅ CodeQL security scanning updated to latest v3 actions
+- ✅ CodeQL 安全扫描已更新至最新 v3 版本的动作
+- ✅ Release workflow fixed for proper asset packaging
+- ✅ 发布流程已修复，以实现正确的资产打包
+**Install the latest:**
+**安装最新版本：**
+## Security & Production Deployment
+## 安全与生产部署
+### Important Security Notice
+### 重要安全提示
+AdminLTE is a **UI template** - when deploying to production, follow these critical guidelines:
+AdminLTE 是一款**用户界面模板**——在进行生产部署时，请遵循以下关键准则：
+**What to Deploy:**
+**部署内容：**
+- Only compiled production assets: `dist/js/adminlte.min.js` and `dist/css/adminlte.min.css`
+- 仅包含编译后的生产资源：`dist/js/adminlte.min.js` 和 `dist/css/adminlte.min.css`
+- Your application-specific files
+- 应用中特定文件
+**What NOT to Deploy:**
+**不应部署的内容：**
+- `node_modules/` directory
+- `node_modules/` 目录
+- Demo/example HTML files (index.html, index2.html, index3.html, etc.)
+- 演示/示例 HTML 文件（index.html、index2.html、index3.html 等）
+- Source files (`src/` directory)
+- 源文件（`src/` 目录）
+- Development configuration files
+- 开发配置文件
+**CVE-2021-36471 Notice:**
+**CVE-2021-36471 警告：**
+This CVE is **disputed** and does not represent a vulnerability in AdminLTE. It refers to demo pages being accessible when developers incorrectly deploy example files to production. AdminLTE v4 has a clear separation between development demos and production assets. See [SECURITY.md](SECURITY.md) for complete details.
+此 CVE 信息存在争议，并不代表 AdminLTE 存在漏洞。它指的是在开发人员错误地将示例文件部署到生产环境时，演示页面能够被访问到。AdminLTE 4 版本明确区分了开发演示内容和生产资源。有关详细信息，请参阅 [SECURITY.md](SECURITY.md) 文件。
+**Production Build:**
+**生产版本：**
+# Builds optimized assets in dist/
+# 在 dist/ 目录中构建优化后的资产文件
+For detailed security guidelines, authentication requirements, and best practices, see [SECURITY.md](SECURITY.md).
+有关详细的安全指南、认证要求以及最佳实践，请参阅 [SECURITY.md](SECURITY.md)。
+Your avatar here? Become a sponsor
+你的虚拟形象在这里吗？请成为赞助商吧
+- **Deprecated Files:**
+- **已弃用文件：**
+# Security Policy
+# 安全政策
+## Reporting Security Issues
+## 报告安全问题
+If you discover a security vulnerability in AdminLTE, please report it by emailing the maintainers or opening a private security advisory on GitHub. We take security seriously and will respond promptly.
+如果您在 AdminLTE 中发现任何安全漏洞，请通过发送电子邮件给维护人员或在 GitHub 上创建私密的安全公告来报告该问题。我们非常重视安全问题，并会迅速作出回应。
+## Supported Versions
+## 支持的版本
+| Version
+| 版本
+| Supported
+| 支持的系统
+## Security Best Practices
+## 安全最佳实践
+AdminLTE is a frontend admin dashboard template. When deploying applications built with AdminLTE, follow these security best practices:
+AdminLTE 是一款前端管理仪表板模板。在部署使用 AdminLTE 构建的应用程序时，请遵循以下安全最佳实践：
+### 1. Production Deployment
+### 1. 生产部署
+- **Never expose `node_modules` directory** in production environments
+- 在生产环境中**切勿公开 `node_modules` 目录**
+- **Remove demo/example files** (like `index2.html`, `index3.html`) from production builds
+- 从生产构建中移除演示/示例文件（例如 `index2.html`, `index3.html`）
+- **Use a proper build process** that only includes necessary production assets
+- 使用仅包含必要生产资源的恰当构建流程
+- **Configure web server properly** to prevent directory traversal attacks
+- 正确配置网络服务器，以防止目录遍历攻击
+### 2. Build Process
+### 2. 构建过程
+When deploying to production:
+在部署到生产环境时：
+# Build only production assets
+# 仅构建生产环境所需资源
+# Deploy only the dist/ directory contents you need
+# 只部署您所需的内容到 dist/ 目录中
+# Typically: dist/js/adminlte.min.js and dist/css/adminlte.min.css
+# 通常情况下：dist/js/adminlte.min.js 和 dist/css/adminlte.min.css
+### 3. What NOT to Deploy
+### 3. 不宜部署的内容
+Do not deploy these to production:
+请勿将以下内容部署到生产环境中：
+- `node_modules/` directory
+- `node_modules/` 目录
+- Example/demo HTML files (`index.html`, `index2.html`, `index3.html`, etc.)
+- 示例/演示的 HTML 文件（如 `index.html`, `index2.html`, `index3.html` 等）
+- Source files (`src/` directory)
+- 源文件（`src/`目录）
+- Development configuration files
+- 开发配置文件
+- Documentation files
+- 文档文件
+## Known CVE Issues
+## 已知的 CVE 问题
+### CVE-2021-36471 (Disputed)
+### CVE-2021-36471（存在争议）
+**Status**: This CVE is **disputed** and does not represent a vulnerability in AdminLTE itself.
+**状态**：此 CVE 被认为**存在争议**，并且并不意味着 AdminLTE 系统本身存在漏洞。
+**Issue**: CVE-2021-36471 claims AdminLTE 3.1.0 has a "Directory Traversal vulnerability" that allows remote attackers to view demo pages via `/admin/index2.html` and `/admin/index3.html`.
+**问题**：CVE-2021-36471 指出 AdminLTE 3.1.0 存在"目录遍历漏洞"，该漏洞使得远程攻击者能够通过访问 `/admin/index2.html` 和 `/admin/index3.html` 来查看演示页面。
+**Clarification**:
+**说明**：
+- The `index2.html` and `index3.html` files are **example/demo pages** intended for developer reference during development
+- `index2.html` 和 `index3.html` 这两个文件是 **示例/演示页面**，旨在供开发人员在开发过程中参考
+- This is **not a vulnerability in AdminLTE** - it is a **deployment misconfiguration** by website developers
+- 这并非 **AdminLTE 的漏洞** - 它是由网站开发者在部署时出现的 **配置错误**
+- The issue occurs when developers incorrectly deploy:
+- 问题出现在开发者错误地进行以下操作时：
+- Their entire `node_modules` folder publicly
+- 将其整个 `node_modules` 文件夹公开部署
+- Demo/example files in production environments
+- 在生产环境中部署演示/示例文件
+- Without proper web server configuration
+- 且未进行适当的 Web 服务器配置
+**Resolution**:
+**决议**：
+- AdminLTE 4.x has restructured the project architecture with clear separation between development demos and production assets
+- AdminLTE 4.x 已对项目架构进行了重新设计，实现了开发演示与生产资源的清晰区分
+- Follow the production deployment best practices above
+- 请遵循上述的生产部署最佳实践
+- Only deploy the compiled production assets from `dist/js/` and `dist/css/`
+- 仅部署来自 `dist/js/` 和 `dist/css/` 目录的编译后的生产资源
+- The original CVE researcher acknowledged this should be classified as low/info severity, not critical
+- 该原始的漏洞研究员已确认，此漏洞应被归类为低/信息级别严重性，而非严重级别
+**For More Information**:
+**了解更多**：
+- [GitHub Issue
+- [GitHub 问题
+- [CVE Record
+- [CVE 记录
+marked as disputed
+标记为存在争议
+## Secure Development
+## 安全开发
+### Content Security Policy (CSP)
+### 内容安全策略（CSP）
+When implementing AdminLTE in your application, consider adding appropriate Content Security Policy headers to prevent XSS attacks.
+在将 AdminLTE 应用到您的系统中时，请考虑添加适当的内容安全策略标头，以防止 XSS 攻击。
+### Authentication & Authorization
+### 身份验证与授权
+AdminLTE is a **UI template only** and does not include authentication or authorization. You must:
+AdminLTE 仅是一个**用户界面模板**，不包含认证或授权功能。您需要：
+- Implement proper authentication in your backend
+- 在后端实现适当的认证机制
+- Secure all API endpoints
+- 保护所有 API 端点
+- Use HTTPS in production
+- 在生产环境中使用 HTTPS
+- Implement proper session management
+- 实施适当的会话管理
+- Follow OWASP security guidelines
+- 遵循 OWASP 安全指南
+- Keep AdminLTE and its dependencies up to date
+- 保持 AdminLTE 及其相关依赖项处于最新状态
+- Regularly run `npm audit` to check for vulnerabilities
+- 定期运行 `npm audit` 以检查是否存在漏洞
+- Review security advisories for Bootstrap and other dependencies
+- 查阅 Bootstrap 及其他依赖项的安全公告
+## Contact
+## 联系方式
+For security concerns, please contact the maintainers through:
+出于安全方面的考虑，请通过以下方式联系维护人员：
+- GitHub Issues (for general questions)
+- GitHub 问题跟踪页面（用于一般性问题）
+- GitHub Security Advisories (for sensitive security issues)
+- GitHub 安全公告（用于敏感的安全问题）
+- Project maintainer email (check package.json)
+- 项目维护人员邮箱（查看 package.json 文件）
+(includes security fixes)
+（包含安全修复）
+Our Sponsors
+我们的赞助商
+### Added
+### 新增
+### Changed
+### 变更
+### Removed
+### 移除
+Email <span
+邮箱 <span
+Updated adminlte.js size limit to 5.2 kB
+更新 adminlte.js 的大小限制为 5.2 kB
+Updated all packages to latest semver-compatible versions
+将所有软件包更新至最新的服务器兼容版本
+- **Fixed Footer with Layout Fixed:** Footer now stays pinned at the bottom when using both `.fixed-footer` and `.layout-fixed` (#5805)
+- **修复固定页脚与固定布局搭配使用：** 现在当同时使用 `.fixed-footer` 和 `.layout-fixed` 时，页脚会固定在底部 (#5805)
+- **Mobile Sidebar Scroll Chaining:** Added `overscroll-behavior: contain` to prevent page scroll when scrolling sidebar on mobile (#5864)
+- **移动端侧边栏滚动链式传递：** 添加了 `overscroll-behavior: contain`，以防止在移动设备上滚动侧边栏时页面同时滚动 (#5864)
+- **Sidebar Flicker on Load:** Resolved by layout refactor fixing duplicate initialization and broken hold-transition timer (#5952)
+- **加载时侧边栏闪烁问题：** 通过布局重构解决，修复了重复初始化和损坏的 hold-transition 计时器 (#5952)
+- **Bootstrap Modal Escape Key:** Accessibility module no longer intercepts Escape key when a Bootstrap modal is open (#5993)
+- **Bootstrap 模态框的 Escape 键：** 当 Bootstrap 模态框打开时，可访问性模块不再拦截 Escape 键 (#5993)
+- **Pagination Border Radius:** Fixed `calc()` syntax in `_bootstrap-variables.scss` to match Bootstrap 5.3 format (#5951)
+- **分页边框圆角：** 修复了 `_bootstrap-variables.scss` 中 `calc()` 的语法，使其匹配 Bootstrap 5.3 的格式 (#5951)
+- **slideUp/slideDown at Duration 0:** Added early return guard for zero/near-zero animation durations (#5964)
+- **持续时间为 0 时的 slideUp/slideDown：** 为零或接近零的动画持续时间添加了提前返回保护 (#5964)
+- **TypeScript Comments in Build:** Added `removeComments: true` to tsconfig.json for smaller unminified bundles (#5953)
+- **构建中的 TypeScript 注释：** 在 tsconfig.json 中添加了 `removeComments: true`，以减小未压缩包的大小 (#5953)
+- **Sidebar Persistence:** `enablePersistence` now defaults to `false` (was `true`). Opt in via `data-enable-persistence="true"` on `.app-sidebar`. **BREAKING CHANGE**
+- **侧边栏持久化：** `enablePersistence` 现在默认为 `false`（之前为 `true`）。如需启用，请在 `.app-sidebar` 上设置 `data-enable-persistence="true"`。**破坏性变更**
+- **Layout Plugin Refactor:** Single Layout instance with persistent hold-transition timer, proper cleanup on resize (#5956)
+- **布局插件重构：** 采用单一 Layout 实例，带有持久的 hold-transition 计时器，并在调整窗口大小时进行适当的清理 (#5956)
+- **PushMenu Plugin Refactor:** Single PushMenu instance with proper responsive logic, config from data attributes, mobile-aware state management (#5954)
+- **PushMenu 插件重构：** 采用单一 PushMenu 实例，具备正确的响应式逻辑、从 data 属性读取配置，以及移动端感知的状态管理 (#5954)
+- **Login/Register Box:** Increased width from 360px to 400px (#5963)
+- **登录/注册框：** 宽度从 360px 增加至 400px (#5963)
+- **Sidebar Without Hover:** New `sidebar-without-hover` body class that prevents collapsed mini sidebar from expanding on hover (#5837)
+- **无悬停侧边栏：** 新增 `sidebar-without-hover` body 类，可防止折叠后的迷你侧边栏在悬停时展开 (#5837)
+  - New demo page at `layout/collapsed-sidebar-without-hover.html`
+  - 新增演示页面位于 `layout/collapsed-sidebar-without-hover.html`
+- **JavaScript Documentation:** Added documentation pages for all JS components
+- **JavaScript 文档：** 为所有 JS 组件添加了文档页面
+  - Layout, Card Widget, Direct Chat, Fullscreen, and Accessibility modules
+  - 包括 Layout、Card Widget、Direct Chat、Fullscreen 和 Accessibility 模块
+  - Updated PushMenu documentation with configuration options and responsive behavior
+  - 更新了 PushMenu 文档，包含配置选项和响应式行为
+  - All 7 JS components now fully documented in the sidebar navigation
+  - 所有 7 个 JS 组件现已在侧边栏导航中完整文档化
+- **Accessibility Module:** WCAG 2.1 AA compliance features (skip links, focus management, keyboard navigation, reduced motion, live announcements)
+- **可访问性模块：** 具备 WCAG 2.1 AA 合规功能（跳过链接、焦点管理、键盘导航、减少动画、实时通告）
+- **Print Layout Fix:** Sidebar and main content now both visible when printing (#5996)
+- **打印布局修复：** 打印时侧边栏和主内容现在均可显示 (#5996)
+- **Bootstrap variable sync with 5.3.4:**
+- **Bootstrap 变量与 5.3.4 同步：**
+- Added missing null variables: `$btn-close-filter`, `$carousel-control-icon-filter`
+- 新增缺失的 null 变量：`$btn-close-filter`、`$carousel-control-icon-filter`
+- Marked deprecated-in-5.3.4 variables with inline comments: `$btn-close-white-filter`, `$carousel-dark-indicator-active-bg`, `$carousel-dark-caption-color`, `$carousel-dark-control-icon-filter`
+- 使用内联注释标记了在 5.3.4 中已弃用的变量：`$btn-close-white-filter`、`$carousel-dark-indicator-active-bg`、`$carousel-dark-caption-color`、`$carousel-dark-control-icon-filter`
+- Documented the intentional override of `$modal-content-color` (null vs Bootstrap's `var(--bs-body-color)`)
+- 记录了有意覆盖 `$modal-content-color` 的说明（null 与 Bootstrap 的 `var(--bs-body-color)` 对比）
+- **All dependencies bumped to latest, including majors:**
+- **所有依赖项更新至最新版本，包括主版本更新：**
+- typescript: 5.9.3 → 6.0.3 (`baseUrl` removed, `moduleResolution: "bundler"` set to clear deprecation warnings)
+- typescript: 5.9.3 → 6.0.3（移除了 `baseUrl`，设置了 `moduleResolution: "bundler"` 以清除弃用警告）
+- **ESLint config flattened:** Removed the legacy `.eslintrc.json` (ignored since ESLint 9), along with three deps that only it referenced: `eslint-plugin-import`, `eslint-config-xo`, `eslint-config-xo-typescript`. Added explicit deps for `@eslint/js`, `globals`, and `typescript-eslint` (now required to be declared since ESLint 10 stopped resolving them transitively).
+- **ESLint 配置扁平化：** 移除了旧版的 `.eslintrc.json`（自 ESLint 9 起已被忽略），以及仅被其引用的三个依赖项：`eslint-plugin-import`、`eslint-config-xo`、`eslint-config-xo-typescript`。显式添加了 `@eslint/js`、`globals` 和 `typescript-eslint` 作为依赖（自 ESLint 10 起，这些依赖不再被传递解析，因此需要显式声明）。
+- **`stylelint-config-twbs-bootstrap` peer pinned via npm overrides** so it accepts stylelint 17 ahead of an upstream release. This removes the need for `--legacy-peer-deps` on `npm install`.
+- **通过 npm overrides 固定 `stylelint-config-twbs-bootstrap` 的 peer 依赖**，使其在上游版本发布之前就能接受 stylelint 17。这消除了在 `npm install` 时使用 `--legacy-peer-deps` 的需要。
+- **Security:** `yaml` pinned to `^2.9.0` via overrides to clear the dev-only stack-overflow advisory chain through `@astrojs/check`. `npm audit` now reports **0 vulnerabilities**.
+- **安全：** 通过 overrides 将 `yaml` 固定为 `^2.9.0`，以清除通过 `@astrojs/check` 引入的仅限开发环境的堆栈溢出漏洞链。`npm audit` 现在报告 **0 个漏洞**。
+- **#6028:** Color-mode "Auto" icon now renders. The dropdown used `bi-circle-fill-half-stroke` (a FontAwesome class name); replaced with the correct Bootstrap Icons class `bi-circle-half`.
+- **#6028:** 颜色模式“自动”图标现已正常渲染。下拉菜单之前使用了 `bi-circle-fill-half-stroke`（这是 FontAwesome 的类名）；现已替换为正确的 Bootstrap Icons 类 `bi-circle-half`。
+- **#6026:** `.table-head-fixed` now respects dark mode. Hardcoded `background-color: $white` swapped for `var(--bs-body-bg)` so the sticky header tracks the active colour scheme.
+- **#6026:** `.table-head-fixed` 现在支持深色模式。将硬编码的 `background-color: $white` 替换为 `var(--bs-body-bg)`，使固定表头能够跟随当前颜色方案。
+- **#6021:** Fullscreen button no longer shifts after click. The plugin used to set `iconMaximize.style.display = 'block'` directly, overriding the icon library's natural display value (visible on FontAwesome). Now toggles Bootstrap's `.d-none` utility class. Markup updated accordingly.
+- **#6021:** 全屏按钮点击后不再发生位移。该插件之前直接设置 `iconMaximize.style.display = 'block'`，覆盖了图标库默认的 display 值（在 FontAwesome 上是可见的）。现在改为切换 Bootstrap 的 `.d-none` 工具类。标记已相应更新。
+- **#6020:** Sidebar (including brand) now stays put when using `.fixed-header`. New companion rule pins the sidebar sticky on `sidebar-expand-*` breakpoints, giving the menu its own scrollbar instead of scrolling with the page.
+- **#6020:** 使用 `.fixed-header` 时，侧边栏（包括品牌区）现在保持固定不动。新增配套规则，在 `sidebar-expand-*` 断点处将侧边栏设置为粘性定位，使菜单拥有自己的滚动条，而不再随页面滚动。
+- **#6019:** Pie chart on `index2.html` no longer flickers on browser zoom. Pinned an explicit `height: 350` to break the ApexCharts ResizeObserver feedback loop most visible on Edge.
+- **#6019:** `index2.html` 上的饼图在浏览器缩放时不再闪烁。通过显式固定 `height: 350`，打破了 ApexCharts ResizeObserver 的反馈循环（该问题在 Edge 浏览器上最为明显）。
+- **Forms section restructured:** Split the 623-line `forms/general.html` into three focused pages — `forms/elements.html` (inputs, selects, checks/radios/switches, ranges, floating labels), `forms/layout.html` (horizontal, inline, sizing, width), and `forms/validation.html` (Bootstrap native validation + tooltip variant).
+- **表单部分重构：** 将 623 行的 `forms/general.html` 拆分为三个专注的页面——`forms/elements.html`（输入框、选择框、复选框/单选框/开关、范围滑块、浮动标签）、`forms/layout.html`（水平布局、内联布局、尺寸、宽度）和 `forms/validation.html`（Bootstrap 原生验证 + 工具提示变体）。
+- **18 new demo pages** dramatically expanding the page catalog:
+- **18 个新的演示页面**，大幅扩展了页面目录：
+- **Apps:** Calendar (FullCalendar 6, drag-and-drop scheduling), Kanban (SortableJS, lane-to-lane drag), Chat (full-page conversation app), File Manager (grid + list views, folder tree), Projects (list with status, progress, team avatars)
+- **应用程序：** 日历（FullCalendar 6，拖拽排期）、看板（SortableJS，列间拖拽）、聊天（全屏对话应用）、文件管理器（网格 + 列表视图，文件夹树）、项目（带状态、进度、团队头像的列表）
+- **Mailbox:** Inbox, Read Message, Compose — three-pane workflow with folders + labels
+- **邮箱：** 收件箱、阅读邮件、写信——三栏工作流，包含文件夹和标签
+- **Forms:** Wizard — 4-step with per-step validation + review summary
+- **表单：** 向导——4 步流程，每步带验证 + 审核摘要
+- **Tables:** Data Tables — jQuery-free implementation using Tabulator 6
+- **表格：** 数据表格——基于 Tabulator 6 的无 jQuery 实现
+- **Pages:** Profile (tabbed activity/timeline/settings), Settings (account / notifications / security / billing / danger zone), Invoice (print-ready with totals math), Pricing (3-tier + comparison table + billing toggle), FAQ (data-driven accordions)
+- **页面：** 个人资料（标签页切换的活动/时间线/设置）、设置（账户/通知/安全/账单/危险区域）、发票（打印就绪，含总额计算）、定价（3 档套餐 + 对比表 + 计费切换）、常见问题（数据驱动的折叠面板）
+- **Error pages:** 404, 500, Maintenance
+- **错误页面：** 404、500、维护中
+- **Recommended Integrations docs page** (`docs/integrations.html`) — copy-paste install snippets for Flatpickr, Tom Select, noUiSlider, Pickr, IMask, Dropzone, FilePond, Quill, EasyMDE, Toast UI Editor, ApexCharts, Chart.js, Tabulator, FullCalendar, SortableJS, GLightbox, and a comparison of icon libraries. AdminLTE doesn't bundle these — the page shows how to drop them in.
+- **推荐集成文档页面**（`docs/integrations.html`）——提供 Flatpickr、Tom Select、noUiSlider、Pickr、IMask、Dropzone、FilePond、Quill、EasyMDE、Toast UI Editor、ApexCharts、Chart.js、Tabulator、FullCalendar、SortableJS、GLightbox 的复制粘贴安装代码片段，以及图标库对比。AdminLTE 不内置这些库——该页面展示了如何将它们引入项目。
+- **Visible color-mode toggle in the default topbar** (#6010) — Light / Dark / Auto dropdown with localStorage persistence and `prefers-color-scheme` integration. Wiring JS shipped globally in `_scripts.astro` so the toggle works on every demo page automatically.
+- **默认顶栏中可见的颜色模式切换开关**（#6010）——亮色/深色/自动下拉菜单，支持 localStorage 持久化存储和 `prefers-color-scheme` 集成。全局 JS 逻辑已包含在 `_scripts.astro` 中，因此该开关在所有演示页面上自动生效。
+# [AdminLTE - Bootstrap 5 Admin Dashboard](https://adminlte.io)
+# [AdminLTE - Bootstrap 5 管理后台](https://adminlte.io)
+**AdminLTE** is a fully responsive administration template. Based on **[Bootstrap 5](https://getbootstrap.com/)** framework and also the JavaScript plugins.
+**AdminLTE** 是一个完全响应式的管理后台模板。基于 **[Bootstrap 5](https://getbootstrap.com/)** 框架以及 JavaScript 插件。
+Highly customizable and easy to use. Fits many screen resolutions from small mobile devices to large desktops.
+高度可定制且易于使用。适配从小型移动设备到大型桌面端的多种屏幕分辨率。
+## What's New in v4.0.0
+## v4.0.0 新增内容
+The first stable release of the v4 line — a ground-up rewrite on Bootstrap 5.3 with no jQuery. Highlights:
+v4 系列的第一个稳定版本——基于 Bootstrap 5.3 完全重写，不再依赖 jQuery。主要亮点：
+**18 new demo pages**
+**18 个新的演示页面**
+- Apps: Calendar (FullCalendar), Kanban (SortableJS), Chat, File Manager, Projects, Mailbox (Inbox / Read / Compose)
+- 应用程序：日历（FullCalendar）、看板（SortableJS）、聊天、文件管理器、项目、邮箱（收件箱/阅读/写信）
+- Forms: Wizard (4-step with validation)
+- 表单：向导（4 步流程，含验证）
+- Tables: Data Tables (Tabulator — jQuery-free)
+- 表格：数据表格（Tabulator — 无 jQuery）
+- Pages: Profile, Settings, Invoice, Pricing, FAQ
+- 页面：个人资料、设置、发票、定价、常见问题
+- Errors: 404, 500, Maintenance
+- 错误页面：404、500、维护中
+**Documentation overhaul**
+**文档全面翻新**
+- New pages: Getting Started, Customization & Theming, RTL Support, Migration from v3, Layout Blueprint, Recipes, Deployment & Performance, Recommended Integrations, JavaScript Plugins Overview
+- 新增页面：快速开始、自定义与主题、RTL 支持、从 v3 迁移、布局结构、实用方案、部署与性能、推荐集成、JavaScript 插件概览
+- Rewritten Introduction with four labelled install paths (CDN / npm / source / Composer)
+- 重写了介绍页面，包含四种标注清晰的安装方式（CDN / npm / 源码 / Composer）
+- FAQ rebuilt as a custom page with hero, live search, section chips, and an accordion of 19 questions across six topics
+- 常见问题页面重构为自定义页面，包含大标题、实时搜索、分类标签和涵盖六大主题共 19 个问题的折叠面板
+- Split sidebar navigation: dashboard demo and docs each have their own nav, no more docs entries cluttering the live preview
+- 拆分侧边栏导航：仪表盘演示和文档各自拥有独立的导航，文档条目不再混杂在实时预览中
+- Reading-friendly typography across all docs pages, with constrained line length, prose-tuned heading rhythm, styled reference tables, info callouts, and pill inline code
+- 所有文档页面采用适合阅读的排版，包括受限行宽、优化标题节奏、样式化的参考表格、信息提示框和胶囊内联代码
+**Six issue fixes**
+**六个问题修复**
+- `bi-circle-half` for the Auto color-mode icon (#6028)
+- 自动颜色模式图标改用 `bi-circle-half`（#6028）
+- `table-head-fixed` respects dark mode (#6026)
+- `table-head-fixed` 支持深色模式（#6026）
+- Fullscreen icon toggles `.d-none` instead of inline `display` so it works with any icon library (#6021)
+- 全屏图标切换改为使用 `.d-none`，而非内联 `display`，使其适用于任何图标库（#6021）
+- Sidebar (including brand) stays pinned when using `fixed-header` (#6020)
+- 使用 `fixed-header` 时侧边栏（包括品牌区）保持固定不动（#6020）
+- Pie chart on `index2.html` no longer flickers on browser zoom (#6019)
+- `index2.html` 上的饼图在浏览器缩放时不再闪烁（#6019）
+- Color-mode toggle now visible by default in the topbar with localStorage persistence (#6010)
+- 颜色模式切换开关现在默认显示在顶栏中，并支持 localStorage 持久化存储（#6010）
+**Major dependency upgrades**
+**主要依赖升级**
+- Astro 6.0 → 6.3, autoprefixer / postcss / rollup / sass / terser refreshed
+- Astro 6.0 → 6.3，autoprefixer / postcss / rollup / sass / terser 更新
+- Bootstrap 5.3.8, Node 22 LTS in CI
+- Bootstrap 5.3.8，CI 中使用 Node 22 LTS
+- Dropped dead `eslint-plugin-import`, `eslint-config-xo*`, and the legacy `.eslintrc.json`
+- 移除了废弃的 `eslint-plugin-import`、`eslint-config-xo*` 以及旧版 `.eslintrc.json`
+- npm `overrides` for `yaml` + `stylelint-config-twbs-bootstrap` so `npm install` runs without `--legacy-peer-deps` and reports **0 vulnerabilities**
+- 通过 npm `overrides` 配置了 `yaml` 和 `stylelint-config-twbs-bootstrap`，使 `npm install` 无需 `--legacy-peer-deps` 即可运行，且报告 **0 个漏洞**
+**Breaking changes from v3**
+**自 v3 以来的破坏性变更**
+- Class renames: `.wrapper` → `.app-wrapper`, `.main-header` → `.app-header`, `.main-sidebar` → `.app-sidebar`, `.content-wrapper` → `.app-main`
+- 类名重命名：`.wrapper` → `.app-wrapper`、`.main-header` → `.app-header`、`.main-sidebar` → `.app-sidebar`、`.content-wrapper` → `.app-main`
+- Data attributes: `data-toggle` → `data-bs-toggle`, `data-widget="pushmenu"` → `data-lte-toggle="sidebar"`, `data-widget="treeview"` → `data-lte-toggle="treeview"`
+- 数据属性：`data-toggle` → `data-bs-toggle`、`data-widget="pushmenu"` → `data-lte-toggle="sidebar"`、`data-widget="treeview"` → `data-lte-toggle="treeview"`
+- Dark mode: `.dark-mode` body class → `data-bs-theme="dark"` attribute (Bootstrap 5.3 native)
+- 深色模式：body 类 `.dark-mode` → `data-bs-theme="dark"` 属性（Bootstrap 5.3 原生支持）
+- jQuery no longer required; plugins are vanilla TypeScript
+- 不再需要 jQuery；插件使用原生 TypeScript
+See the dedicated [Migration from v3](https://adminlte.io/themes/v4/docs/migration.html) guide and the [CHANGELOG.md](CHANGELOG.md) for the full list.
+请参阅专门的[从 v3 迁移](https://adminlte.io/themes/v4/docs/migration.html)指南和 [CHANGELOG.md](CHANGELOG.md) 以获取完整列表。
+**Install:**
+**安装：**
+## Looking for Premium Templates?
+## 寻找高级模板？
+AdminLTE.io just opened a new premium templates page. Hand picked to ensure the best quality and the most affordable
+AdminLTE.io 刚刚推出了一个新的高级模板页面。精心挑选，以确保最佳质量和最实惠的价格。
+prices. Visit <https://adminlte.io/premium> for more information.
+访问 <https://adminlte.io/premium> 了解更多信息。
+!["AdminLTE Presentation"](https://adminlte.io/AdminLTE3.png "AdminLTE Presentation")
+!["AdminLTE 展示"](https://adminlte.io/AdminLTE3.png "AdminLTE 展示")
+**AdminLTE** has been carefully coded with clear comments in all of its JS, SCSS and HTML files.
+**AdminLTE** 经过精心编码，其所有 JS、SCSS 和 HTML 文件都包含清晰的注释。
+SCSS has been used to increase code customizability.
+使用 SCSS 来增强代码的可定制性。
+## Quick start
+## 快速开始
+### Development
+### 开发
+To start developing with AdminLTE:
+要开始使用 AdminLTE 进行开发：
+1. **Install dependencies:** `npm install`
+1. **安装依赖：** `npm install`
+2. **Start development server:** `npm start` *(opens browser at http://localhost:3000)*
+2. **启动开发服务器：** `npm start` *（在浏览器中打开 http://localhost:3000）*
+3. **Start coding!** Files auto-compile and refresh on changes
+3. **开始编码！** 文件会自动编译并在更改时刷新
+### Production Build
+### 生产构建
+To build for production:
+要构建生产版本：
+1. **Full production build:** `npm run production` *(includes linting and optimization)*
+1. **完整生产构建：** `npm run production` *（包含代码检查和优化）*
+2. **Quick build:** `npm run build` *(faster for development/testing)*
+2. **快速构建：** `npm run build` *（适用于开发/测试，速度更快）*
+### Available Scripts
+### 可用脚本
+- `npm start` - Start development server with file watching
+- `npm start` - 启动开发服务器并监听文件变化
+- `npm run build` - Build all assets for development
+- `npm run build` - 构建所有开发资源
+- `npm run production` - Full production build with linting and bundlewatch
+- `npm run production` - 完整生产构建，包含代码检查和 bundlewatch
+- `npm run lint` - Run all linters (JS, CSS, docs, lockfile)
+- `npm run lint` - 运行所有代码检查工具（JS、CSS、文档、lockfile）
+- `npm run css` - Build CSS only
+- `npm run css` - 仅构建 CSS
+- `npm run js` - Build JavaScript only
+- `npm run js` - 仅构建 JavaScript
+## Browser Support
+## 浏览器支持
+AdminLTE supports all modern browsers with the latest Bootstrap 5.3.8:
+AdminLTE 支持所有现代浏览器，基于最新的 Bootstrap 5.3.8：
+- Chrome (latest)
+- Chrome（最新版）
+- Firefox (latest)
+- Firefox（最新版）
+- Safari (latest)
+- Safari（最新版）
+- Edge (latest)
+- Edge（最新版）
+## Platform Support
+## 平台支持
+AdminLTE v4 build scripts work cross-platform:
+AdminLTE v4 构建脚本跨平台工作：
+- **Windows** - Command Prompt, PowerShell, Git Bash
+- **Windows** - 命令提示符、PowerShell、Git Bash
+- **macOS** - Terminal, iTerm2
+- **macOS** - 终端、iTerm2
+- **Linux** - Bash, Zsh, and other Unix shells
+- **Linux** - Bash、Zsh 及其他 Unix Shell
+All npm scripts use cross-platform utilities to ensure consistent behavior across different operating systems.
+所有 npm 脚本均使用跨平台工具，以确保在不同操作系统上行为一致。
+## Security & Production Deployment
+## 安全与生产部署
+### Important Security Notice
+### 重要安全须知
+AdminLTE is a **UI template** - when deploying to production, follow these critical guidelines:
+AdminLTE 是一个 **UI 模板**——在部署到生产环境时，请遵循以下关键指南：
+**What to Deploy:**
+**应部署的内容：**
+- Only compiled production assets: `dist/js/adminlte.min.js` and `dist/css/adminlte.min.css`
+- 仅编译后的生产资源：`dist/js/adminlte.min.js` 和 `dist/css/adminlte.min.css`
+- Your application-specific files
+- 您自己的应用程序文件
+**What NOT to Deploy:**
+**不应部署的内容：**
+- `node_modules/` directory
+- `node_modules/` 目录
+- Demo/example HTML files (index.html, index2.html, index3.html, etc.)
+- 演示/示例 HTML 文件（index.html、index2.html、index3.html 等）
+- Source files (`src/` directory)
+- 源文件（`src/` 目录）
+- Development configuration files
+- 开发配置文件
+**CVE-2021-36471 Notice:**
+**CVE-2021-36471 说明：**
+This CVE is **disputed** and does not represent a vulnerability in AdminLTE. It refers to demo pages being accessible when developers incorrectly deploy example files to production. AdminLTE v4 has a clear separation between development demos and production assets. See [SECURITY.md](SECURITY.md) for complete details.
+该 CVE 已被 **争议**，并不代表 AdminLTE 存在漏洞。它指的是当开发者错误地将示例文件部署到生产环境时，演示页面可被访问的问题。AdminLTE v4 明确区分了开发演示和生产资源。完整详情请参阅 [SECURITY.md](SECURITY.md)。
+**Production Build:**
+**生产构建：**
+# Builds optimized assets in dist/
+# 在 dist/ 中构建优化后的资源
+For detailed security guidelines, authentication requirements, and best practices, see [SECURITY.md](SECURITY.md).
+有关详细的安全指南、身份验证要求和最佳实践，请参阅 [SECURITY.md](SECURITY.md)。
+## Sponsorship
+## 赞助
+Support AdminLTE development by becoming a sponsor or donor.
+通过成为赞助者或捐赠者来支持 AdminLTE 的开发。
+## Our Sponsors
+## 我们的赞助者
+Your avatar here? Become a sponsor
+您的头像在这里？成为赞助者
+## Contributing
+## 贡献
+- Highly welcome.
+- 非常欢迎。
+- For your extra reference check [AdminLTE v4 Contribution Guide](https://github.com/ColorlibHQ/AdminLTE#contributing)
+- 更多参考资料请查看 [AdminLTE v4 贡献指南](https://github.com/ColorlibHQ/AdminLTE#contributing)
+- First thing first, you should have bit knowledge about NodeJS.
+- 首先，您需要具备一些 NodeJS 基础知识。
+- Github Knowledge.
+- 了解 Github。
+- Install NodeJS LTS version.
+- 安装 NodeJS LTS 版本。
+- Clone this Repository to your machine and change to `master` branch.
+- 将此仓库克隆到本地并切换到 `master` 分支。
+- Go to Cloned Folder.
+- 进入克隆的文件夹。
+- In cli/bash run `npm install` it will install dependency from `package.json`.
+- 在 cli/bash 中运行 `npm install`，它将从 `package.json` 安装依赖。
+- After installation completes, run `npm start`
+- 安装完成后，运行 `npm start`
+- Cool, Send your changes in PR to `master` branch.
+- 很好，将您的更改以 PR 形式提交到 `master` 分支。
+## License
+## 许可证
+AdminLTE is an open source project by [AdminLTE.io](https://adminlte.io) that is licensed under [MIT](https://opensource.org/licenses/MIT).
+AdminLTE 是 [AdminLTE.io](https://adminlte.io) 的一个开源项目，基于 [MIT](https://opensource.org/licenses/MIT) 许可证发布。
+AdminLTE.io reserves the right to change the license of future releases.
+AdminLTE.io 保留更改未来版本许可证的权利。
+## Image Credits
+## 图片来源
+# AdminLTE Accessibility Statement
+# AdminLTE 无障碍访问声明
+## Overview
+## 概述
+AdminLTE 4 is built with accessibility in mind and aims for **WCAG 2.1 AA** conformance. This document describes honestly what is implemented today, what is partially implemented, and what is still on the roadmap — so you know exactly what you get and what your application still needs to provide.
+AdminLTE 4 在开发时就考虑到了无障碍访问，目标是要达到 **WCAG 2.1 AA** 级别。这份文档如实说明了哪些功能已经做好了、哪些做了一半、哪些还在计划中——这样你就能清楚知道自己拿到的是什么，以及你自己的应用还需要补上哪些。
+> **Important:** a template can only ever be a starting point. Accessible markup in the demo pages does not make your application compliant — you remain responsible for testing the pages you build.
+> **重要提醒：** 模板永远只是一个起点。演示页面里用了无障碍的标记，并不代表你自己的应用就合规了——你自己构建的页面还是得自己负责去测试。
+## ✅ Implemented
+## ✅ 已实现的功能
+### Markup (demo pages)
+### 标记层面（演示页面）
+- Semantic landmark structure on the app shell (`<nav>`, `<main>`, `<aside>`, `<footer>`) — non-list `.nav` containers receive `role="navigation"` automatically (#6038)
+- 应用外壳上用了语义化的地标结构（`<nav>`、`<main>`、`<aside>`、`<footer>`）——不是列表的 `.nav` 容器会自动加上 `role="navigation"`（详见 #6038）
+- Exactly one `<h1>` per page (the page title in the content header)
+- 每个页面只有一个 `<h1>`（就是内容头部里的页面标题）
+- Breadcrumbs wrapped in `<nav aria-label="breadcrumb">` with `aria-current="page"`
+- 面包屑导航用 `<nav aria-label="breadcrumb">` 包起来了，并带上了 `aria-current="page"`
+- `aria-label` on all icon-only controls (card tools, topbar toggles, sidebar toggle)
+- 所有纯图标的控件（卡片工具按钮、顶栏切换、侧边栏切换）都加了 `aria-label`
+- Form inputs associated with `<label>` elements (visually hidden where the design is placeholder-driven, floating labels on the v2 auth pages)
+- 表单输入框都绑了 `<label>` 元素（设计上以占位符为主的地方，label 是视觉隐藏的；v2 登录页用的是浮动标签）
+- Table headers with `scope` attributes
+- 表格表头都带了 `scope` 属性
+- `lang="en"` declared, descriptive page titles, `meta name="color-scheme"`
+- 声明了 `lang="en"`，页面标题有描述性，还加了 `meta name="color-scheme"`
+### Behavior (`accessibility.ts` and components)
+### 行为层面（`accessibility.ts` 和组件）
+- **Live region announcements** (WCAG 4.1.3) — a single polite `#live-region`, with a public `announce()` API; alerts inserted into the DOM are announced automatically
+- **实时区域公告**（WCAG 4.1.3）—— 一个统一的 `#live-region` 礼貌区域，对外暴露了 `announce()` 方法；插入到 DOM 中的 alert 会被自动朗读出来
+- **Skip links** to main content and navigation, injected once and reused across Turbo navigations (WCAG 2.4.1)
+- **跳转链接**——可以跳过导航直接到主要内容，只注入一次，Turbo 页面切换时会复用（WCAG 2.4.1）
+- **Treeview state exposure** — sidebar submenu toggles carry `aria-expanded`, kept in sync by the Treeview component
+- **树形菜单状态暴露**——侧边栏的子菜单切换按钮带有 `aria-expanded`，由 Treeview 组件负责保持同步
+- **Modal focus restoration** — the triggering element is captured on `show.bs.modal` and restored on close (skipped if it has left the document)
+- **模态框焦点恢复**——在 `show.bs.modal` 时记下触发元素，关闭时把焦点还回去（如果那个元素已经从文档中消失了就跳过）
+- **Escape** closes open dropdowns; Bootstrap's own modal keyboard handling is left untouched
+- **按 Escape** 可以关闭展开的下拉菜单；Bootstrap 自带的模态框键盘处理保持不变
+- **Arrow-key navigation** in menus and dropdowns — only when focus is on a menu item; never intercepts keys inside inputs, textareas, selects, or contenteditable elements
+- **方向键导航**在菜单和下拉列表中可用——但只有在焦点确实在菜单项上时才生效；不会去拦截输入框、文本域、下拉选择框或 contenteditable 元素里的键盘操作
+- **Reduced motion** — `prefers-reduced-motion` disables smooth scrolling and shortens animations; `prefers-contrast: more` styles in the CSS
+- **减少动效**——系统开了 `prefers-reduced-motion` 时会禁用平滑滚动并缩短动画时长；CSS 里也支持 `prefers-contrast: more` 的样式
+- **Theme-flash prevention** and dark mode via Bootstrap color modes, respecting `prefers-color-scheme` (#6043)
+- **防止主题闪烁**，并通过 Bootstrap 的颜色模式支持深色模式，同时尊重系统的 `prefers-color-scheme` 设置（#6043）
+- **Form error identification** (WCAG 3.3.1/3.3.2) — validation errors get an `invalid-feedback` node wired via `aria-describedby` (appended to existing descriptions, not replacing them) and are announced assertively
+- **表单错误标识**（WCAG 3.3.1/3.3.2）——校验错误会生成一个 `invalid-feedback` 节点，通过 `aria-describedby` 关联到输入框（会追加到已有描述后面，而不是覆盖），并且会以断言方式朗读出来
+### Explicit non-goals
+### 明确不做的事情
+- **No global focus wrapping.** Focus is deliberately *not* trapped at the page edges — wrapping Tab at the document boundary would itself violate WCAG 2.1.2 (No Keyboard Trap). Focus trapping is applied only inside modal dialogs.
+- **不搞全局焦点循环。** 我们故意*没有*在页面边缘圈住焦点——因为在文档边界上循环 Tab 本身就会违反 WCAG 2.1.2（禁止键盘陷阱）。焦点锁定只用在模态框内部。
+## ⚠️ Partial / known gaps
+## ⚠️ 部分完成 / 已知缺陷
+These are known, tracked limitations — pull requests welcome:
+这些都是已知且已记录的限制——欢迎提交 PR 来改进：
+- **Treeview and push-menu have no dedicated keyboard interaction pattern** beyond normal Tab/Enter link behavior (no roving tabindex, no Home/End within the tree). `aria-expanded` is stamped by JS; static markup without JS does not carry it.
+- **Treeview 和 push-menu 没有专门的键盘交互模式**，只支持普通的 Tab/Enter 链接操作（没有 roving tabindex，树内也不支持 Home/End 键）。`aria-expanded` 是由 JS 动态加上去的；没有 JS 的静态标记里不会有这个属性。
+- **Drag-and-drop demos (kanban, sortable dashboard cards) have no keyboard alternative.** SortableJS does not provide one; treat these demos as visual examples only (WCAG 2.5.7 gap).
+- **拖拽示例（看板、可排序仪表盘卡片）没有键盘替代操作。** SortableJS 本身没提供这个功能；这些示例请仅当作视觉参考（WCAG 2.5.7 的缺口）。
+- **Touch target sizes are not enforced globally.** Card tool buttons are smaller than 44×44 px; an opt-in `.touch-target` utility class exists in `_accessibility.scss`.
+- **触摸目标大小没有全局强制规定。** 卡片工具按钮比 44×44 px 要小；`_accessibility.scss` 里提供了一个按需启用的 `.touch-target` 工具类。
+- **Color contrast is not guaranteed for every Bootstrap color utility combination** you may compose. The `accessibilityUtils.checkColorContrast()` helper (supports `rgb()`/hex) can verify your combinations.
+- **颜色对比度不保证对所有 Bootstrap 颜色工具类的组合都达标**——毕竟组合方式太多了。`accessibilityUtils.checkColorContrast()` 这个辅助方法（支持 `rgb()` 和十六进制）可以帮你验证自己的组合。
+- **No automated accessibility tests run in CI yet** (axe/pa11y integration is on the roadmap). Claims in this document are verified manually and are point-in-time.
+- **CI 里目前还没有跑无障碍自动化测试**（axe/pa11y 的集成已在计划中）。这份文档里的说明都是手动验证的，反映的是当前时间点的情况。
+live region + automatic alert announcements
+实时区域 + 自动警报通知
+inject skip links
+注入跳转链接
+modal focus restore, Escape handling
+模式聚焦恢复，Escape 处理
+arrow keys in menus
+菜单方向键导航
+respect prefers-reduced-motion
+尊重 prefers-reduced-motion
+for non-Bootstrap dialogs
+给非 Bootstrap 的对话框用
+'Data saved successfully'
+'数据保存成功'
+Contrast checking (rgb() and hex supported)
+颜色对比度检测（支持 rgb() 和十六进制）
+The module is initialized automatically by `adminlte.js`. All document-level listeners are registered against the Turbo lifecycle signal, so Hotwired Turbo navigations neither leak listeners nor duplicate injected nodes.
+这个模块由 `adminlte.js` 自动初始化。所有 document 级别的事件监听器都是绑定在 Turbo 生命周期信号上的，所以 Hotwired Turbo 页面切换既不会造成监听器泄露，也不会重复注入节点。
+## 🧪 How to test your pages
+## 🧪 如何测试你的页面
+- **Automated:** [axe-core](https://github.com/dequelabs/axe-core), [WAVE](https://wave.webaim.org/), Lighthouse accessibility audit
+- **自动化测试：** [axe-core](https://github.com/dequelabs/axe-core)、[WAVE](https://wave.webaim.org/)、Lighthouse 无障碍审计
+- **Keyboard:** navigate your entire flow with Tab/Shift+Tab/Enter/Escape only; confirm focus is always visible and never trapped
+- **键盘测试：** 只用 Tab/Shift+Tab/Enter/Escape 键走完整个流程；确认焦点始终可见且没有被卡住的地方
+- **Screen readers:** [NVDA](https://www.nvaccess.org/) (Windows, free), VoiceOver (macOS/iOS), JAWS
+- **屏幕阅读器：** [NVDA](https://www.nvaccess.org/)（Windows，免费）、VoiceOver（macOS/iOS）、JAWS
+- **Zoom:** verify layouts at 200% zoom and 320px viewport width
+- **缩放：** 在 200% 缩放和 320px 视口宽度下检查布局是否正常
+- **Motion:** enable "reduce motion" in your OS and confirm animations calm down
+- **动效：** 在系统里开启“减少动效”，确认动画确实变柔和了
+## 🗺️ Roadmap
+## 🗺️ 后续计划
+- axe/pa11y checks in CI against the built demo pages
+- 在 CI 里对构建好的演示页面跑 axe/pa11y 检查
+- Keyboard interaction pattern (roving tabindex) for the sidebar treeview
+- 为侧边栏树形菜单添加键盘交互模式（roving tabindex）
+- `aria-expanded`/`aria-controls` in the static demo markup (not only JS-stamped)
+- 在静态演示标记里也加上 `aria-expanded`/`aria-controls`（而不只是靠 JS 动态生成）
+- Audit and document contrast for all shipped color variants
+- 对所有内置颜色变体做对比度审计并形成文档
+- RTL accessibility review
+- RTL（从右到左）布局的无障碍审查
+## 📚 Resources
+## 📚 参考资源
+- [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
+- [WCAG 2.1 指南](https://www.w3.org/WAI/WCAG21/quickref/)
+- [ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/)
+- [ARIA 创作实践指南](https://www.w3.org/WAI/ARIA/apg/)
+- **ESM bundle and TypeScript declarations on npm:** `dist/js/adminlte.esm.js` (+ `.min`) ships alongside the UMD build, generated `.d.ts` files ship under `dist/js/types/`, and package.json gains `module`, `types`, and a full `exports` map (with `sass`/`style` conditions and `./dist/*` + `./src/scss/*` subpaths). `import { PushMenu } from "admin-lte"` now resolves natively in Vite/webpack and type-checks out of the box — previously the package shipped a single minified UMD file with no typings at all.
+- **npm 上提供了 ESM 格式包和 TypeScript 类型声明：** `dist/js/adminlte.esm.js`（以及 `.min` 压缩版）和 UMD 格式一起发布，生成的 `.d.ts` 类型声明文件放在 `dist/js/types/` 下，`package.json` 里也加上了 `module`、`types` 和完整的 `exports` 映射（包括 `sass`/`style` 条件和 `./dist/*` + `./src/scss/*` 子路径）。现在可以直接用 `import { PushMenu } from "admin-lte"`，在 Vite 或 webpack 里原生就能解析，开箱即用带类型检查——以前这个包只发布了一个压缩过的 UMD 文件，完全没有类型定义。
+- **Component lifecycle API (Bootstrap-style):** every JS component now has `getInstance(element)`, `getOrCreateInstance(element, config?)` and `dispose()`, backed by a per-element WeakMap registry (instances are garbage-collected with their elements — Turbo-safe). The data API now uses **delegated document-level listeners**, so toggles inside content inserted after page load (AJAX partials, Turbo Frames) work without re-initialisation. `PushMenu` is finally controllable programmatically via `PushMenu.getInstance(sidebar)`.
+- **组件生命周期 API（Bootstrap 风格）：** 现在每个 JS 组件都有 `getInstance(element)`、`getOrCreateInstance(element, config?)` 和 `dispose()` 方法，底层基于每个元素一个的 WeakMap 注册表来管理（实例会随着元素一起被垃圾回收——对 Turbo 友好）。数据 API 现在用的是 **委托的 document 级事件监听**，所以页面加载后插入的内容（AJAX 局部更新、Turbo Frames）里的切换控件不用重新初始化就能直接工作。`PushMenu` 终于也可以通过 `PushMenu.getInstance(sidebar)` 来用编程方式控制了。
+- **`ColorMode` module in the bundle:** the light/dark/auto switcher (persisted in `lte-theme`, OS-preference aware, `[data-bs-theme-value]` data-API, `changed.lte.color-mode` event) is now part of `adminlte.js`. Applications no longer need to copy the demo's inline script; the demo pages now use the bundled module. Only the tiny no-flash snippet in `<head>` remains inline, by design.
+- **包里内置了 `ColorMode` 模块：** 浅色/深色/自动切换器（配置保存在 `lte-theme` 里，能感知系统偏好，支持 `[data-bs-theme-value]` 数据 API，还会触发 `changed.lte.color-mode` 事件）现在已经集成到 `adminlte.js` 里了。应用不再需要把演示版里的内联脚本复制过来了；演示页面现在用的就是内置模块。只有那一段防止主题闪烁的小脚本还保留在 `<head>` 里内联——这是有意为之的。
+- **`bootstrap` declared as a peer dependency** — the Sass source imports it, so `@use "admin-lte/src/scss/adminlte"` now works after a plain `npm install admin-lte` (npm installs the peer automatically). Documented the required Sass load-path setup.
+- **`bootstrap` 被声明为对等依赖**——因为 Sass 源码里会导入它，所以只要 `npm install admin-lte` 之后（npm 会自动装上对等依赖），`@use "admin-lte/src/scss/adminlte"` 就能直接用了。同时文档里也说明了 Sass 加载路径的配置方法。
+- **New demo pages:** a blank **starter page** (the most-requested v3 page, absent from v4), a dedicated **ApexCharts** page with six chart types, and a **Users** management page (searchable directory table, add-user and delete-confirmation modals, pagination). All linked from the sidebar.
+- **新增了演示页面：** 一个空白的**起始页**（这是 v3 时代呼声最高但 v4 一直没加的页面）、一个专门的 **ApexCharts** 图表页（展示了六种图表类型），还有一个**用户**管理页面（带搜索功能的通讯录表格、添加用户和删除确认弹窗、分页）。这些全都从侧边栏可以进去。
+- **Test baseline:** a vitest + happy-dom unit suite (30 tests across the component lifecycle, card/treeview/push-menu behavior, ColorMode, and slide animations) wired into `npm run production`; plus `npm run test-a11y` — an axe-core check over key built demo pages that fails on serious/critical WCAG violations, with a dedicated GitHub workflow.
+- **测试基础：** 一套 vitest + happy-dom 单元测试（共 30 个测试，覆盖组件生命周期、卡片/Treeview/PushMenu 行为、ColorMode 和滑动动画），已经集成到 `npm run production` 里了；另外还有 `npm run test-a11y`——对几个关键的构建后演示页面跑 axe-core 检查，如果发现严重/关键级别的 WCAG 违规项就会失败，并且专门配了一个 GitHub workflow 来跑。
+- First findings of the new axe gate, fixed at the source: breadcrumb links now use the darker link shade (Bootstrap's default blue was 4.26:1 against the content-header's gray background — below WCAG AA's 4.5:1), the direct-chat message pane is keyboard-focusable (`tabindex="0"` + `role="log"`), and muted footnote text uses `text-body-secondary` instead of the failing `text-secondary`.
+- **新加的 axe 检查跑出来的第一批问题，已经在源头修复了：** 面包屑链接现在用了颜色更深的链接色（Bootstrap 默认的蓝色在内容头部的灰色背景上对比度只有 4.26:1——低于 WCAG AA 要求的 4.5:1），直聊消息面板现在可以用键盘聚焦了（加了 `tabindex="0"` 和 `role="log"`），还有那些浅色脚注文字现在用的是 `text-body-secondary`，而不是之前对比度不达标的 `text-secondary`。
+- **Component events overhauled (behavior change):** all plugin events are now bubbling `CustomEvent`s dispatched on the component's root element (the card, the nav item, the sidebar) — previously most were non-bubbling and card events fired on whatever was clicked, including the `<i>` icon. Animated actions gained cancelable "before" events (`collapse`/`expand`/`remove.lte.card-widget`, `expand`/`collapse.lte.treeview`, `open`/`collapse.lte.push-menu`) and their "after" events (`collapsed`, `expanded`, `removed`, `opened`, …) now fire when the animation completes, not when it starts. If you listened for card events on the tool buttons themselves, listen on the card or on `document` instead.
+- **组件事件大改（行为有变化）：** 现在所有插件事件都改成了冒泡的 `CustomEvent`，在组件的根元素上触发（比如卡片、导航项、侧边栏）——以前大部分事件是不冒泡的，而且卡片事件是在你点击的那个元素上触发的，点到了 `<i>` 图标上就在图标上触发。带动画的操作现在有了可取消的"前置"事件（`collapse`/`expand`/`remove.lte.card-widget`、`expand`/`collapse.lte.treeview`、`open`/`collapse.lte.push-menu`），对应的"后置"事件（`collapsed`、`expanded`、`removed`、`opened`……）现在是在动画完成后才触发，而不是动画开始时。如果你之前是在卡片工具按钮本身上监听卡片事件的，现在要改到卡片上或 `document` 上监听。
+- **Docs styles split out of the production CSS:** the documentation/FAQ styling now compiles to a separate `adminlte-docs.css`, loaded only by the docs pages. Together with the 4.0.4 dedup, `adminlte.min.css` is down to ~40.4 KB gzip (from 46.7 KB in 4.0.3); bundlewatch budgets tightened accordingly.
+- **文档样式从生产环境 CSS 中分离出来了：** 文档和 FAQ 的样式现在单独编译成 `adminlte-docs.css`，只在文档页面加载。配合 4.0.4 版本的去重优化，`adminlte.min.css` 压缩后降到了大约 40.4 KB（4.0.3 是 46.7 KB）；bundlewatch 的预算也相应收紧了一些。
+- **Vendored Bootstrap variables fork replaced:** the 1,766-line `_bootstrap-variables.scss` copy (which had to be re-synced by hand every Bootstrap release) is gone; AdminLTE's ~10 actual changes now live in a small `_bootstrap-overrides.scss` loaded before Bootstrap's own variables. Compiled CSS is byte-identical.
+- **替换掉了那份复制的 Bootstrap 变量文件：** 原来那份有 1766 行的 `_bootstrap-variables.scss` 拷贝（每次 Bootstrap 发新版都得手动同步一遍）已经被删掉了；AdminLTE 实际做的约 10 处改动现在放在一个很小的 `_bootstrap-overrides.scss` 里，在 Bootstrap 自己的变量之前加载。编译出来的 CSS 和之前完全一样，一个字节都不差。
+- **Sass deprecation policy:** the build no longer silences all warnings (`--quiet`); it silences only dependency warnings and the known `@import` deprecation (`--quiet-deps --silence-deprecation=import`), so new deprecations in AdminLTE's own code surface at build time. All deprecated global built-ins (`map-get`, `map-keys`) migrated to the `sass:map` module. The full `@use` module-system migration is intentionally deferred until Bootstrap ships module-system Sass (Bootstrap 6) — Bootstrap 5's partials are designed around `@import`'s shared global namespace and cannot be loaded individually via `@use`.
+- **Sass 废弃警告策略调整：** 构建时不再静默所有警告（`--quiet`），现在只静默依赖包里的警告和已知的 `@import` 废弃警告（`--quiet-deps --silence-deprecation=import`），这样 AdminLTE 自己代码里新出现的废弃警告就能在构建时暴露出来。所有已废弃的全局内置函数（如 `map-get`、`map-keys`）都已经迁移到了 `sass:map` 模块。至于全面迁移到 `@use` 模块系统，我们有意推迟到 Bootstrap 自己用上模块系统 Sass 再说（也就是 Bootstrap 6）——因为 Bootstrap 5 的 partial 文件是围绕 `@import` 的共享全局命名空间设计的，没法用 `@use` 单独加载。
+- Rewrote the color-mode docs page around the bundled `ColorMode` module (the old copy-paste script it showed used a stale storage key); tsconfig.json no longer carries the invalid `"root": true` option.
+- 重写了颜色模式的文档页面，改成以内置的 `ColorMode` 模块为核心来讲（之前那个可复制的脚本里用的 storage key 是过时的）；`tsconfig.json` 里也删掉了那个无效的 `"root": true` 配置项。
+- **Forgot-password example page** — both login pages have linked `forgot-password.html` since 4.0.0, but the page didn't exist (dead link in every deployed demo). Now shipped and listed in the sidebar under Examples › Version 1.
+- **新增了忘记密码示例页面** —— 两个登录页自 4.0.0 以来就一直链着 `forgot-password.html`，但这个页面压根不存在（所有部署的演示里都是死链）。现在终于补上了，并且在侧边栏的 Examples › Version 1 下面可以找到。
+- **Treeview exposes its state to assistive tech:** submenu toggle links now carry `aria-expanded`, stamped on init and kept in sync on open/close.
+- **Treeview 现在会向辅助技术暴露状态了：** 子菜单的切换链接现在带有 `aria-expanded` 属性，初始化时就会打上，并且在展开/收起时保持同步更新。
+- **npm packaging:** the package is now built from a `files` allowlist instead of the `.npmignore` denylist. Stray local files can no longer leak into the tarball (4.0.2 shipped an untracked working file this way), and the demo/docs HTML — which SECURITY.md advises never to deploy — is no longer published to npm. Unpacked size drops from 12.7 MB to 9.0 MB (177 → 95 files). Also declares `engines: node >= 20`.
+- **npm 打包方式改了：** 现在包是基于 `files` 白名单来打包的，而不是用 `.npmignore` 黑名单。零散的本地文件不会再不小心混进压缩包里了（4.0.2 就曾经因为这种方式把一个未跟踪的工作文件给打包进去了），而且演示和文档的 HTML 文件——SECURITY.md 里明确说了不要部署到生产环境——现在也不会发布到 npm 上了。解压后的体积从 12.7 MB 降到了 9.0 MB（文件数从 177 个减到了 95 个）。同时还声明了 `engines: node >= 20`。
+- **CSS bundles shipped the docs-site styles twice:** `_docs.scss` was imported from both `adminlte.scss` and `parts/_core.scss`, and Sass `@import` duplicates output — ~23 KB of dead weight in each of the four dist stylesheets.
+- **CSS 包里文档站点的样式被打了两份：** `_docs.scss` 同时被 `adminlte.scss` 和 `parts/_core.scss` 导入了，而 Sass 的 `@import` 会重复输出——四个发布版样式表里每个都多了大约 23 KB 的冗余代码。
+- **Accessibility module keyboard handling:**
+- **无障碍模块的键盘处理：**
+- removed the document-edge Tab wrap — it acted as a page-level keyboard trap (WCAG 2.1.2), preventing keyboard users from ever tabbing out to the browser chrome
+- 删除了文档边缘的 Tab 循环——这东西实际上是一个页面级的键盘陷阱（违反了 WCAG 2.1.2），导致纯键盘用户 Tab 到页面边缘后就卡住了，永远没法切到浏览器本身的功能栏上
+- arrow keys are no longer intercepted inside inputs, textareas, selects, or contenteditable elements (typing in a navbar search field used to yank focus into the menu), and menu arrow-navigation only engages when focus is actually on a menu item
+- 方向键不再在 input、textarea、select 或 contenteditable 元素里被拦截了（以前在导航栏搜索框里打字，焦点会莫名其妙被拉到菜单里去），而且菜单的方向键导航现在只在焦点确实在菜单项上时才会生效
+- modal focus restore now captures the triggering element on `show.bs.modal` (capturing on `shown` stored an element inside the modal, so closing dropped focus to `<body>`); `[autofocus]` is respected
+- 模态框焦点恢复现在改在 `show.bs.modal` 事件发生时记录触发元素（之前是在 `shown` 事件里记录的，那时存到的是模态框内部的元素，所以关掉模态框后焦点就掉到了 `<body>` 上）；现在也会尊重 `[autofocus]` 属性了
+- **Hotwired Turbo no longer duplicates injected DOM:** the skip links, `#live-region`, and sidebar overlay are now reused when a restored `<body>` snapshot already contains them — previously they accumulated one copy per navigation.
+- **Hotwired Turbo 不再重复注入 DOM 节点了：** 跳转链接、`#live-region` 和侧边栏遮罩，在恢复的 `<body>` 快照里如果已经有了，现在会复用——之前每次页面切换都会多复制一份出来，越积越多。
+- **Card widget:** `remove()` now actually removes the card from the DOM after the animation (it only hid it, so hidden form fields kept submitting); clicking the collapse toggle mid-animation reverses it instead of being swallowed; widget events now dispatch on the toggle button itself rather than a clicked `<i>` icon; `minimize()` cleans up its inline styles.
+- **卡片组件：** `remove()` 现在在动画结束后是真的把卡片从 DOM 里移除了（之前只是隐藏掉，所以里面隐藏的表单字段还在提交）；在动画执行过程中点击折叠切换按钮，现在会反向播放动画，而不是直接没反应；组件事件现在是在切换按钮本身上触发的，而不是点到的那个 `<i>` 图标上；`minimize()` 现在会清理掉自己加的内联样式。
+- **Slide animations are cancelable:** rapid-toggling a treeview or card no longer lets a stale animation timer strip styles mid-flight and desync display state.
+- **滑动动画现在可以取消了：** 快速反复切换 treeview 或卡片时，不会再因为过期的动画定时器在半路把样式清掉，导致显示状态不同步了。
+- **Treeview accordion guard** compared each open item against the parent `<ul>` (never true), so `open()` on an already-open item slid its own menu shut.
+- **Treeview 的手风琴模式判断逻辑有 bug：** 它之前是把每个已打开的项拿去和父级 `<ul>` 做比较（永远为 false），所以在一个已经打开的项上调用 `open()` 反而会把自身的菜单给收起来。
+- **PushMenu** reacts to viewport changes via `matchMedia` on the actual breakpoint crossing — mobile URL-bar/keyboard resizes and same-side width changes no longer re-expand a sidebar the user collapsed; the default breakpoint (991.98) now matches the CSS convention, fixing a 992px off-by-one.
+- **PushMenu** 现在是通过 `matchMedia` 来监听实际的断点跨越事件来响应视口变化的——移动端 URL 栏或键盘弹出导致的视口变化、以及在同一边上宽度变化但没跨断点的情况，不会再自动把用户手动收起的侧边栏又展开了；默认断点（991.98）现在和 CSS 的约定保持一致，修复了 992px 上差一个像素的问题。
+- **Callout variants** referenced two custom properties that were never defined, so links and inline code inside callouts never recolored; the user-menu footer used `--bs-light-bg`, which doesn't exist in Bootstrap 5.3 (now `--bs-tertiary-bg`).
+- **Callout 变体** 引用了两个根本没定义过的自定义属性，导致 callout 里的链接和内联代码颜色一直没变过来；用户菜单的底部用的是 `--bs-light-bg`，但 Bootstrap 5.3 里压根没这个变量（现在改成了 `--bs-tertiary-bg`）。
+- **Demo pages:** Bootstrap JS CDN pin updated 5.3.7 → 5.3.8 to match the compiled CSS; removed the dead navbar-search button (`data-widget="navbar-search"` has no implementation in v4); every page now has exactly one `<h1>` (page titles were `<h3>`); breadcrumbs are wrapped in `<nav aria-label="breadcrumb">`; all icon-only buttons (card tools, topbar toggles) have `aria-label`s; auth forms have real `<label>`s and `<main>` landmarks; dated "Google+" copy updated.
+- **演示页面：** Bootstrap JS CDN 版本从 5.3.7 更新到了 5.3.8，和编译用的 CSS 版本保持一致；删掉了那个失效的导航栏搜索按钮（`data-widget="navbar-search"` 在 v4 里根本没有实现）；现在每个页面都只有一个 `<h1>`（之前页面标题用的是 `<h3>`）；面包屑都包在 `<nav aria-label="breadcrumb">` 里了；所有纯图标按钮（卡片工具、顶栏切换）都加了 `aria-label`；登录/注册页面的表单有了真正的 `<label>` 和 `<main>` 地标；把过时的 "Google+" 文案也更新了。
+- **ACCESSIBILITY-COMPLIANCE.md rewritten as an accurate accessibility statement** — what's implemented, what's partial (treeview keyboard pattern, drag-and-drop alternatives, touch-target sizes), and what's on the roadmap — replacing the aspirational all-checked WCAG checklist. Demo meta descriptions updated to match.
+- **ACCESSIBILITY-COMPLIANCE.md 被重写为一份准确的无障碍声明** —— 说明了哪些功能已经实现了、哪些还不完整（如 treeview 键盘交互模式、拖拽替代方案、触摸目标尺寸），以及后续计划有哪些 —— 替换掉了之前那份什么都打勾的 WCAG 清单（那更多是一种愿景而非实际情况）。演示页面的 meta 描述也同步更新了。
+- **bundlewatch budgets recalibrated:** CSS budgets tightened (46 → 44 kB min+gzip) to lock in the docs-dedup win; JS budget raised (5.8 → 6.5 kB) for the behavior fixes above.
+- **bundlewatch 的预算重新调整了：** CSS 预算收紧了一些（从 46 kB 降到 44 kB，min+gzip），把文档样式去重省下来的空间锁定住；JS 预算从 5.8 kB 提到了 6.5 kB，主要是为了容纳上面那些行为修复。
+- **Hotwired Turbo / Turbo Drive support:** plugins now re-initialise on `turbo:load`, so PushMenu, TreeView and the other JS components keep working after Turbo swaps the `<body>` on in-app navigation (previously they went dead after the first link click). Each init cycle uses an `AbortController` whose signal is aborted on `turbo:before-render`, so the `window`/`document`-level listeners are torn down before re-init instead of stacking up on every navigation. (#563, #5890 — diagnosed and prototyped by @MarkDaleman in #6058)
+- **Hotwired Turbo / Turbo Drive 支持：** 现在插件会在 `turbo:load` 事件发生时重新初始化，所以 PushMenu、TreeView 和其他 JS 组件在 Turbo 替换 `<body>` 进行应用内导航后依然能正常工作（之前点完第一个链接后它们就全挂了）。每次初始化周期都用了一个 `AbortController`，它的 signal 会在 `turbo:before-render` 时被中止，这样 `window` 和 `document` 级别的事件监听器在重新初始化之前会被清理掉，不会每次导航都叠加累积。（#563, #5890 —— 由 @MarkDaleman 在 #6058 中诊断并制作了原型）
+- **Fullscreen state sync:** the fullscreen icons and the `maximized`/`minimized` events are now driven by the native `fullscreenchange` event instead of the request/exit calls. The UI no longer flips when a fullscreen request is denied (permissions policy, missing `allowfullscreen`, lost user gesture), and it now stays in sync when the user exits with `ESC` or `F11`. (builds on @webgo-oss's report in #6055)
+- **全屏状态同步：** 全屏图标和 `maximized`/`minimized` 事件现在是由原生的 `fullscreenchange` 事件来驱动的，而不再是靠调用请求/退出全屏的方法时手动更新。如果全屏请求被拒绝了（比如权限策略限制、缺少 `allowfullscreen` 属性、或者用户手势失效），界面不会再乱切换状态了；而且用户用 `ESC` 或 `F11` 退出全屏时，状态也能保持同步。（基于 @webgo-oss 在 #6055 中的反馈）
+- **Accessibility:** form inputs lacking both an `id` and a `name` now receive a stable, generated error-message id instead of colliding on a shared `-error` id and appending a new orphaned error node on every re-validation. (#6055, reported by @webgo-oss)
+- **无障碍修复：** 表单输入框如果既没有 `id` 也没有 `name`，现在会获得一个稳定的、自动生成的错误消息 id，而不会再挤在一个共用的 `-error` id 上，并且每次重新校验时都会挂上一个新的“孤儿”错误节点。（#6055，由 @webgo-oss 反馈）
+- All dependencies bumped to their latest releases, including four majors — **Astro 6 → 7** (which pulls in Vite 8), **@astrojs/mdx 6 → 7**, **eslint-plugin-astro 1 → 2**, and **eslint-plugin-unicorn 68 → 69** — plus ESLint, Prettier, Stylelint, PostCSS, Rollup and typescript-eslint. No source changes were required; the full `npm run production` pipeline (lint + Astro build + bundlewatch) passes and `npm audit` remains at **0 vulnerabilities**. (supersedes Dependabot PRs #6065–#6074)
+- 所有依赖都升级到了最新版本，其中包括四个大版本更新——**Astro 6 → 7**（顺带拉进来了 Vite 8）、**@astrojs/mdx 6 → 7**、**eslint-plugin-astro 1 → 2** 和 **eslint-plugin-unicorn 68 → 69**——此外还有 ESLint、Prettier、Stylelint、PostCSS、Rollup 和 typescript-eslint 也一并更新了。源码本身不需要做任何改动；完整的 `npm run production` 构建流程（lint + Astro 构建 + bundlewatch）全部通过，`npm audit` 也依然是 **0 个漏洞**。（代替了 Dependabot 发的 #6065–#6074 那批 PR）
+- **#6048:** `npm run production` no longer fails — the dev-only `scripts/social-preview.mjs` tripped 9 ESLint errors when building from source. The script is now lint-clean. (reported by @lfiorini)
+- **#6048:** `npm run production` 现在不会再跑失败了——之前那个只在开发时用的 `scripts/social-preview.mjs` 脚本在从源码构建时会触发 9 个 ESLint 报错。现在这个脚本已经改到能通过 lint 检查了。（由 @lfiorini 反馈）
+### Security
+### 安全
+- Hardened the social preview script's static file server against path traversal and error detail leakage (CodeQL alerts #87–#92). Dev-only script, not part of the npm package.
+- 加固了社交预览脚本里的静态文件服务器，防止路径遍历攻击和错误详情泄露（CodeQL 告警 #87–#92）。这个脚本只用于开发环境，不会包含在 npm 包里。
+- **Official framework integrations announced** — AdminLTE 4 is now available as first-class packages for four ecosystems, maintained under ColorlibHQ:
+- **官方框架集成正式发布** —— AdminLTE 4 现在以一等包的形式支持四个主流技术栈，由 ColorlibHQ 官方维护：
+- [adminlte-vue](https://github.com/ColorlibHQ/adminlte-vue) — Vue 3 & Nuxt, 45+ typed components, composables, SSR-safe theming, ⌘K command palette
+- [adminlte-vue](https://github.com/ColorlibHQ/adminlte-vue) — Vue 3 & Nuxt，45+ 个带类型的组件、composables、SSR 安全的主题化、⌘K 命令面板
+- [adminlte-react](https://github.com/ColorlibHQ/adminlte-react) — React & Next.js (App Router / RSC), 30+ typed components, dark mode, ⌘K command palette
+- [adminlte-react](https://github.com/ColorlibHQ/adminlte-react) — React & Next.js（支持 App Router / RSC），30+ 个带类型的组件、深色模式、⌘K 命令面板
+- [adminlte-django](https://github.com/ColorlibHQ/adminlte-django) — config-driven sidebar menu, 33+ components, themed `django.contrib.admin`, `{{ form }}` renderer
+- [adminlte-django](https://github.com/ColorlibHQ/adminlte-django) — 配置驱动的侧边栏菜单、33+ 个组件、主题化的 `django.contrib.admin`、`{{ form }}` 渲染器
+- [adminlte-laravel](https://github.com/ColorlibHQ/adminlte-laravel) — Blade integration, Vite-ready
+- [adminlte-laravel](https://github.com/ColorlibHQ/adminlte-laravel) — Blade 集成，Vite 开箱即用
+- Social preview generator script (`scripts/social-preview.mjs`, dev-only — excluded from the npm package).
+- 社交预览图生成脚本（`scripts/social-preview.mjs`，仅开发环境使用——不包含在 npm 包里）。
+- **#6043:** Stored color mode is now applied before first paint — no more light-mode flash when reloading a page in dark mode. (reported by @bsshreesha)
+- **#6043:** 存储的颜色模式现在会在首次绘制之前就应用上——深色模式下刷新页面时，不会再闪一下浅色模式了。（由 @bsshreesha 反馈）
+- **#6044:** Long subject/preview text in the mailbox inbox list is truncated instead of overflowing its container. (reported by @Oscurlo)
+- **#6044:** 邮箱收件箱列表里的长标题/预览文字现在会被截断，而不会溢出容器了。（由 @Oscurlo 反馈）
+- **#6038:** `accessibility.js` no longer assigns `role="navigation"` to `<ul>`/`<ol>` elements, which broke list semantics and failed the Lighthouse accessibility audit. (reported by @lfiorini)
+- **#6038:** `accessibility.js` 不再会给 `<ul>` 或 `<ol>` 元素强行加上 `role="navigation"` 了——之前这么做破坏了列表本身的语义，还导致 Lighthouse 无障碍审计不通过。（由 @lfiorini 反馈）
+- All dependencies bumped to latest; `axios` pinned via npm overrides to clear a transitive advisory. `npm audit` remains at **0 vulnerabilities**.
+- 所有依赖都升到了最新版；通过 npm overrides 把 `axios` 固定住了，解决了它带来的一个间接依赖安全告警。`npm audit` 依然保持 **0 个漏洞**。
+- **Forms:** Wizard (4-step with per-step validation + review summary)
+- **表单：** 表单向导（4 步骤，带每一步的校验 + 最后的信息回顾汇总）
+# [AdminLTE — Bootstrap 5 Admin Dashboard](https://adminlte.io)
+# [AdminLTE — Bootstrap 5 管理后台](https://adminlte.io)
+[![npm version](https://img.shields.io/npm/v/admin-lte/latest.svg)](https://www.npmjs.com/package/admin-lte)
+[![npm 版本](https://img.shields.io/npm/v/admin-lte/latest.svg)](https://www.npmjs.com/package/admin-lte)
+[![cdn version](https://data.jsdelivr.com/v1/package/npm/admin-lte/badge)](https://www.jsdelivr.com/package/npm/admin-lte)
+[![CDN 版本](https://data.jsdelivr.com/v1/package/npm/admin-lte/badge)](https://www.jsdelivr.com/package/npm/admin-lte)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![许可证: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![Discord Invite](https://img.shields.io/badge/discord-join%20now-green)](https://discord.gg/jfdvjwFqfz)
+[![Discord 邀请](https://img.shields.io/badge/discord-加入-green)](https://discord.gg/jfdvjwFqfz)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1277b36b-08f3-43fa-826a-4b4d24614b3c/deploy-status)](https://app.netlify.com/sites/adminlte-v4/deploys)
+[![Netlify 状态](https://api.netlify.com/api/v1/badges/1277b36b-08f3-43fa-826a-4b4d24614b3c/deploy-status)](https://app.netlify.com/sites/adminlte-v4/deploys)
+**AdminLTE** is the most popular open-source admin dashboard template — fully responsive,
+**AdminLTE** 是最受欢迎的开源管理后台模板——完全响应式，
+built on **[Bootstrap 5.3](https://getbootstrap.com/)** with vanilla JavaScript (no jQuery),
+基于 **[Bootstrap 5.3](https://getbootstrap.com/)** 构建，使用原生 JavaScript（无 jQuery），
+highly customizable, and easy to use. It fits every screen from small mobile devices to
+高度可定制，并且开箱即用。从小屏手机到大屏桌面都能完美适配，
+large desktops, and it's MIT-licensed.
+采用 MIT 许可证。
+**[Live Demo](https://adminlte.io/themes/v4/)** ·
+**[在线演示](https://adminlte.io/themes/v4/)** ·
+**[Documentation](https://adminlte.io/themes/v4/docs/introduction.html)** ·
+**[文档](https://adminlte.io/themes/v4/docs/introduction.html)** ·
+**[Framework Editions](#framework-editions)** ·
+**[框架版本](#framework-editions)** ·
+**[Premium Templates](#premium-templates)**
+**[付费模板](#premium-templates)**
+<img alt="AdminLTE 4 dashboard — light mode" src=".github/assets/dashboard-light.png" width="49%">
+<img alt="AdminLTE 4 仪表盘 — 浅色模式" src=".github/assets/dashboard-light.png" width="49%">
+<img alt="AdminLTE 4 dashboard — dark mode" src=".github/assets/dashboard-dark.png" width="49%">
+<img alt="AdminLTE 4 仪表盘 — 深色模式" src=".github/assets/dashboard-dark.png" width="49%">
+## Framework editions
+## 框架版本
+The same AdminLTE 4 dashboard, officially integrated for the framework you know best —
+同样的 AdminLTE 4 仪表盘，以官方集成的方式提供给你最熟悉的框架——
+you're looking at the **HTML / Bootstrap** core:
+你现在看到的是 **HTML / Bootstrap** 核心版本：
+| Edition | Repository | Live demo | Install |
+| 版本 | 仓库 | 在线演示 | 安装 |
+| **HTML / Bootstrap** (this repo) | [AdminLTE](https://github.com/ColorlibHQ/AdminLTE) | [themes/v4](https://adminlte.io/themes/v4/) | `npm install admin-lte` |
+| **HTML / Bootstrap**（本仓库） | [AdminLTE](https://github.com/ColorlibHQ/AdminLTE) | [themes/v4](https://adminlte.io/themes/v4/) | `npm install admin-lte` |
+| **React & Next.js** — 30+ typed components, RSC-ready, ⌘K palette | [adminlte-react](https://github.com/ColorlibHQ/adminlte-react) | [themes/next-react](https://adminlte.io/themes/next-react/) | see repo |
+| **React & Next.js** —— 30+ 个带类型组件，支持 RSC，⌘K 命令面板 | [adminlte-react](https://github.com/ColorlibHQ/adminlte-react) | [themes/next-react](https://adminlte.io/themes/next-react/) | 见仓库 |
+| **Vue 3 & Nuxt** — 45+ typed components, composables, SSR-safe theming | [adminlte-vue](https://github.com/ColorlibHQ/adminlte-vue) | [themes/vue-nuxt](https://adminlte.io/themes/vue-nuxt/) | see repo |
+| **Vue 3 & Nuxt** —— 45+ 个带类型组件，composables，SSR 安全的主题化 | [adminlte-vue](https://github.com/ColorlibHQ/adminlte-vue) | [themes/vue-nuxt](https://adminlte.io/themes/vue-nuxt/) | 见仓库 |
+| **Laravel** — Blade components, config-driven menu, auth scaffolding | [adminlte-laravel](https://github.com/ColorlibHQ/adminlte-laravel) | [laravel.adminlte.io](https://laravel.adminlte.io/) | `composer require colorlibhq/adminlte-laravel` |
+| **Laravel** —— Blade 组件，配置驱动菜单，认证脚手架 | [adminlte-laravel](https://github.com/ColorlibHQ/adminlte-laravel) | [laravel.adminlte.io](https://laravel.adminlte.io/) | `composer require colorlibhq/adminlte-laravel` |
+| **Django** — reusable app, menu filter pipeline, themed admin | [adminlte-django](https://github.com/ColorlibHQ/adminlte-django) | [django.adminlte.io](https://django.adminlte.io/) | `pip install django-adminlte4` |
+| **Django** —— 可复用应用，菜单过滤管道，主题化的后台 | [adminlte-django](https://github.com/ColorlibHQ/adminlte-django) | [django.adminlte.io](https://django.adminlte.io/) | `pip install django-adminlte4` |
+| **Symfony** — Twig Components, AssetMapper, config-driven menu, EasyAdmin theme | [adminlte-symfony](https://github.com/ColorlibHQ/adminlte-symfony) | see repo | `composer require colorlibhq/adminlte-symfony` |
+| **Symfony** —— Twig 组件，AssetMapper，配置驱动菜单，EasyAdmin 主题 | [adminlte-symfony](https://github.com/ColorlibHQ/adminlte-symfony) | 见仓库 | `composer require colorlibhq/adminlte-symfony` |
+| **Angular 22** — 44 standalone signal components, dark mode, ⌘K palette | [adminlte-angular](https://github.com/ColorlibHQ/adminlte-angular) | see repo | `npm i @adminlte/angular` |
+| **Angular 22** —— 44 个独立 signal 组件，深色模式，⌘K 命令面板 | [adminlte-angular](https://github.com/ColorlibHQ/adminlte-angular) | 见仓库 | `npm i @adminlte/angular` |
+| **ASP.NET Core (.NET 10)** — Blazor components + MVC/Razor Pages Tag Helpers | [adminlte-aspnet](https://github.com/ColorlibHQ/adminlte-aspnet) | see repo | `dotnet add package ColorlibHQ.AdminLTE.AspNetCore` |
+| **ASP.NET Core (.NET 10)** —— Blazor 组件 + MVC/Razor Pages 的 Tag Helpers | [adminlte-aspnet](https://github.com/ColorlibHQ/adminlte-aspnet) | 见仓库 | `dotnet add package ColorlibHQ.AdminLTE.AspNetCore` |
+| **Drupal** — admin theme for Drupal 10.3+/11, themed admin UI | [adminlte-drupal](https://github.com/ColorlibHQ/adminlte-drupal) | see repo | see repo |
+| **Drupal** —— Drupal 10.3+/11 的管理主题，主题化的后台界面 | [adminlte-drupal](https://github.com/ColorlibHQ/adminlte-drupal) | 见仓库 | 见仓库 |
+| **Docs** — guides, components, and API reference for every edition | [docs.adminlte.io](https://docs.adminlte.io) | [docs.adminlte.io](https://docs.adminlte.io) | — |
+| **文档** —— 每个版本的指南、组件和 API 参考 | [docs.adminlte.io](https://docs.adminlte.io) | [docs.adminlte.io](https://docs.adminlte.io) | — |
+Every edition ships the full AdminLTE 4 design — Bootstrap 5.3, dark mode, RTL — with
+每个版本都包含了完整的 AdminLTE 4 设计——
+idiomatic integrations for its stack (components, routing, auth, theming).
+Bootstrap 5.3、深色模式、RTL——并针对各自技术栈提供了地道的集成方式（组件、路由、认证、主题化）。
+## Quick start
+## 快速开始
+**CDN** — no build step:
+**CDN** —— 无需构建步骤：
+Then start from the [Getting Started guide](https://adminlte.io/themes/v4/docs/introduction.html)
+然后从[快速上手指南](https://adminlte.io/themes/v4/docs/introduction.html)开始，
+or copy one of the demo pages.
+或者直接复制一个演示页面来用。
+### Developing AdminLTE itself
+### 开发 AdminLTE 本身
+1. **Install dependencies:** `npm install`
+1. **安装依赖：** `npm install`
+2. **Start the dev server:** `npm start` *(opens http://localhost:3000 with live reload)*
+2. **启动开发服务器：** `npm start` *（打开 http://localhost:3000，带热重载）*
+3. **Build:** `npm run build` — or `npm run production` for the full lint + optimize + bundlewatch pipeline
+3. **构建：** `npm run build`——或者 `npm run production` 跑完整的 lint + 优化 + bundlewatch 流程
+<summary>All npm scripts</summary>
+<summary>所有 npm 脚本</summary>
+- `npm start` — development server with file watching
+- `npm start` —— 开发服务器，带文件监听
+- `npm run build` — build all assets for development
+- `npm run build` —— 构建所有开发环境资源
+- `npm run production` — full production build with linting and bundlewatch
+- `npm run production` —— 完整的生产环境构建，含 lint 和 bundlewatch
+- `npm run lint` — run all linters (JS, CSS, docs, lockfile)
+- `npm run lint` —— 运行所有代码检查工具（JS、CSS、文档、lockfile）
+- `npm run css` — build CSS only
+- `npm run css` —— 仅构建 CSS
+- `npm run js` — build JavaScript only
+- `npm run js` —— 仅构建 JavaScript
+## What's new in v4
+## v4 版本新特性
+The v4 line is a ground-up rewrite on Bootstrap 5.3 with **no jQuery**: 18 new demo pages
+v4 系列是在 Bootstrap 5.3 上完全重写的，**不再依赖 jQuery**：
+(Calendar, Kanban, Chat, File Manager, Mailbox, Wizard, Tabulator data tables, and more),
+新增了 18 个演示页面（日历、看板、聊天、文件管理器、邮箱、表单向导、Tabulator 数据表格等等），
+a documentation overhaul, and major dependency upgrades. See the
+文档也全面翻新了，依赖也做了大版本升级。
+[CHANGELOG](CHANGELOG.md) for full details.
+完整细节请查看[更新日志](CHANGELOG.md)。
+<summary>Highlights</summary>
+<summary>亮点一览</summary>
+**18 new demo pages**
+**18 个新演示页面**
+- Apps: Calendar (FullCalendar), Kanban (SortableJS), Chat, File Manager, Projects, Mailbox (Inbox / Read / Compose)
+- 应用：日历（FullCalendar）、看板（SortableJS）、聊天、文件管理器、项目、邮箱（收件箱/阅读/写信）
+- Forms: Wizard (4-step with validation)
+- 表单：表单向导（4 步带校验）
+- Tables: Data Tables (Tabulator — jQuery-free)
+- 表格：数据表格（Tabulator——无 jQuery）
+- Pages: Profile, Settings, Invoice, Pricing, FAQ
+- 页面：个人资料、设置、发票、定价、常见问题
+- Errors: 404, 500, Maintenance
+- 错误页：404、500、维护中
+**Documentation overhaul**
+**文档全面翻新**
+- New pages: Getting Started, Customization & Theming, RTL Support, Migration from v3, Layout Blueprint, Recipes, Deployment & Performance, Recommended Integrations, JavaScript Plugins Overview
+- 新增页面：快速上手、自定义与主题化、RTL 支持、从 v3 迁移、布局蓝图、实战技巧、部署与性能、推荐集成、JavaScript 插件概览
+- Rewritten Introduction with four labelled install paths (CDN / npm / source / Composer)
+- 重写了介绍页面，明确标出四种安装方式（CDN / npm / 源码 / Composer）
+- FAQ rebuilt with hero, live search, section chips, and an accordion of 19 questions
+- 常见问题页面重新做了，带横幅、实时搜索、分类标签和 19 个问题的折叠面板
+- Split sidebar navigation: dashboard demo and docs each have their own nav
+- 侧边栏导航拆开了：仪表盘演示和文档各用各的导航
+**Major dependency upgrades**
+**主要依赖升级**
+- ESLint 10, TypeScript 6, Stylelint 17, Astro 6.3, Bootstrap 5.3.8, Node 22 LTS in CI
+- ESLint 10、TypeScript 6、Stylelint 17、Astro 6.3、Bootstrap 5.3.8，CI 用 Node 22 LTS
+- `npm install` runs clean with **0 vulnerabilities**
+- `npm install` 跑完干干净净，**0 个漏洞**
+<summary>Breaking changes from v3</summary>
+<summary>从 v3 升级的破坏性变更</summary>
+- Class renames: `.wrapper` → `.app-wrapper`, `.main-header` → `.app-header`, `.main-sidebar` → `.app-sidebar`, `.content-wrapper` → `.app-main`
+- 类名重命名：`.wrapper` → `.app-wrapper`，`.main-header` → `.app-header`，`.main-sidebar` → `.app-sidebar`，`.content-wrapper` → `.app-main`
+- Data attributes: `data-toggle` → `data-bs-toggle`, `data-widget="pushmenu"` → `data-lte-toggle="sidebar"`, `data-widget="treeview"` → `data-lte-toggle="treeview"`
+- 数据属性：`data-toggle` → `data-bs-toggle`，`data-widget="pushmenu"` → `data-lte-toggle="sidebar"`，`data-widget="treeview"` → `data-lte-toggle="treeview"`
+- Dark mode: `.dark-mode` body class → `data-bs-theme="dark"` attribute (Bootstrap 5.3 native)
+- 深色模式：`<body>` 上的 `.dark-mode` 类 → `data-bs-theme="dark"` 属性（Bootstrap 5.3 原生支持）
+- jQuery no longer required; plugins are vanilla TypeScript
+- 不再需要 jQuery；插件都是用原生 TypeScript 写的
+See the dedicated [Migration from v3](https://adminlte.io/themes/v4/docs/migration.html) guide.
+详见专门的[从 v3 迁移指南](https://adminlte.io/themes/v4/docs/migration.html)。
+## Premium templates
+## 付费模板
+AdminLTE will always be free and open source. When a project needs more —
+AdminLTE 永远免费且开源。当项目需要更多功能时——
+app-ready pages, framework-native codebases, dedicated support — our team
+比如现成的应用页面、框架原生代码库、专属支持——
+hand-picks premium dashboards at **[adminlte.io/premium](https://adminlte.io/premium)**,
+我们的团队在 **[adminlte.io/premium](https://adminlte.io/premium)** 精心挑选了付费仪表盘，
+including editions built for the same stacks AdminLTE integrates with:
+其中包含针对 AdminLTE 所集成的同一批技术栈构建的版本：
+<img src=".github/assets/premium/admindek.png" alt="Admindek — feature-rich Bootstrap 5 dashboard with dark mode" width="100%">
+<img src=".github/assets/premium/admindek.png" alt="Admindek —— 功能丰富的 Bootstrap 5 仪表盘，带深色模式" width="100%">
+<sub>The natural next step from AdminLTE: Bootstrap 5 + vanilla JS, 100+ components, dark/light modes, RTL, 10 color presets.<br>
+<sub>从 AdminLTE 自然进阶的选择：Bootstrap 5 + 原生 JS，100+ 组件，深色/浅色模式，RTL，10 种配色预设。<br>
+Also for <a href="https://dashboardpack.com/theme-details/admindek-dashboard-laravel/?utm_source=github&utm_medium=readme&utm_campaign=adminlte">Laravel</a> ·
+也有 <a href="https://dashboardpack.com/theme-details/admindek-dashboard-laravel/?utm_source=github&utm_medium=readme&utm_campaign=adminlte">Laravel</a> ·
+<a href="https://dashboardpack.com/theme-details/admindek-dashboard-angular/?utm_source=github&utm_medium=readme&utm_campaign=adminlte">Angular</a></sub>
+<a href="https://dashboardpack.com/theme-details/admindek-dashboard-angular/?utm_source=github&utm_medium=readme&utm_campaign=adminlte">Angular</a> 版本</sub>
+<img src=".github/assets/premium/apex.png" alt="Apex Dashboard — admin template available for Next.js, Laravel, Django and Angular" width="100%">
+<img src=".github/assets/premium/apex.png" alt="Apex Dashboard —— 支持 Next.js、Laravel、Django 和 Angular 的管理模板" width="100%">
+<sub>5 dashboard variants, 20+ app pages, 125+ routes, full CRUD — in your backend's native stack.<br>
+<sub>5 种仪表盘变体，20+ 应用页面，125+ 路由，完整的增删改查——用你后端的原生技术栈。<br>
+For <a href="https://dashboardpack.com/theme-details/apex-dashboard-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=adminlte">Next.js</a> ·
+支持 <a href="https://dashboardpack.com/theme-details/apex-dashboard-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=adminlte">Next.js</a> ·
+<img src=".github/assets/premium/zenith.png" alt="Zenith — ultra-minimal admin dashboard, Django edition" width="100%">
+<img src=".github/assets/premium/zenith.png" alt="Zenith —— 极致简约的管理仪表盘，Django 版" width="100%">
+<a href="https://dashboardpack.com/theme-details/zenith-dashboard-django/?utm_source=github&utm_medium=readme&utm_campaign=adminlte"><strong>Zenith Dashboard — Django</strong></a>
+<a href="https://dashboardpack.com/theme-details/zenith-dashboard-django/?utm_source=github&utm_medium=readme&utm_campaign=adminlte"><strong>Zenith Dashboard —— Django 版</strong></a>
+<sub>Achromatic, ultra-minimal design as a ready-to-run Django project: 50+ pages, 6 dashboards, live theme customizer.</sub>
+<sub>无彩色、极致简约的设计，以开箱即用的 Django 项目形式提供：50+ 页面，6 种仪表盘，实时主题定制器。</sub>
+<img src=".github/assets/premium/haze.png" alt="Haze — Nuxt 4 admin dashboard with 92+ pages and 5 dashboards" width="100%">
+<img src=".github/assets/premium/haze.png" alt="Haze —— Nuxt 4 管理仪表盘，92+ 页面和 5 种仪表盘" width="100%">
+<a href="https://dashboardpack.com/theme-details/haze-dashboard-nuxt/?utm_source=github&utm_medium=readme&utm_campaign=adminlte"><strong>Haze — Nuxt</strong></a>
+<a href="https://dashboardpack.com/theme-details/haze-dashboard-nuxt/?utm_source=github&utm_medium=readme&utm_campaign=adminlte"><strong>Haze —— Nuxt 版</strong></a>
+<sub>Nuxt 4 + Nuxt UI v4 + Tailwind CSS v4. 92+ pages, 7 layouts, 5 dashboards, RTL, i18n, mock API layer.</sub>
+<sub>Nuxt 4 + Nuxt UI v4 + Tailwind CSS v4。92+ 页面，7 种布局，5 种仪表盘，RTL，国际化，Mock API 层。</sub>
+<a href="https://adminlte.io/premium"><strong>View all premium templates →</strong></a>
+<a href="https://adminlte.io/premium"><strong>查看所有付费模板 →</strong></a>
+## Browser & platform support
+## 浏览器与平台支持
+AdminLTE supports the latest versions of all modern browsers (Chrome, Firefox, Safari,
+AdminLTE 通过 Bootstrap 5.3.8 支持所有现代浏览器的最新版本（Chrome、Firefox、Safari、Edge）。
+Edge) via Bootstrap 5.3.8. The build scripts run cross-platform — Windows (CMD,
+构建脚本跨平台运行——Windows（CMD、PowerShell、Git Bash）
+PowerShell, Git Bash), macOS and Linux — using cross-platform npm utilities throughout.
+、macOS 和 Linux——全程使用跨平台的 npm 工具。
+## Security & production deployment
+## 安全与生产部署
+AdminLTE is a **UI template**. Deploy only the compiled production assets
+AdminLTE 是一个 **UI 模板**。部署时只放编译好的生产环境资源文件
+(`dist/js/adminlte.min.js`, `dist/css/adminlte.min.css`) and your own application files —
+（`dist/js/adminlte.min.js`、`dist/css/adminlte.min.css`）和你自己的应用文件——
+never `node_modules/`, the demo HTML pages, or the `src/` directory.
+千万不要把 `node_modules/`、演示 HTML 页面或 `src/` 目录部署上去。
+> **About CVE-2021-36471:** this CVE is **disputed** and does not represent a
+> **关于 CVE-2021-36471：** 这个 CVE 是**有争议的**，
+> vulnerability in AdminLTE — it refers to demo pages being accessible when example
+> 并不代表 AdminLTE 本身存在漏洞——它指的是当示例文件被错误地部署到生产环境时，
+> files are incorrectly deployed to production. AdminLTE v4 cleanly separates
+> 演示页面可以被访问到。
+> development demos from production assets.
+> AdminLTE v4 已经将开发用的演示页面和生产环境资源清晰地区分开了。
+For detailed guidelines, authentication requirements, and best practices, see
+详细指南、认证要求和最佳实践，
+[SECURITY.md](SECURITY.md).
+请查看 [SECURITY.md](SECURITY.md)。
+## Sponsorship
+## 赞助
+Support AdminLTE development by becoming a sponsor or donor.
+通过成为赞助者或捐赠者来支持 AdminLTE 的开发。
+alt="Sponsor on GitHub" />
+alt="在 GitHub 上赞助" />
+alt="Donate via PayPal" />
+alt="通过 PayPal 捐赠" />
+### Our sponsors
+### 我们的赞助者
+Your avatar here? Become a sponsor
+想在这里放你的头像？成为赞助者吧
+## Contributing
+## 贡献
+Contributions are highly welcome:
+非常欢迎贡献代码：
+1. Install [Node.js](https://nodejs.org/) (LTS) and clone this repository (`master` branch).
+1. 安装 [Node.js](https://nodejs.org/)（LTS 版本），然后克隆本仓库（`master` 分支）。
+2. `npm install`, then `npm start` to run the dev server.
+2. 执行 `npm install`，然后 `npm start` 启动开发服务器。
+3. Make your changes (run `npm run lint` before committing) and open a PR against `master`.
+3. 做出你的修改（提交前记得跑 `npm run lint`），然后向 `master` 分支提交 PR。
+## License
+## 许可证
+AdminLTE is an open source project by [AdminLTE.io](https://adminlte.io) licensed under
+AdminLTE 是 [AdminLTE.io](https://adminlte.io) 的一个开源项目，
+[MIT](https://opensource.org/licenses/MIT). AdminLTE.io reserves the right to change
+采用 [MIT](https://opensource.org/licenses/MIT) 许可证。
+the license of future releases.
+AdminLTE.io 保留更改未来版本许可证的权利。
+## Image credits
+## 图片来源

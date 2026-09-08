@@ -1,0 +1,729 @@
+---
+import Head from "@components/_head.astro"
+import Footer from "@components/dashboard/_footer.astro"
+import Topbar from "@components/dashboard/_topbar.astro"
+import Sidenav from "@components/dashboard/_sidenav.astro"
+import Scripts from "@components/_scripts.astro"
+
+const title = "AdminLTE 4 | 用户"
+const path = "../../dist"
+const page = "users";
+
+// 智能路径解析：根据目录深度计算相对路径
+const pathname = Astro.url.pathname;
+const pathSegments = pathname.split('/').filter(segment => segment !== '');
+const depth = pathSegments.length > 0 ? pathSegments.length - 1 : 0;
+const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <!--begin::Head-->
+  <head>
+    <Head title={title} path={path} />
+  </head>
+  <!--end::Head-->
+  <!--begin::Body-->
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <!--begin::App Wrapper-->
+    <div class="app-wrapper">
+      <Topbar path={path} />
+      <Sidenav path={path} page={page} />
+      <!--begin::App Main-->
+      <main class="app-main">
+        <!--begin::App Content Header-->
+        <div class="app-content-header">
+          <!--begin::Container-->
+          <div class="container-fluid">
+            <!--begin::Row-->
+            <div class="row">
+              <div class="col-sm-6">
+                <h1 class="mb-0 fs-3">用户</h1>
+              </div>
+              <div class="col-sm-6">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">首页</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                      用户
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+            <!--end::Row-->
+          </div>
+          <!--end::Container-->
+        </div>
+        <!--end::App Content Header-->
+        <!--begin::App Content-->
+        <div class="app-content">
+          <!--begin::Container-->
+          <div class="container-fluid">
+            <!--begin::Row-->
+            <div class="row">
+              <div class="col-12">
+                <!--begin::Card-->
+                <div class="card mb-4">
+                  <!--begin::Card Header-->
+                  <div class="card-header">
+                    <div class="row g-2 align-items-center">
+                      <div class="col-12 col-md-4">
+                        <h3 class="card-title">用户列表</h3>
+                      </div>
+                      <div class="col-12 col-md-8">
+                        <div
+                          class="d-flex flex-wrap justify-content-md-end gap-2"
+                        >
+                          <div class="input-group input-group-sm w-auto">
+                            <span class="input-group-text">
+                              <i class="bi bi-search" aria-hidden="true"></i>
+                            </span>
+                            <input
+                              type="search"
+                              id="user-search"
+                              class="form-control"
+                              placeholder="搜索用户"
+                              aria-label="搜索用户"
+                              style="width: 180px"
+                            />
+                          </div>
+                          <select
+                            id="user-role-filter"
+                            class="form-select form-select-sm w-auto"
+                            aria-label="Filter by role"
+                          >
+                            <option value="all" selected>所有职务</option>
+                            <option value="administrator">管理员</option>
+                            <option value="editor">编辑</option>
+                            <option value="author">作家</option>
+                            <option value="subscriber">订阅者</option>
+                          </select>
+                          <button
+                            type="button"
+                            class="btn btn-sm btn-primary"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modal-add-user"
+                          >
+                            <i
+                              class="bi bi-person-plus-fill me-1"
+                              aria-hidden="true"
+                            >
+                            </i>
+                            新用户
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--end::Card Header-->
+                  <!--begin::Card Body-->
+                  <div class="card-body p-0">
+                    <div class="table-responsive">
+                      <table class="table table-hover align-middle m-0">
+                        <thead>
+                          <tr>
+                            <th>用户</th>
+                            <th>Email</th>
+                            <th>职务</th>
+                            <th>状态</th>
+                            <th>创建日期</th>
+                            <th class="text-end">操作</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <img
+                                  src={deploymentPath + "assets/img/user1-128x128.jpg"}
+                                  alt=""
+                                  class="img-size-32 rounded-circle me-2"
+                                />
+                                <span class="fw-medium">亚历山大·皮尔斯</span>
+                              </div>
+                            </td>
+                            <td>alexander.pierce@example.com</td>
+                            <td>
+                              <span class="badge text-bg-danger">
+                                管理员
+                              </span>
+                            </td>
+                            <td>
+                              <span class="badge text-bg-success">活跃</span>
+                            </td>
+                            <td>2025年3月12日</td>
+                            <td class="text-end">
+                              <div class="btn-group btn-group-sm">
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-secondary"
+                                  aria-label="编辑 亚历山大·皮尔斯"
+                                >
+                                  <i class="bi bi-pencil" aria-hidden="true">
+                                  </i>
+                                </button>
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-danger"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#modal-delete-user"
+                                  aria-label="删除 亚历山大·皮尔斯"
+                                >
+                                  <i class="bi bi-trash" aria-hidden="true">
+                                  </i>
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <img
+                                  src={deploymentPath + "assets/img/user3-128x128.jpg"}
+                                  alt=""
+                                  class="img-size-32 rounded-circle me-2"
+                                />
+                                <span class="fw-medium">莎拉·布拉洛克</span>
+                              </div>
+                            </td>
+                            <td>sarah.bullock@example.com</td>
+                            <td>
+                              <span class="badge text-bg-primary">编辑</span>
+                            </td>
+                            <td>
+                              <span class="badge text-bg-success">活跃</span>
+                            </td>
+                            <td>2025年4月3日</td>
+                            <td class="text-end">
+                              <div class="btn-group btn-group-sm">
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-secondary"
+                                  aria-label="编辑 莎拉·布拉洛克"
+                                >
+                                  <i class="bi bi-pencil" aria-hidden="true">
+                                  </i>
+                                </button>
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-danger"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#modal-delete-user"
+                                  aria-label="删除 莎拉·布拉洛克"
+                                >
+                                  <i class="bi bi-trash" aria-hidden="true">
+                                  </i>
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <img
+                                  src={deploymentPath + "assets/img/user6-128x128.jpg"}
+                                  alt=""
+                                  class="img-size-32 rounded-circle me-2"
+                                />
+                                <span class="fw-medium">丹尼尔·库珀</span>
+                              </div>
+                            </td>
+                            <td>daniel.cooper@example.com</td>
+                            <td>
+                              <span class="badge text-bg-info">作家</span>
+                            </td>
+                            <td>
+                              <span class="badge text-bg-warning">待处理</span>
+                            </td>
+                            <td>2025年4月28日</td>
+                            <td class="text-end">
+                              <div class="btn-group btn-group-sm">
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-secondary"
+                                  aria-label="编辑 丹尼尔·库珀"
+                                >
+                                  <i class="bi bi-pencil" aria-hidden="true">
+                                  </i>
+                                </button>
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-danger"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#modal-delete-user"
+                                  aria-label="删除 丹尼尔·库珀"
+                                >
+                                  <i class="bi bi-trash" aria-hidden="true">
+                                  </i>
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <img
+                                  src={deploymentPath + "assets/img/user4-128x128.jpg"}
+                                  alt=""
+                                  class="img-size-32 rounded-circle me-2"
+                                />
+                                <span class="fw-medium">诺拉·范斯</span>
+                              </div>
+                            </td>
+                            <td>nora.vans@example.com</td>
+                            <td>
+                              <span class="badge text-bg-primary">编辑</span>
+                            </td>
+                            <td>
+                              <span class="badge text-bg-success">活跃</span>
+                            </td>
+                            <td>2025年5月9日</td>
+                            <td class="text-end">
+                              <div class="btn-group btn-group-sm">
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-secondary"
+                                  aria-label="编辑 诺拉·范斯"
+                                >
+                                  <i class="bi bi-pencil" aria-hidden="true">
+                                  </i>
+                                </button>
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-danger"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#modal-delete-user"
+                                  aria-label="删除 诺拉·范斯"
+                                >
+                                  <i class="bi bi-trash" aria-hidden="true">
+                                  </i>
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <img
+                                  src={deploymentPath + "assets/img/user7-128x128.jpg"}
+                                  alt=""
+                                  class="img-size-32 rounded-circle me-2"
+                                />
+                                <span class="fw-medium">简·霍兰德</span>
+                              </div>
+                            </td>
+                            <td>jane.holland@example.com</td>
+                            <td>
+                              <span class="badge text-bg-secondary">
+                                订阅者
+                              </span>
+                            </td>
+                            <td>
+                              <span class="badge text-bg-success">活跃</span>
+                            </td>
+                            <td>2025年5月21日</td>
+                            <td class="text-end">
+                              <div class="btn-group btn-group-sm">
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-secondary"
+                                  aria-label="编辑 简·霍兰德"
+                                >
+                                  <i class="bi bi-pencil" aria-hidden="true">
+                                  </i>
+                                </button>
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-danger"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#modal-delete-user"
+                                  aria-label="删除 简·霍兰德"
+                                >
+                                  <i class="bi bi-trash" aria-hidden="true">
+                                  </i>
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <img
+                                  src={deploymentPath + "assets/img/user8-128x128.jpg"}
+                                  alt=""
+                                  class="img-size-32 rounded-circle me-2"
+                                />
+                                <span class="fw-medium">肯尼斯·迈尔斯</span>
+                              </div>
+                            </td>
+                            <td>kenneth.miles@example.com</td>
+                            <td>
+                              <span class="badge text-bg-info">作家</span>
+                            </td>
+                            <td>
+                              <span class="badge text-bg-danger">
+                                停用
+                              </span>
+                            </td>
+                            <td>2025年6月2日</td>
+                            <td class="text-end">
+                              <div class="btn-group btn-group-sm">
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-secondary"
+                                  aria-label="编辑 肯尼斯·迈尔斯"
+                                >
+                                  <i class="bi bi-pencil" aria-hidden="true">
+                                  </i>
+                                </button>
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-danger"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#modal-delete-user"
+                                  aria-label="删除 肯尼斯·迈尔斯"
+                                >
+                                  <i class="bi bi-trash" aria-hidden="true">
+                                  </i>
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <img
+                                  src={deploymentPath + "assets/img/user2-160x160.jpg"}
+                                  alt=""
+                                  class="img-size-32 rounded-circle me-2"
+                                />
+                                <span class="fw-medium">
+                                  娜迪亚·卡迈克尔
+                                </span>
+                              </div>
+                            </td>
+                            <td>nadia.carmichael@example.com</td>
+                            <td>
+                              <span class="badge text-bg-secondary">
+                                订阅者
+                              </span>
+                            </td>
+                            <td>
+                              <span class="badge text-bg-success">活跃</span>
+                            </td>
+                            <td>2025年6月15日</td>
+                            <td class="text-end">
+                              <div class="btn-group btn-group-sm">
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-secondary"
+                                  aria-label="编辑 娜迪亚·卡迈克尔"
+                                >
+                                  <i class="bi bi-pencil" aria-hidden="true">
+                                  </i>
+                                </button>
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-danger"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#modal-delete-user"
+                                  aria-label="删除 娜迪亚·卡迈克尔"
+                                >
+                                  <i class="bi bi-trash" aria-hidden="true">
+                                  </i>
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <img
+                                  src={deploymentPath + "assets/img/user5-128x128.jpg"}
+                                  alt=""
+                                  class="img-size-32 rounded-circle me-2"
+                                />
+                                <span class="fw-medium">马库斯·里德</span>
+                              </div>
+                            </td>
+                            <td>marcus.reed@example.com</td>
+                            <td>
+                              <span class="badge text-bg-primary">编辑</span>
+                            </td>
+                            <td>
+                              <span class="badge text-bg-warning">待处理</span>
+                            </td>
+                            <td>2025年6月24日</td>
+                            <td class="text-end">
+                              <div class="btn-group btn-group-sm">
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-secondary"
+                                  aria-label="编辑 马库斯·里德"
+                                >
+                                  <i class="bi bi-pencil" aria-hidden="true">
+                                  </i>
+                                </button>
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-danger"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#modal-delete-user"
+                                  aria-label="删除 马库斯·里德"
+                                >
+                                  <i class="bi bi-trash" aria-hidden="true">
+                                  </i>
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <img
+                                  src={deploymentPath + "assets/img/avatar5.png"}
+                                  alt=""
+                                  class="img-size-32 rounded-circle me-2"
+                                />
+                                <span class="fw-medium">埃琳娜·韦伯</span>
+                              </div>
+                            </td>
+                            <td>elena.weber@example.com</td>
+                            <td>
+                              <span class="badge text-bg-secondary">
+                                订阅者
+                              </span>
+                            </td>
+                            <td>
+                              <span class="badge text-bg-success">活跃</span>
+                            </td>
+                            <td>2025年7月1日</td>
+                            <td class="text-end">
+                              <div class="btn-group btn-group-sm">
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-secondary"
+                                  aria-label="编辑 埃琳娜·韦伯"
+                                >
+                                  <i class="bi bi-pencil" aria-hidden="true">
+                                  </i>
+                                </button>
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-danger"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#modal-delete-user"
+                                  aria-label="删除 埃琳娜·韦伯"
+                                >
+                                  <i class="bi bi-trash" aria-hidden="true">
+                                  </i>
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                  </div>
+                  <!--end::Card Body-->
+                  <!--begin::Card Footer-->
+                  <div class="card-footer clearfix">
+                    <div class="float-start pt-1 fs-7 text-body-secondary">
+                      显示第1到第9位，共42位用户
+                    </div>
+                    <ul class="pagination pagination-sm m-0 float-end">
+                      <li class="page-item disabled">
+                        <a class="page-link" href="#" aria-label="上一页">
+                          &laquo;
+                        </a>
+                      </li>
+                      <li class="page-item active">
+                        <a class="page-link" href="#">1</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">2</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">3</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">4</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">5</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="下一页">
+                          &raquo;
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!--end::Card Footer-->
+                </div>
+                <!--end::Card-->
+              </div>
+              <!-- /.col -->
+            </div>
+            <!--end::Row-->
+
+            <!--begin::Add User Modal-->
+            <div
+              class="modal fade"
+              id="modal-add-user"
+              tabindex="-1"
+              aria-labelledby="modal-add-user-label"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <form>
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modal-add-user-label">
+                        添加新用户
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      >
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="mb-3">
+                        <label for="new-user-name" class="form-label">
+                          全名
+                        </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="new-user-name"
+                          placeholder="e.g. Jane Doe"
+                          required
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="new-user-email" class="form-label">
+                          邮箱地址
+                        </label>
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="new-user-email"
+                          placeholder="name@example.com"
+                          required
+                        />
+                        <div class="form-text">
+                          邀请函将发送至该地址。
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="new-user-role" class="form-label">
+                          职务
+                        </label>
+                        <select id="new-user-role" class="form-select">
+                          <option selected>订阅者</option>
+                          <option>作家</option>
+                          <option>编辑</option>
+                          <option>管理员</option>
+                        </select>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="new-user-welcome"
+                          checked
+                        />
+                        <label
+                          class="form-check-label"
+                          for="new-user-welcome"
+                        >
+                          发送一封包含登录信息的欢迎邮件
+                        </label>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        取消
+                      </button>
+                      <button type="submit" class="btn btn-primary">
+                        创建用户
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!--end::Add User Modal-->
+
+            <!--begin::Delete User Modal-->
+            <div
+              class="modal fade"
+              id="modal-delete-user"
+              tabindex="-1"
+              aria-labelledby="modal-delete-user-label"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="modal-delete-user-label">
+                      删除用户
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    >
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p class="mb-0">
+                      您确定要删除此用户吗？
+                      该账户下的所有内容将重新分配给网站管理员。
+                      此操作无法撤销。
+                    </p>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      取消
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-danger"
+                      data-bs-dismiss="modal"
+                    >
+                      删除用户
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--end::Delete User Modal-->
+          </div>
+          <!--end::Container-->
+        </div>
+        <!--end::App Content-->
+      </main>
+      <!--end::App Main-->
+      <Footer />
+    </div>
+    <!--end::App Wrapper-->
+    <!--begin::Script-->
+    <Scripts path={path} />
+    <!--end::Script-->
+  </body><!--end::Body-->
+</html>

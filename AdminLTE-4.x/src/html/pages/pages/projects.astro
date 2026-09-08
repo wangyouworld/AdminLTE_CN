@@ -1,0 +1,354 @@
+---
+import Head from "@components/_head.astro"
+import Footer from "@components/dashboard/_footer.astro"
+import Topbar from "@components/dashboard/_topbar.astro"
+import Sidenav from "@components/dashboard/_sidenav.astro"
+import Scripts from "@components/_scripts.astro"
+
+const title = "AdminLTE 4 | 项目"
+const path = "../../../dist"
+const mainPage = "pages"
+const page = "projects";
+
+type Project = {
+  name: string;
+  client: string;
+  status: "正常" | "风险" | "延期" | "完成";
+  progress: number;
+  team: { initials: string; color: string }[];
+  budget: string;
+  due: string;
+  priority: "低" | "中" | "高";
+};
+
+const projects: Project[] = [
+  {
+    name: "AdminLTE 4 发布",
+    client: "内部",
+    status: "正常",
+    progress: 78,
+    team: [
+      { initials: "JD", color: "primary" },
+      { initials: "OB", color: "info" },
+      { initials: "DM", color: "success" }
+    ],
+    budget: "$24,500",
+    due: "2026年6月14日",
+    priority: "高"
+  },
+  {
+    name: "营销网站重新设计",
+    client: "Acme 公司",
+    status: "风险",
+    progress: 42,
+    team: [
+      { initials: "OB", color: "info" },
+      { initials: "MR", color: "warning" }
+    ],
+    budget: "$48,000",
+    due: "2026年7月2日",
+    priority: "高"
+  },
+  {
+    name: "移动应用 v2",
+    client: "Nimbus 实验室",
+    status: "正常",
+    progress: 61,
+    team: [
+      { initials: "LC", color: "primary" },
+      { initials: "ED", color: "danger" },
+      { initials: "AF", color: "secondary" },
+      { initials: "SK", color: "info" }
+    ],
+    budget: "$92,500",
+    due: "2026年8月18日",
+    priority: "中"
+  },
+  {
+    name: "数据分析流水线",
+    client: "内部",
+    status: "延期",
+    progress: 22,
+    team: [{ initials: "DM", color: "success" }],
+    budget: "$12,000",
+    due: "2026年5月30日",
+    priority: "中"
+  },
+  {
+    name: "品牌设计规范",
+    client: "Riverhaus",
+    status: "完成",
+    progress: 100,
+    team: [
+      { initials: "OB", color: "info" },
+      { initials: "ED", color: "danger" }
+    ],
+    budget: "$8,200",
+    due: "2026年5月9日",
+    priority: "低"
+  },
+  {
+    name: "引导邮件流程",
+    client: "Acme 公司",
+    status: "正常",
+    progress: 55,
+    team: [
+      { initials: "MR", color: "warning" },
+      { initials: "JD", color: "primary" }
+    ],
+    budget: "$6,800",
+    due: "2026年6月22日",
+    priority: "低"
+  }
+];
+
+const statusBadge: Record<Project["status"], string> = {
+  "正常": "success",
+  "风险": "warning",
+  Delayed: "danger",
+  Completed: "secondary"
+};
+
+const priorityBadge: Record<Project["priority"], string> = {
+  Low: "secondary",
+  Medium: "info",
+  High: "danger"
+};
+
+const progressBar = (p: number) => {
+  if (p === 100) return "success";
+  if (p >= 60) return "primary";
+  if (p >= 30) return "info";
+  return "warning";
+};
+
+const totals = {
+  count: projects.length,
+  onTrack: projects.filter((p) => p.status === "正常").length,
+  atRisk: projects.filter((p) => p.status === "风险" || p.status === "延期").length,
+  done: projects.filter((p) => p.status === "完成").length
+};
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <Head title={title} path={path} />
+  </head>
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <div class="app-wrapper">
+      <Topbar path={path} />
+      <Sidenav path={path} mainPage={mainPage} page={page} />
+      <main class="app-main">
+        <div class="app-content-header">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6">
+                <h1 class="mb-0 fs-3">项目</h1>
+              </div>
+              <div class="col-sm-6">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">首页</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">项目</li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="app-content">
+          <div class="container-fluid">
+            <!-- Summary cards -->
+            <div class="row g-3 mb-3">
+              <div class="col-md-3 col-6">
+                <div class="card h-100">
+                  <div class="card-body">
+                    <p class="text-secondary small mb-1">活跃项目</p>
+                    <h3 class="mb-0 fw-bold">{totals.count}</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="card h-100">
+                  <div class="card-body">
+                    <p class="text-secondary small mb-1">正常</p>
+                    <h3 class="mb-0 fw-bold text-success">{totals.onTrack}</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="card h-100">
+                  <div class="card-body">
+                    <p class="text-secondary small mb-1">风险 / 延期</p>
+                    <h3 class="mb-0 fw-bold text-warning">{totals.atRisk}</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="card h-100">
+                  <div class="card-body">
+                    <p class="text-secondary small mb-1">完成</p>
+                    <h3 class="mb-0 fw-bold text-secondary">{totals.done}</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Toolbar -->
+            <div class="card">
+              <div class="card-header d-flex flex-wrap gap-2 align-items-center">
+                <h3 class="card-title mb-0 me-auto">所有项目</h3>
+                <div class="input-group input-group-sm" style="width: 16rem;">
+                  <span class="input-group-text">
+                    <i class="bi bi-search" aria-hidden="true"></i>
+                  </span>
+                  <input
+                    type="search"
+                    class="form-control"
+                    placeholder="搜索项目&hellip;"
+                    aria-label="搜索项目"
+                  />
+                </div>
+                <select
+                  class="form-select form-select-sm"
+                  style="width: 10rem;"
+                  aria-label="Filter by status"
+                >
+                  <option value="">所有状态</option>
+                  <option>正常</option>
+                  <option>风险</option>
+                  <option>延期</option>
+                  <option>完成</option>
+                </select>
+                <button class="btn btn-primary btn-sm" type="button">
+                  <i class="bi bi-plus-lg me-1" aria-hidden="true"></i>
+                  新增项目
+                </button>
+              </div>
+              <div class="card-body p-0">
+                <div class="table-responsive">
+                  <table class="table align-middle mb-0">
+                    <thead>
+                      <tr>
+                        <th>项目</th>
+                        <th>状态</th>
+                        <th>进度</th>
+                        <th>团队</th>
+                        <th>预算</th>
+                        <th>截止日期</th>
+                        <th>优先级</th>
+                        <th class="text-end">操作</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {
+                        projects.map((p) => (
+                          <tr>
+                            <td>
+                              <a href="#" class="fw-semibold text-decoration-none">
+                                {p.name}
+                              </a>
+                              <div class="small text-secondary">{p.client}</div>
+                            </td>
+                            <td>
+                              <span class={`badge text-bg-${statusBadge[p.status]}`}>
+                                {p.status}
+                              </span>
+                            </td>
+                            <td style="min-width: 8rem;">
+                              <div class="d-flex align-items-center gap-2">
+                                <div class="progress flex-grow-1" style="height: 6px;">
+                                  <div
+                                    class={`progress-bar bg-${progressBar(p.progress)}`}
+                                    role="progressbar"
+                                    style={`width: ${p.progress}%;`}
+                                    aria-valuenow={p.progress}
+                                    aria-valuemin="0"
+                                    aria-valuemax="100"
+                                  />
+                                </div>
+                                <small class="text-secondary" style="min-width: 2.25rem;">
+                                  {p.progress}%
+                                </small>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="d-inline-flex">
+                                {p.team.map((t, i) => (
+                                  <span
+                                    class={`rounded-circle d-inline-flex align-items-center justify-content-center bg-${t.color}-subtle text-${t.color} fw-semibold`}
+                                    style={`width: 1.75rem; height: 1.75rem; font-size: .7rem; border: 2px solid var(--bs-body-bg); margin-left: ${i === 0 ? "0" : "-.5rem"};`}
+                                    title={t.initials}
+                                  >
+                                    {t.initials}
+                                  </span>
+                                ))}
+                              </div>
+                            </td>
+                            <td class="text-nowrap">{p.budget}</td>
+                            <td class="text-nowrap">{p.due}</td>
+                            <td>
+                              <span class={`badge text-bg-${priorityBadge[p.priority]}`}>
+                                {p.priority}
+                              </span>
+                            </td>
+                            <td class="text-end">
+                              <div class="btn-group btn-group-sm">
+                                <button
+                                  class="btn btn-outline-secondary"
+                                  type="button"
+                                  title="查看"
+                                >
+                                  <i class="bi bi-eye" aria-hidden="true" />
+                                </button>
+                                <button
+                                  class="btn btn-outline-secondary"
+                                  type="button"
+                                  title="编辑"
+                                >
+                                  <i class="bi bi-pencil" aria-hidden="true" />
+                                </button>
+                                <button
+                                  class="btn btn-outline-secondary"
+                                  type="button"
+                                  title="更多"
+                                >
+                                  <i class="bi bi-three-dots-vertical" aria-hidden="true" />
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                        ))
+                      }
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="card-footer d-flex justify-content-between align-items-center">
+                <small class="text-secondary">
+                  共 {projects.length} 个项目
+                </small>
+                <nav aria-label="Pagination">
+                  <ul class="pagination pagination-sm mb-0">
+                    <li class="page-item disabled">
+                      <a class="page-link" href="#">上一页</a>
+                    </li>
+                    <li class="page-item active">
+                      <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item disabled">
+                      <a class="page-link" href="#">下一页</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </div>
+    <Scripts path={path} />
+  </body>
+</html>

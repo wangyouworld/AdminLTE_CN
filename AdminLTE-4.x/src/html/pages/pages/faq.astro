@@ -1,0 +1,201 @@
+---
+import Head from "@components/_head.astro"
+import Footer from "@components/dashboard/_footer.astro"
+import Topbar from "@components/dashboard/_topbar.astro"
+import Sidenav from "@components/dashboard/_sidenav.astro"
+import Scripts from "@components/_scripts.astro"
+
+const title = "AdminLTE 4 | FAQ"
+const path = "../../../dist"
+const mainPage = "pages"
+const page = "faq";
+
+const sections = [
+  {
+    title: "入门指南",
+    icon: "rocket-takeoff",
+    items: [
+      {
+        q: "如何创建账户？",
+        a: "点击右上角的 <strong>注册</strong>，输入您的电子邮箱和强密码，然后验证邮箱以激活您的工作区。"
+      },
+      {
+        q: "我可以在付费之前试用产品吗？",
+        a: "可以。每个付费套餐均包含 14 天免费试用期。开始试用无需信用卡。"
+      },
+      {
+        q: "如何邀请团队成员？",
+        a: "在 <strong>设置 → 团队</strong> 中，点击 <strong>邀请成员</strong> 并输入他们的邮箱。他们将收到一封有效期七天的邀请链接。"
+      }
+    ]
+  },
+  {
+    title: "计费 &amp; 套餐",
+    icon: "credit-card",
+    items: [
+      {
+        q: "你们接受哪些付款方式？",
+        a: "我们接受所有主流信用卡和借记卡。年度企业版套餐可通过发票支付。"
+      },
+      {
+        q: "我之后可以更改套餐吗？",
+        a: "可以。升级立即生效并按比例计费。降级则在当前计费周期结束后生效。"
+      },
+      {
+        q: "你们提供退款吗？",
+        a: "我们提供自首次付费发票开具之日起 30 天内全额退款，无需任何理由。"
+      }
+    ]
+  },
+  {
+    title: "安全 &amp; 隐私",
+    icon: "shield-lock",
+    items: [
+      {
+        q: "我的数据存储在哪里？",
+        a: "数据以加密形式存储在符合 SOC 2 标准的数据中心中。您在创建工作区时可以选择所在区域（美国或欧盟）。"
+      },
+      {
+        q: "你们支持 SSO 吗？",
+        a: "支持，企业版套餐提供此功能。我们支持 SAML 2.0 和 OIDC 协议，兼容 Okta、Azure AD 和 Google Workspace 等身份提供商。"
+      },
+      {
+        q: "如何导出或删除我的数据？",
+        a: "您可以随时通过 <strong>设置 → 数据</strong> 导出您的数据。删除请求将根据我们的数据处理协议（DPA）在 30 天内处理完成。"
+      }
+    ]
+  }
+];
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <Head title={title} path={path} />
+  </head>
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <div class="app-wrapper">
+      <Topbar path={path} />
+      <Sidenav path={path} mainPage={mainPage} page={page} />
+      <main class="app-main">
+        <div class="app-content-header">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6">
+                <h1 class="mb-0 fs-3">FAQ</h1>
+              </div>
+              <div class="col-sm-6">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">首页</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">FAQ</li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="app-content">
+          <div class="container-fluid">
+            <!-- Headline + search -->
+            <div class="text-center mb-4">
+              <h2 class="mb-2">需要帮忙吗？</h2>
+              <p class="text-secondary mb-3">
+                搜索我们的知识库，或浏览下方主题。
+              </p>
+              <form
+                class="row g-2 justify-content-center"
+                role="search"
+                onsubmit="event.preventDefault();"
+              >
+                <div class="col-md-8 col-lg-6">
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-text bg-body">
+                      <i class="bi bi-search" aria-hidden="true"></i>
+                    </span>
+                    <input
+                      type="search"
+                      class="form-control"
+                      placeholder="搜索 FAQ&hellip;"
+                      aria-label="搜索 FAQ"
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="row g-4">
+              {
+                sections.map((section, idx) => (
+                  <div class="col-lg-12">
+                    <div class="card">
+                      <div class="card-header d-flex align-items-center">
+                        <i
+                          class={`bi bi-${section.icon} fs-4 text-primary me-2`}
+                          aria-hidden="true"
+                        />
+                        <h3 class="card-title mb-0" set:html={section.title} />
+                      </div>
+                      <div class="card-body">
+                        <div class="accordion accordion-flush" id={`faq-${idx}`}>
+                          {section.items.map((item, j) => (
+                            <div class="accordion-item">
+                              <h2 class="accordion-header">
+                                <button
+                                  class="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target={`#faq-${idx}-${j}`}
+                                  aria-expanded="false"
+                                  aria-controls={`faq-${idx}-${j}`}
+                                >
+                                  {item.q}
+                                </button>
+                              </h2>
+                              <div
+                                id={`faq-${idx}-${j}`}
+                                class="accordion-collapse collapse"
+                                data-bs-parent={`#faq-${idx}`}
+                              >
+                                <div
+                                  class="accordion-body text-secondary"
+                                  set:html={item.a}
+                                />
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+
+            <!-- 还需要帮助吗？ -->
+            <div class="card mt-4">
+              <div class="card-body text-center py-4">
+                <i
+                  class="bi bi-chat-dots text-primary"
+                  style="font-size: 2.5rem;"
+                  aria-hidden="true"
+                ></i>
+                <h3 class="h5 mt-3 mb-2">还需要帮助吗？</h3>
+                <p class="text-secondary mb-3">
+                  找不到您想要的内容？
+                  我们的支持团队很乐意为你提供帮助。
+                </p>
+                <a href="mailto:support@example.com" class="btn btn-primary">
+                  <i class="bi bi-envelope me-1" aria-hidden="true"></i>
+                  联系支持
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </div>
+    <Scripts path={path} />
+  </body>
+</html>

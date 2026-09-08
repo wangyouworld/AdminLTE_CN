@@ -1,0 +1,98 @@
+PushMenu 插件用于在侧边栏的展开和折叠状态之间进行切换。它处理响应式行为、可选的 localStorage 持久化存储，以及移动端遮罩层管理。
+
+##### 用法
+
+该插件通过侧边栏元素和切换按钮上的 data 属性激活。
+
+**Data 属性**
+
+在任何按钮或链接上添加 `data-lte-toggle="sidebar"` 即可切换侧边栏。
+
+```html
+<a href="#" data-lte-toggle="sidebar">切换侧边栏</a>
+```
+
+##### 配置
+
+通过 `.app-sidebar` 元素上的 data 属性配置侧边栏：
+
+| 属性 | 默认值 | 描述 |
+|-----------|---------|-------------|
+| `data-sidebar-breakpoint` | `991.98` | 屏幕宽度（像素），低于此值时侧边栏被视为移动端模式。 |
+| `data-enable-persistence` | `false` | 将侧边栏状态保存到 localStorage，以便跨页面加载保持。 |
+
+```html
+<aside class="app-sidebar" data-enable-persistence="true" data-sidebar-breakpoint="768">
+  <!-- 侧边栏内容 -->
+</aside>
+```
+
+##### 响应式行为
+
+- **桌面端**（高于 breakpoint）：侧边栏默认展开。如果启用了持久化存储，折叠状态会被记住。
+- **移动端**（低于或等于 breakpoint）：侧边栏默认折叠。当侧边栏打开时会出现遮罩层，点击遮罩层会折叠侧边栏。
+
+##### CSS 类
+
+| 类名 | 应用位置 | 描述 |
+|-------|-----------|-------------|
+| `sidebar-collapse` | `<body>` | 侧边栏已折叠。 |
+| `sidebar-open` | `<body>` | 侧边栏在移动端已明确打开。 |
+| `sidebar-mini` | `<body>` | 启用迷你侧边栏模式（折叠时仅显示图标）。 |
+| `sidebar-without-hover` | `<body>` | 防止折叠的侧边栏在悬停时展开。 |
+| `sidebar-expand-{breakpoint}` | `<body>` | 设置响应式 breakpoint（`sm`、`md`、`lg`、`xl`、`xxl`）。 |
+
+##### 事件
+
+| 事件 | 描述 |
+|-------|-------------|
+| `open.lte.push-menu` | 侧边栏展开时触发。 |
+| `collapse.lte.push-menu` | 侧边栏折叠时触发。 |
+
+两个事件都会冒泡。在 `document` 上监听以获取全局钩子：
+
+```js
+document.addEventListener("open.lte.push-menu", () => {
+  console.log("侧边栏打开")
+})
+```
+
+##### 调用方式
+
+导入类并在任何元素上实例化（通常是侧边栏切换按钮或 `document.body`）：
+
+```js
+import { PushMenu } from "admin-lte"
+
+const sidebar = new PushMenu(document.querySelector('[data-lte-toggle="sidebar"]'), {
+  sidebarBreakpoint: 991.98,
+  enablePersistence: false
+})
+```
+
+###### 方法
+
+| 方法 | 返回值 | 描述 |
+|---|---|---|
+| `toggle()` | `void` | 根据当前状态展开或折叠侧边栏。如果 `enablePersistence` 为 `true`，则持久化存储状态。 |
+| `expand()` | `void` | 展开侧边栏。触发 `open.lte.push-menu` 事件。 |
+| `collapse()` | `void` | 折叠侧边栏。触发 `collapse.lte.push-menu` 事件。 |
+| `isCollapsed()` | `boolean` | 如果 `<body>` 包含 `sidebar-collapse` 类，则返回 `true`。 |
+| `isExplicitlyOpen()` | `boolean` | 如果 `<body>` 包含 `sidebar-open`（移动端，用户主动打开），则返回 `true`。 |
+| `isMiniMode()` | `boolean` | 如果 `<body>` 包含 `sidebar-mini`，则返回 `true`。 |
+| `isMobileSize()` | `boolean` | 如果 `window.innerWidth ≤ sidebarBreakpoint`，则返回 `true`。 |
+| `saveSidebarState(state)` | `void` | 手动将状态保存到 localStorage（`"sidebar-open"` 或 `"sidebar-collapse"`）。 |
+| `loadSidebarState()` | `void` | 从 localStorage 读取状态并应用。 |
+| `clearSidebarState()` | `void` | 从 localStorage 中移除已保存的状态。 |
+| `updateStateByResponsiveLogic()` | `void` | 根据视口大小重新计算正确的状态（移动端折叠，桌面端展开，除非处于迷你模式）。在窗口调整大小时自动调用。 |
+
+###### 存储键名
+
+当 `enablePersistence` 启用时，该插件读写 `localStorage.getItem("lte.sidebar.state")`。存储的值为以下之一：
+
+- `"sidebar-open"` —— 用户希望侧边栏展开
+- `"sidebar-collapse"` —— 用户希望侧边栏折叠
+
+##### 示例
+
+<a href="#" data-lte-toggle="sidebar">切换侧边栏</a>
