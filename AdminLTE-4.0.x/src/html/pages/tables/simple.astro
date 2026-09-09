@@ -9,6 +9,12 @@ const title = "AdminLTE 4 | 简单的表格"
 const path = "../../../dist"
 const mainPage = "tables"
 const page = "simple";
+
+// 智能路径解析：根据目录深度计算相对路径
+const pathname = Astro.url.pathname;
+const pathSegments = pathname.split('/').filter(segment => segment !== '');
+const depth = pathSegments.length > 0 ? pathSegments.length - 1 : 0;
+const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
 ---
 
 <!DOCTYPE html>
@@ -33,15 +39,17 @@ const page = "simple";
             <!--begin::Row-->
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">简单的表格</h3>
+                <h1 class="mb-0 fs-3">简单的表格</h1>
               </div>
               <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">首页</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">
-                    简单的表格
-                  </li>
-                </ol>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">首页</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                      简单的表格
+                    </li>
+                  </ol>
+                </nav>
               </div>
             </div>
             <!--end::Row-->

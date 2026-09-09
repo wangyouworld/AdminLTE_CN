@@ -12,7 +12,6 @@ const page = "calendar";
 
 // 智能路径解析：根据目录深度计算相对路径
 const pathname = Astro.url.pathname;
-// 仅统计目录，不包括文件名本身
 const pathSegments = pathname.split('/').filter(segment => segment !== '');
 const depth = pathSegments.length > 0 ? pathSegments.length - 1 : 0;
 const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
@@ -41,13 +40,15 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
           <div class="container-fluid">
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">日历</h3>
+                <h1 class="mb-0 fs-3">日历</h1>
               </div>
               <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">首页</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">日历</li>
-                </ol>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">首页</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">日历</li>
+                  </ol>
+                </nav>
               </div>
             </div>
           </div>
@@ -147,7 +148,6 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
     <script
       src={deploymentPath + "assets/fullcalendar/index.global.min.js"}
       crossorigin="anonymous"></script>
-    <script src={deploymentPath + "assets/fullcalendar/locales-all.global.min.js"} crossorigin="anonymous"></script>
     <script is:inline>
       const isoDate = (d) => d.toISOString().slice(0, 10);
 

@@ -4,6 +4,32 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>JavaScript 插件概述 | AdminLTE 4</title>
 
+    <!--begin::Theme Init (prevents flash of incorrect theme on load, #6043)-->
+    <script>
+      (() => {
+        'use strict';
+        const STORAGE_KEY = 'lte-theme';
+        let stored = null;
+        try {
+          stored = localStorage.getItem(STORAGE_KEY);
+        } catch {
+          // localStorage may be unavailable (private mode, sandboxed iframe).
+        }
+        const prefersDark = globalThis.matchMedia('(prefers-color-scheme: dark)').matches;
+        // Mirror the resolution in _scripts.astro: explicit "dark"/"light" win,
+        // otherwise ("auto" or unset) fall back to the OS preference.
+        let resolved = 'light';
+        if (stored === 'dark' || stored === 'light') {
+          resolved = stored;
+        } else if (prefersDark) {
+          resolved = 'dark';
+        }
+        document.documentElement.setAttribute('data-bs-theme', resolved);
+        document.documentElement.style.colorScheme = resolved;
+      })();
+    </script>
+    <!--end::Theme Init-->
+
     <!--begin::Accessibility Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
     <meta name="color-scheme" content="light dark" />
@@ -16,11 +42,11 @@
     <meta name="author" content="ColorlibHQ" />
     <meta
       name="description"
-      content="AdminLTE 是一款免费的 Bootstrap 5 管理员仪表盘，包含 30 个使用 Vanilla JS 构建的示例页面。完全符合 WCAG 2.1 AA 访问标准。"
+      content="AdminLTE is a free Bootstrap 5 admin dashboard template with almost 50 example pages, built with vanilla JS and designed with accessibility in mind."
     />
     <meta
       name="keywords"
-      content="Bootstrap 5, Bootstrap 5 管理仪表盘,Bootstrap 5 仪表盘,Bootstrap 5 图表,Bootstrap 5 日历,Bootstrap 5 日期选择器,Bootstrap 5 表格,Bootstrap 5 数据表,vanilla js 数据表,colorlibhq, colorlibhq 仪表盘,colorlibhq 管理仪表盘, accessible admin panel, WCAG compliant"
+      content="Bootstrap 5, Bootstrap 5 管理仪表盘,Bootstrap 5 仪表盘,Bootstrap 5 图表,Bootstrap 5 日历,Bootstrap 5 日期选择器,Bootstrap 5 表格,Bootstrap 5 数据表,vanilla js 数据表,colorlibhq, colorlibhq 仪表盘,colorlibhq 管理仪表盘, accessible admin panel"
     />
     <!--end::Primary Meta Tags-->
 
@@ -70,7 +96,13 @@
           <!--begin::Start Navbar Links-->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
+              <a
+                class="nav-link"
+                data-lte-toggle="sidebar"
+                href="#"
+                role="button"
+                aria-label="Toggle sidebar"
+              >
                 <i class="bi bi-list"></i>
               </a>
             </li>
@@ -92,17 +124,14 @@
 
           <!--begin::End Navbar Links-->
           <ul class="navbar-nav ms-auto">
-            <!--begin::Navbar Search-->
-            <li class="nav-item">
-              <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                <i class="bi bi-search"></i>
-              </a>
-            </li>
-            <!--end::Navbar Search-->
-
             <!--begin::Messages Dropdown Menu-->
             <li class="nav-item dropdown">
-              <a class="nav-link" data-bs-toggle="dropdown" href="#">
+              <a
+                class="nav-link"
+                data-bs-toggle="dropdown"
+                href="#"
+                aria-label="Messages: 3 unread"
+              >
                 <i class="bi bi-chat-text"></i>
                 <span class="navbar-badge badge text-bg-danger">3</span>
               </a>
@@ -113,17 +142,17 @@
                     <div class="flex-shrink-0">
                       <img
                         src="../../assets/img/user1-128x128.jpg"
-                        alt="用户头像"
+                        alt=""
                         class="img-size-50 rounded-circle me-3"
                       />
                     </div>
                     <div class="flex-grow-1">
-                      <h3 class="dropdown-item-title">
+                      <p class="dropdown-item-title">
                         Brad Diesel
                         <span class="float-end fs-7 text-danger"
                           ><i class="bi bi-star-fill"></i
                         ></span>
-                      </h3>
+                      </p>
                       <p class="fs-7">有时间打电话给我……</p>
                       <p class="fs-7 text-secondary">
                         <i class="bi bi-clock-fill me-1"></i> 4 小时前
@@ -139,17 +168,17 @@
                     <div class="flex-shrink-0">
                       <img
                         src="../../assets/img/user8-128x128.jpg"
-                        alt="用户头像"
+                        alt=""
                         class="img-size-50 rounded-circle me-3"
                       />
                     </div>
                     <div class="flex-grow-1">
-                      <h3 class="dropdown-item-title">
+                      <p class="dropdown-item-title">
                         John Pierce
                         <span class="float-end fs-7 text-secondary">
                           <i class="bi bi-star-fill"></i>
                         </span>
-                      </h3>
+                      </p>
                       <p class="fs-7">我收到你的消息了，兄弟</p>
                       <p class="fs-7 text-secondary">
                         <i class="bi bi-clock-fill me-1"></i> 4 小时前
@@ -165,17 +194,17 @@
                     <div class="flex-shrink-0">
                       <img
                         src="../../assets/img/user3-128x128.jpg"
-                        alt="用户头像"
+                        alt=""
                         class="img-size-50 rounded-circle me-3"
                       />
                     </div>
                     <div class="flex-grow-1">
-                      <h3 class="dropdown-item-title">
+                      <p class="dropdown-item-title">
                         Nora Silvester
                         <span class="float-end fs-7 text-warning">
                           <i class="bi bi-star-fill"></i>
                         </span>
-                      </h3>
+                      </p>
                       <p class="fs-7">主题在这里</p>
                       <p class="fs-7 text-secondary">
                         <i class="bi bi-clock-fill me-1"></i> 4 小时前
@@ -192,7 +221,12 @@
 
             <!--begin::Notifications Dropdown Menu-->
             <li class="nav-item dropdown">
-              <a class="nav-link" data-bs-toggle="dropdown" href="#">
+              <a
+                class="nav-link"
+                data-bs-toggle="dropdown"
+                href="#"
+                aria-label="Notifications: 15 unread"
+              >
                 <i class="bi bi-bell-fill"></i>
                 <span class="navbar-badge badge text-bg-warning">15</span>
               </a>
@@ -221,7 +255,12 @@
 
             <!--begin::Fullscreen Toggle-->
             <li class="nav-item">
-              <a class="nav-link" href="#" data-lte-toggle="fullscreen">
+              <a
+                class="nav-link"
+                href="#"
+                data-lte-toggle="fullscreen"
+                aria-label="Toggle fullscreen"
+              >
                 <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
                 <i data-lte-icon="minimize" class="bi bi-fullscreen-exit d-none"></i>
               </a>
@@ -293,7 +332,7 @@
                 <img
                   src="../../assets/img/user2-160x160.jpg"
                   class="user-image rounded-circle shadow"
-                  alt="用户头像"
+                  alt="Alexander Pierce"
                 />
                 <span class="d-none d-md-inline">Alexander Pierce</span>
               </a>
@@ -303,7 +342,7 @@
                   <img
                     src="../../assets/img/user2-160x160.jpg"
                     class="rounded-circle shadow"
-                    alt="用户头像"
+                    alt="Alexander Pierce"
                   />
                   <p>
                     Alexander Pierce - 网页开发工程师
@@ -361,24 +400,11 @@
         <!--end::Sidebar Brand-->
         <!--begin::Sidebar Wrapper-->
         <div class="sidebar-wrapper">
-          <nav class="mt-2">
-            <!-- Back to preview CTA -->
-            <div class="px-3 pb-2">
-              <a
-                href="../../index.html"
-                class="btn btn-sm btn-outline-light w-100 d-flex align-items-center justify-content-center gap-2"
-              >
-                <i class="bi bi-arrow-left" aria-hidden="true"></i>
-                返回实时预览
-              </a>
-            </div>
-
+          <nav class="mt-2" aria-label="Documentation navigation">
             <!--begin::Sidebar Menu-->
             <ul
               class="nav sidebar-menu flex-column"
               data-lte-toggle="treeview"
-              role="navigation"
-              aria-label="Documentation navigation"
               data-accordion="false"
               id="docs-navigation"
             >
@@ -579,6 +605,17 @@
               </li>
             </ul>
             <!--end::Sidebar Menu-->
+
+            <!-- Back to preview CTA (bottom of sidebar) -->
+            <div class="p-3 mt-3 border-top border-secondary border-opacity-25">
+              <a
+                href="../../index.html"
+                class="btn btn-sm btn-outline-light w-100 d-flex align-items-center justify-content-center gap-2"
+              >
+                <i class="bi bi-arrow-left" aria-hidden="true"></i>
+                返回实时预览
+              </a>
+            </div>
           </nav>
         </div>
         <!--end::Sidebar Wrapper-->
@@ -589,14 +626,16 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">JavaScript 插件概述</h3>
+                <h1 class="mb-0 fs-3">JavaScript 插件概述</h1>
               </div>
               <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">文档</a></li>
-                  <li class="breadcrumb-item"><a href="#">JavaScript</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">概述</li>
-                </ol>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">文档</a></li>
+                    <li class="breadcrumb-item"><a href="#">JavaScript</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">概述</li>
+                  </ol>
+                </nav>
               </div>
             </div>
           </div>
@@ -613,7 +652,6 @@
                       <code>data-lte-*</code> 属性以声明方式触发使用，并暴露出方法供代码驱动控制。
                     </p>
                     <h5 id="概览">概览</h5>
-
                     <table>
                       <thead>
                         <tr>
@@ -699,22 +737,22 @@
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="html"
-                    ><code><span class="line"><span style="color:#6A9955">&lt;!-- 侧边栏切换 --&gt;</span></span>
-<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">button</span><span style="color:#9CDCFE"> data-lte-toggle</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;sidebar&quot;</span><span style="color:#808080">&gt;</span><span style="color:#D4D4D4">☰</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">button</span><span style="color:#808080">&gt;</span></span>
+                    ><code><span class="line"><span style="color:#6A9955">&#x3C;!-- 侧边栏切换 --></span></span>
+<span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">button</span><span style="color:#9CDCFE"> data-lte-toggle</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"sidebar"</span><span style="color:#808080">></span><span style="color:#D4D4D4">☰</span><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">button</span><span style="color:#808080">></span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">&lt;!-- 卡片折叠 / 移除 / 最大化 --&gt;</span></span>
-<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;card&quot;</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;card-header&quot;</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">    &lt;</span><span style="color:#569CD6">h3</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;card-title&quot;</span><span style="color:#808080">&gt;</span><span style="color:#D4D4D4">Title</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">h3</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">    &lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;card-tools&quot;</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">      &lt;</span><span style="color:#569CD6">button</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;btn btn-tool&quot;</span><span style="color:#9CDCFE"> data-lte-toggle</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;card-collapse&quot;</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">        &lt;</span><span style="color:#569CD6">i</span><span style="color:#9CDCFE"> data-lte-icon</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;expand&quot;</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;bi bi-dash-lg&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">i</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">        &lt;</span><span style="color:#569CD6">i</span><span style="color:#9CDCFE"> data-lte-icon</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;collapse&quot;</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;bi bi-plus-lg&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">i</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">      &lt;/</span><span style="color:#569CD6">button</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">    &lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">  &lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;card-body&quot;</span><span style="color:#808080">&gt;</span><span style="color:#D4D4D4">…</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span></code></pre>
+<span class="line"><span style="color:#6A9955">&#x3C;!-- 卡片折叠 / 移除 / 最大化 --></span></span>
+<span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"card"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">  &#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"card-header"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">    &#x3C;</span><span style="color:#569CD6">h3</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"card-title"</span><span style="color:#808080">></span><span style="color:#D4D4D4">Title</span><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">h3</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">    &#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"card-tools"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">      &#x3C;</span><span style="color:#569CD6">button</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"btn btn-tool"</span><span style="color:#9CDCFE"> data-lte-toggle</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"card-collapse"</span><span style="color:#9CDCFE"> aria-label</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"Collapse card"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">        &#x3C;</span><span style="color:#569CD6">i</span><span style="color:#9CDCFE"> data-lte-icon</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"expand"</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"bi bi-dash-lg"</span><span style="color:#808080">>&#x3C;/</span><span style="color:#569CD6">i</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">        &#x3C;</span><span style="color:#569CD6">i</span><span style="color:#9CDCFE"> data-lte-icon</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"collapse"</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"bi bi-plus-lg"</span><span style="color:#808080">>&#x3C;/</span><span style="color:#569CD6">i</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">      &#x3C;/</span><span style="color:#569CD6">button</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">    &#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">  &#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">  &#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"card-body"</span><span style="color:#808080">></span><span style="color:#D4D4D4">…</span><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span></code></pre>
                     <p>
                       该包在 <code>DOMContentLoaded</code> 事件上绑定所有 data-API
                       监听器。动态注入的元素仍然适用于 <a href="pushmenu.html">PushMenu</a>、<a
@@ -733,13 +771,13 @@
                       tabindex="0"
                       data-language="js"
                     ><code><span class="line"><span style="color:#6A9955">// ESM (打包导入)</span></span>
-<span class="line"><span style="color:#C586C0">import</span><span style="color:#D4D4D4"> { </span><span style="color:#9CDCFE">PushMenu</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">CardWidget</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">Treeview</span><span style="color:#D4D4D4"> } </span><span style="color:#C586C0">from</span><span style="color:#CE9178"> &quot;admin-lte&quot;</span></span>
+<span class="line"><span style="color:#C586C0">import</span><span style="color:#D4D4D4"> { </span><span style="color:#9CDCFE">PushMenu</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">CardWidget</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">Treeview</span><span style="color:#D4D4D4"> } </span><span style="color:#C586C0">from</span><span style="color:#CE9178"> "admin-lte"</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#6A9955">// 侧边栏</span></span>
 <span class="line"><span style="color:#569CD6">new</span><span style="color:#DCDCAA"> PushMenu</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">body</span><span style="color:#D4D4D4">, {}).</span><span style="color:#DCDCAA">expand</span><span style="color:#D4D4D4">()</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#6A9955">// 卡片最大化</span></span>
-<span class="line"><span style="color:#569CD6">const</span><span style="color:#4FC1FF"> card</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">querySelector</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;#chart-card&quot;</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#569CD6">const</span><span style="color:#4FC1FF"> card</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">querySelector</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"#chart-card"</span><span style="color:#D4D4D4">)</span></span>
 <span class="line"><span style="color:#569CD6">new</span><span style="color:#DCDCAA"> CardWidget</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">card</span><span style="color:#D4D4D4">, {}).</span><span style="color:#DCDCAA">maximize</span><span style="color:#D4D4D4">()</span></span></code></pre>
                     <p>或使用全局变量（UMD 包，无需构建步骤）：</p>
                     <pre
@@ -747,10 +785,10 @@
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="html"
-                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
+                    ><code><span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">script</span><span style="color:#808080">></span></span>
 <span class="line"><span style="color:#6A9955">  // 该捆绑包分配给 window.adminlte</span></span>
 <span class="line"><span style="color:#569CD6">  new</span><span style="color:#9CDCFE"> adminlte</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">PushMenu</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">body</span><span style="color:#D4D4D4">, {}).</span><span style="color:#DCDCAA">expand</span><span style="color:#D4D4D4">()</span></span>
-<span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span></code></pre>
+<span class="line"><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">script</span><span style="color:#808080">></span></span></code></pre>
                     <h5 id="监听插件事件">监听插件事件</h5>
                     <p>
                       每个插件都会在其操作的元素上触发 <code>CustomEvent</code> 或
@@ -761,15 +799,14 @@
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="js"
-                    ><code><span class="line"><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addEventListener</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;expanded.lte.card-widget&quot;</span><span style="color:#D4D4D4">, (</span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=&gt;</span><span style="color:#D4D4D4"> {</span></span>
-<span class="line"><span style="color:#9CDCFE">  console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;卡片已展开：&quot;</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">target</span><span style="color:#D4D4D4">)</span></span>
+                    ><code><span class="line"><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addEventListener</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"expanded.lte.card-widget"</span><span style="color:#D4D4D4">, (</span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">  console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"卡片已展开："</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">target</span><span style="color:#D4D4D4">)</span></span>
 <span class="line"><span style="color:#D4D4D4">})</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addEventListener</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;open.lte.push-menu&quot;</span><span style="color:#D4D4D4">, () </span><span style="color:#569CD6">=&gt;</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addEventListener</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"open.lte.push-menu"</span><span style="color:#D4D4D4">, () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"><span style="color:#6A9955">  // 用户打开了侧边栏——例如分析调用</span></span>
 <span class="line"><span style="color:#D4D4D4">})</span></span></code></pre>
                     <h6 id="事件名称参考">事件名称参考</h6>
-
                     <table>
                       <thead>
                         <tr>
@@ -863,21 +900,20 @@
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="html"
-                    ><code><span class="line"><span style="color:#6A9955">&lt;!-- Treeview — 非折叠式（可同时打开多个子菜单） --&gt;</span></span>
-<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">ul</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;nav sidebar-menu&quot;</span><span style="color:#9CDCFE"> data-lte-toggle</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;treeview&quot;</span><span style="color:#9CDCFE"> data-accordion</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;false&quot;</span><span style="color:#808080">&gt;</span><span style="color:#D4D4D4">…</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">ul</span><span style="color:#808080">&gt;</span></span>
+                    ><code><span class="line"><span style="color:#6A9955">&#x3C;!-- Treeview — 非折叠式（可同时打开多个子菜单） --></span></span>
+<span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">ul</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"nav sidebar-menu"</span><span style="color:#9CDCFE"> data-lte-toggle</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"treeview"</span><span style="color:#9CDCFE"> data-accordion</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"false"</span><span style="color:#808080">></span><span style="color:#D4D4D4">…</span><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">ul</span><span style="color:#808080">></span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">&lt;!-- Treeview — 自定义动画速度 --&gt;</span></span>
-<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">ul</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;nav sidebar-menu&quot;</span><span style="color:#9CDCFE"> data-lte-toggle</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;treeview&quot;</span><span style="color:#9CDCFE"> data-animation-speed</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;500&quot;</span><span style="color:#808080">&gt;</span><span style="color:#D4D4D4">…</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">ul</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#6A9955">&#x3C;!-- Treeview — 自定义动画速度 --></span></span>
+<span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">ul</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"nav sidebar-menu"</span><span style="color:#9CDCFE"> data-lte-toggle</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"treeview"</span><span style="color:#9CDCFE"> data-animation-speed</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"500"</span><span style="color:#808080">></span><span style="color:#D4D4D4">…</span><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">ul</span><span style="color:#808080">></span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">&lt;!-- 侧边栏 — 启用本地存储持久化（默认：关闭）</span></span>
-<span class="line"><span style="color:#6A9955">&lt;aside class=&quot;app-sidebar&quot; data-enable-persistence=&quot;true&quot;&gt;…&lt;/aside&gt;</span></span>
+<span class="line"><span style="color:#6A9955">&#x3C;!-- 侧边栏 — 启用本地存储持久化（默认：关闭）</span></span>
+<span class="line"><span style="color:#6A9955">&#x3C;aside class="app-sidebar" data-enable-persistence="true">…&#x3C;/aside></span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#F44747">&lt;!--</span><span style="color:#6A9955"> 侧边栏 — 重写移动设备 breakpoint --&gt;</span></span>
-<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">aside</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;app-sidebar&quot;</span><span style="color:#9CDCFE"> data-sidebar-breakpoint</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;768&quot;</span><span style="color:#808080">&gt;</span><span style="color:#D4D4D4">…</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">aside</span><span style="color:#808080">&gt;</span></span></code></pre>
+<span class="line"><span style="color:#F44747">&#x3C;!--</span><span style="color:#6A9955"> 侧边栏 — 重写移动设备 breakpoint --></span></span>
+<span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">aside</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"app-sidebar"</span><span style="color:#9CDCFE"> data-sidebar-breakpoint</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"768"</span><span style="color:#808080">></span><span style="color:#D4D4D4">…</span><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">aside</span><span style="color:#808080">></span></span></code></pre>
                     <p>每个插件的参考页面都记录了其支持的属性。</p>
                     <h5 id="插件管理的-css-类">插件管理的 CSS 类</h5>
                     <p>插件会切换一小部分 CSS 类，您也可以对这些类进行样式设置或响应：</p>
-
                     <table>
                       <thead>
                         <tr>
@@ -1001,10 +1037,14 @@
     <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
     <script src="../../assets/popperjs/popper.min.js" crossorigin="anonymous"></script>
     <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
-    <script src="../../assets/bootstrap/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+      crossorigin="anonymous"
+    ></script>
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
     <script src="../../js/adminlte.js"></script>
-    <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+    <!--end::Required Plugin(AdminLTE)-->
+    <!--begin::OverlayScrollbars Configure-->
     <script>
       const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
       const Default = {
@@ -1033,7 +1073,9 @@
         }
       });
     </script>
-    <!--end::OverlayScrollbars Configure--><!--begin::明暗模式切换 (#6010)-->
+    <!--end::OverlayScrollbars Configure-->
+
+    <!--begin::明暗模式切换 (#6010)-->
     <script>
       (() => {
         'use strict';

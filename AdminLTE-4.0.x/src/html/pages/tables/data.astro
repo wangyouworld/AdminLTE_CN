@@ -12,7 +12,6 @@ const page = "data";
 
 // 智能路径解析：根据目录深度计算相对路径
 const pathname = Astro.url.pathname;
-// 仅统计目录，不包括文件名本身
 const pathSegments = pathname.split('/').filter(segment => segment !== '');
 const depth = pathSegments.length > 0 ? pathSegments.length - 1 : 0;
 const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
@@ -37,14 +36,16 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
           <div class="container-fluid">
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">数据表格</h3>
+                <h1 class="mb-0 fs-3">数据表格</h1>
               </div>
               <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">首页</a></li>
-                  <li class="breadcrumb-item"><a href="#">表格</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">数据表格</li>
-                </ol>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">首页</a></li>
+                    <li class="breadcrumb-item"><a href="#">表格</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">数据表格</li>
+                  </ol>
+                </nav>
               </div>
             </div>
           </div>
@@ -144,52 +145,13 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
           { id: 15, name: "Amelia Price", email: "amelia@example.com", role: "访客", status: "活跃", joined: "2025-05-17" }
         ];
 
-        const table = new Tabulator("#users-table", {
+        const table = new Tabulator("#users-table", {locale: "zh-cn",langs: {"zh-cn":{"pagination":{"page_size":"每页显示","page_title":"第 {page} 页","first":"首页","first_title":"第一页","last":"末页","last_title":"最后一页","prev":"上一页","prev_title":"上一页","next":"下一页","next_title":"下一页","all":"全部"},"headerFilters":{"default":"筛选..."}}},locale: "zh-cn",langs: {"zh-cn":{"pagination":{"page_size":"每页显示","page_title":"第 {page} 页","first":"首页","first_title":"第一页","last":"末页","last_title":"最后一页","prev":"上一页","prev_title":"上一页","next":"下一页","next_title":"下一页","all":"全部"},"headerFilters":{"default":"筛选..."}}},
           data: data,
           layout: "fitColumns",
           pagination: true,
           paginationSize: 10,
           paginationSizeSelector: [10, 25, 50, 100],
           movableColumns: true,
-          locale: "zh-cn", // 应用中文
-          langs: {
-            "zh-cn": { // 语言代码
-              "pagination": { // 分页文字
-                "page_size": "每页显示",
-                "first": "首页",
-                "first_title": "第一页",
-                "last": "末页",
-                "last_title": "末页",
-                "prev": "上一页",
-                "prev_title": "上一页",
-                "next": "下一页",
-                "next_title": "下一页",
-                "all": "全部",
-                "page_title": "跳转到第",
-                "counter": {
-                  "showing": "显示",
-                  "of": "共",
-                  "rows": "行",
-                  "pages": "页",
-                }
-              },
-              "headerFilters": { // 列头过滤器占位文字
-                "default": "筛选...",
-                "columns": {
-                  // 可以为特定列单独设置，例如:
-                  // "name": "按姓名筛选..."
-                }
-              },
-              "data": { // 数据加载提示
-                "loading": "加载中...",
-                "error": "加载错误"
-              },
-              "groups": { // 分组提示
-                "item": "项",
-                "items": "项"
-              }
-            }
-          },
           columns: [
             { title: "#", field: "id", width: 60, headerSort: true },
             { title: "名字", field: "name", headerFilter: "input" },

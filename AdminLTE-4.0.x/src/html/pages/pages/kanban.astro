@@ -12,7 +12,6 @@ const page = "kanban";
 
 // 智能路径解析：根据目录深度计算相对路径
 const pathname = Astro.url.pathname;
-// 仅统计目录，不包括文件名本身
 const pathSegments = pathname.split('/').filter(segment => segment !== '');
 const depth = pathSegments.length > 0 ? pathSegments.length - 1 : 0;
 const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
@@ -207,13 +206,15 @@ const lanes: { id: string; title: string; color: string; cards: Card[] }[] = [
           <div class="container-fluid">
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">看板</h3>
+                <h1 class="mb-0 fs-3">看板</h1>
               </div>
               <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">首页</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">看板</li>
-                </ol>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">首页</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">看板</li>
+                  </ol>
+                </nav>
               </div>
             </div>
           </div>

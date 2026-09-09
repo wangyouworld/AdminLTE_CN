@@ -37,13 +37,15 @@ const messages = [
           <div class="container-fluid">
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">邮箱</h3>
+                <h1 class="mb-0 fs-3">邮箱</h1>
               </div>
               <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">首页</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">收件箱</li>
-                </ol>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">首页</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">收件箱</li>
+                  </ol>
+                </nav>
               </div>
             </div>
           </div>
@@ -267,11 +269,12 @@ const messages = [
                             <a
                               href={htmlPath + "/mailbox/read.html"}
                               class="flex-grow-1 d-flex flex-column flex-md-row gap-md-3 text-decoration-none text-body"
+                              style="min-width: 0;"
                             >
                               <span class="text-truncate" style="min-width: 9rem;">
                                 {m.from}
                               </span>
-                              <span class="flex-grow-1 text-truncate">
+                              <span class="flex-grow-1 text-truncate" style="min-width: 0;">
                                 <span class={`badge text-bg-${m.label} me-2`}>
                                   &middot;
                                 </span>

@@ -34,15 +34,17 @@ const isRtl = true;
             <!--begin::Row-->
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">RTL 布局</h3>
+                <h1 class="mb-0 fs-3">RTL 布局</h1>
               </div>
               <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">首页</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">
-                    RTL 布局
-                  </li>
-                </ol>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">首页</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                      RTL 布局
+                    </li>
+                  </ol>
+                </nav>
               </div>
             </div>
             <!--end::Row-->
@@ -67,6 +69,7 @@ const isRtl = true;
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-collapse"
+                        aria-label="Collapse card"
                         title="折叠"
                       >
                         <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
@@ -76,6 +79,7 @@ const isRtl = true;
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-remove"
+                        aria-label="Remove card"
                         title="移除"
                       >
                         <i class="bi bi-x-lg"></i>

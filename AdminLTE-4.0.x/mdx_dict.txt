@@ -1752,3 +1752,9 @@ this block only is RTL
 >状态
 >Actions
 >操作
+Calls `document.documentElement.requestFullscreen()`. The icon `.d-none` toggle and `maximized.lte.fullscreen` event are driven by the resulting `fullscreenchange` event, so a denied request leaves the UI untouched. |
+调用 `document.documentElement.requestFullscreen()`。图标 `.d-none` 的切换和 `maximized.lte.fullscreen` 事件均由随后触发的 `fullscreenchange` 事件驱动，因此如果全屏请求被拒绝，界面将保持原样不变。|
+Calls `document.exitFullscreen()`. The icon `.d-none` toggle and `minimized.lte.fullscreen` event are driven by the resulting `fullscreenchange` event. |
+调用 `document.exitFullscreen()`。图标 `.d-none` 的切换和 `minimized.lte.fullscreen` 事件均由随后触发的 `fullscreenchange` 事件驱动。|
+- Icon state and events are synced from the native `fullscreenchange` event, so they stay correct when the user exits fullscreen with <kbd>ESC</kbd> or <kbd>F11</kbd>, and a request denied by the browser leaves the icons unchanged.
+- 图标状态和事件由原生 `fullscreenchange` 事件同步驱动，因此当用户按 <kbd>ESC</kbd> 或 <kbd>F11</kbd> 退出全屏时，状态依然正确；若全屏请求被浏览器拒绝，图标则保持不变。

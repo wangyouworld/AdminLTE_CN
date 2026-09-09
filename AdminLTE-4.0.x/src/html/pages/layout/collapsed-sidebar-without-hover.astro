@@ -35,15 +35,17 @@ const page = "collapsed-sidebar-without-hover";
             <!--begin::Row-->
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">可折叠侧边栏 无悬停</h3>
+                <h1 class="mb-0 fs-3">可折叠侧边栏 无悬停</h1>
               </div>
               <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">首页</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">
-                    可折叠侧边栏 无悬停
-                  </li>
-                </ol>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">首页</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                      可折叠侧边栏 无悬停
+                    </li>
+                  </ol>
+                </nav>
               </div>
             </div>
             <!--end::Row-->
@@ -68,6 +70,7 @@ const page = "collapsed-sidebar-without-hover";
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-collapse"
+                        aria-label="Collapse card"
                         title="折叠"
                       >
                         <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
@@ -77,6 +80,7 @@ const page = "collapsed-sidebar-without-hover";
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-remove"
+                        aria-label="Remove card"
                         title="移除"
                       >
                         <i class="bi bi-x-lg"></i>

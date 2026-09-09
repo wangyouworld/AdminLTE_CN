@@ -7,6 +7,80 @@ AdminLTE 的所有显著变更都将记录在此文件中。
 
 ## [未发布]
 
+## [4.0.4] - 2026-07-02
+
+### 新增
+
+- **Forgot-password example page** — both login pages have linked `forgot-password.html` since 4.0.0, but the page didn't exist (dead link in every deployed demo). Now shipped and listed in the sidebar under Examples › Version 1.
+- **Treeview exposes its state to assistive tech:** submenu toggle links now carry `aria-expanded`, stamped on init and kept in sync on open/close.
+
+### 已修复
+
+- **npm packaging:** the package is now built from a `files` allowlist instead of the `.npmignore` denylist. Stray local files can no longer leak into the tarball (4.0.2 shipped an untracked working file this way), and the demo/docs HTML — which SECURITY.md advises never to deploy — is no longer published to npm. Unpacked size drops from 12.7 MB to 9.0 MB (177 → 95 files). Also declares `engines: node >= 20`.
+- **CSS bundles shipped the docs-site styles twice:** `_docs.scss` was imported from both `adminlte.scss` and `parts/_core.scss`, and Sass `@import` duplicates output — ~23 KB of dead weight in each of the four dist stylesheets.
+- **Accessibility module keyboard handling:**
+  - removed the document-edge Tab wrap — it acted as a page-level keyboard trap (WCAG 2.1.2), preventing keyboard users from ever tabbing out to the browser chrome
+  - arrow keys are no longer intercepted inside inputs, textareas, selects, or contenteditable elements (typing in a navbar search field used to yank focus into the menu), and menu arrow-navigation only engages when focus is actually on a menu item
+  - modal focus restore now captures the triggering element on `show.bs.modal` (capturing on `shown` stored an element inside the modal, so closing dropped focus to `<body>`); `[autofocus]` is respected
+- **Hotwired Turbo no longer duplicates injected DOM:** the skip links, `#live-region`, and sidebar overlay are now reused when a restored `<body>` snapshot already contains them — previously they accumulated one copy per navigation.
+- **Card widget:** `remove()` now actually removes the card from the DOM after the animation (it only hid it, so hidden form fields kept submitting); clicking the collapse toggle mid-animation reverses it instead of being swallowed; widget events now dispatch on the toggle button itself rather than a clicked `<i>` icon; `minimize()` cleans up its inline styles.
+- **Slide animations are cancelable:** rapid-toggling a treeview or card no longer lets a stale animation timer strip styles mid-flight and desync display state.
+- **Treeview accordion guard** compared each open item against the parent `<ul>` (never true), so `open()` on an already-open item slid its own menu shut.
+- **PushMenu** reacts to viewport changes via `matchMedia` on the actual breakpoint crossing — mobile URL-bar/keyboard resizes and same-side width changes no longer re-expand a sidebar the user collapsed; the default breakpoint (991.98) now matches the CSS convention, fixing a 992px off-by-one.
+- **Callout variants** referenced two custom properties that were never defined, so links and inline code inside callouts never recolored; the user-menu footer used `--bs-light-bg`, which doesn't exist in Bootstrap 5.3 (now `--bs-tertiary-bg`).
+- **Demo pages:** Bootstrap JS CDN pin updated 5.3.7 → 5.3.8 to match the compiled CSS; removed the dead navbar-search button (`data-widget="navbar-search"` has no implementation in v4); every page now has exactly one `<h1>` (page titles were `<h3>`); breadcrumbs are wrapped in `<nav aria-label="breadcrumb">`; all icon-only buttons (card tools, topbar toggles) have `aria-label`s; auth forms have real `<label>`s and `<main>` landmarks; dated "Google+" copy updated.
+
+### 变更
+
+- **ACCESSIBILITY-COMPLIANCE.md rewritten as an accurate accessibility statement** — what's implemented, what's partial (treeview keyboard pattern, drag-and-drop alternatives, touch-target sizes), and what's on the roadmap — replacing the aspirational all-checked WCAG checklist. Demo meta descriptions updated to match.
+- **bundlewatch budgets recalibrated:** CSS budgets tightened (46 → 44 kB min+gzip) to lock in the docs-dedup win; JS budget raised (5.8 → 6.5 kB) for the behavior fixes above.
+
+## [4.0.3] - 2026-07-01
+
+### 新增
+
+- **Hotwired Turbo / Turbo Drive support:** plugins now re-initialise on `turbo:load`, so PushMenu, TreeView and the other JS components keep working after Turbo swaps the `<body>` on in-app navigation (previously they went dead after the first link click). Each init cycle uses an `AbortController` whose signal is aborted on `turbo:before-render`, so the `window`/`document`-level listeners are torn down before re-init instead of stacking up on every navigation. (#563, #5890 — diagnosed and prototyped by @MarkDaleman in #6058)
+
+### 已修复
+
+- **Fullscreen state sync:** the fullscreen icons and the `maximized`/`minimized` events are now driven by the native `fullscreenchange` event instead of the request/exit calls. The UI no longer flips when a fullscreen request is denied (permissions policy, missing `allowfullscreen`, lost user gesture), and it now stays in sync when the user exits with `ESC` or `F11`. (builds on @webgo-oss's report in #6055)
+- **Accessibility:** form inputs lacking both an `id` and a `name` now receive a stable, generated error-message id instead of colliding on a shared `-error` id and appending a new orphaned error node on every re-validation. (#6055, reported by @webgo-oss)
+
+### 已更新
+
+- All dependencies bumped to their latest releases, including four majors — **Astro 6 → 7** (which pulls in Vite 8), **@astrojs/mdx 6 → 7**, **eslint-plugin-astro 1 → 2**, and **eslint-plugin-unicorn 68 → 69** — plus ESLint, Prettier, Stylelint, PostCSS, Rollup and typescript-eslint. No source changes were required; the full `npm run production` pipeline (lint + Astro build + bundlewatch) passes and `npm audit` remains at **0 vulnerabilities**. (supersedes Dependabot PRs #6065–#6074)
+
+## [4.0.2] - 2026-06-11
+
+### 已修复
+
+- **#6048:** `npm run production` no longer fails — the dev-only `scripts/social-preview.mjs` tripped 9 ESLint errors when building from source. The script is now lint-clean. (reported by @lfiorini)
+
+### Security
+
+- Hardened the social preview script's static file server against path traversal and error detail leakage (CodeQL alerts #87–#92). Dev-only script, not part of the npm package.
+
+## [4.0.1] - 2026-06-11
+
+### 新增
+
+- **Official framework integrations announced** — AdminLTE 4 is now available as first-class packages for four ecosystems, maintained under ColorlibHQ:
+  - [adminlte-vue](https://github.com/ColorlibHQ/adminlte-vue) — Vue 3 & Nuxt, 45+ typed components, composables, SSR-safe theming, ⌘K command palette
+  - [adminlte-react](https://github.com/ColorlibHQ/adminlte-react) — React & Next.js (App Router / RSC), 30+ typed components, dark mode, ⌘K command palette
+  - [adminlte-django](https://github.com/ColorlibHQ/adminlte-django) — config-driven sidebar menu, 33+ components, themed `django.contrib.admin`, `{{ form }}` renderer
+  - [adminlte-laravel](https://github.com/ColorlibHQ/adminlte-laravel) — Blade integration, Vite-ready
+- Social preview generator script (`scripts/social-preview.mjs`, dev-only — excluded from the npm package).
+
+### 已修复
+
+- **#6043:** Stored color mode is now applied before first paint — no more light-mode flash when reloading a page in dark mode. (reported by @bsshreesha)
+- **#6044:** Long subject/preview text in the mailbox inbox list is truncated instead of overflowing its container. (reported by @Oscurlo)
+- **#6038:** `accessibility.js` no longer assigns `role="navigation"` to `<ul>`/`<ol>` elements, which broke list semantics and failed the Lighthouse accessibility audit. (reported by @lfiorini)
+
+### 已更新
+
+- All dependencies bumped to latest; `axios` pinned via npm overrides to clear a transitive advisory. `npm audit` remains at **0 vulnerabilities**.
+
 ## [4.0.0] - 2026-05-19
 
 ### 新增

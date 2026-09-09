@@ -23,27 +23,29 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
   <!--end::Head-->
   <!--begin::Body-->
   <body class="lockscreen bg-body-secondary">
-    <div class="lockscreen-wrapper">
-      <div class="lockscreen-logo">
+    <main class="lockscreen-wrapper">
+      <h1 class="lockscreen-logo">
         <a href={htmlPath + "/index2.html"}><b>Admin</b>LTE</a>
-      </div>
+      </h1>
 
       <div class="lockscreen-name">John Doe</div>
 
       <div class="lockscreen-item">
         <div class="lockscreen-image">
-          <img src={deploymentPath + "assets/img/user1-128x128.jpg"} alt="用户头像" />
+          <img src={deploymentPath + "assets/img/user1-128x128.jpg"} alt="John Doe" />
         </div>
 
         <form class="lockscreen-credentials">
+          <label class="visually-hidden" for="lockscreenPassword">密码</label>
           <div class="input-group">
             <input
+              id="lockscreenPassword"
               type="password"
               class="form-control shadow-none"
-              placeholder="password"
+              placeholder="密码"
             />
             <div class="input-group-text border-0 bg-transparent px-1">
-              <button type="button" class="btn shadow-none">
+              <button type="button" class="btn shadow-none" aria-label="登录">
                 <i class="bi bi-box-arrow-right text-body-secondary"></i>
               </button>
             </div>
@@ -62,7 +64,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
         <b><a href="https://adminlte.io" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">AdminLTE.io</a></b> <br />
         保留所有权利
       </div>
-    </div>
+    </main>
 
     <Scripts />
   </body><!--end::Body-->

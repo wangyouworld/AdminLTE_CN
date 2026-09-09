@@ -141,17 +141,19 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             <div class="row">
               <!--begin::Col-->
               <div class="col-sm-6">
-                <h3 class="mb-0">自定义主题</h3>
+                <h1 class="mb-0 fs-3">自定义主题</h1>
               </div>
               <!--end::Col-->
               <!--begin::Col-->
               <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">首页</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">
-                    自定义主题
-                  </li>
-                </ol>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">首页</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                      自定义主题
+                    </li>
+                  </ol>
+                </nav>
               </div>
               <!--end::Col-->
             </div>
@@ -182,6 +184,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-collapse"
+                        aria-label="Collapse card"
                       >
                         <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
                         <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
@@ -190,6 +193,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-remove"
+                        aria-label="Remove card"
                         title="移除"
                       >
                         <i class="bi bi-x-lg"></i>
@@ -262,6 +266,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-collapse"
+                        aria-label="Collapse card"
                       >
                         <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
                         <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
@@ -270,6 +275,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-remove"
+                        aria-label="Remove card"
                         title="移除"
                       >
                         <i class="bi bi-x-lg"></i>
@@ -342,6 +348,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-collapse"
+                        aria-label="Collapse card"
                       >
                         <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
                         <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
@@ -350,6 +357,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-remove"
+                        aria-label="Remove card"
                         title="移除"
                       >
                         <i class="bi bi-x-lg"></i>

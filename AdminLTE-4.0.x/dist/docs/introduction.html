@@ -5,6 +5,32 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>介绍 | AdminLTE 4</title>
 
+    <!--begin::Theme Init (prevents flash of incorrect theme on load, #6043)-->
+    <script>
+      (() => {
+        'use strict';
+        const STORAGE_KEY = 'lte-theme';
+        let stored = null;
+        try {
+          stored = localStorage.getItem(STORAGE_KEY);
+        } catch {
+          // localStorage may be unavailable (private mode, sandboxed iframe).
+        }
+        const prefersDark = globalThis.matchMedia('(prefers-color-scheme: dark)').matches;
+        // Mirror the resolution in _scripts.astro: explicit "dark"/"light" win,
+        // otherwise ("auto" or unset) fall back to the OS preference.
+        let resolved = 'light';
+        if (stored === 'dark' || stored === 'light') {
+          resolved = stored;
+        } else if (prefersDark) {
+          resolved = 'dark';
+        }
+        document.documentElement.setAttribute('data-bs-theme', resolved);
+        document.documentElement.style.colorScheme = resolved;
+      })();
+    </script>
+    <!--end::Theme Init-->
+
     <!--begin::Accessibility Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
     <meta name="color-scheme" content="light dark" />
@@ -17,11 +43,11 @@
     <meta name="author" content="ColorlibHQ" />
     <meta
       name="description"
-      content="AdminLTE 是一款免费的 Bootstrap 5 管理员仪表盘，包含 30 个使用 Vanilla JS 构建的示例页面。完全符合 WCAG 2.1 AA 访问标准。"
+      content="AdminLTE is a free Bootstrap 5 admin dashboard template with almost 50 example pages, built with vanilla JS and designed with accessibility in mind."
     />
     <meta
       name="keywords"
-      content="Bootstrap 5, Bootstrap 5 管理仪表盘,Bootstrap 5 仪表盘,Bootstrap 5 图表,Bootstrap 5 日历,Bootstrap 5 日期选择器,Bootstrap 5 表格,Bootstrap 5 数据表,vanilla js 数据表,colorlibhq, colorlibhq 仪表盘,colorlibhq 管理仪表盘, accessible admin panel, WCAG compliant"
+      content="Bootstrap 5, Bootstrap 5 管理仪表盘,Bootstrap 5 仪表盘,Bootstrap 5 图表,Bootstrap 5 日历,Bootstrap 5 日期选择器,Bootstrap 5 表格,Bootstrap 5 数据表,vanilla js 数据表,colorlibhq, colorlibhq 仪表盘,colorlibhq 管理仪表盘, accessible admin panel"
     />
     <!--end::Primary Meta Tags-->
 
@@ -74,7 +100,13 @@
           <!--begin::Start Navbar Links-->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
+              <a
+                class="nav-link"
+                data-lte-toggle="sidebar"
+                href="#"
+                role="button"
+                aria-label="Toggle sidebar"
+              >
                 <i class="bi bi-list"></i>
               </a>
             </li>
@@ -96,17 +128,14 @@
 
           <!--begin::End Navbar Links-->
           <ul class="navbar-nav ms-auto">
-            <!--begin::Navbar Search-->
-            <li class="nav-item">
-              <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                <i class="bi bi-search"></i>
-              </a>
-            </li>
-            <!--end::Navbar Search-->
-
             <!--begin::Messages Dropdown Menu-->
             <li class="nav-item dropdown">
-              <a class="nav-link" data-bs-toggle="dropdown" href="#">
+              <a
+                class="nav-link"
+                data-bs-toggle="dropdown"
+                href="#"
+                aria-label="Messages: 3 unread"
+              >
                 <i class="bi bi-chat-text"></i>
                 <span class="navbar-badge badge text-bg-danger">3</span>
               </a>
@@ -117,17 +146,17 @@
                     <div class="flex-shrink-0">
                       <img
                         src="../assets/img/user1-128x128.jpg"
-                        alt="用户头像"
+                        alt=""
                         class="img-size-50 rounded-circle me-3"
                       />
                     </div>
                     <div class="flex-grow-1">
-                      <h3 class="dropdown-item-title">
+                      <p class="dropdown-item-title">
                         Brad Diesel
                         <span class="float-end fs-7 text-danger"
                           ><i class="bi bi-star-fill"></i
                         ></span>
-                      </h3>
+                      </p>
                       <p class="fs-7">有时间打电话给我……</p>
                       <p class="fs-7 text-secondary">
                         <i class="bi bi-clock-fill me-1"></i> 4 小时前
@@ -143,17 +172,17 @@
                     <div class="flex-shrink-0">
                       <img
                         src="../assets/img/user8-128x128.jpg"
-                        alt="用户头像"
+                        alt=""
                         class="img-size-50 rounded-circle me-3"
                       />
                     </div>
                     <div class="flex-grow-1">
-                      <h3 class="dropdown-item-title">
+                      <p class="dropdown-item-title">
                         John Pierce
                         <span class="float-end fs-7 text-secondary">
                           <i class="bi bi-star-fill"></i>
                         </span>
-                      </h3>
+                      </p>
                       <p class="fs-7">我收到你的消息了，兄弟</p>
                       <p class="fs-7 text-secondary">
                         <i class="bi bi-clock-fill me-1"></i> 4 小时前
@@ -169,17 +198,17 @@
                     <div class="flex-shrink-0">
                       <img
                         src="../assets/img/user3-128x128.jpg"
-                        alt="用户头像"
+                        alt=""
                         class="img-size-50 rounded-circle me-3"
                       />
                     </div>
                     <div class="flex-grow-1">
-                      <h3 class="dropdown-item-title">
+                      <p class="dropdown-item-title">
                         Nora Silvester
                         <span class="float-end fs-7 text-warning">
                           <i class="bi bi-star-fill"></i>
                         </span>
-                      </h3>
+                      </p>
                       <p class="fs-7">主题在这里</p>
                       <p class="fs-7 text-secondary">
                         <i class="bi bi-clock-fill me-1"></i> 4 小时前
@@ -196,7 +225,12 @@
 
             <!--begin::Notifications Dropdown Menu-->
             <li class="nav-item dropdown">
-              <a class="nav-link" data-bs-toggle="dropdown" href="#">
+              <a
+                class="nav-link"
+                data-bs-toggle="dropdown"
+                href="#"
+                aria-label="Notifications: 15 unread"
+              >
                 <i class="bi bi-bell-fill"></i>
                 <span class="navbar-badge badge text-bg-warning">15</span>
               </a>
@@ -225,7 +259,12 @@
 
             <!--begin::Fullscreen Toggle-->
             <li class="nav-item">
-              <a class="nav-link" href="#" data-lte-toggle="fullscreen">
+              <a
+                class="nav-link"
+                href="#"
+                data-lte-toggle="fullscreen"
+                aria-label="Toggle fullscreen"
+              >
                 <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
                 <i data-lte-icon="minimize" class="bi bi-fullscreen-exit d-none"></i>
               </a>
@@ -297,7 +336,7 @@
                 <img
                   src="../assets/img/user2-160x160.jpg"
                   class="user-image rounded-circle shadow"
-                  alt="用户头像"
+                  alt="Alexander Pierce"
                 />
                 <span class="d-none d-md-inline">Alexander Pierce</span>
               </a>
@@ -307,7 +346,7 @@
                   <img
                     src="../assets/img/user2-160x160.jpg"
                     class="rounded-circle shadow"
-                    alt="用户头像"
+                    alt="Alexander Pierce"
                   />
                   <p>
                     Alexander Pierce - 网页开发工程师
@@ -365,24 +404,11 @@
         <!--end::Sidebar Brand-->
         <!--begin::Sidebar Wrapper-->
         <div class="sidebar-wrapper">
-          <nav class="mt-2">
-            <!-- Back to preview CTA -->
-            <div class="px-3 pb-2">
-              <a
-                href="../index.html"
-                class="btn btn-sm btn-outline-light w-100 d-flex align-items-center justify-content-center gap-2"
-              >
-                <i class="bi bi-arrow-left" aria-hidden="true"></i>
-                返回实时预览
-              </a>
-            </div>
-
+          <nav class="mt-2" aria-label="Documentation navigation">
             <!--begin::Sidebar Menu-->
             <ul
               class="nav sidebar-menu flex-column"
               data-lte-toggle="treeview"
-              role="navigation"
-              aria-label="Documentation navigation"
               data-accordion="false"
               id="docs-navigation"
             >
@@ -583,6 +609,17 @@
               </li>
             </ul>
             <!--end::Sidebar Menu-->
+
+            <!-- Back to preview CTA (bottom of sidebar) -->
+            <div class="p-3 mt-3 border-top border-secondary border-opacity-25">
+              <a
+                href="../index.html"
+                class="btn btn-sm btn-outline-light w-100 d-flex align-items-center justify-content-center gap-2"
+              >
+                <i class="bi bi-arrow-left" aria-hidden="true"></i>
+                返回实时预览
+              </a>
+            </div>
           </nav>
         </div>
         <!--end::Sidebar Wrapper-->
@@ -597,13 +634,15 @@
             <!--begin::Row-->
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">介绍</h3>
+                <h1 class="mb-0 fs-3">介绍</h1>
               </div>
               <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">文档</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">介绍</li>
-                </ol>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">文档</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">介绍</li>
+                  </ol>
+                </nav>
               </div>
             </div>
             <!--end::Row-->
@@ -636,7 +675,6 @@
                     </p>
                     <h2 id="安装方式">安装方式</h2>
                     <p>有以下安装方式：</p>
-
                     <table>
                       <thead>
                         <tr>
@@ -678,16 +716,16 @@
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="html"
-                    ><code><span class="line"><span style="color:#6A9955">&lt;!-- 在 &lt;head&gt; 中 --&gt;</span></span>
-<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
-<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
-<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/admin-lte@4.0.0/dist/css/adminlte.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
+                    ><code><span class="line"><span style="color:#6A9955">&#x3C;!-- 在 &#x3C;head> 中 --></span></span>
+<span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"stylesheet"</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"</span><span style="color:#808080"> /></span></span>
+<span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"stylesheet"</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css"</span><span style="color:#808080"> /></span></span>
+<span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"stylesheet"</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"https://cdn.jsdelivr.net/npm/admin-lte@4.0.0/dist/css/adminlte.min.css"</span><span style="color:#808080"> /></span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">&lt;!-- 在 &lt;/body&gt; 之前 --&gt;</span></span>
-<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/admin-lte@4.0.0/dist/js/adminlte.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span></code></pre>
+<span class="line"><span style="color:#6A9955">&#x3C;!-- 在 &#x3C;/body> 之前 --></span></span>
+<span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"</span><span style="color:#808080">>&#x3C;/</span><span style="color:#569CD6">script</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"</span><span style="color:#808080">>&#x3C;/</span><span style="color:#569CD6">script</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"</span><span style="color:#808080">>&#x3C;/</span><span style="color:#569CD6">script</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"https://cdn.jsdelivr.net/npm/admin-lte@4.0.0/dist/js/adminlte.min.js"</span><span style="color:#808080">>&#x3C;/</span><span style="color:#569CD6">script</span><span style="color:#808080">></span></span></code></pre>
                     <p>
                       然后将任意<a href="https://github.com/ColorlibHQ/AdminLTE/tree/master/dist"
                         >演示页面</a
@@ -711,14 +749,14 @@
                       tabindex="0"
                       data-language="js"
                     ><code><span class="line"><span style="color:#6A9955">// CSS</span></span>
-<span class="line"><span style="color:#C586C0">import</span><span style="color:#CE9178"> &quot;admin-lte/dist/css/adminlte.min.css&quot;</span></span>
+<span class="line"><span style="color:#C586C0">import</span><span style="color:#CE9178"> "admin-lte/dist/css/adminlte.min.css"</span></span>
 <span class="line"><span style="color:#6A9955">// 添加 Bootstrap 和依赖 CSS</span></span>
-<span class="line"><span style="color:#C586C0">import</span><span style="color:#CE9178"> &quot;bootstrap-icons/font/bootstrap-icons.css&quot;</span></span>
-<span class="line"><span style="color:#C586C0">import</span><span style="color:#CE9178"> &quot;overlayscrollbars/styles/overlayscrollbars.css&quot;</span></span>
+<span class="line"><span style="color:#C586C0">import</span><span style="color:#CE9178"> "bootstrap-icons/font/bootstrap-icons.css"</span></span>
+<span class="line"><span style="color:#C586C0">import</span><span style="color:#CE9178"> "overlayscrollbars/styles/overlayscrollbars.css"</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#6A9955">// JS</span></span>
-<span class="line"><span style="color:#C586C0">import</span><span style="color:#CE9178"> &quot;bootstrap&quot;</span></span>
-<span class="line"><span style="color:#C586C0">import</span><span style="color:#CE9178"> &quot;admin-lte&quot;</span></span></code></pre>
+<span class="line"><span style="color:#C586C0">import</span><span style="color:#CE9178"> "bootstrap"</span></span>
+<span class="line"><span style="color:#C586C0">import</span><span style="color:#CE9178"> "admin-lte"</span></span></code></pre>
                     <p>
                       Yarn 和 pnpm 的使用方式相同——将安装命令替换为 <code>yarn add</code> 或
                       <code>pnpm add</code>。
@@ -753,10 +791,9 @@
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="bash"
-                    ><code><span class="line"><span style="color:#DCDCAA">composer</span><span style="color:#CE9178"> require</span><span style="color:#CE9178"> &quot;almasaeed2010/adminlte=4.0.0&quot;</span></span></code></pre>
+                    ><code><span class="line"><span style="color:#DCDCAA">composer</span><span style="color:#CE9178"> require</span><span style="color:#CE9178"> "almasaeed2010/adminlte=4.0.0"</span></span></code></pre>
                     <p>该包从相同的源码树发布——您可以直接使用 <code>dist/</code> 文件夹。</p>
                     <h2 id="前置要求">前置要求</h2>
-
                     <table>
                       <thead>
                         <tr>
@@ -864,10 +901,14 @@
     <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
     <script src="../assets/popperjs/popper.min.js" crossorigin="anonymous"></script>
     <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
-    <script src="../assets/bootstrap/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+      crossorigin="anonymous"
+    ></script>
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
     <script src="../js/adminlte.js"></script>
-    <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+    <!--end::Required Plugin(AdminLTE)-->
+    <!--begin::OverlayScrollbars Configure-->
     <script>
       const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
       const Default = {
@@ -896,7 +937,9 @@
         }
       });
     </script>
-    <!--end::OverlayScrollbars Configure--><!--begin::明暗模式切换 (#6010)-->
+    <!--end::OverlayScrollbars Configure-->
+
+    <!--begin::明暗模式切换 (#6010)-->
     <script>
       (() => {
         'use strict';

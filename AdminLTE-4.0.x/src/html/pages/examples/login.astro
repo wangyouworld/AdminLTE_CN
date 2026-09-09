@@ -16,24 +16,32 @@ const htmlPath = "..";
   <!--end::Head-->
   <!--begin::Body-->
   <body class="login-page bg-body-secondary">
-    <div class="login-box">
-      <div class="login-logo">
+    <main class="login-box">
+      <h1 class="login-logo">
         <a href={htmlPath + "/index2.html"}><b>Admin</b>LTE</a>
-      </div>
+      </h1>
       <!-- /.login-logo -->
       <div class="card">
         <div class="card-body login-card-body">
           <p class="login-box-msg">帐户登录</p>
 
           <form action={htmlPath + "/index3.html"} method="post">
+            <label class="visually-hidden" for="loginEmail">邮箱</label>
             <div class="input-group mb-3">
-              <input type="email" class="form-control" placeholder="邮箱" />
+              <input
+                id="loginEmail"
+                type="email"
+                class="form-control"
+                placeholder="邮箱"
+              />
               <div class="input-group-text">
                 <span class="bi bi-envelope"></span>
               </div>
             </div>
+            <label class="visually-hidden" for="loginPassword">密码</label>
             <div class="input-group mb-3">
               <input
+                id="loginPassword"
                 type="password"
                 class="form-control"
                 placeholder="密码"
@@ -74,7 +82,7 @@ const htmlPath = "..";
               <i class="bi bi-facebook me-2"></i> 通过 Facebook 登录
             </a>
             <a href="#" class="btn btn-danger">
-              <i class="bi bi-google me-2"></i> 通过 Google+ 登录
+              <i class="bi bi-google me-2"></i> 通过 Google 登录
             </a>
           </div>
           <!-- /.social-auth-links -->
@@ -90,7 +98,7 @@ const htmlPath = "..";
         </div>
         <!-- /.login-card-body -->
       </div>
-    </div>
+    </main>
     <!-- /.login-box -->
 
     <Scripts path={path} />

@@ -18,7 +18,7 @@ PushMenu 插件用于在侧边栏的展开和折叠状态之间进行切换。�
 
 | 属性 | 默认值 | 描述 |
 |-----------|---------|-------------|
-| `data-sidebar-breakpoint` | `992` | 屏幕宽度（像素），低于此值时侧边栏被视为移动端模式。 |
+| `data-sidebar-breakpoint` | `991.98` | 屏幕宽度（像素），低于此值时侧边栏被视为移动端模式。 |
 | `data-enable-persistence` | `false` | 将侧边栏状态保存到 localStorage，以便跨页面加载保持。 |
 
 ```html
@@ -65,7 +65,7 @@ document.addEventListener("open.lte.push-menu", () => {
 import { PushMenu } from "admin-lte"
 
 const sidebar = new PushMenu(document.querySelector('[data-lte-toggle="sidebar"]'), {
-  sidebarBreakpoint: 992,
+  sidebarBreakpoint: 991.98,
   enablePersistence: false
 })
 ```

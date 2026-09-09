@@ -46,15 +46,17 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             <!--begin::Row-->
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">仪表盘 v2</h3>
+                <h1 class="mb-0 fs-3">仪表盘 v2</h1>
               </div>
               <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">首页</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">
-                    仪表盘 v2
-                  </li>
-                </ol>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">首页</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                      仪表盘 v2
+                    </li>
+                  </ol>
+                </nav>
               </div>
             </div>
             <!--end::Row-->
@@ -148,6 +150,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-collapse"
+                        aria-label="Collapse card"
                       >
                         <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
                         <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
@@ -156,6 +159,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         <button
                           type="button"
                           class="btn btn-tool dropdown-toggle"
+                          aria-label="More options"
                           data-bs-toggle="dropdown"
                         >
                           <i class="bi bi-wrench"></i>
@@ -170,13 +174,14 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             其他
                           </a>
                           <a class="dropdown-divider"></a>
-                          <a href="#" class="dropdown-item">分隔符</a>
+                          <a href="#" class="dropdown-item">分隔线</a>
                         </div>
                       </div>
                       <button
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-remove"
+                        aria-label="Remove card"
                       >
                         <i class="bi bi-x-lg"></i>
                       </button>
@@ -333,6 +338,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             type="button"
                             class="btn btn-tool"
                             data-lte-toggle="card-collapse"
+                            aria-label="Collapse card"
                           >
                             <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
                             <i data-lte-icon="collapse" class="bi bi-dash-lg"
@@ -350,6 +356,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             type="button"
                             class="btn btn-tool"
                             data-lte-toggle="card-remove"
+                            aria-label="Remove card"
                           >
                             <i class="bi bi-x-lg"></i>
                           </button>
@@ -641,6 +648,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             type="button"
                             class="btn btn-tool"
                             data-lte-toggle="card-collapse"
+                            aria-label="Collapse card"
                           >
                             <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
                             <i data-lte-icon="collapse" class="bi bi-dash-lg"
@@ -650,6 +658,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                             type="button"
                             class="btn btn-tool"
                             data-lte-toggle="card-remove"
+                            aria-label="Remove card"
                           >
                             <i class="bi bi-x-lg"></i>
                           </button>
@@ -795,6 +804,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-collapse"
+                        aria-label="Collapse card"
                       >
                         <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
                         <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
@@ -803,6 +813,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-remove"
+                        aria-label="Remove card"
                       >
                         <i class="bi bi-x-lg"></i>
                       </button>
@@ -997,6 +1008,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-collapse"
+                        aria-label="Collapse card"
                       >
                         <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
                         <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
@@ -1005,6 +1017,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-remove"
+                        aria-label="Remove card"
                       >
                         <i class="bi bi-x-lg"></i>
                       </button>
@@ -1065,6 +1078,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-collapse"
+                        aria-label="Collapse card"
                       >
                         <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
                         <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
@@ -1073,6 +1087,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-remove"
+                        aria-label="Remove card"
                       >
                         <i class="bi bi-x-lg"></i>
                       </button>

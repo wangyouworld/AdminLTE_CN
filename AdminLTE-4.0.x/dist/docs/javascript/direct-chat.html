@@ -5,6 +5,32 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>聊天 Plugin | AdminLTE 4</title>
 
+    <!--begin::Theme Init (prevents flash of incorrect theme on load, #6043)-->
+    <script>
+      (() => {
+        'use strict';
+        const STORAGE_KEY = 'lte-theme';
+        let stored = null;
+        try {
+          stored = localStorage.getItem(STORAGE_KEY);
+        } catch {
+          // localStorage may be unavailable (private mode, sandboxed iframe).
+        }
+        const prefersDark = globalThis.matchMedia('(prefers-color-scheme: dark)').matches;
+        // Mirror the resolution in _scripts.astro: explicit "dark"/"light" win,
+        // otherwise ("auto" or unset) fall back to the OS preference.
+        let resolved = 'light';
+        if (stored === 'dark' || stored === 'light') {
+          resolved = stored;
+        } else if (prefersDark) {
+          resolved = 'dark';
+        }
+        document.documentElement.setAttribute('data-bs-theme', resolved);
+        document.documentElement.style.colorScheme = resolved;
+      })();
+    </script>
+    <!--end::Theme Init-->
+
     <!--begin::Accessibility Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
     <meta name="color-scheme" content="light dark" />
@@ -17,11 +43,11 @@
     <meta name="author" content="ColorlibHQ" />
     <meta
       name="description"
-      content="AdminLTE 是一款免费的 Bootstrap 5 管理员仪表盘，包含 30 个使用 Vanilla JS 构建的示例页面。完全符合 WCAG 2.1 AA 访问标准。"
+      content="AdminLTE is a free Bootstrap 5 admin dashboard template with almost 50 example pages, built with vanilla JS and designed with accessibility in mind."
     />
     <meta
       name="keywords"
-      content="Bootstrap 5, Bootstrap 5 管理仪表盘,Bootstrap 5 仪表盘,Bootstrap 5 图表,Bootstrap 5 日历,Bootstrap 5 日期选择器,Bootstrap 5 表格,Bootstrap 5 数据表,vanilla js 数据表,colorlibhq, colorlibhq 仪表盘,colorlibhq 管理仪表盘, accessible admin panel, WCAG compliant"
+      content="Bootstrap 5, Bootstrap 5 管理仪表盘,Bootstrap 5 仪表盘,Bootstrap 5 图表,Bootstrap 5 日历,Bootstrap 5 日期选择器,Bootstrap 5 表格,Bootstrap 5 数据表,vanilla js 数据表,colorlibhq, colorlibhq 仪表盘,colorlibhq 管理仪表盘, accessible admin panel"
     />
     <!--end::Primary Meta Tags-->
 
@@ -74,7 +100,13 @@
           <!--begin::Start Navbar Links-->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
+              <a
+                class="nav-link"
+                data-lte-toggle="sidebar"
+                href="#"
+                role="button"
+                aria-label="Toggle sidebar"
+              >
                 <i class="bi bi-list"></i>
               </a>
             </li>
@@ -96,17 +128,14 @@
 
           <!--begin::End Navbar Links-->
           <ul class="navbar-nav ms-auto">
-            <!--begin::Navbar Search-->
-            <li class="nav-item">
-              <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                <i class="bi bi-search"></i>
-              </a>
-            </li>
-            <!--end::Navbar Search-->
-
             <!--begin::Messages Dropdown Menu-->
             <li class="nav-item dropdown">
-              <a class="nav-link" data-bs-toggle="dropdown" href="#">
+              <a
+                class="nav-link"
+                data-bs-toggle="dropdown"
+                href="#"
+                aria-label="Messages: 3 unread"
+              >
                 <i class="bi bi-chat-text"></i>
                 <span class="navbar-badge badge text-bg-danger">3</span>
               </a>
@@ -117,17 +146,17 @@
                     <div class="flex-shrink-0">
                       <img
                         src="../../assets/img/user1-128x128.jpg"
-                        alt="用户头像"
+                        alt=""
                         class="img-size-50 rounded-circle me-3"
                       />
                     </div>
                     <div class="flex-grow-1">
-                      <h3 class="dropdown-item-title">
+                      <p class="dropdown-item-title">
                         Brad Diesel
                         <span class="float-end fs-7 text-danger"
                           ><i class="bi bi-star-fill"></i
                         ></span>
-                      </h3>
+                      </p>
                       <p class="fs-7">有时间打电话给我……</p>
                       <p class="fs-7 text-secondary">
                         <i class="bi bi-clock-fill me-1"></i> 4 小时前
@@ -143,17 +172,17 @@
                     <div class="flex-shrink-0">
                       <img
                         src="../../assets/img/user8-128x128.jpg"
-                        alt="用户头像"
+                        alt=""
                         class="img-size-50 rounded-circle me-3"
                       />
                     </div>
                     <div class="flex-grow-1">
-                      <h3 class="dropdown-item-title">
+                      <p class="dropdown-item-title">
                         John Pierce
                         <span class="float-end fs-7 text-secondary">
                           <i class="bi bi-star-fill"></i>
                         </span>
-                      </h3>
+                      </p>
                       <p class="fs-7">我收到你的消息了，兄弟</p>
                       <p class="fs-7 text-secondary">
                         <i class="bi bi-clock-fill me-1"></i> 4 小时前
@@ -169,17 +198,17 @@
                     <div class="flex-shrink-0">
                       <img
                         src="../../assets/img/user3-128x128.jpg"
-                        alt="用户头像"
+                        alt=""
                         class="img-size-50 rounded-circle me-3"
                       />
                     </div>
                     <div class="flex-grow-1">
-                      <h3 class="dropdown-item-title">
+                      <p class="dropdown-item-title">
                         Nora Silvester
                         <span class="float-end fs-7 text-warning">
                           <i class="bi bi-star-fill"></i>
                         </span>
-                      </h3>
+                      </p>
                       <p class="fs-7">主题在这里</p>
                       <p class="fs-7 text-secondary">
                         <i class="bi bi-clock-fill me-1"></i> 4 小时前
@@ -196,7 +225,12 @@
 
             <!--begin::Notifications Dropdown Menu-->
             <li class="nav-item dropdown">
-              <a class="nav-link" data-bs-toggle="dropdown" href="#">
+              <a
+                class="nav-link"
+                data-bs-toggle="dropdown"
+                href="#"
+                aria-label="Notifications: 15 unread"
+              >
                 <i class="bi bi-bell-fill"></i>
                 <span class="navbar-badge badge text-bg-warning">15</span>
               </a>
@@ -225,7 +259,12 @@
 
             <!--begin::Fullscreen Toggle-->
             <li class="nav-item">
-              <a class="nav-link" href="#" data-lte-toggle="fullscreen">
+              <a
+                class="nav-link"
+                href="#"
+                data-lte-toggle="fullscreen"
+                aria-label="Toggle fullscreen"
+              >
                 <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
                 <i data-lte-icon="minimize" class="bi bi-fullscreen-exit d-none"></i>
               </a>
@@ -297,7 +336,7 @@
                 <img
                   src="../../assets/img/user2-160x160.jpg"
                   class="user-image rounded-circle shadow"
-                  alt="用户头像"
+                  alt="Alexander Pierce"
                 />
                 <span class="d-none d-md-inline">Alexander Pierce</span>
               </a>
@@ -307,7 +346,7 @@
                   <img
                     src="../../assets/img/user2-160x160.jpg"
                     class="rounded-circle shadow"
-                    alt="用户头像"
+                    alt="Alexander Pierce"
                   />
                   <p>
                     Alexander Pierce - 网页开发工程师
@@ -365,24 +404,11 @@
         <!--end::Sidebar Brand-->
         <!--begin::Sidebar Wrapper-->
         <div class="sidebar-wrapper">
-          <nav class="mt-2">
-            <!-- Back to preview CTA -->
-            <div class="px-3 pb-2">
-              <a
-                href="../../index.html"
-                class="btn btn-sm btn-outline-light w-100 d-flex align-items-center justify-content-center gap-2"
-              >
-                <i class="bi bi-arrow-left" aria-hidden="true"></i>
-                返回实时预览
-              </a>
-            </div>
-
+          <nav class="mt-2" aria-label="Documentation navigation">
             <!--begin::Sidebar Menu-->
             <ul
               class="nav sidebar-menu flex-column"
               data-lte-toggle="treeview"
-              role="navigation"
-              aria-label="Documentation navigation"
               data-accordion="false"
               id="docs-navigation"
             >
@@ -583,6 +609,17 @@
               </li>
             </ul>
             <!--end::Sidebar Menu-->
+
+            <!-- Back to preview CTA (bottom of sidebar) -->
+            <div class="p-3 mt-3 border-top border-secondary border-opacity-25">
+              <a
+                href="../../index.html"
+                class="btn btn-sm btn-outline-light w-100 d-flex align-items-center justify-content-center gap-2"
+              >
+                <i class="bi bi-arrow-left" aria-hidden="true"></i>
+                返回实时预览
+              </a>
+            </div>
           </nav>
         </div>
         <!--end::Sidebar Wrapper-->
@@ -597,13 +634,15 @@
             <!--begin::Row-->
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">聊天 Plugin</h3>
+                <h1 class="mb-0 fs-3">聊天 Plugin</h1>
               </div>
               <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">文档</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">聊天 Plugin</li>
-                </ol>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">文档</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">聊天 Plugin</li>
+                  </ol>
+                </nav>
               </div>
             </div>
             <!--end::Row-->
@@ -632,26 +671,25 @@
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="html"
-                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;card direct-chat&quot;</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;card-header&quot;</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">    &lt;</span><span style="color:#569CD6">h3</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;card-title&quot;</span><span style="color:#808080">&gt;</span><span style="color:#D4D4D4">聊天</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">h3</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">    &lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;card-tools&quot;</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">      &lt;</span><span style="color:#569CD6">button</span><span style="color:#9CDCFE"> type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;button&quot;</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;btn btn-tool&quot;</span><span style="color:#9CDCFE"> data-lte-toggle</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;chat-pane&quot;</span><span style="color:#9CDCFE"> title</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;切换联系人&quot;</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">        &lt;</span><span style="color:#569CD6">i</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;bi bi-people-fill&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">i</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">      &lt;/</span><span style="color:#569CD6">button</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">    &lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">  &lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;card-body&quot;</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">    &lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;direct-chat-messages&quot;</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#6A9955">      &lt;!-- 聊天消息在这里 --&gt;</span></span>
-<span class="line"><span style="color:#808080">    &lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">    &lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;direct-chat-contacts&quot;</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#6A9955">      &lt;!-- 联系人列表在这里 --&gt;</span></span>
-<span class="line"><span style="color:#808080">    &lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">  &lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span></code></pre>
+                    ><code><span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"card direct-chat"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">  &#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"card-header"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">    &#x3C;</span><span style="color:#569CD6">h3</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"card-title"</span><span style="color:#808080">></span><span style="color:#D4D4D4">聊天</span><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">h3</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">    &#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"card-tools"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">      &#x3C;</span><span style="color:#569CD6">button</span><span style="color:#9CDCFE"> type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"button"</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"btn btn-tool"</span><span style="color:#9CDCFE"> data-lte-toggle</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"chat-pane"</span><span style="color:#9CDCFE"> title</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"切换联系人"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">        &#x3C;</span><span style="color:#569CD6">i</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"bi bi-people-fill"</span><span style="color:#808080">>&#x3C;/</span><span style="color:#569CD6">i</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">      &#x3C;/</span><span style="color:#569CD6">button</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">    &#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">  &#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">  &#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"card-body"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">    &#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"direct-chat-messages"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#6A9955">      &#x3C;!-- 聊天消息在这里 --></span></span>
+<span class="line"><span style="color:#808080">    &#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">    &#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"direct-chat-contacts"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#6A9955">      &#x3C;!-- 联系人列表在这里 --></span></span>
+<span class="line"><span style="color:#808080">    &#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">  &#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span></code></pre>
                     <h5 id="事件">事件</h5>
-
                     <table>
                       <thead>
                         <tr>
@@ -671,7 +709,6 @@
                       </tbody>
                     </table>
                     <h5 id="css-类">CSS 类</h5>
-
                     <table>
                       <thead>
                         <tr>
@@ -692,14 +729,13 @@
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="js"
-                    ><code><span class="line"><span style="color:#C586C0">import</span><span style="color:#D4D4D4"> { </span><span style="color:#9CDCFE">DirectChat</span><span style="color:#D4D4D4"> } </span><span style="color:#C586C0">from</span><span style="color:#CE9178"> &quot;admin-lte&quot;</span></span>
+                    ><code><span class="line"><span style="color:#C586C0">import</span><span style="color:#D4D4D4"> { </span><span style="color:#9CDCFE">DirectChat</span><span style="color:#D4D4D4"> } </span><span style="color:#C586C0">from</span><span style="color:#CE9178"> "admin-lte"</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#569CD6">const</span><span style="color:#4FC1FF"> chat</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">querySelector</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;.direct-chat&quot;</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#569CD6">const</span><span style="color:#4FC1FF"> chat</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">querySelector</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">".direct-chat"</span><span style="color:#D4D4D4">)</span></span>
 <span class="line"><span style="color:#569CD6">const</span><span style="color:#4FC1FF"> dc</span><span style="color:#D4D4D4"> = </span><span style="color:#569CD6">new</span><span style="color:#DCDCAA"> DirectChat</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">chat</span><span style="color:#D4D4D4">)</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">dc</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">toggle</span><span style="color:#D4D4D4">()  </span><span style="color:#6A9955">// 显示或隐藏联系人面板</span></span></code></pre>
                     <h6 id="方法">方法</h6>
-
                     <table>
                       <thead>
                         <tr>
@@ -757,10 +793,14 @@
     <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
     <script src="../../assets/popperjs/popper.min.js" crossorigin="anonymous"></script>
     <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
-    <script src="../../assets/bootstrap/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+      crossorigin="anonymous"
+    ></script>
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
     <script src="../../js/adminlte.js"></script>
-    <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+    <!--end::Required Plugin(AdminLTE)-->
+    <!--begin::OverlayScrollbars Configure-->
     <script>
       const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
       const Default = {
@@ -789,7 +829,9 @@
         }
       });
     </script>
-    <!--end::OverlayScrollbars Configure--><!--begin::明暗模式切换 (#6010)-->
+    <!--end::OverlayScrollbars Configure-->
+
+    <!--begin::明暗模式切换 (#6010)-->
     <script>
       (() => {
         'use strict';

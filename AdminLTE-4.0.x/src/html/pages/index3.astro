@@ -46,15 +46,17 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             <!--begin::Row-->
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">仪表盘 v3</h3>
+                <h1 class="mb-0 fs-3">仪表盘 v3</h1>
               </div>
               <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">首页</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">
-                    仪表盘 v3
-                  </li>
-                </ol>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">首页</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                      仪表盘 v3
+                    </li>
+                  </ol>
+                </nav>
               </div>
             </div>
             <!--end::Row-->
@@ -110,10 +112,10 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                   <div class="card-header border-0">
                     <h3 class="card-title">产品</h3>
                     <div class="card-tools">
-                      <a href="#" class="btn btn-tool btn-sm">
+                      <a href="#" class="btn btn-tool btn-sm" aria-label="下载">
                         <i class="bi bi-download"></i>
                       </a>
-                      <a href="#" class="btn btn-tool btn-sm">
+                      <a href="#" class="btn btn-tool btn-sm" aria-label="More options">
                         <i class="bi bi-list"></i>
                       </a>
                     </div>
@@ -273,10 +275,10 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                   <div class="card-header border-0">
                     <h3 class="card-title">商城概览</h3>
                     <div class="card-tools">
-                      <a href="#" class="btn btn-sm btn-tool">
+                      <a href="#" class="btn btn-sm btn-tool" aria-label="下载">
                         <i class="bi bi-download"></i>
                       </a>
-                      <a href="#" class="btn btn-sm btn-tool">
+                      <a href="#" class="btn btn-sm btn-tool" aria-label="More options">
                         <i class="bi bi-list"></i>
                       </a>
                     </div>

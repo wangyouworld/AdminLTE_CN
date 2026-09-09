@@ -4,6 +4,32 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>AdminLTE 4 | 邮箱</title>
 
+    <!--begin::Theme Init (prevents flash of incorrect theme on load, #6043)-->
+    <script>
+      (() => {
+        'use strict';
+        const STORAGE_KEY = 'lte-theme';
+        let stored = null;
+        try {
+          stored = localStorage.getItem(STORAGE_KEY);
+        } catch {
+          // localStorage may be unavailable (private mode, sandboxed iframe).
+        }
+        const prefersDark = globalThis.matchMedia('(prefers-color-scheme: dark)').matches;
+        // Mirror the resolution in _scripts.astro: explicit "dark"/"light" win,
+        // otherwise ("auto" or unset) fall back to the OS preference.
+        let resolved = 'light';
+        if (stored === 'dark' || stored === 'light') {
+          resolved = stored;
+        } else if (prefersDark) {
+          resolved = 'dark';
+        }
+        document.documentElement.setAttribute('data-bs-theme', resolved);
+        document.documentElement.style.colorScheme = resolved;
+      })();
+    </script>
+    <!--end::Theme Init-->
+
     <!--begin::Accessibility Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
     <meta name="color-scheme" content="light dark" />
@@ -16,11 +42,11 @@
     <meta name="author" content="ColorlibHQ" />
     <meta
       name="description"
-      content="AdminLTE 是一款免费的 Bootstrap 5 管理员仪表盘，包含 30 个使用 Vanilla JS 构建的示例页面。完全符合 WCAG 2.1 AA 访问标准。"
+      content="AdminLTE is a free Bootstrap 5 admin dashboard template with almost 50 example pages, built with vanilla JS and designed with accessibility in mind."
     />
     <meta
       name="keywords"
-      content="Bootstrap 5, Bootstrap 5 管理仪表盘,Bootstrap 5 仪表盘,Bootstrap 5 图表,Bootstrap 5 日历,Bootstrap 5 日期选择器,Bootstrap 5 表格,Bootstrap 5 数据表,vanilla js 数据表,colorlibhq, colorlibhq 仪表盘,colorlibhq 管理仪表盘, accessible admin panel, WCAG compliant"
+      content="Bootstrap 5, Bootstrap 5 管理仪表盘,Bootstrap 5 仪表盘,Bootstrap 5 图表,Bootstrap 5 日历,Bootstrap 5 日期选择器,Bootstrap 5 表格,Bootstrap 5 数据表,vanilla js 数据表,colorlibhq, colorlibhq 仪表盘,colorlibhq 管理仪表盘, accessible admin panel"
     />
     <!--end::Primary Meta Tags-->
 
@@ -70,7 +96,13 @@
           <!--begin::Start Navbar Links-->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
+              <a
+                class="nav-link"
+                data-lte-toggle="sidebar"
+                href="#"
+                role="button"
+                aria-label="Toggle sidebar"
+              >
                 <i class="bi bi-list"></i>
               </a>
             </li>
@@ -92,17 +124,14 @@
 
           <!--begin::End Navbar Links-->
           <ul class="navbar-nav ms-auto">
-            <!--begin::Navbar Search-->
-            <li class="nav-item">
-              <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                <i class="bi bi-search"></i>
-              </a>
-            </li>
-            <!--end::Navbar Search-->
-
             <!--begin::Messages Dropdown Menu-->
             <li class="nav-item dropdown">
-              <a class="nav-link" data-bs-toggle="dropdown" href="#">
+              <a
+                class="nav-link"
+                data-bs-toggle="dropdown"
+                href="#"
+                aria-label="Messages: 3 unread"
+              >
                 <i class="bi bi-chat-text"></i>
                 <span class="navbar-badge badge text-bg-danger">3</span>
               </a>
@@ -113,17 +142,17 @@
                     <div class="flex-shrink-0">
                       <img
                         src="../assets/img/user1-128x128.jpg"
-                        alt="用户头像"
+                        alt=""
                         class="img-size-50 rounded-circle me-3"
                       />
                     </div>
                     <div class="flex-grow-1">
-                      <h3 class="dropdown-item-title">
+                      <p class="dropdown-item-title">
                         Brad Diesel
                         <span class="float-end fs-7 text-danger"
                           ><i class="bi bi-star-fill"></i
                         ></span>
-                      </h3>
+                      </p>
                       <p class="fs-7">有时间打电话给我……</p>
                       <p class="fs-7 text-secondary">
                         <i class="bi bi-clock-fill me-1"></i> 4 小时前
@@ -139,17 +168,17 @@
                     <div class="flex-shrink-0">
                       <img
                         src="../assets/img/user8-128x128.jpg"
-                        alt="用户头像"
+                        alt=""
                         class="img-size-50 rounded-circle me-3"
                       />
                     </div>
                     <div class="flex-grow-1">
-                      <h3 class="dropdown-item-title">
+                      <p class="dropdown-item-title">
                         John Pierce
                         <span class="float-end fs-7 text-secondary">
                           <i class="bi bi-star-fill"></i>
                         </span>
-                      </h3>
+                      </p>
                       <p class="fs-7">我收到你的消息了，兄弟</p>
                       <p class="fs-7 text-secondary">
                         <i class="bi bi-clock-fill me-1"></i> 4 小时前
@@ -165,17 +194,17 @@
                     <div class="flex-shrink-0">
                       <img
                         src="../assets/img/user3-128x128.jpg"
-                        alt="用户头像"
+                        alt=""
                         class="img-size-50 rounded-circle me-3"
                       />
                     </div>
                     <div class="flex-grow-1">
-                      <h3 class="dropdown-item-title">
+                      <p class="dropdown-item-title">
                         Nora Silvester
                         <span class="float-end fs-7 text-warning">
                           <i class="bi bi-star-fill"></i>
                         </span>
-                      </h3>
+                      </p>
                       <p class="fs-7">主题在这里</p>
                       <p class="fs-7 text-secondary">
                         <i class="bi bi-clock-fill me-1"></i> 4 小时前
@@ -192,7 +221,12 @@
 
             <!--begin::Notifications Dropdown Menu-->
             <li class="nav-item dropdown">
-              <a class="nav-link" data-bs-toggle="dropdown" href="#">
+              <a
+                class="nav-link"
+                data-bs-toggle="dropdown"
+                href="#"
+                aria-label="Notifications: 15 unread"
+              >
                 <i class="bi bi-bell-fill"></i>
                 <span class="navbar-badge badge text-bg-warning">15</span>
               </a>
@@ -221,7 +255,12 @@
 
             <!--begin::Fullscreen Toggle-->
             <li class="nav-item">
-              <a class="nav-link" href="#" data-lte-toggle="fullscreen">
+              <a
+                class="nav-link"
+                href="#"
+                data-lte-toggle="fullscreen"
+                aria-label="Toggle fullscreen"
+              >
                 <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
                 <i data-lte-icon="minimize" class="bi bi-fullscreen-exit d-none"></i>
               </a>
@@ -293,7 +332,7 @@
                 <img
                   src="../assets/img/user2-160x160.jpg"
                   class="user-image rounded-circle shadow"
-                  alt="用户头像"
+                  alt="Alexander Pierce"
                 />
                 <span class="d-none d-md-inline">Alexander Pierce</span>
               </a>
@@ -303,7 +342,7 @@
                   <img
                     src="../assets/img/user2-160x160.jpg"
                     class="rounded-circle shadow"
-                    alt="用户头像"
+                    alt="Alexander Pierce"
                   />
                   <p>
                     Alexander Pierce - 网页开发工程师
@@ -365,24 +404,11 @@
         <!--end::Sidebar Brand-->
         <!--begin::Sidebar Wrapper-->
         <div class="sidebar-wrapper">
-          <nav class="mt-2">
-            <!-- Docs CTA -->
-            <div class="px-3 pb-2">
-              <a
-                href="../docs/introduction.html"
-                class="btn btn-sm btn-outline-light w-100 d-flex align-items-center justify-content-center gap-2"
-              >
-                <i class="bi bi-book" aria-hidden="true"></i>
-                查看文档
-              </a>
-            </div>
-
+          <nav class="mt-2" aria-label="Main navigation">
             <!--begin::Sidebar Menu-->
             <ul
               class="nav sidebar-menu flex-column"
               data-lte-toggle="treeview"
-              role="navigation"
-              aria-label="Main navigation"
               data-accordion="false"
               id="navigation"
             >
@@ -779,6 +805,12 @@
                           <p>注册</p>
                         </a>
                       </li>
+                      <li class="nav-item">
+                        <a href="../examples/forgot-password.html" class="nav-link">
+                          <i class="nav-icon bi bi-circle"></i>
+                          <p>忘记密码</p>
+                        </a>
+                      </li>
                     </ul>
                   </li>
                   <li class="nav-item">
@@ -900,6 +932,17 @@
               </li>
             </ul>
             <!--end::Sidebar Menu-->
+
+            <!-- Docs CTA (bottom of sidebar) -->
+            <div class="p-3 mt-3 border-top border-secondary border-opacity-25">
+              <a
+                href="../docs/introduction.html"
+                class="btn btn-sm btn-outline-light w-100 d-flex align-items-center justify-content-center gap-2"
+              >
+                <i class="bi bi-book" aria-hidden="true"></i>
+                查看文档
+              </a>
+            </div>
           </nav>
         </div>
         <!--end::Sidebar Wrapper-->
@@ -910,13 +953,15 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">邮箱</h3>
+                <h1 class="mb-0 fs-3">邮箱</h1>
               </div>
               <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">首页</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">收件箱</li>
-                </ol>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">首页</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">收件箱</li>
+                  </ol>
+                </nav>
               </div>
             </div>
           </div>
@@ -1037,7 +1082,7 @@
                         <input
                           type="search"
                           class="form-control"
-                          placeholder="搜索邮件…"
+                          placeholder="搜索邮件&hellip;"
                           aria-label="搜索邮件"
                         />
                       </div>
@@ -1092,11 +1137,12 @@
                         <a
                           href="../mailbox/read.html"
                           class="flex-grow-1 d-flex flex-column flex-md-row gap-md-3 text-decoration-none text-body"
+                          style="min-width: 0"
                         >
                           <span class="text-truncate" style="min-width: 9rem">
                             奥利维亚·贝内特
                           </span>
-                          <span class="flex-grow-1 text-truncate">
+                          <span class="flex-grow-1 text-truncate" style="min-width: 0">
                             <span class="badge text-bg-primary me-2"> &middot; </span>
                             回复：设计系统 v2.4 签收
                             <span class="fw-normal text-secondary">
@@ -1128,9 +1174,10 @@
                         <a
                           href="../mailbox/read.html"
                           class="flex-grow-1 d-flex flex-column flex-md-row gap-md-3 text-decoration-none text-body"
+                          style="min-width: 0"
                         >
                           <span class="text-truncate" style="min-width: 9rem"> GitHub </span>
-                          <span class="flex-grow-1 text-truncate">
+                          <span class="flex-grow-1 text-truncate" style="min-width: 0">
                             <span class="badge text-bg-secondary me-2"> &middot; </span>
                             [fullcalendar/fullcalendar] PR #6912 已合并
                             <span class="fw-normal text-secondary">
@@ -1162,9 +1209,10 @@
                         <a
                           href="../mailbox/read.html"
                           class="flex-grow-1 d-flex flex-column flex-md-row gap-md-3 text-decoration-none text-body"
+                          style="min-width: 0"
                         >
                           <span class="text-truncate" style="min-width: 9rem"> Stripe </span>
-                          <span class="flex-grow-1 text-truncate">
+                          <span class="flex-grow-1 text-truncate" style="min-width: 0">
                             <span class="badge text-bg-success me-2"> &middot; </span>
                             您的五月发票已就绪
                             <span class="fw-normal text-secondary">
@@ -1194,9 +1242,10 @@
                         <a
                           href="../mailbox/read.html"
                           class="flex-grow-1 d-flex flex-column flex-md-row gap-md-3 text-decoration-none text-body"
+                          style="min-width: 0"
                         >
                           <span class="text-truncate" style="min-width: 9rem"> Marcus Reyes </span>
-                          <span class="flex-grow-1 text-truncate">
+                          <span class="flex-grow-1 text-truncate" style="min-width: 0">
                             <span class="badge text-bg-info me-2"> &middot; </span>
                             周四一起吃午饭？
                             <span class="fw-normal text-secondary">
@@ -1226,9 +1275,10 @@
                         <a
                           href="../mailbox/read.html"
                           class="flex-grow-1 d-flex flex-column flex-md-row gap-md-3 text-decoration-none text-body"
+                          style="min-width: 0"
                         >
                           <span class="text-truncate" style="min-width: 9rem"> Linear </span>
-                          <span class="flex-grow-1 text-truncate">
+                          <span class="flex-grow-1 text-truncate" style="min-width: 0">
                             <span class="badge text-bg-warning me-2"> &middot; </span>
                             [ADM-441] 日历拖拽功能在 Safari iOS 上无法使用
                             <span class="fw-normal text-secondary">
@@ -1258,9 +1308,10 @@
                         <a
                           href="../mailbox/read.html"
                           class="flex-grow-1 d-flex flex-column flex-md-row gap-md-3 text-decoration-none text-body"
+                          style="min-width: 0"
                         >
                           <span class="text-truncate" style="min-width: 9rem"> Vercel </span>
-                          <span class="flex-grow-1 text-truncate">
+                          <span class="flex-grow-1 text-truncate" style="min-width: 0">
                             <span class="badge text-bg-success me-2"> &middot; </span>
                             部署成功——生产环境
                             <span class="fw-normal text-secondary">
@@ -1290,9 +1341,10 @@
                         <a
                           href="../mailbox/read.html"
                           class="flex-grow-1 d-flex flex-column flex-md-row gap-md-3 text-decoration-none text-body"
+                          style="min-width: 0"
                         >
                           <span class="text-truncate" style="min-width: 9rem"> Sara Khan </span>
-                          <span class="flex-grow-1 text-truncate">
+                          <span class="flex-grow-1 text-truncate" style="min-width: 0">
                             <span class="badge text-bg-primary me-2"> &middot; </span>
                             客户访谈记录——Acme 公司
                             <span class="fw-normal text-secondary">
@@ -1322,9 +1374,10 @@
                         <a
                           href="../mailbox/read.html"
                           class="flex-grow-1 d-flex flex-column flex-md-row gap-md-3 text-decoration-none text-body"
+                          style="min-width: 0"
                         >
                           <span class="text-truncate" style="min-width: 9rem"> AWS </span>
-                          <span class="flex-grow-1 text-truncate">
+                          <span class="flex-grow-1 text-truncate" style="min-width: 0">
                             <span class="badge text-bg-danger me-2"> &middot; </span>
                             您的月度账单摘要
                             <span class="fw-normal text-secondary">
@@ -1367,10 +1420,14 @@
     <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
     <script src="../assets/popperjs/popper.min.js" crossorigin="anonymous"></script>
     <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
-    <script src="../assets/bootstrap/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+      crossorigin="anonymous"
+    ></script>
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
     <script src="../js/adminlte.js"></script>
-    <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+    <!--end::Required Plugin(AdminLTE)-->
+    <!--begin::OverlayScrollbars Configure-->
     <script>
       const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
       const Default = {
@@ -1399,7 +1456,9 @@
         }
       });
     </script>
-    <!--end::OverlayScrollbars Configure--><!--begin::明暗模式切换 (#6010)-->
+    <!--end::OverlayScrollbars Configure-->
+
+    <!--begin::明暗模式切换 (#6010)-->
     <script>
       (() => {
         'use strict';

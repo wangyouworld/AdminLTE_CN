@@ -1,17 +1,120 @@
-# [AdminLTE - Bootstrap 5 管理后台](https://adminlte.io)
+# [AdminLTE — Bootstrap 5 Admin Dashboard](https://adminlte.io)
 
 [![npm version](https://img.shields.io/npm/v/admin-lte/latest.svg)](https://www.npmjs.com/package/admin-lte)
 [![Packagist](https://img.shields.io/packagist/v/almasaeed2010/adminlte.svg)](https://packagist.org/packages/almasaeed2010/adminlte)
 [![cdn version](https://data.jsdelivr.com/v1/package/npm/admin-lte/badge)](https://www.jsdelivr.com/package/npm/admin-lte)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Discord Invite](https://img.shields.io/badge/discord-join%20now-green)](https://discord.gg/jfdvjwFqfz)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1277b36b-08f3-43fa-826a-4b4d24614b3c/deploy-status)](https://app.netlify.com/sites/adminlte-v4/deploys)
 
-**AdminLTE** 是一个自响应式管理框架。基于 **[Bootstrap 5](https://getbootstrap.com/)** 框架和 JavaScript 插件。
-高度可定制且易于使用。适用于多种屏幕，小到移动设备大到台式机。
+**AdminLTE** is the most popular open-source admin dashboard template — fully responsive,
+built on **[Bootstrap 5.3](https://getbootstrap.com/)** with vanilla JavaScript (no jQuery),
+highly customizable, and easy to use. It fits every screen from small mobile devices to
+large desktops, and it's MIT-licensed.
 
-## v4.0.0 新增内容
+**[Live Demo](https://adminlte.io/themes/v4/)** ·
+**[Documentation](https://adminlte.io/themes/v4/docs/introduction.html)** ·
+**[Framework Editions](#framework-editions)** ·
+**[Premium Templates](#premium-templates)**
 
-v4 系列的第一个稳定版本——基于 Bootstrap 5.3 完全重写，不再依赖 jQuery。主要亮点：
+<p align="center">
+  <a href="https://adminlte.io/themes/v4/">
+    <img alt="AdminLTE 4 dashboard — light mode" src=".github/assets/dashboard-light.png" width="49%">
+  </a>
+  <a href="https://adminlte.io/themes/v4/">
+    <img alt="AdminLTE 4 dashboard — dark mode" src=".github/assets/dashboard-dark.png" width="49%">
+  </a>
+</p>
+
+## Framework editions
+
+The same AdminLTE 4 dashboard, officially integrated for the framework you know best —
+you're looking at the **HTML / Bootstrap** core:
+
+<!-- ADMINLTE-ECOSYSTEM:START -->
+<div align="center">
+  <a href="https://github.com/ColorlibHQ/AdminLTE"><img height="36" alt="HTML" src="https://img.shields.io/badge/HTML-0D6EFD?style=for-the-badge&logo=html5&logoColor=white"></a>
+  <a href="https://github.com/ColorlibHQ/adminlte-react"><img height="36" alt="React" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"></a>
+  <a href="https://github.com/ColorlibHQ/adminlte-react"><img height="36" alt="Next.js" src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white"></a>
+  <a href="https://github.com/ColorlibHQ/adminlte-vue"><img height="36" alt="Vue" src="https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D"></a>
+  <a href="https://github.com/ColorlibHQ/adminlte-vue"><img height="36" alt="Nuxt" src="https://img.shields.io/badge/Nuxt-00DC82?style=for-the-badge&logo=nuxt&logoColor=white"></a>
+  <a href="https://github.com/ColorlibHQ/adminlte-angular"><img height="36" alt="Angular" src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white"></a>
+  <a href="https://github.com/ColorlibHQ/adminlte-laravel"><img height="36" alt="Laravel" src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white"></a>
+  <a href="https://github.com/ColorlibHQ/adminlte-symfony"><img height="36" alt="Symfony" src="https://img.shields.io/badge/Symfony-000000?style=for-the-badge&logo=symfony&logoColor=white"></a>
+  <a href="https://github.com/ColorlibHQ/adminlte-django"><img height="36" alt="Django" src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white"></a>
+  <a href="https://github.com/ColorlibHQ/adminlte-aspnet"><img height="36" alt="ASP.NET" src="https://img.shields.io/badge/ASP.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white"></a>
+  <a href="https://github.com/ColorlibHQ/adminlte-drupal"><img height="36" alt="Drupal" src="https://img.shields.io/badge/Drupal-0678BE?style=for-the-badge&logo=drupal&logoColor=white"></a>
+  <a href="https://docs.adminlte.io"><img height="36" alt="Docs" src="https://img.shields.io/badge/Docs-adminlte.io-0EA5E9?style=for-the-badge&logo=readthedocs&logoColor=white"></a>
+</div>
+<!-- ADMINLTE-ECOSYSTEM:END -->
+
+| Edition | Repository | Live demo | Install |
+|---|---|---|---|
+| **HTML / Bootstrap** (this repo) | [AdminLTE](https://github.com/ColorlibHQ/AdminLTE) | [themes/v4](https://adminlte.io/themes/v4/) | `npm install admin-lte` |
+| **React & Next.js** — 30+ typed components, RSC-ready, ⌘K palette | [adminlte-react](https://github.com/ColorlibHQ/adminlte-react) | [themes/next-react](https://adminlte.io/themes/next-react/) | see repo |
+| **Vue 3 & Nuxt** — 45+ typed components, composables, SSR-safe theming | [adminlte-vue](https://github.com/ColorlibHQ/adminlte-vue) | [themes/vue-nuxt](https://adminlte.io/themes/vue-nuxt/) | see repo |
+| **Laravel** — Blade components, config-driven menu, auth scaffolding | [adminlte-laravel](https://github.com/ColorlibHQ/adminlte-laravel) | [laravel.adminlte.io](https://laravel.adminlte.io/) | `composer require colorlibhq/adminlte-laravel` |
+| **Django** — reusable app, menu filter pipeline, themed admin | [adminlte-django](https://github.com/ColorlibHQ/adminlte-django) | [django.adminlte.io](https://django.adminlte.io/) | `pip install django-adminlte4` |
+| **Symfony** — Twig Components, AssetMapper, config-driven menu, EasyAdmin theme | [adminlte-symfony](https://github.com/ColorlibHQ/adminlte-symfony) | see repo | `composer require colorlibhq/adminlte-symfony` |
+| **Angular 22** — 44 standalone signal components, dark mode, ⌘K palette | [adminlte-angular](https://github.com/ColorlibHQ/adminlte-angular) | see repo | `npm i @adminlte/angular` |
+| **ASP.NET Core (.NET 10)** — Blazor components + MVC/Razor Pages Tag Helpers | [adminlte-aspnet](https://github.com/ColorlibHQ/adminlte-aspnet) | see repo | `dotnet add package ColorlibHQ.AdminLTE.AspNetCore` |
+| **Drupal** — admin theme for Drupal 10.3+/11, themed admin UI | [adminlte-drupal](https://github.com/ColorlibHQ/adminlte-drupal) | see repo | see repo |
+| **Docs** — guides, components, and API reference for every edition | [docs.adminlte.io](https://docs.adminlte.io) | [docs.adminlte.io](https://docs.adminlte.io) | — |
+
+Every edition ships the full AdminLTE 4 design — Bootstrap 5.3, dark mode, RTL — with
+idiomatic integrations for its stack (components, routing, auth, theming).
+
+## 快速开始
+
+**CDN** — no build step:
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@4/dist/css/adminlte.min.css">
+<script src="https://cdn.jsdelivr.net/npm/admin-lte@4/dist/js/adminlte.min.js"></script>
+```
+
+**npm:**
+
+```bash
+npm install admin-lte@4
+```
+
+**Composer:**
+
+```bash
+composer require almasaeed2010/adminlte
+```
+
+Then start from the [Getting Started guide](https://adminlte.io/themes/v4/docs/introduction.html)
+or copy one of the demo pages.
+
+### Developing AdminLTE itself
+
+1. **安装依赖：** `npm install`
+2. **Start the dev server:** `npm start` *(opens http://localhost:3000 with live reload)*
+3. **Build:** `npm run build` — or `npm run production` for the full lint + optimize + bundlewatch pipeline
+
+<details>
+<summary>All npm scripts</summary>
+
+- `npm start` — development server with file watching
+- `npm run build` — build all assets for development
+- `npm run production` — full production build with linting and bundlewatch
+- `npm run lint` — run all linters (JS, CSS, docs, lockfile)
+- `npm run css` — build CSS only
+- `npm run js` — build JavaScript only
+
+</details>
+
+## What's new in v4
+
+The v4 line is a ground-up rewrite on Bootstrap 5.3 with **no jQuery**: 18 new demo pages
+(Calendar, Kanban, Chat, File Manager, Mailbox, Wizard, Tabulator data tables, and more),
+a documentation overhaul, and major dependency upgrades. See the
+[CHANGELOG](CHANGELOG.md) for full details.
+
+<details>
+<summary>Highlights</summary>
 
 **18 个新的演示页面**
 
@@ -25,119 +128,108 @@ v4 系列的第一个稳定版本——基于 Bootstrap 5.3 完全重写，不�
 
 - 新增页面：快速开始、自定义与主题、RTL 支持、从 v3 迁移、布局结构、实用方案、部署与性能、推荐集成、JavaScript 插件概览
 - 重写了介绍页面，包含四种标注清晰的安装方式（CDN / npm / 源码 / Composer）
-- 常见问题页面重构为自定义页面，包含大标题、实时搜索、分类标签和涵盖六大主题共 19 个问题的折叠面板
-- 拆分侧边栏导航：仪表盘演示和文档各自拥有独立的导航，文档条目不再混杂在实时预览中
-- 所有文档页面采用适合阅读的排版，包括受限行宽、优化标题节奏、样式化的参考表格、信息提示框和胶囊内联代码
-
-**六个问题修复**
-
-- 自动颜色模式图标改用 `bi-circle-half`（#6028）
-- `table-head-fixed` 支持深色模式（#6026）
-- 全屏图标切换改为使用 `.d-none`，而非内联 `display`，使其适用于任何图标库（#6021）
-- 使用 `fixed-header` 时侧边栏（包括品牌区）保持固定不动（#6020）
-- `index2.html` 上的饼图在浏览器缩放时不再闪烁（#6019）
-- 颜色模式切换开关现在默认显示在顶栏中，并支持 localStorage 持久化存储（#6010）
+- FAQ rebuilt with hero, live search, section chips, and an accordion of 19 questions
+- Split sidebar navigation: dashboard demo and docs each have their own nav
 
 **主要依赖升级**
 
-- ESLint 9 → 10, TypeScript 5.9 → 6, Stylelint 16 → 17
-- Astro 6.0 → 6.3，autoprefixer / postcss / rollup / sass / terser 更新
-- Bootstrap 5.3.8，CI 中使用 Node 22 LTS
-- 移除了废弃的 `eslint-plugin-import`、`eslint-config-xo*` 以及旧版 `.eslintrc.json`
-- 通过 npm `overrides` 配置了 `yaml` 和 `stylelint-config-twbs-bootstrap`，使 `npm install` 无需 `--legacy-peer-deps` 即可运行，且报告 **0 个漏洞**
+- ESLint 10, TypeScript 6, Stylelint 17, Astro 6.3, Bootstrap 5.3.8, Node 22 LTS in CI
+- `npm install` runs clean with **0 vulnerabilities**
 
-**自 v3 以来的破坏性变更**
+</details>
+
+<details>
+<summary>Breaking changes from v3</summary>
 
 - 类名重命名：`.wrapper` → `.app-wrapper`、`.main-header` → `.app-header`、`.main-sidebar` → `.app-sidebar`、`.content-wrapper` → `.app-main`
 - 数据属性：`data-toggle` → `data-bs-toggle`、`data-widget="pushmenu"` → `data-lte-toggle="sidebar"`、`data-widget="treeview"` → `data-lte-toggle="treeview"`
 - 深色模式：body 类 `.dark-mode` → `data-bs-theme="dark"` 属性（Bootstrap 5.3 原生支持）
 - 不再需要 jQuery；插件使用原生 TypeScript
 
-请参阅专门的[从 v3 迁移](https://adminlte.io/themes/v4/docs/migration.html)指南和 [CHANGELOG.md](CHANGELOG.md) 以获取完整列表。
+See the dedicated [Migration from v3](https://adminlte.io/themes/v4/docs/migration.html) guide.
 
-**安装：**
-```bash
-npm install admin-lte@4.0.0
-```
+</details>
 
-## 寻找高级模板？
+## Premium templates
 
-AdminLTE.io 刚刚开通了一个高级模板网站，精选以确保最佳质量和最实惠的价格。
-访问 <https://adminlte.io/premium> 了解更多信息。
+AdminLTE will always be free and open source. When a project needs more —
+app-ready pages, framework-native codebases, dedicated support — our team
+hand-picks premium dashboards at **[adminlte.io/premium](https://adminlte.io/premium)**,
+including editions built for the same stacks AdminLTE integrates with:
 
-!["AdminLTE 展示"](https://adminlte.io/AdminLTE3.png "AdminLTE 展示")
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <a href="https://dashboardpack.com/theme-details/admindek-html/?utm_source=github&utm_medium=readme&utm_campaign=adminlte">
+        <img src=".github/assets/premium/admindek.png" alt="Admindek — feature-rich Bootstrap 5 dashboard with dark mode" width="100%">
+      </a>
+      <br>
+      <a href="https://dashboardpack.com/theme-details/admindek-html/?utm_source=github&utm_medium=readme&utm_campaign=adminlte"><strong>Admindek</strong></a>
+      <br>
+      <sub>The natural next step from AdminLTE: Bootstrap 5 + vanilla JS, 100+ components, dark/light modes, RTL, 10 color presets.<br>
+      Also for <a href="https://dashboardpack.com/theme-details/admindek-dashboard-laravel/?utm_source=github&utm_medium=readme&utm_campaign=adminlte">Laravel</a> ·
+      <a href="https://dashboardpack.com/theme-details/admindek-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=adminlte">Next.js</a> ·
+      <a href="https://dashboardpack.com/theme-details/admindek-dashboard-angular/?utm_source=github&utm_medium=readme&utm_campaign=adminlte">Angular</a></sub>
+    </td>
+    <td align="center" width="50%">
+      <a href="https://dashboardpack.com/theme-details/apex-dashboard-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=adminlte">
+        <img src=".github/assets/premium/apex.png" alt="Apex Dashboard — admin template available for Next.js, Laravel, Django and Angular" width="100%">
+      </a>
+      <br>
+      <a href="https://dashboardpack.com/theme-details/apex-dashboard-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=adminlte"><strong>Apex Dashboard</strong></a>
+      <br>
+      <sub>5 dashboard variants, 20+ app pages, 125+ routes, full CRUD — in your backend's native stack.<br>
+      For <a href="https://dashboardpack.com/theme-details/apex-dashboard-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=adminlte">Next.js</a> ·
+      <a href="https://dashboardpack.com/theme-details/apex-dashboard-laravel/?utm_source=github&utm_medium=readme&utm_campaign=adminlte">Laravel</a> ·
+      <a href="https://dashboardpack.com/theme-details/apex-dashboard-django/?utm_source=github&utm_medium=readme&utm_campaign=adminlte">Django</a> ·
+      <a href="https://dashboardpack.com/theme-details/apex-dashboard-angular/?utm_source=github&utm_medium=readme&utm_campaign=adminlte">Angular</a></sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="50%">
+      <a href="https://dashboardpack.com/theme-details/zenith-dashboard-django/?utm_source=github&utm_medium=readme&utm_campaign=adminlte">
+        <img src=".github/assets/premium/zenith.png" alt="Zenith — ultra-minimal admin dashboard, Django edition" width="100%">
+      </a>
+      <br>
+      <a href="https://dashboardpack.com/theme-details/zenith-dashboard-django/?utm_source=github&utm_medium=readme&utm_campaign=adminlte"><strong>Zenith Dashboard — Django</strong></a>
+      <br>
+      <sub>Achromatic, ultra-minimal design as a ready-to-run Django project: 50+ pages, 6 dashboards, live theme customizer.</sub>
+    </td>
+    <td align="center" width="50%">
+      <a href="https://dashboardpack.com/theme-details/haze-dashboard-nuxt/?utm_source=github&utm_medium=readme&utm_campaign=adminlte">
+        <img src=".github/assets/premium/haze.png" alt="Haze — Nuxt 4 admin dashboard with 92+ pages and 5 dashboards" width="100%">
+      </a>
+      <br>
+      <a href="https://dashboardpack.com/theme-details/haze-dashboard-nuxt/?utm_source=github&utm_medium=readme&utm_campaign=adminlte"><strong>Haze — Nuxt</strong></a>
+      <br>
+      <sub>Nuxt 4 + Nuxt UI v4 + Tailwind CSS v4. 92+ pages, 7 layouts, 5 dashboards, RTL, i18n, mock API layer.</sub>
+    </td>
+  </tr>
+</table>
 
-**AdminLTE** 所有的 JS、SCSS 和 HTML 文件均经过精心编码，并带有清晰的注释。
-SCSS 已用于提高代码的可定制性。
+<p align="center">
+  <a href="https://adminlte.io/premium"><strong>View all premium templates →</strong></a>
+</p>
 
-## 快速开始
+## Browser & platform support
 
-### 开发指南
+AdminLTE supports the latest versions of all modern browsers (Chrome, Firefox, Safari,
+Edge) via Bootstrap 5.3.8. The build scripts run cross-platform — Windows (CMD,
+PowerShell, Git Bash), macOS and Linux — using cross-platform npm utilities throughout.
 
-开始使用 AdminLTE 进行开发的步骤：
+## Security & production deployment
 
-1. **安装依赖项**：执行 `npm install`
-2. **启动开发服务器**：运行 `npm start` *(自动在浏览器打开 http://localhost:3000)*
-3. **开始编码！** 文件修改后将自动编译并刷新页面
+AdminLTE is a **UI template**. Deploy only the compiled production assets
+(`dist/js/adminlte.min.js`, `dist/css/adminlte.min.css`) and your own application files —
+never `node_modules/`, the demo HTML pages, or the `src/` directory.
 
-### 生产环境构建
+> **About CVE-2021-36471:** this CVE is **disputed** and does not represent a
+> vulnerability in AdminLTE — it refers to demo pages being accessible when example
+> files are incorrectly deployed to production. AdminLTE v4 cleanly separates
+> development demos from production assets.
 
-构建生产版本的流程：
-
-1. **完整生产构建**：执行 `npm run production` *(包含代码校验与优化)*
-2. **快速构建**：运行 `npm run build` *(适用于开发/测试的快速构建)*
-
-### 可用脚本命令
-
-- `npm start` - 启动带文件监听的开发服务器
-- `npm run build` - 构建开发环境所需资源
-- `npm run production` - 执行完整生产构建（含代码校验与 bundlewatch 检查）
-- `npm run lint` - 运行所有校验器（JS/CSS/文档/lockfile）
-- `npm run css` - 仅构建 CSS 文件
-- `npm run js` - 仅构建 JavaScript 文件
-
-## 浏览器兼容性
-
-AdminLTE 支持所有现代浏览器，基于最新的 Bootstrap 5.3.8：
-- Chrome（最新版）
-- Firefox（最新版）
-- Safari（最新版）
-- Edge（最新版）
-
-## 平台兼容性
-
-AdminLTE v4 构建脚本支持跨平台运行：
-- **Windows** - 命令 提示符/PowerShell/Git Bash
-- **macOS** - 终端/iTerm2
-- **Linux** - Bash/Zsh 及其他 Unix shell 环境
-
-所有 npm 脚本均使用跨平台工具，确保在不同操作系统上表现一致。
-
-## 安全与生产部署
-
-### 重要安全提示
-
-AdminLTE 是一款**用户界面模板**——在进行生产部署时，请遵循以下关键准则：
-
-**部署内容：**
-- 仅包含编译后的生产资源：`dist/js/adminlte.min.js` 和 `dist/css/adminlte.min.css`
-- 应用中特定文件
-
-**不应部署的内容：**
-- `node_modules/` 目录
-- 演示/示例 HTML 文件（index.html、index2.html、index3.html 等）
-- 源文件（`src/` 目录）
-- 开发配置文件
-
-**CVE-2021-36471 警告：**
-此 CVE 信息存在争议，并不代表 AdminLTE 存在漏洞。它指的是在开发人员错误地将示例文件部署到生产环境时，演示页面能够被访问到。AdminLTE 4 版本明确区分了开发演示内容和生产资源。有关详细信息，请参阅 [SECURITY.md](SECURITY.md) 文件。
-
-**生产版本：**
-```bash
-npm run production  # 在 dist/ 目录中构建优化后的资产文件
-```
-
-有关详细的安全指南、认证要求以及最佳实践，请参阅 [SECURITY.md](SECURITY.md)。
+For detailed guidelines, authentication requirements, and best practices, see
+[SECURITY.md](SECURITY.md).
 
 ## 赞助
 
@@ -153,7 +245,7 @@ npm run production  # 在 dist/ 目录中构建优化后的资产文件
   </a>
 </p>
 
-## 我们的赞助者
+### Our sponsors
 
 <p align="center">
   <a href="https://github.com/spizzo14"><img src="https://unavatar.io/github/spizzo14?fallback=https%3A%2F%2Fraw.githubusercontent.com%2FJamesIves%2Fgithub-sponsors-readme-action%2Fdev%2F.github%2Fassets%2Fplaceholder.png" width="50" height="50" alt="User avatar: spizzo14" loading="lazy" /></a>&nbsp;&nbsp;
@@ -171,28 +263,23 @@ npm run production  # 在 dist/ 目录中构建优化后的资产文件
 
 ## 贡献
 
-- 非常欢迎。
-- 更多参考资料请查看 [AdminLTE v4 贡献指南](https://github.com/ColorlibHQ/AdminLTE#contributing)
-- 首先，您需要具备一些 NodeJS 基础知识。
-- 了解 Github。
-- 安装 NodeJS LTS 版本。
-- 将此仓库克隆到本地并切换到 `master` 分支。
-- 进入克隆的文件夹。
-- 在 cli/bash 中运行 `npm install`，它将从 `package.json` 安装依赖。
-- 安装完成后，请运行 `npm start`
-- 太棒了，请将您的修改通过PR提交到`master`分支。
+Contributions are highly welcome:
 
+1. Install [Node.js](https://nodejs.org/) (LTS) and clone this repository (`master` branch).
+2. `npm install`, then `npm start` to run the dev server.
+3. Make your changes (run `npm run lint` before committing) and open a PR against `master`.
 
 ## 许可证
 
-AdminLTE 是一个开源项目，由 [AdminLTE.io](https://adminlte.io) 授权，许可协议使用 [MIT](https://opensource.org/licenses/MIT)。
-AdminLTE.io 保留在未来更改许可的权利。
+AdminLTE is an open source project by [AdminLTE.io](https://adminlte.io) licensed under
+[MIT](https://opensource.org/licenses/MIT). AdminLTE.io reserves the right to change
+the license of future releases.
 
-## 图片来源
+## Image credits
 
-- [Pixeden](http://www.pixeden.com/psd-web-elements/flat-responsive-showcase-psd)
-- [Graphicsfuel](https://www.graphicsfuel.com/2013/02/13-high-resolution-blur-backgrounds/)
-- [Pickaface](https://pickaface.net/)
-- [Unsplash](https://unsplash.com/)
-- [Uifaces](http://uifaces.com/)
-- [Unavatar](https://unavatar.io/)
+[Pixeden](http://www.pixeden.com/psd-web-elements/flat-responsive-showcase-psd),
+[Graphicsfuel](https://www.graphicsfuel.com/2013/02/13-high-resolution-blur-backgrounds/),
+[Pickaface](https://pickaface.net/),
+[Unsplash](https://unsplash.com/),
+[Uifaces](http://uifaces.com/),
+[Unavatar](https://unavatar.io/)

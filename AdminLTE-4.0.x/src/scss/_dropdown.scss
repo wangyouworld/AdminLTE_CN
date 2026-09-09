@@ -203,7 +203,9 @@
     > .user-footer {
       @include clearfix();
       padding: 10px;
-      background-color: var(--#{$prefix}light-bg);
+      // --bs-light-bg does not exist in Bootstrap 5.3; tertiary-bg is the
+      // color-mode-aware token for this kind of muted surface.
+      background-color: var(--#{$prefix}tertiary-bg);
     }
   }
 

@@ -43,6 +43,15 @@ type Config = {
 }
 
 /**
+ * Reflect a submenu's open state on its toggle link so screen readers can
+ * announce the treeview as expandable/expanded (WCAG 4.1.2).
+ */
+const setAriaExpanded = (navItem: Element, expanded: boolean): void => {
+  const link = navItem.querySelector(`:scope > ${SELECTOR_NAV_LINK}`)
+  link?.setAttribute('aria-expanded', String(expanded))
+}
+
+/**
  * Class Definition
  * ====================================================
  */
@@ -63,8 +72,13 @@ class Treeview {
       const openMenuList = this._element.parentElement?.querySelectorAll(`${SELECTOR_NAV_ITEM}.${CLASS_NAME_MENU_OPEN}`)
 
       openMenuList?.forEach(openMenu => {
-        if (openMenu !== this._element.parentElement) {
+        // Skip the item being opened and anything nested inside it. The old
+        // guard compared against the parent <ul> — which never matches a
+        // nav-item — so calling open() on an already-open item slid its own
+        // menu shut.
+        if (!this._element.contains(openMenu)) {
           openMenu.classList.remove(CLASS_NAME_MENU_OPEN)
+          setAriaExpanded(openMenu, false)
           const childElement = openMenu?.querySelector(SELECTOR_TREEVIEW_MENU) as HTMLElement | undefined
           if (childElement) {
             slideUp(childElement, this._config.animationSpeed)
@@ -74,6 +88,7 @@ class Treeview {
     }
 
     this._element.classList.add(CLASS_NAME_MENU_OPEN)
+    setAriaExpanded(this._element, true)
 
     const childElement = this._element?.querySelector(SELECTOR_TREEVIEW_MENU) as HTMLElement | undefined
     if (childElement) {
@@ -87,6 +102,7 @@ class Treeview {
     const event = new Event(EVENT_COLLAPSED)
 
     this._element.classList.remove(CLASS_NAME_MENU_OPEN)
+    setAriaExpanded(this._element, false)
 
     const childElement = this._element?.querySelector(SELECTOR_TREEVIEW_MENU) as HTMLElement | undefined
     if (childElement) {
@@ -122,6 +138,16 @@ onDOMContentLoaded(() => {
       const event = new Event(EVENT_LOAD_DATA_API)
       menuItem.dispatchEvent(event)
     }
+  })
+
+  // Stamp the initial ARIA state on every submenu toggle so assistive tech
+  // knows the items are expandable before any interaction.
+  document.querySelectorAll(SELECTOR_DATA_TOGGLE).forEach(root => {
+    root.querySelectorAll(SELECTOR_NAV_ITEM).forEach(item => {
+      if (item.querySelector(`:scope > ${SELECTOR_TREEVIEW_MENU}`)) {
+        setAriaExpanded(item, item.classList.contains(CLASS_NAME_MENU_OPEN))
+      }
+    })
   })
 
   const button = document.querySelectorAll(SELECTOR_DATA_TOGGLE)

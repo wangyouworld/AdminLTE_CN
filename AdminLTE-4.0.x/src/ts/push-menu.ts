@@ -7,6 +7,7 @@
  */
 
 import {
+  getLifecycleSignal,
   onDOMContentLoaded
 } from './util/index'
 
@@ -55,7 +56,9 @@ type Config = {
 }
 
 const Defaults: Config = {
-  sidebarBreakpoint: 992,
+  // Matches the CSS convention (breakpoint-max = breakpoint - .02) so that a
+  // window of exactly 992px is classified as desktop by both JS and CSS.
+  sidebarBreakpoint: 991.98,
   enablePersistence: false
 }
 
@@ -360,18 +363,31 @@ onDOMContentLoaded(() => {
   const pushMenu = new PushMenu(sidebar, config)
   pushMenu.init()
 
-  // Update the sidebar state on window resize events.
+  // Update the sidebar state only when the viewport crosses the sidebar
+  // breakpoint. matchMedia fires exactly on crossings, so height-only resizes
+  // (mobile URL bar / keyboard show-hide) and same-side width changes never
+  // disturb a sidebar state the user chose. init() has already read the
+  // effective breakpoint from the CSS, so the query uses the final value.
 
-  window.addEventListener('resize', () => {
-    pushMenu.setupSidebarBreakPoint()
+  const breakpointQuery = globalThis.matchMedia(`(max-width: ${pushMenu._config.sidebarBreakpoint}px)`)
+
+  breakpointQuery.addEventListener('change', () => {
     pushMenu.updateStateByResponsiveLogic()
-  })
+  }, { signal: getLifecycleSignal() })
 
   // Create the sidebar overlay element and append it to the app wrapper.
+  // Reuse an existing overlay if present: Turbo restores cached <body>
+  // snapshots that already contain the injected node (listeners are gone
+  // after the restore — the snapshot is a clone — so they are rebound below).
 
-  const sidebarOverlay = document.createElement('div')
-  sidebarOverlay.className = CLASS_NAME_SIDEBAR_OVERLAY
-  document.querySelector(SELECTOR_APP_WRAPPER)?.append(sidebarOverlay)
+  const appWrapper = document.querySelector(SELECTOR_APP_WRAPPER)
+  let sidebarOverlay = appWrapper?.querySelector(`:scope > .${CLASS_NAME_SIDEBAR_OVERLAY}`) as HTMLElement | null
+
+  if (!sidebarOverlay) {
+    sidebarOverlay = document.createElement('div')
+    sidebarOverlay.className = CLASS_NAME_SIDEBAR_OVERLAY
+    appWrapper?.append(sidebarOverlay)
+  }
 
   // Handle touch events on overlay (area outside sidebar), usually we want to
   // close the sidebar when the user taps outside the sidebar on mobile
