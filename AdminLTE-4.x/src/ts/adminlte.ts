@@ -1,4 +1,4 @@
-import { onDOMContentLoaded } from './util/index.js'
+import { initialize, teardown, onDOMContentLoaded } from './util/index.js'
 import Layout from './layout.js'
 import CardWidget from './card-widget.js'
 import Treeview from './treeview.js'
@@ -9,7 +9,7 @@ import ColorMode from './color-mode.js'
 import { initAccessibility } from './accessibility.js'
 
 /**
- * AdminLTE v4.1.0
+ * AdminLTE v4.2.0
  * Author: Colorlib
  * Website: AdminLTE.io <https://adminlte.io>
  * License: Open source - MIT <https://opensource.org/licenses/MIT>
@@ -40,5 +40,7 @@ export {
   FullScreen,
   PushMenu,
   ColorMode,
-  initAccessibility
+  initAccessibility,
+  initialize,
+  teardown
 }

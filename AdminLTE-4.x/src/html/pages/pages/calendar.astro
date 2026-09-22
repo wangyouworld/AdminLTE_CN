@@ -148,9 +148,6 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
     <script
       src={deploymentPath + "assets/fullcalendar/index.global.min.js"}
       crossorigin="anonymous"></script>
-	      <script
-      src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.20/locales-all.global.min.js"
-      crossorigin="anonymous"></script>
     <script is:inline>
       const isoDate = (d) => d.toISOString().slice(0, 10);
 
@@ -175,8 +172,8 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
           return isoDate(d);
         };
 
-        const calendar = new FullCalendar.Calendar(calendarEl, {locale: 'zh-cn',locale: 'zh-cn',locale: 'zh-cn',
-          initialView: "dayGridMonth", locale: 'zh-cn', locale: 'zh-cn',
+        const calendar = new FullCalendar.Calendar(calendarEl, {locale: 'zh-cn',locale: 'zh-cn',
+          initialView: "dayGridMonth",
           headerToolbar: {
             start: "prev,next today",
             center: "title",

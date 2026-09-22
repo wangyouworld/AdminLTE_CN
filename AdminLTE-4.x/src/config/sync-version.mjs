@@ -8,6 +8,7 @@ import pkg from '../../package.json' with { type: 'json' }
 // but the SCSS/TS source banners are literals, so they are synced here instead.
 const banners = [
   'src/scss/adminlte.scss',
+  'src/scss/adminlte-docs.scss',
   'src/ts/adminlte.ts'
 ]
 

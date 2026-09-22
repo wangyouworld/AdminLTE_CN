@@ -19,10 +19,10 @@
 
 <p align="center">
   <a href="https://adminlte.io/themes/v4/">
-    <img alt="AdminLTE 4 仪表盘 — 浅色模式" src=".github/assets/dashboard-light.png" width="49%">
+    <img alt="AdminLTE 4 dashboard — light mode" src=".github/assets/dashboard-light.webp" width="49%">
   </a>
   <a href="https://adminlte.io/themes/v4/">
-    <img alt="AdminLTE 4 仪表盘 — 深色模式" src=".github/assets/dashboard-dark.png" width="49%">
+    <img alt="AdminLTE 4 dashboard — dark mode" src=".github/assets/dashboard-dark.webp" width="49%">
   </a>
 </p>
 
@@ -116,17 +116,17 @@ v4 系列是在 Bootstrap 5.3 上完全重写的，**不再依赖 jQuery**：
 <details>
 <summary>亮点一览</summary>
 
-**18 个新的演示页面**
+**18 个新演示页面**
 
 - 应用：日历（FullCalendar）、看板（SortableJS）、聊天、文件管理器、项目、邮箱（收件箱/阅读/写信）
 - 表单：表单向导（4 步带校验）
-- 表格：数据表格（Tabulator——无 jQuery）
+- 表格：数据表格（Tabulator — 无 jQuery）
 - 页面：个人资料、设置、发票、定价、常见问题
-- 错误页面：404、500、维护中
+- 错误页：404、500、维护中
 
 **文档全面翻新**
 
-- 新增页面：快速开始、自定义与主题、RTL 支持、从 v3 迁移、布局结构、实用方案、部署与性能、推荐集成、JavaScript 插件概览
+- 新增页面：快速上手、自定义与主题化、RTL 支持、从 v3 迁移、布局蓝图、实战技巧、部署与性能、推荐集成、JavaScript 插件概览
 - 重写了介绍页面，包含四种标注清晰的安装方式（CDN / npm / 源码 / Composer）
 - 常见问题页面重新做了，带横幅、实时搜索、分类标签和 19 个问题的折叠面板
 - 侧边栏导航拆开了：仪表盘演示和文档各用各的导航
@@ -141,10 +141,10 @@ v4 系列是在 Bootstrap 5.3 上完全重写的，**不再依赖 jQuery**：
 <details>
 <summary>从 v3 升级的破坏性变更</summary>
 
-- 类名重命名：`.wrapper` → `.app-wrapper`、`.main-header` → `.app-header`、`.main-sidebar` → `.app-sidebar`、`.content-wrapper` → `.app-main`
-- 数据属性：`data-toggle` → `data-bs-toggle`、`data-widget="pushmenu"` → `data-lte-toggle="sidebar"`、`data-widget="treeview"` → `data-lte-toggle="treeview"`
-- 深色模式：`<body>` 上的 `.dark-mode` 类 → `data-bs-theme="dark"` 属性（Bootstrap 5.3 原生支持）
-- 不再需要 jQuery；插件使用原生 TypeScript
+- 类名重命名：`.wrapper` → `.app-wrapper`，`.main-header` → `.app-header`，`.main-sidebar` → `.app-sidebar`，`.content-wrapper` → `.app-main`
+- 数据属性：`data-toggle` → `data-bs-toggle`，`data-widget="pushmenu"` → `data-lte-toggle="sidebar"`，`data-widget="treeview"` → `data-lte-toggle="treeview"`
+- 深色模式：body 类 `.dark-mode` → `data-bs-theme="dark"` 属性（Bootstrap 5.3 原生支持）
+- 不再需要 jQuery；插件都是用原生 TypeScript 写的
 
 详见专门的[从 v3 迁移指南](https://adminlte.io/themes/v4/docs/migration.html)。
 
@@ -161,7 +161,7 @@ AdminLTE 永远免费且开源。当项目需要更多功能时——
   <tr>
     <td align="center" width="50%">
       <a href="https://dashboardpack.com/theme-details/admindek-html/?utm_source=github&utm_medium=readme&utm_campaign=adminlte">
-        <img src=".github/assets/premium/admindek.png" alt="Admindek —— 功能丰富的 Bootstrap 5 仪表盘，带深色模式" width="100%">
+        <img src=".github/assets/premium/admindek.webp" alt="Admindek — feature-rich Bootstrap 5 dashboard with dark mode" width="100%">
       </a>
       <br>
       <a href="https://dashboardpack.com/theme-details/admindek-html/?utm_source=github&utm_medium=readme&utm_campaign=adminlte"><strong>Admindek</strong></a>
@@ -173,7 +173,7 @@ AdminLTE 永远免费且开源。当项目需要更多功能时——
     </td>
     <td align="center" width="50%">
       <a href="https://dashboardpack.com/theme-details/apex-dashboard-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=adminlte">
-        <img src=".github/assets/premium/apex.png" alt="Apex Dashboard —— 支持 Next.js、Laravel、Django 和 Angular 的管理模板" width="100%">
+        <img src=".github/assets/premium/apex.webp" alt="Apex Dashboard — admin template available for Next.js, Laravel, Django and Angular" width="100%">
       </a>
       <br>
       <a href="https://dashboardpack.com/theme-details/apex-dashboard-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=adminlte"><strong>Apex Dashboard</strong></a>
@@ -188,7 +188,7 @@ AdminLTE 永远免费且开源。当项目需要更多功能时——
   <tr>
     <td align="center" width="50%">
       <a href="https://dashboardpack.com/theme-details/zenith-dashboard-django/?utm_source=github&utm_medium=readme&utm_campaign=adminlte">
-        <img src=".github/assets/premium/zenith.png" alt="Zenith —— 极致简约的管理仪表盘，Django 版" width="100%">
+        <img src=".github/assets/premium/zenith.webp" alt="Zenith — ultra-minimal admin dashboard, Django edition" width="100%">
       </a>
       <br>
       <a href="https://dashboardpack.com/theme-details/zenith-dashboard-django/?utm_source=github&utm_medium=readme&utm_campaign=adminlte"><strong>Zenith Dashboard —— Django 版</strong></a>
@@ -197,7 +197,7 @@ AdminLTE 永远免费且开源。当项目需要更多功能时——
     </td>
     <td align="center" width="50%">
       <a href="https://dashboardpack.com/theme-details/haze-dashboard-nuxt/?utm_source=github&utm_medium=readme&utm_campaign=adminlte">
-        <img src=".github/assets/premium/haze.png" alt="Haze —— Nuxt 4 管理仪表盘，92+ 页面和 5 种仪表盘" width="100%">
+        <img src=".github/assets/premium/haze.webp" alt="Haze — Nuxt 4 admin dashboard with 92+ pages and 5 dashboards" width="100%">
       </a>
       <br>
       <a href="https://dashboardpack.com/theme-details/haze-dashboard-nuxt/?utm_source=github&utm_medium=readme&utm_campaign=adminlte"><strong>Haze —— Nuxt 版</strong></a>
@@ -233,7 +233,7 @@ AdminLTE 是一个 **UI 模板**。部署时只放编译好的生产环境资源
 
 ## 赞助
 
-通过成为赞助者或捐赠者来支持 AdminLTE 的开发。
+通过成为赞助者或捐赠者来支持 AdminLTE 的开发工作。
 
 <p align="center">
   <a href="https://github.com/sponsors/danny007in">

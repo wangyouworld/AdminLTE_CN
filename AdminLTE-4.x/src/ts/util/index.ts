@@ -16,6 +16,18 @@
  * cycle's listeners before the callbacks run again. Listeners bound to elements
  * inside <body> don't need the signal — Turbo discards the old <body>, so they
  * are cleaned up automatically.
+ *
+ * Turbo is not the only environment that renders after `DOMContentLoaded`:
+ * client-side frameworks that build the layout themselves (GWT, and other
+ * imperative widget toolkits) have an empty <body> when the initial batch runs,
+ * so the per-page init pass finds no sidebar and no menu. Those consumers call
+ * the exported `initialize()` once the layout is attached — it performs the same
+ * reset-then-replay cycle Turbo gets, without faking Turbo events.
+ *
+ * Unlike Turbo, such frameworks keep the same <body> across a re-init, so
+ * element-level listeners are NOT discarded for them. Callbacks should therefore
+ * pass `getLifecycleSignal()` to every `addEventListener` they make — including
+ * ones on elements — whenever the element can outlive the cycle.
  */
 
 const lifecycleCallbacks: Array<() => void> = []
@@ -24,7 +36,10 @@ const lifecycleCallbacks: Array<() => void> = []
 // without reassigning top-level bindings.
 const lifecycleState = {
   controller: new AbortController(),
-  hasInitialized: false
+  hasInitialized: false,
+  // True while the callback batch is executing — lets initialize() refuse
+  // re-entrant calls made from inside a lifecycle callback.
+  isReplaying: false
 }
 
 /**
@@ -40,9 +55,14 @@ const runLifecycleCallbacks = (): void => {
   }
 
   lifecycleState.hasInitialized = true
+  lifecycleState.isReplaying = true
 
-  for (const callback of lifecycleCallbacks) {
-    callback()
+  try {
+    for (const callback of lifecycleCallbacks) {
+      callback()
+    }
+  } finally {
+    lifecycleState.isReplaying = false
   }
 }
 
@@ -58,24 +78,66 @@ const onDOMContentLoaded = (callback: () => void): void => {
   }
 }
 
-// Initial page load.
+/**
+ * End the current lifecycle: abort the cycle's signal so listeners registered
+ * with it are removed, then arm a fresh cycle for the next replay.
+ *
+ * Exported for SPA containers that unmount the AdminLTE layout: calling it
+ * drops the window/document listeners the current cycle added without
+ * immediately re-initialising. Internally it is also the first half of
+ * `initialize()` and the `turbo:before-render` handler.
+ */
+const teardown = (): void => {
+  lifecycleState.controller.abort()
+  lifecycleState.controller = new AbortController()
+  lifecycleState.hasInitialized = false
+}
+
+/**
+ * Re-run every plugin's initialisation against the DOM as it stands right now.
+ *
+ * Intended for frameworks that render the layout after `DOMContentLoaded` has
+ * already fired — call it once the sidebar and menu are attached, and PushMenu,
+ * Treeview and ColorMode pick them up as if they had been in the initial HTML.
+ * Delegated click handling never needs this; only the per-page init pass does.
+ *
+ * The previous cycle is torn down first, so calling it repeatedly does not stack
+ * listeners registered with `getLifecycleSignal()`. Calling it before the
+ * initial batch has run (while `document.readyState === 'loading'`) runs that
+ * batch early, against whatever DOM exists at the time — the initial
+ * `DOMContentLoaded` pass below still replays against the complete DOM.
+ */
+const initialize = (): void => {
+  // Re-entrancy guard: a lifecycle callback calling initialize() would tear
+  // down its own cycle mid-replay and recurse without end.
+  if (lifecycleState.isReplaying) {
+    return
+  }
+
+  teardown()
+  runLifecycleCallbacks()
+}
+
+// Initial page load. Routed through initialize() so that an early initialize()
+// call (a framework initialising before the document finished loading) cannot
+// mark the cycle as done and suppress this pass — the replay tears the early
+// cycle down and re-runs every callback against the complete DOM.
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', runLifecycleCallbacks, { once: true })
+  document.addEventListener('DOMContentLoaded', initialize, { once: true })
 } else {
   runLifecycleCallbacks()
 }
 
 // Hotwired Turbo: drop the previous cycle's window/document listeners, then
-// re-run initialisation against the freshly rendered <body>.
-document.addEventListener('turbo:before-render', () => {
-  lifecycleState.controller.abort()
-  lifecycleState.controller = new AbortController()
-  lifecycleState.hasInitialized = false
-})
+// re-run initialisation against the freshly rendered <body>. The teardown has to
+// happen at `before-render` rather than as part of the replay, so the outgoing
+// <body>'s listeners are gone before Turbo swaps in the new one — which is why
+// this is the two-step form of `initialize()` rather than a call to it.
+document.addEventListener('turbo:before-render', teardown)
 
 document.addEventListener('turbo:load', runLifecycleCallbacks)
 
-/* ES2022 UTILITY FUNCTIONS */
+// ES2022 UTILITY FUNCTIONS
 
 /**
  * Check if an element has a specific data attribute using ES2022 Object.hasOwn()
@@ -126,7 +188,7 @@ const clearSlideStyles = (target: HTMLElement): void => {
   }
 }
 
-/* SLIDE UP */
+// SLIDE UP
 const slideUp = (target: HTMLElement, duration = 500) => {
   cancelSlide(target)
 
@@ -159,7 +221,7 @@ const slideUp = (target: HTMLElement, duration = 500) => {
   slideTimers.set(target, [stepTimer, cleanupTimer])
 }
 
-/* SLIDE DOWN */
+// SLIDE DOWN
 const slideDown = (target: HTMLElement, duration = 500) => {
   cancelSlide(target)
   // Drop inline styles a cancelled slideUp may have left behind (height: 0,
@@ -206,7 +268,7 @@ const slideDown = (target: HTMLElement, duration = 500) => {
   slideTimers.set(target, [stepTimer, cleanupTimer])
 }
 
-/* TOGGLE */
+// TOGGLE
 const slideToggle = (target: HTMLElement, duration = 500) => {
   if (globalThis.getComputedStyle(target).display === 'none') {
     slideDown(target, duration)
@@ -219,6 +281,8 @@ const slideToggle = (target: HTMLElement, duration = 500) => {
 export {
   onDOMContentLoaded,
   getLifecycleSignal,
+  initialize,
+  teardown,
   slideUp,
   slideDown,
   slideToggle,

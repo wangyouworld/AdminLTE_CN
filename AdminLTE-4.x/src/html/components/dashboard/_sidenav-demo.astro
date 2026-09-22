@@ -32,7 +32,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
   <!--end::Sidebar Brand-->
   <!--begin::Sidebar Wrapper-->
   <div class="sidebar-wrapper">
-    <nav class="mt-2" aria-label="Main navigation">
+    <nav class="mt-2" aria-label="主导航">
       <!--begin::Sidebar Menu-->
       <ul
         class="nav sidebar-menu flex-column"
@@ -149,7 +149,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             <p>
               布局选项
               <span class="nav-badge badge text-bg-secondary me-3"
-              >7</span
+              >12</span
               >
               <i class="nav-arrow bi bi-chevron-right"></i>
             </p>
@@ -252,6 +252,15 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
               >
                 <i class="nav-icon bi bi-circle"></i>
                 <p>迷你侧边栏 <small>+ Logo 开关</small></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                href={htmlPath + "/layout/top-nav.html"}
+                class:list={["nav-link", page === "top-nav" && "active"]}
+              >
+                <i class="nav-icon bi bi-circle"></i>
+                <p>顶部导航 <small>+ 无侧边栏</small></p>
               </a>
             </li>
             <li class="nav-item">
@@ -396,6 +405,24 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
               >
                 <i class="nav-icon bi bi-circle"></i>
                 <p>向导</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                href={htmlPath + "/forms/advanced.html"}
+                class:list={["nav-link", page === "advanced" && "active"]}
+              >
+                <i class="nav-icon bi bi-circle"></i>
+                <p>高级元素</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                href={htmlPath + "/forms/editors.html"}
+                class:list={["nav-link", page === "editors" && "active"]}
+              >
+                <i class="nav-icon bi bi-circle"></i>
+                <p>编辑器</p>
               </a>
             </li>
           </ul>

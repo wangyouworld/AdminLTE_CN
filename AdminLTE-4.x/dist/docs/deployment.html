@@ -8,6 +8,14 @@
     <script>
       (() => {
         'use strict';
+        const root = document.documentElement;
+
+        // Applications with their own theming opt out of AdminLTE's color mode
+        // entirely, here as well as in the bundle.
+        if (root.getAttribute('data-lte-color-mode') === 'off') {
+          return;
+        }
+
         const STORAGE_KEY = 'lte-theme';
         let stored = null;
         try {
@@ -15,17 +23,24 @@
         } catch {
           // localStorage may be unavailable (private mode, sandboxed iframe).
         }
-        const prefersDark = globalThis.matchMedia('(prefers-color-scheme: dark)').matches;
-        // Mirror the resolution in _scripts.astro: explicit "dark"/"light" win,
-        // otherwise ("auto" or unset) fall back to the OS preference.
+        // Mirror the precedence in color-mode.ts: the visitor's stored choice
+        // wins, then a theme this page declared itself, then the OS preference.
+        const authored = root.getAttribute('data-bs-theme');
         let resolved = 'light';
         if (stored === 'dark' || stored === 'light') {
           resolved = stored;
-        } else if (prefersDark) {
+        } else if (authored === 'dark' || authored === 'light') {
+          resolved = authored;
+        } else if (globalThis.matchMedia('(prefers-color-scheme: dark)').matches) {
           resolved = 'dark';
         }
-        document.documentElement.setAttribute('data-bs-theme', resolved);
-        document.documentElement.style.colorScheme = resolved;
+        root.setAttribute('data-bs-theme', resolved);
+        root.style.colorScheme = resolved;
+        // Flag values computed here, so the bundle does not mistake them for a
+        // theme the page declared and stop following the OS preference.
+        if (resolved !== authored) {
+          root.setAttribute('data-lte-theme-resolved', '');
+        }
       })();
     </script>
     <!--end::Theme Init-->
@@ -757,8 +772,8 @@
                           style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                           tabindex="0"
                           data-language="html"
-                        ><code><span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"stylesheet"</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"/dist/css/adminlte.min.css?v=4.0.0"</span><span style="color:#808080"> /></span></span>
-<span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"/dist/js/adminlte.min.js?v=4.0.0"</span><span style="color:#808080">>&#x3C;/</span><span style="color:#569CD6">script</span><span style="color:#808080">></span></span></code></pre>
+                        ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;/dist/css/adminlte.min.css?v=4.0.0&quot;</span><span style="color:#808080"> /&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;/dist/js/adminlte.min.js?v=4.0.0&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span></code></pre>
                         <p>
                           在服务器上设置 <code>Cache-Control: public, max-age=86400</code>（1
                           天）。每次发布时更新 <code>?v=</code> 以强制缓存失效。
@@ -785,12 +800,12 @@
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="html"
-                    ><code><span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">link</span></span>
-<span class="line"><span style="color:#9CDCFE">  rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"stylesheet"</span></span>
-<span class="line"><span style="color:#9CDCFE">  href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"https://cdn.jsdelivr.net/npm/admin-lte@4.0.0/dist/css/adminlte.min.css"</span></span>
-<span class="line"><span style="color:#9CDCFE">  integrity</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"sha384-PASTE_THE_HASH_HERE"</span></span>
-<span class="line"><span style="color:#9CDCFE">  crossorigin</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"anonymous"</span></span>
-<span class="line"><span style="color:#808080">/></span></span></code></pre>
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span></span>
+<span class="line"><span style="color:#9CDCFE">  rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span></span>
+<span class="line"><span style="color:#9CDCFE">  href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/admin-lte@4.0.0/dist/css/adminlte.min.css&quot;</span></span>
+<span class="line"><span style="color:#9CDCFE">  integrity</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;sha384-PASTE_THE_HASH_HERE&quot;</span></span>
+<span class="line"><span style="color:#9CDCFE">  crossorigin</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;anonymous&quot;</span></span>
+<span class="line"><span style="color:#808080">/&gt;</span></span></code></pre>
                     <p>
                       你可以从
                       <a href="https://www.jsdelivr.com/package/npm/admin-lte"
@@ -812,33 +827,33 @@
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="html"
-                    ><code><span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">head</span><span style="color:#808080">></span></span>
-<span class="line"><span style="color:#6A9955">  &#x3C;!-- 1. Bootstrap Icons（字体 CSS）——首先加载，以便图标随页面一起渲染 --></span></span>
-<span class="line"><span style="color:#808080">  &#x3C;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"stylesheet"</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"</span><span style="color:#808080"> /></span></span>
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">head</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#6A9955">  &lt;!-- 1. Bootstrap Icons（字体 CSS）——首先加载，以便图标随页面一起渲染 --&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">  &#x3C;!-- 2. OverlayScrollbars（可选，用于侧边栏滚动） --></span></span>
-<span class="line"><span style="color:#808080">  &#x3C;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"stylesheet"</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css"</span><span style="color:#808080"> /></span></span>
+<span class="line"><span style="color:#6A9955">  &lt;!-- 2. OverlayScrollbars（可选，用于侧边栏滚动） --&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">  &#x3C;!-- 3. AdminLTE——通过其导入包含 Bootstrap CSS --></span></span>
-<span class="line"><span style="color:#808080">  &#x3C;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"stylesheet"</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"https://cdn.jsdelivr.net/npm/admin-lte@4.0.0/dist/css/adminlte.min.css"</span><span style="color:#808080"> /></span></span>
-<span class="line"><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">head</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#6A9955">  &lt;!-- 3. AdminLTE——通过其导入包含 Bootstrap CSS --&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/admin-lte@4.0.0/dist/css/adminlte.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">head</span><span style="color:#808080">&gt;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">body</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">body</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#D4D4D4">  …</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">  &#x3C;!-- 脚本放在 body 末尾 --></span></span>
-<span class="line"><span style="color:#6A9955">  &#x3C;!-- 4. Popper（Bootstrap 下拉菜单/工具提示/弹出框的依赖） --></span></span>
-<span class="line"><span style="color:#808080">  &#x3C;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"</span><span style="color:#808080">>&#x3C;/</span><span style="color:#569CD6">script</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#6A9955">  &lt;!-- 脚本放在 body 末尾 --&gt;</span></span>
+<span class="line"><span style="color:#6A9955">  &lt;!-- 4. Popper（Bootstrap 下拉菜单/工具提示/弹出框的依赖） --&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">  &#x3C;!-- 5. Bootstrap --></span></span>
-<span class="line"><span style="color:#808080">  &#x3C;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"</span><span style="color:#808080">>&#x3C;/</span><span style="color:#569CD6">script</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#6A9955">  &lt;!-- 5. Bootstrap --&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">  &#x3C;!-- 6. OverlayScrollbars --></span></span>
-<span class="line"><span style="color:#808080">  &#x3C;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"</span><span style="color:#808080">>&#x3C;/</span><span style="color:#569CD6">script</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#6A9955">  &lt;!-- 6. OverlayScrollbars --&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">  &#x3C;!-- 7. AdminLTE——必须在 Bootstrap 之后加载 --></span></span>
-<span class="line"><span style="color:#808080">  &#x3C;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"https://cdn.jsdelivr.net/npm/admin-lte@4.0.0/dist/js/adminlte.min.js"</span><span style="color:#808080">>&#x3C;/</span><span style="color:#569CD6">script</span><span style="color:#808080">></span></span>
-<span class="line"><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">body</span><span style="color:#808080">></span></span></code></pre>
+<span class="line"><span style="color:#6A9955">  &lt;!-- 7. AdminLTE——必须在 Bootstrap 之后加载 --&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/admin-lte@4.0.0/dist/js/adminlte.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">body</span><span style="color:#808080">&gt;</span></span></code></pre>
                     <h5 id="defer-还是-async">Defer 还是 async？</h5>
                     <p>
                       AdminLTE 包会在 <code>DOMContentLoaded</code> 之后再挂载其 data API，因此
@@ -849,7 +864,7 @@
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="html"
-                    ><code><span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> defer</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"/dist/js/adminlte.min.js"</span><span style="color:#808080">>&#x3C;/</span><span style="color:#569CD6">script</span><span style="color:#808080">></span></span></code></pre>
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> defer</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;/dist/js/adminlte.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span></code></pre>
                     <p>
                       不要使用
                       <code>async</code
@@ -865,15 +880,15 @@
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="html"
-                    ><code><span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">style</span><span style="color:#808080">></span><span style="color:#6A9955">/* 为 /dashboard 提取的关键 CSS */</span><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">style</span><span style="color:#808080">></span></span>
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">style</span><span style="color:#808080">&gt;</span><span style="color:#6A9955">/* 为 /dashboard 提取的关键 CSS */</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">style</span><span style="color:#808080">&gt;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">link</span></span>
-<span class="line"><span style="color:#9CDCFE">  rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"preload"</span></span>
-<span class="line"><span style="color:#9CDCFE">  as</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"style"</span></span>
-<span class="line"><span style="color:#9CDCFE">  href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"/dist/css/adminlte.min.css"</span></span>
-<span class="line"><span style="color:#9CDCFE">  onload</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"</span><span style="color:#569CD6">this</span><span style="color:#CE9178">.</span><span style="color:#9CDCFE">onload</span><span style="color:#D4D4D4">=</span><span style="color:#569CD6">null</span><span style="color:#CE9178">;</span><span style="color:#569CD6">this</span><span style="color:#CE9178">.</span><span style="color:#9CDCFE">rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">'stylesheet'"</span></span>
-<span class="line"><span style="color:#808080">/></span></span>
-<span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">noscript</span><span style="color:#808080">>&#x3C;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"stylesheet"</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"/dist/css/adminlte.min.css"</span><span style="color:#808080"> />&#x3C;/</span><span style="color:#569CD6">noscript</span><span style="color:#808080">></span></span></code></pre>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span></span>
+<span class="line"><span style="color:#9CDCFE">  rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;preload&quot;</span></span>
+<span class="line"><span style="color:#9CDCFE">  as</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;style&quot;</span></span>
+<span class="line"><span style="color:#9CDCFE">  href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;/dist/css/adminlte.min.css&quot;</span></span>
+<span class="line"><span style="color:#9CDCFE">  onload</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;</span><span style="color:#569CD6">this</span><span style="color:#CE9178">.</span><span style="color:#9CDCFE">onload</span><span style="color:#D4D4D4">=</span><span style="color:#569CD6">null</span><span style="color:#CE9178">;</span><span style="color:#569CD6">this</span><span style="color:#CE9178">.</span><span style="color:#9CDCFE">rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&#39;stylesheet&#39;&quot;</span></span>
+<span class="line"><span style="color:#808080">/&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">noscript</span><span style="color:#808080">&gt;&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;/dist/css/adminlte.min.css&quot;</span><span style="color:#808080"> /&gt;&lt;/</span><span style="color:#569CD6">noscript</span><span style="color:#808080">&gt;</span></span></code></pre>
                     <p>
                       使用 <a href="https://github.com/GoogleChromeLabs/critters">Critters</a> 或
                       <a href="https://github.com/pocketjoso/penthouse">Penthouse</a> 等工具提取关键
@@ -886,9 +901,9 @@
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="html"
-                    ><code><span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"preload"</span><span style="color:#9CDCFE"> as</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"style"</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"/dist/css/adminlte.min.css"</span><span style="color:#808080"> /></span></span>
-<span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"preload"</span><span style="color:#9CDCFE"> as</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"font"</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"/fonts/source-sans-3.woff2"</span><span style="color:#9CDCFE"> type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"font/woff2"</span><span style="color:#9CDCFE"> crossorigin</span><span style="color:#808080"> /></span></span>
-<span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"preconnect"</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"https://cdn.jsdelivr.net"</span><span style="color:#9CDCFE"> crossorigin</span><span style="color:#808080"> /></span></span></code></pre>
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;preload&quot;</span><span style="color:#9CDCFE"> as</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;style&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;/dist/css/adminlte.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;preload&quot;</span><span style="color:#9CDCFE"> as</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;font&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;/fonts/source-sans-3.woff2&quot;</span><span style="color:#9CDCFE"> type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;font/woff2&quot;</span><span style="color:#9CDCFE"> crossorigin</span><span style="color:#808080"> /&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;preconnect&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net&quot;</span><span style="color:#9CDCFE"> crossorigin</span><span style="color:#808080"> /&gt;</span></span></code></pre>
                     <p>只预加载每个页面都会用到的资源。在共享布局中预加载路由级资源会浪费带宽。</p>
                     <h5 id="子页面懒加载">子页面懒加载</h5>
                     <p>
@@ -904,7 +919,7 @@
                       tabindex="0"
                       data-language="js"
                     ><code><span class="line"><span style="color:#6A9955">// 不要将日历应用打包到主 chunk 中</span></span>
-<span class="line"><span style="color:#569CD6">const</span><span style="color:#DCDCAA"> Calendar</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#569CD6"> import</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"./Calendar.vue"</span><span style="color:#D4D4D4">)</span></span></code></pre>
+<span class="line"><span style="color:#569CD6">const</span><span style="color:#DCDCAA"> Calendar</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=&gt;</span><span style="color:#569CD6"> import</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;./Calendar.vue&quot;</span><span style="color:#D4D4D4">)</span></span></code></pre>
                     <h5 id="打包体积预算">打包体积预算</h5>
                     <p>当前发布的 <code>dist/</code> 产物 gzip 后的大小：</p>
                     <table>
@@ -944,11 +959,11 @@
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="js"
-                    ><code><span class="line"><span style="color:#C586C0">import</span><span style="color:#D4D4D4"> { </span><span style="color:#9CDCFE">precacheAndRoute</span><span style="color:#D4D4D4"> } </span><span style="color:#C586C0">from</span><span style="color:#CE9178"> "workbox-precaching"</span></span>
+                    ><code><span class="line"><span style="color:#C586C0">import</span><span style="color:#D4D4D4"> { </span><span style="color:#9CDCFE">precacheAndRoute</span><span style="color:#D4D4D4"> } </span><span style="color:#C586C0">from</span><span style="color:#CE9178"> &quot;workbox-precaching&quot;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#DCDCAA">precacheAndRoute</span><span style="color:#D4D4D4">([</span></span>
-<span class="line"><span style="color:#D4D4D4">  { </span><span style="color:#9CDCFE">url:</span><span style="color:#CE9178"> "/dist/css/adminlte.min.css"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">revision:</span><span style="color:#CE9178"> "4.0.0"</span><span style="color:#D4D4D4"> },</span></span>
-<span class="line"><span style="color:#D4D4D4">  { </span><span style="color:#9CDCFE">url:</span><span style="color:#CE9178"> "/dist/js/adminlte.min.js"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">revision:</span><span style="color:#CE9178"> "4.0.0"</span><span style="color:#D4D4D4"> },</span></span>
+<span class="line"><span style="color:#D4D4D4">  { </span><span style="color:#9CDCFE">url:</span><span style="color:#CE9178"> &quot;/dist/css/adminlte.min.css&quot;</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">revision:</span><span style="color:#CE9178"> &quot;4.0.0&quot;</span><span style="color:#D4D4D4"> },</span></span>
+<span class="line"><span style="color:#D4D4D4">  { </span><span style="color:#9CDCFE">url:</span><span style="color:#CE9178"> &quot;/dist/js/adminlte.min.js&quot;</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">revision:</span><span style="color:#CE9178"> &quot;4.0.0&quot;</span><span style="color:#D4D4D4"> },</span></span>
 <span class="line"><span style="color:#6A9955">  // ...你自己的页面</span></span>
 <span class="line"><span style="color:#D4D4D4">])</span></span></code></pre>
                     <h5 id="部署前移除开发专用文件">部署前移除开发专用文件</h5>
@@ -969,9 +984,9 @@
                       tabindex="0"
                       data-language="bash"
                     ><code><span class="line"><span style="color:#DCDCAA">rsync</span><span style="color:#569CD6"> -avz</span><span style="color:#569CD6"> --delete</span><span style="color:#D7BA7D"> \</span></span>
-<span class="line"><span style="color:#569CD6">  --exclude=</span><span style="color:#CE9178">'*.map'</span><span style="color:#D7BA7D"> \</span></span>
-<span class="line"><span style="color:#569CD6">  --exclude=</span><span style="color:#CE9178">'html/'</span><span style="color:#D7BA7D"> \</span></span>
-<span class="line"><span style="color:#569CD6">  --exclude=</span><span style="color:#CE9178">'.astro/'</span><span style="color:#D7BA7D"> \</span></span>
+<span class="line"><span style="color:#569CD6">  --exclude=</span><span style="color:#CE9178">&#39;*.map&#39;</span><span style="color:#D7BA7D"> \</span></span>
+<span class="line"><span style="color:#569CD6">  --exclude=</span><span style="color:#CE9178">&#39;html/&#39;</span><span style="color:#D7BA7D"> \</span></span>
+<span class="line"><span style="color:#569CD6">  --exclude=</span><span style="color:#CE9178">&#39;.astro/&#39;</span><span style="color:#D7BA7D"> \</span></span>
 <span class="line"><span style="color:#CE9178">  dist/</span><span style="color:#CE9178"> user@server:/var/www/your-app/</span></span></code></pre>
                     <h5 id="关于-cloudflare-缓存的说明">关于 Cloudflare 缓存的说明</h5>
                     <p>

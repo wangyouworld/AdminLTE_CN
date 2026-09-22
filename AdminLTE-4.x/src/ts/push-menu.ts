@@ -80,16 +80,37 @@ class PushMenu extends BaseComponent {
     return NAME
   }
 
+  /**
+   * Look up the PushMenu already attached to the given element.
+   *
+   * @param element The sidebar element to look up.
+   * @returns The existing instance, or null if the sidebar has none yet.
+   */
   static getInstance(element: Element | null | undefined): PushMenu | null {
     return this._getInstance(element) as PushMenu | null
   }
 
+  /**
+   * Look up the PushMenu attached to the given element, creating one when the
+   * element has none. `config` is ignored if an instance already exists.
+   *
+   * @param element The sidebar element.
+   * @param config Overrides merged over the defaults for a new instance.
+   * @returns The existing or newly created instance.
+   */
   static getOrCreateInstance(element: HTMLElement, config: Partial<Config> = {}): PushMenu {
     return this.getInstance(element) ?? new this(element, config)
   }
 
+  /**
+   * The defaults merged with the overrides this instance was created with.
+   */
   _config: Config
 
+  /**
+   * @param element The sidebar element to attach to.
+   * @param config Overrides merged over the defaults.
+   */
   constructor(element: HTMLElement, config: Partial<Config> = {}) {
     super(element)
     this._config = { ...Defaults, ...config }
@@ -158,6 +179,8 @@ class PushMenu extends BaseComponent {
    * Collapse the sidebar menu.
    */
   collapse(): void {
+    // The "collapse" event is cancelable: preventDefault() keeps the sidebar
+    // in its current state.
     if (dispatchCustomEvent(this._element, EVENT_COLLAPSE, { cancelable: true }).defaultPrevented) {
       return
     }
@@ -341,12 +364,12 @@ class PushMenu extends BaseComponent {
 
     // When persistence is enabled and screen size is above the breakpoint, load
     // the saved sidebar state from local storage. Otherwise, use responsive
-    // logic to set the initial state. On low screen sizes, the sidebar should
-    // always be collapsed by default unless explicitly opened.
+    // logic to set the initial state (unless explicitly set as collapsed at
+    // initialization).
 
     if (this._config.enablePersistence && !this.isMobileSize()) {
       this.loadSidebarState()
-    } else {
+    } else if (!this.isCollapsed()) {
       this.updateStateByResponsiveLogic()
     }
   }
@@ -446,16 +469,23 @@ onDOMContentLoaded(() => {
   // Handle touch events on overlay (area outside sidebar), usually we want to
   // close the sidebar when the user taps outside the sidebar on mobile
   // devices.
+  //
+  // These are bound with the lifecycle signal even though the overlay lives
+  // inside <body>: the node above is reused when it already exists, so under a
+  // framework that re-initialises against a persistent <body>, an unsignalled
+  // binding would stack another set of handlers on the same element per cycle.
+
+  const overlaySignal = getLifecycleSignal()
 
   let overlayTouchMoved = false
 
   sidebarOverlay.addEventListener('touchstart', () => {
     overlayTouchMoved = false
-  }, { passive: true })
+  }, { passive: true, signal: overlaySignal })
 
   sidebarOverlay.addEventListener('touchmove', () => {
     overlayTouchMoved = true
-  }, { passive: true })
+  }, { passive: true, signal: overlaySignal })
 
   sidebarOverlay.addEventListener('touchend', event => {
     if (!overlayTouchMoved) {
@@ -464,12 +494,12 @@ onDOMContentLoaded(() => {
     }
 
     overlayTouchMoved = false
-  }, { passive: false })
+  }, { passive: false, signal: overlaySignal })
 
   sidebarOverlay.addEventListener('click', event => {
     event.preventDefault()
     pushMenu.collapse()
-  })
+  }, { signal: overlaySignal })
 })
 
 export default PushMenu

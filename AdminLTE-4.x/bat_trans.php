@@ -552,6 +552,10 @@ EOT;
           // &LT; 内容转换 用于 源代码时
           $val['id']  = str_ireplace('<', '&LT;', $val['id']);
           $val['val'] = str_ireplace('<', '&LT;', $val['val']);
+          // 幂等保护：若本行已包含完整译文，说明匹配到的 id 是上次替换结果（译文前缀），跳过以免二次叠加
+          // if ($val['val'] !== '' && strpos($li, $val['val']) !== false) {
+          //   continue;
+          // }
           // 再次替换
           $li = str_replace($val['id'], $val['val'], $li);
         } else {

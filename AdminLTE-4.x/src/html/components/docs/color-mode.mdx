@@ -6,6 +6,14 @@ AdminLTE 原生支持 Bootstrap 5.3 颜色模式（浅色、深色和自动）�
 - `auto` 遵循操作系统的 `prefers-color-scheme`，并在操作系统偏好发生变化时实时更新。
 - 解析后的模式以 `data-bs-theme="light|dark"` 的形式应用于 `<html>`，因此所有 Bootstrap 和 AdminLTE 组件都会自动适配。
 
+模式按以下顺序从三个来源解析：
+
+1. **访客已存储的选择** —— `localStorage.lte-theme`，在他们点击切换开关时写入。这是他们本人在此设备上的点击，因此优先级最高。
+2. **你的页面所声明的主题** —— 服务端返回时 `<html>` 上的 `data-bs-theme`。用它来根据 cookie 或用户记录渲染每位用户的偏好；它能在操作系统偏好变化后依然保留。
+3. **操作系统偏好** —— `prefers-color-scheme`，在上述两者都未表达选择时实时跟随。
+
+仅能识别 `light`、`dark` 和 `auto`。`data-bs-theme` 中的自定义 Bootstrap 主题名不是 ColorMode 能解析的模式，因此会被忽略 —— 参见下文 *选择退出*。
+
 ##### 标记
 
 在任何位置添加带有 `data-bs-theme-value` 的切换按钮即可——模块会自动绑定它们。可选的 `data-lte-theme-icon` 元素用作当前选择的状态指示器（演示版在顶栏触发器中使用了它们）：
@@ -59,13 +67,15 @@ import { ColorMode } from "admin-lte"
 
 const colorMode = new ColorMode()
 
-colorMode.getPreferredTheme() // "light" | "dark" | "auto"
+colorMode.getPreferredTheme() // "light" | "dark" | "auto" —— 生效的选择
+colorMode.getStoredTheme()    // 访客所选择的内容，若无则为 null
+colorMode.getMarkupTheme()    // 页面在 <html> 上声明的内容，若无则为 null
 colorMode.setTheme("dark")    // 应用 + 持续 + 同步切换
 
 // 响应变化（文档触发）
 document.addEventListener("changed.lte.color-mode", (event) => {
-  console.log(event.detail.theme)    // what the user chose: "light" | "dark" | "auto"
-  console.log(event.detail.resolved) // what got applied:    "light" | "dark"
+  console.log(event.detail.theme)    // 用户所选择的内容："light" | "dark" | "auto"
+  console.log(event.detail.resolved) // 实际应用的内容：    "light" | "dark"
 })
 ```
 
@@ -77,15 +87,43 @@ document.addEventListener("changed.lte.color-mode", (event) => {
 <script>
   (() => {
     "use strict"
+    const root = document.documentElement
+    if (root.getAttribute("data-lte-color-mode") === "off") return
     let stored = null
     try { stored = localStorage.getItem("lte-theme") } catch {}
-    const prefersDark = matchMedia("(prefers-color-scheme: dark)").matches
-    const resolved = (stored === "dark" || stored === "light") ? stored : (prefersDark ? "dark" : "light")
-    document.documentElement.setAttribute("data-bs-theme", resolved)
-    document.documentElement.style.colorScheme = resolved
+    const authored = root.getAttribute("data-bs-theme")
+    let resolved = "light"
+    if (stored === "dark" || stored === "light") resolved = stored
+    else if (authored === "dark" || authored === "light") resolved = authored
+    else if (matchMedia("(prefers-color-scheme: dark)").matches) resolved = "dark"
+    root.setAttribute("data-bs-theme", resolved)
+    root.style.colorScheme = resolved
+    if (resolved !== authored) root.setAttribute("data-lte-theme-resolved", "")
   })()
 </script>
 ```
+
+它遵循与模块相同的优先级，因此你在服务端渲染的主题不会在绘制前被覆盖。最后一行很关键：它标记了一个由该代码片段自行推算出的值，这样模块就不会把它误认为是你的页面所声明的主题，从而停止跟随操作系统偏好。
+
+##### 服务端渲染的主题
+
+如果你在服务端存储每位用户的偏好，将它渲染到 `<html>` 上，模块就会保留它 —— 在加载时，以及在操作系统偏好变化时。
+
+```html
+<html lang="en" data-bs-theme="dark">
+```
+
+它仍然只是一个默认值：访客点击切换开关的那一刻，他们的选择就会被持久化，并从那时起在该设备上优先。当你希望服务端的值重新接管时，请从 `localStorage` 中清除 `lte-theme`。
+
+##### 选择退出
+
+拥有自己主题方案的应用 —— 无论是自定义 Bootstrap 主题，还是你自己的切换器 —— 可以完全关闭该模块：
+
+```html
+<html lang="en" data-lte-color-mode="off">
+```
+
+此后 ColorMode 永远不会写入 `data-bs-theme`：加载时不会，点击 `[data-bs-theme-value]` 切换开关时不会，操作系统偏好变化时也不会。上面的内联代码片段也会遵循这一点，因此在首次绘制之前也不会有任何东西触碰你的主题。你自己的代码始终完全掌控 `<html data-bs-theme>`。
 
 ##### 区域颜色模式
 

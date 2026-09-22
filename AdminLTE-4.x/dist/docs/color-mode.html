@@ -9,6 +9,14 @@
     <script>
       (() => {
         'use strict';
+        const root = document.documentElement;
+
+        // Applications with their own theming opt out of AdminLTE's color mode
+        // entirely, here as well as in the bundle.
+        if (root.getAttribute('data-lte-color-mode') === 'off') {
+          return;
+        }
+
         const STORAGE_KEY = 'lte-theme';
         let stored = null;
         try {
@@ -16,17 +24,24 @@
         } catch {
           // localStorage may be unavailable (private mode, sandboxed iframe).
         }
-        const prefersDark = globalThis.matchMedia('(prefers-color-scheme: dark)').matches;
-        // Mirror the resolution in _scripts.astro: explicit "dark"/"light" win,
-        // otherwise ("auto" or unset) fall back to the OS preference.
+        // Mirror the precedence in color-mode.ts: the visitor's stored choice
+        // wins, then a theme this page declared itself, then the OS preference.
+        const authored = root.getAttribute('data-bs-theme');
         let resolved = 'light';
         if (stored === 'dark' || stored === 'light') {
           resolved = stored;
-        } else if (prefersDark) {
+        } else if (authored === 'dark' || authored === 'light') {
+          resolved = authored;
+        } else if (globalThis.matchMedia('(prefers-color-scheme: dark)').matches) {
           resolved = 'dark';
         }
-        document.documentElement.setAttribute('data-bs-theme', resolved);
-        document.documentElement.style.colorScheme = resolved;
+        root.setAttribute('data-bs-theme', resolved);
+        root.style.colorScheme = resolved;
+        // Flag values computed here, so the bundle does not mistake them for a
+        // theme the page declared and stop following the OS preference.
+        if (resolved !== authored) {
+          root.setAttribute('data-lte-theme-resolved', '');
+        }
       })();
     </script>
     <!--end::Theme Init-->
@@ -785,6 +800,30 @@
                         <code>&lt;html&gt;</code>，因此所有 Bootstrap 和 AdminLTE 组件都会自动适配。
                       </li>
                     </ul>
+                    <p>模式按以下顺序从三个来源解析：</p>
+                    <ol>
+                      <li>
+                        <strong>访客已存储的选择</strong> ——
+                        <code>localStorage.lte-theme</code
+                        >，在他们点击切换开关时写入。这是他们本人在此设备上的点击，因此优先级最高。
+                      </li>
+                      <li>
+                        <strong>你的页面所声明的主题</strong> —— 服务端返回时
+                        <code>&lt;html&gt;</code> 上的 <code>data-bs-theme</code>。用它来根据 cookie
+                        或用户记录渲染每位用户的偏好；它能在操作系统偏好变化后依然保留。
+                      </li>
+                      <li>
+                        <strong>操作系统偏好</strong> ——
+                        <code>prefers-color-scheme</code>，在上述两者都未表达选择时实时跟随。
+                      </li>
+                    </ol>
+                    <p>
+                      仅能识别 <code>light</code>、<code>dark</code> 和 <code>auto</code>。<code
+                        >data-bs-theme</code
+                      >
+                      中的自定义 Bootstrap 主题名不是 ColorMode 能解析的模式，因此会被忽略 ——
+                      参见下文 <em>选择退出</em>。
+                    </p>
                     <h5 id="标记">标记</h5>
                     <p>
                       在任何位置添加带有
@@ -797,43 +836,43 @@
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="html"
-                    ><code><span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">li</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"nav-item dropdown"</span><span style="color:#808080">></span></span>
-<span class="line"><span style="color:#808080">  &#x3C;</span><span style="color:#569CD6">a</span></span>
-<span class="line"><span style="color:#9CDCFE">    class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"nav-link"</span></span>
-<span class="line"><span style="color:#9CDCFE">    href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"#"</span></span>
-<span class="line"><span style="color:#9CDCFE">    id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"bd-theme"</span></span>
-<span class="line"><span style="color:#9CDCFE">    aria-label</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"Toggle color scheme"</span></span>
-<span class="line"><span style="color:#9CDCFE">    data-bs-toggle</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"dropdown"</span></span>
-<span class="line"><span style="color:#9CDCFE">    aria-expanded</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"false"</span></span>
-<span class="line"><span style="color:#808080">  ></span></span>
-<span class="line"><span style="color:#808080">    &#x3C;</span><span style="color:#569CD6">i</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"bi bi-sun-fill"</span><span style="color:#9CDCFE"> data-lte-theme-icon</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"light"</span><span style="color:#808080">>&#x3C;/</span><span style="color:#569CD6">i</span><span style="color:#808080">></span></span>
-<span class="line"><span style="color:#808080">    &#x3C;</span><span style="color:#569CD6">i</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"bi bi-moon-fill d-none"</span><span style="color:#9CDCFE"> data-lte-theme-icon</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"dark"</span><span style="color:#808080">>&#x3C;/</span><span style="color:#569CD6">i</span><span style="color:#808080">></span></span>
-<span class="line"><span style="color:#808080">    &#x3C;</span><span style="color:#569CD6">i</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"bi bi-circle-half d-none"</span><span style="color:#9CDCFE"> data-lte-theme-icon</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"auto"</span><span style="color:#808080">>&#x3C;/</span><span style="color:#569CD6">i</span><span style="color:#808080">></span></span>
-<span class="line"><span style="color:#808080">  &#x3C;/</span><span style="color:#569CD6">a</span><span style="color:#808080">></span></span>
-<span class="line"><span style="color:#808080">  &#x3C;</span><span style="color:#569CD6">ul</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"dropdown-menu dropdown-menu-end"</span><span style="color:#9CDCFE"> aria-labelledby</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"bd-theme"</span><span style="color:#808080">></span></span>
-<span class="line"><span style="color:#808080">    &#x3C;</span><span style="color:#569CD6">li</span><span style="color:#808080">></span></span>
-<span class="line"><span style="color:#808080">      &#x3C;</span><span style="color:#569CD6">button</span><span style="color:#9CDCFE"> type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"button"</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"dropdown-item d-flex align-items-center"</span><span style="color:#9CDCFE"> data-bs-theme-value</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"light"</span><span style="color:#9CDCFE"> aria-pressed</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"false"</span><span style="color:#808080">></span></span>
-<span class="line"><span style="color:#808080">        &#x3C;</span><span style="color:#569CD6">i</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"bi bi-sun-fill me-2"</span><span style="color:#808080">>&#x3C;/</span><span style="color:#569CD6">i</span><span style="color:#808080">></span></span>
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">li</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;nav-item dropdown&quot;</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">a</span></span>
+<span class="line"><span style="color:#9CDCFE">    class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;nav-link&quot;</span></span>
+<span class="line"><span style="color:#9CDCFE">    href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;#&quot;</span></span>
+<span class="line"><span style="color:#9CDCFE">    id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;bd-theme&quot;</span></span>
+<span class="line"><span style="color:#9CDCFE">    aria-label</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;Toggle color scheme&quot;</span></span>
+<span class="line"><span style="color:#9CDCFE">    data-bs-toggle</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;dropdown&quot;</span></span>
+<span class="line"><span style="color:#9CDCFE">    aria-expanded</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;false&quot;</span></span>
+<span class="line"><span style="color:#808080">  &gt;</span></span>
+<span class="line"><span style="color:#808080">    &lt;</span><span style="color:#569CD6">i</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;bi bi-sun-fill&quot;</span><span style="color:#9CDCFE"> data-lte-theme-icon</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;light&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">i</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">    &lt;</span><span style="color:#569CD6">i</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;bi bi-moon-fill d-none&quot;</span><span style="color:#9CDCFE"> data-lte-theme-icon</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;dark&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">i</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">    &lt;</span><span style="color:#569CD6">i</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;bi bi-circle-half d-none&quot;</span><span style="color:#9CDCFE"> data-lte-theme-icon</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;auto&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">i</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;/</span><span style="color:#569CD6">a</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">ul</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;dropdown-menu dropdown-menu-end&quot;</span><span style="color:#9CDCFE"> aria-labelledby</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;bd-theme&quot;</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">    &lt;</span><span style="color:#569CD6">li</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">      &lt;</span><span style="color:#569CD6">button</span><span style="color:#9CDCFE"> type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;button&quot;</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;dropdown-item d-flex align-items-center&quot;</span><span style="color:#9CDCFE"> data-bs-theme-value</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;light&quot;</span><span style="color:#9CDCFE"> aria-pressed</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;false&quot;</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">        &lt;</span><span style="color:#569CD6">i</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;bi bi-sun-fill me-2&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">i</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#D4D4D4">        明亮</span></span>
-<span class="line"><span style="color:#808080">        &#x3C;</span><span style="color:#569CD6">i</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"bi bi-check-lg ms-auto d-none"</span><span style="color:#808080">>&#x3C;/</span><span style="color:#569CD6">i</span><span style="color:#808080">></span></span>
-<span class="line"><span style="color:#808080">      &#x3C;/</span><span style="color:#569CD6">button</span><span style="color:#808080">></span></span>
-<span class="line"><span style="color:#808080">    &#x3C;/</span><span style="color:#569CD6">li</span><span style="color:#808080">></span></span>
-<span class="line"><span style="color:#808080">    &#x3C;</span><span style="color:#569CD6">li</span><span style="color:#808080">></span></span>
-<span class="line"><span style="color:#808080">      &#x3C;</span><span style="color:#569CD6">button</span><span style="color:#9CDCFE"> type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"button"</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"dropdown-item d-flex align-items-center"</span><span style="color:#9CDCFE"> data-bs-theme-value</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"dark"</span><span style="color:#9CDCFE"> aria-pressed</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"false"</span><span style="color:#808080">></span></span>
-<span class="line"><span style="color:#808080">        &#x3C;</span><span style="color:#569CD6">i</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"bi bi-moon-fill me-2"</span><span style="color:#808080">>&#x3C;/</span><span style="color:#569CD6">i</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">        &lt;</span><span style="color:#569CD6">i</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;bi bi-check-lg ms-auto d-none&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">i</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">      &lt;/</span><span style="color:#569CD6">button</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">    &lt;/</span><span style="color:#569CD6">li</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">    &lt;</span><span style="color:#569CD6">li</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">      &lt;</span><span style="color:#569CD6">button</span><span style="color:#9CDCFE"> type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;button&quot;</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;dropdown-item d-flex align-items-center&quot;</span><span style="color:#9CDCFE"> data-bs-theme-value</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;dark&quot;</span><span style="color:#9CDCFE"> aria-pressed</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;false&quot;</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">        &lt;</span><span style="color:#569CD6">i</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;bi bi-moon-fill me-2&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">i</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#D4D4D4">        暗黑</span></span>
-<span class="line"><span style="color:#808080">        &#x3C;</span><span style="color:#569CD6">i</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"bi bi-check-lg ms-auto d-none"</span><span style="color:#808080">>&#x3C;/</span><span style="color:#569CD6">i</span><span style="color:#808080">></span></span>
-<span class="line"><span style="color:#808080">      &#x3C;/</span><span style="color:#569CD6">button</span><span style="color:#808080">></span></span>
-<span class="line"><span style="color:#808080">    &#x3C;/</span><span style="color:#569CD6">li</span><span style="color:#808080">></span></span>
-<span class="line"><span style="color:#808080">    &#x3C;</span><span style="color:#569CD6">li</span><span style="color:#808080">></span></span>
-<span class="line"><span style="color:#808080">      &#x3C;</span><span style="color:#569CD6">button</span><span style="color:#9CDCFE"> type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"button"</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"dropdown-item d-flex align-items-center active"</span><span style="color:#9CDCFE"> data-bs-theme-value</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"auto"</span><span style="color:#9CDCFE"> aria-pressed</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"true"</span><span style="color:#808080">></span></span>
-<span class="line"><span style="color:#808080">        &#x3C;</span><span style="color:#569CD6">i</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"bi bi-circle-half me-2"</span><span style="color:#808080">>&#x3C;/</span><span style="color:#569CD6">i</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">        &lt;</span><span style="color:#569CD6">i</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;bi bi-check-lg ms-auto d-none&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">i</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">      &lt;/</span><span style="color:#569CD6">button</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">    &lt;/</span><span style="color:#569CD6">li</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">    &lt;</span><span style="color:#569CD6">li</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">      &lt;</span><span style="color:#569CD6">button</span><span style="color:#9CDCFE"> type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;button&quot;</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;dropdown-item d-flex align-items-center active&quot;</span><span style="color:#9CDCFE"> data-bs-theme-value</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;auto&quot;</span><span style="color:#9CDCFE"> aria-pressed</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;true&quot;</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">        &lt;</span><span style="color:#569CD6">i</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;bi bi-circle-half me-2&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">i</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#D4D4D4">        自动</span></span>
-<span class="line"><span style="color:#808080">        &#x3C;</span><span style="color:#569CD6">i</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"bi bi-check-lg ms-auto d-none"</span><span style="color:#808080">>&#x3C;/</span><span style="color:#569CD6">i</span><span style="color:#808080">></span></span>
-<span class="line"><span style="color:#808080">      &#x3C;/</span><span style="color:#569CD6">button</span><span style="color:#808080">></span></span>
-<span class="line"><span style="color:#808080">    &#x3C;/</span><span style="color:#569CD6">li</span><span style="color:#808080">></span></span>
-<span class="line"><span style="color:#808080">  &#x3C;/</span><span style="color:#569CD6">ul</span><span style="color:#808080">></span></span>
-<span class="line"><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">li</span><span style="color:#808080">></span></span></code></pre>
+<span class="line"><span style="color:#808080">        &lt;</span><span style="color:#569CD6">i</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;bi bi-check-lg ms-auto d-none&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">i</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">      &lt;/</span><span style="color:#569CD6">button</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">    &lt;/</span><span style="color:#569CD6">li</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;/</span><span style="color:#569CD6">ul</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">li</span><span style="color:#808080">&gt;</span></span></code></pre>
                     <p>
                       该模块会在每个 <code>[data-bs-theme-value]</code> 按钮上同步维护
                       <code>active</code> 类、<code>aria-pressed</code> 状态以及
@@ -845,17 +884,19 @@
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="js"
-                    ><code><span class="line"><span style="color:#C586C0">import</span><span style="color:#D4D4D4"> { </span><span style="color:#9CDCFE">ColorMode</span><span style="color:#D4D4D4"> } </span><span style="color:#C586C0">from</span><span style="color:#CE9178"> "admin-lte"</span></span>
+                    ><code><span class="line"><span style="color:#C586C0">import</span><span style="color:#D4D4D4"> { </span><span style="color:#9CDCFE">ColorMode</span><span style="color:#D4D4D4"> } </span><span style="color:#C586C0">from</span><span style="color:#CE9178"> &quot;admin-lte&quot;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#569CD6">const</span><span style="color:#4FC1FF"> colorMode</span><span style="color:#D4D4D4"> = </span><span style="color:#569CD6">new</span><span style="color:#DCDCAA"> ColorMode</span><span style="color:#D4D4D4">()</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#9CDCFE">colorMode</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">getPreferredTheme</span><span style="color:#D4D4D4">() </span><span style="color:#6A9955">// "light" | "dark" | "auto"</span></span>
-<span class="line"><span style="color:#9CDCFE">colorMode</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">setTheme</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"dark"</span><span style="color:#D4D4D4">)    </span><span style="color:#6A9955">// 应用 + 持续 + 同步切换</span></span>
+<span class="line"><span style="color:#9CDCFE">colorMode</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">getPreferredTheme</span><span style="color:#D4D4D4">() </span><span style="color:#6A9955">// &quot;light&quot; | &quot;dark&quot; | &quot;auto&quot; —— 生效的选择</span></span>
+<span class="line"><span style="color:#9CDCFE">colorMode</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">getStoredTheme</span><span style="color:#D4D4D4">()    </span><span style="color:#6A9955">// 访客所选择的内容，若无则为 null</span></span>
+<span class="line"><span style="color:#9CDCFE">colorMode</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">getMarkupTheme</span><span style="color:#D4D4D4">()    </span><span style="color:#6A9955">// 页面在 &lt;html&gt; 上声明的内容，若无则为 null</span></span>
+<span class="line"><span style="color:#9CDCFE">colorMode</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">setTheme</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;dark&quot;</span><span style="color:#D4D4D4">)    </span><span style="color:#6A9955">// 应用 + 持续 + 同步切换</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#6A9955">// 响应变化（文档触发）</span></span>
-<span class="line"><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addEventListener</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"changed.lte.color-mode"</span><span style="color:#D4D4D4">, (</span><span style="color:#9CDCFE">event</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
-<span class="line"><span style="color:#9CDCFE">  console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">event</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">detail</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">theme</span><span style="color:#D4D4D4">)    </span><span style="color:#6A9955">// what the user chose: "light" | "dark" | "auto"</span></span>
-<span class="line"><span style="color:#9CDCFE">  console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">event</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">detail</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">resolved</span><span style="color:#D4D4D4">) </span><span style="color:#6A9955">// what got applied:    "light" | "dark"</span></span>
+<span class="line"><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addEventListener</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;changed.lte.color-mode&quot;</span><span style="color:#D4D4D4">, (</span><span style="color:#9CDCFE">event</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=&gt;</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">  console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">event</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">detail</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">theme</span><span style="color:#D4D4D4">)    </span><span style="color:#6A9955">// 用户所选择的内容：&quot;light&quot; | &quot;dark&quot; | &quot;auto&quot;</span></span>
+<span class="line"><span style="color:#9CDCFE">  console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">event</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">detail</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">resolved</span><span style="color:#D4D4D4">) </span><span style="color:#6A9955">// 实际应用的内容：    &quot;light&quot; | &quot;dark&quot;</span></span>
 <span class="line"><span style="color:#D4D4D4">})</span></span></code></pre>
                     <h5 id="防止主题错误闪烁">防止主题错误闪烁</h5>
                     <p>
@@ -869,17 +910,59 @@
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="html"
-                    ><code><span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">script</span><span style="color:#808080">></span></span>
-<span class="line"><span style="color:#D4D4D4">  (() </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
-<span class="line"><span style="color:#CE9178">    "use strict"</span></span>
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#D4D4D4">  (() </span><span style="color:#569CD6">=&gt;</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#CE9178">    &quot;use strict&quot;</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> root</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">documentElement</span></span>
+<span class="line"><span style="color:#C586C0">    if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">root</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">getAttribute</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;data-lte-color-mode&quot;</span><span style="color:#D4D4D4">) === </span><span style="color:#CE9178">&quot;off&quot;</span><span style="color:#D4D4D4">) </span><span style="color:#C586C0">return</span></span>
 <span class="line"><span style="color:#569CD6">    let</span><span style="color:#9CDCFE"> stored</span><span style="color:#D4D4D4"> = </span><span style="color:#569CD6">null</span></span>
-<span class="line"><span style="color:#C586C0">    try</span><span style="color:#D4D4D4"> { </span><span style="color:#9CDCFE">stored</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">localStorage</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">getItem</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"lte-theme"</span><span style="color:#D4D4D4">) } </span><span style="color:#C586C0">catch</span><span style="color:#D4D4D4"> {}</span></span>
-<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> prefersDark</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">matchMedia</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"(prefers-color-scheme: dark)"</span><span style="color:#D4D4D4">).</span><span style="color:#9CDCFE">matches</span></span>
-<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> resolved</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">stored</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">"dark"</span><span style="color:#D4D4D4"> || </span><span style="color:#9CDCFE">stored</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">"light"</span><span style="color:#D4D4D4">) ? </span><span style="color:#9CDCFE">stored</span><span style="color:#D4D4D4"> : (</span><span style="color:#9CDCFE">prefersDark</span><span style="color:#D4D4D4"> ? </span><span style="color:#CE9178">"dark"</span><span style="color:#D4D4D4"> : </span><span style="color:#CE9178">"light"</span><span style="color:#D4D4D4">)</span></span>
-<span class="line"><span style="color:#9CDCFE">    document</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">documentElement</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">setAttribute</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"data-bs-theme"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">resolved</span><span style="color:#D4D4D4">)</span></span>
-<span class="line"><span style="color:#9CDCFE">    document</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">documentElement</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">style</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">colorScheme</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">resolved</span></span>
+<span class="line"><span style="color:#C586C0">    try</span><span style="color:#D4D4D4"> { </span><span style="color:#9CDCFE">stored</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">localStorage</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">getItem</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;lte-theme&quot;</span><span style="color:#D4D4D4">) } </span><span style="color:#C586C0">catch</span><span style="color:#D4D4D4"> {}</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> authored</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">root</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">getAttribute</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;data-bs-theme&quot;</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#569CD6">    let</span><span style="color:#9CDCFE"> resolved</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">&quot;light&quot;</span></span>
+<span class="line"><span style="color:#C586C0">    if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">stored</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">&quot;dark&quot;</span><span style="color:#D4D4D4"> || </span><span style="color:#9CDCFE">stored</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">&quot;light&quot;</span><span style="color:#D4D4D4">) </span><span style="color:#9CDCFE">resolved</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">stored</span></span>
+<span class="line"><span style="color:#C586C0">    else</span><span style="color:#C586C0"> if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">authored</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">&quot;dark&quot;</span><span style="color:#D4D4D4"> || </span><span style="color:#9CDCFE">authored</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">&quot;light&quot;</span><span style="color:#D4D4D4">) </span><span style="color:#9CDCFE">resolved</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">authored</span></span>
+<span class="line"><span style="color:#C586C0">    else</span><span style="color:#C586C0"> if</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">matchMedia</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;(prefers-color-scheme: dark)&quot;</span><span style="color:#D4D4D4">).</span><span style="color:#9CDCFE">matches</span><span style="color:#D4D4D4">) </span><span style="color:#9CDCFE">resolved</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">&quot;dark&quot;</span></span>
+<span class="line"><span style="color:#9CDCFE">    root</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">setAttribute</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;data-bs-theme&quot;</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">resolved</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#9CDCFE">    root</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">style</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">colorScheme</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">resolved</span></span>
+<span class="line"><span style="color:#C586C0">    if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">resolved</span><span style="color:#D4D4D4"> !== </span><span style="color:#9CDCFE">authored</span><span style="color:#D4D4D4">) </span><span style="color:#9CDCFE">root</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">setAttribute</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;data-lte-theme-resolved&quot;</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">&quot;&quot;</span><span style="color:#D4D4D4">)</span></span>
 <span class="line"><span style="color:#D4D4D4">  })()</span></span>
-<span class="line"><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">script</span><span style="color:#808080">></span></span></code></pre>
+<span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span></code></pre>
+                    <p>
+                      它遵循与模块相同的优先级，因此你在服务端渲染的主题不会在绘制前被覆盖。最后一行很关键：它标记了一个由该代码片段自行推算出的值，这样模块就不会把它误认为是你的页面所声明的主题，从而停止跟随操作系统偏好。
+                    </p>
+                    <h5 id="服务端渲染的主题">服务端渲染的主题</h5>
+                    <p>
+                      如果你在服务端存储每位用户的偏好，将它渲染到
+                      <code>&lt;html&gt;</code> 上，模块就会保留它 ——
+                      在加载时，以及在操作系统偏好变化时。
+                    </p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="html"
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">html</span><span style="color:#9CDCFE"> lang</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;en&quot;</span><span style="color:#9CDCFE"> data-bs-theme</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;dark&quot;</span><span style="color:#808080">&gt;</span></span></code></pre>
+                    <p>
+                      它仍然只是一个默认值：访客点击切换开关的那一刻，他们的选择就会被持久化，并从那时起在该设备上优先。当你希望服务端的值重新接管时，请从
+                      <code>localStorage</code> 中清除 <code>lte-theme</code>。
+                    </p>
+                    <h5 id="选择退出">选择退出</h5>
+                    <p>
+                      拥有自己主题方案的应用 —— 无论是自定义 Bootstrap 主题，还是你自己的切换器 ——
+                      可以完全关闭该模块：
+                    </p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="html"
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">html</span><span style="color:#9CDCFE"> lang</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;en&quot;</span><span style="color:#9CDCFE"> data-lte-color-mode</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;off&quot;</span><span style="color:#808080">&gt;</span></span></code></pre>
+                    <p>
+                      此后 ColorMode 永远不会写入 <code>data-bs-theme</code>：加载时不会，点击
+                      <code>[data-bs-theme-value]</code>
+                      切换开关时不会，操作系统偏好变化时也不会。上面的内联代码片段也会遵循这一点，因此在首次绘制之前也不会有任何东西触碰你的主题。你自己的代码始终完全掌控
+                      <code>&lt;html data-bs-theme&gt;</code>。
+                    </p>
                     <h5 id="区域颜色模式">区域颜色模式</h5>
                     <p>
                       <code>data-bs-theme</code> 不仅可以在
@@ -891,7 +974,7 @@
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="html"
-                    ><code><span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">aside</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"app-sidebar"</span><span style="color:#9CDCFE"> data-bs-theme</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"dark"</span><span style="color:#808080">></span><span style="color:#D4D4D4">...</span><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">aside</span><span style="color:#808080">></span></span></code></pre>
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">aside</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;app-sidebar&quot;</span><span style="color:#9CDCFE"> data-bs-theme</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;dark&quot;</span><span style="color:#808080">&gt;</span><span style="color:#D4D4D4">...</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">aside</span><span style="color:#808080">&gt;</span></span></code></pre>
                   </div>
                 </div>
               </div>
@@ -971,81 +1054,6 @@
      module (since 4.1) — no page script needed. Only the no-flash snippet
      in <head> stays inline, because it must run before first paint. -->
     <!--end::明暗模式切换-->
-
-    <script>
-      // 明暗模式切换
-      (() => {
-        'use strict';
-
-        const storedTheme = localStorage.getItem('theme');
-
-        const getPreferredTheme = () => {
-          if (storedTheme) {
-            return storedTheme;
-          }
-
-          return globalThis.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        };
-
-        const setTheme = function (theme) {
-          if (theme === 'auto' && globalThis.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.setAttribute('data-bs-theme', 'dark');
-          } else {
-            document.documentElement.setAttribute('data-bs-theme', theme);
-          }
-        };
-
-        setTheme(getPreferredTheme());
-
-        const showActiveTheme = (theme, focus = false) => {
-          const themeSwitcher = document.querySelector('#bd-theme');
-
-          if (!themeSwitcher) {
-            return;
-          }
-
-          const themeSwitcherText = document.querySelector('#bd-theme-text');
-          const activeThemeIcon = document.querySelector('.theme-icon-active i');
-          const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`);
-          const svgOfActiveBtn = btnToActive.querySelector('i').getAttribute('class');
-
-          for (const element of document.querySelectorAll('[data-bs-theme-value]')) {
-            element.classList.remove('active');
-            element.setAttribute('aria-pressed', 'false');
-          }
-
-          btnToActive.classList.add('active');
-          btnToActive.setAttribute('aria-pressed', 'true');
-          activeThemeIcon.setAttribute('class', svgOfActiveBtn);
-          const themeSwitcherLabel = `${themeSwitcherText.textContent} (${btnToActive.dataset.bsThemeValue})`;
-          themeSwitcher.setAttribute('aria-label', themeSwitcherLabel);
-
-          if (focus) {
-            themeSwitcher.focus();
-          }
-        };
-
-        globalThis.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-          if (storedTheme !== 'light' || storedTheme !== 'dark') {
-            setTheme(getPreferredTheme());
-          }
-        });
-
-        globalThis.addEventListener('DOMContentLoaded', () => {
-          showActiveTheme(getPreferredTheme());
-
-          for (const toggle of document.querySelectorAll('[data-bs-theme-value]')) {
-            toggle.addEventListener('click', () => {
-              const theme = toggle.getAttribute('data-bs-theme-value');
-              localStorage.setItem('theme', theme);
-              setTheme(theme);
-              showActiveTheme(theme, true);
-            });
-          }
-        });
-      })();
-    </script>
-    <!--end::Script-->
   </body>
   <!--end::Body-->
 </html>

@@ -143,6 +143,10 @@ const sections: Section[] = [
         a: `内置的<a href="color-mode.html">明暗模式</a>切换后会以 <code>lte-theme</code> 为键名写入 <code>localStorage</code>。如果你使用了不同的切换实现，请确保它既设置了 <code>document.documentElement.setAttribute('data-bs-theme', ...)</code>，又在变更时写入 localStorage。`
       },
       {
+        q: "我自己设置的主题总是被 AdminLTE 覆盖。",
+        a: `用 <code>&lt;html data-lte-color-mode="off"&gt;</code> 关闭内置的切换器。此后 ColorMode 永远不会写入 <code>data-bs-theme</code> —— 加载时不会，点击切换开关时不会，操作系统偏好变化时也不会 —— 因此你自己的切换器（或自定义 Bootstrap 主题名）始终掌控全局。如果你只是想要一个服务端渲染的默认值，那就把 <code>data-bs-theme</code> 渲染到 <code>&lt;html&gt;</code> 上，只要访客自己尚未选择主题，它就会被遵循。参见 <a href="color-mode.html">明暗模式</a>。`
+      },
+      {
         q: "按 ESC 键时 Bootstrap 模态框关闭了，但 AdminLTE 的侧边栏也同时收起了。",
         a: `该问题已在 v4.0.0 中修复（#5993）。如果你仍然遇到此问题，说明你使用的是较旧的 RC 版本——请更新到最新版本。`
       },

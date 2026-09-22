@@ -1,0 +1,198 @@
+---
+import Head from "@components/_head.astro"
+import Footer from "@components/dashboard/_footer.astro"
+import Topbar from "@components/dashboard/_topbar.astro"
+import Sidenav from "@components/dashboard/_sidenav.astro"
+import Scripts from "@components/_scripts.astro"
+
+const title = "AdminLTE 4 | 编辑器"
+const path = "../../../dist"
+const mainPage = "forms"
+const page = "editors";
+
+// 智能路径解析：根据目录深度计算相对路径
+const pathname = Astro.url.pathname;
+const pathSegments = pathname.split('/').filter(segment => segment !== '');
+const depth = pathSegments.length > 0 ? pathSegments.length - 1 : 0;
+const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <Head title={title} path={path} />
+    <link
+      rel="stylesheet"
+      href={deploymentPath + "assets/quill/quill.snow.css"}
+      integrity="sha384-ecIckRi4QlKYya/FQUbBUjS4qp65jF/J87Guw5uzTbO1C1Jfa/6kYmd6dXUF6D7i"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href={deploymentPath + "assets/quill/quill.bubble.css"}
+      integrity="sha384-1p1L5n/ntE3sHKd2FQZmckXnRjjkgWlN9qvfQ2rQuCXYhgCEhcmPSjjVcbttjWKu"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <div class="app-wrapper">
+      <Topbar path={path} />
+      <Sidenav path={path} mainPage={mainPage} page={page} />
+      <main class="app-main">
+        <div class="app-content-header">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6">
+                <h1 class="mb-0 fs-3">编辑器</h1>
+              </div>
+              <div class="col-sm-6">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">首页</a></li>
+                    <li class="breadcrumb-item"><a href="#">表单</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">编辑器</li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="app-content">
+          <div class="container-fluid">
+            <div class="row g-4">
+              <div class="col-12">
+                <div class="callout callout-info">
+                  AdminLTE 不包含富文本编辑器。本页面使用
+                  <a
+                    href="https://quilljs.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="callout-link"
+                  >Quill 2</a>,
+                  推荐的编辑器集成。请参见
+                  <a href="../docs/integrations.html" class="callout-link">推荐集成</a>
+                  中 Markdown 编辑器及其他替代方案的页面。
+                </div>
+              </div>
+
+              <!-- Quill snow theme -->
+              <div class="col-lg-7">
+                <div class="card card-primary card-outline mb-4">
+                  <div class="card-header">
+                    <div class="card-title">雪景主题 &mdash; 完整工具栏</div>
+                  </div>
+                  <div class="card-body">
+                    <h2 class="h5">发布公告</h2>
+                    <p class="text-body-secondary">
+                      经典的“顶部扁平工具栏”编辑器。下方工具栏
+                      完全可配置 &mdash; 可按使用场景添加或移除控件。
+                    </p>
+                    <div id="snow-editor" style="height: 18rem;">
+                      <h2>季度产品更新</h2>
+                      <p>
+                        欢迎来到 <strong>Q3 回顾</strong>。本季度团队
+                        交付了三项主打功能，并关闭了 47 个已报告的 bug。
+                      </p>
+                      <ul>
+                        <li>全新引导流程 &mdash; 试用激活率提升 12%</li>
+                        <li>流式导出 &mdash; 大型报告不再超时</li>
+                        <li>面向企业版计划的单点登录（SAML）</li>
+                      </ul>
+                      <blockquote>
+                        “仅新的导出功能，每周就能为我们的分析师节省一整天。”
+                        &mdash; 测试客户
+                      </blockquote>
+                      <p>
+                        下季度的重点是 <em>性能、可访问性以及
+                        公共 API</em>。请编辑此草稿并留下行内评论。
+                      </p>
+                    </div>
+                  </div>
+                  <div class="card-footer text-body-secondary small">
+                    由
+                    <a
+                      href="https://quilljs.com/"
+                      target="_blank"
+                      rel="noopener"
+                      class="link-body-emphasis"
+                    >Quill</a>
+                    &mdash; 提供支持 — 基于纯 JS，无需 jQuery。
+                  </div>
+                </div>
+              </div>
+
+              <!-- Quill bubble theme -->
+              <div class="col-lg-5">
+                <div class="card card-success card-outline mb-4">
+                  <div class="card-header">
+                    <div class="card-title">气泡主题 &mdash; 内联编辑</div>
+                  </div>
+                  <div class="card-body">
+                    <h2 class="h5">就地编辑</h2>
+                    <p class="text-body-secondary">
+                      在你需要之前没有任何可见的界面元素：选中下方任意文本，
+                      就会浮现一个浮动工具栏 &mdash; 非常适合可编辑的页面区块、
+                      评论或笔记。
+                    </p>
+                    <div id="bubble-editor" class="border rounded" style="min-height: 10rem;">
+                      <p>
+                        我们的支持时间是 <strong>周一至周五，9:00&ndash;17:00（中欧时间）</strong>。
+                        在这些时间之外提交的请求将在下一个
+                        工作日处理。
+                      </p>
+                      <p>
+                        对于紧急生产事故，请通过状态仪表盘
+                        呼叫值班工程师，而不是提交工单。
+                      </p>
+                    </div>
+                  </div>
+                  <div class="card-footer text-body-secondary small">
+                    同一个 Quill 实例，不同的主题 &mdash; 加载
+                    <code class="text-body-emphasis">quill.bubble.css</code> 而不是 <code class="text-body-emphasis">quill.snow.css</code>.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </div>
+    <Scripts path={path} />
+    <script
+      src={deploymentPath + "assets/quill/quill.js"}
+      integrity="sha384-utBUCeG4SYaCm4m7GQZYr8Hy8Fpy3V4KGjBZaf4WTKOcwhCYpt/0PfeEe3HNlwx8"
+      crossorigin="anonymous"></script>
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 雪主题：经典顶部工具栏编辑器
+        new Quill("#snow-editor", {
+          theme: "snow",
+          placeholder: "撰写公告……",
+          modules: {
+            toolbar: [
+              [{ header: [2, 3, false] }],
+              ["bold", "italic", "underline", "strike"],
+              [{ list: "ordered" }, { list: "bullet" }],
+              [{ indent: "-1" }, { indent: "+1" }],
+              ["blockquote", "code-block"],
+              ["link", "clean"]
+            ]
+          }
+        });
+
+        // 气泡主题：选中文本时显示工具栏
+        new Quill("#bubble-editor", {
+          theme: "bubble",
+          placeholder: "点击此处并开始输入……"
+        });
+
+        // Quill 将其下拉选择器（标题级别）渲染为未命名的
+        // ARIA 按钮 —— 为它们提供一个可访问名称（WCAG 4.1.2）。
+        document.querySelectorAll(".ql-header .ql-picker-label").forEach((label) => {
+          label.setAttribute("aria-label", "Heading format");
+        });
+      });
+    </script>
+  </body>
+</html>

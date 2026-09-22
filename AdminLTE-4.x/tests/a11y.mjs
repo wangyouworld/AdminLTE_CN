@@ -28,7 +28,10 @@ const PAGES = [
   '/examples/login.html',
   '/examples/forgot-password.html',
   '/pages/settings.html',
-  '/tables/simple.html'
+  '/tables/simple.html',
+  '/forms/advanced.html',
+  '/forms/editors.html',
+  '/layout/top-nav.html'
 ]
 
 // Failures gate on impact, so new pages can't regress below this bar.

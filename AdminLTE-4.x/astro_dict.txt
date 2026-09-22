@@ -30,6 +30,12 @@
 {deploymentPath + "assets/tabulator-tables/tabulator_bootstrap5.min.css"}
 "https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js"
 {deploymentPath + "assets/fullcalendar/index.global.min.js"}
+"https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css"
+{deploymentPath + "assets/quill/quill.snow.css"}
+"https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.bubble.css"
+{deploymentPath + "assets/quill/quill.bubble.css"}
+"https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"
+{deploymentPath + "assets/quill/quill.js"}
 "AdminLTE v4 | Dashboard"
 "AdminLTE v4 | 仪表盘"
 Dashboard
@@ -1496,8 +1502,8 @@ Compose Message
 >邮箱
 New Message
 新邮件
->To
->发给
+>To<
+>发给<
 >Cc
 >抄送
 >Bcc
@@ -1978,8 +1984,6 @@ Release v2.5
 发布 v2.5
 All-hands
 全体成员
-initialView: "dayGridMonth",
-initialView: "dayGridMonth", locale: 'zh-cn',
 Event title:
 事件标题：
 `Delete "
@@ -2720,8 +2724,6 @@ The footer of the card
 底部
 Re:
 回复：
-const table = new Tabulator("#users-table", {
-const table = new Tabulator("#users-table", {locale: "zh-cn",langs: {"zh-cn":{"pagination":{"page_size":"每页显示","page_title":"第 {page} 页","first":"首页","first_title":"第一页","last":"末页","last_title":"最后一页","prev":"上一页","prev_title":"上一页","next":"下一页","next_title":"下一页","all":"全部"},"headerFilters":{"default":"筛选..."}}},
 Line Chart
 折线图
 LINE CHART
@@ -2889,10 +2891,266 @@ Sign in using Google
 Forgot Password
 忘记密码
 You forgot your password? Here you can easily retrieve a new password.
-忘记密码了吗？在这里您可以轻松重置新密码。
+忘记密码了吗？在这里轻松重置新密码。
 Request new password
 找回密码
 placeholder="password"
 placeholder="密码"
 "Average"
 "平均"
+Advanced Elements
+高级元素
+Performance
+性能
+"https://cdn.jsdelivr.net/npm/tom-select@2.6.1/dist/css/tom-select.bootstrap5.min.css"
+{deploymentPath + "assets/tom-select/tom-select.bootstrap5.min.css"}
+"https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css"
+{deploymentPath + "assets/flatpickr/flatpickr.min.css"}
+"https://cdn.jsdelivr.net/npm/tom-select@2.6.1/dist/js/tom-select.complete.min.js"
+{deploymentPath + "assets/tom-select/tom-select.complete.min.js"}
+"https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"
+{deploymentPath + "assets/flatpickr/flatpickr.min.js"}
+"https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/l10n/zh.js"
+{deploymentPath + "assets/flatpickr/l10n/zh.js"}
+AdminLTE deliberately doesn't bundle form widgets. The controls on
+AdminLTE 有意不捆绑表单控件。
+this page use the recommended third-party integrations &mdash;
+本页面上的控件使用了推荐的第三方集成——
+and
+和
+See the
+查看
+page for the full list with install snippets.
+页包含完整列表及安装代码片段。
+Single select with search
+单选并搜索
+Select a country&hellip;
+选择一个国家&hellip;
+<option>Australia</option>
+<option>澳大利亚</option>
+<option>Brazil</option>
+<option>巴西</option>
+<option>Canada</option>
+<option>加拿大</option>
+<option>France</option>
+<option>法国</option>
+<option>Germany</option>
+<option>德国</option>
+<option>Italy</option>
+<option>意大利</option>
+<option>Japan</option>
+<option>日本</option>
+<option>Latvia</option>
+<option>拉脱维亚</option>
+<option>Netherlands</option>
+<option>荷兰</option>
+<option>Spain</option>
+<option>西班牙</option>
+<option>United Kingdom</option>
+<option>英国</option>
+<option>United States</option>
+<option>美国</option>
+Start typing to filter the list.
+开始输入以筛选列表。
+Multi-select with tags
+多选带标签
+sha256-XPpPaZlU8S/HWf7FZLAncLg2SAkP8ScUTII89x9D3lY=
+sha256-2XHnPYmOYQ+xcqcji58Bb2ezmOuACyyt5diogW3lYjY=
+Top Nav <small>+ No Sidebar</small>
+顶部导航 <small>+ 无侧边栏</small>
+Top Nav Layout
+顶部导航布局
+Top-nav layout: there is NO <aside class="app-sidebar"> on this page, so the
+Top-nav 布局：此页面中**没有** `<aside class="app-sidebar">`，因此
+app-wrapper grid's sidebar column (grid-template-columns: auto 1fr) collapses
+app-wrapper 网格的侧边栏列（`grid-template-columns: auto 1fr`）会自行
+to zero width on its own — header, main, and footer span the full viewport.
+收缩为零宽度——header、main 和 footer 会横跨整个视口。
+The primary navigation lives in the app-header as a plain Bootstrap
+主导航位于 app-header 中，采用一个普通的 Bootstrap
+navbar-expand-lg (Collapse + toggler on mobile). No PushMenu, and therefore
+`navbar-expand-lg`（移动端使用 Collapse + toggler）。没有 PushMenu，因此
+no sidebar-expand-* class on <body>.
+`<body>` 上也没有 `sidebar-expand-*` 类。
+"Toggle navigation"
+"切换导航"
+"Main navigation"
+"主导航"
+A horizontal layout for apps with a handful of top-level sections:
+一种适用于只有少量顶级板块的应用的水平布局：
+the sidebar is gone and the main navigation moves into the header.
+侧边栏消失，主导航移入 header 中。
+Resize the window below the <code>lg</code> breakpoint to see the
+将窗口调整到 `<code>lg</code>` 断点以下，即可看到
+menu collapse behind the toggler.
+菜单折叠到 toggler 按钮之后。
+How this layout works
+布局工作原理
+Three small differences from the default demo pages &mdash; no
+与默认演示页面有三处小差异 &mdash; 无需
+extra CSS or layout class required:
+额外的 CSS 或布局类：
+<code>&lt;aside class="app-sidebar"&gt;</code> element is
+省略了 `<code>&lt;aside class="app-sidebar"&gt;</code>` 元素。
+omitted. <code>app-wrapper</code> grid sizes its sidebar
+<code>app-wrapper</code> 网格用 <code>auto</code> 来
+column with <code>auto</code>, so an empty column collapses to
+设置其侧边栏列的尺寸，因此空列会收缩为
+zero width and the content spans the full viewport.
+零宽度，内容横跨整个视口。
+The header keeps the <code>app-header</code> class but becomes
+header 保留 `<code>app-header</code>` 类，但变成一个
+a regular Bootstrap <code>navbar-expand-lg</code> with a
+普通的 Bootstrap `<code>navbar-expand-lg</code>`，带有
+toggler and a <code>.navbar-collapse</code> menu &mdash;
+toggler 按钮和一个 `<code>.navbar-collapse</code>` 菜单 &mdash;
+AdminLTE's PushMenu isn't used at all.
+完全不使用 AdminLTE 的 PushMenu。
+<code>sidebar-expand-*</code> class is dropped from
+<code>sidebar-expand-*</code> 类从
+<code>&lt;body&gt;</code>, since there is no sidebar to expand.
+<code>&lt;body&gt;</code> 中移除，因为没有侧边栏需要展开。
+Everything else stays the same
+其他一切保持不变
+Cards, the content header, breadcrumbs, the footer, and the
+卡片、内容页头、面包屑、页脚，以及
+light/dark color modes all behave exactly as they do on the
+浅色/深色模式，其行为都与
+sidebar pages &mdash; this card is unmodified AdminLTE markup.
+侧边栏页面完全一致 &mdash; 这张卡片是未经修改的 AdminLTE 标记。
+Monthly report generation
+生成月度报告
+Storage used
+已用
+Back to the sidebar layout
+返回侧边栏布局
+Advanced Form Elements
+高级元素
+>Performance<
+>性能<
+>Tooling<
+>工具<
+Type to filter, press Enter to create a new tag, use the
+输入以筛选，按 Enter 创建新标签，使用
+&times; button to remove one.
+&times; 按钮移除标签。
+Option groups, loaded on demand
+按需加载的选项组
+Options arrive through Tom Select's <code>load</code> callback
+选项通过 Tom Select 的 `<code>load</code>` 回调传入
+(a simulated API here) and are grouped by team.
+（此处为模拟 API），并按团队分组。
+Date &amp; time picker
+日期 &amp; 时间选择器
+Range picker
+范围选择
+Date picker
+日期选择
+Pick a start date, then an end date.
+选择一个开始日期，然后选择一个结束日期。
+Time picker
+时间选择
+Select a delivery date
+选择配送日期
+Select date and time
+选择日期和时间
+Select a reporting period
+选择报告周期
+Select a time
+选择时间
+"Frontend"
+"前端"
+"Backend"
+"后端"
+flatpickr("#delivery-date", {
+flatpickr("#delivery-date", {"locale": "zh",
+flatpickr("#meeting-start", {
+flatpickr("#meeting-start", {"locale": "zh",
+flatpickr("#report-period", {
+flatpickr("#report-period", {"locale": "zh",
+flatpickr("#reminder-time", {
+flatpickr("#reminder-time", {"locale": "zh",
+>Editors<
+>编辑器<
+| Editors
+| 编辑器
+the recommended editor integration. See the
+推荐的编辑器集成。请参见
+page for markdown editors and other alternatives.
+中 Markdown 编辑器及其他替代方案的页面。
+Compose an announcement
+发布公告
+The classic "flat toolbar on top" editor. The toolbar below is
+经典的“顶部扁平工具栏”编辑器。下方工具栏
+fully configurable &mdash; add or remove controls per use case.
+完全可配置 &mdash; 可按使用场景添加或移除控件。
+<h2>Quarterly product update</h2>
+<h2>季度产品更新</h2>
+Welcome to the <strong>Q3 review</strong>. This quarter the team
+欢迎来到 <strong>Q3 回顾</strong>。本季度团队
+shipped three headline features and closed out 47 reported bugs.
+交付了三项主打功能，并关闭了 47 个已报告的 bug。
+<li>New onboarding flow &mdash; trial activation up 12%</li>
+<li>全新引导流程 &mdash; 试用激活率提升 12%</li>
+<li>Streaming exports &mdash; large reports no longer time out</li>
+<li>流式导出 &mdash; 大型报告不再超时</li>
+<li>Single sign-on (SAML) for enterprise plans</li>
+<li>面向企业版计划的单点登录（SAML）</li>
+"The new exports alone save our analysts a full day every week."
+“仅新的导出功能，每周就能为我们的分析师节省一整天。”
+&mdash; beta customer
+&mdash; 测试客户
+Next quarter's focus is <em>performance, accessibility and the
+下季度的重点是 <em>性能、可访问性以及
+public API</em>. Edit this draft and leave your comments inline.
+公共 API</em>。请编辑此草稿并留下行内评论。
+Bubble theme &mdash; inline editing
+气泡主题 &mdash; 内联编辑
+No visible chrome until you need it: select any text below and a
+在你需要之前没有任何可见的界面元素：选中下方任意文本，
+floating toolbar appears &mdash; ideal for editable page sections,
+就会浮现一个浮动工具栏 &mdash; 非常适合可编辑的页面区块、
+comments, or notes.
+评论或笔记。
+Our support hours are <strong>Monday to Friday, 9:00&ndash;17:00 (CET)</strong>.
+我们的支持时间是 <strong>周一至周五，9:00&ndash;17:00（中欧时间）</strong>。
+Requests submitted outside these hours are picked up the next
+在这些时间之外提交的请求将在下一个
+business day.
+工作日处理。
+For urgent production incidents, page the on-call engineer
+对于紧急生产事故，请通过状态仪表盘
+through the status dashboard instead of filing a ticket.
+呼叫值班工程师，而不是提交工单。
+Same Quill instance, different theme &mdash; load
+同一个 Quill 实例，不同的主题 &mdash; 加载
+> instead of <
+> 而不是 <
+Snow theme: classic toolbar-on-top editor
+雪主题：经典顶部工具栏编辑器
+Compose the announcement...
+撰写公告……
+Bubble theme: toolbar appears when text is selected
+气泡主题：选中文本时显示工具栏
+Click here and start typing...
+点击此处并开始输入……
+// Quill renders its dropdown pickers (heading level) as unnamed
+// Quill 将其下拉选择器（标题级别）渲染为未命名的
+// ARIA buttons — give them an accessible name (WCAG 4.1.2).
+// ARIA 按钮 —— 为它们提供一个可访问名称（WCAG 4.1.2）。
+"New Visitors"
+"新访客"
+"Returning Visitors"
+"回头客"
+q: "My own theming keeps getting overwritten by AdminLTE.",
+q: "我自己设置的主题总是被 AdminLTE 覆盖。",
+a: `Turn the bundled switcher off with <code>&lt;html data-lte-color-mode="off"&gt;</code>. ColorMode then never writes <code>data-bs-theme</code> — not on load, not on a toggle click, not when the OS preference changes — so your own switcher (or a custom Bootstrap theme name) stays in control. If you only need a server-rendered default instead, render <code>data-bs-theme</code> on <code>&lt;html&gt;</code> and it is respected as long as the visitor hasn't picked a theme themselves. See <a href="color-mode.html">Color Mode</a>.`
+a: `用 <code>&lt;html data-lte-color-mode="off"&gt;</code> 关闭内置的切换器。此后 ColorMode 永远不会写入 <code>data-bs-theme</code> —— 加载时不会，点击切换开关时不会，操作系统偏好变化时也不会 —— 因此你自己的切换器（或自定义 Bootstrap 主题名）始终掌控全局。如果你只是想要一个服务端渲染的默认值，那就把 <code>data-bs-theme</code> 渲染到 <code>&lt;html&gt;</code> 上，只要访客自己尚未选择主题，它就会被遵循。参见 <a href="color-mode.html">明暗模式</a>。`
+AdminLTE doesn't bundle a rich text editor. This page uses
+AdminLTE 不包含富文本编辑器。本页面使用
+Snow theme &mdash; full toolbar
+雪景主题 &mdash; 完整工具栏
+Type to search people…
+输入以搜索人员...
+Edit in place
+就地编辑

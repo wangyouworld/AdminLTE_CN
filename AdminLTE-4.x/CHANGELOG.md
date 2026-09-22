@@ -5,7 +5,24 @@ AdminLTE 的所有显著变更都将记录在此文件中。
 格式基于 [记录变更日志](https://keepachangelog.com/en/1.0.0/)，
 本项目遵循 [语义化版本控制](https://semver.org/spec/v2.0.0.html)。
 
-## [未发布]
+## [4.2.0] - 2026-08-06
+
+### 新增
+
+- **高级表单页面：** `forms/advanced.html` 演示了推荐的 Tom Select 与 Flatpickr 集成（可搜索的单选、标签样式的多选、按需加载的选项组；日期、日期时间、范围和时间内选择器），而 `forms/editors.html` 演示了 Quill 2 的 snow（工具栏）和 bubble（内联）两种主题。CDN 资源被固定到文档 Integrations 页面所推荐的版本，并带有 SRI 哈希。这两个页面都可以从侧边栏的 Forms 菜单中链接到。
+- **顶部导航布局演示：** `layout/top-nav.html` —— 一个无侧边栏的页面，其主导航位于 app-header 中，采用普通的 Bootstrap `navbar-expand-lg`（移动端有折叠切换按钮，不使用 PushMenu）。无需新增 CSS：标记中没有 `.app-sidebar` 时，`app-wrapper` 网格的 `auto` 侧边栏列会自动收缩为零宽度。
+- **颜色模式：服务端渲染的主题，以及为拥有自己主题方案的应用提供的退出机制。** ColorMode 现在按以下顺序解析主题：访客已存储的选择，然后是页面自身在 `<html data-bs-theme="light|dark">` 中声明的主题，最后是操作系统偏好 —— 因此从 cookie 或用户记录在服务端渲染的主题不再会在加载时被覆盖，也不会在操作系统偏好首次变化时丢失。自行管理 `data-bs-theme` 的应用 —— 包括使用 ColorMode 无法解析的自定义 Bootstrap 主题名的应用 —— 可以用 `<html data-lte-color-mode="off">` 完全关闭该模块：加载时不会写入任何内容，点击 `[data-bs-theme-value]` 切换开关时不会，操作系统偏好变化时也不会，而且 `<head>` 中的预绘制代码片段也会遵循这一点（#6084，由 @cytech 报告；#6093，感谢 @dfsmania）。该代码片段现在用 `data-lte-theme-resolved` 标记它自行解析出的值，因此计算得出的主题永远不会被误认为是页面声明的主题。
+- **面向客户端渲染布局的 `initialize()` / `teardown()` 生命周期 API：** 在 `DOMContentLoaded` 之后将布局构建到持久化 `<body>` 中的框架（GWT 及类似的小部件工具包）可以在布局挂载后调用 `adminlte.initialize()` —— 它会拆除上一轮周期的监听器，并针对当前 DOM 重新运行每个插件的初始化，且可以安全地重复调用（#6083，感谢 @themarioga）。`teardown()` 则是相反操作，适用于卸载布局的应用。在此过程中，重新初始化也得到了加固：无障碍模块的逐字段 `invalid` 监听器不再跨周期叠加，在文档仍在加载时调用 `initialize()` 不再会抑制最初的 `DOMContentLoaded` 执行，并且从生命周期回调内部调用 `initialize()` 不再会递归。
+
+### 变更
+
+- **开发依赖已刷新到最新版本**，包括两个大版本升级：`eslint-plugin-astro` 2 → 3 和 `eslint-plugin-unicorn` 72 → 73，后者新增的 `single-line-block-comment-style` 规则促使将 `src/ts/util/index.ts` 中的四条单行横幅注释转换为行注释。此外还有 Astro 7.1.6、ESLint 10.8、typescript-eslint 8.66、Sass 1.102、Rollup 4.62.4、Terser 5.49.2、PostCSS 8.5.25、happy-dom 20.11.1、`@astrojs/mdx` 7.0.5，以及 concurrently、fs-extra 和 globals。TypeScript 保持在 6.0.3：7.0 已经发布，但 `typescript-eslint`（peer `>=4.8.4 <6.1.0`）和 `@astrojs/check`（peer `^5 || ^6`）都仍然限制它，因此安装它会直接导致依赖解析失败。因此 `dist/` 中没有任何变化。取代 #6085–#6092。
+- 修正了 `base-component.ts` 和 `push-menu.ts` 中的组件文档字符串（#6082，感谢 @dfsmania），`adminlte-docs.scss` 的横幅现在会随其他源码横幅一起由 `npm version` 同步版本号，并且 README 的截图已降采样为 WebP，以加快冷缓存加载速度。
+
+### 已修复
+
+- **渲染为折叠状态的侧边栏不再在加载时弹开：** 一个带有 `<body class="sidebar-collapse">` 的页面，其状态在初始化期间被 PushMenu 的响应式处理覆盖，导致一个刻意折叠的侧边栏在宽屏上自行展开。现在，只有当标记中侧边栏尚未折叠时，响应式处理才会运行（#6076，感谢 @dfsmania）。
+- **明暗模式文档页面同时运行了两个切换器：** `docs/color-mode.html` 仍带有 4.1 之前的行内切换器，它将自身的处理器绑定到与内置模块相同的 `[data-bs-theme-value]` 按钮上，并持久化到不同的 `localStorage` 键（`theme` 而不是 `lte-theme`）。它已被移除 —— 该页面现在和其他所有页面一样使用随包发布的明暗模式。
 
 ## [4.1.0] - 2026-07-02
 

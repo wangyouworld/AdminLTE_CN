@@ -1,0 +1,299 @@
+---
+import Head from "@components/_head.astro"
+import Footer from "@components/dashboard/_footer.astro"
+import Topbar from "@components/dashboard/_topbar.astro"
+import Sidenav from "@components/dashboard/_sidenav.astro"
+import Scripts from "@components/_scripts.astro"
+
+const title = "AdminLTE 4 | 高级元素"
+const path = "../../../dist"
+const mainPage = "forms"
+const page = "advanced";
+
+// 智能路径解析：根据目录深度计算相对路径
+const pathname = Astro.url.pathname;
+const pathSegments = pathname.split('/').filter(segment => segment !== '');
+const depth = pathSegments.length > 0 ? pathSegments.length - 1 : 0;
+const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <Head title={title} path={path} />
+    <link
+      rel="stylesheet"
+      href={deploymentPath + "assets/tom-select/tom-select.bootstrap5.min.css"}
+      integrity="sha384-qNqaCnsmyTrYVwmqv4/4PcwMK8ZFAQnYPpVjWor+6cX6rKsPhebzu8vO2J3s+VZg"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href={deploymentPath + "assets/flatpickr/flatpickr.min.css"}
+      integrity="sha384-RkASv+6KfBMW9eknReJIJ6b3UnjKOKC5bOUaNgIY778NFbQ8MtWq9Lr/khUgqtTt"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <div class="app-wrapper">
+      <Topbar path={path} />
+      <Sidenav path={path} mainPage={mainPage} page={page} />
+      <main class="app-main">
+        <div class="app-content-header">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6">
+                <h1 class="mb-0 fs-3">高级元素</h1>
+              </div>
+              <div class="col-sm-6">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">首页</a></li>
+                    <li class="breadcrumb-item"><a href="#">表单</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">高级元素</li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="app-content">
+          <div class="container-fluid">
+            <div class="row g-4">
+              <div class="col-12">
+                <div class="callout callout-info">
+                  AdminLTE 有意不捆绑表单控件。
+                  本页面上的控件使用了推荐的第三方集成——
+                  <a
+                    href="https://tom-select.js.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="callout-link"
+                  >Tom Select</a>
+                  和
+                  <a
+                    href="https://flatpickr.js.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="callout-link"
+                  >Flatpickr</a>.
+                  查看
+                  <a href="../docs/integrations.html" class="callout-link">推荐集成</a>
+                  页包含完整列表及安装代码片段。
+                </div>
+              </div>
+
+              <!-- Tom Select -->
+              <div class="col-md-6">
+                <div class="card card-primary card-outline mb-4">
+                  <div class="card-header">
+                    <div class="card-title">Tom Select</div>
+                  </div>
+                  <div class="card-body">
+                    <div class="mb-4">
+                      <label for="country" class="form-label">单选并搜索</label>
+                      <select id="country" class="form-control" aria-label="单选并搜索">
+                        <option value="">选择一个国家&hellip;</option>
+                        <option>澳大利亚</option>
+                        <option>巴西</option>
+                        <option>加拿大</option>
+                        <option>法国</option>
+                        <option>德国</option>
+                        <option>意大利</option>
+                        <option>日本</option>
+                        <option>拉脱维亚</option>
+                        <option>荷兰</option>
+                        <option>西班牙</option>
+                        <option>英国</option>
+                        <option>美国</option>
+                      </select>
+                      <div class="form-text">开始输入以筛选列表。</div>
+                    </div>
+                    <div class="mb-4">
+                      <label for="post-tags" class="form-label">多选带标签</label>
+                      <select id="post-tags" class="form-control" aria-label="多选带标签" multiple>
+                        <option value="bootstrap" selected>Bootstrap</option>
+                        <option value="javascript" selected>JavaScript</option>
+                        <option value="css">CSS</option>
+                        <option value="accessibility">无障碍访问</option>
+                        <option value="performance">性能</option>
+                        <option value="tooling">工具</option>
+                      </select>
+                      <div class="form-text">
+                        输入以筛选，按 Enter 创建新标签，使用
+                        &times; 按钮移除标签。
+                      </div>
+                    </div>
+                    <div>
+                      <label for="reviewer" class="form-label">按需加载的选项组</label>
+                      <select id="reviewer" class="form-control" aria-label="按需加载的选项组"></select>
+                      <div class="form-text">
+                        选项通过 Tom Select 的 `<code>load</code>` 回调传入
+                        （此处为模拟 API），并按团队分组。
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer text-body-secondary small">
+                    由
+                    <a
+                      href="https://tom-select.js.org/"
+                      target="_blank"
+                      rel="noopener"
+                      class="link-body-emphasis"
+                    >Tom Select</a>
+                    &mdash; 提供支持 — 基于纯 JS，无需 jQuery。
+                  </div>
+                </div>
+              </div>
+
+              <!-- Flatpickr -->
+              <div class="col-md-6">
+                <div class="card card-success card-outline mb-4">
+                  <div class="card-header">
+                    <div class="card-title">Flatpickr</div>
+                  </div>
+                  <div class="card-body">
+                    <div class="mb-4">
+                      <label for="delivery-date" class="form-label">日期选择</label>
+                      <input
+                        type="text"
+                        id="delivery-date"
+                        class="form-control"
+                        placeholder="选择配送日期"
+                      />
+                    </div>
+                    <div class="mb-4">
+                      <label for="meeting-start" class="form-label">日期 &amp; 时间选择器</label>
+                      <input
+                        type="text"
+                        id="meeting-start"
+                        class="form-control"
+                        placeholder="选择日期和时间"
+                      />
+                    </div>
+                    <div class="mb-4">
+                      <label for="report-period" class="form-label">范围选择</label>
+                      <input
+                        type="text"
+                        id="report-period"
+                        class="form-control"
+                        placeholder="选择报告周期"
+                      />
+                      <div class="form-text">选择一个开始日期，然后选择一个结束日期。</div>
+                    </div>
+                    <div>
+                      <label for="reminder-time" class="form-label">时间选择</label>
+                      <input
+                        type="text"
+                        id="reminder-time"
+                        class="form-control"
+                        placeholder="选择时间"
+                      />
+                    </div>
+                  </div>
+                  <div class="card-footer text-body-secondary small">
+                    由
+                    <a
+                      href="https://flatpickr.js.org/"
+                      target="_blank"
+                      rel="noopener"
+                      class="link-body-emphasis"
+                    >Flatpickr</a>
+                    &mdash; 提供支持 — 基于纯 JS，无需 jQuery。
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </div>
+    <Scripts path={path} />
+    <script
+      src={deploymentPath + "assets/tom-select/tom-select.complete.min.js"}
+      integrity="sha384-OgdLxftmuTHirLYFRbvXsKJxgSVqpU4ZdZ07tRiBC+Z4GjtQ5Al0uika0gtMfeQw"
+      crossorigin="anonymous"></script>
+    <script
+      src={deploymentPath + "assets/flatpickr/flatpickr.min.js"}
+      integrity="sha384-5JqMv4L/Xa0hfvtF06qboNdhvuYXUku9ZrhZh3bSk8VXF0A/RuSLHpLsSV9Zqhl6"
+      crossorigin="anonymous"></script>
+
+    <script
+      src={deploymentPath + "assets/flatpickr/l10n/zh.js"}
+      integrity="sha384-VkrKIP0k00t+nCV0whCXV73obyqU1SxOHVMBi51kYfdGdJcg2UPxHUugSnmGCoid"
+      crossorigin="anonymous"></script>
+
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Tom Select: single select with search
+        new TomSelect("#country", {
+          sortField: { field: "text", direction: "asc" }
+        });
+
+        // Tom Select: multi-select with removable tags (type to add new ones)
+        new TomSelect("#post-tags", {
+          plugins: ["remove_button"],
+          create: true,
+          persist: false
+        });
+
+        // Tom Select: options fetched on demand and rendered in option groups.
+        // Swap the timeout for fetch("/api/users?q=" + encodeURIComponent(query))
+        // against a real endpoint in production.
+        const reviewers = [
+          { id: 1, name: "奥利维亚·贝内特", team: "前端" },
+          { id: 2, name: "利亚姆·卡特", team: "前端" },
+          { id: 3, name: "艾玛·达斯温", team: "后端" },
+          { id: 4, name: "诺亚·埃文斯", team: "后端" },
+          { id: 5, name: "艾娃·福斯特", team: "设计" },
+          { id: 6, name: "伊桑·格兰特", team: "设计" }
+        ];
+        new TomSelect("#reviewer", {
+          valueField: "id",
+          labelField: "name",
+          searchField: ["name"],
+          optgroupField: "team",
+          optgroups: [
+            { value: "前端", label: "前端" },
+            { value: "后端", label: "后端" },
+            { value: "设计", label: "设计" }
+          ],
+          placeholder: "输入以搜索人员...",
+          preload: "focus",
+          load(query, callback) {
+            setTimeout(() => {
+              const q = query.toLowerCase();
+              callback(reviewers.filter((person) => person.name.toLowerCase().includes(q)));
+            }, 300);
+          }
+        });
+
+        // Flatpickr: date picker
+        flatpickr("#delivery-date", {"locale": "zh","locale": "zh",
+          dateFormat: "Y-m-d"
+        });
+
+        // Flatpickr: date & time picker
+        flatpickr("#meeting-start", {"locale": "zh","locale": "zh",
+          enableTime: true,
+          dateFormat: "Y-m-d H:i"
+        });
+
+        // Flatpickr: range picker
+        flatpickr("#report-period", {"locale": "zh","locale": "zh",
+          mode: "range",
+          dateFormat: "Y-m-d"
+        });
+
+        // Flatpickr: time-only picker
+        flatpickr("#reminder-time", {"locale": "zh","locale": "zh",
+          enableTime: true,
+          noCalendar: true,
+          dateFormat: "H:i",
+          time_24hr: true
+        });
+      });
+    </script>
+  </body>
+</html>
