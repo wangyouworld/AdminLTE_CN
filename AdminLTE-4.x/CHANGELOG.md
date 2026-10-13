@@ -9,7 +9,7 @@ AdminLTE 的所有显著变更都将记录在此文件中。
 
 ### 已修复
 
-- **Charts unreadable in dark mode.** ApexCharts drew its light-theme tooltip (white background) while the tooltip text inherited the page's dark-mode body colour — near-white on white — and axis labels stayed dark grey on the dark card, in every browser. Every demo page now carries a small shared helper (`_scripts`): it sets ApexCharts' global default `theme.mode` from `<html data-bs-theme>` before any chart is created, keeps the chart background transparent, and watches the attribute so every chart with a `chart.id` follows the toggle, the OS preference in auto mode, or your own code. All demo charts got ids. Documented as the **“Charts that follow dark mode”** recipe (#6105, reported by @Yusk03).
+- **图表在深色模式下看不清。** ApexCharts 画的是浅色主题的提示框（白色背景），但提示框文字却继承了页面深色模式下的正文颜色 —— 接近白色，白底白字 —— 而且坐标轴标签在深色卡片上仍然是深灰色，所有浏览器里都是如此。现在每个演示页面都带了一个小的共享辅助脚本（`_scripts`）：它会在任何图表创建之前，根据 `<html data-bs-theme>` 设置 ApexCharts 的全局默认 `theme.mode`，让图表背景保持透明，并监听这个属性，这样每个带 `chart.id` 的图表都会跟随切换器、auto 模式下的系统偏好，或者你自己的代码。所有演示图表都加上了 id。这一条记录为 **“会跟随深色模式的图表”** 实战指南（#6105，由 @Yusk03 反馈）。
 
 ## [4.4.0] - 2026-08-18
 
@@ -386,7 +386,7 @@ AdminLTE 的所有显著变更都将记录在此文件中。
 ### 已修复
 - **Windows 构建兼容性：** 修复了 npm 脚本，通过将 Unix 特定的 shell 命令替换为 `shx` 来实现跨平台工作
   - 更新了 `copy-assets` 脚本以使用 `shx mkdir` 和 `shx cp` 命令
-  - 更新了 `flatten-build` 脚本以使用 `shx cp` 和 `shx rm` 命令  
+  - 更新了 `flatten-build` 脚本以使用 `shx cp` 和 `shx rm` 命令
   - 添加 `shx` 包作为开发依赖项，以支持跨平台 shell 命令
   - 解决了 Windows 系统上“命令语法不正确”的构建失败问题
 - **TeamViewer 模态框兼容性：** 修复了远程桌面兼容性的模态框渐变动画
@@ -582,7 +582,7 @@ cd dist && python3 -m http.server 8080
 
 #### **核心可访问性功能：**
 - **跳过导航：** 自动跳过链接到主要内容、导航和关键部分
-- **焦点管理：** 
+- **焦点管理：**
   - 增强的焦点指示器符合对比度要求
   - 模态框和下拉菜单的焦点陷阱
   - 逻辑制表符顺序管理
@@ -623,7 +623,7 @@ cd dist && python3 -m http.server 8080
   - 用于浏览器 UI 的主题颜色元标签
   - 增强的视口配置
   - 可访问性描述更新
-- **导航组件：** 
+- **导航组件：**
   - 正确的 ARIA 角色和标签
   - 语义化导航地标
   - 键盘导航支持
@@ -755,7 +755,7 @@ a11y.addLandmarks();
   - `npm run build` - 方便的开发构建命令
   - 增强的 `npm run production`，集成 bundlewatch
 
-#### 已更改  
+#### 已更改
 - **升级到 ES 模块：** 在 package.json 中添加 `"type": "module"`
 - **ESLint 现代化：** 完全升级到 ESLint v9，采用新的扁平配置格式
   - 从 `.eslintrc.json` 迁移到现代 `eslint.config.js`
@@ -855,4 +855,4 @@ a11y.addLandmarks();
 1. 运行 `npm install` 以获取最新依赖项
 2. 使用 `npm start` 进行开发
 3. 使用 `npm run production` 进行生产构建
-4. 检查任何自定义 ESLint 配置的兼容性 
+4. 检查任何自定义 ESLint 配置的兼容性
