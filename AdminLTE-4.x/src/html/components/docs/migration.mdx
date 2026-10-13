@@ -133,19 +133,21 @@ AdminLTE 3 使用在 `<body>` 上切换的 `.dark-mode` 类。AdminLTE 4 使用 
 
 内置的 [Color Mode](color-mode.html) 组件读取/写入此属性，并将用户的选择保存在 `localStorage` 中。有关切换实现，请参阅 [Color Mode](color-mode.html) 文档页面。
 
-##### 使用 CSS 变量替代 `.bg-*` 重写类
+##### 额外颜色移到了一个按需启用的样式表里
 
-AdminLTE 3 包含大量一次性的颜色类（如 `.bg-navy`、`.bg-purple`、`.bg-fuchsia` 等）。在 v4 中，推荐使用 Bootstrap 5.3 的 CSS 变量模型：
+AdminLTE 3 在主 CSS 里塞了一大堆一次性的颜色类（`.bg-navy`、`.bg-purple`、`.bg-fuchsia`、`.bg-gradient-*`，还有侧边栏/导航栏皮肤）。到了 v4，核心样式表只认 Bootstrap 的主题色；扩展调色板成了一个独立的、按需启用的文件 `dist/css/adminlte-colors.css`，里面是一套重新设计过的十四种颜色（每一种配白色文字对比度都 ≥ 4.5:1），并且每种颜色都配齐了同样的类系列 —— `.bg-*`、`.text-bg-*`、`.bg-gradient-*`、`.card-*`、`.callout-*`……。
 
 ```html
 <!-- AdminLTE 3 -->
 <div class="card bg-navy">…</div>
+<aside class="main-sidebar sidebar-dark-primary">…</aside>
 
-<!-- AdminLTE 4 — 使用 Bootstrap 工具 + CSS 变量，data 属性会为你自动处理 -->
-<div class="card text-bg-primary">…</div>
+<!-- AdminLTE 4 — load css/adminlte-colors.css after adminlte.css -->
+<div class="card text-bg-navy">…</div>
+<aside class="app-sidebar text-bg-navy shadow" data-bs-theme="dark">…</aside>
 ```
 
-如需完整重新主题，请在 `:root` 上覆盖 `--bs-primary` 等变量。参见 [Customization](customization.html)。
+`lightblue` 变成了 `sky`，`maroon` 变成了 `pink`；如果你的标记依赖旧名字，可以用 `$lte-palette-aliases` 把它们恢复回来。其他所有内容 —— 调色板、皮肤、添加你自己的品牌色 —— 都在[颜色](colors.html)页面里。至于给 Bootstrap 自己的颜色换主题，可以在 `:root` 上覆盖 `--bs-primary` 等变量；详见[自定义](customization.html)。
 
 ##### 图标
 

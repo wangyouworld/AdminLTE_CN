@@ -144,16 +144,17 @@
             role="search"
             action="../pages/search-results.html"
           >
-            <div class="input-group input-group-sm">
-              <label for="navbar-search-input" class="visually-hidden">搜索</label>
+            <label for="navbar-search-input" class="visually-hidden">搜索</label>
+            <div class="navbar-search-field">
               <input
                 type="search"
                 id="navbar-search-input"
                 name="q"
                 class="form-control"
                 placeholder="搜索…"
+                autocomplete="off"
               />
-              <button class="btn btn-outline-secondary" type="submit" aria-label="Submit search">
+              <button class="navbar-search-submit" type="submit" aria-label="Submit search">
                 <i class="bi bi-search" aria-hidden="true"></i>
               </button>
             </div>
@@ -162,6 +163,13 @@
 
           <!--begin::End Navbar Links-->
           <ul class="navbar-nav ms-auto">
+            <!--begin::Search （小屏幕上：上面的输入框是隐藏的，所以链接到搜索页面）-->
+            <li class="nav-item d-md-none">
+              <a class="nav-link" href="../pages/search-results.html" aria-label="搜索">
+                <i class="bi bi-search" aria-hidden="true"></i>
+              </a>
+            </li>
+            <!--end::Search-->
             <!--begin::Messages Dropdown Menu-->
             <li class="nav-item dropdown">
               <a
@@ -532,6 +540,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="../docs/colors.html" class="nav-link">
+                  <i class="nav-icon bi bi-palette"></i>
+                  <p>颜色</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="../docs/rtl.html" class="nav-link">
                   <i class="nav-icon bi bi-text-paragraph"></i>
                   <p>RTL 支持</p>
@@ -839,6 +853,14 @@
                         >Bootstrap CSS 变量</a
                       >。
                     </p>
+                    <p>
+                      嫌 Bootstrap 那八种主题色不够用 ——
+                      想要深蓝色侧边栏、青色的一行组件，或者把你的品牌蓝做成一个正经的
+                      <code>.text-bg-brand</code>？这就是那个按需启用的<a href="colors.html"
+                        >扩展调色板</a
+                      >存在的意义：十二种精心设计的颜色，再加上一行 Sass
+                      钩子（<code>$lte-palette-custom</code>）就能加入你自己的颜色；它放在一个独立的样式表里，所以只要你不加载它，就不会有任何开销。
+                    </p>
                     <h5 id="scss-变量">SCSS 变量</h5>
                     <p>
                       如果您是从源码构建（克隆了仓库或通过 npm + 自己的打包工具安装），请编辑
@@ -1127,11 +1149,43 @@
       });
     </script>
     <!--end::OverlayScrollbars Configure-->
+    <!--begin::Charts follow the colour mode-->
+    <script>
+      // 如果不额外指定，ApexCharts 会按浅色主题来画提示框和坐标轴文字，
+      // 这在深色模式下根本看不清（#6105）。在任何图表创建之前，把页面的颜色模式
+      // 作为全局默认值交给它 —— 这段代码跑在图表页面自己的脚本之前 —— 并且在模式
+      // 发生变化时（ColorMode、auto 模式下的操作系统、或你自己的代码），
+      // 让每一个带 `chart.id` 的图表都跟着同步。
+      (() => {
+        'use strict';
+        const mode = () =>
+          document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'dark' : 'light';
+        // `Apex` 是 ApexCharts 的全局选项对象；它必须在库加载之前就存在。
+        // theme.mode 还会顺带设一个深色的图表背景 —— 这里保留卡片自己的背景。
+        // eslint-disable-next-line unicorn/no-global-object-property-assignment
+        globalThis.Apex ||= {};
+        const apex = globalThis.Apex;
+        apex.theme = { mode: mode() };
+        apex.chart = Object.assign(apex.chart || {}, { background: 'transparent' });
+        new MutationObserver(() => {
+          const next = mode();
+          apex.theme = { mode: next };
+          const instances = apex._chartInstances || [];
+          for (const { chart } of instances) {
+            chart.updateOptions({ theme: { mode: next } }, false, false);
+          }
+        }).observe(document.documentElement, {
+          attributes: true,
+          attributeFilter: ['data-bs-theme'],
+        });
+      })();
+    </script>
+    <!--end::Charts follow the colour mode-->
 
     <!--begin::明暗模式切换-->
-    <!-- The light/dark/auto switcher ships in adminlte.js as the ColorMode
-     module (since 4.1) — no page script needed. Only the no-flash snippet
-     in <head> stays inline, because it must run before first paint. -->
+    <!-- 浅色/深色/自动切换器从 4.1 起就作为 ColorMode 模块内置在 adminlte.js 里了
+     —— 不需要页面脚本。只有 <head> 里那段防止闪烁的代码片段保持内联，
+     因为它必须在首次绘制之前就运行。 -->
     <!--end::明暗模式切换-->
   </body>
 </html>

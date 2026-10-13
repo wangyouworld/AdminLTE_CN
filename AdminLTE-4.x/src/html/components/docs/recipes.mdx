@@ -382,6 +382,40 @@ Bootstrap 模态框 + 一个简单的确认模式：
 
 [颜色模式](color-mode.html)、[无障碍访问](javascript/accessibility.html)以及捆绑的 JS 会自动处理模态框内的 Escape 关闭、焦点陷阱和键盘导航。
 
+##### 会跟随深色模式的图表
+
+图表库会自己绘制文字和提示框，所以它们对 `data-bs-theme` 一无所知。比如 ApexCharts，默认会画出浅色的提示框和深灰色的坐标轴标签 —— 放在深色卡片上，提示框继承来的文字颜色接近白色，白底白字根本看不清。这个库其实有深色主题；你只需要告诉它该用哪一个，并且在模式变化时更新一下。
+
+每个演示页面都带了这个辅助脚本（它是页面底部共享脚本的一部分）。它会在任何图表创建**之前**，根据 `<html data-bs-theme>` 设置 ApexCharts 的全局默认 `theme.mode`，让图表背景保持透明（否则深色模式会把它涂成灰色），并监听这个属性，这样每个带 `chart.id` 的图表都会跟随切换器、auto 模式下的系统偏好，或者你自己的代码：
+
+```html
+<script>
+  const mode = () => (document.documentElement.getAttribute("data-bs-theme") === "dark" ? "dark" : "light")
+  globalThis.Apex ||= {}                                   // ApexCharts' global options object
+  Apex.theme = { mode: mode() }
+  Apex.chart = Object.assign(Apex.chart || {}, { background: "transparent" })
+  new MutationObserver(() => {
+    const next = mode()
+    Apex.theme = { mode: next }
+    for (const { chart } of Apex._chartInstances || []) {
+      chart.updateOptions({ theme: { mode: next } }, false, false)
+    }
+  }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-bs-theme"] })
+</script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.min.js"></script>
+```
+
+给每个图表都加一个 `id`，这样它就会被注册进去，参与实时更新：
+
+```js
+new ApexCharts(document.querySelector("#revenue-chart"), {
+  chart: { id: "revenue-chart", type: "区域", height: 300 },
+  // …
+}).render()
+```
+
+如果你更想用 ColorMode 事件，而不是监听属性变化，可以用 `document.addEventListener("changed.lte.color-mode", e => …)`，它会收到 `e.detail.resolved`（值为 `"light"` 或 `"dark"`）；而上面那个监听器还额外覆盖了 auto 模式下的系统偏好变化，以及任何直接设置这个属性的代码。同样的思路也适用于其他图表库 —— Chart.js 会读取 `Chart.defaults.color` / `Chart.defaults.borderColor`，你可以从 `getComputedStyle(document.body)` 里取值设置，然后在同一个监听器里用 `chart.update()` 重新应用。
+
 ##### 接下来去哪里
 
 - [JavaScript 插件概述](javascript/plugins-overview.html) —— 每个插件的事件名称和方法

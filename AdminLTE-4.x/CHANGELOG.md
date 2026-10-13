@@ -5,6 +5,25 @@ AdminLTE 的所有显著变更都将记录在此文件中。
 格式基于 [记录变更日志](https://keepachangelog.com/en/1.0.0/)，
 本项目遵循 [语义化版本控制](https://semver.org/spec/v2.0.0.html)。
 
+## [4.4.1] - 2026-08-18
+
+### 已修复
+
+- **Charts unreadable in dark mode.** ApexCharts drew its light-theme tooltip (white background) while the tooltip text inherited the page's dark-mode body colour — near-white on white — and axis labels stayed dark grey on the dark card, in every browser. Every demo page now carries a small shared helper (`_scripts`): it sets ApexCharts' global default `theme.mode` from `<html data-bs-theme>` before any chart is created, keeps the chart background transparent, and watches the attribute so every chart with a `chart.id` follows the toggle, the OS preference in auto mode, or your own code. All demo charts got ids. Documented as the **“Charts that follow dark mode”** recipe (#6105, reported by @Yusk03).
+
+## [4.4.0] - 2026-08-18
+
+### 新增
+
+- **扩展调色板（`dist/css/adminlte-colors.css`）** —— 一个按需启用的样式表（gzip 后约 5 kB；`adminlte.css` 保持不变），加入了十四种颜色 —— orange、amber、olive、teal、sky、indigo、violet、fuchsia、pink，以及界面中性色 navy、steel、slate、graphite、midnight —— 以 `--bs-*` token 的形式提供，并配齐 Bootstrap 为自己主题色生成的每一套类系列：`.bg-*`、`.text-bg-*`、`.text-*`、`.border-*`、`.link-*`、`.bg-gradient-*`（8 种主题色也同样支持，跟 v3 一样）、`.card-*` / `.card-outline`、`.callout-*`、`.direct-chat-*`，另外还有深色模式用的 subtle/emphasis token，以及 `.btn.bg-*` 的悬停色阶。这套调色板是生成出来的，不是手工挑的：在 OKLCH 里，每种彩色都是白色文字仍能达到 4.6:1（WCAG AA）的最浅取值，色相与每个 Bootstrap 主题色都至少差 17°、彼此之间至少差 20°，彩度上限与 `primary` 持平，五种中性色则带冷色调，明度档位正是流行后台套件用来做侧边栏的那几档。`scripts/palette.mjs` 可以重新生成它（`npm run palette`）并检查它（`--check`）；还有一个单元测试保证 Sass map 和演示数据同步。用 `$lte-palette-custom: ("brand": #hex)` 添加你自己的颜色，用 `$lte-palette` 替换整套，用 `$lte-palette-aliases: ("lightblue": "sky", "maroon": "pink")` 恢复 v3 的名字。这些都记录在新的 **颜色** 页面（`docs/colors.html`）里 —— 调色板、类系列、分四大类的 17 个皮肤预设（浅色、半深色、全深色、彩色与渐变），每个都配一张布局缩略图，还有组件套装预设、品牌色实战指南、带色相/彩度图的设计规则 —— 并在 **UI → Colors**（`UI/colors.html`）里演示，那个页面会从缩略图预设实时给自己的侧边栏和头部重新上色，展示四组仪表盘配色和每一个组件，还有一个品牌色检查器，能报出对比度、给出一个能达标的同色相取值，并打印出 Sass 代码片段（#6103，由 @johnnyq 提出）。
+- **头部搜索和侧边栏筛选重新做了样式** —— 统一成一套处理方式（`mixins/_search-field.scss`）：一个低调的胶囊形输入框，图标就在里面充当提交按钮，颜色只取自相对主题的 token（`--bs-emphasis-color-rgb`、`--bs-body-color`），所以放在任何彩色或深色的头部/侧边栏上，看起来都像柔和的玻璃质感，放在白色底上则是柔和的灰色，而不是以前那种带边框的 `.input-group` 配一个描边按钮 —— 那个在 `data-bs-theme="dark"` 下会变成近乎全黑。头部那个输入框聚焦时会稍微变宽；`md` 以下则是一个图标，点击跳到搜索页面。新增变量 `$lte-search-field-*`（宽度、聚焦宽度、字号、内边距、图标占位）；Main Header 的文档代码片段以前还在展示 v3 那个没用的 `data-widget="navbar-search"`，现在换成了真正能用的标记。
+- **主题自定义（`generate/theme.html`）** 在它的侧边栏/导航栏/页脚取色器里，把调色板列在 "Extended palette" 下面，还加了一行和前面一样的缩略图预设，加载时会反映页面当前的状态，并且在选中某个调色板颜色时把颜色模式默认成深色；它原来那三段重复的脚本，现在合并成了一个控制器。
+- 迁移和自定义页面都指向了这套调色板；迁移指南把 AdminLTE 3 里每一个颜色和皮肤类都对应到了 v4 的写法。
+
+### 已修复
+
+- **侧边栏装了筛选框后比视口还高。** `.sidebar-wrapper` 原来是用写死的 `100vh − 头部高度` 来设定尺寸的，这个算法假设它上面只有品牌区；而 4.3.0 新增的 `SidebarSearch` 输入框位于品牌区和这个包裹元素之间（这是有意为之，这样菜单滚动时它能保持不动），结果包裹元素就比侧边栏高出了正好一个筛选框的高度，最后几个菜单项被截掉了。现在 `.app-sidebar` 改成了 flex 纵向布局：品牌区和筛选框保持自身尺寸（`flex: 0 0 auto`），`.sidebar-wrapper` 填满剩下的空间（`flex: 1 1 auto; min-height: 0`）并负责滚动 —— 固定布局下如此，只有 `fixed-header` 的那种情况以及 off-canvas 侧边栏也是如此。现在菜单上方或下方再放别的东西，尺寸也都能算对，不用再做高度计算了（#6104，由 @dfsmania 反馈）。
+
 ## [4.3.1] - 2026-08-10
 
 ### 已修复

@@ -143,16 +143,17 @@
             role="search"
             action="../pages/search-results.html"
           >
-            <div class="input-group input-group-sm">
-              <label for="navbar-search-input" class="visually-hidden">搜索</label>
+            <label for="navbar-search-input" class="visually-hidden">搜索</label>
+            <div class="navbar-search-field">
               <input
                 type="search"
                 id="navbar-search-input"
                 name="q"
                 class="form-control"
                 placeholder="搜索…"
+                autocomplete="off"
               />
-              <button class="btn btn-outline-secondary" type="submit" aria-label="Submit search">
+              <button class="navbar-search-submit" type="submit" aria-label="Submit search">
                 <i class="bi bi-search" aria-hidden="true"></i>
               </button>
             </div>
@@ -161,6 +162,13 @@
 
           <!--begin::End Navbar Links-->
           <ul class="navbar-nav ms-auto">
+            <!--begin::Search （小屏幕上：上面的输入框是隐藏的，所以链接到搜索页面）-->
+            <li class="nav-item d-md-none">
+              <a class="nav-link" href="../pages/search-results.html" aria-label="搜索">
+                <i class="bi bi-search" aria-hidden="true"></i>
+              </a>
+            </li>
+            <!--end::Search-->
             <!--begin::Messages Dropdown Menu-->
             <li class="nav-item dropdown">
               <a
@@ -686,6 +694,12 @@
                     <a href="../UI/ribbons.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>丝带</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../UI/colors.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>颜色</p>
                     </a>
                   </li>
                 </ul>
@@ -1353,11 +1367,43 @@
       });
     </script>
     <!--end::OverlayScrollbars Configure-->
+    <!--begin::Charts follow the colour mode-->
+    <script>
+      // 如果不额外指定，ApexCharts 会按浅色主题来画提示框和坐标轴文字，
+      // 这在深色模式下根本看不清（#6105）。在任何图表创建之前，把页面的颜色模式
+      // 作为全局默认值交给它 —— 这段代码跑在图表页面自己的脚本之前 —— 并且在模式
+      // 发生变化时（ColorMode、auto 模式下的操作系统、或你自己的代码），
+      // 让每一个带 `chart.id` 的图表都跟着同步。
+      (() => {
+        'use strict';
+        const mode = () =>
+          document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'dark' : 'light';
+        // `Apex` 是 ApexCharts 的全局选项对象；它必须在库加载之前就存在。
+        // theme.mode 还会顺带设一个深色的图表背景 —— 这里保留卡片自己的背景。
+        // eslint-disable-next-line unicorn/no-global-object-property-assignment
+        globalThis.Apex ||= {};
+        const apex = globalThis.Apex;
+        apex.theme = { mode: mode() };
+        apex.chart = Object.assign(apex.chart || {}, { background: 'transparent' });
+        new MutationObserver(() => {
+          const next = mode();
+          apex.theme = { mode: next };
+          const instances = apex._chartInstances || [];
+          for (const { chart } of instances) {
+            chart.updateOptions({ theme: { mode: next } }, false, false);
+          }
+        }).observe(document.documentElement, {
+          attributes: true,
+          attributeFilter: ['data-bs-theme'],
+        });
+      })();
+    </script>
+    <!--end::Charts follow the colour mode-->
 
     <!--begin::明暗模式切换-->
-    <!-- The light/dark/auto switcher ships in adminlte.js as the ColorMode
-     module (since 4.1) — no page script needed. Only the no-flash snippet
-     in <head> stays inline, because it must run before first paint. -->
+    <!-- 浅色/深色/自动切换器从 4.1 起就作为 ColorMode 模块内置在 adminlte.js 里了
+     —— 不需要页面脚本。只有 <head> 里那段防止闪烁的代码片段保持内联，
+     因为它必须在首次绘制之前就运行。 -->
     <!--end::明暗模式切换-->
     <script>
       // 启用 Bootstrap 风格的表单验证，适用于标记为 .needs-validation

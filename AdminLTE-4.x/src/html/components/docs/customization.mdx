@@ -37,6 +37,8 @@ Bootstrap 和 AdminLTE 在 `:root` 上暴露了数十个 CSS 自定义属性。�
 
 完整列表请参见 [Bootstrap CSS 变量](https://getbootstrap.com/docs/5.3/customize/css-variables/)。
 
+嫌 Bootstrap 那八种主题色不够用 —— 想要深蓝色侧边栏、青色的一行组件，或者把你的品牌蓝做成一个正经的 `.text-bg-brand`？这就是那个按需启用的[扩展调色板](colors.html)存在的意义：十二种精心设计的颜色，再加上一行 Sass 钩子（`$lte-palette-custom`）就能加入你自己的颜色；它放在一个独立的样式表里，所以只要你不加载它，就不会有任何开销。
+
 ##### SCSS 变量
 
 如果您是从源码构建（克隆了仓库或通过 npm + 自己的打包工具安装），请编辑 [`src/scss/_variables.scss`](https://github.com/ColorlibHQ/AdminLTE/blob/master/src/scss/_variables.scss) 并重新编译。

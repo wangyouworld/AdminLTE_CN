@@ -40,7 +40,7 @@ npm run production
 请勿将以下内容部署到生产环境中：
 - `node_modules/` 目录
 - 示例/演示的 HTML 文件（如 `index.html`, `index2.html`, `index3.html` 等）
-- 源文件（`src/`目录）
+- 源文件（`src/` 目录）
 - 开发配置文件
 - 文档文件
 

@@ -1,0 +1,260 @@
+import PaletteWheel from "./_palette-wheel.astro"
+import SkinPreview from "../_skin-preview.astro"
+import { palette, sets, skinGroups, skins } from "../../../utils/palette.mjs"
+
+AdminLTE 4 只用了 Bootstrap 5.3 的主题色来给自己做样式 —— `primary`、`success`、`danger`、`warning`、`info`、`secondary`、`light`、`dark` —— 除此之外没别的。这让 `adminlte.css` 保持得很小，但仪表盘的一行组件里经常想要不止五种色调，而且 AdminLTE 3 的老用户还惦记着 `.bg-navy`、`.bg-teal` 和那些侧边栏皮肤。
+
+**`dist/css/adminlte-colors.css`** 就是答案，而且是按需启用的：多加载一个样式表（gzip 后约 5 kB），就会以 `--bs-*` token 的形式加入十四种颜色，外加 Bootstrap 为自己主题色生成的那一整套类系列。对于不加载它的项目来说，什么都不变。
+
+<div class="d-flex flex-wrap gap-2 my-3">
+  {palette.map(c => (
+    <span class={`badge text-bg-${c.name} fs-6 fw-normal`}>{c.name}</span>
+  ))}
+</div>
+
+所有颜色、皮肤和组件套装都能在 <a href="../UI/colors.html">颜色演示页面</a>上现场试用 —— 那里还有一个给你自己品牌色用的检查器。
+
+##### 获取样式表
+
+把它加载在 `adminlte.css` **之后**。它只添加类，不会覆盖 `adminlte.css` 里的任何东西。
+
+```html
+<link rel="stylesheet" href="css/adminlte.css" />
+<link rel="stylesheet" href="css/adminlte-colors.css" />
+```
+
+来自 CDN（请注明在生产环境中测试的精确版本）：
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@4/dist/css/adminlte-colors.min.css" />
+```
+
+从 npm，使用打包工具：
+
+```js
+import "admin-lte/dist/css/adminlte.min.css"
+import "admin-lte/dist/css/adminlte-colors.min.css"
+```
+
+或者你自己编译 —— Sass 入口是 `src/scss/adminlte-colors.scss`，添加自己的颜色也是走这个入口（见下文）。另外还生成了一个 RTL 版本（`adminlte-colors.rtl.css`），是为了跟其他 CSS 保持形式上的对称；这个样式表里没有任何依赖方向的规则，所以两个文件在哪个方向下都能用。
+
+##### 调色板
+
+九种彩色加上五种中性色，用于界面外观。它们每一种配**白色**文字的对比度都能达到 4.5:1 或更好，所以 `.text-bg-*`、小方盒、徽章和彩色侧边栏读起来都是一致的 —— 不用再逐个颜色去纠结“这个是不是得用深色文字？”。
+
+<div class="table-responsive">
+  <table class="table align-middle">
+    <thead>
+      <tr>
+        <th scope="col">名称</th>
+        <th scope="col">十六进制</th>
+        <th scope="col">OKLCH</th>
+        <th scope="col">白色文字</th>
+        <th scope="col">特点与用途</th>
+      </tr>
+    </thead>
+    <tbody>
+      {palette.map(c => (
+        <tr>
+          <td class="text-nowrap">
+            <span class={`badge text-bg-${c.name} me-2`}>&nbsp;&nbsp;&nbsp;</span>
+            <code>{c.name}</code>
+          </td>
+          <td><code>{c.hex}</code></td>
+          <td class="text-nowrap"><small class="font-monospace">{c.oklchLabel}</small></td>
+          <td class="text-nowrap">{c.contrastWhite.toFixed(1)}:1</td>
+          <td><span class="text-body-emphasis">{c.description}</span> <span class="text-body-secondary">{c.use}</span></td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+这些颜色是按它们本身是什么来命名的，而不是照搬 Bootstrap `$colors` 里的名字（`blue`、`purple`、`red`……）。那些名字和主题色有重叠，所以有意不生成对应的类；如果你想拿原始值，Bootstrap 定义的 `--bs-blue`、`--bs-purple`……这些变量依然还在。
+
+##### 你能得到什么
+
+对于每一种颜色 `<name>`，这个样式表会输出跟 Bootstrap 为主题色输出的那套一模一样的形态，所以透明度修饰符和深色模式的表现完全如你所料：
+
+| 你能得到 | 示例 | 备注 |
+|---|---|---|
+| Token | `--bs-teal`, `--bs-teal-rgb` | 另外在两种颜色模式下都有 `--bs-teal-bg-subtle`、`--bs-teal-border-subtle`、`--bs-teal-text-emphasis` |
+| 背景 | `.bg-teal`, `.bg-teal.bg-opacity-25` | 变量结构和 `.bg-primary` 一样 |
+| 背景 + 对比文字 | `.text-bg-teal` | 白色文字；组件用的就是这个 |
+| 渐变 | `.bg-gradient-teal` | AdminLTE 3 里的那个类；8 种主题色也会一并输出（`.bg-gradient-primary`……）。Bootstrap 可组合的 `.bg-teal.bg-gradient` 效果完全一样 |
+| 文字、边框、链接 | `.text-teal`, `.border-teal`, `.link-teal` | 可搭配 `.text-opacity-*`、`.border-opacity-*`、`.link-underline-*` |
+| 卡片 | `.card-teal`, `.card-outline.card-teal`, `.card.text-bg-teal` | 喂的是和主题色卡片同一套 `--lte-card-variant-*` 变量 |
+| 标注块 | `.callout-teal` | 淡色背景、强调色文字 —— 深色模式下会翻转 |
+| 直聊 | `.direct-chat-teal` | |
+| 组件 | `.small-box.text-bg-teal`, `.info-box.text-bg-teal`, `.badge.text-bg-teal`, `.progress-bar.bg-teal` | 这些本来就能通过 `.text-bg-*` / `.bg-*` 自己上色，所以不用额外输出什么 |
+| 按钮 | `.btn.text-bg-teal`, `.btn.bg-gradient-teal` | 会带上悬停 / 激活状态的色阶，免得看起来像没反应的死按钮 |
+
+##### 皮肤 —— 给侧边栏和头部上色
+
+在 AdminLTE 4 里，所谓“皮肤”并不是一个专门的类：它就是侧边栏和头部上的一个背景工具类加上 `data-bs-theme`。`data-bs-theme="dark"` 会给出浅色的导航链接和品牌文字；`"light"` 则给出深色的。由于每种调色板颜色都配白色文字，所以彩色的侧边栏或头部总是搭配 `dark` 来用：
+
+```html
+<!-- header -->
+<nav class="app-header navbar navbar-expand text-bg-sky" data-bs-theme="dark">…</nav>
+
+<!-- sidebar -->
+<aside class="app-sidebar text-bg-navy shadow" data-bs-theme="dark">…</aside>
+```
+
+后台仪表盘通常会把它们的外观分成四大类，这些预设就是照着这个来分的。每个缩略图都是真家伙的微缩版 —— 包括侧边栏、头部，以及与之搭配的两个点缀色。<a href="../UI/colors.html">颜色演示</a>页面点一下就能把任意预设应用到它自己身上；<a href="../generate/theme.html">主题自定义</a>页面也能做到同样的事，而且之后还能自由地混搭侧边栏、导航栏和页脚（它的取色器把调色板列在“Extended palette”下面）。
+
+{skinGroups.map(group => (
+  <div class="mb-4">
+    <h6 class="fw-semibold mb-1">{group.name}</h6>
+    <p class="text-body-secondary mb-2">{group.note}</p>
+    <div class="table-responsive">
+      <table class="table align-middle mb-0">
+        <thead>
+          <tr>
+            <th scope="col" class="text-nowrap" style="width: 1%">预览</th>
+            <th scope="col">皮肤</th>
+            <th scope="col">头部</th>
+            <th scope="col">侧边栏</th>
+            <th scope="col">说明 / 理由</th>
+          </tr>
+        </thead>
+        <tbody>
+          {skins.filter(s => s.group === group.name).map(s => (
+            <tr>
+              <td><SkinPreview skin={s} size="sm" /></td>
+              <td class="text-nowrap fw-semibold">{s.name}</td>
+              <td class="text-nowrap"><code>{s.header.cls}</code> · <code>{s.header.theme}</code></td>
+              <td class="text-nowrap"><code>{s.sidebar.cls}</code> · <code>{s.sidebar.theme}</code></td>
+              <td>{s.note}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+))}
+
+`bg-body`、`bg-body-secondary` 和 `bg-body-tertiary` 是 Bootstrap 自带的表面工具类 —— 它们会跟随元素的 `data-bs-theme`，这就是为什么“Default”会是一个深色侧边栏。每一个 `text-bg-*` 和 `bg-gradient-*` 条目都需要 `adminlte-colors.css`。
+
+##### 仪表盘配色组 —— 一行组件上该放哪四种颜色
+
+给一排小方盒挑四种颜色，往往是调色板最容易翻车的地方。下面这些四色组合是按色相关系来选的，而不是凭口味挑的；你可以直接照用，也可以拿它们当起点。
+
+<div class="table-responsive">
+  <table class="table align-middle">
+    <thead>
+      <tr>
+        <th scope="col">配色组</th>
+        <th scope="col">类名</th>
+        <th scope="col">效果好的原因</th>
+      </tr>
+    </thead>
+    <tbody>
+      {sets.map(s => (
+        <tr>
+          <td class="text-nowrap fw-semibold">{s.name}</td>
+          <td class="text-nowrap">{s.colors.map(c => <span class={`badge text-bg-${c} me-1`}>{c}</span>)}</td>
+          <td>{s.why}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+##### 添加你的品牌色
+
+**用 Sass**（推荐）：在导入入口之前设置 `$lte-palette-custom`，你的颜色就能获得和内置颜色一模一样的全部 token、工具类和组件钩子。如果你复用了已有的名字，就会覆盖内置的那个值。
+
+```scss
+// your-adminlte.scss
+$lte-palette-custom: (
+  "brand": #0f766e,      // 新颜色 → .bg-brand, .text-bg-brand, .card-brand, …
+  "sky":   #0369a1       // 将出厂颜色重新调至蓝色
+);
+@import "admin-lte/src/scss/adminlte-colors";
+```
+
+To ship **only** your colours (drop the fourteen), set `$lte-palette` itself instead:
+
+```scss
+$lte-palette: (
+  "brand": #0f766e,
+  "brand-dark": #134e4a,
+  "brand-warm": #b45309
+);
+@import "admin-lte/src/scss/adminlte-colors";
+```
+
+还有两个可调项：
+
+- `$lte-palette-aliases` —— 额外的名字，用来生成和某个已有条目相同的类。AdminLTE 3 的项目可以把旧类名找回来：`("lightblue": "sky", "maroon": "pink")`。
+- `$lte-palette-min-contrast-ratio` —— 当 Bootstrap 的 `color-contrast()` 为 `.text-bg-*`、`.bg-gradient-*` 和 `.card-*` 头部挑选自动文字颜色时，所要求的对比度。默认是 `4.5`（WCAG AA 对正文的要求）。如果某个自定义颜色配白色达不到这个值，文字就会翻成黑色；`3`（WCAG AA 对大号文字和 UI 组件的要求）是另一个站得住脚的设置。
+
+**怎么挑一个能用的品牌色。** 唯一要紧的一点，就是白色文字放在它上面能达到 4.5:1 —— 这才能保证 `.text-bg-brand`、小方盒和带品牌的侧边栏清晰可读，也是演示页面上的无障碍检查关卡所校验的东西。大多数品牌蓝、绿、紫都能过关；亮橙色、黄色和青色则不行。<a href="../UI/colors.html#brand-hex">演示页面上的检查器</a>会报出对比度，给出一个只调暗到刚好达标的同色相版本，当你的色相和已有颜色重叠时会提醒你，还会打印出对应的 Sass 代码片段。
+
+**不用 Sass**，直接基于预构建的 CSS，你依然可以手写一种颜色。下面就是一个名字的完整写法：
+
+```css
+:root, [data-bs-theme="light"] {
+  --bs-brand: #0f766e;
+  --bs-brand-rgb: 15, 118, 110;
+  --bs-brand-text-emphasis: #062f2c;
+  --bs-brand-bg-subtle: #cfe4e2;
+  --bs-brand-border-subtle: #9fc8c5;
+}
+[data-bs-theme="dark"] {
+  --bs-brand-text-emphasis: #6fada8;
+  --bs-brand-bg-subtle: #031816;
+  --bs-brand-border-subtle: #094742;
+}
+.bg-brand      { --bs-bg-opacity: 1; background-color: rgba(var(--bs-brand-rgb), var(--bs-bg-opacity)) !important; }
+.text-bg-brand { color: #fff !important; background-color: rgba(var(--bs-brand-rgb), var(--bs-bg-opacity, 1)) !important; }
+.text-brand    { --bs-text-opacity: 1; color: rgba(var(--bs-brand-rgb), var(--bs-text-opacity)) !important; }
+.border-brand  { --bs-border-opacity: 1; border-color: rgba(var(--bs-brand-rgb), var(--bs-border-opacity)) !important; }
+.card-brand, .bg-brand, .text-bg-brand {
+  --lte-card-variant-bg: #0f766e; --lte-card-variant-bg-rgb: 15, 118, 110;
+  --lte-card-variant-color: #fff; --lte-card-variant-color-rgb: 255, 255, 255;
+}
+```
+
+##### 这套调色板是怎么设计出来的
+
+这十四个值不是手工挑出来的，而是生成出来的。`scripts/palette.mjs` 是在 **OKLCH** 里把它们推导出来的 —— OKLCH 是 Tailwind v4 和 Radix 用来构建各自调色板的那种感知均匀色彩空间 —— 依据的是三条规则：
+
+<div class="row g-4 align-items-start my-2">
+  <div class="col-lg-5">
+    <PaletteWheel />
+    <p class="small text-body-secondary mt-2 mb-0">角度是色相，离中心的距离是彩度。实心圆点：调色板。空心圆圈：Bootstrap 的 <em>primary · success · danger · warning · info</em>（secondary 没标注，就在中心）。靠近中心的那些没标注的圆点，是那五种中性色 —— navy、steel、slate、graphite、midnight。</p>
+  </div>
+  <div class="col-lg-7">
+    <ol class="mb-0">
+      <li class="mb-3"><strong>对比度一致，是设计使然。</strong>每一种彩色，都是它那个色相下白色文字仍能达到 4.6:1 的<em>最浅</em>取值。这就让它们全都落在 OKLCH L ≈ 0.55–0.59 —— 和 Bootstrap 自己的 primary、success、danger 视觉分量相同 —— 所以一行混搭的组件里，不会有一个颜色特别扎眼。</li>
+      <li class="mb-3"><strong>色相落在空档里。</strong>Bootstrap 已经占了红（21°）、黄（85°）、绿（157°）、青（218°）和蓝（260°）。调色板的色相跟它们每一个都至少差 17°，彼此之间至少差 20° —— orange 42 · amber 67 · olive 126 · teal 190 · sky 237 · indigo 283 · violet 303 · fuchsia 324 · pink 350 —— 所以在同一个页面里混用调色板和主题色是安全的。</li>
+      <li class="mb-0"><strong>彩度设了上限，中性色带点色调。</strong>彩度上限设在 0.20（和 primary 的 0.23 / danger 的 0.20 持平），这样 indigo 和 violet 就不会盖过 teal 和 amber，因为后两者在这个明度下已经贴到 sRGB 色域边界了。那五种中性色 —— navy、steel、slate、graphite、midnight —— 都是偏冷的色调（色相 ≈ 255–287°），而不是纯灰，这也是现代 UI 中性色的做法；它们的明度档位也正好是流行后台套件用来做侧边栏的那几档（L ≈ 0.24、0.30、0.33、0.40、0.50）。</li>
+    </ol>
+  </div>
+</div>
+
+`npm run palette` 会依据那些目标值重新生成这张图；`npm run palette -- --check`（以及单元测试）会校验对比度和色相间隔，并确认 Sass map 和演示数据是一致的。
+
+##### 无障碍与深色模式
+
+- 每一种内置颜色配白色文字都超过了 4.5:1（最低的是 4.6:1），所以 `.text-bg-*` 从不需要为某个颜色单独开例外，用到它们的演示页面也都能通过 axe 检查关卡。
+- 实色工具类（`.bg-*`、`.text-bg-*`）在两种颜色模式下都一样，Bootstrap 自己的那些也是如此。而 subtle 系列的 token —— 以及随之而来的 `.callout-*` —— 会针对 `data-bs-theme="dark"` 翻转，用的推导方式和 Bootstrap 给 `.alert-*` 用的是同一套。
+- 彩色背景上的 `.text-*` 和 `.link-*` 得你自己负责，跟用 Bootstrap 主题色时一模一样。
+
+##### 从 AdminLTE 3 迁移
+
+v3 的扩展颜色有 `lightblue`、`navy`、`olive`、`lime`、`fuchsia`、`maroon`，再加上 Bootstrap 4 的那套命名调色板，其中好几种配白色文字的对比度都低于 4:1。新调色板保留了有用的那些名字（`navy`、`olive`、`fuchsia`），其余的则重做了：
+
+| AdminLTE 3 | 现在 | |
+|---|---|---|
+| `bg-lightblue` | `text-bg-sky` | 同一色相，取值调到白色文字能过关 |
+| `bg-maroon` | `text-bg-pink` | |
+| `bg-navy` / `bg-olive` / `bg-fuchsia` | 名字不变 | 取值重新设计过 |
+| `bg-lime` | — | 不存在能配白色文字的 lime；改用 `text-bg-olive` 或 Bootstrap 的 `text-bg-warning` |
+| `bg-purple`, `bg-teal`, `bg-orange`, `bg-indigo` … | `text-bg-violet`, `text-bg-teal`, `text-bg-orange`, `text-bg-indigo` | 见调色板表格 |
+| `sidebar-dark-primary`, `navbar-light` … | `text-bg-*` + `data-bs-theme` | 见上文的<em>皮肤</em> |
+| `bg-gradient-*` | `bg-gradient-*` | 保留了，调色板和主题色都能用 |
+
+想在现有标记里继续用旧的类名，一行就能搞定：`$lte-palette-aliases: ("lightblue": "sky", "maroon": "pink");`。

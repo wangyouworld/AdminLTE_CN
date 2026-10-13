@@ -1314,10 +1314,16 @@ App Content Bottom Area
 应用底部内容区域
 Refresh</
 刷新</
-Check more color in
-查看更多颜色
-Bootstrap Background Colors
-Bootstrap 背景颜色
+Bootstrap's own backgrounds are documented under
+Bootstrap 自带的背景样式在以下位置有文档说明
+Background utilities
+背景工具
+>; the <em>Extended palette</em> group needs
+>；<em>扩展调色板</em>分组需要
+<code>css/adminlte-colors.css</code> — see
+<code>css/adminlte-colors.css</code> —— 详见
+<a href={deploymentPath + "docs/colors.html"} class="link-primary">Colors</a>.
+<a href={deploymentPath + "docs/colors.html"} class="link-primary">颜色</a>。
 " thousands"
 " 万"
 Fixed Header
@@ -3702,3 +3708,285 @@ Sidebar Search
 侧边栏搜索
 Deployment & Performance
 部署与性能
+// The extended palette (dist/css/adminlte-colors.css) is opt-in; this page
+// 扩展调色板（dist/css/adminlte-colors.css）是需要主动引入的；本页面加载了它，
+// loads it so the pickers can offer those colours too. Skins use `.text-bg-*`
+// 这样取色器也能提供那些颜色。皮肤用的是 `.text-bg-*`，所以配套的对比色文字
+// so the contrast text comes along — see docs/colors.html.
+// 会一起带上——详见 docs/colors.html。
+Optional Stylesheet(Extended palette — needed for the "Extended palette" options below)
+可选样式表（扩展调色板 —— 下方“扩展调色板”选项需要用到它）
+Page-local: the preset thumbnails' button shell.
+页面内（局部样式）：预设缩略图的按钮外壳。
+Pick a colour mode and a background for the sidebar, the navbar
+给侧边栏、导航栏和页脚挑一个颜色模式和背景。
+and the footer. Each choice is applied to <em>this page</em> at
+每选一项都会立刻应用到<em>本页面</em>上，
+once, and the markup to copy is printed next to the pickers — a
+要复制的标记就印在取色器旁边 —— AdminLTE 4 里的所谓“主题”，
+"theme" in AdminLTE 4 is just a background utility plus
+其实就是在元素上加一个背景工具类再
+<code>data-bs-theme</code> on the element, no extra CSS.
+加 <code>data-bs-theme</code>，不需要额外的 CSS。
+The <strong>Extended palette</strong> group in each picker
+每个取色器里的 <strong>扩展调色板</strong> 分组
+navy, steel, slate, graphite, midnight) needs the optional
+navy, steel, slate, graphite, midnight) 需要可选的
+<code>css/adminlte-colors.css</code>, which this page loads. Every
+<code>css/adminlte-colors.css</code>，本页面已经加载了它。
+one of those colours takes white text, so pair it with the
+本页面已经加载了它。这些颜色每一个都配白色文字，
+<em>Dark</em> mode — the picker does that for you. Palette,
+所以要搭配 <em>Dark</em>（深色）模式使用—— 取色器会帮你自动配好。
+presets and how to add your brand colour:
+调色板、预设，以及如何加入你自己的品牌色：
+<a href={deploymentPath + "docs/colors.html"} class="callout-link">Colors documentation</a>
+<a href={deploymentPath + "docs/colors.html"} class="callout-link">颜色文档</a>
+· <a href={deploymentPath + "UI/colors.html"} class="callout-link">Colors demo</a>.
+· <a href={deploymentPath + "UI/colors.html"} class="callout-link">颜色演示</a>。
+Sidebar + navbar combinations in the four families admin
+后台仪表盘常见的四大类侧边栏 + 导航栏组合。
+dashboards usually offer. Click one to apply it to this
+点一下即可应用到本页面，
+page and fill the pickers below; then fine-tune.
+并自动填入下方的取色器；然后再微调。
+// Theme Customize: one controller for the three regions. Applies the
+// 主题自定义：用一个控制器统一管这三个区域。把选好的背景 + 颜色模式
+// chosen background + colour mode to THIS page and prints the markup.
+// 应用到本页面上，并打印出对应的标记。
+// Page-local demo script — not part of adminlte.js.
+// 页面内的演示脚本 —— 不属于 adminlte.js 的一部分。
+Bootstrap's background utilities (all of adminlte.css) …
+Bootstrap 的背景工具类（全部来自 adminlte.css）……
+Start from what the page is already showing.
+从页面当前显示的内容开始。
+// Every palette colour is designed for white text: default the
+// 每个调色板颜色都是为白色文字设计的：当用户挑了一个颜色、
+// mode to dark when one is picked and no mode was chosen yet.
+// 但还没选颜色模式时，就把模式默认成深色。
+Presets: sidebar + navbar in one click; the footer is left as it is.
+预设：一次点击就搞定侧边栏 + 导航栏；页脚保持原样不动。
+q: "Where did the v3 colours go — <code>bg-navy</code>, <code>bg-teal</code>, the sidebar skins? Can I add my brand colour?",
+q: "v3 里那些颜色都去哪了 —— <code>bg-navy</code>、<code>bg-teal</code>，还有侧边栏皮肤？我能加自己的品牌色吗？",
+a: `<p>They live in an opt-in stylesheet, <code>dist/css/adminlte-colors.css</code> (≈ 5 kB gzipped), so they cost nothing unless you load it: fourteen redesigned colours — every one readable with white text — with the full <code>.bg-*</code>, <code>.text-bg-*</code>, <code>.card-*</code>, <code>.callout-*</code>, <code>.bg-gradient-*</code> families. A sidebar "skin" is just <code>&lt;aside class="app-sidebar text-bg-navy" data-bs-theme="dark"&gt;</code>.</p>
+a: `<p>它们放在一个需要主动引入的样式表里，也就是 <code>dist/css/adminlte-colors.css</code>（gzip 后约 5 kB），所以只要你不加载它，就不会有任何额外开销：里面是十四种重新设计过的颜色 —— 每一种都能配白色文字清晰阅读 —— 并且带齐了 <code>.bg-*</code>、<code>.text-bg-*</code>、<code>.card-*</code>、<code>.callout-*</code>、<code>.bg-gradient-*</code> 这几整套系列。所谓侧边栏“皮肤”，其实就是 <code>&lt;aside class="app-sidebar text-bg-navy" data-bs-theme="dark"&gt;</code>。</p>
+<p class="mb-0">Your own colour is a one-liner in Sass, <code>$lte-palette-custom: ("brand": #0f766e)</code>. Everything — palette, presets, the brand-colour checker — is on <a href="colors.html">Colors</a>; try skins live on the <a href="../UI/colors.html">Colors demo</a> or the <a href="../generate/theme.html">Theme Customize</a> page.`
+<p class="mb-0">你自己的颜色，在 Sass 里一行就能搞定：<code>$lte-palette-custom: ("brand": #0f766e)</code>。所有东西 —— 调色板、预设、品牌色检查器 —— 都在 <a href="colors.html">颜色</a> 页面里；想现场试试皮肤，可以去 <a href="../UI/colors.html">颜色演示</a> 或 <a href="../generate/theme.html">主题自定义</a> 页面。`
+Colors |
+颜色 |
+Colors<
+颜色<
+Colors
+颜色
+Opt-in<
+按需启用<
+The extended palette lives in its own stylesheet,
+扩展调色板住在它自己的样式表里，也就是
+<code>dist/css/adminlte-colors.css</code>, so it costs nothing
+<code>dist/css/adminlte-colors.css</code>，所以只要你不加载它，就不会有任何开销。
+unless you load it. See it in action on the
+想看实际效果，可以到
+<a href={deploymentPath + "UI/colors.html"} class="callout-link">Colors demo page</a>,
+<a href={deploymentPath + "UI/colors.html"} class="callout-link">颜色演示页面</a>，
+which also lets you try skins on a real layout and check your own brand colours.
+在那里还能在真实布局上试用各种皮肤，并检查你自己的品牌色。
+Colors"
+颜色"
+// This page is the one demo page that loads the optional extended palette,
+// 本页面是唯一一个加载了可选扩展调色板（dist/css/adminlte-colors.css）的演示页。
+// dist/css/adminlte-colors.css. Nothing here is in adminlte.css.
+// 这里用到的任何东西都不在 adminlte.css 里。
+// The skin switcher below only offers colours designed for white text.
+// 下面的皮肤切换器只提供那些专为白色文字设计的颜色。
+Subtle<
+淡色<
+["Active users", "Revenue", "Support tickets", "Uptime"]
+["活跃用户", "营收", "支持工单", "在线率"]
+This page loads the optional
+本页面加载了可选的
+<code>dist/css/adminlte-colors.css</code> — fourteen extra colours
+<code>dist/css/adminlte-colors.css</code> —— 十四种额外颜色
+navy, steel, slate, graphite, midnight) as <code>--bs-*</code> tokens plus the
+navy、steel、slate、graphite、midnight），以 <code>--bs-*</code> token 的形式提供，外加
+families. It is not part of <code>adminlte.css</code>; nothing else
+这几套类系列。它不属于 <code>adminlte.css</code> 的一部分；
+in the demo uses it.
+演示里也没有别的地方用到它。
+Every colour takes white text at 4.6:1 or better and was placed
+每一种颜色配白色文字都能达到 4.6:1 或更好，
+to sit next to Bootstrap's own theme colours without clashing.
+而且在排布时都考虑到了要跟 Bootstrap 自己的主题色相邻而不冲突。
+How and why is on the
+具体的做法和原因在
+<a href={deploymentPath + "docs/colors.html"} class="callout-link">Colors documentation page</a>.
+<a href={deploymentPath + "docs/colors.html"} class="callout-link">颜色文档页面</a>上。
+Try a skin on this page
+在本页面尝试皮肤
+A skin is a background utility plus <code>data-bs-theme</code>
+所谓皮肤，就是侧边栏和头部上的一个背景工具类加上 <code>data-bs-theme</code>
+on the sidebar and the header — no CSS of its own. The
+ —— 它本身没有任何 CSS。
+buttons below recolour <em>this page's</em> sidebar and header
+下面的按钮会重新给<em>本页面的</em>侧边栏和头部上色，
+so you can judge a combination in place; the markup they
+方便你就地判断一个组合好不好看；
+produce is printed underneath. For the footer, Bootstrap's own
+它们生成的标记会印在下面。
+backgrounds and free mixing, use the
+至于页脚、Bootstrap 自带的背景以及自由混搭，
+<a href={deploymentPath + "generate/theme.html"}>Theme Customize</a> page —
+请用 <a href={deploymentPath + "generate/theme.html"}>主题自定义</a> 页面 ——
+its pickers list the palette under "Extended palette".
+它的取色器把调色板列在 "扩展调色板" 下面。
+Sidebar colour
+侧边栏颜色
+Header colour
+页眉颜色
+The palette
+调色板
+Dashboard sets
+仪表板设置
+Which four colours to put on a widget row is where "random" usually
+一行组件上该放哪四种颜色，往往就是"随便挑"最容易钻空子的地方。
+creeps in. These quartets are chosen by hue relationship. They are
+下面这些四色组合是按色相关系选出来的。
+recommendations, not classes.
+它们只是推荐，不是类。
+Utilities<
+公用功能<
+Every family Bootstrap generates for its theme colours, generated
+Bootstrap 为自己的主题色生成的每一套类系列，
+for the palette — the same CSS-variable shape, so
+这里都为调色板生成了一份 —— CSS 变量的形态完全一样，
+<code>.bg-opacity-*</code>, <code>.link-underline-*</code> and friends compose.
+所以 <code>.bg-opacity-*</code>、<code>.link-underline-*</code> 之类的都能组合使用。
+Components<
+组件<
+AdminLTE's widgets colour themselves through <code class="text-body-emphasis">.text-bg-*</code>
+AdminLTE 的组件是通过 <code class="text-body-emphasis">.text-bg-*</code>
+and the <code class="text-body-emphasis">--lte-card-variant-*</code> variables, so the palette
+和 <code class="text-body-emphasis">--lte-card-variant-*</code> 变量来给自己上色的，
+reaches them with no per-component CSS.
+所以调色板不用为每个组件单独写 CSS 就能作用到它们身上。
+The header takes the colour and its contrast text; the body stays neutral.
+头部采用该颜色及其对比文字；主体保持中性色。
+A three-pixel top border in the palette colour — the v3 idiom.
+顶部一条三像素的边框，用调色板的颜色 —— v3 里的经典做法。
+Whole card in colour; header and card tools inherit the contrast text.
+整张卡片都用该颜色；头部和卡片工具按钮继承对比文字色。
+Shipments<
+发货<
+Reviews<
+评价<
+86% five-star this month
+本月 86% 的五星评价
+uses the subtle and emphasis tokens, so it flips correctly in dark mode.
+使用了细微的强调标记，因此在深色模式下能正确切换。
+Learn more
+了解更多
+<strong>.callout-amber</strong> — the same tokens Bootstrap uses for <code>.alert-*</code>.
+<strong>.callout-amber</strong> — 与 Bootstrap 用于 <code>.alert-*</code> 的相同标记。
+Save<
+保存<
+Delete<
+删除<
+Approve<
+批准<
+Outline via utilities
+用工具类实现描边
+Check a brand colour
+检查品牌色
+Adding your own colour is a one-line Sass override —
+添加自己的颜色，就是一行 Sass 覆盖 ——
+<code>$lte-palette-custom: ("brand": #hex)</code> — and it then
+<code>$lte-palette-custom: ("brand": #hex)</code> —— 之后它就能获得
+gets every token, utility and component hook the shipped colours
+和内置颜色一模一样的全部 token、工具类和组件钩子。
+get. The one thing worth checking first is that white text on it
+唯一值得先检查一下的，就是白色文字放在它上面能不能达到 4.5:1，
+reaches 4.5:1, so <code>.text-bg-brand</code>, small boxes and a
+这样 <code>.text-bg-brand</code>、
+branded sidebar stay readable. Paste a colour:
+小方框和带品牌的侧边栏才能保持清晰可读。粘贴一个颜色：
+Colour<
+颜色<
+Preview on sidebar
+在侧边栏上预览
+Preview on header
+在头部上预览
+Clear preview
+清除预览
+// Every palette colour is designed for white text, so a coloured
+// 每种调色板颜色都是为白色文字设计的，所以彩色的侧边栏或头部
+// sidebar or header always pairs with data-bs-theme="dark".
+// 总是搭配 data-bs-theme="dark" 来用。
+// ---- Brand colour checker
+// ---- 品牌色检查器
+// OKLCH + WCAG maths; a copy of src/utils/palette.mjs — keep in step.
+// OKLCH + WCAG 的数学计算；是 src/utils/palette.mjs 的一份副本 —— 记得保持同步。
+// Keep hue and chroma, lower lightness until white text reaches 4.6:1
+// 保持色相和彩度不变，不断调低明度，直到白色文字达到 4.6:1
+"Enter a six-digit hex colour, like #0f766e."
+"请输入六位十六进制颜色值，例如 #0f766e。"
+`// your-adminlte.scss — compile with your own Sass build\n` +
+`// your-adminlte.scss —— 用你自己的 Sass 构建来编译\n` +
+<!-- then in your markup -->
+<!-- 然后在你的标记里 -->
+// Preview the brand colour on the page chrome (inline style, so it works
+// 在页面外观上预览这个品牌色（用内联样式，所以没有编译好的类也能生效）；
+// without a compiled class); the skin switcher's next click clears it.
+// 皮肤切换器下一次点击就会把它清掉。
+// ApexCharts draws light-theme tooltips and axis text unless told otherwise,
+// 如果不额外指定，ApexCharts 会按浅色主题来画提示框和坐标轴文字，
+// which is unreadable in dark mode (#6105). Give it the page's colour mode as
+// 这在深色模式下根本看不清（#6105）。在任何图表创建之前，把页面的颜色模式
+// a global default before any chart is created — this runs before the chart
+// 作为全局默认值交给它 —— 这段代码跑在图表页面自己的脚本之前 —— 并且在模式
+// pages' own scripts — and keep every chart that has a `chart.id` in step
+// 发生变化时（ColorMode、auto 模式下的操作系统、或你自己的代码），
+// when the mode changes (ColorMode, the OS in auto mode, or your own code).
+// 让每一个带 `chart.id` 的图表都跟着同步。
+// `Apex` is ApexCharts' global-options object; it must exist before the library loads.
+// `Apex` 是 ApexCharts 的全局选项对象；它必须在库加载之前就存在。
+// theme.mode also sets a dark chart background — keep the card's instead.
+// theme.mode 还会顺带设一个深色的图表背景 —— 这里保留卡片自己的背景。
+<!-- The light/dark/auto switcher ships in adminlte.js as the ColorMode
+<!-- 浅色/深色/自动切换器从 4.1 起就作为 ColorMode 模块内置在 adminlte.js 里了
+module (since 4.1) — no page script needed. Only the no-flash snippet
+—— 不需要页面脚本。只有 <head> 里那段防止闪烁的代码片段保持内联，
+in <head> stays inline, because it must run before first paint. -->
+因为它必须在首次绘制之前就运行。 -->
+(small screens: the field above is hidden, so link to the search page)
+（小屏幕上：上面的输入框是隐藏的，所以链接到搜索页面）
+// Tiny layout thumbnail for a skin preset: sidebar strip, header strip and a
+// 皮肤预设的迷你布局缩略图：一条侧边栏、一条头部，外加一块带该皮肤两个点缀色块
+// body with the skin's two accent tiles. Built only from the palette's own
+// 的主体区域。只用了调色板自己的工具类和 `data-bs-theme` 搭建，所以它渲染用的
+// utilities and `data-bs-theme`, so it renders from the same CSS as the real
+// CSS 和真实布局是同一套，并且会跟随颜色模式。
+// layout and follows the colour mode. Decorative — always paired with a label.
+// 纯装饰性的 —— 总是会配上一个标签。
+// Hue / chroma polar plot of the extended palette against Bootstrap's theme
+// 扩展调色板与 Bootstrap 主题色的色相 / 彩度极坐标图。
+// colours. Angle = OKLCH hue, radius = chroma. Rendered at build time from
+// 角度 = OKLCH 色相，半径 = 彩度。在构建时由
+// src/utils/palette.mjs, so it can never drift from the shipped colours.
+// src/utils/palette.mjs 渲染生成，所以它永远不会和实际发布的颜色跑偏。
+// Hue ring, 72 segments coloured in OKLCH at a light, even L
+// 色相环，72 个扇区，用 OKLCH 以较浅且均匀的 L（明度）着色
+// Labels sit radially outside their marker, anchored by direction
+// 标签沿半径方向位于各自标记的外侧，根据方向来锚定对齐
+advice = `<p class="mb-0">Good to go: <code>.text-bg-${overrideName}</code>, small boxes, badges and a branded sidebar (<code>data-bs-theme="dark"</code>) all take white text.</p>`
+advice = `<p class="mb-0">没问题了：<code>.text-bg-${overrideName}</code>、小方盒、徽章以及带品牌的侧边栏（<code>data-bs-theme="dark"</code>）配白色文字都能正常显示。</p>`
+advice = `<p class="mb-0">Same hue and chroma, lightness lowered until white text passes: <button type="button" class="btn btn-sm btn-link p-0 align-baseline font-monospace" data-use-hex="${fixed}">${fixed}</button> (${contrastWhite(fixed).toFixed(2)}:1). Or keep the colour and use it with dark text — set <code>data-bs-theme="light"</code> on a sidebar or header that carries it.</p>`
+advice = `<p class="mb-0">色相和彩度不变，只把明度调低到白色文字能达标为止：<button type="button" class="btn btn-sm btn-link p-0 align-baseline font-monospace" data-use-hex="${fixed}">${fixed}</button>（${contrastWhite(fixed).toFixed(2)}:1）。或者保留这个颜色，改用深色文字 —— 在承载它的侧边栏或头部上设置 <code>data-bs-theme="light"</code>。</p>`
+advice = `<p class="mb-0">No darker version of this hue reaches 4.5:1 with white text — use it with dark text (<code>data-bs-theme="light"</code>).</p>`
+advice = `<p class="mb-0">这个色相再怎么调暗，配白色文字都达不到 4.5:1 —— 请改用深色文字（<code>data-bs-theme="light"</code>）。</p>`
+notes.push(`it is only ${nearestPalette[1].toFixed(0)}° from <strong>${nearestPalette[0]}</strong> — consider overriding that name instead of adding one`)
+notes.push(`它离 <strong>${nearestPalette[0]}</strong> 只差 ${nearestPalette[1].toFixed(0)}° —— 可以考虑直接覆盖那个名字，而不是新增一个`)
+notes.push(`it is only ${nearestBootstrap[1].toFixed(0)}° from Bootstrap's <strong>${nearestBootstrap[0]}</strong>, so the two may read as one colour`)
+notes.push(`它离 Bootstrap 的 <strong>${nearestBootstrap[0]}</strong> 只差 ${nearestBootstrap[1].toFixed(0)}°，所以两者可能会被看成同一种颜色`)
+`<p class="mb-2">White text <strong>${white.toFixed(2)}:1</strong> ${passes ? "✔ passes WCAG AA" : "✖ below 4.5:1"} · black text ${black.toFixed(2)}:1</p>`,
+`<p class="mb-2">白色文字 <strong>${white.toFixed(2)}:1</strong> ${passes ? "✔ 通过 WCAG AA" : "✖ 低于 4.5:1"} · 黑色文字 ${black.toFixed(2)}:1</p>`,
+notes.length > 0 ? `<p class="mb-0 mt-2 small">Hue note: ${notes.join("; ")}.</p>` : ""
+notes.length > 0 ? `<p class="mb-0 mt-2 small">色相提示：${notes.join("; ")}。</p>` : ""

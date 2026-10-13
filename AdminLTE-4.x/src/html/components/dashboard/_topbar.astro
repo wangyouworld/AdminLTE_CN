@@ -68,17 +68,18 @@ const isDocsPage = pathname.includes("/docs/")
       role="search"
       action={htmlPath + "/pages/search-results.html"}
     >
-      <div class="input-group input-group-sm">
-        <label for="navbar-search-input" class="visually-hidden">搜索</label>
+      <label for="navbar-search-input" class="visually-hidden">搜索</label>
+      <div class="navbar-search-field">
         <input
           type="search"
           id="navbar-search-input"
           name="q"
           class="form-control"
           placeholder="搜索…"
+          autocomplete="off"
         />
         <button
-          class="btn btn-outline-secondary"
+          class="navbar-search-submit"
           type="submit"
           aria-label="Submit search"
         >
@@ -90,6 +91,17 @@ const isDocsPage = pathname.includes("/docs/")
 
     <!--begin::End Navbar Links-->
     <ul class="navbar-nav ms-auto">
+      <!--begin::Search （小屏幕上：上面的输入框是隐藏的，所以链接到搜索页面）-->
+      <li class="nav-item d-md-none">
+        <a
+          class="nav-link"
+          href={htmlPath + "/pages/search-results.html"}
+          aria-label="搜索"
+        >
+          <i class="bi bi-search" aria-hidden="true"></i>
+        </a>
+      </li>
+      <!--end::Search-->
       <!--begin::Messages Dropdown Menu-->
       <li class="nav-item dropdown">
         <a

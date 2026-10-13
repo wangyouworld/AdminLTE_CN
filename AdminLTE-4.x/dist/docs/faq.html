@@ -144,16 +144,17 @@
             role="search"
             action="../pages/search-results.html"
           >
-            <div class="input-group input-group-sm">
-              <label for="navbar-search-input" class="visually-hidden">搜索</label>
+            <label for="navbar-search-input" class="visually-hidden">搜索</label>
+            <div class="navbar-search-field">
               <input
                 type="search"
                 id="navbar-search-input"
                 name="q"
                 class="form-control"
                 placeholder="搜索…"
+                autocomplete="off"
               />
-              <button class="btn btn-outline-secondary" type="submit" aria-label="Submit search">
+              <button class="navbar-search-submit" type="submit" aria-label="Submit search">
                 <i class="bi bi-search" aria-hidden="true"></i>
               </button>
             </div>
@@ -162,6 +163,13 @@
 
           <!--begin::End Navbar Links-->
           <ul class="navbar-nav ms-auto">
+            <!--begin::Search （小屏幕上：上面的输入框是隐藏的，所以链接到搜索页面）-->
+            <li class="nav-item d-md-none">
+              <a class="nav-link" href="../pages/search-results.html" aria-label="搜索">
+                <i class="bi bi-search" aria-hidden="true"></i>
+              </a>
+            </li>
+            <!--end::Search-->
             <!--begin::Messages Dropdown Menu-->
             <li class="nav-item dropdown">
               <a
@@ -532,6 +540,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="../docs/colors.html" class="nav-link">
+                  <i class="nav-icon bi bi-palette"></i>
+                  <p>颜色</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="../docs/rtl.html" class="nav-link">
                   <i class="nav-icon bi bi-text-paragraph"></i>
                   <p>RTL 支持</p>
@@ -751,7 +765,7 @@
               </span>
               <h1 class="faq-hero-title">需要帮忙吗？</h1>
               <p class="faq-hero-lead">
-                最常被问到的 23 个问题，快速解答。 使用搜索功能跳转至任意内容，或点击下方主题。
+                最常被问到的 24 个问题，快速解答。 使用搜索功能跳转至任意内容，或点击下方主题。
               </p>
               <form class="faq-search" role="search" onsubmit="return false;">
                 <i class="bi bi-search faq-search-icon" aria-hidden="true"></i>
@@ -788,7 +802,7 @@
             <nav class="faq-chips mb-4" aria-label="FAQ sections">
               <a href="#getting-started" class="faq-chip faq-chip-primary">
                 <i class="bi bi-rocket-takeoff" aria-hidden="true"></i>
-                <span>开始</span>
+                <span>入门指南</span>
                 <span class="faq-chip-count">5</span> </a
               ><a href="#framework-integrations" class="faq-chip faq-chip-info">
                 <i class="bi bi-puzzle" aria-hidden="true"></i>
@@ -797,7 +811,7 @@
               ><a href="#customization" class="faq-chip faq-chip-warning">
                 <i class="bi bi-palette" aria-hidden="true"></i>
                 <span>定制</span>
-                <span class="faq-chip-count">3</span> </a
+                <span class="faq-chip-count">4</span> </a
               ><a href="#versions" class="faq-chip faq-chip-success">
                 <i class="bi bi-arrow-clockwise" aria-hidden="true"></i>
                 <span>版本与更新</span>
@@ -821,7 +835,7 @@
                     <i class="bi bi-rocket-takeoff" aria-hidden="true"></i>
                   </span>
                   <div>
-                    <h2 class="faq-section-title">开始</h2>
+                    <h2 class="faq-section-title">入门指南</h2>
                     <p class="faq-section-count">5 个问题</p>
                   </div>
                 </header>
@@ -1015,7 +1029,7 @@
                   </span>
                   <div>
                     <h2 class="faq-section-title">定制</h2>
-                    <p class="faq-section-count">3 个问题</p>
+                    <p class="faq-section-count">4 个问题</p>
                   </div>
                 </header>
                 <div class="faq-section-items">
@@ -1043,6 +1057,45 @@
                           href="customization.html"
                           >自定义与主题</a
                         >。
+                      </p>
+                    </div>
+                  </details>
+                  <details class="faq-item" data-faq-item>
+                    <summary>
+                      <span class="faq-q-icon">
+                        <i class="bi bi-question-lg" aria-hidden="true"></i>
+                      </span>
+                      <span class="faq-q-text"
+                        >v3 里那些颜色都去哪了 ——
+                        <code>bg-navy</code
+                        >、<code>bg-teal</code>，还有侧边栏皮肤？我能加自己的品牌色吗？</span
+                      >
+                      <span class="faq-q-chevron">
+                        <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                      </span>
+                    </summary>
+                    <div class="faq-answer">
+                      <p>
+                        它们放在一个需要主动引入的样式表里，也就是
+                        <code>dist/css/adminlte-colors.css</code>（gzip 后约 5
+                        kB），所以只要你不加载它，就不会有任何额外开销：里面是十四种重新设计过的颜色
+                        —— 每一种都能配白色文字清晰阅读 —— 并且带齐了
+                        <code>.bg-*</code
+                        >、<code>.text-bg-*</code>、<code>.card-*</code>、<code>.callout-*</code>、<code
+                          >.bg-gradient-*</code
+                        >
+                        这几整套系列。所谓侧边栏“皮肤”，其实就是
+                        <code
+                          >&lt;aside class="app-sidebar text-bg-navy" data-bs-theme="dark"&gt;</code
+                        >。
+                      </p>
+                      <p class="mb-0">
+                        你自己的颜色，在 Sass 里一行就能搞定：<code
+                          >$lte-palette-custom: ("brand": #0f766e)</code
+                        >。所有东西 —— 调色板、预设、品牌色检查器 —— 都在
+                        <a href="colors.html">颜色</a> 页面里；想现场试试皮肤，可以去
+                        <a href="../UI/colors.html">颜色演示</a> 或
+                        <a href="../generate/theme.html">主题自定义</a> 页面。
                       </p>
                     </div>
                   </details>
@@ -1420,11 +1473,43 @@
       });
     </script>
     <!--end::OverlayScrollbars Configure-->
+    <!--begin::Charts follow the colour mode-->
+    <script>
+      // 如果不额外指定，ApexCharts 会按浅色主题来画提示框和坐标轴文字，
+      // 这在深色模式下根本看不清（#6105）。在任何图表创建之前，把页面的颜色模式
+      // 作为全局默认值交给它 —— 这段代码跑在图表页面自己的脚本之前 —— 并且在模式
+      // 发生变化时（ColorMode、auto 模式下的操作系统、或你自己的代码），
+      // 让每一个带 `chart.id` 的图表都跟着同步。
+      (() => {
+        'use strict';
+        const mode = () =>
+          document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'dark' : 'light';
+        // `Apex` 是 ApexCharts 的全局选项对象；它必须在库加载之前就存在。
+        // theme.mode 还会顺带设一个深色的图表背景 —— 这里保留卡片自己的背景。
+        // eslint-disable-next-line unicorn/no-global-object-property-assignment
+        globalThis.Apex ||= {};
+        const apex = globalThis.Apex;
+        apex.theme = { mode: mode() };
+        apex.chart = Object.assign(apex.chart || {}, { background: 'transparent' });
+        new MutationObserver(() => {
+          const next = mode();
+          apex.theme = { mode: next };
+          const instances = apex._chartInstances || [];
+          for (const { chart } of instances) {
+            chart.updateOptions({ theme: { mode: next } }, false, false);
+          }
+        }).observe(document.documentElement, {
+          attributes: true,
+          attributeFilter: ['data-bs-theme'],
+        });
+      })();
+    </script>
+    <!--end::Charts follow the colour mode-->
 
     <!--begin::明暗模式切换-->
-    <!-- The light/dark/auto switcher ships in adminlte.js as the ColorMode
-     module (since 4.1) — no page script needed. Only the no-flash snippet
-     in <head> stays inline, because it must run before first paint. -->
+    <!-- 浅色/深色/自动切换器从 4.1 起就作为 ColorMode 模块内置在 adminlte.js 里了
+     —— 不需要页面脚本。只有 <head> 里那段防止闪烁的代码片段保持内联，
+     因为它必须在首次绘制之前就运行。 -->
     <!--end::明暗模式切换-->
 
     <script>

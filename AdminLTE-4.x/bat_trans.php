@@ -788,6 +788,13 @@ $jobsList = [
     'extFile'    => '.md',
     'ignorePath' => '/node_modules',
   ],
+  // 翻译 mjs 信息
+  'mjs'    => [
+    'runPath'    => './',
+    'dictFile'   => './mjs_dict.txt',
+    'extFile'    => '.mjs',
+    'ignorePath' => '/node_modules',
+  ],
 ];
 $jobsKeys = implode('、', array_keys($jobsList));
 // 设置永不超时

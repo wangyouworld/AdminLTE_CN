@@ -1,0 +1,3748 @@
+<!doctype html>
+<html lang="zh-CN">
+  <!--begin::Head-->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>颜色 | AdminLTE 4</title>
+
+    <!--begin::主题初始化（防止加载时闪现错误的主题，#6043）-->
+    <script>
+      (() => {
+        'use strict';
+        const root = document.documentElement;
+
+        // 自带主题系统的应用会完全退出 AdminLTE 的颜色模式，
+        // 这里如此，打包后的文件里也一样。
+        if (root.getAttribute('data-lte-color-mode') === 'off') {
+          return;
+        }
+
+        const STORAGE_KEY = 'lte-theme';
+        let stored = null;
+        try {
+          stored = localStorage.getItem(STORAGE_KEY);
+        } catch {
+          // localStorage 可能不可用（比如隐私模式、沙盒 iframe 里）。
+        }
+        // 和 color-mode.ts 里的优先级保持一致：访客存储的选择优先，
+        // 其次是页面自己声明的主题，最后才是操作系统偏好。
+        const authored = root.getAttribute('data-bs-theme');
+        let resolved = 'light';
+        if (stored === 'dark' || stored === 'light') {
+          resolved = stored;
+        } else if (authored === 'dark' || authored === 'light') {
+          resolved = authored;
+        } else if (globalThis.matchMedia('(prefers-color-scheme: dark)').matches) {
+          resolved = 'dark';
+        }
+        root.setAttribute('data-bs-theme', resolved);
+        root.style.colorScheme = resolved;
+        // 在这里标记一下这些值是动态计算出来的，免得打包后的代码把它们误当成
+        // 页面自己声明的主题，从而不再跟随操作系统偏好。
+        if (resolved !== authored) {
+          root.setAttribute('data-lte-theme-resolved', '');
+        }
+      })();
+    </script>
+    <!--end::Theme Init-->
+
+    <!--begin::Accessibility Meta Tags-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#007bff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
+    <!--end::Accessibility Meta Tags-->
+
+    <!--begin::Primary Meta Tags-->
+    <meta name="title" content="颜色 | AdminLTE 4" />
+    <meta name="author" content="ColorlibHQ" />
+    <meta
+      name="description"
+      content="AdminLTE 是一款免费的 Bootstrap 5 管理员仪表板模板，包含近 50 个示例页面，采用纯 JavaScript 构建，并注重可访问性设计。"
+    />
+    <meta
+      name="keywords"
+      content="Bootstrap 5, Bootstrap 5 管理仪表盘,Bootstrap 5 仪表盘,Bootstrap 5 图表,Bootstrap 5 日历,Bootstrap 5 日期选择器,Bootstrap 5 表格,Bootstrap 5 数据表,vanilla js 数据表,colorlibhq, colorlibhq 仪表盘,colorlibhq 管理仪表盘, accessible admin panel"
+    />
+    <!--end::Primary Meta Tags-->
+
+    <!--begin::Accessibility Features-->
+    <!-- 跳转链接将由 accessibility.js 动态添加 -->
+    <meta name="supported-color-schemes" content="light dark" />
+    <link rel="preload" href="../css/adminlte.css" as="style" />
+    <!--end::Accessibility Features-->
+
+    <!--begin::Fonts-->
+    <link
+      rel="stylesheet"
+      href="../assets/fontsource/index.css"
+      integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
+      crossorigin="anonymous"
+      media="print"
+      onload="this.media = 'all'"
+    />
+    <!--end::Fonts-->
+
+    <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <link
+      rel="stylesheet"
+      href="../assets/overlayscrollbars/overlayscrollbars.min.css"
+      crossorigin="anonymous"
+    />
+    <!--end::Third Party Plugin(OverlayScrollbars)-->
+
+    <!--begin::Third Party Plugin(Bootstrap Icons)-->
+    <link
+      rel="stylesheet"
+      href="../assets/bootstrap-icons/bootstrap-icons.min.css"
+      crossorigin="anonymous"
+    />
+    <!--end::Third Party Plugin(Bootstrap Icons)-->
+
+    <!--begin::Required Plugin(AdminLTE)-->
+    <link rel="stylesheet" href="../css/adminlte.css" />
+    <!--end::Required Plugin(AdminLTE)-->
+    <link rel="stylesheet" href="../css/adminlte-docs.css" />
+    <!--begin::Optional Stylesheet(Extended palette — documented on this page)-->
+    <link rel="stylesheet" href="../css/adminlte-colors.css" />
+    <!--end::Optional Stylesheet(Extended palette)-->
+    <style>
+      .lte-skin-preview[data-astro-cid-sxrfehrj] {
+        --lte-skin-preview-w: 6rem;
+        --lte-skin-preview-h: 3.75rem;
+        width: var(--lte-skin-preview-w);
+        height: var(--lte-skin-preview-h);
+        vertical-align: middle;
+        border: 1px solid var(--bs-border-color);
+        border-radius: var(--bs-border-radius);
+        display: inline-flex;
+        overflow: hidden;
+      }
+      .lte-skin-preview-sm[data-astro-cid-sxrfehrj] {
+        --lte-skin-preview-w: 4.5rem;
+        --lte-skin-preview-h: 2.8rem;
+      }
+      .lte-skin-preview-sidebar[data-astro-cid-sxrfehrj] {
+        color: var(--bs-body-color);
+        border-right: 1px solid rgba(var(--bs-body-color-rgb), 0.08);
+        flex-direction: column;
+        flex: 0 0 30%;
+        gap: 9%;
+        padding: 10% 12%;
+        display: flex;
+      }
+      .lte-skin-preview-brand[data-astro-cid-sxrfehrj],
+      .lte-skin-preview-item[data-astro-cid-sxrfehrj] {
+        opacity: 0.45;
+        background: currentColor;
+        border-radius: 99px;
+        flex: none;
+        height: 7%;
+        min-height: 2px;
+        display: block;
+      }
+      .lte-skin-preview-brand[data-astro-cid-sxrfehrj] {
+        opacity: 0.9;
+        width: 70%;
+        height: 11%;
+        min-height: 3px;
+        margin-bottom: 6%;
+      }
+      .lte-skin-preview-active[data-astro-cid-sxrfehrj] {
+        opacity: 0.95;
+      }
+      .lte-skin-preview-main[data-astro-cid-sxrfehrj] {
+        flex-direction: column;
+        flex: auto;
+        min-width: 0;
+        display: flex;
+      }
+      .lte-skin-preview-header[data-astro-cid-sxrfehrj] {
+        color: var(--bs-body-color);
+        border-bottom: 1px solid var(--bs-border-color);
+        flex: 0 0 24%;
+        align-items: center;
+        gap: 6%;
+        padding: 0 8%;
+        display: flex;
+      }
+      .lte-skin-preview-header[data-astro-cid-sxrfehrj]
+        .lte-skin-preview-item[data-astro-cid-sxrfehrj] {
+        opacity: 0.55;
+        width: 24%;
+        height: 22%;
+      }
+      .lte-skin-preview-avatar[data-astro-cid-sxrfehrj] {
+        aspect-ratio: 1;
+        opacity: 0.55;
+        background: currentColor;
+        border-radius: 50%;
+        width: 14%;
+        margin-left: auto;
+        display: block;
+      }
+      .lte-skin-preview-body[data-astro-cid-sxrfehrj] {
+        flex: auto;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 8%;
+        padding: 10%;
+        display: grid;
+      }
+      .lte-skin-preview-box[data-astro-cid-sxrfehrj] {
+        border-radius: 2px;
+        display: block;
+      }
+      .lte-skin-preview-card[data-astro-cid-sxrfehrj] {
+        background: var(--bs-body-bg);
+        border: 1px solid var(--bs-border-color);
+        border-radius: 2px;
+        grid-column: 1/-1;
+        display: block;
+      }
+    </style>
+  </head>
+  <!--end::Head-->
+  <!--begin::Body-->
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary docs-page">
+    <!--begin::App Wrapper-->
+    <div class="app-wrapper">
+      <!--begin::Header-->
+      <nav class="app-header navbar navbar-expand bg-body">
+        <!--begin::Container-->
+        <div class="container-fluid">
+          <!--begin::Start Navbar Links-->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                data-lte-toggle="sidebar"
+                href="#"
+                role="button"
+                aria-label="Toggle sidebar"
+              >
+                <i class="bi bi-list"></i>
+              </a>
+            </li>
+
+            <li class="nav-item d-none d-md-block">
+              <a href="../docs/introduction.html" class="nav-link">
+                <i class="bi bi-book me-1" aria-hidden="true"></i>
+                文档
+              </a>
+            </li>
+            <li class="nav-item d-none d-md-block">
+              <a href="../index.html" class="nav-link">
+                <i class="bi bi-arrow-left me-1" aria-hidden="true"></i>
+                返回实时预览
+              </a>
+            </li>
+          </ul>
+          <!--end::Start Navbar Links-->
+
+          <!--begin::Navbar Search-->
+          <form
+            class="navbar-search d-none d-md-block ms-3"
+            role="search"
+            action="../pages/search-results.html"
+          >
+            <label for="navbar-search-input" class="visually-hidden">搜索</label>
+            <div class="navbar-search-field">
+              <input
+                type="search"
+                id="navbar-search-input"
+                name="q"
+                class="form-control"
+                placeholder="搜索…"
+                autocomplete="off"
+              />
+              <button class="navbar-search-submit" type="submit" aria-label="Submit search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+              </button>
+            </div>
+          </form>
+          <!--end::Navbar Search-->
+
+          <!--begin::End Navbar Links-->
+          <ul class="navbar-nav ms-auto">
+            <!--begin::Search （小屏幕上：上面的输入框是隐藏的，所以链接到搜索页面）-->
+            <li class="nav-item d-md-none">
+              <a class="nav-link" href="../pages/search-results.html" aria-label="搜索">
+                <i class="bi bi-search" aria-hidden="true"></i>
+              </a>
+            </li>
+            <!--end::Search-->
+            <!--begin::Messages Dropdown Menu-->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                data-bs-toggle="dropdown"
+                href="#"
+                aria-label="Messages: 3 unread"
+              >
+                <i class="bi bi-chat-text"></i>
+                <span class="navbar-badge badge text-bg-danger">3</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <a href="#" class="dropdown-item">
+                  <!--begin::Message-->
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img
+                        src="../assets/img/user1-128x128.jpg"
+                        alt=""
+                        class="img-size-50 rounded-circle me-3"
+                      />
+                    </div>
+                    <div class="flex-grow-1">
+                      <p class="dropdown-item-title">
+                        Brad Diesel
+                        <span class="float-end fs-7 text-danger"
+                          ><i class="bi bi-star-fill"></i
+                        ></span>
+                      </p>
+                      <p class="fs-7">有时间打电话给我……</p>
+                      <p class="fs-7 text-secondary">
+                        <i class="bi bi-clock-fill me-1"></i> 4 小时前
+                      </p>
+                    </div>
+                  </div>
+                  <!--end::Message-->
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <!--begin::Message-->
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img
+                        src="../assets/img/user8-128x128.jpg"
+                        alt=""
+                        class="img-size-50 rounded-circle me-3"
+                      />
+                    </div>
+                    <div class="flex-grow-1">
+                      <p class="dropdown-item-title">
+                        John Pierce
+                        <span class="float-end fs-7 text-secondary">
+                          <i class="bi bi-star-fill"></i>
+                        </span>
+                      </p>
+                      <p class="fs-7">我收到你的消息了，兄弟</p>
+                      <p class="fs-7 text-secondary">
+                        <i class="bi bi-clock-fill me-1"></i> 4 小时前
+                      </p>
+                    </div>
+                  </div>
+                  <!--end::Message-->
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <!--begin::Message-->
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img
+                        src="../assets/img/user3-128x128.jpg"
+                        alt=""
+                        class="img-size-50 rounded-circle me-3"
+                      />
+                    </div>
+                    <div class="flex-grow-1">
+                      <p class="dropdown-item-title">
+                        Nora Silvester
+                        <span class="float-end fs-7 text-warning">
+                          <i class="bi bi-star-fill"></i>
+                        </span>
+                      </p>
+                      <p class="fs-7">主题在这里</p>
+                      <p class="fs-7 text-secondary">
+                        <i class="bi bi-clock-fill me-1"></i> 4 小时前
+                      </p>
+                    </div>
+                  </div>
+                  <!--end::Message-->
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item dropdown-footer">查看所有消息</a>
+              </div>
+            </li>
+            <!--end::Messages Dropdown Menu-->
+
+            <!--begin::Notifications Dropdown Menu-->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                data-bs-toggle="dropdown"
+                href="#"
+                aria-label="Notifications: 15 unread"
+              >
+                <i class="bi bi-bell-fill"></i>
+                <span class="navbar-badge badge text-bg-warning">15</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <span class="dropdown-item dropdown-header">15 条通知</span>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="bi bi-envelope me-2"></i> 4 条新消息
+                  <span class="float-end text-secondary fs-7">3 分钟前</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="bi bi-people-fill me-2"></i> 8 条好友请求
+                  <span class="float-end text-secondary fs-7">12 小时前</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="bi bi-file-earmark-fill me-2"></i> 3 个新报告
+                  <span class="float-end text-secondary fs-7">2 天前</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item dropdown-footer"> 查看所有通知 </a>
+              </div>
+            </li>
+            <!--end::Notifications Dropdown Menu-->
+
+            <!--begin::Language Menu-->
+            <!-- Markup only: swapping the locale is the application's job. The docs
+           Recipes page shows how to wire this to a real locale switch. -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                id="language-menu"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Change language, current language English"
+              >
+                <i class="bi bi-translate" aria-hidden="true"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="language-menu">
+                <li>
+                  <a class="dropdown-item active" href="#" hreflang="en" aria-current="true">
+                    English
+                    <i class="bi bi-check-lg ms-2" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li><a class="dropdown-item" href="#" hreflang="es">西班牙语</a></li>
+                <li><a class="dropdown-item" href="#" hreflang="fr">法语</a></li>
+                <li><a class="dropdown-item" href="#" hreflang="de">德语</a></li>
+                <li><a class="dropdown-item" href="#" hreflang="ar">العربية</a></li>
+              </ul>
+            </li>
+            <!--end::Language Menu-->
+
+            <!--begin::Fullscreen Toggle-->
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="#"
+                data-lte-toggle="fullscreen"
+                aria-label="Toggle fullscreen"
+              >
+                <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
+                <i data-lte-icon="minimize" class="bi bi-fullscreen-exit d-none"></i>
+              </a>
+            </li>
+            <!--end::Fullscreen Toggle-->
+
+            <!--begin::明暗模式切换 (#6010)-->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                id="bd-theme"
+                aria-label="Toggle color scheme"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="bi bi-sun-fill" data-lte-theme-icon="light"></i>
+                <i class="bi bi-moon-fill d-none" data-lte-theme-icon="dark"></i>
+                <i class="bi bi-circle-half d-none" data-lte-theme-icon="auto"></i>
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="bd-theme"
+                style="--bs-dropdown-min-width: 8rem"
+              >
+                <li>
+                  <button
+                    type="button"
+                    class="dropdown-item d-flex align-items-center"
+                    data-bs-theme-value="light"
+                    aria-pressed="false"
+                  >
+                    <i class="bi bi-sun-fill me-2"></i>
+                    明亮
+                    <i class="bi bi-check-lg ms-auto d-none"></i>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="dropdown-item d-flex align-items-center"
+                    data-bs-theme-value="dark"
+                    aria-pressed="false"
+                  >
+                    <i class="bi bi-moon-fill me-2"></i>
+                    暗黑
+                    <i class="bi bi-check-lg ms-auto d-none"></i>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="dropdown-item d-flex align-items-center active"
+                    data-bs-theme-value="auto"
+                    aria-pressed="true"
+                  >
+                    <i class="bi bi-circle-half me-2"></i>
+                    自动
+                    <i class="bi bi-check-lg ms-auto d-none"></i>
+                  </button>
+                </li>
+              </ul>
+            </li>
+            <!--end::明暗模式切换-->
+
+            <!--begin::User Menu Dropdown-->
+            <li class="nav-item dropdown user-menu">
+              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                <img
+                  src="../assets/img/user2-160x160.jpg"
+                  class="user-image rounded-circle shadow"
+                  alt="亚历山大·皮尔斯"
+                />
+                <span class="d-none d-md-inline">亚历山大·皮尔斯</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <!--begin::用户头像-->
+                <li class="user-header text-bg-primary">
+                  <img
+                    src="../assets/img/user2-160x160.jpg"
+                    class="rounded-circle shadow"
+                    alt="亚历山大·皮尔斯"
+                  />
+                  <p>
+                    亚历山大·皮尔斯 - 网页开发工程师
+                    <small>注册于 2023 年 11 月</small>
+                  </p>
+                </li>
+                <!--end::用户头像-->
+                <!--begin::Menu Body-->
+                <li class="user-body">
+                  <!--begin::Row-->
+                  <div class="row">
+                    <div class="col-4 text-center">
+                      <a href="#">关注</a>
+                    </div>
+                    <div class="col-4 text-center">
+                      <a href="#">销量</a>
+                    </div>
+                    <div class="col-4 text-center">
+                      <a href="#">好友</a>
+                    </div>
+                  </div>
+                  <!--end::Row-->
+                </li>
+                <!--end::Menu Body-->
+                <!--begin::Menu Footer-->
+                <li class="user-footer">
+                  <a href="#" class="btn btn-outline-secondary">资料</a>
+                  <a href="#" class="btn btn-outline-danger float-end">退出</a>
+                </li>
+                <!--end::Menu Footer-->
+              </ul>
+            </li>
+            <!--end::User Menu Dropdown-->
+          </ul>
+          <!--end::End Navbar Links-->
+        </div>
+        <!--end::Container-->
+      </nav>
+      <!--end::Header-->
+      <!--begin::Sidebar (docs mode)-->
+      <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+        <!--begin::Sidebar Brand-->
+        <div class="sidebar-brand">
+          <a href="../docs/introduction.html" class="brand-link">
+            <img
+              src="../assets/img/AdminLTELogo.png"
+              alt="AdminLTE Logo"
+              class="brand-image opacity-75 shadow"
+            />
+            <span class="brand-text fw-light">
+              AdminLTE 4 <span class="opacity-75">&middot; 文档</span>
+            </span>
+          </a>
+        </div>
+        <!--end::Sidebar Brand-->
+        <!--begin::侧边栏搜索-->
+        <div class="sidebar-search" role="search">
+          <label for="sidebar-search-input" class="visually-hidden">过滤 docs</label>
+          <input
+            type="search"
+            id="sidebar-search-input"
+            class="form-control form-control-sm"
+            placeholder="筛选文档..."
+            autocomplete="off"
+            data-lte-toggle="sidebar-search"
+            data-lte-target="#docs-navigation"
+          />
+          <p class="fs-7 text-secondary mt-2 mb-0" data-lte-search-empty role="status" hidden>
+            没有匹配到页面。
+          </p>
+        </div>
+        <!--end::侧边栏搜索-->
+        <!--begin::Sidebar Wrapper-->
+        <div class="sidebar-wrapper">
+          <nav class="mt-2" aria-label="Documentation navigation">
+            <!--begin::Sidebar Menu-->
+            <ul
+              class="nav sidebar-menu flex-column"
+              data-lte-toggle="treeview"
+              data-accordion="false"
+              id="docs-navigation"
+            >
+              <li class="nav-header">开始</li>
+              <li class="nav-item">
+                <a href="../docs/introduction.html" class="nav-link">
+                  <i class="nav-icon bi bi-download"></i>
+                  <p>安装</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/getting-started.html" class="nav-link">
+                  <i class="nav-icon bi bi-rocket-takeoff"></i>
+                  <p>入门指南</p>
+                </a>
+              </li>
+
+              <li class="nav-header">基础</li>
+              <li class="nav-item">
+                <a href="../docs/layout.html" class="nav-link">
+                  <i class="nav-icon bi bi-grip-horizontal"></i>
+                  <p>布局类</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/layout-blueprint.html" class="nav-link">
+                  <i class="nav-icon bi bi-diagram-3"></i>
+                  <p>布局结构</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/customization.html" class="nav-link">
+                  <i class="nav-icon bi bi-palette"></i>
+                  <p>定制</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/color-mode.html" class="nav-link">
+                  <i class="nav-icon bi bi-star-half"></i>
+                  <p>明暗模式</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/colors.html" class="nav-link active">
+                  <i class="nav-icon bi bi-palette"></i>
+                  <p>颜色</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/rtl.html" class="nav-link">
+                  <i class="nav-icon bi bi-text-paragraph"></i>
+                  <p>RTL 支持</p>
+                </a>
+              </li>
+
+              <li class="nav-header">构建</li>
+              <li class="nav-item">
+                <a href="../docs/recipes.html" class="nav-link">
+                  <i class="nav-icon bi bi-clipboard-check"></i>
+                  <p>方案</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-ui-checks-grid"></i>
+                  <p>
+                    组件
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="../docs/components/main-header.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>头部</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/components/main-sidebar.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>主侧边栏</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/components/card.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>卡片</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/components/miscellaneous.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>其他组件</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-filetype-js"></i>
+                  <p>
+                    JavaScript 插件
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="../docs/javascript/plugins-overview.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>概述</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/layout.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>布局</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/pushmenu.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>PushMenu</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/treeview.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>树形插件</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/card-widget.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>卡片小工具</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/direct-chat.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>聊天</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/fullscreen.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>全屏</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/sidebar-search.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>侧边栏搜索</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/accessibility.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>无障碍访问</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/integrations.html" class="nav-link">
+                  <i class="nav-icon bi bi-puzzle"></i>
+                  <p>集成</p>
+                </a>
+              </li>
+
+              <li class="nav-header">上线指南</li>
+              <li class="nav-item">
+                <a href="../docs/migration.html" class="nav-link">
+                  <i class="nav-icon bi bi-arrow-up-right-square"></i>
+                  <p>从 v3 迁移</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/deployment.html" class="nav-link">
+                  <i class="nav-icon bi bi-cloud-upload"></i>
+                  <p>部署</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/browser-support.html" class="nav-link">
+                  <i class="nav-icon bi bi-browser-chrome"></i>
+                  <p>浏览器支持</p>
+                </a>
+              </li>
+
+              <li class="nav-header">资源</li>
+              <li class="nav-item">
+                <a href="../docs/faq.html" class="nav-link">
+                  <i class="nav-icon bi bi-question-circle"></i>
+                  <p>FAQ</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/how-to-contribute.html" class="nav-link">
+                  <i class="nav-icon bi bi-people"></i>
+                  <p>贡献</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../docs/license.html" class="nav-link">
+                  <i class="nav-icon bi bi-patch-check"></i>
+                  <p>许可证</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  href="https://github.com/ColorlibHQ/AdminLTE"
+                  target="_blank"
+                  rel="noopener"
+                  class="nav-link"
+                >
+                  <i class="nav-icon bi bi-github"></i>
+                  <p>
+                    GitHub
+                    <i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i>
+                  </p>
+                </a>
+              </li>
+            </ul>
+            <!--end::Sidebar Menu-->
+
+            <!-- Back to preview CTA (bottom of sidebar) -->
+            <div class="p-3 mt-3 border-top border-secondary border-opacity-25">
+              <a
+                href="../index.html"
+                class="btn btn-sm btn-outline-light w-100 d-flex align-items-center justify-content-center gap-2"
+              >
+                <i class="bi bi-arrow-left" aria-hidden="true"></i>
+                返回实时预览
+              </a>
+            </div>
+          </nav>
+        </div>
+        <!--end::Sidebar Wrapper-->
+      </aside>
+      <!--end::Sidebar (docs mode)-->
+      <!--begin::App Main-->
+      <main class="app-main">
+        <!--begin::App Content Header-->
+        <div class="app-content-header">
+          <!--begin::Container-->
+          <div class="container-fluid">
+            <!--begin::Row-->
+            <div class="row">
+              <div class="col-sm-6">
+                <h1 class="mb-0 fs-3">颜色</h1>
+              </div>
+              <div class="col-sm-6">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">文档</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">颜色</li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+            <!--end::Row-->
+          </div>
+          <!--end::Container-->
+        </div>
+        <!--end::App Content Header-->
+        <!--begin::App Content-->
+        <div class="app-content">
+          <!--begin::Container-->
+          <div class="container-fluid">
+            <!--begin::Row-->
+            <div class="row g-4">
+              <div class="col-12">
+                <div class="callout callout-info">
+                  <h5 class="fw-bold">按需启用</h5>
+                  <p class="mb-0">
+                    扩展调色板住在它自己的样式表里，也就是
+                    <code>dist/css/adminlte-colors.css</code
+                    >，所以只要你不加载它，就不会有任何开销。 想看实际效果，可以到
+                    <a href="../UI/colors.html" class="callout-link">颜色演示页面</a>，
+                    在那里还能在真实布局上试用各种皮肤，并检查你自己的品牌色。
+                  </p>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <p>
+                      AdminLTE 4 只用了 Bootstrap 5.3 的主题色来给自己做样式 ——
+                      <code>primary</code
+                      >、<code>success</code>、<code>danger</code>、<code>warning</code>、<code>info</code>、<code>secondary</code>、<code>light</code>、<code
+                        >dark</code
+                      >
+                      —— 除此之外没别的。这让
+                      <code>adminlte.css</code>
+                      保持得很小，但仪表盘的一行组件里经常想要不止五种色调，而且 AdminLTE 3
+                      的老用户还惦记着 <code>.bg-navy</code>、<code>.bg-teal</code>
+                      和那些侧边栏皮肤。
+                    </p>
+                    <p>
+                      <strong><code>dist/css/adminlte-colors.css</code></strong>
+                      就是答案，而且是按需启用的：多加载一个样式表（gzip 后约 5 kB），就会以
+                      <code>--bs-*</code> token 的形式加入十四种颜色，外加 Bootstrap
+                      为自己主题色生成的那一整套类系列。对于不加载它的项目来说，什么都不变。
+                    </p>
+                    <div class="d-flex flex-wrap gap-2 my-3">
+                      <span class="badge text-bg-orange fs-6 fw-normal">orange</span
+                      ><span class="badge text-bg-amber fs-6 fw-normal">amber</span
+                      ><span class="badge text-bg-olive fs-6 fw-normal">olive</span
+                      ><span class="badge text-bg-teal fs-6 fw-normal">teal</span
+                      ><span class="badge text-bg-sky fs-6 fw-normal">sky</span
+                      ><span class="badge text-bg-indigo fs-6 fw-normal">indigo</span
+                      ><span class="badge text-bg-violet fs-6 fw-normal">violet</span
+                      ><span class="badge text-bg-fuchsia fs-6 fw-normal">fuchsia</span
+                      ><span class="badge text-bg-pink fs-6 fw-normal">pink</span
+                      ><span class="badge text-bg-navy fs-6 fw-normal">navy</span
+                      ><span class="badge text-bg-steel fs-6 fw-normal">steel</span
+                      ><span class="badge text-bg-slate fs-6 fw-normal">slate</span
+                      ><span class="badge text-bg-graphite fs-6 fw-normal">graphite</span
+                      ><span class="badge text-bg-midnight fs-6 fw-normal">midnight</span>
+                    </div>
+                    <p>
+                      所有颜色、皮肤和组件套装都能在
+                      <a href="../UI/colors.html">颜色演示页面</a>上现场试用 ——
+                      那里还有一个给你自己品牌色用的检查器。
+                    </p>
+                    <h5 id="获取样式表">获取样式表</h5>
+                    <p>
+                      把它加载在 <code>adminlte.css</code>
+                      <strong>之后</strong>。它只添加类，不会覆盖
+                      <code>adminlte.css</code> 里的任何东西。
+                    </p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="html"
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;css/adminlte.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;css/adminlte-colors.css&quot;</span><span style="color:#808080"> /&gt;</span></span></code></pre>
+                    <p>来自 CDN（请注明在生产环境中测试的精确版本）：</p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="html"
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/admin-lte@4/dist/css/adminlte-colors.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span></code></pre>
+                    <p>从 npm，使用打包工具：</p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="js"
+                    ><code><span class="line"><span style="color:#C586C0">import</span><span style="color:#CE9178"> &quot;admin-lte/dist/css/adminlte.min.css&quot;</span></span>
+<span class="line"><span style="color:#C586C0">import</span><span style="color:#CE9178"> &quot;admin-lte/dist/css/adminlte-colors.min.css&quot;</span></span></code></pre>
+                    <p>
+                      或者你自己编译 —— Sass 入口是
+                      <code>src/scss/adminlte-colors.scss</code
+                      >，添加自己的颜色也是走这个入口（见下文）。另外还生成了一个 RTL
+                      版本（<code>adminlte-colors.rtl.css</code>），是为了跟其他 CSS
+                      保持形式上的对称；这个样式表里没有任何依赖方向的规则，所以两个文件在哪个方向下都能用。
+                    </p>
+                    <h5 id="调色板">调色板</h5>
+                    <p>
+                      九种彩色加上五种中性色，用于界面外观。它们每一种配<strong>白色</strong>文字的对比度都能达到
+                      4.5:1 或更好，所以
+                      <code>.text-bg-*</code>、小方盒、徽章和彩色侧边栏读起来都是一致的 ——
+                      不用再逐个颜色去纠结“这个是不是得用深色文字？”。
+                    </p>
+                    <div class="table-responsive">
+                      <table class="table align-middle">
+                        <thead>
+                          <tr>
+                            <th scope="col">名称</th>
+                            <th scope="col">十六进制</th>
+                            <th scope="col">OKLCH</th>
+                            <th scope="col">白色文字</th>
+                            <th scope="col">特点与用途</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge text-bg-orange me-2">   </span><code>orange</code>
+                            </td>
+                            <td><code>#c84e10</code></td>
+                            <td class="text-nowrap">
+                              <small class="font-monospace">oklch(0.58 0.17 42)</small>
+                            </td>
+                            <td class="text-nowrap">4.6:1</td>
+                            <td>
+                              <span class="text-body-emphasis"
+                                >焦橙色 —— 一种温暖的强调色，但又不至于像 &quot;danger&quot;
+                                那样示警。</span
+                              >
+                              <span class="text-body-secondary"
+                                >销售额、订单，任何活跃但不带警报意味的东西。</span
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge text-bg-amber me-2">   </span><code>amber</code>
+                            </td>
+                            <td><code>#a56710</code></td>
+                            <td class="text-nowrap">
+                              <small class="font-monospace">oklch(0.57 0.12 67)</small>
+                            </td>
+                            <td class="text-nowrap">4.6:1</td>
+                            <td>
+                              <span class="text-body-emphasis"
+                                >赭石色 —— 一种温暖的中性色，适合搭配 navy 和 graphite。</span
+                              >
+                              <span class="text-body-secondary">待处理状态、次要指标。</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge text-bg-olive me-2">   </span><code>olive</code>
+                            </td>
+                            <td><code>#5f7f0f</code></td>
+                            <td class="text-nowrap">
+                              <small class="font-monospace">oklch(0.55 0.13 126)</small>
+                            </td>
+                            <td class="text-nowrap">4.6:1</td>
+                            <td>
+                              <span class="text-body-emphasis"
+                                >苔藓绿 —— 一种土系绿，和 success 整整差了 31°。</span
+                              >
+                              <span class="text-body-secondary"
+                                >增长和环保类指标，但又不会让人读成&quot;一切正常&quot;。</span
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge text-bg-teal me-2">   </span><code>teal</code>
+                            </td>
+                            <td><code>#12827d</code></td>
+                            <td class="text-nowrap">
+                              <small class="font-monospace">oklch(0.55 0.09 190)</small>
+                            </td>
+                            <td class="text-nowrap">4.7:1</td>
+                            <td>
+                              <span class="text-body-emphasis">蓝绿色 —— 沉静的数据色。</span>
+                              <span class="text-body-secondary"
+                                >图表、表格，也是那些嫌 cyan 太亮的人默认会用的
+                                &quot;info&quot;。</span
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge text-bg-sky me-2">   </span><code>sky</code>
+                            </td>
+                            <td><code>#127caf</code></td>
+                            <td class="text-nowrap">
+                              <small class="font-monospace">oklch(0.56 0.12 237)</small>
+                            </td>
+                            <td class="text-nowrap">4.6:1</td>
+                            <td>
+                              <span class="text-body-emphasis"
+                                >经典的 AdminLTE 蓝，重新做了一版好让白色文字能达标。</span
+                              >
+                              <span class="text-body-secondary"
+                                >头部，也是 v2 skin-blue 的现代版演绎。</span
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge text-bg-indigo me-2">   </span><code>indigo</code>
+                            </td>
+                            <td><code>#6f60ea</code></td>
+                            <td class="text-nowrap">
+                              <small class="font-monospace">oklch(0.58 0.20 283)</small>
+                            </td>
+                            <td class="text-nowrap">4.6:1</td>
+                            <td>
+                              <span class="text-body-emphasis"
+                                >蓝紫色 —— 偏品牌感，和 primary 差 23°。</span
+                              >
+                              <span class="text-body-secondary"
+                                >侧边栏、主视觉组件、强烈的品牌强调色。</span
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge text-bg-violet me-2">   </span><code>violet</code>
+                            </td>
+                            <td><code>#9553db</code></td>
+                            <td class="text-nowrap">
+                              <small class="font-monospace">oklch(0.58 0.20 303)</small>
+                            </td>
+                            <td class="text-nowrap">4.6:1</td>
+                            <td>
+                              <span class="text-body-emphasis">紫色 —— 品红那一段的中间值。</span>
+                              <span class="text-body-secondary">次要品牌强调色、标签。</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge text-bg-fuchsia me-2">   </span
+                              ><code>fuchsia</code>
+                            </td>
+                            <td><code>#b347be</code></td>
+                            <td class="text-nowrap">
+                              <small class="font-monospace">oklch(0.59 0.20 324)</small>
+                            </td>
+                            <td class="text-nowrap">4.6:1</td>
+                            <td>
+                              <span class="text-body-emphasis">品红 —— 用来强调，点到为止。</span>
+                              <span class="text-body-secondary">高亮、一次性的徽章。</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge text-bg-pink me-2">   </span><code>pink</code>
+                            </td>
+                            <td><code>#cd388d</code></td>
+                            <td class="text-nowrap">
+                              <small class="font-monospace">oklch(0.59 0.20 350)</small>
+                            </td>
+                            <td class="text-nowrap">4.6:1</td>
+                            <td>
+                              <span class="text-body-emphasis"
+                                >深粉色 —— v3 里的 &quot;maroon&quot;，重新设计过。</span
+                              >
+                              <span class="text-body-secondary">营销和互动类指标。</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge text-bg-navy me-2">   </span><code>navy</code>
+                            </td>
+                            <td><code>#1d2d4c</code></td>
+                            <td class="text-nowrap">
+                              <small class="font-monospace">oklch(0.30 0.06 263)</small>
+                            </td>
+                            <td class="text-nowrap">13.7:1</td>
+                            <td>
+                              <span class="text-body-emphasis"
+                                >侧边栏深蓝 —— 深沉偏冷，但不是黑色。</span
+                              >
+                              <span class="text-body-secondary"
+                                >侧边栏；经典的深色侧边栏外观。</span
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge text-bg-steel me-2">   </span><code>steel</code>
+                            </td>
+                            <td><code>#3a4860</code></td>
+                            <td class="text-nowrap">
+                              <small class="font-monospace">oklch(0.40 0.04 261)</small>
+                            </td>
+                            <td class="text-nowrap">9.2:1</td>
+                            <td>
+                              <span class="text-body-emphasis"
+                                >中深蓝灰 —— 很多后台套件默认用的侧边栏色调。</span
+                              >
+                              <span class="text-body-secondary"
+                                >想要看起来&quot;深色&quot;、但又不想接近黑色的侧边栏。</span
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge text-bg-slate me-2">   </span><code>slate</code>
+                            </td>
+                            <td><code>#566577</code></td>
+                            <td class="text-nowrap">
+                              <small class="font-monospace">oklch(0.50 0.03 253)</small>
+                            </td>
+                            <td class="text-nowrap">6.0:1</td>
+                            <td>
+                              <span class="text-body-emphasis"
+                                >中度中性色 —— 一种冷调的灰蓝色。</span
+                              >
+                              <span class="text-body-secondary"
+                                >头部、柔和的卡片、次要侧边栏。</span
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge text-bg-graphite me-2">   </span
+                              ><code>graphite</code>
+                            </td>
+                            <td><code>#32363c</code></td>
+                            <td class="text-nowrap">
+                              <small class="font-monospace">oklch(0.33 0.01 258)</small>
+                            </td>
+                            <td class="text-nowrap">12.1:1</td>
+                            <td>
+                              <span class="text-body-emphasis">接近黑色的冷灰。</span>
+                              <span class="text-body-secondary"
+                                >安静的侧边栏，让组件去承担颜色的表现。</span
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge text-bg-midnight me-2">   </span
+                              ><code>midnight</code>
+                            </td>
+                            <td><code>#1e1d2d</code></td>
+                            <td class="text-nowrap">
+                              <small class="font-monospace">oklch(0.24 0.03 287)</small>
+                            </td>
+                            <td class="text-nowrap">16.6:1</td>
+                            <td>
+                              <span class="text-body-emphasis">Near-black with a violet cast.</span>
+                              <span class="text-body-secondary"
+                                >Full-dark chrome (sidebar and header); pairs with vivid
+                                accents.</span
+                              >
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <p>
+                      这些颜色是按它们本身是什么来命名的，而不是照搬 Bootstrap
+                      <code>$colors</code>
+                      里的名字（<code>blue</code>、<code>purple</code>、<code>red</code>……）。那些名字和主题色有重叠，所以有意不生成对应的类；如果你想拿原始值，Bootstrap
+                      定义的 <code>--bs-blue</code>、<code>--bs-purple</code>……这些变量依然还在。
+                    </p>
+                    <h5 id="你能得到什么">你能得到什么</h5>
+                    <p>
+                      对于每一种颜色 <code>&lt;name&gt;</code>，这个样式表会输出跟 Bootstrap
+                      为主题色输出的那套一模一样的形态，所以透明度修饰符和深色模式的表现完全如你所料：
+                    </p>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>你能得到</th>
+                          <th>示例</th>
+                          <th>备注</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Token</td>
+                          <td><code>--bs-teal</code>, <code>--bs-teal-rgb</code></td>
+                          <td>
+                            另外在两种颜色模式下都有
+                            <code>--bs-teal-bg-subtle</code
+                            >、<code>--bs-teal-border-subtle</code>、<code
+                              >--bs-teal-text-emphasis</code
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>背景</td>
+                          <td><code>.bg-teal</code>, <code>.bg-teal.bg-opacity-25</code></td>
+                          <td>变量结构和 <code>.bg-primary</code> 一样</td>
+                        </tr>
+                        <tr>
+                          <td>背景 + 对比文字</td>
+                          <td><code>.text-bg-teal</code></td>
+                          <td>白色文字；组件用的就是这个</td>
+                        </tr>
+                        <tr>
+                          <td>渐变</td>
+                          <td><code>.bg-gradient-teal</code></td>
+                          <td>
+                            AdminLTE 3 里的那个类；8
+                            种主题色也会一并输出（<code>.bg-gradient-primary</code>……）。Bootstrap
+                            可组合的 <code>.bg-teal.bg-gradient</code> 效果完全一样
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>文字、边框、链接</td>
+                          <td>
+                            <code>.text-teal</code>, <code>.border-teal</code>,
+                            <code>.link-teal</code>
+                          </td>
+                          <td>
+                            可搭配
+                            <code>.text-opacity-*</code>、<code>.border-opacity-*</code>、<code
+                              >.link-underline-*</code
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>卡片</td>
+                          <td>
+                            <code>.card-teal</code>, <code>.card-outline.card-teal</code>,
+                            <code>.card.text-bg-teal</code>
+                          </td>
+                          <td>喂的是和主题色卡片同一套 <code>--lte-card-variant-*</code> 变量</td>
+                        </tr>
+                        <tr>
+                          <td>标注块</td>
+                          <td><code>.callout-teal</code></td>
+                          <td>淡色背景、强调色文字 —— 深色模式下会翻转</td>
+                        </tr>
+                        <tr>
+                          <td>直聊</td>
+                          <td><code>.direct-chat-teal</code></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>组件</td>
+                          <td>
+                            <code>.small-box.text-bg-teal</code>,
+                            <code>.info-box.text-bg-teal</code>, <code>.badge.text-bg-teal</code>,
+                            <code>.progress-bar.bg-teal</code>
+                          </td>
+                          <td>
+                            这些本来就能通过 <code>.text-bg-*</code> /
+                            <code>.bg-*</code> 自己上色，所以不用额外输出什么
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>按钮</td>
+                          <td>
+                            <code>.btn.text-bg-teal</code>, <code>.btn.bg-gradient-teal</code>
+                          </td>
+                          <td>会带上悬停 / 激活状态的色阶，免得看起来像没反应的死按钮</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h5 id="皮肤--给侧边栏和头部上色">皮肤 —— 给侧边栏和头部上色</h5>
+                    <p>
+                      在 AdminLTE 4
+                      里，所谓“皮肤”并不是一个专门的类：它就是侧边栏和头部上的一个背景工具类加上
+                      <code>data-bs-theme</code>。<code>data-bs-theme=&quot;dark&quot;</code>
+                      会给出浅色的导航链接和品牌文字；<code>&quot;light&quot;</code>
+                      则给出深色的。由于每种调色板颜色都配白色文字，所以彩色的侧边栏或头部总是搭配
+                      <code>dark</code> 来用：
+                    </p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="html"
+                    ><code><span class="line"><span style="color:#6A9955">&lt;!-- header --&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">nav</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;app-header navbar navbar-expand text-bg-sky&quot;</span><span style="color:#9CDCFE"> data-bs-theme</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;dark&quot;</span><span style="color:#808080">&gt;</span><span style="color:#D4D4D4">…</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">nav</span><span style="color:#808080">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">&lt;!-- sidebar --&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">aside</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;app-sidebar text-bg-navy shadow&quot;</span><span style="color:#9CDCFE"> data-bs-theme</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;dark&quot;</span><span style="color:#808080">&gt;</span><span style="color:#D4D4D4">…</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">aside</span><span style="color:#808080">&gt;</span></span></code></pre>
+                    <p>
+                      后台仪表盘通常会把它们的外观分成四大类，这些预设就是照着这个来分的。每个缩略图都是真家伙的微缩版
+                      —— 包括侧边栏、头部，以及与之搭配的两个点缀色。<a href="../UI/colors.html"
+                        >颜色演示</a
+                      >页面点一下就能把任意预设应用到它自己身上；<a href="../generate/theme.html"
+                        >主题自定义</a
+                      >页面也能做到同样的事，而且之后还能自由地混搭侧边栏、导航栏和页脚（它的取色器把调色板列在“Extended
+                      palette”下面）。
+                    </p>
+                    <div class="mb-4">
+                      <h6 class="fw-semibold mb-1">Light</h6>
+                      <p class="text-body-secondary mb-2">
+                        白色界面；颜色由组件和当前激活项来承担。
+                      </p>
+                      <div class="table-responsive">
+                        <table class="table align-middle mb-0">
+                          <thead>
+                            <tr>
+                              <th scope="col" class="text-nowrap" style="width: 1%">预览</th>
+                              <th scope="col">皮肤</th>
+                              <th scope="col">头部</th>
+                              <th scope="col">侧边栏</th>
+                              <th scope="col">说明 / 理由</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <span
+                                  class="lte-skin-preview lte-skin-preview-sm bg-body-tertiary"
+                                  aria-hidden="true"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-sidebar bg-body"
+                                    data-bs-theme="light"
+                                    data-astro-cid-sxrfehrj
+                                  >
+                                    <span
+                                      class="lte-skin-preview-brand"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item lte-skin-preview-active"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                  </span>
+                                  <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                    <span
+                                      class="lte-skin-preview-header bg-body"
+                                      data-bs-theme="light"
+                                      data-astro-cid-sxrfehrj
+                                    >
+                                      <span
+                                        class="lte-skin-preview-item"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-avatar"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                    <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-primary"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-teal"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-card"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                  </span>
+                                </span>
+                              </td>
+                              <td class="text-nowrap fw-semibold">Light</td>
+                              <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
+                              <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
+                              <td>白色侧边栏和头部；颜色只来自组件和徽章。</td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <span
+                                  class="lte-skin-preview lte-skin-preview-sm bg-body-tertiary"
+                                  aria-hidden="true"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-sidebar bg-body-tertiary"
+                                    data-bs-theme="light"
+                                    data-astro-cid-sxrfehrj
+                                  >
+                                    <span
+                                      class="lte-skin-preview-brand"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item lte-skin-preview-active"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                  </span>
+                                  <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                    <span
+                                      class="lte-skin-preview-header text-bg-indigo"
+                                      data-bs-theme="dark"
+                                      data-astro-cid-sxrfehrj
+                                    >
+                                      <span
+                                        class="lte-skin-preview-item"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-avatar"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                    <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-indigo"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-pink"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-card"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                  </span>
+                                </span>
+                              </td>
+                              <td class="text-nowrap fw-semibold">Light &amp; indigo</td>
+                              <td class="text-nowrap">
+                                <code>text-bg-indigo</code> · <code>dark</code>
+                              </td>
+                              <td class="text-nowrap">
+                                <code>bg-body-tertiary</code> · <code>light</code>
+                              </td>
+                              <td>“-light”那一类：彩色头部下面配白色侧边栏。</td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <span
+                                  class="lte-skin-preview lte-skin-preview-sm bg-body-tertiary"
+                                  aria-hidden="true"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-sidebar bg-body"
+                                    data-bs-theme="light"
+                                    data-astro-cid-sxrfehrj
+                                  >
+                                    <span
+                                      class="lte-skin-preview-brand"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item lte-skin-preview-active"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                  </span>
+                                  <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                    <span
+                                      class="lte-skin-preview-header text-bg-sky"
+                                      data-bs-theme="dark"
+                                      data-astro-cid-sxrfehrj
+                                    >
+                                      <span
+                                        class="lte-skin-preview-item"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-avatar"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                    <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-sky"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-amber"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-card"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                  </span>
+                                </span>
+                              </td>
+                              <td class="text-nowrap fw-semibold">Light &amp; sky</td>
+                              <td class="text-nowrap">
+                                <code>text-bg-sky</code> · <code>dark</code>
+                              </td>
+                              <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
+                              <td>v2 的 skin-blue-light：sky 头部配白色侧边栏。</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="mb-4">
+                      <h6 class="fw-semibold mb-1">Semi-dark</h6>
+                      <p class="text-body-secondary mb-2">
+                        深色侧边栏、浅色头部 —— 最常见的后台布局，也是 AdminLTE 的默认布局。
+                      </p>
+                      <div class="table-responsive">
+                        <table class="table align-middle mb-0">
+                          <thead>
+                            <tr>
+                              <th scope="col" class="text-nowrap" style="width: 1%">预览</th>
+                              <th scope="col">皮肤</th>
+                              <th scope="col">头部</th>
+                              <th scope="col">侧边栏</th>
+                              <th scope="col">说明 / 理由</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <span
+                                  class="lte-skin-preview lte-skin-preview-sm bg-body-tertiary"
+                                  aria-hidden="true"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-sidebar bg-body-secondary"
+                                    data-bs-theme="dark"
+                                    data-astro-cid-sxrfehrj
+                                  >
+                                    <span
+                                      class="lte-skin-preview-brand"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item lte-skin-preview-active"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                  </span>
+                                  <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                    <span
+                                      class="lte-skin-preview-header bg-body"
+                                      data-bs-theme="light"
+                                      data-astro-cid-sxrfehrj
+                                    >
+                                      <span
+                                        class="lte-skin-preview-item"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-avatar"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                    <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-primary"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-teal"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-card"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                  </span>
+                                </span>
+                              </td>
+                              <td class="text-nowrap fw-semibold">Default</td>
+                              <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
+                              <td class="text-nowrap">
+                                <code>bg-body-secondary</code> · <code>dark</code>
+                              </td>
+                              <td>AdminLTE 4 的默认款：白色头部，深色中性侧边栏。</td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <span
+                                  class="lte-skin-preview lte-skin-preview-sm bg-body-tertiary"
+                                  aria-hidden="true"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-sidebar text-bg-graphite"
+                                    data-bs-theme="dark"
+                                    data-astro-cid-sxrfehrj
+                                  >
+                                    <span
+                                      class="lte-skin-preview-brand"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item lte-skin-preview-active"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                  </span>
+                                  <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                    <span
+                                      class="lte-skin-preview-header bg-body"
+                                      data-bs-theme="light"
+                                      data-astro-cid-sxrfehrj
+                                    >
+                                      <span
+                                        class="lte-skin-preview-item"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-avatar"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                    <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-indigo"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-amber"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-card"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                  </span>
+                                </span>
+                              </td>
+                              <td class="text-nowrap fw-semibold">Graphite</td>
+                              <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
+                              <td class="text-nowrap">
+                                <code>text-bg-graphite</code> · <code>dark</code>
+                              </td>
+                              <td>安静的近黑色侧边栏；颜色由组件来承担。</td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <span
+                                  class="lte-skin-preview lte-skin-preview-sm bg-body-tertiary"
+                                  aria-hidden="true"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-sidebar text-bg-navy"
+                                    data-bs-theme="dark"
+                                    data-astro-cid-sxrfehrj
+                                  >
+                                    <span
+                                      class="lte-skin-preview-brand"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item lte-skin-preview-active"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                  </span>
+                                  <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                    <span
+                                      class="lte-skin-preview-header bg-body"
+                                      data-bs-theme="light"
+                                      data-astro-cid-sxrfehrj
+                                    >
+                                      <span
+                                        class="lte-skin-preview-item"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-avatar"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                    <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-teal"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-pink"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-card"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                  </span>
+                                </span>
+                              </td>
+                              <td class="text-nowrap fw-semibold">Navy</td>
+                              <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
+                              <td class="text-nowrap">
+                                <code>text-bg-navy</code> · <code>dark</code>
+                              </td>
+                              <td>白色头部下面配深蓝侧边栏 —— 经典的深色侧边栏外观。</td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <span
+                                  class="lte-skin-preview lte-skin-preview-sm bg-body-tertiary"
+                                  aria-hidden="true"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-sidebar text-bg-steel"
+                                    data-bs-theme="dark"
+                                    data-astro-cid-sxrfehrj
+                                  >
+                                    <span
+                                      class="lte-skin-preview-brand"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item lte-skin-preview-active"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                  </span>
+                                  <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                    <span
+                                      class="lte-skin-preview-header bg-body"
+                                      data-bs-theme="light"
+                                      data-astro-cid-sxrfehrj
+                                    >
+                                      <span
+                                        class="lte-skin-preview-item"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-avatar"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                    <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-sky"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-orange"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-card"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                  </span>
+                                </span>
+                              </td>
+                              <td class="text-nowrap fw-semibold">Steel</td>
+                              <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
+                              <td class="text-nowrap">
+                                <code>text-bg-steel</code> · <code>dark</code>
+                              </td>
+                              <td>中深蓝灰侧边栏 —— 看起来是深色，但又不会接近黑色。</td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <span
+                                  class="lte-skin-preview lte-skin-preview-sm bg-body-tertiary"
+                                  aria-hidden="true"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-sidebar text-bg-midnight"
+                                    data-bs-theme="dark"
+                                    data-astro-cid-sxrfehrj
+                                  >
+                                    <span
+                                      class="lte-skin-preview-brand"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item lte-skin-preview-active"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                  </span>
+                                  <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                    <span
+                                      class="lte-skin-preview-header bg-body"
+                                      data-bs-theme="light"
+                                      data-astro-cid-sxrfehrj
+                                    >
+                                      <span
+                                        class="lte-skin-preview-item"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-avatar"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                    <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-violet"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-teal"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-card"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                  </span>
+                                </span>
+                              </td>
+                              <td class="text-nowrap fw-semibold">Midnight</td>
+                              <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
+                              <td class="text-nowrap">
+                                <code>text-bg-midnight</code> · <code>dark</code>
+                              </td>
+                              <td>接近黑色，带一点紫调；专为鲜艳的强调色而生。</td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <span
+                                  class="lte-skin-preview lte-skin-preview-sm bg-body-tertiary"
+                                  aria-hidden="true"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-sidebar text-bg-indigo"
+                                    data-bs-theme="dark"
+                                    data-astro-cid-sxrfehrj
+                                  >
+                                    <span
+                                      class="lte-skin-preview-brand"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item lte-skin-preview-active"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                  </span>
+                                  <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                    <span
+                                      class="lte-skin-preview-header bg-body"
+                                      data-bs-theme="light"
+                                      data-astro-cid-sxrfehrj
+                                    >
+                                      <span
+                                        class="lte-skin-preview-item"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-avatar"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                    <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-teal"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-orange"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-card"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                  </span>
+                                </span>
+                              </td>
+                              <td class="text-nowrap fw-semibold">Indigo</td>
+                              <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
+                              <td class="text-nowrap">
+                                <code>text-bg-indigo</code> · <code>dark</code>
+                              </td>
+                              <td>偏品牌感：侧边栏用一种强烈的色相，其余一切保持沉静。</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="mb-4">
+                      <h6 class="fw-semibold mb-1">Full dark</h6>
+                      <p class="text-body-secondary mb-2">
+                        深色侧边栏加深色头部；除非访客自己选了深色模式，否则主体保持浅色。
+                      </p>
+                      <div class="table-responsive">
+                        <table class="table align-middle mb-0">
+                          <thead>
+                            <tr>
+                              <th scope="col" class="text-nowrap" style="width: 1%">预览</th>
+                              <th scope="col">皮肤</th>
+                              <th scope="col">头部</th>
+                              <th scope="col">侧边栏</th>
+                              <th scope="col">说明 / 理由</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <span
+                                  class="lte-skin-preview lte-skin-preview-sm bg-body-tertiary"
+                                  aria-hidden="true"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-sidebar text-bg-navy"
+                                    data-bs-theme="dark"
+                                    data-astro-cid-sxrfehrj
+                                  >
+                                    <span
+                                      class="lte-skin-preview-brand"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item lte-skin-preview-active"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                  </span>
+                                  <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                    <span
+                                      class="lte-skin-preview-header text-bg-sky"
+                                      data-bs-theme="dark"
+                                      data-astro-cid-sxrfehrj
+                                    >
+                                      <span
+                                        class="lte-skin-preview-item"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-avatar"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                    <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-teal"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-pink"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-card"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                  </span>
+                                </span>
+                              </td>
+                              <td class="text-nowrap fw-semibold">Navy &amp; sky</td>
+                              <td class="text-nowrap">
+                                <code>text-bg-sky</code> · <code>dark</code>
+                              </td>
+                              <td class="text-nowrap">
+                                <code>text-bg-navy</code> · <code>dark</code>
+                              </td>
+                              <td>经典 skin-blue 的现代版演绎。</td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <span
+                                  class="lte-skin-preview lte-skin-preview-sm bg-body-tertiary"
+                                  aria-hidden="true"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-sidebar text-bg-midnight"
+                                    data-bs-theme="dark"
+                                    data-astro-cid-sxrfehrj
+                                  >
+                                    <span
+                                      class="lte-skin-preview-brand"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item lte-skin-preview-active"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                  </span>
+                                  <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                    <span
+                                      class="lte-skin-preview-header text-bg-midnight"
+                                      data-bs-theme="dark"
+                                      data-astro-cid-sxrfehrj
+                                    >
+                                      <span
+                                        class="lte-skin-preview-item"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-avatar"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                    <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-indigo"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-pink"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-card"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                  </span>
+                                </span>
+                              </td>
+                              <td class="text-nowrap fw-semibold">Midnight mono</td>
+                              <td class="text-nowrap">
+                                <code>text-bg-midnight</code> · <code>dark</code>
+                              </td>
+                              <td class="text-nowrap">
+                                <code>text-bg-midnight</code> · <code>dark</code>
+                              </td>
+                              <td>整个界面用同一种深色调 —— 也就是“深色头部”布局。</td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <span
+                                  class="lte-skin-preview lte-skin-preview-sm bg-body-tertiary"
+                                  aria-hidden="true"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-sidebar text-bg-steel"
+                                    data-bs-theme="dark"
+                                    data-astro-cid-sxrfehrj
+                                  >
+                                    <span
+                                      class="lte-skin-preview-brand"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item lte-skin-preview-active"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                  </span>
+                                  <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                    <span
+                                      class="lte-skin-preview-header text-bg-steel"
+                                      data-bs-theme="dark"
+                                      data-astro-cid-sxrfehrj
+                                    >
+                                      <span
+                                        class="lte-skin-preview-item"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-avatar"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                    <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-sky"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-amber"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-card"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                  </span>
+                                </span>
+                              </td>
+                              <td class="text-nowrap fw-semibold">Steel mono</td>
+                              <td class="text-nowrap">
+                                <code>text-bg-steel</code> · <code>dark</code>
+                              </td>
+                              <td class="text-nowrap">
+                                <code>text-bg-steel</code> · <code>dark</code>
+                              </td>
+                              <td>整个界面都是蓝灰色；比 midnight 更柔和。</td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <span
+                                  class="lte-skin-preview lte-skin-preview-sm bg-body-tertiary"
+                                  aria-hidden="true"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-sidebar text-bg-slate"
+                                    data-bs-theme="dark"
+                                    data-astro-cid-sxrfehrj
+                                  >
+                                    <span
+                                      class="lte-skin-preview-brand"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item lte-skin-preview-active"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                  </span>
+                                  <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                    <span
+                                      class="lte-skin-preview-header text-bg-teal"
+                                      data-bs-theme="dark"
+                                      data-astro-cid-sxrfehrj
+                                    >
+                                      <span
+                                        class="lte-skin-preview-item"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-avatar"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                    <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-indigo"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-pink"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-card"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                  </span>
+                                </span>
+                              </td>
+                              <td class="text-nowrap fw-semibold">Slate &amp; teal</td>
+                              <td class="text-nowrap">
+                                <code>text-bg-teal</code> · <code>dark</code>
+                              </td>
+                              <td class="text-nowrap">
+                                <code>text-bg-slate</code> · <code>dark</code>
+                              </td>
+                              <td>中等分量的侧边栏配冷色头部 —— 比 navy 更柔和。</td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <span
+                                  class="lte-skin-preview lte-skin-preview-sm bg-body-tertiary"
+                                  aria-hidden="true"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-sidebar text-bg-graphite"
+                                    data-bs-theme="dark"
+                                    data-astro-cid-sxrfehrj
+                                  >
+                                    <span
+                                      class="lte-skin-preview-brand"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item lte-skin-preview-active"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                  </span>
+                                  <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                    <span
+                                      class="lte-skin-preview-header text-bg-orange"
+                                      data-bs-theme="dark"
+                                      data-astro-cid-sxrfehrj
+                                    >
+                                      <span
+                                        class="lte-skin-preview-item"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-avatar"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                    <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-orange"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-amber"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-card"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                  </span>
+                                </span>
+                              </td>
+                              <td class="text-nowrap fw-semibold">Graphite &amp; orange</td>
+                              <td class="text-nowrap">
+                                <code>text-bg-orange</code> · <code>dark</code>
+                              </td>
+                              <td class="text-nowrap">
+                                <code>text-bg-graphite</code> · <code>dark</code>
+                              </td>
+                              <td>安静的侧边栏配暖色头部 —— v2 那些充满活力的皮肤，收敛版。</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="mb-4">
+                      <h6 class="fw-semibold mb-1">Coloured &amp; gradient</h6>
+                      <p class="text-body-secondary mb-2">
+                        偏品牌感的界面：用一种强烈的色相，或者用 v3 那种渐变光泽。
+                      </p>
+                      <div class="table-responsive">
+                        <table class="table align-middle mb-0">
+                          <thead>
+                            <tr>
+                              <th scope="col" class="text-nowrap" style="width: 1%">预览</th>
+                              <th scope="col">皮肤</th>
+                              <th scope="col">头部</th>
+                              <th scope="col">侧边栏</th>
+                              <th scope="col">说明 / 理由</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <span
+                                  class="lte-skin-preview lte-skin-preview-sm bg-body-tertiary"
+                                  aria-hidden="true"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-sidebar text-bg-violet"
+                                    data-bs-theme="dark"
+                                    data-astro-cid-sxrfehrj
+                                  >
+                                    <span
+                                      class="lte-skin-preview-brand"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item lte-skin-preview-active"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                  </span>
+                                  <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                    <span
+                                      class="lte-skin-preview-header text-bg-violet"
+                                      data-bs-theme="dark"
+                                      data-astro-cid-sxrfehrj
+                                    >
+                                      <span
+                                        class="lte-skin-preview-item"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-avatar"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                    <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-teal"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-amber"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-card"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                  </span>
+                                </span>
+                              </td>
+                              <td class="text-nowrap fw-semibold">Violet mono</td>
+                              <td class="text-nowrap">
+                                <code>text-bg-violet</code> · <code>dark</code>
+                              </td>
+                              <td class="text-nowrap">
+                                <code>text-bg-violet</code> · <code>dark</code>
+                              </td>
+                              <td>头部和侧边栏用同一个色相 —— 大胆的单一品牌外观。</td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <span
+                                  class="lte-skin-preview lte-skin-preview-sm bg-body-tertiary"
+                                  aria-hidden="true"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-sidebar bg-gradient-indigo"
+                                    data-bs-theme="dark"
+                                    data-astro-cid-sxrfehrj
+                                  >
+                                    <span
+                                      class="lte-skin-preview-brand"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item lte-skin-preview-active"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                  </span>
+                                  <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                    <span
+                                      class="lte-skin-preview-header bg-body"
+                                      data-bs-theme="light"
+                                      data-astro-cid-sxrfehrj
+                                    >
+                                      <span
+                                        class="lte-skin-preview-item"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-avatar"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                    <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-indigo"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-teal"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-card"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                  </span>
+                                </span>
+                              </td>
+                              <td class="text-nowrap fw-semibold">Gradient indigo</td>
+                              <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
+                              <td class="text-nowrap">
+                                <code>bg-gradient-indigo</code> · <code>dark</code>
+                              </td>
+                              <td>品牌色侧边栏上带 v3 的渐变光泽，配白色头部。</td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <span
+                                  class="lte-skin-preview lte-skin-preview-sm bg-body-tertiary"
+                                  aria-hidden="true"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-sidebar bg-gradient-teal"
+                                    data-bs-theme="dark"
+                                    data-astro-cid-sxrfehrj
+                                  >
+                                    <span
+                                      class="lte-skin-preview-brand"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item lte-skin-preview-active"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                    <span
+                                      class="lte-skin-preview-item"
+                                      data-astro-cid-sxrfehrj
+                                    ></span>
+                                  </span>
+                                  <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                    <span
+                                      class="lte-skin-preview-header bg-body"
+                                      data-bs-theme="light"
+                                      data-astro-cid-sxrfehrj
+                                    >
+                                      <span
+                                        class="lte-skin-preview-item"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-avatar"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                    <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-teal"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-box text-bg-amber"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                      <span
+                                        class="lte-skin-preview-card"
+                                        data-astro-cid-sxrfehrj
+                                      ></span>
+                                    </span>
+                                  </span>
+                                </span>
+                              </td>
+                              <td class="text-nowrap fw-semibold">Gradient teal</td>
+                              <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
+                              <td class="text-nowrap">
+                                <code>bg-gradient-teal</code> · <code>dark</code>
+                              </td>
+                              <td>沉静清新；teal 侧边栏配上渐变光泽。</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <p>
+                      <code>bg-body</code>、<code>bg-body-secondary</code> 和
+                      <code>bg-body-tertiary</code> 是 Bootstrap 自带的表面工具类 ——
+                      它们会跟随元素的
+                      <code>data-bs-theme</code>，这就是为什么“Default”会是一个深色侧边栏。每一个
+                      <code>text-bg-*</code> 和 <code>bg-gradient-*</code> 条目都需要
+                      <code>adminlte-colors.css</code>。
+                    </p>
+                    <h5 id="仪表盘配色组--一行组件上该放哪四种颜色">
+                      仪表盘配色组 —— 一行组件上该放哪四种颜色
+                    </h5>
+                    <p>
+                      给一排小方盒挑四种颜色，往往是调色板最容易翻车的地方。下面这些四色组合是按色相关系来选的，而不是凭口味挑的；你可以直接照用，也可以拿它们当起点。
+                    </p>
+                    <div class="table-responsive">
+                      <table class="table align-middle">
+                        <thead>
+                          <tr>
+                            <th scope="col">配色组</th>
+                            <th scope="col">类名</th>
+                            <th scope="col">效果好的原因</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="text-nowrap fw-semibold">Balanced</td>
+                            <td class="text-nowrap">
+                              <span class="badge text-bg-indigo me-1">indigo</span
+                              ><span class="badge text-bg-teal me-1">teal</span
+                              ><span class="badge text-bg-amber me-1">amber</span
+                              ><span class="badge text-bg-pink me-1">pink</span>
+                            </td>
+                            <td>
+                              四种色相大致相隔 90°（283 · 190 · 68 · 350）——
+                              间隔拉到最大，任意两个组件都不会让人读成同一类。默认推荐方案。
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap fw-semibold">Cool</td>
+                            <td class="text-nowrap">
+                              <span class="badge text-bg-indigo me-1">indigo</span
+                              ><span class="badge text-bg-sky me-1">sky</span
+                              ><span class="badge text-bg-teal me-1">teal</span
+                              ><span class="badge text-bg-violet me-1">violet</span>
+                            </td>
+                            <td>
+                              从 190° 到 301°
+                              的一段类似色。沉静，相邻色之间对比度低；适合数据密集、应该让数字唱主角的页面。
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap fw-semibold">Warm</td>
+                            <td class="text-nowrap">
+                              <span class="badge text-bg-pink me-1">pink</span
+                              ><span class="badge text-bg-orange me-1">orange</span
+                              ><span class="badge text-bg-amber me-1">amber</span
+                              ><span class="badge text-bg-fuchsia me-1">fuchsia</span>
+                            </td>
+                            <td>
+                              穿过红色的一段暖色（322° →
+                              68°）。充满活力；适合电商、营销和销售仪表盘。
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap fw-semibold">With Bootstrap</td>
+                            <td class="text-nowrap">
+                              <span class="badge text-bg-primary me-1">primary</span
+                              ><span class="badge text-bg-teal me-1">teal</span
+                              ><span class="badge text-bg-orange me-1">orange</span
+                              ><span class="badge text-bg-violet me-1">violet</span>
+                            </td>
+                            <td>
+                              调色板正好落在 Bootstrap 主题色之间的空档里，所以混用是安全的：primary
+                              260 · teal 190 · orange 42 · violet 301。
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <h5 id="添加你的品牌色">添加你的品牌色</h5>
+                    <p>
+                      <strong>用 Sass</strong>（推荐）：在导入入口之前设置
+                      <code>$lte-palette-custom</code>，你的颜色就能获得和内置颜色一模一样的全部
+                      token、工具类和组件钩子。如果你复用了已有的名字，就会覆盖内置的那个值。
+                    </p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="scss"
+                    ><code><span class="line"><span style="color:#6A9955">// your-adminlte.scss</span></span>
+<span class="line"><span style="color:#9CDCFE">$lte-palette-custom</span><span style="color:#D4D4D4">: (</span></span>
+<span class="line"><span style="color:#CE9178">  &quot;brand&quot;</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#0f766e</span><span style="color:#D4D4D4">,      </span><span style="color:#6A9955">// 新颜色 → .bg-brand, .text-bg-brand, .card-brand, …</span></span>
+<span class="line"><span style="color:#CE9178">  &quot;sky&quot;</span><span style="color:#D4D4D4">:   </span><span style="color:#CE9178">#0369a1</span><span style="color:#6A9955">       // 将出厂颜色重新调至蓝色</span></span>
+<span class="line"><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#C586C0">@import</span><span style="color:#CE9178"> &quot;admin-lte/src/scss/adminlte-colors&quot;</span><span style="color:#D4D4D4">;</span></span></code></pre>
+                    <p>
+                      To ship <strong>only</strong> your colours (drop the fourteen), set
+                      <code>$lte-palette</code> itself instead:
+                    </p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="scss"
+                    ><code><span class="line"><span style="color:#9CDCFE">$lte-palette</span><span style="color:#D4D4D4">: (</span></span>
+<span class="line"><span style="color:#CE9178">  &quot;brand&quot;</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#0f766e</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">  &quot;brand-dark&quot;</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#134e4a</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">  &quot;brand-warm&quot;</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#b45309</span></span>
+<span class="line"><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#C586C0">@import</span><span style="color:#CE9178"> &quot;admin-lte/src/scss/adminlte-colors&quot;</span><span style="color:#D4D4D4">;</span></span></code></pre>
+                    <p>还有两个可调项：</p>
+                    <ul>
+                      <li>
+                        <code>$lte-palette-aliases</code> ——
+                        额外的名字，用来生成和某个已有条目相同的类。AdminLTE 3
+                        的项目可以把旧类名找回来：<code
+                          >(&quot;lightblue&quot;: &quot;sky&quot;, &quot;maroon&quot;:
+                          &quot;pink&quot;)</code
+                        >。
+                      </li>
+                      <li>
+                        <code>$lte-palette-min-contrast-ratio</code> —— 当 Bootstrap 的
+                        <code>color-contrast()</code> 为 <code>.text-bg-*</code>、<code
+                          >.bg-gradient-*</code
+                        >
+                        和 <code>.card-*</code> 头部挑选自动文字颜色时，所要求的对比度。默认是
+                        <code>4.5</code>（WCAG AA
+                        对正文的要求）。如果某个自定义颜色配白色达不到这个值，文字就会翻成黑色；<code>3</code>（WCAG
+                        AA 对大号文字和 UI 组件的要求）是另一个站得住脚的设置。
+                      </li>
+                    </ul>
+                    <p>
+                      <strong>怎么挑一个能用的品牌色。</strong>
+                      唯一要紧的一点，就是白色文字放在它上面能达到 4.5:1 —— 这才能保证
+                      <code>.text-bg-brand</code
+                      >、小方盒和带品牌的侧边栏清晰可读，也是演示页面上的无障碍检查关卡所校验的东西。大多数品牌蓝、绿、紫都能过关；亮橙色、黄色和青色则不行。<a
+                        href="../UI/colors.html#brand-hex"
+                        >演示页面上的检查器</a
+                      >会报出对比度，给出一个只调暗到刚好达标的同色相版本，当你的色相和已有颜色重叠时会提醒你，还会打印出对应的
+                      Sass 代码片段。
+                    </p>
+                    <p>
+                      <strong>不用 Sass</strong>，直接基于预构建的
+                      CSS，你依然可以手写一种颜色。下面就是一个名字的完整写法：
+                    </p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="css"
+                    ><code><span class="line"><span style="color:#D7BA7D">:root</span><span style="color:#D4D4D4">, [</span><span style="color:#9CDCFE">data-bs-theme</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;light&quot;</span><span style="color:#D4D4D4">] {</span></span>
+<span class="line"><span style="color:#9CDCFE">  --bs-brand</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#0f766e</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">  --bs-brand-rgb</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">15</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">118</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">110</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">  --bs-brand-text-emphasis</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#062f2c</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">  --bs-brand-bg-subtle</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#cfe4e2</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">  --bs-brand-border-subtle</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#9fc8c5</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">}</span></span>
+<span class="line"><span style="color:#D4D4D4">[</span><span style="color:#9CDCFE">data-bs-theme</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;dark&quot;</span><span style="color:#D4D4D4">] {</span></span>
+<span class="line"><span style="color:#9CDCFE">  --bs-brand-text-emphasis</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#6fada8</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">  --bs-brand-bg-subtle</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#031816</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">  --bs-brand-border-subtle</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#094742</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">}</span></span>
+<span class="line"><span style="color:#D7BA7D">.bg-brand</span><span style="color:#D4D4D4">      { </span><span style="color:#9CDCFE">--bs-bg-opacity</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">1</span><span style="color:#D4D4D4">; </span><span style="color:#9CDCFE">background-color</span><span style="color:#D4D4D4">: </span><span style="color:#DCDCAA">rgba</span><span style="color:#D4D4D4">(</span><span style="color:#DCDCAA">var</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">--bs-brand-rgb</span><span style="color:#D4D4D4">), </span><span style="color:#DCDCAA">var</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">--bs-bg-opacity</span><span style="color:#D4D4D4">)) </span><span style="color:#569CD6">!important</span><span style="color:#D4D4D4">; }</span></span>
+<span class="line"><span style="color:#D7BA7D">.text-bg-brand</span><span style="color:#D4D4D4"> { </span><span style="color:#9CDCFE">color</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#fff</span><span style="color:#569CD6"> !important</span><span style="color:#D4D4D4">; </span><span style="color:#9CDCFE">background-color</span><span style="color:#D4D4D4">: </span><span style="color:#DCDCAA">rgba</span><span style="color:#D4D4D4">(</span><span style="color:#DCDCAA">var</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">--bs-brand-rgb</span><span style="color:#D4D4D4">), </span><span style="color:#DCDCAA">var</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">--bs-bg-opacity</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">1</span><span style="color:#D4D4D4">)) </span><span style="color:#569CD6">!important</span><span style="color:#D4D4D4">; }</span></span>
+<span class="line"><span style="color:#D7BA7D">.text-brand</span><span style="color:#D4D4D4">    { </span><span style="color:#9CDCFE">--bs-text-opacity</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">1</span><span style="color:#D4D4D4">; </span><span style="color:#9CDCFE">color</span><span style="color:#D4D4D4">: </span><span style="color:#DCDCAA">rgba</span><span style="color:#D4D4D4">(</span><span style="color:#DCDCAA">var</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">--bs-brand-rgb</span><span style="color:#D4D4D4">), </span><span style="color:#DCDCAA">var</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">--bs-text-opacity</span><span style="color:#D4D4D4">)) </span><span style="color:#569CD6">!important</span><span style="color:#D4D4D4">; }</span></span>
+<span class="line"><span style="color:#D7BA7D">.border-brand</span><span style="color:#D4D4D4">  { </span><span style="color:#9CDCFE">--bs-border-opacity</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">1</span><span style="color:#D4D4D4">; </span><span style="color:#9CDCFE">border-color</span><span style="color:#D4D4D4">: </span><span style="color:#DCDCAA">rgba</span><span style="color:#D4D4D4">(</span><span style="color:#DCDCAA">var</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">--bs-brand-rgb</span><span style="color:#D4D4D4">), </span><span style="color:#DCDCAA">var</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">--bs-border-opacity</span><span style="color:#D4D4D4">)) </span><span style="color:#569CD6">!important</span><span style="color:#D4D4D4">; }</span></span>
+<span class="line"><span style="color:#D7BA7D">.card-brand</span><span style="color:#D4D4D4">, </span><span style="color:#D7BA7D">.bg-brand</span><span style="color:#D4D4D4">, </span><span style="color:#D7BA7D">.text-bg-brand</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">  --lte-card-variant-bg</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#0f766e</span><span style="color:#D4D4D4">; </span><span style="color:#9CDCFE">--lte-card-variant-bg-rgb</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">15</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">118</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">110</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">  --lte-card-variant-color</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#fff</span><span style="color:#D4D4D4">; </span><span style="color:#9CDCFE">--lte-card-variant-color-rgb</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">255</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">255</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">255</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">}</span></span></code></pre>
+                    <h5 id="这套调色板是怎么设计出来的">这套调色板是怎么设计出来的</h5>
+                    <p>
+                      这十四个值不是手工挑出来的，而是生成出来的。<code>scripts/palette.mjs</code>
+                      是在 <strong>OKLCH</strong> 里把它们推导出来的 —— OKLCH 是 Tailwind v4 和
+                      Radix 用来构建各自调色板的那种感知均匀色彩空间 —— 依据的是三条规则：
+                    </p>
+                    <div class="row g-4 align-items-start my-2">
+                      <div class="col-lg-5">
+                        <svg
+                          viewBox="0 0 420 420"
+                          class="d-block w-100"
+                          style="max-width: 420px; font-family: var(--bs-body-font-family)"
+                          role="img"
+                          aria-label="Polar plot of hue and chroma. Filled dots are the palette colours; hollow rings are Bootstrap's theme colours."
+                        >
+                          <path
+                            d="M388.0,210.0 A178,178 0 0 0 387.2,193.2 L399.2,192.1 A190,190 0 0 1 400.0,210.0 Z"
+                            fill="#de879e"
+                          ></path>
+                          <path
+                            d="M387.3,194.5 A178,178 0 0 0 385.1,177.9 L396.9,175.7 A190,190 0 0 1 399.3,193.4 Z"
+                            fill="#df8798"
+                          ></path>
+                          <path
+                            d="M385.3,179.1 A178,178 0 0 0 381.6,162.7 L393.2,159.5 A190,190 0 0 1 397.1,177.0 Z"
+                            fill="#e08792"
+                          ></path>
+                          <path
+                            d="M381.9,163.9 A178,178 0 0 0 376.8,148.0 L388.1,143.8 A190,190 0 0 1 393.5,160.8 Z"
+                            fill="#e1878b"
+                          ></path>
+                          <path
+                            d="M377.3,149.1 A178,178 0 0 0 370.8,133.6 L381.6,128.5 A190,190 0 0 1 388.5,145.0 Z"
+                            fill="#e18885"
+                          ></path>
+                          <path
+                            d="M371.3,134.8 A178,178 0 0 0 363.5,119.9 L373.9,113.9 A190,190 0 0 1 382.2,129.7 Z"
+                            fill="#e1897e"
+                          ></path>
+                          <path
+                            d="M364.2,121.0 A178,178 0 0 0 355.1,106.9 L364.9,99.9 A190,190 0 0 1 374.5,115.0 Z"
+                            fill="#e18a78"
+                          ></path>
+                          <path
+                            d="M355.8,107.9 A178,178 0 0 0 345.6,94.6 L354.7,86.9 A190,190 0 0 1 365.6,101.0 Z"
+                            fill="#e08b72"
+                          ></path>
+                          <path
+                            d="M346.4,95.6 A178,178 0 0 0 335.0,83.3 L343.4,74.7 A190,190 0 0 1 355.5,87.9 Z"
+                            fill="#df8d6c"
+                          ></path>
+                          <path
+                            d="M335.9,84.1 A178,178 0 0 0 323.5,72.8 L331.1,63.6 A190,190 0 0 1 344.4,75.6 Z"
+                            fill="#dd8f67"
+                          ></path>
+                          <path
+                            d="M324.4,73.6 A178,178 0 0 0 311.1,63.5 L317.9,53.6 A190,190 0 0 1 332.1,64.5 Z"
+                            fill="#db9061"
+                          ></path>
+                          <path
+                            d="M312.1,64.2 A178,178 0 0 0 297.9,55.2 L303.8,44.8 A190,190 0 0 1 319.0,54.4 Z"
+                            fill="#d8925c"
+                          ></path>
+                          <path
+                            d="M299.0,55.8 A178,178 0 0 0 284.1,48.2 L289.1,37.2 A190,190 0 0 1 305.0,45.5 Z"
+                            fill="#d69558"
+                          ></path>
+                          <path
+                            d="M285.2,48.7 A178,178 0 0 0 269.7,42.3 L273.7,31.0 A190,190 0 0 1 290.3,37.8 Z"
+                            fill="#d29754"
+                          ></path>
+                          <path
+                            d="M270.9,42.7 A178,178 0 0 0 254.9,37.7 L257.9,26.1 A190,190 0 0 1 275.0,31.5 Z"
+                            fill="#cf9951"
+                          ></path>
+                          <path
+                            d="M256.1,38.1 A178,178 0 0 0 239.7,34.5 L241.7,22.7 A190,190 0 0 1 259.2,26.5 Z"
+                            fill="#cb9b4f"
+                          ></path>
+                          <path
+                            d="M240.9,34.7 A178,178 0 0 0 224.3,32.6 L225.2,20.6 A190,190 0 0 1 243.0,22.9 Z"
+                            fill="#c69e4d"
+                          ></path>
+                          <path
+                            d="M225.5,32.7 A178,178 0 0 0 208.8,32.0 L208.7,20.0 A190,190 0 0 1 226.6,20.7 Z"
+                            fill="#c2a04c"
+                          ></path>
+                          <path
+                            d="M210.0,32.0 A178,178 0 0 0 193.2,32.8 L192.1,20.8 A190,190 0 0 1 210.0,20.0 Z"
+                            fill="#bda34d"
+                          ></path>
+                          <path
+                            d="M194.5,32.7 A178,178 0 0 0 177.9,34.9 L175.7,23.1 A190,190 0 0 1 193.4,20.7 Z"
+                            fill="#b7a54e"
+                          ></path>
+                          <path
+                            d="M179.1,34.7 A178,178 0 0 0 162.7,38.4 L159.5,26.8 A190,190 0 0 1 177.0,22.9 Z"
+                            fill="#b2a750"
+                          ></path>
+                          <path
+                            d="M163.9,38.1 A178,178 0 0 0 148.0,43.2 L143.8,31.9 A190,190 0 0 1 160.8,26.5 Z"
+                            fill="#acaa53"
+                          ></path>
+                          <path
+                            d="M149.1,42.7 A178,178 0 0 0 133.6,49.2 L128.5,38.4 A190,190 0 0 1 145.0,31.5 Z"
+                            fill="#a6ac56"
+                          ></path>
+                          <path
+                            d="M134.8,48.7 A178,178 0 0 0 119.9,56.5 L113.9,46.1 A190,190 0 0 1 129.7,37.8 Z"
+                            fill="#9fae5a"
+                          ></path>
+                          <path
+                            d="M121.0,55.8 A178,178 0 0 0 106.9,64.9 L99.9,55.1 A190,190 0 0 1 115.0,45.5 Z"
+                            fill="#98b05f"
+                          ></path>
+                          <path
+                            d="M107.9,64.2 A178,178 0 0 0 94.6,74.4 L86.9,65.3 A190,190 0 0 1 101.0,54.4 Z"
+                            fill="#91b264"
+                          ></path>
+                          <path
+                            d="M95.6,73.6 A178,178 0 0 0 83.3,85.0 L74.7,76.6 A190,190 0 0 1 87.9,64.5 Z"
+                            fill="#8ab36a"
+                          ></path>
+                          <path
+                            d="M84.1,84.1 A178,178 0 0 0 72.8,96.5 L63.6,88.9 A190,190 0 0 1 75.6,75.6 Z"
+                            fill="#83b570"
+                          ></path>
+                          <path
+                            d="M73.6,95.6 A178,178 0 0 0 63.5,108.9 L53.6,102.1 A190,190 0 0 1 64.5,87.9 Z"
+                            fill="#7bb676"
+                          ></path>
+                          <path
+                            d="M64.2,107.9 A178,178 0 0 0 55.2,122.1 L44.8,116.2 A190,190 0 0 1 54.4,101.0 Z"
+                            fill="#73b87c"
+                          ></path>
+                          <path
+                            d="M55.8,121.0 A178,178 0 0 0 48.2,135.9 L37.2,130.9 A190,190 0 0 1 45.5,115.0 Z"
+                            fill="#6cb983"
+                          ></path>
+                          <path
+                            d="M48.7,134.8 A178,178 0 0 0 42.3,150.3 L31.0,146.3 A190,190 0 0 1 37.8,129.7 Z"
+                            fill="#64b989"
+                          ></path>
+                          <path
+                            d="M42.7,149.1 A178,178 0 0 0 37.7,165.1 L26.1,162.1 A190,190 0 0 1 31.5,145.0 Z"
+                            fill="#5cba90"
+                          ></path>
+                          <path
+                            d="M38.1,163.9 A178,178 0 0 0 34.5,180.3 L22.7,178.3 A190,190 0 0 1 26.5,160.8 Z"
+                            fill="#54bb97"
+                          ></path>
+                          <path
+                            d="M34.7,179.1 A178,178 0 0 0 32.6,195.7 L20.6,194.8 A190,190 0 0 1 22.9,177.0 Z"
+                            fill="#4dbb9d"
+                          ></path>
+                          <path
+                            d="M32.7,194.5 A178,178 0 0 0 32.0,211.2 L20.0,211.3 A190,190 0 0 1 20.7,193.4 Z"
+                            fill="#46bba4"
+                          ></path>
+                          <path
+                            d="M32.0,210.0 A178,178 0 0 0 32.8,226.8 L20.8,227.9 A190,190 0 0 1 20.0,210.0 Z"
+                            fill="#40bbaa"
+                          ></path>
+                          <path
+                            d="M32.7,225.5 A178,178 0 0 0 34.9,242.1 L23.1,244.3 A190,190 0 0 1 20.7,226.6 Z"
+                            fill="#3bbbb1"
+                          ></path>
+                          <path
+                            d="M34.7,240.9 A178,178 0 0 0 38.4,257.3 L26.8,260.5 A190,190 0 0 1 22.9,243.0 Z"
+                            fill="#37bab7"
+                          ></path>
+                          <path
+                            d="M38.1,256.1 A178,178 0 0 0 43.2,272.0 L31.9,276.2 A190,190 0 0 1 26.5,259.2 Z"
+                            fill="#35b9bd"
+                          ></path>
+                          <path
+                            d="M42.7,270.9 A178,178 0 0 0 49.2,286.4 L38.4,291.5 A190,190 0 0 1 31.5,275.0 Z"
+                            fill="#35b9c2"
+                          ></path>
+                          <path
+                            d="M48.7,285.2 A178,178 0 0 0 56.5,300.1 L46.1,306.1 A190,190 0 0 1 37.8,290.3 Z"
+                            fill="#37b8c8"
+                          ></path>
+                          <path
+                            d="M55.8,299.0 A178,178 0 0 0 64.9,313.1 L55.1,320.1 A190,190 0 0 1 45.5,305.0 Z"
+                            fill="#3bb6cd"
+                          ></path>
+                          <path
+                            d="M64.2,312.1 A178,178 0 0 0 74.4,325.4 L65.3,333.1 A190,190 0 0 1 54.4,319.0 Z"
+                            fill="#40b5d2"
+                          ></path>
+                          <path
+                            d="M73.6,324.4 A178,178 0 0 0 85.0,336.7 L76.6,345.3 A190,190 0 0 1 64.5,332.1 Z"
+                            fill="#46b4d6"
+                          ></path>
+                          <path
+                            d="M84.1,335.9 A178,178 0 0 0 96.5,347.2 L88.9,356.4 A190,190 0 0 1 75.6,344.4 Z"
+                            fill="#4cb2da"
+                          ></path>
+                          <path
+                            d="M95.6,346.4 A178,178 0 0 0 108.9,356.5 L102.1,366.4 A190,190 0 0 1 87.9,355.5 Z"
+                            fill="#53b0de"
+                          ></path>
+                          <path
+                            d="M107.9,355.8 A178,178 0 0 0 122.1,364.8 L116.2,375.2 A190,190 0 0 1 101.0,365.6 Z"
+                            fill="#5baee1"
+                          ></path>
+                          <path
+                            d="M121.0,364.2 A178,178 0 0 0 135.9,371.8 L130.9,382.8 A190,190 0 0 1 115.0,374.5 Z"
+                            fill="#62ace4"
+                          ></path>
+                          <path
+                            d="M134.8,371.3 A178,178 0 0 0 150.3,377.7 L146.3,389.0 A190,190 0 0 1 129.7,382.2 Z"
+                            fill="#69aae6"
+                          ></path>
+                          <path
+                            d="M149.1,377.3 A178,178 0 0 0 165.1,382.3 L162.1,393.9 A190,190 0 0 1 145.0,388.5 Z"
+                            fill="#71a8e8"
+                          ></path>
+                          <path
+                            d="M163.9,381.9 A178,178 0 0 0 180.3,385.5 L178.3,397.3 A190,190 0 0 1 160.8,393.5 Z"
+                            fill="#78a6e9"
+                          ></path>
+                          <path
+                            d="M179.1,385.3 A178,178 0 0 0 195.7,387.4 L194.8,399.4 A190,190 0 0 1 177.0,397.1 Z"
+                            fill="#7fa4ea"
+                          ></path>
+                          <path
+                            d="M194.5,387.3 A178,178 0 0 0 211.2,388.0 L211.3,400.0 A190,190 0 0 1 193.4,399.3 Z"
+                            fill="#86a2ea"
+                          ></path>
+                          <path
+                            d="M210.0,388.0 A178,178 0 0 0 226.8,387.2 L227.9,399.2 A190,190 0 0 1 210.0,400.0 Z"
+                            fill="#8da0ea"
+                          ></path>
+                          <path
+                            d="M225.5,387.3 A178,178 0 0 0 242.1,385.1 L244.3,396.9 A190,190 0 0 1 226.6,399.3 Z"
+                            fill="#949ee9"
+                          ></path>
+                          <path
+                            d="M240.9,385.3 A178,178 0 0 0 257.3,381.6 L260.5,393.2 A190,190 0 0 1 243.0,397.1 Z"
+                            fill="#9a9ce8"
+                          ></path>
+                          <path
+                            d="M256.1,381.9 A178,178 0 0 0 272.0,376.8 L276.2,388.1 A190,190 0 0 1 259.2,393.5 Z"
+                            fill="#a099e6"
+                          ></path>
+                          <path
+                            d="M270.9,377.3 A178,178 0 0 0 286.4,370.8 L291.5,381.6 A190,190 0 0 1 275.0,388.5 Z"
+                            fill="#a797e4"
+                          ></path>
+                          <path
+                            d="M285.2,371.3 A178,178 0 0 0 300.1,363.5 L306.1,373.9 A190,190 0 0 1 290.3,382.2 Z"
+                            fill="#ac95e1"
+                          ></path>
+                          <path
+                            d="M299.0,364.2 A178,178 0 0 0 313.1,355.1 L320.1,364.9 A190,190 0 0 1 305.0,374.5 Z"
+                            fill="#b294de"
+                          ></path>
+                          <path
+                            d="M312.1,355.8 A178,178 0 0 0 325.4,345.6 L333.1,354.7 A190,190 0 0 1 319.0,365.6 Z"
+                            fill="#b792da"
+                          ></path>
+                          <path
+                            d="M324.4,346.4 A178,178 0 0 0 336.7,335.0 L345.3,343.4 A190,190 0 0 1 332.1,355.5 Z"
+                            fill="#bc90d6"
+                          ></path>
+                          <path
+                            d="M335.9,335.9 A178,178 0 0 0 347.2,323.5 L356.4,331.1 A190,190 0 0 1 344.4,344.4 Z"
+                            fill="#c18ed2"
+                          ></path>
+                          <path
+                            d="M346.4,324.4 A178,178 0 0 0 356.5,311.1 L366.4,317.9 A190,190 0 0 1 355.5,332.1 Z"
+                            fill="#c58dcd"
+                          ></path>
+                          <path
+                            d="M355.8,312.1 A178,178 0 0 0 364.8,297.9 L375.2,303.8 A190,190 0 0 1 365.6,319.0 Z"
+                            fill="#ca8cc8"
+                          ></path>
+                          <path
+                            d="M364.2,299.0 A178,178 0 0 0 371.8,284.1 L382.8,289.1 A190,190 0 0 1 374.5,305.0 Z"
+                            fill="#cd8ac3"
+                          ></path>
+                          <path
+                            d="M371.3,285.2 A178,178 0 0 0 377.7,269.7 L389.0,273.7 A190,190 0 0 1 382.2,290.3 Z"
+                            fill="#d189bd"
+                          ></path>
+                          <path
+                            d="M377.3,270.9 A178,178 0 0 0 382.3,254.9 L393.9,257.9 A190,190 0 0 1 388.5,275.0 Z"
+                            fill="#d488b7"
+                          ></path>
+                          <path
+                            d="M381.9,256.1 A178,178 0 0 0 385.5,239.7 L397.3,241.7 A190,190 0 0 1 393.5,259.2 Z"
+                            fill="#d788b1"
+                          ></path>
+                          <path
+                            d="M385.3,240.9 A178,178 0 0 0 387.4,224.3 L399.4,225.2 A190,190 0 0 1 397.1,243.0 Z"
+                            fill="#da87ab"
+                          ></path>
+                          <path
+                            d="M387.3,225.5 A178,178 0 0 0 388.0,208.8 L400.0,208.7 A190,190 0 0 1 399.3,226.6 Z"
+                            fill="#dc87a5"
+                          ></path>
+                          <circle
+                            cx="210"
+                            cy="210"
+                            r="85.2"
+                            fill="none"
+                            stroke="var(--bs-border-color)"
+                            stroke-dasharray="3 4"
+                          ></circle>
+                          <circle
+                            cx="210"
+                            cy="210"
+                            r="144.3"
+                            fill="none"
+                            stroke="var(--bs-border-color)"
+                            stroke-dasharray="3 4"
+                          ></circle>
+                          <circle
+                            cx="210"
+                            cy="210"
+                            r="26"
+                            fill="none"
+                            stroke="var(--bs-border-color)"
+                          ></circle>
+                          <line
+                            x1="210"
+                            y1="210"
+                            x2="386.0"
+                            y2="210.0"
+                            stroke="var(--bs-border-color)"
+                            stroke-dasharray="3 4"
+                          ></line>
+                          <line
+                            x1="210"
+                            y1="210"
+                            x2="210.0"
+                            y2="34.0"
+                            stroke="var(--bs-border-color)"
+                            stroke-dasharray="3 4"
+                          ></line>
+                          <line
+                            x1="210"
+                            y1="210"
+                            x2="34.0"
+                            y2="210.0"
+                            stroke="var(--bs-border-color)"
+                            stroke-dasharray="3 4"
+                          ></line>
+                          <line
+                            x1="210"
+                            y1="210"
+                            x2="210.0"
+                            y2="386.0"
+                            stroke="var(--bs-border-color)"
+                            stroke-dasharray="3 4"
+                          ></line>
+                          <text
+                            x="408.0"
+                            y="214.0"
+                            text-anchor="middle"
+                            font-size="10"
+                            fill="var(--bs-secondary-color)"
+                          >
+                            h 0°
+                          </text>
+                          <text
+                            x="210.0"
+                            y="16.0"
+                            text-anchor="middle"
+                            font-size="10"
+                            fill="var(--bs-secondary-color)"
+                          >
+                            90°
+                          </text>
+                          <text
+                            x="12.0"
+                            y="214.0"
+                            text-anchor="middle"
+                            font-size="10"
+                            fill="var(--bs-secondary-color)"
+                          >
+                            180°
+                          </text>
+                          <text
+                            x="210.0"
+                            y="412.0"
+                            text-anchor="middle"
+                            font-size="10"
+                            fill="var(--bs-secondary-color)"
+                          >
+                            270°
+                          </text>
+                          <text
+                            x="298.1666666666667"
+                            y="206"
+                            font-size="10"
+                            fill="var(--bs-secondary-color)"
+                          >
+                            C .10
+                          </text>
+                          <text
+                            x="357.33333333333337"
+                            y="206"
+                            font-size="10"
+                            fill="var(--bs-secondary-color)"
+                          >
+                            C .20
+                          </text>
+
+                          <circle
+                            cx="182.1"
+                            cy="368.6"
+                            r="7"
+                            fill="var(--bs-body-bg)"
+                            stroke="#0d6efd"
+                            stroke-width="3"
+                          ></circle>
+                          <text
+                            x="179.3"
+                            y="388.3"
+                            text-anchor="middle"
+                            font-size="10.5"
+                            font-style="italic"
+                            fill="var(--bs-secondary-color)"
+                          >
+                            primary
+                          </text>
+
+                          <circle
+                            cx="118.9"
+                            cy="171.3"
+                            r="7"
+                            fill="var(--bs-body-bg)"
+                            stroke="#198754"
+                            stroke-width="3"
+                          ></circle>
+                          <text
+                            x="104.1"
+                            y="169.1"
+                            text-anchor="end"
+                            font-size="10.5"
+                            font-style="italic"
+                            fill="var(--bs-secondary-color)"
+                          >
+                            success
+                          </text>
+
+                          <circle
+                            cx="345.6"
+                            cy="157.3"
+                            r="7"
+                            fill="var(--bs-body-bg)"
+                            stroke="#dc3545"
+                            stroke-width="3"
+                          ></circle>
+                          <text
+                            x="360.6"
+                            y="155.5"
+                            text-anchor="start"
+                            font-size="10.5"
+                            font-style="italic"
+                            fill="var(--bs-secondary-color)"
+                          >
+                            danger
+                          </text>
+
+                          <circle
+                            cx="221.3"
+                            cy="82.6"
+                            r="7"
+                            fill="var(--bs-body-bg)"
+                            stroke="#ffc107"
+                            stroke-width="3"
+                          ></circle>
+                          <text
+                            x="222.7"
+                            y="70.7"
+                            text-anchor="middle"
+                            font-size="10.5"
+                            font-style="italic"
+                            fill="var(--bs-secondary-color)"
+                          >
+                            warning
+                          </text>
+
+                          <circle
+                            cx="125.2"
+                            cy="276.3"
+                            r="7"
+                            fill="var(--bs-body-bg)"
+                            stroke="#0dcaf0"
+                            stroke-width="3"
+                          ></circle>
+                          <text
+                            x="112.6"
+                            y="290.2"
+                            text-anchor="end"
+                            font-size="10.5"
+                            font-style="italic"
+                            fill="var(--bs-secondary-color)"
+                          >
+                            info
+                          </text>
+
+                          <circle
+                            cx="194.8"
+                            cy="242.4"
+                            r="7"
+                            fill="var(--bs-body-bg)"
+                            stroke="#6c757d"
+                            stroke-width="3"
+                          ></circle>
+
+                          <circle
+                            cx="303.6"
+                            cy="126.1"
+                            r="8"
+                            fill="#c84e10"
+                            stroke="var(--bs-body-bg)"
+                            stroke-width="2"
+                          ></circle>
+                          <text
+                            x="313.3"
+                            y="121.4"
+                            text-anchor="start"
+                            font-size="11"
+                            font-weight="600"
+                            fill="var(--bs-body-color)"
+                          >
+                            orange
+                          </text>
+
+                          <circle
+                            cx="247.3"
+                            cy="120.3"
+                            r="8"
+                            fill="#a56710"
+                            stroke="var(--bs-body-bg)"
+                            stroke-width="2"
+                          ></circle>
+                          <text
+                            x="252.3"
+                            y="112.3"
+                            text-anchor="start"
+                            font-size="11"
+                            font-weight="600"
+                            fill="var(--bs-body-color)"
+                          >
+                            amber
+                          </text>
+
+                          <circle
+                            cx="148.4"
+                            cy="124.2"
+                            r="8"
+                            fill="#5f7f0f"
+                            stroke="var(--bs-body-bg)"
+                            stroke-width="2"
+                          ></circle>
+                          <text
+                            x="140.8"
+                            y="117.7"
+                            text-anchor="end"
+                            font-size="11"
+                            font-weight="600"
+                            fill="var(--bs-body-color)"
+                          >
+                            olive
+                          </text>
+
+                          <circle
+                            cx="131.3"
+                            cy="223.8"
+                            r="8"
+                            fill="#12827d"
+                            stroke="var(--bs-body-bg)"
+                            stroke-width="2"
+                          ></circle>
+                          <text
+                            x="118.5"
+                            y="230.1"
+                            text-anchor="end"
+                            font-size="11"
+                            font-weight="600"
+                            fill="var(--bs-body-color)"
+                          >
+                            teal
+                          </text>
+
+                          <circle
+                            cx="158.5"
+                            cy="290.2"
+                            r="8"
+                            fill="#127caf"
+                            stroke="var(--bs-body-bg)"
+                            stroke-width="2"
+                          ></circle>
+                          <text
+                            x="151.5"
+                            y="305.1"
+                            text-anchor="end"
+                            font-size="11"
+                            font-weight="600"
+                            fill="var(--bs-body-color)"
+                          >
+                            sky
+                          </text>
+
+                          <circle
+                            cx="242.7"
+                            cy="350.9"
+                            r="8"
+                            fill="#6f60ea"
+                            stroke="var(--bs-body-bg)"
+                            stroke-width="2"
+                          ></circle>
+                          <text
+                            x="245.7"
+                            y="367.5"
+                            text-anchor="middle"
+                            font-size="11"
+                            font-weight="600"
+                            fill="var(--bs-body-color)"
+                          >
+                            indigo
+                          </text>
+
+                          <circle
+                            cx="288.9"
+                            cy="331.6"
+                            r="8"
+                            fill="#9553db"
+                            stroke="var(--bs-body-bg)"
+                            stroke-width="2"
+                          ></circle>
+                          <text
+                            x="296.0"
+                            y="346.5"
+                            text-anchor="start"
+                            font-size="11"
+                            font-weight="600"
+                            fill="var(--bs-body-color)"
+                          >
+                            violet
+                          </text>
+
+                          <circle
+                            cx="326.4"
+                            cy="294.9"
+                            r="8"
+                            fill="#b347be"
+                            stroke="var(--bs-body-bg)"
+                            stroke-width="2"
+                          ></circle>
+                          <text
+                            x="336.9"
+                            y="306.5"
+                            text-anchor="start"
+                            font-size="11"
+                            font-weight="600"
+                            fill="var(--bs-body-color)"
+                          >
+                            fuchsia
+                          </text>
+
+                          <circle
+                            cx="352.6"
+                            cy="234.9"
+                            r="8"
+                            fill="#cd388d"
+                            stroke="var(--bs-body-bg)"
+                            stroke-width="2"
+                          ></circle>
+                          <text
+                            x="365.4"
+                            y="241.1"
+                            text-anchor="start"
+                            font-size="11"
+                            font-weight="600"
+                            fill="var(--bs-body-color)"
+                          >
+                            pink
+                          </text>
+
+                          <circle
+                            cx="202.0"
+                            cy="271.3"
+                            r="6"
+                            fill="#1d2d4c"
+                            stroke="var(--bs-body-bg)"
+                            stroke-width="2"
+                          ></circle>
+
+                          <circle
+                            cx="201.8"
+                            cy="261.8"
+                            r="6"
+                            fill="#3a4860"
+                            stroke="var(--bs-body-bg)"
+                            stroke-width="2"
+                          ></circle>
+
+                          <circle
+                            cx="196.6"
+                            cy="254.2"
+                            r="6"
+                            fill="#566577"
+                            stroke="var(--bs-body-bg)"
+                            stroke-width="2"
+                          ></circle>
+
+                          <circle
+                            cx="203.3"
+                            cy="242.4"
+                            r="6"
+                            fill="#32363c"
+                            stroke="var(--bs-body-bg)"
+                            stroke-width="2"
+                          ></circle>
+
+                          <circle
+                            cx="222.7"
+                            cy="252.1"
+                            r="6"
+                            fill="#1e1d2d"
+                            stroke="var(--bs-body-bg)"
+                            stroke-width="2"
+                          ></circle>
+                        </svg>
+                        <p class="small text-body-secondary mt-2 mb-0">
+                          角度是色相，离中心的距离是彩度。实心圆点：调色板。空心圆圈：Bootstrap 的
+                          <em>primary · success · danger · warning · info</em>（secondary
+                          没标注，就在中心）。靠近中心的那些没标注的圆点，是那五种中性色 ——
+                          navy、steel、slate、graphite、midnight。
+                        </p>
+                      </div>
+                      <div class="col-lg-7">
+                        <ol class="mb-0">
+                          <li class="mb-3">
+                            <strong>对比度一致，是设计使然。</strong
+                            >每一种彩色，都是它那个色相下白色文字仍能达到 4.6:1
+                            的<em>最浅</em>取值。这就让它们全都落在 OKLCH L ≈ 0.55–0.59 —— 和
+                            Bootstrap 自己的 primary、success、danger 视觉分量相同 ——
+                            所以一行混搭的组件里，不会有一个颜色特别扎眼。
+                          </li>
+                          <li class="mb-3">
+                            <strong>色相落在空档里。</strong>Bootstrap
+                            已经占了红（21°）、黄（85°）、绿（157°）、青（218°）和蓝（260°）。调色板的色相跟它们每一个都至少差
+                            17°，彼此之间至少差 20° —— orange 42 · amber 67 · olive 126 · teal 190 ·
+                            sky 237 · indigo 283 · violet 303 · fuchsia 324 · pink 350 ——
+                            所以在同一个页面里混用调色板和主题色是安全的。
+                          </li>
+                          <li class="mb-0">
+                            <strong>彩度设了上限，中性色带点色调。</strong>彩度上限设在 0.20（和
+                            primary 的 0.23 / danger 的 0.20 持平），这样 indigo 和 violet
+                            就不会盖过 teal 和 amber，因为后两者在这个明度下已经贴到 sRGB
+                            色域边界了。那五种中性色 —— navy、steel、slate、graphite、midnight ——
+                            都是偏冷的色调（色相 ≈ 255–287°），而不是纯灰，这也是现代 UI
+                            中性色的做法；它们的明度档位也正好是流行后台套件用来做侧边栏的那几档（L
+                            ≈ 0.24、0.30、0.33、0.40、0.50）。
+                          </li>
+                        </ol>
+                      </div>
+                    </div>
+                    <p>
+                      <code>npm run palette</code> 会依据那些目标值重新生成这张图；<code
+                        >npm run palette -- --check</code
+                      >（以及单元测试）会校验对比度和色相间隔，并确认 Sass map 和演示数据是一致的。
+                    </p>
+                    <h5 id="无障碍与深色模式">无障碍与深色模式</h5>
+                    <ul>
+                      <li>
+                        每一种内置颜色配白色文字都超过了 4.5:1（最低的是 4.6:1），所以
+                        <code>.text-bg-*</code>
+                        从不需要为某个颜色单独开例外，用到它们的演示页面也都能通过 axe 检查关卡。
+                      </li>
+                      <li>
+                        实色工具类（<code>.bg-*</code>、<code>.text-bg-*</code>）在两种颜色模式下都一样，Bootstrap
+                        自己的那些也是如此。而 subtle 系列的 token —— 以及随之而来的
+                        <code>.callout-*</code> —— 会针对
+                        <code>data-bs-theme=&quot;dark&quot;</code> 翻转，用的推导方式和 Bootstrap
+                        给 <code>.alert-*</code> 用的是同一套。
+                      </li>
+                      <li>
+                        彩色背景上的 <code>.text-*</code> 和 <code>.link-*</code> 得你自己负责，跟用
+                        Bootstrap 主题色时一模一样。
+                      </li>
+                    </ul>
+                    <h5 id="从-adminlte-3-迁移">从 AdminLTE 3 迁移</h5>
+                    <p>
+                      v3 的扩展颜色有
+                      <code>lightblue</code
+                      >、<code>navy</code>、<code>olive</code>、<code>lime</code>、<code>fuchsia</code>、<code>maroon</code>，再加上
+                      Bootstrap 4 的那套命名调色板，其中好几种配白色文字的对比度都低于
+                      4:1。新调色板保留了有用的那些名字（<code>navy</code>、<code>olive</code>、<code>fuchsia</code>），其余的则重做了：
+                    </p>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>AdminLTE 3</th>
+                          <th>现在</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><code>bg-lightblue</code></td>
+                          <td><code>text-bg-sky</code></td>
+                          <td>同一色相，取值调到白色文字能过关</td>
+                        </tr>
+                        <tr>
+                          <td><code>bg-maroon</code></td>
+                          <td><code>text-bg-pink</code></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <code>bg-navy</code> / <code>bg-olive</code> / <code>bg-fuchsia</code>
+                          </td>
+                          <td>名字不变</td>
+                          <td>取值重新设计过</td>
+                        </tr>
+                        <tr>
+                          <td><code>bg-lime</code></td>
+                          <td>—</td>
+                          <td>
+                            不存在能配白色文字的 lime；改用 <code>text-bg-olive</code> 或 Bootstrap
+                            的 <code>text-bg-warning</code>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <code>bg-purple</code>, <code>bg-teal</code>, <code>bg-orange</code>,
+                            <code>bg-indigo</code> …
+                          </td>
+                          <td>
+                            <code>text-bg-violet</code>, <code>text-bg-teal</code>,
+                            <code>text-bg-orange</code>, <code>text-bg-indigo</code>
+                          </td>
+                          <td>见调色板表格</td>
+                        </tr>
+                        <tr>
+                          <td><code>sidebar-dark-primary</code>, <code>navbar-light</code> …</td>
+                          <td><code>text-bg-*</code> + <code>data-bs-theme</code></td>
+                          <td>见上文的<em>皮肤</em></td>
+                        </tr>
+                        <tr>
+                          <td><code>bg-gradient-*</code></td>
+                          <td><code>bg-gradient-*</code></td>
+                          <td>保留了，调色板和主题色都能用</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <p>
+                      想在现有标记里继续用旧的类名，一行就能搞定：<code
+                        >$lte-palette-aliases: (&quot;lightblue&quot;: &quot;sky&quot;,
+                        &quot;maroon&quot;: &quot;pink&quot;);</code
+                      >。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--end::Row-->
+          </div>
+          <!--end::Container-->
+        </div>
+        <!--end::App Content-->
+      </main>
+      <!--end::App Main-->
+      <!--begin::Footer-->
+      <footer class="app-footer">
+        <!--begin::To the end-->
+        <div class="float-end d-none d-sm-inline">任何你想要的</div>
+        <!--end::To the end-->
+        <!--begin::Copyright-->
+        <strong>
+          Copyright &copy; 2014-2026&nbsp;
+          <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
+        </strong>
+        保留所有权利
+        <!--end::Copyright-->
+      </footer>
+      <!--end::Footer-->
+    </div>
+    <!--end::App Wrapper-->
+
+    <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <script
+      src="../assets/overlayscrollbars/overlayscrollbars.browser.es6.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
+    <script src="../assets/popperjs/popper.min.js" crossorigin="anonymous"></script>
+    <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
+    <script src="../assets/bootstrap/bootstrap.min.js" crossorigin="anonymous"></script>
+    <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
+    <script src="../js/adminlte.js"></script>
+    <!--end::Required Plugin(AdminLTE)-->
+    <!--begin::OverlayScrollbars Configure-->
+    <script>
+      const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
+      const Default = {
+        scrollbarTheme: 'os-theme-light',
+        scrollbarAutoHide: 'leave',
+        scrollbarClickScroll: true,
+      };
+      document.addEventListener('DOMContentLoaded', function () {
+        const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+
+        // Disable OverlayScrollbars on mobile devices to prevent touch interference
+        const isMobile = window.innerWidth <= 992;
+
+        if (
+          sidebarWrapper &&
+          OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined &&
+          !isMobile
+        ) {
+          OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+            scrollbars: {
+              theme: Default.scrollbarTheme,
+              autoHide: Default.scrollbarAutoHide,
+              clickScroll: Default.scrollbarClickScroll,
+            },
+          });
+        }
+      });
+    </script>
+    <!--end::OverlayScrollbars Configure-->
+    <!--begin::Charts follow the colour mode-->
+    <script>
+      // 如果不额外指定，ApexCharts 会按浅色主题来画提示框和坐标轴文字，
+      // 这在深色模式下根本看不清（#6105）。在任何图表创建之前，把页面的颜色模式
+      // 作为全局默认值交给它 —— 这段代码跑在图表页面自己的脚本之前 —— 并且在模式
+      // 发生变化时（ColorMode、auto 模式下的操作系统、或你自己的代码），
+      // 让每一个带 `chart.id` 的图表都跟着同步。
+      (() => {
+        'use strict';
+        const mode = () =>
+          document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'dark' : 'light';
+        // `Apex` 是 ApexCharts 的全局选项对象；它必须在库加载之前就存在。
+        // theme.mode 还会顺带设一个深色的图表背景 —— 这里保留卡片自己的背景。
+        // eslint-disable-next-line unicorn/no-global-object-property-assignment
+        globalThis.Apex ||= {};
+        const apex = globalThis.Apex;
+        apex.theme = { mode: mode() };
+        apex.chart = Object.assign(apex.chart || {}, { background: 'transparent' });
+        new MutationObserver(() => {
+          const next = mode();
+          apex.theme = { mode: next };
+          const instances = apex._chartInstances || [];
+          for (const { chart } of instances) {
+            chart.updateOptions({ theme: { mode: next } }, false, false);
+          }
+        }).observe(document.documentElement, {
+          attributes: true,
+          attributeFilter: ['data-bs-theme'],
+        });
+      })();
+    </script>
+    <!--end::Charts follow the colour mode-->
+
+    <!--begin::明暗模式切换-->
+    <!-- 浅色/深色/自动切换器从 4.1 起就作为 ColorMode 模块内置在 adminlte.js 里了
+     —— 不需要页面脚本。只有 <head> 里那段防止闪烁的代码片段保持内联，
+     因为它必须在首次绘制之前就运行。 -->
+    <!--end::明暗模式切换-->
+  </body>
+  <!--end::Body-->
+</html>
