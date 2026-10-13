@@ -215,28 +215,19 @@ class Trans
       }
       $tmp = &$dictFile;
     }
-    $tmp  = array_map('rtrim', $tmp);
-    $list = [];
-    foreach ($tmp as $key => $val) {
-      $ikey = ($key == 0) ? 0 : $key - 1;
-      if ($key == 0) {
-        if (empty($val)) {
-          continue;
-        }
-        $list[$ikey] = [
-          'id'  => $val,
-          'val' => isset($tmp[$key + 1]) ? $tmp[$key + 1] : '',
-          'len' => strlen($val),
-        ];
-      } else {
-        if ($key % 2 == 0) {
-          $list[$ikey] = [
-            'id'  => $val,
-            'val' => $tmp[$key + 1],
-            'len' => strlen($val),
-          ];
-        }
-      }
+    $tmp = array_map('rtrim', $tmp);
+    // 过滤空行：空行参与"奇偶成对"会破坏 id/val 的对应关系，并可能产生空的 id
+    $tmp = array_values(array_filter($tmp, function ($v) {
+      return $v !== '';
+    }));
+    $list  = [];
+    $count = count($tmp);
+    for ($key = 0; $key < $count; $key += 2) {
+      $list[] = [
+        'id'  => $tmp[$key],
+        'val' => isset($tmp[$key + 1]) ? $tmp[$key + 1] : '',
+        'len' => strlen($tmp[$key]),
+      ];
     }
     $check = $newList = $log = [];
     foreach ($list as $val) {
@@ -548,16 +539,17 @@ EOT;
         // 判断是否是单词
         if (!ctype_alpha($val['id'])) {
           // 标准内容替换
-          $li = str_replace($val['id'], $val['val'], $li);
+          $idRaw  = $val['id'];
+          $valRaw = $val['val'];
+          $li     = str_replace($idRaw, $valRaw, $li);
           // &LT; 内容转换 用于 源代码时
-          $val['id']  = str_ireplace('<', '&LT;', $val['id']);
-          $val['val'] = str_ireplace('<', '&LT;', $val['val']);
-          // 幂等保护：若本行已包含完整译文，说明匹配到的 id 是上次替换结果（译文前缀），跳过以免二次叠加
-          // if ($val['val'] !== '' && strpos($li, $val['val']) !== false) {
-          //   continue;
-          // }
-          // 再次替换
-          $li = str_replace($val['id'], $val['val'], $li);
+          // 仅在 id 确实含 <（转义后与原始不同）时才二次替换，
+          // 避免无 < 的字典项被重复替换（如 val 以 id 为前缀时造成二次叠加）
+          $idEsc  = str_ireplace('<', '&LT;', $idRaw);
+          $valEsc = str_ireplace('<', '&LT;', $valRaw);
+          if ($idEsc !== $idRaw) {
+            $li = str_replace($idEsc, $valEsc, $li);
+          }
         } else {
           // 完整匹配才行
           if ($val['id'] == trim($li)) {

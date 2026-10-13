@@ -1,0 +1,402 @@
+---
+import Head from "@components/_head.astro"
+import Footer from "@components/dashboard/_footer.astro"
+import Topbar from "@components/dashboard/_topbar.astro"
+import Sidenav from "@components/dashboard/_sidenav.astro"
+import Scripts from "@components/_scripts.astro"
+
+const title = "AdminLTE 4 | 组件 - 社交 & 发布"
+const path = "../../../dist"
+const mainPage = "widgets"
+const page = "social"
+const pageTitle = "社交 & 动态组件"
+
+// 智能路径解析：根据目录深度计算相对路径
+const pathname = Astro.url.pathname
+const pathSegments = pathname.split("/").filter(segment => segment !== "")
+const depth = pathSegments.length > 0 ? pathSegments.length - 1 : 0
+const deploymentPath = depth === 0 ? "./" : "../".repeat(depth)
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <!--begin::Head-->
+  <head>
+    <Head title={title} path={path} />
+  </head>
+  <!--end::Head-->
+  <!--begin::Body-->
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <!--begin::App Wrapper-->
+    <div class="app-wrapper">
+      <Topbar path={path} />
+      <Sidenav path={path} mainPage={mainPage} page={page} />
+      <!--begin::App Main-->
+      <main class="app-main">
+        <!--begin::App Content Header-->
+        <div class="app-content-header">
+          <!--begin::Container-->
+          <div class="container-fluid">
+            <!--begin::Row-->
+            <div class="row">
+              <div class="col-sm-6">
+                <h1 class="mb-0 fs-3">{pageTitle}</h1>
+              </div>
+              <div class="col-sm-6">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">首页</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                      {pageTitle}
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+            <!--end::Row-->
+          </div>
+          <!--end::Container-->
+        </div>
+        <!--end::App Content Header-->
+        <!--begin::App Content-->
+        <div class="app-content">
+          <!--begin::Container-->
+          <div class="container-fluid">
+            <!--begin::User Widgets-->
+            <h5 class="mb-3">用户组件</h5>
+            <!--begin::Row-->
+            <div class="row g-4">
+              <!--begin::Col-->
+              <div class="col-lg-6">
+                <!--begin::Widget User-->
+                <div class="card widget-user mb-0">
+                  <!--begin::Widget User Header-->
+                  <div class="widget-user-header text-bg-primary">
+                    <h3 class="widget-user-username">伊丽莎白·皮尔斯</h3>
+                    <h5 class="widget-user-desc">网页设计师</h5>
+                  </div>
+                  <!--end::Widget User Header-->
+                  <div class="widget-user-image">
+                    <img
+                      class="rounded-circle shadow"
+                      src={deploymentPath + "assets/img/user3-128x128.jpg"}
+                      alt=""
+                    />
+                  </div>
+                  <!--begin::Card Footer-->
+                  <div class="card-footer">
+                    <!--begin::Row-->
+                    <div class="row">
+                      <div class="col-sm-4 border-end">
+                        <div class="description-block">
+                          <p class="description-header">3,200</p>
+                          <span class="description-text">销量</span>
+                        </div>
+                      </div>
+                      <div class="col-sm-4 border-end">
+                        <div class="description-block">
+                          <p class="description-header">13,000</p>
+                          <span class="description-text">关注</span>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="description-block">
+                          <p class="description-header">35</p>
+                          <span class="description-text">产品</span>
+                        </div>
+                      </div>
+                    </div>
+                    <!--end::Row-->
+                  </div>
+                  <!--end::Card Footer-->
+                </div>
+                <!--end::Widget User-->
+              </div>
+              <!--end::Col-->
+              <!--begin::Col-->
+              <div class="col-lg-6">
+                <!--begin::Widget User 2-->
+                <div class="card widget-user-2 mb-0">
+                  <!--begin::Widget User Header-->
+                  <div class="widget-user-header text-bg-warning">
+                    <div class="widget-user-image">
+                      <img
+                        class="rounded-circle shadow"
+                        src={deploymentPath + "assets/img/user7-128x128.jpg"}
+                        alt=""
+                      />
+                    </div>
+                    <div>
+                      <h3 class="widget-user-username">娜迪亚·卡迈克尔</h3>
+                      <h5 class="widget-user-desc">开发主管</h5>
+                    </div>
+                  </div>
+                  <!--end::Widget User Header-->
+                  <!--begin::Card Footer-->
+                  <div class="card-footer p-0">
+                    <ul class="nav flex-column">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link link-body-emphasis">
+                          项目
+                          <span class="float-end badge text-bg-primary">31</span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#" class="nav-link link-body-emphasis">
+                          任务
+                          <span class="float-end badge text-bg-info">5</span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#" class="nav-link link-body-emphasis">
+                          已完成项目
+                          <span class="float-end badge text-bg-success">12</span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#" class="nav-link link-body-emphasis">
+                          关注
+                          <span class="float-end badge text-bg-danger">842</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!--end::Card Footer-->
+                </div>
+                <!--end::Widget User 2-->
+              </div>
+              <!--end::Col-->
+            </div>
+            <!--end::Row-->
+            <!--end::User Widgets-->
+
+            <!--begin::Social & Post-->
+            <h5 class="mb-3 mt-4">动态</h5>
+            <!--begin::Row-->
+            <div class="row g-4">
+              <!--begin::Col-->
+              <div class="col-lg-6">
+                <!--begin::Social Widget-->
+                <div class="card mb-0">
+                  <!--begin::Card Header-->
+                  <div class="card-header">
+                    <div class="user-block">
+                      <img
+                        class="rounded-circle"
+                        src={deploymentPath + "assets/img/user1-128x128.jpg"}
+                        alt=""
+                      />
+                      <span class="username">
+                        <a href="#">小乔纳森·伯克</a>
+                      </span>
+                      <span class="description">分享 &middot; 19:30</span>
+                    </div>
+                    <div class="card-tools">
+                      <button
+                        type="button"
+                        class="btn btn-tool"
+                        data-lte-toggle="card-collapse"
+                        aria-label="Collapse card"
+                      >
+                        <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
+                        <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <!--end::Card Header-->
+                  <!--begin::Card Body-->
+                  <div class="card-body">
+                    <img
+                      class="img-fluid rounded mb-3"
+                      src={deploymentPath + "assets/img/photo1.png"}
+                      alt=""
+                    />
+                    <p>
+                      我今天早上拍了这张照片。你们觉得怎么样？
+                    </p>
+                    <button type="button" class="btn btn-sm btn-outline-secondary me-1">
+                      <i class="bi bi-share me-1" aria-hidden="true"></i> 分享
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                      <i class="bi bi-hand-thumbs-up me-1" aria-hidden="true"></i> 点赞
+                    </button>
+                    <span class="float-end text-secondary">45个赞 &middot; 2条评论</span>
+                  </div>
+                  <!--end::Card Body-->
+                  <!--begin::Card Footer-->
+                  <div class="card-footer">
+                    <div class="user-block user-block-sm mb-3">
+                      <img
+                        class="rounded-circle"
+                        src={deploymentPath + "assets/img/user4-128x128.jpg"}
+                        alt=""
+                      />
+                      <span class="username"><a href="#">玛丽亚·冈萨雷斯</a></span>
+                      <span class="description">5分钟前发布</span>
+                      <span class="comment">
+                        众所周知，
+                        读者会因页面中可读的内容而分心。
+                      </span>
+                    </div>
+                    <div class="user-block user-block-sm">
+                      <img
+                        class="rounded-circle"
+                        src={deploymentPath + "assets/img/user5-128x128.jpg"}
+                        alt=""
+                      />
+                      <span class="username"><a href="#">诺拉·哈维沙姆</a></span>
+                      <span class="description">27分钟前发布</span>
+                      <span class="comment">
+                        马驴儿成功地用枪托在装甲车体上制造出一声巨大的响动，
+                        代价是枪托不知道飞到哪里去了。
+                      </span>
+                    </div>
+                    <!--begin::Comment Form-->
+                    <form class="mt-3">
+                      <label for="social-comment" class="visually-hidden">
+                        评论
+                      </label>
+                      <input
+                        type="text"
+                        id="social-comment"
+                        class="form-control form-control-sm"
+                        placeholder="发表评论"
+                      />
+                    </form>
+                    <!--end::Comment Form-->
+                  </div>
+                  <!--end::Card Footer-->
+                </div>
+                <!--end::Social Widget-->
+              </div>
+              <!--end::Col-->
+              <!--begin::Col-->
+              <div class="col-lg-6">
+                <!--begin::Post Widget-->
+                <div class="card mb-0">
+                  <!--begin::Card Header-->
+                  <div class="card-header">
+                    <div class="card-title">最新活动</div>
+                  </div>
+                  <!--end::Card Header-->
+                  <!--begin::Card Body-->
+                  <div class="card-body">
+                    <!--begin::Post-->
+                    <div class="post">
+                      <div class="user-block">
+                        <img
+                          class="rounded-circle"
+                          src={deploymentPath + "assets/img/user1-128x128.jpg"}
+                          alt=""
+                        />
+                        <span class="username"><a href="#">小乔纳森·伯克</a></span>
+                        <span class="description">分享 &middot; 19:30</span>
+                      </div>
+                      <p>
+                        他是望闻问切加摸心脏看舌头，主观加客观地乱用，
+                        可以说他用尽一切在无器械情况下能用的诊疗手段，但没有任何治疗手段。
+                      </p>
+                      <p class="mb-0">
+                        <a href="#" class="link-secondary me-2">
+                          <i class="bi bi-share me-1" aria-hidden="true"></i> 分享
+                        </a>
+                        <a href="#" class="link-secondary">
+                          <i class="bi bi-hand-thumbs-up me-1" aria-hidden="true"></i> 点赞
+                        </a>
+                      </p>
+                    </div>
+                    <!--end::Post-->
+                    <!--begin::Post-->
+                    <div class="post">
+                      <div class="user-block">
+                        <img
+                          class="rounded-circle"
+                          src={deploymentPath + "assets/img/user7-128x128.jpg"}
+                          alt=""
+                        />
+                        <span class="username"><a href="#">莎拉·罗斯</a></span>
+                        <span class="description">给你发了一条消息 &middot; 三天前</span>
+                      </div>
+                      <p>
+                        “我刚收到的消息，虞师座已经干过怒江啦，歼敌双万，正率精兵直扑密支那！”
+                        我们再一次面面相觑，看他像看神经病。
+                      </p>
+                      <p class="mb-0">
+                        <a href="#" class="link-secondary me-2">
+                          <i class="bi bi-share me-1" aria-hidden="true"></i> 分享
+                        </a>
+                        <a href="#" class="link-secondary">
+                          <i class="bi bi-hand-thumbs-up me-1" aria-hidden="true"></i> 点赞
+                        </a>
+                      </p>
+                    </div>
+                    <!--end::Post-->
+                    <!--begin::Post-->
+                    <div class="post">
+                      <div class="user-block">
+                        <img
+                          class="rounded-circle"
+                          src={deploymentPath + "assets/img/user6-128x128.jpg"}
+                          alt=""
+                        />
+                        <span class="username"><a href="#">亚当·琼斯</a></span>
+                        <span class="description">发布了5张照片 &middot;  1周前</span>
+                      </div>
+                      <!--begin::Row-->
+                      <div class="row g-2 mb-3">
+                        <div class="col-4">
+                          <img
+                            class="img-fluid rounded"
+                            src={deploymentPath + "assets/img/photo2.png"}
+                            alt=""
+                          />
+                        </div>
+                        <div class="col-4">
+                          <img
+                            class="img-fluid rounded"
+                            src={deploymentPath + "assets/img/photo3.jpg"}
+                            alt=""
+                          />
+                        </div>
+                        <div class="col-4">
+                          <img
+                            class="img-fluid rounded"
+                            src={deploymentPath + "assets/img/photo4.jpg"}
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                      <!--end::Row-->
+                      <p class="mb-0">
+                        <a href="#" class="link-secondary me-2">
+                          <i class="bi bi-share me-1" aria-hidden="true"></i> 分享
+                        </a>
+                        <a href="#" class="link-secondary">
+                          <i class="bi bi-hand-thumbs-up me-1" aria-hidden="true"></i> 点赞
+                        </a>
+                      </p>
+                    </div>
+                    <!--end::Post-->
+                  </div>
+                  <!--end::Card Body-->
+                </div>
+                <!--end::Post Widget-->
+              </div>
+              <!--end::Col-->
+            </div>
+            <!--end::Row-->
+            <!--end::Social & Post-->
+          </div>
+          <!--end::Container-->
+        </div>
+        <!--end::App Content-->
+      </main>
+      <!--end::App Main-->
+      <Footer />
+    </div>
+    <!--end::App Wrapper-->
+    <!--begin::Script-->
+    <Scripts path={path} />
+    <!--end::Script-->
+  </body><!--end::Body-->
+</html>

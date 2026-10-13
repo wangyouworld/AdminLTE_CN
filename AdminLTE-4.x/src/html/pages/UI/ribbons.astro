@@ -1,0 +1,221 @@
+---
+import Head from "@components/_head.astro"
+import Footer from "@components/dashboard/_footer.astro"
+import Topbar from "@components/dashboard/_topbar.astro"
+import Sidenav from "@components/dashboard/_sidenav.astro"
+import Scripts from "@components/_scripts.astro"
+
+const title = "AdminLTE 4 | 丝带"
+const path = "../../../dist"
+const mainPage = "ui-elements"
+const page = "ribbons"
+const pageTitle = "丝带"
+
+// 角落横幅的颜色来自 Bootstrap 的 `.text-bg-*` 工具类。
+// 标签故意做得很短：默认尺寸下只有大约 64px 的色带可见，
+// 所以词太长的话会直接被角落裁掉，而不是显示成省略号。
+const variants = [
+  { name: "primary", label: "New" },
+  { name: "secondary", label: "Draft" },
+  { name: "success", label: "Live" },
+  { name: "danger", label: "Hot" },
+  { name: "warning", label: "Beta" },
+  { name: "info", label: "Tip" },
+  { name: "dark", label: "Pro" }
+]
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <!--begin::Head-->
+  <head>
+    <Head title={title} path={path} />
+  </head>
+  <!--end::Head-->
+  <!--begin::Body-->
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <!--begin::App Wrapper-->
+    <div class="app-wrapper">
+      <Topbar path={path} />
+      <Sidenav path={path} mainPage={mainPage} page={page} />
+      <!--begin::App Main-->
+      <main class="app-main">
+        <!--begin::App Content Header-->
+        <div class="app-content-header">
+          <!--begin::Container-->
+          <div class="container-fluid">
+            <!--begin::Row-->
+            <div class="row">
+              <div class="col-sm-6">
+                <h1 class="mb-0 fs-3">{pageTitle}</h1>
+              </div>
+              <div class="col-sm-6">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">首页</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                      {pageTitle}
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+            <!--end::Row-->
+          </div>
+          <!--end::Container-->
+        </div>
+        <!--end::App Content Header-->
+        <!--begin::App Content-->
+        <div class="app-content">
+          <!--begin::Container-->
+          <div class="container-fluid">
+            <div class="callout callout-info mb-4">
+              <p>
+                丝带会固定在其最近的已定位祖先元素的顶部角落。
+                卡片本身就已经是定位元素了，
+                所以 <code>.ribbon-wrapper</code> 直接放在卡片里就能用
+                ——如果放在其他元素上，
+                就得给父元素加上 <code>.position-relative</code>。
+              </p>
+              <p class="mb-0">
+                标签要写短一点。
+                横幅是被裁剪到角落里的，
+                默认尺寸下大概只有 <code>64px</code> 能看得见——差不多六个字符。
+                词比较长的话，就往上用
+                <code>.ribbon-lg</code> 或 <code>.ribbon-xl</code>。
+              </p>
+            </div>
+
+            <!--begin::Colors-->
+            <h5 class="mb-3">颜色</h5>
+            <!--begin::Row-->
+            <div class="row g-4">
+              {
+                variants.map(variant => (
+                  <div class="col-md-4 col-sm-6">
+                    <div class="card mb-0">
+                      <div class="ribbon-wrapper">
+                        <div class={`ribbon text-bg-${variant.name}`}>
+                          {variant.label}
+                        </div>
+                      </div>
+                      <div class="card-body" style="min-height: 5rem;">
+                        <h6 class="card-title text-capitalize mb-0">
+                          {variant.name}
+                        </h6>
+                      </div>
+                      <div class="card-footer">
+                        <code class="text-body-emphasis">
+                          .ribbon.text-bg-{variant.name}
+                        </code>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+            <!--end::Row-->
+            <!--end::Colors-->
+
+            <!--begin::Sizes-->
+            <h5 class="mb-3 mt-4">Sizes</h5>
+            <!--begin::Row-->
+            <div class="row g-4">
+              <div class="col-lg-4">
+                <div class="card mb-0">
+                  <div class="ribbon-wrapper">
+                    <div class="ribbon text-bg-primary">默认</div>
+                  </div>
+                  <div class="card-body" style="min-height: 9rem;">
+                    <h6 class="card-title mb-0">默认</h6>
+                  </div>
+                  <div class="card-footer">
+                    <code class="text-body-emphasis">.ribbon-wrapper</code>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="card mb-0">
+                  <div class="ribbon-wrapper ribbon-lg">
+                    <div class="ribbon text-bg-success">大号</div>
+                  </div>
+                  <div class="card-body" style="min-height: 9rem;">
+                    <h6 class="card-title mb-0">大号</h6>
+                  </div>
+                  <div class="card-footer">
+                    <code class="text-body-emphasis">.ribbon-wrapper.ribbon-lg</code>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="card mb-0">
+                  <div class="ribbon-wrapper ribbon-xl">
+                    <div class="ribbon text-bg-danger">X-大号</div>
+                  </div>
+                  <div class="card-body" style="min-height: 9rem;">
+                    <h6 class="card-title mb-0">特大号</h6>
+                  </div>
+                  <div class="card-footer">
+                    <code class="text-body-emphasis">.ribbon-wrapper.ribbon-xl</code>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--end::Row-->
+            <!--end::Sizes-->
+
+            <!--begin::卡片之外-->
+            <h5 class="mb-3 mt-4">卡片之外</h5>
+            <!--begin::Row-->
+            <div class="row g-4">
+              <div class="col-lg-6">
+                <div
+                  class="position-relative overflow-hidden rounded border bg-body p-4"
+                  style="min-height: 10rem;"
+                >
+                  <div class="ribbon-wrapper">
+                    <div class="ribbon text-bg-warning">新</div>
+                  </div>
+                  <h6>任何定位元素</h6>
+                  <p class="mb-0">
+                    这个包裹元素只需要有个祖先元素带 <code>position: relative</code> 就行。
+                    如果父元素是圆角的，
+                    还要再加上 <code>.overflow-hidden</code>，
+                    这样横幅才会被裁剪成跟圆角一致。
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="card mb-0">
+                  <div class="ribbon-wrapper ribbon-lg">
+                    <div class="ribbon text-bg-info">
+                      <a href="#">链接</a>
+                    </div>
+                  </div>
+                  <div class="card-body" style="min-height: 10rem;">
+                    <h6>交互式丝带</h6>
+                    <p class="mb-0 pe-4">
+                      丝带里面可以包裹一个链接。
+                      它会继承工具类选好的对比色，所以不管在哪种颜色模式下，
+                      标签文字都能保持清晰可读。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--end::Row-->
+            <!--end::卡片之外-->
+          </div>
+          <!--end::Container-->
+        </div>
+        <!--end::App Content-->
+      </main>
+      <!--end::App Main-->
+      <Footer />
+    </div>
+    <!--end::App Wrapper-->
+    <!--begin::Script-->
+    <Scripts path={path} />
+    <!--end::Script-->
+  </body><!--end::Body-->
+</html>

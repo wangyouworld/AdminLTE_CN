@@ -113,12 +113,27 @@ v4 系列是在 Bootstrap 5.3 上完全重写的，**不再依赖 jQuery**：
 文档也全面翻新了，依赖也做了大版本升级。
 完整细节请查看[更新日志](CHANGELOG.md)。
 
+### 4.3 新增内容
+
+- **侧边栏搜索** —— 新增的 `SidebarSearch` 插件能让你边输入边过滤菜单，
+  自动展开包含匹配项的子菜单，清空后又能把菜单精确恢复原样。
+  还搭配了一个应用头部里的导航栏搜索。
+- **丝带** —— 角落横幅（`.ribbon-wrapper` + `.ribbon`），
+  有三种尺寸，RTL 下自动镜像，裁剪区域会跟随卡片的圆角。
+- **社交与动态小部件** ——
+  `.user-block`、`.post`、`.widget-user`、`.widget-user-2` 和 `.description-block`，用 grid 和 flex 布局。
+- **三个新演示页面** ——
+  图库（可筛选的媒体库，无需图片库）、搜索结果（带筛选面板的类型化结果）和丝带。
+- **导航标签页、模态框和 offcanvas** 加入到了通用 UI 元素展示里。
+- **卡片和杂项组件文档页面**，
+  外加一篇语言切换器实战指南 —— 现在每个带 CSS 的组件都有了自己的参考页面。
+
 <details>
 <summary>亮点一览</summary>
 
 **18 个新演示页面**
 
-- 应用：日历（FullCalendar）、看板（SortableJS）、聊天、文件管理器、项目、邮箱（收件箱/阅读/写信）
+- 应用程序：日历（FullCalendar）、看板（SortableJS）、聊天、文件管理器、项目、邮箱（收件箱/阅读/写信）
 - 表单：表单向导（4 步带校验）
 - 表格：数据表格（Tabulator — 无 jQuery）
 - 页面：个人资料、设置、发票、定价、常见问题
@@ -128,7 +143,7 @@ v4 系列是在 Bootstrap 5.3 上完全重写的，**不再依赖 jQuery**：
 
 - 新增页面：快速上手、自定义与主题化、RTL 支持、从 v3 迁移、布局蓝图、实战技巧、部署与性能、推荐集成、JavaScript 插件概览
 - 重写了介绍页面，包含四种标注清晰的安装方式（CDN / npm / 源码 / Composer）
-- 常见问题页面重新做了，带横幅、实时搜索、分类标签和 19 个问题的折叠面板
+- FAQ rebuilt with hero, live search, section chips, and an accordion of 23 questions
 - 侧边栏导航拆开了：仪表盘演示和文档各用各的导航
 
 **主要依赖升级**
@@ -142,9 +157,10 @@ v4 系列是在 Bootstrap 5.3 上完全重写的，**不再依赖 jQuery**：
 <summary>从 v3 升级的破坏性变更</summary>
 
 - 类名重命名：`.wrapper` → `.app-wrapper`，`.main-header` → `.app-header`，`.main-sidebar` → `.app-sidebar`，`.content-wrapper` → `.app-main`
-- 数据属性：`data-toggle` → `data-bs-toggle`，`data-widget="pushmenu"` → `data-lte-toggle="sidebar"`，`data-widget="treeview"` → `data-lte-toggle="treeview"`
-- 深色模式：body 类 `.dark-mode` → `data-bs-theme="dark"` 属性（Bootstrap 5.3 原生支持）
+- 数据属性：`data-toggle` → `data-bs-toggle`、`data-widget="pushmenu"` → `data-lte-toggle="sidebar"`、`data-widget="treeview"` → `data-lte-toggle="treeview"`
+- 深色模式：`<body>` 上的 `.dark-mode` 类 → `data-bs-theme="dark"` 属性（Bootstrap 5.3 原生支持）
 - 不再需要 jQuery；插件都是用原生 TypeScript 写的
+- 打包的 `plugins/` 文件夹没了 —— v3 里的每个 jQuery 组件都有了一个有文档记录的原生 JS 继任者（[替代对照表](https://adminlte.io/themes/v4/docs/migration.html#third-party-plugin-replacements)：Select2 → Tom Select、DataTables → Tabulator、Summernote → Quill……）
 
 详见专门的[从 v3 迁移指南](https://adminlte.io/themes/v4/docs/migration.html)。
 
@@ -233,7 +249,7 @@ AdminLTE 是一个 **UI 模板**。部署时只放编译好的生产环境资源
 
 ## 赞助
 
-通过成为赞助者或捐赠者来支持 AdminLTE 的开发工作。
+通过成为赞助者或捐赠者来支持 AdminLTE 的开发。
 
 <p align="center">
   <a href="https://github.com/sponsors/danny007in">
@@ -258,7 +274,7 @@ AdminLTE 是一个 **UI 模板**。部署时只放编译好的生产环境资源
 </p>
 
 <p align="center">
-  <a href="https://github.com/sponsors/danny007in">您的头像在这里？成为赞助者</a>
+  <a href="https://github.com/sponsors/danny007in">你的虚拟形象在这里吗？请成为赞助商吧</a>
 </p>
 
 ## 贡献

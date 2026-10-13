@@ -5,14 +5,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>AdminLTE 4 | 通用用户界面</title>
 
-    <!--begin::Theme Init (prevents flash of incorrect theme on load, #6043)-->
+    <!--begin::主题初始化（防止加载时闪现错误的主题，#6043）-->
     <script>
       (() => {
         'use strict';
         const root = document.documentElement;
 
-        // Applications with their own theming opt out of AdminLTE's color mode
-        // entirely, here as well as in the bundle.
+        // 自带主题系统的应用会完全退出 AdminLTE 的颜色模式，
+        // 这里如此，打包后的文件里也一样。
         if (root.getAttribute('data-lte-color-mode') === 'off') {
           return;
         }
@@ -22,10 +22,10 @@
         try {
           stored = localStorage.getItem(STORAGE_KEY);
         } catch {
-          // localStorage may be unavailable (private mode, sandboxed iframe).
+          // localStorage 可能不可用（比如隐私模式、沙盒 iframe 里）。
         }
-        // Mirror the precedence in color-mode.ts: the visitor's stored choice
-        // wins, then a theme this page declared itself, then the OS preference.
+        // 和 color-mode.ts 里的优先级保持一致：访客存储的选择优先，
+        // 其次是页面自己声明的主题，最后才是操作系统偏好。
         const authored = root.getAttribute('data-bs-theme');
         let resolved = 'light';
         if (stored === 'dark' || stored === 'light') {
@@ -37,8 +37,8 @@
         }
         root.setAttribute('data-bs-theme', resolved);
         root.style.colorScheme = resolved;
-        // Flag values computed here, so the bundle does not mistake them for a
-        // theme the page declared and stop following the OS preference.
+        // 在这里标记一下这些值是动态计算出来的，免得打包后的代码把它们误当成
+        // 页面自己声明的主题，从而不再跟随操作系统偏好。
         if (resolved !== authored) {
           root.setAttribute('data-lte-theme-resolved', '');
         }
@@ -67,7 +67,7 @@
     <!--end::Primary Meta Tags-->
 
     <!--begin::Accessibility Features-->
-    <!-- Skip links will be dynamically added by accessibility.js -->
+    <!-- 跳转链接将由 accessibility.js 动态添加 -->
     <meta name="supported-color-schemes" content="light dark" />
     <link rel="preload" href="../css/adminlte.css" as="style" />
     <!--end::Accessibility Features-->
@@ -140,6 +140,28 @@
             </li>
           </ul>
           <!--end::Start Navbar Links-->
+
+          <!--begin::Navbar Search-->
+          <form
+            class="navbar-search d-none d-md-block ms-3"
+            role="search"
+            action="../pages/search-results.html"
+          >
+            <div class="input-group input-group-sm">
+              <label for="navbar-search-input" class="visually-hidden">搜索</label>
+              <input
+                type="search"
+                id="navbar-search-input"
+                name="q"
+                class="form-control"
+                placeholder="搜索…"
+              />
+              <button class="btn btn-outline-secondary" type="submit" aria-label="Submit search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+              </button>
+            </div>
+          </form>
+          <!--end::Navbar Search-->
 
           <!--begin::End Navbar Links-->
           <ul class="navbar-nav ms-auto">
@@ -271,6 +293,35 @@
               </div>
             </li>
             <!--end::Notifications Dropdown Menu-->
+
+            <!--begin::Language Menu-->
+            <!-- Markup only: swapping the locale is the application's job. The docs
+           Recipes page shows how to wire this to a real locale switch. -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                id="language-menu"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Change language, current language English"
+              >
+                <i class="bi bi-translate" aria-hidden="true"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="language-menu">
+                <li>
+                  <a class="dropdown-item active" href="#" hreflang="en" aria-current="true">
+                    English
+                    <i class="bi bi-check-lg ms-2" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li><a class="dropdown-item" href="#" hreflang="es">西班牙语</a></li>
+                <li><a class="dropdown-item" href="#" hreflang="fr">法语</a></li>
+                <li><a class="dropdown-item" href="#" hreflang="de">德语</a></li>
+                <li><a class="dropdown-item" href="#" hreflang="ar">العربية</a></li>
+              </ul>
+            </li>
+            <!--end::Language Menu-->
 
             <!--begin::Fullscreen Toggle-->
             <li class="nav-item">
@@ -421,6 +472,23 @@
           <!--end::Brand Link-->
         </div>
         <!--end::Sidebar Brand-->
+        <!--begin::侧边栏搜索-->
+        <div class="sidebar-search" role="search">
+          <label for="sidebar-search-input" class="visually-hidden">搜索</label>
+          <input
+            type="search"
+            id="sidebar-search-input"
+            class="form-control form-control-sm"
+            placeholder="搜索…"
+            autocomplete="off"
+            data-lte-toggle="sidebar-search"
+            data-lte-target="#navigation"
+          />
+          <p class="fs-7 text-secondary mt-2 mb-0" data-lte-search-empty role="status" hidden>
+            没有匹配到页面。
+          </p>
+        </div>
+        <!--end::侧边栏搜索-->
         <!--begin::Sidebar Wrapper-->
         <div class="sidebar-wrapper">
           <nav class="mt-2" aria-label="主导航">
@@ -497,6 +565,12 @@
                     <a href="../widgets/cards.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>卡片</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../widgets/social.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>社交 &amp; 发布</p>
                     </a>
                   </li>
                 </ul>
@@ -610,6 +684,12 @@
                     <a href="../UI/timeline.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>时间线</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../UI/ribbons.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>丝带</p>
                     </a>
                   </li>
                 </ul>
@@ -788,6 +868,18 @@
                     <a href="../pages/projects.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>项目</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../pages/gallery.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>画廊</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../pages/search-results.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>搜索结果</p>
                     </a>
                   </li>
                   <li class="nav-item">
@@ -1304,10 +1396,16 @@
                     <button type="button" class="btn btn-outline-secondary mb-2">次要</button>
                     <button type="button" class="btn btn-outline-success mb-2">成功</button>
                     <button type="button" class="btn btn-outline-danger mb-2">危险</button>
-                    <button type="button" class="btn btn-outline-warning mb-2">警告</button>
-                    <button type="button" class="btn btn-outline-info mb-2">信息</button>
-                    <button type="button" class="btn btn-outline-light mb-2">高亮</button>
                     <button type="button" class="btn btn-outline-dark mb-2">暗黑</button>
+                    <p class="fs-7 text-secondary mt-2 mb-2">
+                      warning、info 和 light 这三种描边样式用的是浅色文字，
+                      放在浅色背景上对比度会掉到 4.5:1 的最低要求以下。 把它们放到深色背景上就行：
+                    </p>
+                    <div class="bg-dark rounded p-3 mb-2">
+                      <button type="button" class="btn btn-outline-warning mb-2">警告</button>
+                      <button type="button" class="btn btn-outline-info mb-2">信息</button>
+                      <button type="button" class="btn btn-outline-light mb-2">高亮</button>
+                    </div>
                     <hr />
                     <button type="button" class="btn btn-primary btn-lg">大按钮</button>
                     <button type="button" class="btn btn-warning btn-sm">小按钮</button>
@@ -1326,6 +1424,410 @@
                   <!--end::Body-->
                 </div>
                 <!--end::Button-->
+                <!--begin::Nav Tabs-->
+                <div class="card card-primary card-outline mb-4">
+                  <!--begin::Header-->
+                  <div class="card-header">
+                    <div class="card-title">导航标签页 &amp; 胶囊标签</div>
+                  </div>
+                  <!--end::Header-->
+                  <!--begin::Body-->
+                  <div class="card-body">
+                    <ul class="nav nav-tabs" id="demoTab" role="tablist">
+                      <li class="nav-item" role="presentation">
+                        <button
+                          class="nav-link active"
+                          id="demo-home-tab"
+                          data-bs-toggle="tab"
+                          data-bs-target="#demo-home"
+                          type="button"
+                          role="tab"
+                          aria-controls="demo-home"
+                          aria-selected="true"
+                        >
+                          首页
+                        </button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button
+                          class="nav-link"
+                          id="demo-profile-tab"
+                          data-bs-toggle="tab"
+                          data-bs-target="#demo-profile"
+                          type="button"
+                          role="tab"
+                          aria-controls="demo-profile"
+                          aria-selected="false"
+                        >
+                          资料
+                        </button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button
+                          class="nav-link"
+                          id="demo-settings-tab"
+                          data-bs-toggle="tab"
+                          data-bs-target="#demo-settings"
+                          type="button"
+                          role="tab"
+                          aria-controls="demo-settings"
+                          aria-selected="false"
+                        >
+                          设置
+                        </button>
+                      </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 p-3 mb-4">
+                      <div
+                        class="tab-pane fade show active"
+                        id="demo-home"
+                        role="tabpanel"
+                        aria-labelledby="demo-home-tab"
+                        tabindex="0"
+                      >
+                        标签面板本身用的就是原生的 Bootstrap 5—— AdminLTE
+                        只负责给它外面那层卡片加点样式。
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="demo-profile"
+                        role="tabpanel"
+                        aria-labelledby="demo-profile-tab"
+                        tabindex="0"
+                      >
+                        给每个触发按钮加上一个 <code>data-bs-target</code>，
+                        再给对应的面板加上一个匹配的 <code>id</code>。
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="demo-settings"
+                        role="tabpanel"
+                        aria-labelledby="demo-settings-tab"
+                        tabindex="0"
+                      >
+                        用 <code>&lt;button&gt;</code> 来做触发元素， 而不是用链接：按钮不需要 href
+                        就能获得焦点， 也不用调 <code>preventDefault</code>。
+                      </div>
+                    </div>
+
+                    <ul class="nav nav-pills" id="demoPill" role="tablist">
+                      <li class="nav-item" role="presentation">
+                        <button
+                          class="nav-link active"
+                          id="demo-pill-one-tab"
+                          data-bs-toggle="pill"
+                          data-bs-target="#demo-pill-one"
+                          type="button"
+                          role="tab"
+                          aria-controls="demo-pill-one"
+                          aria-selected="true"
+                        >
+                          活动
+                        </button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button
+                          class="nav-link"
+                          id="demo-pill-two-tab"
+                          data-bs-toggle="pill"
+                          data-bs-target="#demo-pill-two"
+                          type="button"
+                          role="tab"
+                          aria-controls="demo-pill-two"
+                          aria-selected="false"
+                        >
+                          链接
+                        </button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button
+                          class="nav-link"
+                          type="button"
+                          role="tab"
+                          disabled
+                          aria-selected="false"
+                        >
+                          禁用
+                        </button>
+                      </li>
+                    </ul>
+                    <div class="tab-content pt-3">
+                      <div
+                        class="tab-pane fade show active"
+                        id="demo-pill-one"
+                        role="tabpanel"
+                        aria-labelledby="demo-pill-one-tab"
+                        tabindex="0"
+                      >
+                        胶囊导航使用，
+                        <code>data-bs-toggle="pill"</code>。
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="demo-pill-two"
+                        role="tabpanel"
+                        aria-labelledby="demo-pill-two-tab"
+                        tabindex="0"
+                      >
+                        给列表加上 <code>.flex-column</code>， 胶囊导航就变成垂直排列了。
+                      </div>
+                    </div>
+                  </div>
+                  <!--end::Body-->
+                </div>
+                <!--end::Nav Tabs-->
+                <!--begin::Modal-->
+                <div class="card card-success card-outline mb-4">
+                  <!--begin::Header-->
+                  <div class="card-header">
+                    <div class="card-title">模态框</div>
+                  </div>
+                  <!--end::Header-->
+                  <!--begin::Body-->
+                  <div class="card-body">
+                    <button
+                      type="button"
+                      class="btn btn-primary me-1"
+                      data-bs-toggle="modal"
+                      data-bs-target="#demoModalDefault"
+                    >
+                      默认
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-secondary me-1"
+                      data-bs-toggle="modal"
+                      data-bs-target="#demoModalScrollable"
+                    >
+                      可滚动
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#demoModalFullscreen"
+                    >
+                      lg 以下全屏
+                    </button>
+
+                    <div
+                      class="modal fade"
+                      id="demoModalDefault"
+                      tabindex="-1"
+                      aria-labelledby="demoModalDefaultLabel"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="demoModalDefaultLabel">居中弹框</h1>
+                            <button
+                              type="button"
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                            ></button>
+                          </div>
+                          <div class="modal-body">
+                            <p class="mb-0">
+                              <code>.modal-dialog-centered</code> vertically 让对话框居中。
+                            </p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                              关闭
+                            </button>
+                            <button type="button" class="btn btn-primary">保存修改</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      class="modal fade"
+                      id="demoModalScrollable"
+                      tabindex="-1"
+                      aria-labelledby="demoModalScrollableLabel"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="demoModalScrollableLabel">
+                              可滚动区域
+                            </h1>
+                            <button
+                              type="button"
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                            ></button>
+                          </div>
+                          <div class="modal-body">
+                            <p>
+                              加上 <code>.modal-dialog-scrollable</code> 之后，
+                              滚动的是模态框的内容区而不是整个页面， f这样头部和底部就会固定不动。
+                            </p>
+                            <p>
+                              “我刚收到的消息，虞师座已经干过怒江啦，歼敌双万，正率精兵直扑密支那！”
+                              我们再一次面面相觑，看他像看神经病。
+                            </p>
+                            <p>“……这个，不可能吧。”阿译很怀疑。 “最好的都不信，干吗要信最坏的？”</p>
+                            <p>
+                              迷龙又拿回了他的机枪，这回是七点九二的捷克造，豆饼又背着大堆零件弹药在他身后连呼带喘。
+                              郝兽医背了足三个医药箱。丧门星又背了砍刀。
+                            </p>
+                            <p class="mb-0">
+                              不辣像在南天门上时一样，连绳子带装具在自己身上绑满了长柄手榴弹
+                              ——不管愿与不愿，我们关于战争的记忆多少复苏。
+                            </p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                              关闭
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      class="modal fade"
+                      id="demoModalFullscreen"
+                      tabindex="-1"
+                      aria-labelledby="demoModalFullscreenLabel"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog modal-fullscreen-lg-down">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="demoModalFullscreenLabel">
+                              lg 以下全屏
+                            </h1>
+                            <button
+                              type="button"
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                            ></button>
+                          </div>
+                          <div class="modal-body">
+                            <p class="mb-0">
+                              <code>.modal-fullscreen-lg-down</code>
+                              会让模态框在手机和平板上占满整个屏幕， 而从
+                              <code>lg</code> 断点往上就恢复成普通的对话框
+                              ——对于字段密集的后台表单来说， 是个很不错的默认选择。
+                            </p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                              关闭
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--end::Body-->
+                </div>
+                <!--end::Modal-->
+                <!--begin::Offcanvas-->
+                <div class="card card-info card-outline mb-4">
+                  <!--begin::Header-->
+                  <div class="card-header">
+                    <div class="card-title">侧边栏</div>
+                  </div>
+                  <!--end::Header-->
+                  <!--begin::Body-->
+                  <div class="card-body">
+                    <p>
+                      侧边栏面板很适合用来放筛选器和详情视图， 不然这些东西会把仪表盘挤得满满当当。
+                      它跟 AdminLTE 的侧边栏是两回事 ——侧边栏有自己专用的
+                      <code>PushMenu</code> 插件。
+                    </p>
+                    <button
+                      type="button"
+                      class="btn btn-primary me-1"
+                      data-bs-toggle="offcanvas"
+                      data-bs-target="#demoOffcanvasEnd"
+                      aria-controls="demoOffcanvasEnd"
+                    >
+                      右侧滑出
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-toggle="offcanvas"
+                      data-bs-target="#demoOffcanvasBottom"
+                      aria-controls="demoOffcanvasBottom"
+                    >
+                      底部滑出
+                    </button>
+
+                    <div
+                      class="offcanvas offcanvas-end"
+                      tabindex="-1"
+                      id="demoOffcanvasEnd"
+                      aria-labelledby="demoOffcanvasEndLabel"
+                    >
+                      <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="demoOffcanvasEndLabel">过滤</h5>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="offcanvas"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="offcanvas-body">
+                        <div class="mb-3">
+                          <label for="demoOffcanvasStatus" class="form-label"> 状态 </label>
+                          <select class="form-select" id="demoOffcanvasStatus">
+                            <option selected>任意</option>
+                            <option>打开</option>
+                            <option>关闭</option>
+                          </select>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="demoOffcanvasArchived"
+                          />
+                          <label class="form-check-label" for="demoOffcanvasArchived">
+                            包含归档
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      class="offcanvas offcanvas-bottom"
+                      tabindex="-1"
+                      id="demoOffcanvasBottom"
+                      aria-labelledby="demoOffcanvasBottomLabel"
+                    >
+                      <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="demoOffcanvasBottomLabel">底部位置</h5>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="offcanvas"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="offcanvas-body">
+                        <p class="mb-0">
+                          位置类分别是
+                          <code>.offcanvas-start</code>, <code>.offcanvas-end</code>,
+                          <code>.offcanvas-top</code> and <code>.offcanvas-bottom</code>.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <!--end::Body-->
+                </div>
+                <!--end::Offcanvas-->
               </div>
               <!--end::Col-->
               <!--begin::Col-->
@@ -1451,7 +1953,7 @@
                         aria-expanded="false"
                         aria-controls="collapseExample"
                       >
-                        链接到 href
+                        带 href 的链接
                       </a>
                       <button
                         class="btn btn-success"
@@ -1504,7 +2006,7 @@
                           <hr class="dropdown-divider" />
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">分隔线</a>
+                          <a class="dropdown-item" href="#">分隔符</a>
                         </li>
                       </ul>
                     </div>
@@ -1529,7 +2031,7 @@
                           <hr class="dropdown-divider" />
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">分隔线</a>
+                          <a class="dropdown-item" href="#">分隔符</a>
                         </li>
                       </ul>
                     </div>
@@ -1556,7 +2058,7 @@
                           <hr class="dropdown-divider" />
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">分隔线</a>
+                          <a class="dropdown-item" href="#">分隔符</a>
                         </li>
                       </ul>
                     </div>
@@ -1582,7 +2084,7 @@
                           <hr class="dropdown-divider" />
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">分隔线</a>
+                          <a class="dropdown-item" href="#">分隔符</a>
                         </li>
                       </ul>
                     </div>
@@ -2252,10 +2754,7 @@
     <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
     <script src="../assets/popperjs/popper.min.js" crossorigin="anonymous"></script>
     <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="../assets/bootstrap/bootstrap.min.js" crossorigin="anonymous"></script>
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
     <script src="../js/adminlte.js"></script>
     <!--end::Required Plugin(AdminLTE)-->

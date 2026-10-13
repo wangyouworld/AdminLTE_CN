@@ -4,14 +4,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>推荐集成 | AdminLTE 4</title>
 
-    <!--begin::Theme Init (prevents flash of incorrect theme on load, #6043)-->
+    <!--begin::主题初始化（防止加载时闪现错误的主题，#6043）-->
     <script>
       (() => {
         'use strict';
         const root = document.documentElement;
 
-        // Applications with their own theming opt out of AdminLTE's color mode
-        // entirely, here as well as in the bundle.
+        // 自带主题系统的应用会完全退出 AdminLTE 的颜色模式，
+        // 这里如此，打包后的文件里也一样。
         if (root.getAttribute('data-lte-color-mode') === 'off') {
           return;
         }
@@ -21,10 +21,10 @@
         try {
           stored = localStorage.getItem(STORAGE_KEY);
         } catch {
-          // localStorage may be unavailable (private mode, sandboxed iframe).
+          // localStorage 可能不可用（比如隐私模式、沙盒 iframe 里）。
         }
-        // Mirror the precedence in color-mode.ts: the visitor's stored choice
-        // wins, then a theme this page declared itself, then the OS preference.
+        // 和 color-mode.ts 里的优先级保持一致：访客存储的选择优先，
+        // 其次是页面自己声明的主题，最后才是操作系统偏好。
         const authored = root.getAttribute('data-bs-theme');
         let resolved = 'light';
         if (stored === 'dark' || stored === 'light') {
@@ -36,8 +36,8 @@
         }
         root.setAttribute('data-bs-theme', resolved);
         root.style.colorScheme = resolved;
-        // Flag values computed here, so the bundle does not mistake them for a
-        // theme the page declared and stop following the OS preference.
+        // 在这里标记一下这些值是动态计算出来的，免得打包后的代码把它们误当成
+        // 页面自己声明的主题，从而不再跟随操作系统偏好。
         if (resolved !== authored) {
           root.setAttribute('data-lte-theme-resolved', '');
         }
@@ -66,7 +66,7 @@
     <!--end::Primary Meta Tags-->
 
     <!--begin::Accessibility Features-->
-    <!-- Skip links will be dynamically added by accessibility.js -->
+    <!-- 跳转链接将由 accessibility.js 动态添加 -->
     <meta name="supported-color-schemes" content="light dark" />
     <link rel="preload" href="../css/adminlte.css" as="style" />
     <!--end::Accessibility Features-->
@@ -137,6 +137,28 @@
             </li>
           </ul>
           <!--end::Start Navbar Links-->
+
+          <!--begin::Navbar Search-->
+          <form
+            class="navbar-search d-none d-md-block ms-3"
+            role="search"
+            action="../pages/search-results.html"
+          >
+            <div class="input-group input-group-sm">
+              <label for="navbar-search-input" class="visually-hidden">搜索</label>
+              <input
+                type="search"
+                id="navbar-search-input"
+                name="q"
+                class="form-control"
+                placeholder="搜索…"
+              />
+              <button class="btn btn-outline-secondary" type="submit" aria-label="Submit search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+              </button>
+            </div>
+          </form>
+          <!--end::Navbar Search-->
 
           <!--begin::End Navbar Links-->
           <ul class="navbar-nav ms-auto">
@@ -268,6 +290,35 @@
               </div>
             </li>
             <!--end::Notifications Dropdown Menu-->
+
+            <!--begin::Language Menu-->
+            <!-- Markup only: swapping the locale is the application's job. The docs
+           Recipes page shows how to wire this to a real locale switch. -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                id="language-menu"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Change language, current language English"
+              >
+                <i class="bi bi-translate" aria-hidden="true"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="language-menu">
+                <li>
+                  <a class="dropdown-item active" href="#" hreflang="en" aria-current="true">
+                    English
+                    <i class="bi bi-check-lg ms-2" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li><a class="dropdown-item" href="#" hreflang="es">西班牙语</a></li>
+                <li><a class="dropdown-item" href="#" hreflang="fr">法语</a></li>
+                <li><a class="dropdown-item" href="#" hreflang="de">德语</a></li>
+                <li><a class="dropdown-item" href="#" hreflang="ar">العربية</a></li>
+              </ul>
+            </li>
+            <!--end::Language Menu-->
 
             <!--begin::Fullscreen Toggle-->
             <li class="nav-item">
@@ -414,6 +465,23 @@
           </a>
         </div>
         <!--end::Sidebar Brand-->
+        <!--begin::侧边栏搜索-->
+        <div class="sidebar-search" role="search">
+          <label for="sidebar-search-input" class="visually-hidden">过滤 docs</label>
+          <input
+            type="search"
+            id="sidebar-search-input"
+            class="form-control form-control-sm"
+            placeholder="筛选文档..."
+            autocomplete="off"
+            data-lte-toggle="sidebar-search"
+            data-lte-target="#docs-navigation"
+          />
+          <p class="fs-7 text-secondary mt-2 mb-0" data-lte-search-empty role="status" hidden>
+            没有匹配到页面。
+          </p>
+        </div>
+        <!--end::侧边栏搜索-->
         <!--begin::Sidebar Wrapper-->
         <div class="sidebar-wrapper">
           <nav class="mt-2" aria-label="Documentation navigation">
@@ -498,6 +566,18 @@
                       <p>主侧边栏</p>
                     </a>
                   </li>
+                  <li class="nav-item">
+                    <a href="../docs/components/card.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>卡片</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/components/miscellaneous.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>其他组件</p>
+                    </a>
+                  </li>
                 </ul>
               </li>
               <li class="nav-item">
@@ -549,6 +629,12 @@
                     <a href="../docs/javascript/fullscreen.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>全屏</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/sidebar-search.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>侧边栏搜索</p>
                     </a>
                   </li>
                   <li class="nav-item">
@@ -725,11 +811,297 @@
 <span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">select</span><span style="color:#808080">&gt;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#569CD6">  new</span><span style="color:#DCDCAA"> TomSelect</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;#tags&quot;</span><span style="color:#D4D4D4">, { </span><span style="color:#9CDCFE">plugins:</span><span style="color:#D4D4D4"> [</span><span style="color:#CE9178">&quot;remove_button&quot;</span><span style="color:#D4D4D4">] })</span></span>
-<span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span></code></pre>
+<span class="line"><span style="color:#569CD6">  new</span><span style="color:#DCDCAA"> TomSelect</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;#tags&quot;</span><span style="color:#D4D4D4">, { 插件： </span><span style="color:#9CDCFE">[</span><span style="color:#CE9178">&quot;remove_button&quot;</span><span style="color:#9CDCFE">] })</span></span>
+<span class="line"><span style="color:#9CDCFE">&lt;/script&gt;</span></span></code></pre>
                     <p>
                       附带 <code>tom-select.bootstrap5.min.css</code> 主题，与 Bootstrap
                       表单控件样式匹配。
+                    </p>
+                    <p>
+                      <strong>远程数据。</strong> 对于背后是数据库而不是静态选项列表的下拉框，就在
+                      <code>load()</code> 里发请求。Tom Select 会通过
+                      <code>loadThrottle</code> 帮你做防抖（默认 300 毫秒），而
+                      <code>virtual_scroll</code> 插件会在用户滚动下拉列表时逐页加载结果：
+                    </p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="js"
+                    ><code><span class="line"><span style="color:#569CD6">let</span><span style="color:#9CDCFE"> inFlight</span><span style="color:#D4D4D4"> = </span><span style="color:#569CD6">null</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">new</span><span style="color:#DCDCAA"> TomSelect</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;#reviewer&quot;</span><span style="color:#D4D4D4">, {</span></span>
+<span class="line"><span style="color:#9CDCFE">  valueField:</span><span style="color:#CE9178"> &quot;id&quot;</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">  labelField:</span><span style="color:#CE9178"> &quot;name&quot;</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">  searchField:</span><span style="color:#D4D4D4"> [</span><span style="color:#CE9178">&quot;name&quot;</span><span style="color:#D4D4D4">],</span></span>
+<span class="line"><span style="color:#9CDCFE">  loadThrottle:</span><span style="color:#B5CEA8"> 300</span><span style="color:#D4D4D4">,                      </span><span style="color:#6A9955">// 防抖，内置的</span></span>
+<span class="line"><span style="color:#D4D4D4">  插件： </span><span style="color:#9CDCFE">[</span><span style="color:#CE9178">&quot;virtual_scroll&quot;</span><span style="color:#9CDCFE">],            </span><span style="color:#6A9955">// 无限滚动分页</span></span>
+<span class="line"><span style="color:#9CDCFE">  firstUrl:</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">query</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=&gt;</span><span style="color:#CE9178"> `/api/users?q=</span><span style="color:#569CD6">${</span><span style="color:#DCDCAA">encodeURIComponent</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">query</span><span style="color:#D4D4D4">)</span><span style="color:#569CD6">}</span><span style="color:#CE9178">&amp;page=1`</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#DCDCAA">  load</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">query</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">callback</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">    inFlight</span><span style="color:#D4D4D4">?.</span><span style="color:#DCDCAA">abort</span><span style="color:#D4D4D4">()                     </span><span style="color:#6A9955">// 丢弃过期请求</span></span>
+<span class="line"><span style="color:#9CDCFE">    inFlight</span><span style="color:#D4D4D4"> = </span><span style="color:#569CD6">new</span><span style="color:#DCDCAA"> AbortController</span><span style="color:#D4D4D4">()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">    fetch</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">getUrl</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">query</span><span style="color:#D4D4D4">), { </span><span style="color:#9CDCFE">signal:</span><span style="color:#9CDCFE"> inFlight</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">signal</span><span style="color:#D4D4D4"> })</span></span>
+<span class="line"><span style="color:#D4D4D4">      .</span><span style="color:#DCDCAA">then</span><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">response</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=&gt;</span><span style="color:#9CDCFE"> response</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">json</span><span style="color:#D4D4D4">())</span></span>
+<span class="line"><span style="color:#D4D4D4">      .</span><span style="color:#DCDCAA">then</span><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">json</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=&gt;</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">json</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">next</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#569CD6">          this</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">setNextUrl</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">query</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">json</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">next</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">        }</span></span>
+<span class="line"><span style="color:#DCDCAA">        callback</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">json</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">results</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">      })</span></span>
+<span class="line"><span style="color:#D4D4D4">      .</span><span style="color:#DCDCAA">catch</span><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">error</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=&gt;</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">error</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">name</span><span style="color:#D4D4D4"> !== </span><span style="color:#CE9178">&quot;AbortError&quot;</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#DCDCAA">          callback</span><span style="color:#D4D4D4">()</span></span>
+<span class="line"><span style="color:#D4D4D4">        }</span></span>
+<span class="line"><span style="color:#D4D4D4">      })</span></span>
+<span class="line"><span style="color:#D4D4D4">  }</span></span>
+<span class="line"><span style="color:#D4D4D4">})</span></span></code></pre>
+                    <p>
+                      <code>forms/advanced.html</code>
+                      就是拿这套一模一样的模式跑在一个模拟接口上的——把模拟实现换成
+                      <code>fetch()</code>，不用改别的就能直接用。
+                    </p>
+                    <h6 id="从-select2-迁移过来">从 Select2 迁移过来</h6>
+                    <p>
+                      <a href="https://select2.org/">Select2</a> 目前仍在维护（4.1.0 于 2026
+                      年发布），但它依然是个 jQuery 插件——它的 UMD 包装强制依赖 jQuery，也没有不依赖
+                      jQuery 的构建版本。因此 AdminLTE 4 推荐改用 Tom
+                      Select，它能覆盖同样的功能集，体积大约只有 20 kB gzip，而 Select2 算上 jQuery
+                      之后大约是 50 kB。
+                    </p>
+                    <p>两者的 API 可以直接对应过来：</p>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Select2</th>
+                          <th>Tom Select</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><code>$(&quot;#x&quot;).select2()</code></td>
+                          <td><code>new TomSelect(&quot;#x&quot;)</code></td>
+                        </tr>
+                        <tr>
+                          <td><code>$(&quot;#x&quot;).select2({ tags: true })</code></td>
+                          <td><code>new TomSelect(&quot;#x&quot;, { create: true })</code></td>
+                        </tr>
+                        <tr>
+                          <td><code>allowClear: true</code></td>
+                          <td><code>插件： [&quot;clear_button&quot;]</code></td>
+                        </tr>
+                        <tr>
+                          <td><code>closeOnSelect: false</code></td>
+                          <td><code>closeAfterSelect: false</code></td>
+                        </tr>
+                        <tr>
+                          <td><code>maximumSelectionLength: 3</code></td>
+                          <td><code>maxItems: 3</code></td>
+                        </tr>
+                        <tr>
+                          <td><code>minimumInputLength: 2</code></td>
+                          <td><code>shouldLoad: (q) =&gt; q.length &gt;= 2</code></td>
+                        </tr>
+                        <tr>
+                          <td><code>ajax: { url, delay: 250 }</code></td>
+                          <td>
+                            <code>load(query, callback)</code> + <code>loadThrottle: 250</code>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><code>ajax: { …, processResults }</code></td>
+                          <td>
+                            <code>valueField</code> / <code>labelField</code> /
+                            <code>searchField</code>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>无限滚动 (<code>pagination.more</code>)</td>
+                          <td>
+                            <code>插件： [&quot;virtual_scroll&quot;]</code> +
+                            <code>setNextUrl()</code>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><code>templateResult</code> / <code>templateSelection</code></td>
+                          <td><code>render: { option, item }</code></td>
+                        </tr>
+                        <tr>
+                          <td><code>dropdownParent: $(&quot;#modal&quot;)</code></td>
+                          <td><em>(不需要 — 下拉菜单是内联的)</em></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <code
+                              >$(&quot;#x&quot;).val(&quot;2&quot;).trigger(&quot;change&quot;)</code
+                            >
+                          </td>
+                          <td><code>ts.setValue(&quot;2&quot;)</code></td>
+                        </tr>
+                        <tr>
+                          <td><code>$(&quot;#x&quot;).val()</code></td>
+                          <td><code>ts.getValue()</code></td>
+                        </tr>
+                        <tr>
+                          <td><code>$(&quot;#x&quot;).on(&quot;select2:select&quot;, fn)</code></td>
+                          <td><code>ts.on(&quot;item_add&quot;, fn)</code></td>
+                        </tr>
+                        <tr>
+                          <td><code>$(&quot;#x&quot;).on(&quot;change&quot;, fn)</code></td>
+                          <td><code>ts.on(&quot;change&quot;, fn)</code></td>
+                        </tr>
+                        <tr>
+                          <td><code>$(&quot;#x&quot;).select2(&quot;open&quot;)</code></td>
+                          <td><code>ts.open()</code></td>
+                        </tr>
+                        <tr>
+                          <td><code>$(&quot;#x&quot;).prop(&quot;disabled&quot;, true)</code></td>
+                          <td><code>ts.disable()</code></td>
+                        </tr>
+                        <tr>
+                          <td><code>$(&quot;#x&quot;).select2(&quot;destroy&quot;)</code></td>
+                          <td><code>ts.destroy()</code></td>
+                        </tr>
+                        <tr>
+                          <td><code>$(&quot;#x&quot;).empty().select2({ data })</code></td>
+                          <td><code>ts.clearOptions(); ts.addOptions(data)</code></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <p>
+                      这张表的并排对照版，配上可运行的代码，放在
+                      <a href="../forms/advanced.html#select2">Advanced Elements</a> 演示页面里。
+                    </p>
+                    <p>
+                      <strong>如果你不得不继续用 Select2</strong>，AdminLTE
+                      提供了一个<em>纯样式</em>的兼容样式表——见下面的
+                      <a href="#select2-compatibility-theme">Select2 兼容主题</a>。
+                    </p>
+                    <h6 id="select2-兼容主题">Select2 兼容主题</h6>
+                    <p>
+                      有些项目没法甩掉 Select2：比如一个带着几百个服务端渲染表单的 ERP
+                      系统、一个会自动帮你初始化它的第三方插件，又或者团队压根还没准备好换。AdminLTE
+                      不会把 Select2 或 jQuery 打包进来，但它确实提供了一个
+                      <strong>纯 CSS 的兼容主题</strong>，这样你自己引入的 Select2 就能继承
+                      Bootstrap 5.3 的表单尺寸、焦点圈、校验状态以及
+                      <code>data-bs-theme</code> 深色模式。
+                    </p>
+                    <ul>
+                      <li>
+                        <strong><code>dist/css/adminlte-select2.css</code></strong
+                        >（以及
+                        <code>.min.css</code>、<code>.rtl.css</code>、<code>.rtl.min.css</code>）
+                      </li>
+                      <li>
+                        没有 JavaScript，没有 jQuery，<code>adminlte.css</code>
+                        里也没加任何东西——你只要额外加载一个样式表就能用上。
+                      </li>
+                    </ul>
+                    <p>把它加载在 <code>select2.css</code> <strong>之后</strong>：</p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="html"
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;path/to/adminlte.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/css/select2.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;path/to/adminlte-select2.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">select</span><span style="color:#9CDCFE"> id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;country&quot;</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;form-select&quot;</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">option</span><span style="color:#9CDCFE"> value</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;&quot;</span><span style="color:#808080">&gt;</span><span style="color:#D4D4D4">请选择地区…</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">option</span><span style="color:#9CDCFE"> value</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;lv&quot;</span><span style="color:#808080">&gt;</span><span style="color:#D4D4D4">拉脱维亚</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">option</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">select</span><span style="color:#808080">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#DCDCAA">  $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;#country&quot;</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">select2</span><span style="color:#D4D4D4">({ </span><span style="color:#9CDCFE">width:</span><span style="color:#CE9178"> &quot;100%&quot;</span><span style="color:#D4D4D4"> })</span></span>
+<span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span></code></pre>
+                    <p>这个主题帮你处理了以下这些：</p>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>尺寸规范</td>
+                          <td>高度、内边距、字号和圆角都和 <code>.form-select</code> 完全一致</td>
+                        </tr>
+                        <tr>
+                          <td>尺寸大小</td>
+                          <td>
+                            原始 <code>&lt;select&gt;</code> 上的 <code>.form-select-sm</code> /
+                            <code>.form-select-lg</code> 会被正确识别并生效
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>聚焦</td>
+                          <td>用 Bootstrap 的焦点圈，而不是 Select2 那个黑色外框</td>
+                        </tr>
+                        <tr>
+                          <td>深色模式</td>
+                          <td>跟随 <code>data-bs-theme</code>——包括那个挂到 body 上的下拉面板</td>
+                        </tr>
+                        <tr>
+                          <td>校验状态</td>
+                          <td>
+                            原始 <code>&lt;select&gt;</code> 上的 <code>.is-invalid</code> /
+                            <code>.is-valid</code> 会给容器上色
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>多选</td>
+                          <td>已选项做成胶囊样式，跟 Bootstrap 的 secondary 徽章一致</td>
+                        </tr>
+                        <tr>
+                          <td>输入框组</td>
+                          <td>支持 <code>.input-group</code> 的圆角处理和 flex 尺寸计算</td>
+                        </tr>
+                        <tr>
+                          <td>模态框</td>
+                          <td>
+                            下拉面板的 <code>z-index</code> 被提到 <code>.modal</code> 之上——修掉了
+                            Select2 + Bootstrap 5 被反馈最多的那个 bug，所以不再需要
+                            <code>dropdownParent</code> 了
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>RTL</td>
+                          <td>和其他 CSS 一起自动生成</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <p>
+                      用打包工具？编译好的样式表可以通过包的
+                      <code>exports</code> 映射引入——同样，要放在 Select2 自己的 CSS 之后：
+                    </p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="js"
+                    ><code><span class="line"><span style="color:#C586C0">import</span><span style="color:#CE9178"> &quot;admin-lte/dist/css/adminlte.min.css&quot;</span></span>
+<span class="line"><span style="color:#C586C0">import</span><span style="color:#CE9178"> &quot;select2/dist/css/select2.min.css&quot;</span></span>
+<span class="line"><span style="color:#C586C0">import</span><span style="color:#CE9178"> &quot;admin-lte/dist/css/adminlte-select2.min.css&quot;</span></span></code></pre>
+                    <p>
+                      如果你是自己编译 Sass 呢？那就把这个 partial 放在 AdminLTE 之后导入，因为
+                      AdminLTE 已经把该 partial 需要的 Bootstrap 变量和 mixin 都加载好了：
+                    </p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="scss"
+                    ><code><span class="line"><span style="color:#C586C0">@import</span><span style="color:#CE9178"> &quot;node_modules/admin-lte/src/scss/adminlte&quot;</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#C586C0">@import</span><span style="color:#CE9178"> &quot;node_modules/admin-lte/src/scss/compat/select2&quot;</span><span style="color:#D4D4D4">;</span></span></code></pre>
+                    <p>
+                      这个主题是跟着 Select2 4.1.x 的标记结构走的（同时也兼容 4.0.x 里 choice-remove
+                      的那套标记）。它只管样式——Select2 自身的 bug 还是得 Select2 自己去修，而且
+                      AdminLTE 官方的框架移植版（Vue、React、Django、Laravel）没有一个能用 jQuery
+                      插件。
                     </p>
                     <h6 id="范围滑块--nouislider">范围滑块 — noUiSlider</h6>
                     <p>
@@ -995,6 +1367,31 @@
 <span class="line"><span style="color:#9CDCFE">    events:</span><span style="color:#D4D4D4"> [{ </span><span style="color:#9CDCFE">title:</span><span style="color:#CE9178"> &quot;团队晨会&quot;</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">start:</span><span style="color:#CE9178"> &quot;2026-06-01&quot;</span><span style="color:#D4D4D4"> }]</span></span>
 <span class="line"><span style="color:#D4D4D4">  }).</span><span style="color:#DCDCAA">render</span><span style="color:#D4D4D4">()</span></span>
 <span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span></code></pre>
+                    <h5 id="地图">地图</h5>
+                    <h6 id="jsvectormap">jsVectorMap</h6>
+                    <p>
+                      <a href="https://github.com/themustafaomar/jsvectormap">jsVectorMap</a> 是
+                      jQuery Mapael / jVectorMap
+                      的继任者，而且不依赖任何第三方库。它支持分级统计图（choropleth）、标记点、按区域绑定的点击处理器，还自带一张世界地图以及各个国家的数据文件。
+                    </p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="html"
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/css/jsvectormap.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/js/jsvectormap.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/maps/world.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;map&quot;</span><span style="color:#9CDCFE"> style</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;height: 20rem;&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#569CD6">  new</span><span style="color:#DCDCAA"> jsVectorMap</span><span style="color:#D4D4D4">({</span></span>
+<span class="line"><span style="color:#9CDCFE">    selector:</span><span style="color:#CE9178"> &quot;#map&quot;</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">    map:</span><span style="color:#CE9178"> &quot;world&quot;</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">    markers:</span><span style="color:#D4D4D4"> [{ </span><span style="color:#9CDCFE">name:</span><span style="color:#CE9178"> &quot;Riga&quot;</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">coords:</span><span style="color:#D4D4D4"> [</span><span style="color:#B5CEA8">56.95</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">24.11</span><span style="color:#D4D4D4">] }]</span></span>
+<span class="line"><span style="color:#D4D4D4">  })</span></span>
+<span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span></code></pre>
                     <h5 id="拖拽">拖拽</h5>
                     <h6 id="sortablejs">SortableJS</h6>
                     <p>
@@ -1133,10 +1530,7 @@
     <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
     <script src="../assets/popperjs/popper.min.js" crossorigin="anonymous"></script>
     <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="../assets/bootstrap/bootstrap.min.js" crossorigin="anonymous"></script>
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
     <script src="../js/adminlte.js"></script>
     <!--end::Required Plugin(AdminLTE)-->

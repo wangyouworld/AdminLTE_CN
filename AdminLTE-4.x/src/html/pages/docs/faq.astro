@@ -16,7 +16,7 @@ type Section = { id: string; title: string; icon: string; tone: string; items: Q
 const sections: Section[] = [
   {
     id: "getting-started",
-    title: "入门指南",
+    title: "开始",
     icon: "rocket-takeoff",
     tone: "primary",
     items: [
@@ -34,7 +34,11 @@ const sections: Section[] = [
       },
       {
         q: "我可以在 AdminLTE 4 中使用 jQuery 吗？",
-        a: `你<em>不需要</em> jQuery——AdminLTE 4 的 JavaScript 是原生 JS。如果你现有的应用已经使用了 jQuery，它们可以很好地共存。但 AdminLTE 4 自身的插件都不会调用 jQuery，也没有 <code>$.fn.xxx()</code> 这类插件垫片。`
+        a: `你<em>不需要</em> jQuery —— AdminLTE 4 的 JavaScript 是原生的。如果你现有的应用本来就在用 jQuery，两者可以和平共处。但 AdminLTE 4 自己的插件没有一个会调用 jQuery，也没有 <code>$.fn.xxx()</code> 这类插件挂载。<br /><br />v3 的 <code>plugins/</code> 文件夹同样没了。它当年打包的每个组件都有对应的原生 JS 继任者——完整的对应关系见<a href="migration.html#third-party-plugin-replacements">插件替代对照表</a>（Select2 → Tom Select、DataTables → Tabulator、Summernote → Quill，等等）。`
+      },
+      {
+        q: "AdminLTE 4 支持 Select2 吗？",
+        a: `AdminLTE 4 建议改用 <a href="https://tom-select.js.org/" target="_blank" rel="noopener">Tom Select</a>。大家平时用 Select2 想做的事，它全都能干 —— 可搜索下拉框、多选、打标签、可清除的选择项、AJAX 加载选项、大数据集下的虚拟滚动、键盘导航 —— 而体积大约只有 <strong>20&nbsp;kB gzip</strong>，Select2 算上 jQuery 之后大约是 <strong>~50&nbsp;kB</strong>。<code>forms/advanced.html</code> 把这些都演示了一遍，包括一个带请求取消的分页远程数据字段；如果你要移植现有代码，还有一份<a href="../forms/advanced.html#select2">逐行 API 对照</a>。<br /><br />下拉菜单2 本身仍在维护（4.1.0 于 2026 年发布），但它依然是个 jQuery 插件 —— 它的 UMD 包装强制依赖 jQuery，也没有不依赖 jQuery 的构建版本。把它打包进来，等于把 jQuery 又塞回一个整个 v4 前提就是“不需要 jQuery”的框架里，而且官方的 Vue/React/Django/Laravel 移植版没一个能用它。<br /><br />如果你就是被 Select2 锁死了，AdminLTE 提供了一个可选的 <strong>纯样式</strong>兼容样式表 —— 见 <a href="integrations.html#select2-compatibility-theme">下拉菜单2 兼容主题</a>。插件你自己带；它能让 Select2 跟 Bootstrap 5.3 保持一致，深色模式和模态框也都涵盖在内。AdminLTE 本身不会引入 jQuery。`
       }
     ]
   },

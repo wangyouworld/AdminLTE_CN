@@ -1,0 +1,191 @@
+本页介绍的组件，是 AdminLTE 在 Bootstrap 之上额外添加的那些——不包括头部、侧边栏和[卡片](card.html)。除非特别说明，否则每个组件都是纯 CSS 实现的。
+
+##### 标注块
+
+一种带边框的提示块，按主题色着色。本套文档中随处可见。
+
+```html
+<div class="callout callout-info">
+  <h5 class="fw-bold">注意！</h5>
+  <p>内容在这里。 <a href="#" class="callout-link">一个链接</a>.</p>
+</div>
+```
+
+| 类名 | 描述 |
+|---|---|
+| `.callout` | 基础块：内边距，加上 `.25rem` 的左边框。 |
+| `.callout-{color}` | `$theme-colors` 里每个条目对应一个。一次性设置背景色、边框色和文字强调色。 |
+| `.callout-link` | 把标注块里的链接加粗。普通链接和 `<code>` 本身已经染上了该变体的强调色，所以在淡色背景上依然清晰可读。 |
+
+相邻的标注块会合并它们之间的间隙，所以叠在一起看起来就像一整块。
+
+##### 丝带
+
+一条斜向的横幅，固定在某个已定位祖先元素的顶部角落。参见[丝带演示](../../UI/ribbons.html)。
+
+```html
+<div class="card">
+  <div class="ribbon-wrapper">
+    <div class="ribbon text-bg-primary">新的</div>
+  </div>
+  <div class="card-body">…</div>
+</div>
+```
+
+| 类名 | 描述 |
+|---|---|
+| `.ribbon-wrapper` | 用来裁剪横幅的那个方形区域。必须放在已定位的元素里——`.card` 本身就是；其他元素需要加上 `.position-relative`。 |
+| `.ribbon` | 横幅本身。颜色来自 `.text-bg-*` 工具类。 |
+| `.ribbon-wrapper.ribbon-lg` | 更大的角落，`1rem` 字号。 |
+| `.ribbon-wrapper.ribbon-xl` | 最大的角落，`1.25rem` 字号。 |
+
+横幅的宽度是从 `--lte-ribbon-size` 推导出来的，所以只要覆盖这一个属性，整个丝带就会跟着缩放：
+
+```css
+.ribbon-wrapper.ribbon-custom {
+  --lte-ribbon-size: 90px;
+  --lte-ribbon-width: 130px;
+}
+```
+
+标签要写短一点。横幅是被裁剪到角落那个方形里的，所以默认尺寸下大概只有 `64px` 能看得见——差不多六个字符。`.ribbon-lg` 和 `.ribbon-xl` 能给你更多空间。在 RTL 模式下，角落位置和旋转方向都会自动镜像，不需要额外加标记。
+
+##### 小方盒
+
+一种大号的数据统计卡片，带背景色、一个水印图标和一个底部链接。
+
+```html
+<div class="small-box text-bg-primary">
+  <div class="inner">
+    <h3>150</h3>
+    <p>新订单</p>
+  </div>
+  <svg class="small-box-icon" aria-hidden="true">…</svg>
+  <a href="#" class="small-box-footer link-light">更多信息 <i class="bi bi-link-45deg"></i></a>
+</div>
+```
+
+| 类名 | 描述 |
+|---|---|
+| `.small-box` | 统计块本身。搭配 `.text-bg-*` 工具类来上色。 |
+| `.inner` | 用来放数值和它对应的标签。 |
+| `.small-box-icon` | 超大的水印图标，固定在尾侧边缘。记得给它加上 `aria-hidden="true"`。 |
+| `.small-box-footer` | 通栏宽度的底部链接。 |
+
+##### 信息框
+
+一行紧凑的数据统计：图标、标签、数值，以及一个可选的进度条。
+
+```html
+<div class="info-box">
+  <span class="info-box-icon text-bg-primary shadow-sm">
+    <i class="bi bi-gear-fill"></i>
+  </span>
+  <div class="info-box-content">
+    <span class="info-box-text">CPU 使用率</span>
+    <span class="info-box-number">10 <small>%</small></span>
+    <div class="progress">
+      <div class="progress-bar" style="width: 70%"></div>
+    </div>
+    <span class="progress-description">30 天内增长 70%</span>
+  </div>
+</div>
+```
+
+| 类名 | 描述 |
+|---|---|
+| `.info-box` | 整行。 |
+| `.info-box-icon` | 方形图标区域。用 `.text-bg-*` 来上色。 |
+| `.info-box-content` | 文字栏。 |
+| `.info-box-text` | 标签。超出时截断，而不是换行。 |
+| `.info-box-number` | 数值。 |
+| `.info-box-more` | 可选的尾部链接。 |
+| `.progress-description` | 内嵌进度条下方的说明文字。 |
+
+##### 时间线
+
+一个按日期排列的垂直活动列表。
+
+```html
+<div class="timeline">
+  <div class="time-label"><span class="text-bg-danger">2026年2月10日</span></div>
+  <div>
+    <i class="timeline-icon bi bi-envelope text-bg-primary"></i>
+    <div class="timeline-item">
+      <span class="time"><i class="bi bi-clock-fill"></i> 12:05</span>
+      <h3 class="timeline-header"><a href="#">支持团队</a>给你发了一封邮件</h3>
+      <div class="timeline-body">…</div>
+      <div class="timeline-footer"><a class="btn btn-primary btn-sm">查看更多</a></div>
+    </div>
+  </div>
+</div>
+```
+
+| 类名 | 描述 |
+|---|---|
+| `.timeline` | 容器，负责画出那条垂直的线。 |
+| `.time-label` | 一个日期标记，把垂直线打断。 |
+| `.timeline-icon` | 线上的圆点。用 `.text-bg-*` 来上色。 |
+| `.timeline-item` | 每个条目的面板。 |
+| `.time` | 面板内尾部的时
+| `.timeline-header` / `.timeline-body` / `.timeline-footer` | 面板的三个部分。其中 body 和 footer 是可选的。 |
+| `.timeline-inverse` | 扁平变体：没有阴影，改用一条普通边框。 |
+
+每个条目就是一个光秃秃的 `<div>`，把图标和条目的内容包起来——这个包裹元素本身不带任何类。
+
+##### 社交与动态小部件
+
+个人资料卡片和动态流区块。参见[社交小部件演示](../../widgets/social.html)。它们保留了 v3 的类名，所以迁移过来的标记不用改就能用，但布局用的是 grid 和 flex，而不是浮动，颜色也取自 Bootstrap 的工具类。
+
+```html
+<div class="user-block">
+  <img class="rounded-circle" src="user.jpg" alt="">
+  <span class="username"><a href="#">小乔纳森·伯克</a></span>
+  <span class="description">公开分享 · 今天晚上 7:30</span>
+</div>
+```
+
+| 类名 | 描述 |
+|---|---|
+| `.user-block` | 用扁平标记直接排出头像、名字和一行附加信息——头像会横跨两行文字，所以不需要额外的包裹元素。可选的 `.comment` 会落在第三行。 |
+| `.user-block.user-block-sm` | 更小的头像和字体，适合用在评论串里。 |
+| `.post` | 动态流里的一条。与下一条之间有分隔线；最后一条会去掉分隔线和尾部空白。 |
+| `.description-block` | 一个居中的数值，配一行大写说明——由 `.description-header` 和 `.description-text` 组成。可以在一张卡片底部的多列里重复使用。 |
+| `.widget-user` | 带横幅头部的个人资料卡片，头像骑跨在头部和底部的接缝上。需要配合 `.widget-user-header`、`.widget-user-image`、`.widget-user-username`、`.widget-user-desc` 使用。 |
+| `.widget-user-2` | 更矮的变体，头像内联在头部里，所以长名字可以换行。 |
+
+对于 `.widget-user`，头部的高度和头像的尺寸都是 Sass 变量（`$lte-widget-user-header-height`、`$lte-widget-user-image-size`）；底部的上内边距是从这两个变量推导出来的，所以改动其中任何一个值，重叠部分的位置都能保持正确。
+
+##### 进度条
+
+在 Bootstrap 的 `.progress` 基础上额外提供的尺寸。
+
+| 类名 | 高度 |
+|---|---|
+| `.progress-sm` | `10px` |
+| `.progress-xs` | `7px` |
+| `.progress-xxs` | `3px` |
+
+`.progress.vertical` 可以把进度条竖过来，`.progress-group` 则把进度条和一行标签配成一组。
+
+##### 提示
+
+`.toast-{color}` 按 `$theme-colors` 给 Bootstrap 的 toast 套主题：带颜色的头部、淡色的主体、匹配的边框。在深色头部上，关闭按钮会自动切换成白色版本，两种颜色模式下都是如此。
+
+```html
+<div class="toast toast-success" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header">
+    <strong class="me-auto">保存</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+  <div class="toast-body">更改已保存。</div>
+</div>
+```
+
+##### 图片尺寸
+
+`.img-size-32`、`.img-size-50` 和 `.img-size-64` 用来设定以像素为单位的宽度，高度则保持自动。它们主要是为下拉菜单和列表里的头像准备的——那种场景下，用 Bootstrap 的尺寸工具类得写两个类才行。
+
+##### 聊天
+
+聊天面板有自己独立的页面——它的标记结构和联系人面板的切换方式，参见 [DirectChat 插件](../javascript/direct-chat.html)。

@@ -5,6 +5,45 @@ AdminLTE 的所有显著变更都将记录在此文件中。
 格式基于 [记录变更日志](https://keepachangelog.com/en/1.0.0/)，
 本项目遵循 [语义化版本控制](https://semver.org/spec/v2.0.0.html)。
 
+## [4.3.1] - 2026-08-10
+
+### 已修复
+
+- **丝带把卡片角落空出来了。** 横幅之前是以它的裁剪方形为中心来定位的，但方形的中心恰恰是离角落*最远*的那个点——结果横幅太靠卡片里面了，本该盖住的角上反而空出一大块三角形，标签还被裁切给切掉了。现在横幅的中心落在角落的角平分线上，位于方形边长的约 46% 处——这个比例既能给标签留出空间，又能把角落填满；宽度也改成了横跨角落的弦长，而不是方形的对角线。RTL 模式下的镜像效果和以前一样。
+- 丝带演示里用的是短标签，并且说明了这个限制：横幅是被裁到角落里的，所以默认尺寸下大概只有 `64px` 能看得见。`.ribbon-lg` 和 `.ribbon-xl` 能给更多空间。这一点记录在“杂项组件”页面里。
+
+## [4.3.0] - 2026-08-10
+
+### 新增
+
+- **图库页面（`pages/gallery.html`）** —— 一个可筛选的媒体库：响应式瓦片网格、每项的操作菜单、实时结果计数和空状态。它**完全不依赖任何图片库** —— 瓦片就是一个 Bootstrap 的 `.ratio` 盒子加上 `.object-fit-cover`，分类筛选也只有大约 25 行页面内脚本，所以 `adminlte.js` 里什么都没加，也不会给只想用这个网格的人强加任何 CDN 依赖。灯箱效果有意不做；那才是真正需要引入依赖的部分。
+- **搜索结果页面（`pages/search-results.html`）** —— 带类型区分的结果（页面 / 用户 / 文件 / 项目，各有各的图标和徽章），配上一个按类型切换的标签筛选，还有筛选面板、相关搜索、分页，以及一个完整做出来的“无结果”状态。导航栏搜索现在会以 `name="q"` 提交到这个页面，而不再是 `action="#"`，所以和 `SidebarSearch` 一起加进来的这个搜索，终于有了真正的去处。
+- **应用头部里的语言菜单** —— 一个 `bi-translate` 下拉菜单，列出五种语言区域，当前那个用 `.active` + `aria-current` 标出，每一项都带 `hreflang`。按设计它只是标记；文档里新增的 **“接入真实 locale 的语言切换器”** 这篇实战指南，涵盖了区分“能用的切换器”和“纯摆设”的那四件事 —— 每一项都是指向对应语言区域的真实链接，而不是 `#` 加点击事件；语言区域放在 URL 或 cookie 里，而不是 `localStorage` 里（服务器必须在渲染*之前*就知道它是什么）；为辅助技术标记当前语言；以及切换到 RTL 语言区域时，除了 `dir="rtl"` 还要同时提供 `adminlte.rtl.css`。
+- **`SidebarSearch` 插件** —— 侧边栏菜单上方的一个筛选输入框（在 input 上加 `data-lte-toggle="sidebar-search"`，可选的 `data-lte-target` 用来指定要筛选的菜单）。输入时会隐藏不匹配的条目，并展开包含匹配项的子菜单；如果某个分组自己的名字就匹配上了，那它整棵子树都会保留，所以展开它绝不会是死路一条。清空输入框 —— 按 `ESC`、点浏览器自带的清除按钮，或者调 `clear()` —— 会把所有条目*以及*每个子菜单之前的展开状态都恢复回来，包括 Treeview 滑动动画留下的那个内联 `display`。条目是用 `hidden` 属性隐藏的，而不是加类，所以它们也会从无障碍树里消失。会触发 `filtered.lte.sidebar-search`，带上 `{ query, matches }`；两个监听器都委托在 `document` 上，所以页面加载之后才渲染出来的侧边栏不需要重新初始化。所有演示页和文档页都接入了它，文档在 `docs/javascript/sidebar-search.html`。
+- **应用头部里的导航栏搜索** —— 一个带 `role="search"` 的表单，配一个视觉隐藏的 label，从 `md` 断点往上显示，提交到新的搜索结果页面。
+- **丝带**（`.ribbon-wrapper` + `.ribbon`，尺寸有 `.ribbon-lg` / `.ribbon-xl`）—— v3 里那个角落横幅，重做了。包裹元素负责裁剪横幅，横幅在旋转前先以它为中心定位，所以整套几何关系都跟着一个自定义属性（`--lte-ribbon-size`）走，任何缩放下都不会错位；裁剪区域会继承父级的圆角，所以它跟着圆角卡片走，而不是在卡片上切出一个方块。颜色来自 `.text-bg-*` 工具类，标签太长会截断，而不会把形状撑坏。rtlcss 会把角落和旋转方向都镜像过来，所以 RTL 不需要额外加标记。新演示页在 `UI/ribbons.html`。
+- **社交与动态小部件**（`.user-block`、`.post`、`.widget-user`、`.widget-user-2`、`.description-block`）—— v3 里的个人资料卡片和动态流区块，保留了 v3 的类名，所以迁移过来的标记不用改就能用，但布局改用 grid 和 flex，而不是浮动，颜色也取自 Bootstrap 的工具类。`.user-block` 用扁平标记直接渲染出头像、名字和附加信息，不需要包裹元素。新演示页在 `widgets/social.html`。
+- **`UI/general.html` 上的导航标签页与胶囊、模态框和 offcanvas 章节** —— 组件展示里之前还没覆盖到的三个 Bootstrap 组件。
+- **卡片和杂项组件文档页面**（`docs/components/card.html`、`docs/components/miscellaneous.html`）—— 这两个页面加起来，把 AdminLTE 里所有带了 CSS 却一直没有参考文档的组件都记录了下来：卡片（结构剖析、颜色变体、状态、标签页卡片、Sass 变量）、标注块、丝带、小方盒、信息框、时间线、社交/动态小部件、进度条尺寸、主题化 toast 以及图片尺寸工具类。
+- **Select2 兼容主题（`dist/css/adminlte-select2.css`）** —— 一个按需启用、**纯 CSS** 的样式表，给那些暂时还甩不掉 Select2 的项目用。AdminLTE 依旧既不打包 Select2 也不打包 jQuery，`adminlte.css` 里也没加任何东西；你只要在 `select2.css` 之后再加载这一个额外的样式表，自己引入的 Select2 就能继承 Bootstrap 5.3 的表单尺寸规范（原始 `<select>` 上的 `.form-select-sm` / `-lg` 会被正确识别）、焦点圈、`.is-invalid` / `.is-valid` 状态、输入框组的圆角、徽章样式的多选胶囊，以及 `data-bs-theme` 深色模式 —— 包括那个挂到 body 上的下拉面板。它还会把下拉面板的层级提到 `.modal` 之上，省掉了通常需要设的 `dropdownParent`。源码在 `src/scss/compat/_select2.scss`，供自己编译 Sass 的人使用；RTL 和压缩版会跟着其他 CSS 一起生成（#6097，由 @saddam2512 提出）。
+- **迁移页面上的第三方插件替代对照表**：AdminLTE 3 打包过的每一个 jQuery 组件（Select2、DataTables、Summernote、iCheck、bootstrap-datepicker、jQuery Knob、Mapael……）都对应到了它的原生 JS 继任者。这些旧插件名在 v4 文档里原本完全找不到，所以有人搜自己熟悉的插件时一无所获，就以为不支持了。
+- **Select2 → Tom Select 的 API 对照**，同时放在 Advanced Elements 演示页和 Integrations 文档页：19 个选项、方法和事件一一对应翻译（`ajax` → `load` + `loadThrottle`，`templateResult` → `render.option`，`select2("destroy")` → `ts.destroy()`，等等）。
+- **jsVectorMap** 在 Integrations 页面里被记录为 AdminLTE 3 里 jQuery Mapael 的免依赖继任者。
+- **新增了一条 FAQ：“AdminLTE 4 支持 Select2 吗？”**，并且在原有的 jQuery 问题里加了一个指向替代对照表的链接。部署资源表和 RTL 页面现在都把可选的 Select2 样式表列在了核心构建旁边，README 里的破坏性变更清单也链接到了替代对照表。
+
+### 变更
+
+- **删掉了那个已经没人用的 `src/html/components/docs/faq.mdx`。** 自从手风琴那次重写之后，文档的 FAQ 就一直是从 `src/html/pages/docs/faq.astro` 里那个带类型的 `sections` 数组渲染出来的，已经没有任何地方再导入这个 `.mdx` 了 —— 但后面有两次提交还在继续改它，结果那些修改悄无声息地什么用都没有。它是唯一一个没有导入方的文档 `.mdx`；其他每一个都由对应的 `pages/docs/*.astro` 渲染。
+- **`forms/advanced.html` 里的 Tom Select 远程数据演示现在是一套真正能用的模式**，而不再是 `setTimeout` 糊出来的草稿：通过 `loadThrottle` 做请求防抖，通过 `AbortController` 取消进行中的请求，还借助 `virtual_scroll` 插件对着一份 72 条记录的模拟数据逐页加载 —— 这份模拟数据的 `{ results, next }` 响应结构与真实接口一致，把模拟实现换成一行 `fetch()` 就能原样跑起来。单选那个下拉框也加上了 `clear_button` 插件。
+- **axe 检查现在覆盖 16 个页面**（之前是 10 个），新增了 `UI/general.html`、`UI/ribbons.html`、`widgets/social.html`、`pages/gallery.html`、`pages/search-results.html` 和 `docs/components/miscellaneous.html`。单元测试也从 51 个增加到了 62 个。这两个新页面触发了 axe 检查抓到的三处 Bootstrap 默认对比度问题，都已修复：`.text-secondary` 在三级页面底色上低于 4.5:1；导航标签页的链接蓝在同一种底色上也低于标准（标签页挪到了卡片表面上，也就是文档里 `.card-tabs` 的那种形态）；以及卡片底部里的 `.btn-outline-secondary` 同样低于标准。
+- **`UI/general.html` 上的描边按钮，改在能看清的地方演示了。** warning、info 和 light 这三种描边变体用的是浅色文字，放在浅色表面上对比度会掉到 4.5:1 以下 —— 把这个页面加进 axe 检查后，这个问题就暴露出来了。现在它们被放在一块深色面板上，并附了一段说明讲明原因，这也正是 Bootstrap 官方给出的用法建议。
+- **Bundlewatch 的预算调高了**，因为新增了丝带、小部件和 SidebarSearch：`adminlte.min.css` 从 42.5 kB 提到 43.5 kB，`adminlte.min.js` 从 7.5 kB 提到 8.5 kB（gzip 后），对应的 RTL、ESM 和未压缩版本也一并调整。
+
+### 已修复
+
+- **Dashboard v2 里链到了一个根本不存在的页面。** `index2.html` 里有七个订单号链接都指向 `pages/examples/invoice.html`，而发票页面实际在 `pages/invoice.html`。这是靠新增的一道针对所有构建页面的链接解析检查抓出来的。
+- **`#navigation` no longer resolves to the app header.** `ensureSkipTargets()` looked its two skip-link targets up with a single selector list each (`#navigation, nav, [role="navigation"]`), but a selector list resolves in *document order* rather than by which selector matched — so on every demo page, where the header `<nav>` precedes the sidebar menu that already carries `id="navigation"`, the header was stamped with the id a second time. That left a duplicate id in the document, pointed the "跳转到导航" link at the header instead of the menu, and silently redirected any application code doing `document.querySelector("#navigation")` to the wrong element. An element the page already gave the id to now always wins.
+
 ## [4.2.0] - 2026-08-06
 
 ### 新增

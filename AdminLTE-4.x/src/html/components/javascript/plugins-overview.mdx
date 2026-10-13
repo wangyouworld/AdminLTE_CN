@@ -1,4 +1,4 @@
-AdminLTE 将 7 个 JavaScript 插件打包为一个单独的包（`adminlte.js`）。每个插件都从包根目录导出，可以通过 `data-lte-*` 属性以声明方式触发使用，并暴露出方法供代码驱动控制。
+AdminLTE 以单个打包文件（`adminlte.js`）的形式提供了八个 JavaScript 插件。每个插件都从包的根入口导出，既可以通过 `data-lte-*` 属性以声明式的方式触发使用，也提供了编程 API，供代码驱动控制。
 
 ##### 概览
 
@@ -9,6 +9,7 @@ AdminLTE 将 7 个 JavaScript 插件打包为一个单独的包（`adminlte.js`�
 | **CardWidget** | `data-lte-toggle="card-collapse"`, `card-remove`, `card-maximize` | `.toggle()` / `.collapse()` / `.expand()` / `.remove()` / `.maximize()` / `.minimize()` / `.toggleMaximize()` |  [参考](card-widget.html) |
 | **DirectChat** | `data-lte-toggle="chat-pane"` | `.toggle()` |  [参考](direct-chat.html) |
 | **FullScreen** | `data-lte-toggle="fullscreen"` | `.toggleFullScreen()` / `.inFullScreen()` / `.outFullscreen()` |  [参考](fullscreen.html) |
+| **SidebarSearch** | `data-lte-toggle="sidebar-search"` 在输入框上 | `.search(term)` / `.clear()` |  [参考](sidebar-search.html) |
 | **Layout** | (自动应用于 `<body>`) | `.holdTransition(time)` |  [参考](layout.html) |
 | **AccessibilityManager** | (辅助函数： `initAccessibility()`) | `.announce()` / `.focusElement()` / `.trapFocus()` / `.addLandmarks()` |  [参考](accessibility.html) |
 
@@ -25,7 +26,7 @@ AdminLTE 将 7 个 JavaScript 插件打包为一个单独的包（`adminlte.js`�
 <!-- 卡片折叠 / 移除 / 最大化 -->
 <div class="card">
   <div class="card-header">
-    <h3 class="card-title">Title</h3>
+    <h3 class="card-title">标题</h3>
     <div class="card-tools">
       <button class="btn btn-tool" data-lte-toggle="card-collapse" aria-label="Collapse card">
         <i data-lte-icon="expand" class="bi bi-dash-lg"></i>
@@ -37,7 +38,7 @@ AdminLTE 将 7 个 JavaScript 插件打包为一个单独的包（`adminlte.js`�
 </div>
 ```
 
-该包在 `DOMContentLoaded` 事件上绑定所有 data-API 监听器。动态注入的元素仍然适用于 [PushMenu](pushmenu.html)、[CardWidget](card-widget.html) 和 [Treeview](treeview.html) 插件，因为它们使用事件委托。
+打包文件会在 `DOMContentLoaded` 时挂载所有 data-API 监听器。对于 [PushMenu](pushmenu.html)、[CardWidget](card-widget.html)、[Treeview](treeview.html) 和 [SidebarSearch](sidebar-search.html) 这几个插件来说，动态注入的元素依然能正常工作，因为它们用的是事件委托。
 
 ###### 2. 程序化（命令式）
 
@@ -110,6 +111,7 @@ document.addEventListener("remove.lte.card-widget", (e) => {
 | DirectChat | — | `collapsed.lte.direct-chat` | 联系人面板关闭 |
 | FullScreen | — | `maximized.lte.fullscreen` | 进入全屏 |
 | FullScreen | — | `minimized.lte.fullscreen` | 退出全屏 |
+| SidebarSearch | — | `filtered.lte.sidebar-search` | Menu filtered (`detail: { query, matches }`; `matches` is `-1` on clear) |
 | ColorMode | — | `changed.lte.color-mode` | 主题已更改（`detail: { theme, resolved }`），在 `document` 上触发 |
 
 所有事件都会在动画完成后触发（自4.1版本起）。动画动作的“后续”事件会在动画完成时执行，而不是在开始时。
@@ -150,10 +152,11 @@ document.addEventListener("remove.lte.card-widget", (e) => {
 | `hold-transition` | Layout | `<body>` | 暂时禁用过渡动画（如调整大小时等） |
 | `app-loaded` | Layout | `<body>` | 初始页面加载动画已完成 |
 | `reduce-motion` | AccessibilityManager | `<body>` | 检测到操作系统 `prefers-reduced-motion` |
+| `menu-open` | SidebarSearch | `.nav-item` | Submenu expanded to reveal a match (restored on clear) |
 
 ##### 生产环境 vs 源码
 
-插件以 TypeScript 模块的形式位于 [`src/ts/`](https://github.com/ColorlibHQ/master/src/ts) 中。发布的 `dist/js/adminlte.js` 是所有 7 个插件的 Rollup 打包文件，在单个 `adminlte` 命名空间下导出（UMD）或以命名导入方式导出（ESM）。
+这些插件以 TypeScript 模块的形式放在 [`src/ts/`](https://github.com/ColorlibHQ/master/src/ts) 里。发布出来的 `dist/js/adminlte.js` 是用 Rollup 把八个插件打包在一起的文件，通过单一的 `adminlte` 命名空间（UMD 格式）或具名导入（ESM 格式）来导出它们。
 
 如果您只需要其中一两个插件并且关注打包体积，从 `node_modules/admin-lte/src/ts/` 导入单个模块可以进行 tree-shake——但您的工具链中需要 TypeScript 支持。
 

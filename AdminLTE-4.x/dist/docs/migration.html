@@ -4,14 +4,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>从 v3 迁移 | AdminLTE 4</title>
 
-    <!--begin::Theme Init (prevents flash of incorrect theme on load, #6043)-->
+    <!--begin::主题初始化（防止加载时闪现错误的主题，#6043）-->
     <script>
       (() => {
         'use strict';
         const root = document.documentElement;
 
-        // Applications with their own theming opt out of AdminLTE's color mode
-        // entirely, here as well as in the bundle.
+        // 自带主题系统的应用会完全退出 AdminLTE 的颜色模式，
+        // 这里如此，打包后的文件里也一样。
         if (root.getAttribute('data-lte-color-mode') === 'off') {
           return;
         }
@@ -21,10 +21,10 @@
         try {
           stored = localStorage.getItem(STORAGE_KEY);
         } catch {
-          // localStorage may be unavailable (private mode, sandboxed iframe).
+          // localStorage 可能不可用（比如隐私模式、沙盒 iframe 里）。
         }
-        // Mirror the precedence in color-mode.ts: the visitor's stored choice
-        // wins, then a theme this page declared itself, then the OS preference.
+        // 和 color-mode.ts 里的优先级保持一致：访客存储的选择优先，
+        // 其次是页面自己声明的主题，最后才是操作系统偏好。
         const authored = root.getAttribute('data-bs-theme');
         let resolved = 'light';
         if (stored === 'dark' || stored === 'light') {
@@ -36,8 +36,8 @@
         }
         root.setAttribute('data-bs-theme', resolved);
         root.style.colorScheme = resolved;
-        // Flag values computed here, so the bundle does not mistake them for a
-        // theme the page declared and stop following the OS preference.
+        // 在这里标记一下这些值是动态计算出来的，免得打包后的代码把它们误当成
+        // 页面自己声明的主题，从而不再跟随操作系统偏好。
         if (resolved !== authored) {
           root.setAttribute('data-lte-theme-resolved', '');
         }
@@ -66,7 +66,7 @@
     <!--end::Primary Meta Tags-->
 
     <!--begin::Accessibility Features-->
-    <!-- Skip links will be dynamically added by accessibility.js -->
+    <!-- 跳转链接将由 accessibility.js 动态添加 -->
     <meta name="supported-color-schemes" content="light dark" />
     <link rel="preload" href="../css/adminlte.css" as="style" />
     <!--end::Accessibility Features-->
@@ -137,6 +137,28 @@
             </li>
           </ul>
           <!--end::Start Navbar Links-->
+
+          <!--begin::Navbar Search-->
+          <form
+            class="navbar-search d-none d-md-block ms-3"
+            role="search"
+            action="../pages/search-results.html"
+          >
+            <div class="input-group input-group-sm">
+              <label for="navbar-search-input" class="visually-hidden">搜索</label>
+              <input
+                type="search"
+                id="navbar-search-input"
+                name="q"
+                class="form-control"
+                placeholder="搜索…"
+              />
+              <button class="btn btn-outline-secondary" type="submit" aria-label="Submit search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+              </button>
+            </div>
+          </form>
+          <!--end::Navbar Search-->
 
           <!--begin::End Navbar Links-->
           <ul class="navbar-nav ms-auto">
@@ -268,6 +290,35 @@
               </div>
             </li>
             <!--end::Notifications Dropdown Menu-->
+
+            <!--begin::Language Menu-->
+            <!-- Markup only: swapping the locale is the application's job. The docs
+           Recipes page shows how to wire this to a real locale switch. -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                id="language-menu"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Change language, current language English"
+              >
+                <i class="bi bi-translate" aria-hidden="true"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="language-menu">
+                <li>
+                  <a class="dropdown-item active" href="#" hreflang="en" aria-current="true">
+                    English
+                    <i class="bi bi-check-lg ms-2" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li><a class="dropdown-item" href="#" hreflang="es">西班牙语</a></li>
+                <li><a class="dropdown-item" href="#" hreflang="fr">法语</a></li>
+                <li><a class="dropdown-item" href="#" hreflang="de">德语</a></li>
+                <li><a class="dropdown-item" href="#" hreflang="ar">العربية</a></li>
+              </ul>
+            </li>
+            <!--end::Language Menu-->
 
             <!--begin::Fullscreen Toggle-->
             <li class="nav-item">
@@ -414,6 +465,23 @@
           </a>
         </div>
         <!--end::Sidebar Brand-->
+        <!--begin::侧边栏搜索-->
+        <div class="sidebar-search" role="search">
+          <label for="sidebar-search-input" class="visually-hidden">过滤 docs</label>
+          <input
+            type="search"
+            id="sidebar-search-input"
+            class="form-control form-control-sm"
+            placeholder="筛选文档..."
+            autocomplete="off"
+            data-lte-toggle="sidebar-search"
+            data-lte-target="#docs-navigation"
+          />
+          <p class="fs-7 text-secondary mt-2 mb-0" data-lte-search-empty role="status" hidden>
+            没有匹配到页面。
+          </p>
+        </div>
+        <!--end::侧边栏搜索-->
         <!--begin::Sidebar Wrapper-->
         <div class="sidebar-wrapper">
           <nav class="mt-2" aria-label="Documentation navigation">
@@ -498,6 +566,18 @@
                       <p>主侧边栏</p>
                     </a>
                   </li>
+                  <li class="nav-item">
+                    <a href="../docs/components/card.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>卡片</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/components/miscellaneous.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>其他组件</p>
+                    </a>
+                  </li>
                 </ul>
               </li>
               <li class="nav-item">
@@ -549,6 +629,12 @@
                     <a href="../docs/javascript/fullscreen.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>全屏</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../docs/javascript/sidebar-search.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>侧边栏搜索</p>
                     </a>
                   </li>
                   <li class="nav-item">
@@ -716,6 +802,16 @@
                             作为替代方案已文档化）
                           </td>
                         </tr>
+                        <tr>
+                          <td>表单组件</td>
+                          <td>在 <code>plugins/</code> 里打包了约 25 个 jQuery 插件</td>
+                          <td>
+                            <strong>一个都不打包</strong> —— 改为<a
+                              href="#third-party-plugin-replacements"
+                              >文档化</a
+                            >推荐的原生 JS 替代方案
+                          </td>
+                        </tr>
                       </tbody>
                     </table>
                     <p>
@@ -761,7 +857,7 @@
                           <td><code>.app-content</code></td>
                         </tr>
                         <tr>
-                          <td><code>.brand-link</code> (inside <code>.main-sidebar</code>)</td>
+                          <td><code>.brand-link</code> (位于 <code>.main-sidebar</code>)</td>
                           <td><code>.sidebar-brand &gt; .brand-link</code></td>
                         </tr>
                         <tr>
@@ -910,6 +1006,289 @@
                       插件（<code>Layout</code>、<code>CardWidget</code>、<code>Treeview</code>、<code>DirectChat</code>、<code>FullScreen</code>、<code>PushMenu</code>，以及
                       <code>initAccessibility</code>）均从 <code>admin-lte</code> 导出。
                     </p>
+                    <h5 id="第三方插件替代方案">第三方插件替代方案</h5>
+                    <p>
+                      AdminLTE 3 打包了一个塞满 jQuery 组件的 <code>plugins/</code> 文件夹。AdminLTE
+                      4 一个都不带了——它只专注于框架本身，改为在文档里推荐同类最佳的原生 JS
+                      替代方案。下面每一个替代品都是 MIT 许可、仍在积极维护，而且不需要 jQuery：
+                    </p>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>AdminLTE 3 插件（jQuery）</th>
+                          <th>AdminLTE 4 替代方案</th>
+                          <th>备注</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><a href="https://select2.org/">Select2</a></td>
+                          <td>
+                            <strong><a href="https://tom-select.js.org/">Tom Select</a></strong>
+                          </td>
+                          <td>
+                            搜索、多选、打标签、远程数据、虚拟滚动。如果非要留着 Select2，见
+                            <a href="../forms/advanced.html#select2">API 对照</a> 和
+                            <a href="integrations.html#coming-from-select2">Select2 兼容主题</a>。
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <a href="https://www.virtuosoft.eu/code/bootstrap-duallistbox/"
+                              >Bootstrap4 Duallistbox</a
+                            >
+                          </td>
+                          <td>
+                            <strong><a href="https://tom-select.js.org/">Tom Select</a></strong>
+                          </td>
+                          <td>
+                            一个 <code>multiple</code> 的 Tom Select 就能干同样的活，界面还更简洁。
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><a href="https://datatables.net/">DataTables</a></td>
+                          <td>
+                            <strong><a href="https://tabulator.info/">Tabulator</a></strong>
+                          </td>
+                          <td>
+                            排序、筛选、分页、行内编辑、导出。用在了
+                            <code>tables/data.html</code> 里。
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <a href="https://github.com/uxsolutions/bootstrap-datepicker"
+                              >bootstrap-datepicker</a
+                            >
+                          </td>
+                          <td>
+                            <strong><a href="https://flatpickr.js.org/">Flatpickr</a></strong>
+                          </td>
+                          <td>一个库就顶替了 v3 里全部四个日期/时间插件。</td>
+                        </tr>
+                        <tr>
+                          <td><a href="https://www.daterangepicker.com/">daterangepicker</a></td>
+                          <td>
+                            <strong><a href="https://flatpickr.js.org/">Flatpickr</a></strong>
+                            (<code>mode: &quot;range&quot;</code>)
+                          </td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <a href="https://github.com/jdewit/bootstrap-timepicker"
+                              >Bootstrap Timepicker</a
+                            >
+                          </td>
+                          <td>
+                            <strong><a href="https://flatpickr.js.org/">Flatpickr</a></strong>
+                            (<code>noCalendar: true</code>)
+                          </td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td><a href="https://getdatepicker.com/">tempusdominus</a></td>
+                          <td>
+                            <strong><a href="https://flatpickr.js.org/">Flatpickr</a></strong>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td><a href="https://summernote.org/">Summernote</a></td>
+                          <td>
+                            <strong><a href="https://quilljs.com/">Quill</a></strong>
+                          </td>
+                          <td>
+                            Snow 和 bubble 两种主题在 <code>forms/editors.html</code> 里有演示。
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <a
+                              href="https://github.com/bootstrap-wysiwyg/bootstrap3-wysihtml5-bower"
+                              >bootstrap4-wysihtml5</a
+                            >
+                          </td>
+                          <td>
+                            <strong><a href="https://quilljs.com/">Quill</a></strong>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td><a href="https://simplemde.com/">SimpleMDE</a></td>
+                          <td>
+                            <strong
+                              ><a href="https://github.com/Ionaru/easy-markdown-editor"
+                                >EasyMDE</a
+                              ></strong
+                            >
+                          </td>
+                          <td>
+                            EasyMDE <em>就是</em> SimpleMDE 仍在维护的那个 fork——API 一模一样。
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <a href="https://github.com/seiyria/bootstrap-slider"
+                              >bootstrap-slider</a
+                            >
+                          </td>
+                          <td>
+                            <strong
+                              ><a href="https://refreshless.com/nouislider/">noUiSlider</a></strong
+                            >
+                          </td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <a href="https://github.com/bantikyan/icheck-bootstrap"
+                              >iCheck / icheck-bootstrap</a
+                            >
+                          </td>
+                          <td>
+                            <strong>原生 <code>.form-check</code></strong>
+                          </td>
+                          <td>Bootstrap 5.3 自带的复选框和开关压根不需要插件。</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <a href="https://itsjavi.com/bootstrap-colorpicker/"
+                              >bootstrap-colorpicker</a
+                            >
+                          </td>
+                          <td>
+                            <strong><a href="https://github.com/Simonwep/pickr">Pickr</a></strong>
+                          </td>
+                          <td>
+                            或者用原生的
+                            <code
+                              >&lt;input type=&quot;color&quot; class=&quot;form-control
+                              form-control-color&quot;&gt;</code
+                            >。
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <a href="https://github.com/RobinHerbots/Inputmask">jQuery InputMask</a>
+                          </td>
+                          <td>
+                            <strong><a href="https://imask.js.org/">IMask</a></strong>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td><a href="https://github.com/aterrien/jQuery-Knob">jQuery Knob</a></td>
+                          <td>
+                            <strong><a href="https://apexcharts.com/">ApexCharts</a></strong>
+                            径向条形图
+                          </td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td><a href="https://www.vincentbroute.fr/mapael/">jQuery Mapael</a></td>
+                          <td>
+                            <strong
+                              ><a href="https://github.com/themustafaomar/jsvectormap"
+                                >jsVectorMap</a
+                              ></strong
+                            >
+                          </td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td><a href="https://jqueryui.com/sortable/">jQuery UI sortable</a></td>
+                          <td>
+                            <strong
+                              ><a href="https://sortablejs.github.io/Sortable/"
+                                >SortableJS</a
+                              ></strong
+                            >
+                          </td>
+                          <td>看板演示就是靠它实现的。</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <a href="https://fullcalendar.io/">fullCalendar</a>（jQuery 版本）
+                          </td>
+                          <td>
+                            <strong><a href="https://fullcalendar.io/">FullCalendar 6</a></strong>
+                          </td>
+                          <td>
+                            同一个项目——v5 之后就不依赖 jQuery 了。用在了
+                            <code>pages/calendar.html</code> 里。
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><a href="https://www.chartjs.org/">Chart.js 2</a></td>
+                          <td>
+                            <strong><a href="https://www.chartjs.org/">Chart.js 4</a></strong> /
+                            <strong><a href="https://apexcharts.com/">ApexCharts</a></strong>
+                          </td>
+                          <td>Chart.js 本来就不依赖 jQuery；只是跨了个大版本。</td>
+                        </tr>
+                        <tr>
+                          <td><a href="https://www.dropzone.dev/">dropzone</a></td>
+                          <td>
+                            <strong><a href="https://www.dropzone.dev/">Dropzone 6</a></strong> 或
+                            <strong><a href="https://pqina.nl/filepond/">FilePond</a></strong>
+                          </td>
+                          <td>v6 是用纯 JS 重写的。</td>
+                        </tr>
+                        <tr>
+                          <td><a href="https://github.com/ashleydw/lightbox">Ekko Lightbox</a></td>
+                          <td>
+                            <strong
+                              ><a href="https://biati-digital.github.io/glightbox/"
+                                >GLightbox</a
+                              ></strong
+                            >
+                          </td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <a href="https://kingsora.github.io/OverlayScrollbars/"
+                              >jQuery Overlay Scrollbars</a
+                            >
+                          </td>
+                          <td>
+                            <strong>原生 <code>scrollbar-*</code> CSS</strong>
+                          </td>
+                          <td>AdminLTE 4 用 CSS 给侧边栏的滚动条做了样式。</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <a href="https://github.com/CodeSeven/toastr">toastr</a> /
+                            <a href="https://sweetalert2.github.io/">SweetAlert2</a>
+                          </td>
+                          <td>
+                            <strong
+                              >Bootstrap
+                              <a href="https://getbootstrap.com/docs/5.3/components/toasts/"
+                                >toasts</a
+                              ></strong
+                            >
+                            /
+                            <strong
+                              ><a href="https://sweetalert2.github.io/">SweetAlert2</a></strong
+                            >
+                          </td>
+                          <td>SweetAlert2 从 v7 起就不依赖 jQuery 了。</td>
+                        </tr>
+                        <tr>
+                          <td><a href="https://js-grid.com/">jsGrid</a></td>
+                          <td>
+                            <strong><a href="https://tabulator.info/">Tabulator</a></strong>
+                          </td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <p>
+                      每个替代方案的安装代码片段和接线代码都在
+                      <a href="integrations.html">推荐集成</a> 页面里。
+                    </p>
                     <h5 id="深色模式">深色模式</h5>
                     <p>
                       AdminLTE 3 使用在 <code>&lt;body&gt;</code> 上切换的
@@ -1015,6 +1394,12 @@
                         属性），要么直接导入插件类。
                       </li>
                       <li>
+                        <strong>替换掉第三方插件</strong>，参照上面的<a
+                          href="#third-party-plugin-replacements"
+                          >替代方案对照表</a
+                        >。一次换一个组件——这是最耗时的一步，而且每换一个都可以单独测试。
+                      </li>
+                      <li>
                         <strong>测试响应式 breakpoint</strong>——Bootstrap 5 新增了
                         <code>xxl</code>。如果你使用了 breakpoint
                         特定的工具类，请仔细检查新的尺寸体系。
@@ -1068,10 +1453,7 @@
     <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
     <script src="../assets/popperjs/popper.min.js" crossorigin="anonymous"></script>
     <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="../assets/bootstrap/bootstrap.min.js" crossorigin="anonymous"></script>
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
     <script src="../js/adminlte.js"></script>
     <!--end::Required Plugin(AdminLTE)-->

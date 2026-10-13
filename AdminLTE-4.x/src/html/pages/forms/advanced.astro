@@ -107,7 +107,10 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         <option>英国</option>
                         <option>美国</option>
                       </select>
-                      <div class="form-text">开始输入以筛选列表。</div>
+                      <div class="form-text">
+                        开始输入即可筛选列表；&times; 按钮
+                        用来清除选择（<code>clear_button</code>）。
+                      </div>
                     </div>
                     <div class="mb-4">
                       <label for="post-tags" class="form-label">多选带标签</label>
@@ -125,11 +128,14 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                       </div>
                     </div>
                     <div>
-                      <label for="reviewer" class="form-label">按需加载的选项组</label>
-                      <select id="reviewer" class="form-control" aria-label="按需加载的选项组"></select>
+                      <label for="reviewer" class="form-label">带分页的远程数据</label>
+                      <select id="reviewer" class="form-control" aria-label="带分页的远程数据"></select>
                       <div class="form-text">
-                        选项通过 Tom Select 的 `<code>load</code>` 回调传入
-                        （此处为模拟 API），并按团队分组。
+                        背后是一个模拟接口，挂着 72 条记录。
+                        输入做了防抖处理（<code>loadThrottle</code>），
+                        过期的请求会用 <code>AbortController</code> 取消掉，
+                        滚动到列表底部时会自动加载下一页
+                        （<code>virtual_scroll</code>）。
                       </div>
                     </div>
                   </div>
@@ -203,6 +209,137 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                   </div>
                 </div>
               </div>
+
+              <!-- Select2 → Tom Select -->
+              <div class="col-12" id="select2">
+                <div class="card card-secondary card-outline mb-4">
+                  <div class="card-header">
+                    <div class="card-title">来自 Select2？</div>
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      <a
+                        href="https://select2.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >下拉菜单2</a>
+                      目前仍在维护，但它依然是个 jQuery 插件 &mdash; 没有不依赖 jQuery 的构建版本。
+                      Tom Select 能覆盖同样的功能集，
+                      体积大约只有 <strong>20&nbsp;kB gzip</strong>，
+                      而 Select2 算上 jQuery 之后大约是 <strong>~50&nbsp;kB</strong>。
+                      两者的 API 几乎可以一一对应：
+                    </p>
+                    <div
+                      class="table-responsive"
+                      tabindex="0"
+                      role="region"
+                      aria-label="Select2 to Tom Select API mapping"
+                    >
+                      <table class="table table-sm table-striped align-middle mb-0">
+                        <caption class="visually-hidden">
+                          将 Select2 的选项和方法映射到其 Tom Select 对应的版本
+                        </caption>
+                        <thead>
+                          <tr>
+                            <th scope="col" style="width: 50%;">下拉菜单2</th>
+                            <th scope="col">Tom Select</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>$("#x").select2()</code></td>
+                            <td><code>new TomSelect("#x")</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>tags: true</code></td>
+                            <td><code>create: true</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>allowClear: true</code></td>
+                            <td><code>plugins: ["clear_button"]</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>closeOnSelect: false</code></td>
+                            <td><code>closeAfterSelect: false</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>maximumSelectionLength: 3</code></td>
+                            <td><code>maxItems: 3</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>minimumInputLength: 2</code></td>
+                            <td><code>shouldLoad: (q) =&gt; q.length &gt;= 2</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>ajax: &#123; url, delay: 250 &#125;</code></td>
+                            <td><code>load(query, callback)</code> + <code>loadThrottle: 250</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>ajax.processResults</code></td>
+                            <td><code>valueField</code> / <code>labelField</code> / <code>searchField</code></td>
+                          </tr>
+                          <tr>
+                            <td>无限滚动 (<code>pagination.more</code>)</td>
+                            <td><code>plugins: ["virtual_scroll"]</code> + <code>setNextUrl()</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>templateResult</code> / <code>templateSelection</code></td>
+                            <td><code>render: &#123; option, item &#125;</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>dropdownParent: $("#modal")</code></td>
+                            <td class="text-body-secondary">
+                              无需——下拉菜单以内联方式显示
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><code>$("#x").val("2").trigger("change")</code></td>
+                            <td><code>ts.setValue("2")</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>$("#x").val()</code></td>
+                            <td><code>ts.getValue()</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>.on("select2:select", fn)</code></td>
+                            <td><code>ts.on("item_add", fn)</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>.on("change", fn)</code></td>
+                            <td><code>ts.on("change", fn)</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>$("#x").select2("open")</code></td>
+                            <td><code>ts.open()</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>$("#x").prop("disabled", true)</code></td>
+                            <td><code>ts.disable()</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>$("#x").select2("destroy")</code></td>
+                            <td><code>ts.destroy()</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>$("#x").empty().select2(&#123; data &#125;)</code></td>
+                            <td><code>ts.clearOptions(); ts.addOptions(data)</code></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="card-footer text-body-secondary small">
+                    暂时还锁死在 Select2 上？AdminLTE 提供了一个纯样式的
+                    <a
+                      href="../docs/integrations.html#select2-compatibility-theme"
+                      class="link-body-emphasis"
+                    >下拉菜单2 兼容主题</a>，
+                    让它看起来和 Bootstrap 5.3 一致 &mdash; 包括深色模式和模态框里的下拉菜单。
+                    AdminLTE 本身不会引入 jQuery；插件你自己带，
+                    样式我们来搞定。
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -218,76 +355,141 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
       src={deploymentPath + "assets/flatpickr/flatpickr.min.js"}
       integrity="sha384-5JqMv4L/Xa0hfvtF06qboNdhvuYXUku9ZrhZh3bSk8VXF0A/RuSLHpLsSV9Zqhl6"
       crossorigin="anonymous"></script>
-
-    <script
-      src={deploymentPath + "assets/flatpickr/l10n/zh.js"}
-      integrity="sha384-VkrKIP0k00t+nCV0whCXV73obyqU1SxOHVMBi51kYfdGdJcg2UPxHUugSnmGCoid"
-      crossorigin="anonymous"></script>
-
     <script is:inline>
       document.addEventListener("DOMContentLoaded", () => {
-        // Tom Select: single select with search
+        // Tom Select：单选，带搜索和确定按钮
         new TomSelect("#country", {
+          plugins: ["clear_button"],
           sortField: { field: "text", direction: "asc" }
         });
 
-        // Tom Select: multi-select with removable tags (type to add new ones)
+        // Tom 选择：可移除标签的多选（输入以添加新标签）
         new TomSelect("#post-tags", {
           plugins: ["remove_button"],
           create: true,
           persist: false
         });
 
-        // Tom Select: options fetched on demand and rendered in option groups.
-        // Swap the timeout for fetch("/api/users?q=" + encodeURIComponent(query))
-        // against a real endpoint in production.
-        const reviewers = [
-          { id: 1, name: "奥利维亚·贝内特", team: "前端" },
-          { id: 2, name: "利亚姆·卡特", team: "前端" },
-          { id: 3, name: "艾玛·达斯温", team: "后端" },
-          { id: 4, name: "诺亚·埃文斯", team: "后端" },
-          { id: 5, name: "艾娃·福斯特", team: "设计" },
-          { id: 6, name: "伊桑·格兰特", team: "设计" }
+        // Tom Select：远程数据，就是那种给一个背后有几千行数据的表绑定下拉框的写法。
+        // 永远只加载匹配的那一页数据。
+        const PAGE_SIZE = 12;
+        const FIRST_NAMES = [
+          "奥利维亚", "利亚姆", "艾玛", "诺亚", "艾娃", "伊桑", "索菲亚", "卢卡斯",
+          "米娅", "马特奥", "艾拉", "阿尔琼", "诺拉", "雨果", "由纪", "阿玛拉",
+          "埃琳娜", "奥马尔", "芙蕾雅", "迭戈", "莱拉", "乔纳斯", "普里娅", "马雷克"
         ];
+        const TEAMS = ["前端", "后端", "设计"];
+        // 代表数据库表的占位符。
+        const REVIEWERS = FIRST_NAMES.flatMap((first, index) =>
+          ["Bennett", "Carter", "Dawson"].map((last, offset) => ({
+            id: index * 3 + offset + 1,
+            name: `${first} ${last}`,
+            team: TEAMS[(index + offset) % TEAMS.length]
+          }))
+        );
+
+        // 这是一个真实接口的替身（模拟实现）。要上线对接真实接口的话，把整个函数体换成：
+        //   return fetch(url, { signal }).then((response) => response.json())
+        // { results, next } 这种响应结构正是下面这个加载器所期望的
+        // —— 也是 Select2 用户在 `ajax.processResults` 里返回的同一种结构。
+        function fetchReviewers(url, signal) {
+          const params = new URLSearchParams(url.slice(url.indexOf("?") + 1));
+          const query = (params.get("q") || "").toLowerCase();
+          const page = Number(params.get("page") || 1);
+
+          return new Promise((resolve, reject) => {
+            const timer = setTimeout(() => {
+              const matches = REVIEWERS.filter((person) =>
+                `${person.name} ${person.team}`.toLowerCase().includes(query)
+              );
+              const start = (page - 1) * PAGE_SIZE;
+              const hasMore = start + PAGE_SIZE < matches.length;
+              resolve({
+                results: matches.slice(start, start + PAGE_SIZE),
+                next: hasMore ?
+                  `/api/reviewers?q=${encodeURIComponent(query)}&page=${page + 1}` :
+                  null
+              });
+            }, 400);
+
+            signal.addEventListener("abort", () => {
+              clearTimeout(timer);
+              reject(new DOMException("Aborted", "AbortError"));
+            });
+          });
+        }
+
+        let inFlight = null;
+
         new TomSelect("#reviewer", {
           valueField: "id",
           labelField: "name",
-          searchField: ["name"],
-          optgroupField: "team",
-          optgroups: [
-            { value: "前端", label: "前端" },
-            { value: "后端", label: "后端" },
-            { value: "设计", label: "设计" }
-          ],
-          placeholder: "输入以搜索人员...",
+          searchField: ["name", "team"],
+          placeholder: "Type to search 72 people…",
           preload: "focus",
-          load(query, callback) {
-            setTimeout(() => {
-              const q = query.toLowerCase();
-              callback(reviewers.filter((person) => person.name.toLowerCase().includes(q)));
-            }, 300);
+          // Tom Select 为你自动处理 `load`，无需手动设置计时器。
+          loadThrottle: 300,
+          // 下拉菜单滚动到底部时，下一组的页面。
+          plugins: ["virtual_scroll"],
+          firstUrl: (query) => `/api/reviewers?q=${encodeURIComponent(query)}&page=1`,
+          // Tom Select 调用 `load` 时会把实例作为 `this` 传进来；virtual_scroll 插件
+          // 就是通过这种方式把 getUrl() 和 setNextUrl() 交到手里的。
+          /* eslint-disable unicorn/no-this-outside-of-class */
+          async load(query, callback) {
+            // 把已经在请求中的那个取消掉，
+            // 免得搜 "an" 的慢响应在搜 "anna" 的快响应之后才回来。
+            if (inFlight) {
+              inFlight.abort();
+            }
+            inFlight = new AbortController();
+
+            try {
+              const json = await fetchReviewers(this.getUrl(query), inFlight.signal);
+              if (json.next) {
+                this.setNextUrl(query, json.next);
+              }
+              callback(json.results);
+            } catch (error) {
+              // 被中止的那个请求已经被更新的请求取代了——让新的那个去处理下拉框的结果，
+              // 这里就别去清空它了。
+              if (error.name !== "AbortError") {
+                callback();
+              }
+            }
+          },
+          /* eslint-enable unicorn/no-this-outside-of-class */
+          render: {
+            option: (data, escape) =>
+              `<div class="d-flex justify-content-between align-items-center">
+                 <span>${escape(data.name)}</span>
+                 <span class="badge text-bg-secondary">${escape(data.team)}</span>
+               </div>`,
+            loading_more: () =>
+              '<div class="p-2 text-body-secondary small">加载更多...</div>',
+            no_more_results: () =>
+              '<div class="p-2 text-body-secondary small">没有更多结果了</div>'
           }
         });
 
         // Flatpickr: date picker
-        flatpickr("#delivery-date", {"locale": "zh","locale": "zh",
+        flatpickr("#delivery-date", {"locale": "zh",
           dateFormat: "Y-m-d"
         });
 
         // Flatpickr: date & time picker
-        flatpickr("#meeting-start", {"locale": "zh","locale": "zh",
+        flatpickr("#meeting-start", {"locale": "zh",
           enableTime: true,
           dateFormat: "Y-m-d H:i"
         });
 
         // Flatpickr: range picker
-        flatpickr("#report-period", {"locale": "zh","locale": "zh",
+        flatpickr("#report-period", {"locale": "zh",
           mode: "range",
           dateFormat: "Y-m-d"
         });
 
         // Flatpickr: time-only picker
-        flatpickr("#reminder-time", {"locale": "zh","locale": "zh",
+        flatpickr("#reminder-time", {"locale": "zh",
           enableTime: true,
           noCalendar: true,
           dateFormat: "H:i",

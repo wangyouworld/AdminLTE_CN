@@ -4,14 +4,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>AdminLTE 4 | 404 错误页</title>
 
-    <!--begin::Theme Init (prevents flash of incorrect theme on load, #6043)-->
+    <!--begin::主题初始化（防止加载时闪现错误的主题，#6043）-->
     <script>
       (() => {
         'use strict';
         const root = document.documentElement;
 
-        // Applications with their own theming opt out of AdminLTE's color mode
-        // entirely, here as well as in the bundle.
+        // 自带主题系统的应用会完全退出 AdminLTE 的颜色模式，
+        // 这里如此，打包后的文件里也一样。
         if (root.getAttribute('data-lte-color-mode') === 'off') {
           return;
         }
@@ -21,10 +21,10 @@
         try {
           stored = localStorage.getItem(STORAGE_KEY);
         } catch {
-          // localStorage may be unavailable (private mode, sandboxed iframe).
+          // localStorage 可能不可用（比如隐私模式、沙盒 iframe 里）。
         }
-        // Mirror the precedence in color-mode.ts: the visitor's stored choice
-        // wins, then a theme this page declared itself, then the OS preference.
+        // 和 color-mode.ts 里的优先级保持一致：访客存储的选择优先，
+        // 其次是页面自己声明的主题，最后才是操作系统偏好。
         const authored = root.getAttribute('data-bs-theme');
         let resolved = 'light';
         if (stored === 'dark' || stored === 'light') {
@@ -36,8 +36,8 @@
         }
         root.setAttribute('data-bs-theme', resolved);
         root.style.colorScheme = resolved;
-        // Flag values computed here, so the bundle does not mistake them for a
-        // theme the page declared and stop following the OS preference.
+        // 在这里标记一下这些值是动态计算出来的，免得打包后的代码把它们误当成
+        // 页面自己声明的主题，从而不再跟随操作系统偏好。
         if (resolved !== authored) {
           root.setAttribute('data-lte-theme-resolved', '');
         }
@@ -66,7 +66,7 @@
     <!--end::Primary Meta Tags-->
 
     <!--begin::Accessibility Features-->
-    <!-- Skip links will be dynamically added by accessibility.js -->
+    <!-- 跳转链接将由 accessibility.js 动态添加 -->
     <meta name="supported-color-schemes" content="light dark" />
     <link rel="preload" href="../css/adminlte.css" as="style" />
     <!--end::Accessibility Features-->
@@ -144,10 +144,7 @@
     <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
     <script src="../assets/popperjs/popper.min.js" crossorigin="anonymous"></script>
     <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="../assets/bootstrap/bootstrap.min.js" crossorigin="anonymous"></script>
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
     <script src="../js/adminlte.js"></script>
     <!--end::Required Plugin(AdminLTE)-->

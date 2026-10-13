@@ -5,7 +5,7 @@ import Topbar from "@components/dashboard/_topbar.astro"
 import Sidenav from "@components/dashboard/_sidenav.astro"
 import Scripts from "@components/_scripts.astro"
 
-const title = "AdminLTE 4 | Calendar"
+const title = "AdminLTE 4 | 日历"
 const path = "../../../dist"
 const mainPage = "pages"
 const page = "calendar";
@@ -148,6 +148,9 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
     <script
       src={deploymentPath + "assets/fullcalendar/index.global.min.js"}
       crossorigin="anonymous"></script>
+    <script
+      src={deploymentPath + "assets/fullcalendar/locales-all.global.min.js"}
+      crossorigin="anonymous"></script>
     <script is:inline>
       const isoDate = (d) => d.toISOString().slice(0, 10);
 
@@ -172,7 +175,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
           return isoDate(d);
         };
 
-        const calendar = new FullCalendar.Calendar(calendarEl, {locale: 'zh-cn',locale: 'zh-cn',
+        const calendar = new FullCalendar.Calendar(calendarEl, {locale: 'zh-cn',
           initialView: "dayGridMonth",
           headerToolbar: {
             start: "prev,next today",

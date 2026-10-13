@@ -1,0 +1,89 @@
+SidebarSearch 会在你输入的时候实时过滤侧边栏菜单。匹配的条目保留下来，其他的一律隐藏，而任何包含匹配项的子菜单都会被展开，这样结果才真的看得见。清空输入框后，菜单会精确恢复到原来的样子——包括之前哪些子菜单是展开的。
+
+本页侧边栏里的搜索框就是一个现成的实例。
+
+##### 用法
+
+该插件通过 data 属性激活。
+
+**Data 属性**
+
+把 `data-lte-toggle="sidebar-search"` 加到一个文本输入框上。把它放在 `.sidebar-wrapper` 外面，这样菜单在它下面滚动时，它能保持不动。
+
+```html
+<div class="sidebar-search" role="search">
+  <label for="sidebar-search-input" class="visually-hidden">Filter menu</label>
+  <input
+    type="search"
+    id="sidebar-search-input"
+    class="form-control form-control-sm"
+    placeholder="搜索菜单…"
+    autocomplete="off"
+    data-lte-toggle="sidebar-search"
+    data-lte-target="#navigation"
+  >
+  <p class="fs-7 text-secondary mt-2 mb-0" data-lte-search-empty role="status" hidden>
+    没有匹配到页面。
+  </p>
+</div>
+```
+
+| 属性 | 说明 |
+|---|---|
+| `data-lte-toggle="sidebar-search"` | 把这个输入框标记为菜单筛选器。 |
+| `data-lte-target` | 要筛选的菜单的选择器。可选——不加的话，就用该输入框所在的 `.app-sidebar` 里的 `.sidebar-menu`。 |
+| `data-lte-search-empty` | 可选元素，只在查询没有任何匹配时显示。给它加上 `role="status"`，这样结果会被播报出来。 |
+
+用 `type="search"` 是值得的：浏览器自带的清除按钮会触发 `input` 事件，所以能免费帮你把菜单恢复原状。在输入框里按 <kbd>ESC</kbd> 也是同样的效果。
+
+##### 匹配规则
+
+- 匹配不区分大小写，而且在 `.nav-link` 的文字里任意位置都能匹配，不只是开头。
+- 只要有一个后代匹配，父级就会保留下来，并且会被展开以露出那个匹配项。
+- 如果父级自己的名字就匹配上了，那它整棵子树都会保留，所以展开它绝不会是死路一条。
+- 筛选期间，`.nav-header` 的区块标题会被隐藏，因为它们所标注的那些分组已经不再完整了。
+
+##### 事件
+
+| 事件 | 描述 |
+|-------|-------------|
+| `filtered.lte.sidebar-search` | 每次筛选执行完后，在输入框上触发。`event.detail` 是 `{ query, matches }`；当筛选被清空时，`matches` 为 `-1`。 |
+
+```js
+document.addEventListener("filtered.lte.sidebar-search", event => {
+  console.log(event.detail.query, event.detail.matches)
+})
+```
+
+##### 调用方式
+
+```js
+import { SidebarSearch } from "admin-lte"
+
+const input = document.querySelector('[data-lte-toggle="sidebar-search"]')
+const search = SidebarSearch.getOrCreateInstance(input)
+
+search.search("layout")  // 筛选菜单
+search.clear()           // 恢复它
+search.dispose()         // 恢复后，再删除该实例
+```
+
+###### 方法
+
+| 方法 | 返回值 | 描述 |
+|---|---|---|
+| `search(term)` | `void` | 把菜单筛选到只显示匹配 `term` 的条目。传入空字符串或纯空白字符时，会自动调用 `clear()`。 |
+| `clear()` | `void` | 取消隐藏所有条目，并把每个子菜单恢复到搜索前的展开状态。 |
+| `dispose()` | `void` | 先清空筛选，再把该实例从注册表中移除。 |
+| `SidebarSearch.getInstance(el)` | `SidebarSearch \| null` | 返回某个元素对应的现有实例，如果没有则返回 `null`。 |
+| `SidebarSearch.getOrCreateInstance(el)` | `SidebarSearch` | 返回现有实例，没有就新建一个。 |
+
+构造函数不接受任何配置——目标菜单来自 `data-lte-target`。
+
+##### 注意事项
+
+- 条目是用 `hidden` 属性隐藏的，而不是加个类，所以它们会同时从无障碍树和布局里消失。你的 CSS 完全不需要知道有筛选这回事。
+- 插件会在你敲下第一个键之前，先把每个子菜单的展开状态*以及*它的内联 `display` 都拍个快照。这两样都重要：因为 [Treeview](treeview.html) 在滑动展开或收起菜单时会写入内联 `display`，否则搜索之后这个内联样式会盖过 `.menu-open > .nav-treeview` 的规则。
+- 因为搜索会重写 `.menu-open`，所以在筛选生效期间，别用你自己的代码去操作同一批子菜单——先把筛选清掉再说。
+- 在迷你侧边栏模式下，这个输入框是隐藏的，因为一条窄窄的侧边栏里塞个文本输入框根本没法用。鼠标悬停时它会回来，连同它要筛选的那些标签一起显示。
+- 两个监听器都委托在 `document` 上，所以页面加载之后才渲染出来的侧边栏——比如 Turbo Frame 或客户端路由生成的——都不需要重新初始化。

@@ -42,11 +42,135 @@ AdminLTE 有意保持精简的依赖树。我们不捆绑每一个表单组件�
 </select>
 
 <script>
-  new TomSelect("#tags", { plugins: ["remove_button"] })
+  new TomSelect("#tags", { 插件： ["remove_button"] })
 </script>
 ```
 
 附带 `tom-select.bootstrap5.min.css` 主题，与 Bootstrap 表单控件样式匹配。
+
+**远程数据。** 对于背后是数据库而不是静态选项列表的下拉框，就在 `load()` 里发请求。Tom Select 会通过 `loadThrottle` 帮你做防抖（默认 300 毫秒），而 `virtual_scroll` 插件会在用户滚动下拉列表时逐页加载结果：
+
+```js
+let inFlight = null
+
+new TomSelect("#reviewer", {
+  valueField: "id",
+  labelField: "name",
+  searchField: ["name"],
+  loadThrottle: 300,                      // 防抖，内置的
+  插件： ["virtual_scroll"],            // 无限滚动分页
+  firstUrl: (query) => `/api/users?q=${encodeURIComponent(query)}&page=1`,
+  load(query, callback) {
+    inFlight?.abort()                     // 丢弃过期请求
+    inFlight = new AbortController()
+
+    fetch(this.getUrl(query), { signal: inFlight.signal })
+      .then((response) => response.json())
+      .then((json) => {
+        if (json.next) {
+          this.setNextUrl(query, json.next)
+        }
+        callback(json.results)
+      })
+      .catch((error) => {
+        if (error.name !== "AbortError") {
+          callback()
+        }
+      })
+  }
+})
+```
+
+`forms/advanced.html` 就是拿这套一模一样的模式跑在一个模拟接口上的——把模拟实现换成 `fetch()`，不用改别的就能直接用。
+
+###### 从 Select2 迁移过来
+
+[Select2](https://select2.org/) 目前仍在维护（4.1.0 于 2026 年发布），但它依然是个 jQuery 插件——它的 UMD 包装强制依赖 jQuery，也没有不依赖 jQuery 的构建版本。因此 AdminLTE 4 推荐改用 Tom Select，它能覆盖同样的功能集，体积大约只有 20 kB gzip，而 Select2 算上 jQuery 之后大约是 50 kB。
+
+两者的 API 可以直接对应过来：
+
+| Select2 | Tom Select |
+|---|---|
+| `$("#x").select2()` | `new TomSelect("#x")` |
+| `$("#x").select2({ tags: true })` | `new TomSelect("#x", { create: true })` |
+| `allowClear: true` | `插件： ["clear_button"]` |
+| `closeOnSelect: false` | `closeAfterSelect: false` |
+| `maximumSelectionLength: 3` | `maxItems: 3` |
+| `minimumInputLength: 2` | `shouldLoad: (q) => q.length >= 2` |
+| `ajax: { url, delay: 250 }` | `load(query, callback)` + `loadThrottle: 250` |
+| `ajax: { …, processResults }` | `valueField` / `labelField` / `searchField` |
+| 无限滚动 (`pagination.more`) | `插件： ["virtual_scroll"]` + `setNextUrl()` |
+| `templateResult` / `templateSelection` | `render: { option, item }` |
+| `dropdownParent: $("#modal")` | *(不需要 — 下拉菜单是内联的)* |
+| `$("#x").val("2").trigger("change")` | `ts.setValue("2")` |
+| `$("#x").val()` | `ts.getValue()` |
+| `$("#x").on("select2:select", fn)` | `ts.on("item_add", fn)` |
+| `$("#x").on("change", fn)` | `ts.on("change", fn)` |
+| `$("#x").select2("open")` | `ts.open()` |
+| `$("#x").prop("disabled", true)` | `ts.disable()` |
+| `$("#x").select2("destroy")` | `ts.destroy()` |
+| `$("#x").empty().select2({ data })` | `ts.clearOptions(); ts.addOptions(data)` |
+
+这张表的并排对照版，配上可运行的代码，放在 [Advanced Elements](../forms/advanced.html#select2) 演示页面里。
+
+**如果你不得不继续用 Select2**，AdminLTE 提供了一个*纯样式*的兼容样式表——见下面的 [Select2 兼容主题](#select2-compatibility-theme)。
+
+###### Select2 兼容主题
+
+有些项目没法甩掉 Select2：比如一个带着几百个服务端渲染表单的 ERP 系统、一个会自动帮你初始化它的第三方插件，又或者团队压根还没准备好换。AdminLTE 不会把 Select2 或 jQuery 打包进来，但它确实提供了一个 **纯 CSS 的兼容主题**，这样你自己引入的 Select2 就能继承 Bootstrap 5.3 的表单尺寸、焦点圈、校验状态以及 `data-bs-theme` 深色模式。
+
+- **`dist/css/adminlte-select2.css`**（以及 `.min.css`、`.rtl.css`、`.rtl.min.css`）
+- 没有 JavaScript，没有 jQuery，`adminlte.css` 里也没加任何东西——你只要额外加载一个样式表就能用上。
+
+把它加载在 `select2.css` **之后**：
+
+```html
+<link rel="stylesheet" href="path/to/adminlte.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/css/select2.min.css" />
+<link rel="stylesheet" href="path/to/adminlte-select2.min.css" />
+
+<select id="country" class="form-select">
+  <option value="">请选择地区…
+  <option value="lv">拉脱维亚</option>
+</select>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.min.js"></script>
+<script>
+  $("#country").select2({ width: "100%" })
+</script>
+```
+
+这个主题帮你处理了以下这些：
+
+| | |
+|---|---|
+| 尺寸规范 | 高度、内边距、字号和圆角都和 `.form-select` 完全一致 |
+| 尺寸大小 | 原始 `<select>` 上的 `.form-select-sm` / `.form-select-lg` 会被正确识别并生效 |
+| 聚焦 | 用 Bootstrap 的焦点圈，而不是 Select2 那个黑色外框 |
+| 深色模式 | 跟随 `data-bs-theme`——包括那个挂到 body 上的下拉面板 |
+| 校验状态 | 原始 `<select>` 上的 `.is-invalid` / `.is-valid` 会给容器上色 |
+| 多选 | 已选项做成胶囊样式，跟 Bootstrap 的 secondary 徽章一致 |
+| 输入框组 | 支持 `.input-group` 的圆角处理和 flex 尺寸计算 |
+| 模态框 | 下拉面板的 `z-index` 被提到 `.modal` 之上——修掉了 Select2 + Bootstrap 5 被反馈最多的那个 bug，所以不再需要 `dropdownParent` 了 |
+| RTL | 和其他 CSS 一起自动生成 |
+
+用打包工具？编译好的样式表可以通过包的 `exports` 映射引入——同样，要放在 Select2 自己的 CSS 之后：
+
+```js
+import "admin-lte/dist/css/adminlte.min.css"
+import "select2/dist/css/select2.min.css"
+import "admin-lte/dist/css/adminlte-select2.min.css"
+```
+
+如果你是自己编译 Sass 呢？那就把这个 partial 放在 AdminLTE 之后导入，因为 AdminLTE 已经把该 partial 需要的 Bootstrap 变量和 mixin 都加载好了：
+
+```scss
+@import "node_modules/admin-lte/src/scss/adminlte";
+@import "node_modules/admin-lte/src/scss/compat/select2";
+```
+
+这个主题是跟着 Select2 4.1.x 的标记结构走的（同时也兼容 4.0.x 里 choice-remove 的那套标记）。它只管样式——Select2 自身的 bug 还是得 Select2 自己去修，而且 AdminLTE 官方的框架移植版（Vue、React、Django、Laravel）没有一个能用 jQuery 插件。
 
 ###### 范围滑块 — noUiSlider
 
@@ -273,6 +397,28 @@ AdminLTE 有意保持精简的依赖树。我们不捆绑每一个表单组件�
     headerToolbar: { start: "prev,next today", center: "title", end: "dayGridMonth,timeGridWeek,listWeek" },
     events: [{ title: "团队晨会", start: "2026-06-01" }]
   }).render()
+</script>
+```
+
+##### 地图
+
+###### jsVectorMap
+
+[jsVectorMap](https://github.com/themustafaomar/jsvectormap) 是 jQuery Mapael / jVectorMap 的继任者，而且不依赖任何第三方库。它支持分级统计图（choropleth）、标记点、按区域绑定的点击处理器，还自带一张世界地图以及各个国家的数据文件。
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/css/jsvectormap.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/js/jsvectormap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/maps/world.js"></script>
+
+<div id="map" style="height: 20rem;"></div>
+
+<script>
+  new jsVectorMap({
+    selector: "#map",
+    map: "world",
+    markers: [{ name: "Riga", coords: [56.95, 24.11] }]
+  })
 </script>
 ```
 

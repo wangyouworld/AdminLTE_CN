@@ -1,0 +1,372 @@
+---
+import Head from "@components/_head.astro"
+import Footer from "@components/dashboard/_footer.astro"
+import Topbar from "@components/dashboard/_topbar.astro"
+import Sidenav from "@components/dashboard/_sidenav.astro"
+import Scripts from "@components/_scripts.astro"
+
+const title = "AdminLTE 4 | 搜索结果"
+const path = "../../../dist"
+const mainPage = "pages"
+const page = "search-results"
+const pageTitle = "搜索结果"
+
+// 智能路径解析：根据目录深度计算相对路径
+const pathname = Astro.url.pathname
+const pathSegments = pathname.split("/").filter(segment => segment !== "")
+const depth = pathSegments.length > 0 ? pathSegments.length - 1 : 0
+const deploymentPath = depth === 0 ? "./" : "../".repeat(depth)
+
+const query = "invoice"
+
+// 结果是有类型区分的，因为后台搜索返回的不只是文档——
+// 图标和徽章才是让人能快速扫一眼列表、找到目标的关键。
+const results = [
+  {
+    type: "Page",
+    icon: "bi-file-earmark-text",
+    tone: "primary",
+    title: "发票编号 #A-1042",
+    url: "/pages/invoice.html",
+    snippet:
+      "2026 年 8 月 2 日开具给 Colorlib 有限公司。包含 4 个明细项，共计 2,310.00 美元，14 天内到期。",
+    meta: "更新于 3 小时前"
+  },
+  {
+    type: "Page",
+    icon: "bi-file-earmark-text",
+    tone: "primary",
+    title: "发票模板设置",
+    url: "/pages/settings.html",
+    snippet:
+      "配置默认的发票页脚、税率和付款条件，这些设置会应用到每一张新发票上。",
+    meta: "更新于 5 天前"
+  },
+  {
+    type: "User",
+    icon: "bi-person",
+    tone: "info",
+    title: "亚历山大·皮尔斯",
+    url: "/pages/profile.html",
+    snippet:
+      "账单管理员 · 本季度已开具 18 张发票 · alexander.pierce@example.com",
+    meta: "12 分钟前活跃"
+  },
+  {
+    type: "File",
+    icon: "bi-paperclip",
+    tone: "secondary",
+    title: "invoice-archive-2025.zip",
+    url: "/pages/file-manager.html",
+    snippet: "归档 · 48.2 MB · 由 娜迪亚·卡迈克尔 上传至 Finance / Archive。",
+    meta: "Uploaded 2026年1月12日"
+  },
+  {
+    type: "Project",
+    icon: "bi-kanban",
+    tone: "success",
+    title: "发票功能重构",
+    url: "/pages/projects.html",
+    snippet:
+      "11 项任务已完成 6 项。目前卡在支付服务商迁移上；下一个里程碑是 9 月 30 日。",
+    meta: "3 个待办任务"
+  }
+]
+
+const tabs = [
+  { label: "All", count: 128 },
+  { label: "页面", count: 64 },
+  { label: "用户", count: 41 },
+  { label: "文件", count: 18 },
+  { label: "项目", count: 5 }
+]
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <!--begin::Head-->
+  <head>
+    <Head title={title} path={path} />
+  </head>
+  <!--end::Head-->
+  <!--begin::Body-->
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <!--begin::App Wrapper-->
+    <div class="app-wrapper">
+      <Topbar path={path} />
+      <Sidenav path={path} mainPage={mainPage} page={page} />
+      <!--begin::App Main-->
+      <main class="app-main">
+        <!--begin::App Content Header-->
+        <div class="app-content-header">
+          <!--begin::Container-->
+          <div class="container-fluid">
+            <!--begin::Row-->
+            <div class="row">
+              <div class="col-sm-6">
+                <h1 class="mb-0 fs-3">{pageTitle}</h1>
+              </div>
+              <div class="col-sm-6">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">首页</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                      {pageTitle}
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+            <!--end::Row-->
+          </div>
+          <!--end::Container-->
+        </div>
+        <!--end::App Content Header-->
+        <!--begin::App Content-->
+        <div class="app-content">
+          <!--begin::Container-->
+          <div class="container-fluid">
+            <!--begin::Row-->
+            <div class="row g-4">
+              <!--begin::Results-->
+              <div class="col-lg-8">
+                <!--begin::Search Form-->
+                <form class="mb-3" role="search" action="#">
+                  <label for="results-query" class="visually-hidden">
+                    搜索
+                  </label>
+                  <div class="input-group">
+                    <input
+                      type="search"
+                      id="results-query"
+                      class="form-control form-control-lg"
+                      value={query}
+                      placeholder="Search pages, users and files"
+                    />
+                    <button class="btn btn-primary" type="submit">
+                      <i class="bi bi-search me-1" aria-hidden="true"></i>
+                      搜索
+                    </button>
+                  </div>
+                </form>
+                <!--end::Search Form-->
+
+                <p class="text-body-secondary" aria-live="polite">
+                  <strong>&ldquo;{query}&rdquo;</strong> 有
+                  <strong>{tabs[0].count}</strong> 条结果 &middot; 耗时 0.21 秒
+                </p>
+
+                <!--begin::Result List-->
+                <div class="card">
+                  <!--begin::Type Tabs-->
+                  <div class="card-header p-0 pt-1">
+                    <ul class="nav nav-tabs" role="tablist">
+                      {
+                        tabs.map((tab, index) => (
+                          <li class="nav-item" role="presentation">
+                            <button
+                              class:list={["nav-link", index === 0 && "active"]}
+                              type="button"
+                              role="tab"
+                              aria-selected={index === 0 ? "true" : "false"}
+                            >
+                              {tab.label}
+                              <span class="badge text-bg-secondary ms-1">
+                                {tab.count}
+                              </span>
+                            </button>
+                          </li>
+                        ))
+                      }
+                    </ul>
+                  </div>
+                  <!--end::Type Tabs-->
+                  <div class="card-body p-0">
+                    <ul class="list-group list-group-flush">
+                      {
+                        results.map(result => (
+                          <li class="list-group-item py-3">
+                            <div class="d-flex gap-3">
+                              <span
+                                class={`badge text-bg-${result.tone} flex-shrink-0 d-flex align-items-center`}
+                                style="height: 2rem; width: 2rem; justify-content: center;"
+                              >
+                                <i class={`bi ${result.icon}`} aria-hidden="true" />
+                              </span>
+                              <div class="flex-grow-1 overflow-hidden">
+                                <h2 class="fs-5 mb-1">
+                                  <a
+                                    href={deploymentPath + result.url.slice(1)}
+                                    class="link-body-emphasis link-underline-opacity-0 link-underline-opacity-100-hover"
+                                  >
+                                    {result.title}
+                                  </a>
+                                </h2>
+                                <p class="fs-7 text-success mb-1 text-truncate">
+                                  {result.url}
+                                </p>
+                                <p class="mb-1">{result.snippet}</p>
+                                <p class="fs-7 text-secondary mb-0">
+                                  <span class="badge text-bg-light me-1">
+                                    {result.type}
+                                  </span>
+                                  {result.meta}
+                                </p>
+                              </div>
+                            </div>
+                          </li>
+                        ))
+                      }
+                    </ul>
+                  </div>
+                </div>
+                <!--end::Result List-->
+
+                <!--begin::Pagination-->
+                <nav aria-label="Search results pages" class="mt-3">
+                  <ul class="pagination justify-content-center mb-0">
+                    <li class="page-item disabled">
+                      <a class="page-link" href="#" aria-label="上一页">
+                        <span aria-hidden="true">&laquo;</span>
+                      </a>
+                    </li>
+                    <li class="page-item active" aria-current="page">
+                      <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="下一页">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+                <!--end::Pagination-->
+              </div>
+              <!--end::Results-->
+
+              <!--begin::Sidebar-->
+              <div class="col-lg-4">
+                <!--begin::Refine-->
+                <div class="card mb-4">
+                  <div class="card-header">
+                    <div class="card-title">搜索</div>
+                  </div>
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <label for="refine-range" class="form-label">
+                        日期范围
+                      </label>
+                      <select class="form-select" id="refine-range">
+                        <option selected>所有时间</option>
+                        <option>近 24 小时</option>
+                        <option>近一周</option>
+                        <option>近一个月</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="refine-owner" class="form-label">所有者</label>
+                      <select class="form-select" id="refine-owner">
+                        <option selected>任何人</option>
+                        <option>我</option>
+                        <option>我的团队</option>
+                      </select>
+                    </div>
+                    <fieldset>
+                      <legend class="form-label fs-6">包含</legend>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="refine-archived"
+                        />
+                        <label class="form-check-label" for="refine-archived">
+                          归档项目
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="refine-trashed"
+                        />
+                        <label class="form-check-label" for="refine-trashed">
+                          已删除项目
+                        </label>
+                      </div>
+                    </fieldset>
+                  </div>
+                  <div class="card-footer">
+                    <button type="button" class="btn btn-primary btn-sm">
+                      应用
+                    </button>
+                    <button type="button" class="btn btn-outline-dark btn-sm">
+                      重置
+                    </button>
+                  </div>
+                </div>
+                <!--end::Refine-->
+
+                <!--begin::Related-->
+                <div class="card mb-4">
+                  <div class="card-header">
+                    <div class="card-title">相关搜索</div>
+                  </div>
+                  <div class="card-body d-flex flex-wrap gap-2">
+                    <a href="#" class="badge text-bg-light text-decoration-none">
+                      发票模板
+                    </a>
+                    <a href="#" class="badge text-bg-light text-decoration-none">
+                      逾期发票
+                    </a>
+                    <a href="#" class="badge text-bg-light text-decoration-none">
+                      PDF 发票导出
+                    </a>
+                    <a href="#" class="badge text-bg-light text-decoration-none">
+                      税率
+                    </a>
+                  </div>
+                </div>
+                <!--end::Related-->
+
+                <!--begin::Empty State Example-->
+                <div class="card">
+                  <div class="card-header">
+                    <div class="card-title">无结果</div>
+                  </div>
+                  <div class="card-body text-center py-4">
+                    <i
+                      class="bi bi-search fs-1 text-secondary d-block mb-2"
+                      aria-hidden="true"></i>
+                    <p class="fw-semibold mb-1">
+                      没有匹配到 &ldquo;季度预测&rdquo; 的结果
+                    </p>
+                    <p class="text-secondary fs-7 mb-3">
+                      检查一下拼写，少输几个词，
+                      或者清空左侧的筛选条件。
+                    </p>
+                    <button type="button" class="btn btn-sm btn-outline-primary">
+                      清除条件
+                    </button>
+                  </div>
+                </div>
+                <!--end::Empty State Example-->
+              </div>
+              <!--end::Sidebar-->
+            </div>
+            <!--end::Row-->
+          </div>
+          <!--end::Container-->
+        </div>
+        <!--end::App Content-->
+      </main>
+      <!--end::App Main-->
+      <Footer />
+    </div>
+    <!--end::App Wrapper-->
+    <!--begin::Script-->
+    <Scripts path={path} />
+    <!--end::Script-->
+  </body><!--end::Body-->
+</html>

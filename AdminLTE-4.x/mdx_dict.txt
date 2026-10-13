@@ -1886,3 +1886,427 @@ Applications with their own theming — a custom Bootstrap theme, or a switcher 
 拥有自己主题方案的应用 —— 无论是自定义 Bootstrap 主题，还是你自己的切换器 —— 可以完全关闭该模块：
 ColorMode then never writes `data-bs-theme`: not on load, not when a `[data-bs-theme-value]` toggle is clicked, and not when the OS preference changes. The inline snippet above honours it too, so nothing touches your theme before first paint either. Your own code stays in full control of `<html data-bs-theme>`.
 此后 ColorMode 永远不会写入 `data-bs-theme`：加载时不会，点击 `[data-bs-theme-value]` 切换开关时不会，操作系统偏好变化时也不会。上面的内联代码片段也会遵循这一点，因此在首次绘制之前也不会有任何东西触碰你的主题。你自己的代码始终完全掌控 `<html data-bs-theme>`。
+A language switcher wired to a real locale
+一个与真实语言环境联动的语言切换器
+The demo topbar ships a language dropdown, but the markup alone changes nothing — swapping the locale is the application's job, and doing it badly is worse than not shipping it. The pattern below covers what a switcher actually has to get right.
+演示版的顶栏自带一个语言下拉菜单，但光有这点标记其实什么都变不了——切换语言区域是应用自己的活儿，而且做砸了还不如不做。下面这套模式涵盖了语言切换器真正必须做对的那些事。
+Four things make the difference between a working switcher and set dressing:
+四件事决定了语言切换器是真能用还是纯摆设：
+1. **Each item is a real link to the same page in another locale**, not a `#` with a click handler. A link is bookmarkable, crawlable, opens in a new tab, and works before your JavaScript loads. Add `hreflang` so assistive tech announces the language change and search engines can pair the URLs.
+1. **每一项都是一个真正的链接，指向同一页面在另一种语言区域下的版本**，而不是一个带点击事件的 `#`。链接可以被收藏、被爬虫抓取、能新标签页打开，而且在你的 JavaScript 加载之前就能用。再加上 `hreflang`，这样辅助技术能播报语言变化，搜索引擎也能把对应的 URL 配对起来。
+2. **The locale belongs in the URL** (`/es/dashboard`) or in a cookie the server reads — not in `localStorage`. Server-rendered HTML has to know the locale *before* it renders, and `localStorage` is only readable after the page has already been sent in the wrong language.
+2. **语言区域应该放在 URL 里**（比如 `/es/dashboard`），或者放在服务器能读取的 cookie 里——而不是放在 `localStorage` 里。服务端渲染的 HTML 必须在渲染*之前*就知道语言区域是什么，而 `localStorage` 要等页面已经以错误语言发出去了之后才能读到。
+3. **Mark the current language** with both `.active` and `aria-current="true"`, and name it in the toggle's `aria-label`. A flag icon alone is not a language: several languages share a flag, and several countries share a language.
+3. **标记当前语言**，同时用上 `.active` 和 `aria-current="true"`，并在切换按钮的 `aria-label` 里写明当前语言。光有一个国旗图标并不能代表一门语言：好几种语言共用一个国旗，也有好几个国家共用一门语言。
+4. **Switching to an RTL locale needs the RTL stylesheet**, not just a `dir` attribute. Serve `adminlte.rtl.css` and set `<html lang="ar" dir="rtl">` together — see [RTL Support](rtl.html).
+4. **切换到 RTL（从右到左）语言区域时，需要配套的 RTL 样式表**，光加个 `dir` 属性是不够的。要同时提供 `adminlte.rtl.css` 并设置 `<html lang="ar" dir="rtl">`——详见 [RTL 支持](rtl.html)。
+If your locale lives in the URL, the server picks the stylesheet and the switcher stays pure markup:
+如果你的语言区域放在 URL 里，那么由服务器来挑样式表，切换器本身就可以保持纯标记：
+Rendered per request from the active locale
+按请求、基于当前激活的语言区域实时渲染
+For a client-rendered app, do the same work at the router level — change the locale, re-render, and swap the stylesheet `href` — rather than translating text nodes in place.
+对于客户端渲染的应用，要在路由层面做同样的事——切换语言区域、重新渲染、替换样式表的 `href`——而不是就地去翻译文本节点。
+Cards are the main content container in AdminLTE. They are [Bootstrap cards](https://getbootstrap.com/docs/5.3/components/card/) with an added shadow, a colour-variant system, a header toolbar, and hooks for the [CardWidget plugin](../javascript/card-widget.html) that collapses, removes and maximises them.
+卡片是 AdminLTE 里的主要内容容器。它们本质上就是 [Bootstrap 卡片](https://getbootstrap.com/docs/5.3/components/card/)，额外加了一层阴影、一套颜色变体系统、一个头部工具栏，还有供 [CardWidget 插件](../javascript/card-widget.html) 使用的钩子——这个插件能让卡片折叠、移除和最大化。
+>Title
+>标题
+>Body
+>内容
+>Footer
+>底部
+| `.card` | The container. Adds AdminLTE's shadow on top of the Bootstrap card. |
+| `.card` | 容器。在 Bootstrap 卡片的基础上加上了 AdminLTE 的阴影。 |
+| `.card-header` | Header strip. Positioned relative, so `.card-tools` can float inside it. |
+| `.card-header` | 头部条。设置为相对定位，这样 `.card-tools` 就能在里面浮动。 |
+| `.card-title` | Header text. Floats left at `1.1rem`; it is a style, not a heading — use whatever element the document outline calls for. |
+| `.card-title` | 头部文字。左浮动，字号 `1.1rem`；它只是一种样式，并不是标题——该用什么元素由文档大纲结构决定。 |
+| `.card-tools` | Right-aligned toolbar inside the header. Absorbs the header's horizontal padding so buttons sit flush. |
+| `.card-tools` | 头部内右对齐的工具栏。会吸收头部的水平内边距，让按钮贴边对齐。 |
+| `.btn-tool` | Muted, borderless icon button for use inside `.card-tools`. Add `.btn-tool-custom` to keep your own colours. |
+| `.btn-tool` | 柔和色调、无边框的图标按钮，专供 `.card-tools` 内使用。加上 `.btn-tool-custom` 可以保留你自己的配色。 |
+| `.card-body` | Content area. |
+| `.card-body` | 内容区。 |
+| `.card-footer` | Footer strip. |
+| `.card-footer` | 底部条。 |
+Colour variants
+颜色变体
+Every entry in `$theme-colors` produces a `.card-*` class. The variant sets two custom properties — `--lte-card-variant-bg` and `--lte-card-variant-color` — which the header then consumes, so `.bg-primary` and `.text-bg-primary` colour a card the same way `.card-primary` does.
+`$theme-colors` 里的每一个条目都会生成一个 `.card-*` 类。变体会设置两个自定义属性——`--lte-card-variant-bg` 和 `--lte-card-variant-color`——然后由头部来消费这两个属性，所以 `.bg-primary` 和 `.text-bg-primary` 给卡片上色的效果，跟 `.card-primary` 是一样的。
+Add `.card-outline` to move the colour to a 3px top border and leave the header plain:
+加上 `.card-outline`，就能把颜色转移到顶部一条 3px 的边框上，头部则保持素净：
+##### States
+##### 状态
+These classes are the resting state that [CardWidget](../javascript/card-widget.html) toggles. Setting one in your markup is how you render a card that starts out collapsed.
+这些类是 [CardWidget](../javascript/card-widget.html) 切换时对应的静止状态。在标记里设置其中一个，就能让卡片一开始就渲染成折叠状态。
+| `.collapsed-card` | Hides the body and footer, and swaps the collapse icon for the expand icon. |
+| `.collapsed-card` | 隐藏内容区和底部，并把折叠图标换成展开图标。 |
+| `.maximized-card` | Fixes the card to the viewport at full size. AdminLTE also sets it on `<html>` to lock page scrolling. |
+| `.maximized-card` | 让卡片以全尺寸固定在视口中。AdminLTE 还会把它加到 `<html>` 上，以锁定页面滚动。 |
+| `.was-collapsed` | Set by CardWidget on a card that was collapsed when it got maximised, so restoring returns it to collapsed. |
+| `.was-collapsed` | 由 CardWidget 添加：如果卡片在最大化时本身是折叠状态，就给它加上这个类，这样还原时能回到折叠状态。 |
+| `.expanding-card` | Present for the duration of the expand animation. |
+| `.expanding-card` | 在展开动画执行期间存在。 |
+Icon visibility follows the state automatically: `[data-lte-icon="expand"]` is hidden unless the card is collapsed, and `[data-lte-icon="minimize"]` is hidden unless it is maximised. Ship both icons and let the CSS choose.
+图标的显示会自动跟随状态变化：除非卡片是折叠状态，否则 `[data-lte-icon="expand"]` 会隐藏；除非卡片是最大化状态，否则 `[data-lte-icon="minimize"]` 会隐藏。把两个图标都放上去，让 CSS 来决定显示哪个就行。
+Cards with tabs
+带标签的卡片
+`.card-tabs` puts a `.nav-tabs` in the header and squares off the seam between the tabs and the body:
+`.card-tabs` 会把一个 `.nav-tabs` 放进卡片头部，并把标签页和内容区之间的接缝处理成直角：
+>Tab
+>标签
+`.card-outline-tabs` is the same idea for outline cards: the active tab carries the accent as a top border instead of the card doing it.
+`.card-outline-tabs` 是同样的思路，只不过用在了描边卡片上：由激活的标签页以顶部边框的形式来体现强调色，而不是由卡片本身来承担。
+##### Utilities
+##### 工具类
+| `.height-control` | Caps the body at `300px` and scrolls it. |
+| `.height-control` | 把内容区的高度限制在 `300px`，超出部分可滚动。 |
+| `.card .nav.flex-column` | A vertical nav inside a card gets dividers between items and none after the last. Used by the [user widgets](miscellaneous.html#social-and-post-widgets). |
+| `.card .nav.flex-column` | 卡片内的垂直导航会在各项之间加上分隔线，最后一项之后不加。用于[用户小部件](miscellaneous.html#social-and-post-widgets)。 |
+##### Sass variables
+##### Sass 变量
+| Variable | Default | Description |
+| 变量 | 默认值 | 说明 |
+| `$lte-card-shadow` | two-layer shadow from `--bs-body-color-rgb` | The shadow applied to every `.card`. |
+| `$lte-card-shadow` | 基于 `--bs-body-color-rgb` 的双层阴影 | 应用到每个 `.card` 上的阴影。 |
+| `$lte-card-title-font-size` | `1.1rem` | `.card-title` size. |
+| `$lte-card-title-font-size` | `1.1rem` | `.card-title` 的字号。 |
+| `$lte-card-title-font-weight` | `$font-weight-normal` | `.card-title` weight. |
+| `$lte-card-title-font-weight` | `$font-weight-normal` | `.card-title` 的字重。 |
+- `.card-title` floats, so a `.card-header` containing only a title and tools has no height of its own — the clearfix mixin on the header restores it. Adding your own floated element to a header is safe for the same reason.
+- `.card-title` 是浮动的，所以如果 `.card-header` 里只放了一个标题和工具栏，它自身是撑不起高度的——头部上的 clearfix mixin 会把它撑回来。出于同样的原因，你在头部里再加自己的浮动元素也是安全的。
+- Nested cards are scoped correctly: the collapse and expand rules use `> .card-header` and `> .card-body`, so collapsing an outer card doesn't rewrite the icons of a card inside it.
+- 嵌套卡片的作用域是正确的：折叠和展开的规则用的是 `> .card-header` 和 `> .card-body`，所以折叠外层卡片不会把里面那张卡片的图标也改掉。
+- For a card that toggles from a button elsewhere on the page, use CardWidget's [programmatic API](../javascript/card-widget.html#programmatic-api) rather than adding and removing the state classes by hand — it fires the matching events.
+- 如果卡片是由页面上其他位置的按钮来切换的，请使用 CardWidget 的[编程 API](../javascript/card-widget.html#programmatic-api)，而不是手动增删那些状态类——它会触发对应的事件。
+The components on this page are the ones AdminLTE adds on top of Bootstrap that aren't the header, the sidebar or the [card](card.html). Each is CSS-only unless noted.
+本页介绍的组件，是 AdminLTE 在 Bootstrap 之上额外添加的那些——不包括头部、侧边栏和[卡片](card.html)。除非特别说明，否则每个组件都是纯 CSS 实现的。
+##### Callouts
+##### 标注块
+A bordered note block, tinted per theme colour. Used throughout these docs.
+一种带边框的提示块，按主题色着色。本套文档中随处可见。
+A link
+一个链接
+Heads up
+注意！
+Body text.
+内容在这里。
+| `.callout` | Base block: padding and a `.25rem` left border. |
+| `.callout` | 基础块：内边距，加上 `.25rem` 的左边框。 |
+| `.callout-{color}` | One per `$theme-colors` entry. Sets the background, border and text-emphasis colours together. |
+| `.callout-{color}` | `$theme-colors` 里每个条目对应一个。一次性设置背景色、边框色和文字强调色。 |
+| `.callout-link` | Bolds a link inside a callout. Plain links and `<code>` are already tinted to the variant's emphasis colour, so they stay legible on the subtle background. |
+| `.callout-link` | 把标注块里的链接加粗。普通链接和 `<code>` 本身已经染上了该变体的强调色，所以在淡色背景上依然清晰可读。 |
+Consecutive callouts collapse the gap between them, so a stack reads as one block.
+相邻的标注块会合并它们之间的间隙，所以叠在一起看起来就像一整块。
+##### Ribbons
+##### 丝带
+A diagonal banner pinned to the top corner of a positioned ancestor. See the [ribbons demo](../../UI/ribbons.html).
+一条斜向的横幅，固定在某个已定位祖先元素的顶部角落。参见[丝带演示](../../UI/ribbons.html)。
+>New
+>新的
+| `.ribbon-wrapper` | The square that clips the banner. Must sit inside something positioned — `.card` already is; anything else needs `.position-relative`. |
+| `.ribbon-wrapper` | 用来裁剪横幅的那个方形区域。必须放在已定位的元素里——`.card` 本身就是；其他元素需要加上 `.position-relative`。 |
+| `.ribbon` | The banner itself. Colour comes from a `.text-bg-*` utility. |
+| `.ribbon` | 横幅本身。颜色来自 `.text-bg-*` 工具类。 |
+| `.ribbon-wrapper.ribbon-lg` | Larger corner, `1rem` text. |
+| `.ribbon-wrapper.ribbon-lg` | 更大的角落，`1rem` 字号。 |
+| `.ribbon-wrapper.ribbon-xl` | Largest corner, `1.25rem` text. |
+| `.ribbon-wrapper.ribbon-xl` | 最大的角落，`1.25rem` 字号。 |
+The banner's width is derived from `--lte-ribbon-size`, so overriding that one property rescales the whole thing:
+横幅的宽度是从 `--lte-ribbon-size` 推导出来的，所以只要覆盖这一个属性，整个丝带就会跟着缩放：
+Keep labels short. The banner is clipped to the corner square, so only about `64px` of it is readable at the default size — roughly six characters. `.ribbon-lg` and `.ribbon-xl` give you more room. In RTL the corner and the rotation both mirror, with no extra markup.
+标签要写短一点。横幅是被裁剪到角落那个方形里的，所以默认尺寸下大概只有 `64px` 能看得见——差不多六个字符。`.ribbon-lg` 和 `.ribbon-xl` 能给你更多空间。在 RTL 模式下，角落位置和旋转方向都会自动镜像，不需要额外加标记。
+##### Small box
+##### 小方盒
+A large stat tile with a background colour, a watermark icon and a footer link.
+一种大号的数据统计卡片，带背景色、一个水印图标和一个底部链接。
+New Orders
+新订单
+| `.small-box` | The tile. Pair with a `.text-bg-*` utility for colour. |
+| `.small-box` | 统计块本身。搭配 `.text-bg-*` 工具类来上色。 |
+| `.inner` | Holds the figure and its label. |
+| `.inner` | 用来放数值和它对应的标签。 |
+| `.small-box-icon` | Oversized watermark icon, anchored to the trailing edge. Mark it `aria-hidden="true"`. |
+| `.small-box-icon` | 超大的水印图标，固定在尾侧边缘。记得给它加上 `aria-hidden="true"`。 |
+| `.small-box-footer` | Full-width footer link. |
+| `.small-box-footer` | 通栏宽度的底部链接。 |
+##### Info box
+##### 信息框
+A compact stat row: icon, label, figure and an optional progress bar.
+一行紧凑的数据统计：图标、标签、数值，以及一个可选的进度条。
+CPU Traffic
+CPU 使用率
+70% increase in 30 days
+30 天内增长 70%
+| `.info-box` | The row. |
+| `.info-box` | 整行。 |
+| `.info-box-icon` | Square icon area. Colour it with `.text-bg-*`. |
+| `.info-box-icon` | 方形图标区域。用 `.text-bg-*` 来上色。 |
+| `.info-box-content` | Text column. |
+| `.info-box-content` | 文字栏。 |
+| `.info-box-text` | Label. Truncates rather than wrapping. |
+| `.info-box-text` | 标签。超出时截断，而不是换行。 |
+| `.info-box-number` | The figure. |
+| `.info-box-number` | 数值。 |
+| `.info-box-more` | Optional trailing link. |
+| `.info-box-more` | 可选的尾部链接。 |
+| `.progress-description` | Caption under an embedded progress bar. |
+| `.progress-description` | 内嵌进度条下方的说明文字。 |
+##### Timeline
+##### 时间线
+A vertical, dated activity list.
+一个按日期排列的垂直活动列表。
+10 Feb. 2026
+2026年2月10日
+<a href="#">Support Team</a> sent you an email
+<a href="#">支持团队</a>给你发了一封邮件
+| `.timeline` | The container, drawing the vertical rule. |
+| `.timeline` | 容器，负责画出那条垂直的线。 |
+| `.time-label` | A date marker interrupting the rule. |
+| `.time-label` | 一个日期标记，把垂直线打断。 |
+| `.timeline-icon` | The dot on the rule. Colour it with `.text-bg-*`. |
+| `.timeline-icon` | 线上的圆点。用 `.text-bg-*` 来上色。 |
+| `.timeline-item` | The entry's panel. |
+| `.timeline-item` | 每个条目的面板。 |
+| `.time` | Trailing timestamp inside the panel. |
+| `.time` | 面板内尾部的时
+| `.timeline-header` / `.timeline-body` / `.timeline-footer` | The panel's three sections. Body and footer are optional. |
+| `.timeline-header` / `.timeline-body` / `.timeline-footer` | 面板的三个部分。其中 body 和 footer 是可选的。 |
+| `.timeline-inverse` | Flat variant: no shadow, a plain border instead. |
+| `.timeline-inverse` | 扁平变体：没有阴影，改用一条普通边框。 |
+Each entry is a bare `<div>` wrapping the icon and the item — the wrapper carries no class.
+每个条目就是一个光秃秃的 `<div>`，把图标和条目的内容包起来——这个包裹元素本身不带任何类。
+##### Social and post widgets
+##### 社交与动态小部件
+Profile cards and activity-feed blocks. See the [social widgets demo](../../widgets/social.html). These keep their v3 class names so migrating markup works unchanged, but they are laid out with grid and flex rather than floats, and take their colours from Bootstrap utilities.
+个人资料卡片和动态流区块。参见[社交小部件演示](../../widgets/social.html)。它们保留了 v3 的类名，所以迁移过来的标记不用改就能用，但布局用的是 grid 和 flex，而不是浮动，颜色也取自 Bootstrap 的工具类。
+Jonathan Burke Jr.
+小乔纳森·伯克
+Shared publicly · 7:30 PM today
+公开分享 · 今天晚上 7:30
+| `.user-block` | Avatar, name and meta line from flat markup — the avatar spans both text rows, so no wrapper element is needed. An optional `.comment` lands on a third row. |
+| `.user-block` | 用扁平标记直接排出头像、名字和一行附加信息——头像会横跨两行文字，所以不需要额外的包裹元素。可选的 `.comment` 会落在第三行。 |
+| `.user-block.user-block-sm` | Smaller avatar and type, for comment threads. |
+| `.user-block.user-block-sm` | 更小的头像和字体，适合用在评论串里。 |
+| `.post` | One entry in a feed. Divided from the next; the last entry drops its divider and trailing space. |
+| `.post` | 动态流里的一条。与下一条之间有分隔线；最后一条会去掉分隔线和尾部空白。 |
+| `.description-block` | A centred figure with an uppercase caption — `.description-header` and `.description-text`. Repeat across a card footer's columns. |
+| `.description-block` | 一个居中的数值，配一行大写说明——由 `.description-header` 和 `.description-text` 组成。可以在一张卡片底部的多列里重复使用。 |
+| `.widget-user` | Profile card with a banner header and an avatar straddling the header/footer seam. Needs `.widget-user-header`, `.widget-user-image`, `.widget-user-username`, `.widget-user-desc`. |
+| `.widget-user` | 带横幅头部的个人资料卡片，头像骑跨在头部和底部的接缝上。需要配合 `.widget-user-header`、`.widget-user-image`、`.widget-user-username`、`.widget-user-desc` 使用。 |
+| `.widget-user-2` | Shorter variant with the avatar inline in the header, so long names can wrap. |
+| `.widget-user-2` | 更矮的变体，头像内联在头部里，所以长名字可以换行。 |
+For `.widget-user`, the header's height and the avatar's size are Sass variables (`$lte-widget-user-header-height`, `$lte-widget-user-image-size`); the footer's top padding is derived from them, so changing one value keeps the overlap correct.
+对于 `.widget-user`，头部的高度和头像的尺寸都是 Sass 变量（`$lte-widget-user-header-height`、`$lte-widget-user-image-size`）；底部的上内边距是从这两个变量推导出来的，所以改动其中任何一个值，重叠部分的位置都能保持正确。
+##### Progress bars
+##### 进度条
+Extra sizes on top of Bootstrap's `.progress`.
+在 Bootstrap 的 `.progress` 基础上额外提供的尺寸。
+| Class | Height |
+| 类名 | 高度 |
+`.progress.vertical` turns a bar on its side, and `.progress-group` pairs a bar with a label row.
+`.progress.vertical` 可以把进度条竖过来，`.progress-group` 则把进度条和一行标签配成一组。
+##### Toasts
+##### 提示
+`.toast-{color}` themes a Bootstrap toast per `$theme-colors`: coloured header, subtle body, matching border. The close button flips to its white variant on dark headers automatically, in both colour modes.
+`.toast-{color}` 按 `$theme-colors` 给 Bootstrap 的 toast 套主题：带颜色的头部、淡色的主体、匹配的边框。在深色头部上，关闭按钮会自动切换成白色版本，两种颜色模式下都是如此。
+>Saved
+>保存
+Your changes have been saved.
+更改已保存。
+##### Image sizes
+##### 图片尺寸
+`.img-size-32`, `.img-size-50` and `.img-size-64` set a width in pixels and leave the height automatic. They exist for avatars in dropdowns and lists, where a Bootstrap sizing utility would need two classes.
+`.img-size-32`、`.img-size-50` 和 `.img-size-64` 用来设定以像素为单位的宽度，高度则保持自动。它们主要是为下拉菜单和列表里的头像准备的——那种场景下，用 Bootstrap 的尺寸工具类得写两个类才行。
+##### Direct chat
+##### 聊天
+The chat panel has its own page — see the [DirectChat plugin](../javascript/direct-chat.html) for its markup and the contacts-pane toggle.
+聊天面板有自己独立的页面——它的标记结构和联系人面板的切换方式，参见 [DirectChat 插件](../javascript/direct-chat.html)。
+AdminLTE ships eight JavaScript plugins as a single bundle (`adminlte.js`). Each one is exported from the package root, can be triggered via `data-lte-*` attributes for declarative use, and exposes a programmatic API for code-driven control.
+AdminLTE 以单个打包文件（`adminlte.js`）的形式提供了八个 JavaScript 插件。每个插件都从包的根入口导出，既可以通过 `data-lte-*` 属性以声明式的方式触发使用，也提供了编程 API，供代码驱动控制。
+on an input
+在输入框上
+The bundle attaches all data-API listeners on `DOMContentLoaded`. Dynamically-injected elements still work for the [PushMenu](pushmenu.html), [CardWidget](card-widget.html), [Treeview](treeview.html), and [SidebarSearch](sidebar-search.html) plugins, which use event delegation.
+打包文件会在 `DOMContentLoaded` 时挂载所有 data-API 监听器。对于 [PushMenu](pushmenu.html)、[CardWidget](card-widget.html)、[Treeview](treeview.html) 和 [SidebarSearch](sidebar-search.html) 这几个插件来说，动态注入的元素依然能正常工作，因为它们用的是事件委托。
+The plugins live in [`src/ts/`](https://github.com/ColorlibHQ/master/src/ts) as TypeScript modules. The published `dist/js/adminlte.js` is a Rollup bundle of all eight, exporting them under a single `adminlte` namespace (UMD) or named imports (ESM).
+这些插件以 TypeScript 模块的形式放在 [`src/ts/`](https://github.com/ColorlibHQ/master/src/ts) 里。发布出来的 `dist/js/adminlte.js` 是用 Rollup 把八个插件打包在一起的文件，通过单一的 `adminlte` 命名空间（UMD 格式）或具名导入（ESM 格式）来导出它们。
+SidebarSearch filters the sidebar menu as you type. Matching entries stay, everything else is hidden, and any submenu holding a match is expanded so the result is actually visible. Clearing the field puts the menu back exactly as it was — including which submenus were open.
+SidebarSearch 会在你输入的时候实时过滤侧边栏菜单。匹配的条目保留下来，其他的一律隐藏，而任何包含匹配项的子菜单都会被展开，这样结果才真的看得见。清空输入框后，菜单会精确恢复到原来的样子——包括之前哪些子菜单是展开的。
+The search box in this page's sidebar is a live example.
+本页侧边栏里的搜索框就是一个现成的实例。
+Put `data-lte-toggle="sidebar-search"` on a text input. Place it outside `.sidebar-wrapper` so it stays put while the menu scrolls under it.
+把 `data-lte-toggle="sidebar-search"` 加到一个文本输入框上。把它放在 `.sidebar-wrapper` 外面，这样菜单在它下面滚动时，它能保持不动。
+Filter menu…
+搜索菜单…
+No matching pages.
+没有匹配到页面。
+| Attribute | Description |
+| 属性 | 说明 |
+| `data-lte-toggle="sidebar-search"` | Marks the input as a menu filter. |
+| `data-lte-toggle="sidebar-search"` | 把这个输入框标记为菜单筛选器。 |
+| `data-lte-target` | Selector for the menu to filter. Optional — without it, the `.sidebar-menu` inside the input's own `.app-sidebar` is used. |
+| `data-lte-target` | 要筛选的菜单的选择器。可选——不加的话，就用该输入框所在的 `.app-sidebar` 里的 `.sidebar-menu`。 |
+| `data-lte-search-empty` | Optional element shown only while a query matches nothing. Give it `role="status"` so the result is announced. |
+| `data-lte-search-empty` | 可选元素，只在查询没有任何匹配时显示。给它加上 `role="status"`，这样结果会被播报出来。 |
+`type="search"` is worth using: the browser's built-in clear button fires `input`, so it restores the menu for free. <kbd>ESC</kbd> in the field does the same.
+用 `type="search"` 是值得的：浏览器自带的清除按钮会触发 `input` 事件，所以能免费帮你把菜单恢复原状。在输入框里按 <kbd>ESC</kbd> 也是同样的效果。
+##### Matching rules
+##### 匹配规则
+- Matching is case-insensitive and matches anywhere in a `.nav-link`'s text, not just at the start.
+- 匹配不区分大小写，而且在 `.nav-link` 的文字里任意位置都能匹配，不只是开头。
+- A parent survives if any descendant matches, and is expanded to reveal it.
+- 只要有一个后代匹配，父级就会保留下来，并且会被展开以露出那个匹配项。
+- A parent whose own name matches keeps its entire subtree, so expanding it is never a dead end.
+- 如果父级自己的名字就匹配上了，那它整棵子树都会保留，所以展开它绝不会是死路一条。
+- `.nav-header` section labels are hidden while filtering, because the groups they label are no longer intact.
+- 筛选期间，`.nav-header` 的区块标题会被隐藏，因为它们所标注的那些分组已经不再完整了。
+| `filtered.lte.sidebar-search` | Fired on the input after each filter pass. `event.detail` is `{ query, matches }`; `matches` is `-1` when the filter was cleared. |
+| `filtered.lte.sidebar-search` | 每次筛选执行完后，在输入框上触发。`event.detail` 是 `{ query, matches }`；当筛选被清空时，`matches` 为 `-1`。 |
+filter the menu
+筛选菜单
+restore it
+恢复它
+restore, then drop the instance
+恢复后，再删除该实例
+| `search(term)` | `void` | Filters the menu to entries matching `term`. An empty or whitespace-only term calls `clear()`. |
+| `search(term)` | `void` | 把菜单筛选到只显示匹配 `term` 的条目。传入空字符串或纯空白字符时，会自动调用 `clear()`。 |
+| `clear()` | `void` | Un-hides every entry and restores each submenu's pre-search open state. |
+| `clear()` | `void` | 取消隐藏所有条目，并把每个子菜单恢复到搜索前的展开状态。 |
+| `dispose()` | `void` | Clears the filter, then removes the instance from the registry. |
+| `dispose()` | `void` | 先清空筛选，再把该实例从注册表中移除。 |
+| `SidebarSearch.getInstance(el)` | `SidebarSearch \| null` | The existing instance for an element, if any. |
+| `SidebarSearch.getInstance(el)` | `SidebarSearch \| null` | 返回某个元素对应的现有实例，如果没有则返回 `null`。 |
+| `SidebarSearch.getOrCreateInstance(el)` | `SidebarSearch` | The existing instance, or a new one. |
+| `SidebarSearch.getOrCreateInstance(el)` | `SidebarSearch` | 返回现有实例，没有就新建一个。 |
+The constructor takes no config — the target menu comes from `data-lte-target`.
+构造函数不接受任何配置——目标菜单来自 `data-lte-target`。
+- Entries are hidden with the `hidden` attribute, not a class, so they leave the accessibility tree as well as the layout. Nothing in your CSS has to know about the filter.
+- 条目是用 `hidden` 属性隐藏的，而不是加个类，所以它们会同时从无障碍树和布局里消失。你的 CSS 完全不需要知道有筛选这回事。
+- The plugin snapshots each submenu's open state *and* its inline `display` before the first keystroke. Both matter: [Treeview](treeview.html) writes an inline `display` while sliding a menu open or shut, and that would otherwise outrank `.menu-open > .nav-treeview` after a search.
+- 插件会在你敲下第一个键之前，先把每个子菜单的展开状态*以及*它的内联 `display` 都拍个快照。这两样都重要：因为 [Treeview](treeview.html) 在滑动展开或收起菜单时会写入内联 `display`，否则搜索之后这个内联样式会盖过 `.menu-open > .nav-treeview` 的规则。
+- Because a search rewrites `.menu-open`, don't drive the same submenus from your own code while a filter is active — clear it first.
+- 因为搜索会重写 `.menu-open`，所以在筛选生效期间，别用你自己的代码去操作同一批子菜单——先把筛选清掉再说。
+- In the mini sidebar the field is hidden, since a text input can't render usefully in the rail. It returns on hover along with the labels it filters.
+- 在迷你侧边栏模式下，这个输入框是隐藏的，因为一条窄窄的侧边栏里塞个文本输入框根本没法用。鼠标悬停时它会回来，连同它要筛选的那些标签一起显示。
+- Both listeners are delegated on `document`, so a sidebar rendered after page load — a Turbo Frame, a client-side router — needs no re-initialisation.
+- 两个监听器都委托在 `document` 上，所以页面加载之后才渲染出来的侧边栏——比如 Turbo Frame 或客户端路由生成的——都不需要重新初始化。
+**Remote data.** For selects backed by a database rather than a static option list, fetch inside `load()`. Tom Select debounces it for you via `loadThrottle` (300 ms by default), and the `virtual_scroll` plugin pages through results as the user scrolls the dropdown:
+**远程数据。** 对于背后是数据库而不是静态选项列表的下拉框，就在 `load()` 里发请求。Tom Select 会通过 `loadThrottle` 帮你做防抖（默认 300 毫秒），而 `virtual_scroll` 插件会在用户滚动下拉列表时逐页加载结果：
+debounce, built in
+防抖，内置的
+infinite scroll pagination
+无限滚动分页
+drop the stale request
+丢弃过期请求
+`forms/advanced.html` runs this exact pattern against a stubbed endpoint — swap the stub for a `fetch()` and it works unchanged.
+`forms/advanced.html` 就是拿这套一模一样的模式跑在一个模拟接口上的——把模拟实现换成 `fetch()`，不用改别的就能直接用。
+###### Coming from Select2
+###### 从 Select2 迁移过来
+[Select2](https://select2.org/) is still maintained (4.1.0 shipped in 2026), but it is still a jQuery plugin — its UMD wrapper hard-requires jQuery, and there is no jQuery-free build. AdminLTE 4 therefore recommends Tom Select instead, which covers the same feature set for roughly 20 kB gzip against Select2's ~50 kB once jQuery is counted.
+[Select2](https://select2.org/) 目前仍在维护（4.1.0 于 2026 年发布），但它依然是个 jQuery 插件——它的 UMD 包装强制依赖 jQuery，也没有不依赖 jQuery 的构建版本。因此 AdminLTE 4 推荐改用 Tom Select，它能覆盖同样的功能集，体积大约只有 20 kB gzip，而 Select2 算上 jQuery 之后大约是 50 kB。
+The API translates directly:
+两者的 API 可以直接对应过来：
+infinite scroll
+无限滚动
+not needed — the dropdown is inline
+不需要 — 下拉菜单是内联的
+plugins:
+插件：
+A side-by-side version of this table with runnable code lives on the [Advanced Elements](../forms/advanced.html#select2) demo page.
+这张表的并排对照版，配上可运行的代码，放在 [Advanced Elements](../forms/advanced.html#select2) 演示页面里。
+**If you have to keep Select2**, AdminLTE ships a *styling-only* compatibility sheet — see [Select2 compatibility theme](#select2-compatibility-theme) below.
+**如果你不得不继续用 Select2**，AdminLTE 提供了一个*纯样式*的兼容样式表——见下面的 [Select2 兼容主题](#select2-compatibility-theme)。
+###### Select2 compatibility theme
+###### Select2 兼容主题
+Some projects can't drop Select2: an ERP with hundreds of server-rendered forms, a vendor plugin that initialises it for you, or a team that simply isn't ready. AdminLTE won't bundle Select2 or jQuery, but it does ship a **CSS-only compatibility theme** so a Select2 you bring yourself inherits Bootstrap 5.3's form metrics, focus ring, validation states and `data-bs-theme` dark mode.
+有些项目没法甩掉 Select2：比如一个带着几百个服务端渲染表单的 ERP 系统、一个会自动帮你初始化它的第三方插件，又或者团队压根还没准备好换。AdminLTE 不会把 Select2 或 jQuery 打包进来，但它确实提供了一个 **纯 CSS 的兼容主题**，这样你自己引入的 Select2 就能继承 Bootstrap 5.3 的表单尺寸、焦点圈、校验状态以及 `data-bs-theme` 深色模式。
+- **`dist/css/adminlte-select2.css`** (+ `.min.css`, `.rtl.css`, `.rtl.min.css`)
+- **`dist/css/adminlte-select2.css`**（以及 `.min.css`、`.rtl.css`、`.rtl.min.css`）
+- No JavaScript, no jQuery, nothing added to `adminlte.css` — you opt in by loading one extra stylesheet.
+- 没有 JavaScript，没有 jQuery，`adminlte.css` 里也没加任何东西——你只要额外加载一个样式表就能用上。
+Load it **after** `select2.css`:
+把它加载在 `select2.css` **之后**：
+Select a country…</option>
+请选择地区…
+>Latvia
+>拉脱维亚
+What the theme handles for you:
+这个主题帮你处理了以下这些：
+| Metrics | Height, padding, font size and border radius match `.form-select` exactly |
+| 尺寸规范 | 高度、内边距、字号和圆角都和 `.form-select` 完全一致 |
+| Sizing | `.form-select-sm` / `.form-select-lg` on the original `<select>` are honoured |
+| 尺寸大小 | 原始 `<select>` 上的 `.form-select-sm` / `.form-select-lg` 会被正确识别并生效 |
+| Focus | Bootstrap's focus ring instead of Select2's black outline |
+| 聚焦 | 用 Bootstrap 的焦点圈，而不是 Select2 那个黑色外框 |
+| Dark mode | Follows `data-bs-theme` — including the body-appended dropdown |
+| 深色模式 | 跟随 `data-bs-theme`——包括那个挂到 body 上的下拉面板 |
+| Validation | `.is-invalid` / `.is-valid` on the original `<select>` colour the container |
+| 校验状态 | 原始 `<select>` 上的 `.is-invalid` / `.is-valid` 会给容器上色 |
+| Multi-select | Choice pills styled as Bootstrap secondary badges |
+| 多选 | 已选项做成胶囊样式，跟 Bootstrap 的 secondary 徽章一致 |
+| Input groups | `.input-group` corner rounding and flex sizing |
+| 输入框组 | 支持 `.input-group` 的圆角处理和 flex 尺寸计算 |
+| Modals | Dropdown `z-index` raised above `.modal` — fixes the single most-reported Select2 + Bootstrap 5 bug, so `dropdownParent` is no longer needed |
+| 模态框 | 下拉面板的 `z-index` 被提到 `.modal` 之上——修掉了 Select2 + Bootstrap 5 被反馈最多的那个 bug，所以不再需要 `dropdownParent` 了 |
+| RTL | Generated automatically alongside the rest of the CSS |
+| RTL | 和其他 CSS 一起自动生成 |
+Using a bundler? The compiled sheet is reachable through the package's `exports` map — again, after Select2's own CSS:
+用打包工具？编译好的样式表可以通过包的 `exports` 映射引入——同样，要放在 Select2 自己的 CSS 之后：
+Compiling your own Sass instead? Import the partial after AdminLTE, which has already loaded the Bootstrap variables and mixins it needs:
+如果你是自己编译 Sass 呢？那就把这个 partial 放在 AdminLTE 之后导入，因为 AdminLTE 已经把该 partial 需要的 Bootstrap 变量和 mixin 都加载好了：
+The theme tracks Select2 4.1.x markup (it also covers the 4.0.x choice-remove markup). It is styling only — bugs in Select2 itself are still Select2's to fix, and none of the official AdminLTE framework ports (Vue, React, Django, Laravel) can consume a jQuery plugin.
+这个主题是跟着 Select2 4.1.x 的标记结构走的（同时也兼容 4.0.x 里 choice-remove 的那套标记）。它只管样式——Select2 自身的 bug 还是得 Select2 自己去修，而且 AdminLTE 官方的框架移植版（Vue、React、Django、Laravel）没有一个能用 jQuery 插件。
+##### Maps
+##### 地图
+[jsVectorMap](https://github.com/themustafaomar/jsvectormap) is the dependency-free successor to jQuery Mapael / jVectorMap. Choropleth maps, markers, per-region click handlers, and a world map plus per-country data files.
+[jsVectorMap](https://github.com/themustafaomar/jsvectormap) 是 jQuery Mapael / jVectorMap 的继任者，而且不依赖任何第三方库。它支持分级统计图（choropleth）、标记点、按区域绑定的点击处理器，还自带一张世界地图以及各个国家的数据文件。
+| Form widgets | ~25 jQuery plugins bundled in `plugins/` | **None bundled** — vanilla-JS equivalents [documented](#third-party-plugin-replacements) instead |
+| 表单组件 | 在 `plugins/` 里打包了约 25 个 jQuery 插件 | **一个都不打包** —— 改为[文档化](#third-party-plugin-replacements)推荐的原生 JS 替代方案 |
+(inside `.main-sidebar`)
+(位于 `.main-sidebar`)
+##### Third-party plugin replacements
+##### 第三方插件替代方案
+AdminLTE 3 bundled a `plugins/` folder full of jQuery widgets. AdminLTE 4 ships none of them — it stays framework-only and documents best-in-class vanilla-JS equivalents instead. Every replacement below is MIT-licensed, actively maintained, and needs no jQuery:
+AdminLTE 3 打包了一个塞满 jQuery 组件的 `plugins/` 文件夹。AdminLTE 4 一个都不带了——它只专注于框架本身，改为在文档里推荐同类最佳的原生 JS 替代方案。下面每一个替代品都是 MIT 许可、仍在积极维护，而且不需要 jQuery：
+| AdminLTE 3 plugin (jQuery) | AdminLTE 4 replacement | Notes |
+| AdminLTE 3 插件（jQuery） | AdminLTE 4 替代方案 | 备注 |
+| [Select2](https://select2.org/) | **[Tom Select](https://tom-select.js.org/)** | Search, multi-select, tagging, remote data, virtual scrolling. See the [API mapping](../forms/advanced.html#select2) and the [Select2 compatibility theme](integrations.html#coming-from-select2) if you must keep Select2. |
+| [Select2](https://select2.org/) | **[Tom Select](https://tom-select.js.org/)** | 搜索、多选、打标签、远程数据、虚拟滚动。如果非要留着 Select2，见 [API 对照](../forms/advanced.html#select2) 和 [Select2 兼容主题](integrations.html#coming-from-select2)。 |
+| [Bootstrap4 Duallistbox](https://www.virtuosoft.eu/code/bootstrap-duallistbox/) | **[Tom Select](https://tom-select.js.org/)** | A `multiple` Tom Select covers the same job with less UI. |
+| [Bootstrap4 Duallistbox](https://www.virtuosoft.eu/code/bootstrap-duallistbox/) | **[Tom Select](https://tom-select.js.org/)** | 一个 `multiple` 的 Tom Select 就能干同样的活，界面还更简洁。 |
+| [DataTables](https://datatables.net/) | **[Tabulator](https://tabulator.info/)** | Sorting, filtering, pagination, inline edit, export. Used in `tables/data.html`. |
+| [DataTables](https://datatables.net/) | **[Tabulator](https://tabulator.info/)** | 排序、筛选、分页、行内编辑、导出。用在了 `tables/data.html` 里。 |
+| [bootstrap-datepicker](https://github.com/uxsolutions/bootstrap-datepicker) | **[Flatpickr](https://flatpickr.js.org/)** | One library replaces all four v3 date/time plugins. |
+| [bootstrap-datepicker](https://github.com/uxsolutions/bootstrap-datepicker) | **[Flatpickr](https://flatpickr.js.org/)** | 一个库就顶替了 v3 里全部四个日期/时间插件。 |
+| [Summernote](https://summernote.org/) | **[Quill](https://quilljs.com/)** | Snow + bubble themes demoed in `forms/editors.html`. |
+| [Summernote](https://summernote.org/) | **[Quill](https://quilljs.com/)** | Snow 和 bubble 两种主题在 `forms/editors.html` 里有演示。 |
+| [SimpleMDE](https://simplemde.com/) | **[EasyMDE](https://github.com/Ionaru/easy-markdown-editor)** | EasyMDE *is* the maintained SimpleMDE fork — same API. |
+| [SimpleMDE](https://simplemde.com/) | **[EasyMDE](https://github.com/Ionaru/easy-markdown-editor)** | EasyMDE *就是* SimpleMDE 仍在维护的那个 fork——API 一模一样。 |
+| [iCheck / icheck-bootstrap](https://github.com/bantikyan/icheck-bootstrap) | **Native `.form-check`** | Bootstrap 5.3's own checkboxes and switches need no plugin. |
+| [iCheck / icheck-bootstrap](https://github.com/bantikyan/icheck-bootstrap) | **原生 `.form-check`** | Bootstrap 5.3 自带的复选框和开关压根不需要插件。 |
+| [bootstrap-colorpicker](https://itsjavi.com/bootstrap-colorpicker/) | **[Pickr](https://github.com/Simonwep/pickr)** | Or the native `<input type="color" class="form-control form-control-color">`. |
+| [bootstrap-colorpicker](https://itsjavi.com/bootstrap-colorpicker/) | **[Pickr](https://github.com/Simonwep/pickr)** | 或者用原生的 `<input type="color" class="form-control form-control-color">`。 |
+| [jQuery Knob](https://github.com/aterrien/jQuery-Knob) | **[ApexCharts](https://apexcharts.com/)** radial bar | |
+| [jQuery Knob](https://github.com/aterrien/jQuery-Knob) | **[ApexCharts](https://apexcharts.com/)** 径向条形图 | |
+| [jQuery UI sortable](https://jqueryui.com/sortable/) | **[SortableJS](https://sortablejs.github.io/Sortable/)** | Powers the kanban demo. |
+| [jQuery UI sortable](https://jqueryui.com/sortable/) | **[SortableJS](https://sortablejs.github.io/Sortable/)** | 看板演示就是靠它实现的。 |
+| [fullCalendar](https://fullcalendar.io/) (jQuery build) | **[FullCalendar 6](https://fullcalendar.io/)** | Same project — v5+ dropped jQuery. Used in `pages/calendar.html`. |
+| [fullCalendar](https://fullcalendar.io/)（jQuery 版本） | **[FullCalendar 6](https://fullcalendar.io/)** | 同一个项目——v5 之后就不依赖 jQuery 了。用在了 `pages/calendar.html` 里。 |
+| [Chart.js 2](https://www.chartjs.org/) | **[Chart.js 4](https://www.chartjs.org/)** / **[ApexCharts](https://apexcharts.com/)** | Chart.js was never jQuery-based; just a major bump. |
+| [Chart.js 2](https://www.chartjs.org/) | **[Chart.js 4](https://www.chartjs.org/)** / **[ApexCharts](https://apexcharts.com/)** | Chart.js 本来就不依赖 jQuery；只是跨了个大版本。 |
+| [dropzone](https://www.dropzone.dev/) | **[Dropzone 6](https://www.dropzone.dev/)** or **[FilePond](https://pqina.nl/filepond/)** | v6 is a plain-JS rewrite. |
+| [dropzone](https://www.dropzone.dev/) | **[Dropzone 6](https://www.dropzone.dev/)** 或 **[FilePond](https://pqina.nl/filepond/)** | v6 是用纯 JS 重写的。 |
+| [jQuery Overlay Scrollbars](https://kingsora.github.io/OverlayScrollbars/) | **Native `scrollbar-*` CSS** | AdminLTE 4 styles the sidebar scrollbar in CSS. |
+| [jQuery Overlay Scrollbars](https://kingsora.github.io/OverlayScrollbars/) | **原生 `scrollbar-*` CSS** | AdminLTE 4 用 CSS 给侧边栏的滚动条做了样式。 |
+| [toastr](https://github.com/CodeSeven/toastr) / [SweetAlert2](https://sweetalert2.github.io/) | **Bootstrap [toasts](https://getbootstrap.com/docs/5.3/components/toasts/)** / **[SweetAlert2](https://sweetalert2.github.io/)** | SweetAlert2 has been jQuery-free since v7. |
+| [toastr](https://github.com/CodeSeven/toastr) / [SweetAlert2](https://sweetalert2.github.io/) | **Bootstrap [toasts](https://getbootstrap.com/docs/5.3/components/toasts/)** / **[SweetAlert2](https://sweetalert2.github.io/)** | SweetAlert2 从 v7 起就不依赖 jQuery 了。 |
+Install snippets and wiring code for each replacement live on the [Recommended Integrations](integrations.html) page.
+每个替代方案的安装代码片段和接线代码都在 [推荐集成](integrations.html) 页面里。
+**Swap the third-party plugins** using the [replacement table](#third-party-plugin-replacements) above. Do this one widget at a time — it's the longest step, and each swap is independently testable.
+**替换掉第三方插件**，参照上面的[替代方案对照表](#third-party-plugin-replacements)。一次换一个组件——这是最耗时的一步，而且每换一个都可以单独测试。
+`adminlte-select2.css` is opt-in and only needed if your app loads [Select2](integrations.html#select2-compatibility-theme); it is not part of `adminlte.css`. `adminlte-docs.css` styles the documentation pages only — never ship it.
+`adminlte-select2.css` 是按需启用的，只有你的应用加载了 [Select2](integrations.html#select2-compatibility-theme) 时才需要它；它不属于 `adminlte.css` 的一部分。`adminlte-docs.css` 只用来给文档页面做样式——千万别把它发布到生产环境。
+##### Anatomy
+##### 结构
+Optional stylesheets get the same treatment — the [Select2 compatibility theme](integrations.html#select2-compatibility-theme), for instance, ships as `adminlte-select2.rtl.css` / `.rtl.min.css` alongside its LTR build.
+可选的样式表也是同样的待遇 —— 比如 [Select2 兼容主题](integrations.html#select2-compatibility-theme)，除了 LTR 版本之外，还一并提供了 `adminlte-select2.rtl.css` / `.rtl.min.css`。

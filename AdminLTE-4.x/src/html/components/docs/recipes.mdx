@@ -137,6 +137,45 @@ setActiveSidebarItem(window.location.pathname)
 
 将此代码放在 `.app-header` 中的 `<ul class="navbar-nav ms-auto">` 内部。
 
+##### 一个与真实语言环境联动的语言切换器
+
+演示版的顶栏自带一个语言下拉菜单，但光有这点标记其实什么都变不了——切换语言区域是应用自己的活儿，而且做砸了还不如不做。下面这套模式涵盖了语言切换器真正必须做对的那些事。
+
+```html
+<li class="nav-item dropdown">
+  <a class="nav-link" href="#" id="language-menu" data-bs-toggle="dropdown"
+     aria-expanded="false" aria-label="Change language, current language English">
+    <i class="bi bi-translate" aria-hidden="true"></i>
+  </a>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="language-menu">
+    <li>
+      <a class="dropdown-item active" href="/en/dashboard" hreflang="en" aria-current="true">
+        English <i class="bi bi-check-lg ms-2" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li><a class="dropdown-item" href="/es/dashboard" hreflang="es">Español</a></li>
+    <li><a class="dropdown-item" href="/ar/dashboard" hreflang="ar">العربية</a></li>
+  </ul>
+</li>
+```
+
+四件事决定了语言切换器是真能用还是纯摆设：
+
+1. **每一项都是一个真正的链接，指向同一页面在另一种语言区域下的版本**，而不是一个带点击事件的 `#`。链接可以被收藏、被爬虫抓取、能新标签页打开，而且在你的 JavaScript 加载之前就能用。再加上 `hreflang`，这样辅助技术能播报语言变化，搜索引擎也能把对应的 URL 配对起来。
+2. **语言区域应该放在 URL 里**（比如 `/es/dashboard`），或者放在服务器能读取的 cookie 里——而不是放在 `localStorage` 里。服务端渲染的 HTML 必须在渲染*之前*就知道语言区域是什么，而 `localStorage` 要等页面已经以错误语言发出去了之后才能读到。
+3. **标记当前语言**，同时用上 `.active` 和 `aria-current="true"`，并在切换按钮的 `aria-label` 里写明当前语言。光有一个国旗图标并不能代表一门语言：好几种语言共用一个国旗，也有好几个国家共用一门语言。
+4. **切换到 RTL（从右到左）语言区域时，需要配套的 RTL 样式表**，光加个 `dir` 属性是不够的。要同时提供 `adminlte.rtl.css` 并设置 `<html lang="ar" dir="rtl">`——详见 [RTL 支持](rtl.html)。
+
+如果你的语言区域放在 URL 里，那么由服务器来挑样式表，切换器本身就可以保持纯标记：
+
+```html
+<!-- 按请求、基于当前激活的语言区域实时渲染 -->
+<html lang="ar" dir="rtl">
+  <link rel="stylesheet" href="/css/adminlte.rtl.css">
+```
+
+对于客户端渲染的应用，要在路由层面做同样的事——切换语言区域、重新渲染、替换样式表的 `href`——而不是就地去翻译文本节点。
+
 ##### KPI 卡片（small-box）
 
 大多数仪表盘顶部的彩色统计框：

@@ -20,7 +20,7 @@
 {deploymentPath + "assets/overlayscrollbars/overlayscrollbars.browser.es6.min.js"}
 "https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css"
 {deploymentPath + "assets/overlayscrollbars/overlayscrollbars.min.css"}
-"https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
+"https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
 {deploymentPath + "assets/bootstrap/bootstrap.min.js"}
 "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
 {deploymentPath + "assets/popperjs/popper.min.js"}
@@ -36,6 +36,8 @@
 {deploymentPath + "assets/quill/quill.bubble.css"}
 "https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"
 {deploymentPath + "assets/quill/quill.js"}
+"https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.20/locales-all.global.min.js"
+{deploymentPath + "assets/fullcalendar/locales-all.global.min.js"}
 "AdminLTE v4 | Dashboard"
 "AdminLTE v4 | 仪表盘"
 Dashboard
@@ -963,7 +965,7 @@ Dropdown link
 Collapse</
 可折叠</
 Link with href
-链接到 href
+带 href 的链接
 Button with data-bs-target
 带有 data-bs-target 的按钮
 Some placeholder content for the collapse component.
@@ -2441,7 +2443,7 @@ Overview
 Layout Plugin
 布局插件
 Pushmenu Plugin
-Pushmenu 插件
+PushMenu 插件
 START HERE
 开始
 >FOUNDATIONS
@@ -2508,8 +2510,12 @@ a: `Bootstrap 5.3.x. The current <code>package.json</code> pins 5.3.8 — older 
 a: `Bootstrap 5.3.x。当前 <code>package.json</code> 锁定为 5.3.8——更早的 5.3 小版本应该也能用，但未经测试。Bootstrap 5.0 / 5.1 / 5.2 将无法使用（颜色模式和 <code>data-bs-theme</code> 系统是在 5.3 中引入的）。`
 q: "Can I use AdminLTE 4 with jQuery?",
 q: "我可以在 AdminLTE 4 中使用 jQuery 吗？",
-a: `You don't <em>need</em> jQuery — AdminLTE 4's JavaScript is vanilla. If your existing app already uses jQuery, it'll coexist fine. But none of AdminLTE 4's own plugins call into jQuery, and there are no <code>$.fn.xxx()</code> plugin shims.`
-a: `你<em>不需要</em> jQuery——AdminLTE 4 的 JavaScript 是原生 JS。如果你现有的应用已经使用了 jQuery，它们可以很好地共存。但 AdminLTE 4 自身的插件都不会调用 jQuery，也没有 <code>$.fn.xxx()</code> 这类插件垫片。`
+a: `You don't <em>need</em> jQuery — AdminLTE 4's JavaScript is vanilla. If your existing app already uses jQuery, it'll coexist fine. But none of AdminLTE 4's own plugins call into jQuery, and there are no <code>$.fn.xxx()</code> plugin shims.<br /><br />The v3 <code>plugins/</code> folder is gone too. Every widget it bundled has a vanilla-JS successor — see the <a href="migration.html#third-party-plugin-replacements">plugin replacement table</a> for the full mapping (Select2 → Tom Select, DataTables → Tabulator, Summernote → Quill, and so on).`
+a: `你<em>不需要</em> jQuery —— AdminLTE 4 的 JavaScript 是原生的。如果你现有的应用本来就在用 jQuery，两者可以和平共处。但 AdminLTE 4 自己的插件没有一个会调用 jQuery，也没有 <code>$.fn.xxx()</code> 这类插件挂载。<br /><br />v3 的 <code>plugins/</code> 文件夹同样没了。它当年打包的每个组件都有对应的原生 JS 继任者——完整的对应关系见<a href="migration.html#third-party-plugin-replacements">插件替代对照表</a>（Select2 → Tom Select、DataTables → Tabulator、Summernote → Quill，等等）。`
+q: "Does AdminLTE 4 support Select2?",
+q: "AdminLTE 4 支持 Select2 吗？",
+a: `AdminLTE 4 recommends <a href="https://tom-select.js.org/" target="_blank" rel="noopener">Tom Select</a> instead. It covers everything people reach for Select2 to do — searchable dropdowns, multi-select, tagging, clearable selections, AJAX-backed options, virtual scrolling over large datasets, keyboard navigation — in roughly <strong>20&nbsp;kB gzip</strong>, against Select2's <strong>~50&nbsp;kB</strong> once jQuery is counted. <code>forms/advanced.html</code> demos all of it, including a paginated remote-data field with request cancellation, and there's a <a href="../forms/advanced.html#select2">line-by-line API mapping</a> if you're porting existing code.<br /><br />Select2 itself is still maintained (4.1.0 shipped in 2026), but it is still a jQuery plugin — its UMD wrapper hard-requires jQuery and there is no jQuery-free build. Bundling it would put jQuery back into a framework whose entire v4 premise is not needing it, and none of the official Vue/React/Django/Laravel ports could consume it.<br /><br />If you're locked into Select2 anyway, AdminLTE ships an optional <strong>styling-only</strong> compatibility sheet — see <a href="integrations.html#select2-compatibility-theme">Select2 compatibility theme</a>. You bring the plugin; it makes Select2 match Bootstrap 5.3, dark mode and modals included. No jQuery is added to AdminLTE.`
+a: `AdminLTE 4 建议改用 <a href="https://tom-select.js.org/" target="_blank" rel="noopener">Tom Select</a>。大家平时用 Select2 想做的事，它全都能干 —— 可搜索下拉框、多选、打标签、可清除的选择项、AJAX 加载选项、大数据集下的虚拟滚动、键盘导航 —— 而体积大约只有 <strong>20&nbsp;kB gzip</strong>，Select2 算上 jQuery 之后大约是 <strong>~50&nbsp;kB</strong>。<code>forms/advanced.html</code> 把这些都演示了一遍，包括一个带请求取消的分页远程数据字段；如果你要移植现有代码，还有一份<a href="../forms/advanced.html#select2">逐行 API 对照</a>。<br /><br />Select2 本身仍在维护（4.1.0 于 2026 年发布），但它依然是个 jQuery 插件 —— 它的 UMD 包装强制依赖 jQuery，也没有不依赖 jQuery 的构建版本。把它打包进来，等于把 jQuery 又塞回一个整个 v4 前提就是“不需要 jQuery”的框架里，而且官方的 Vue/React/Django/Laravel 移植版没一个能用它。<br /><br />如果你就是被 Select2 锁死了，AdminLTE 提供了一个可选的 <strong>纯样式</strong>兼容样式表 —— 见 <a href="integrations.html#select2-compatibility-theme">Select2 兼容主题</a>。插件你自己带；它能让 Select2 跟 Bootstrap 5.3 保持一致，深色模式和模态框也都涵盖在内。AdminLTE 本身不会引入 jQuery。`
 Framework integrations
 框架整合
 q: "Can AdminLTE be used with WordPress?",
@@ -3154,3 +3160,545 @@ Type to search people…
 输入以搜索人员...
 Edit in place
 就地编辑
+Filter menu
+搜索
+No matching pages.
+没有匹配到页面。
+Search Results
+搜索结果
+"Search…"
+"搜索…"
+Social &amp; Post
+社交 &amp; 发布
+Social & Post Widgets
+社交 & 动态组件
+Widgets - Social & Post
+组件 - 社交 & 发布
+User widgets
+用户组件
+Lead Developer
+开发主管
+Projects
+项目
+Tasks
+任务
+Completed Projects
+已完成项目
+Followers
+关注
+Social feed
+动态
+Jonathan Burke Jr.
+小乔纳森·伯克
+Shared publicly &middot; 7:30 PM today
+分享 &middot; 19:30
+I took this photo this morning. What do you guys think?
+我今天早上拍了这张照片。你们觉得怎么样？
+> Share
+> 分享
+> Like
+> 点赞
+45 likes &middot; 2 comments
+45个赞 &middot; 2条评论
+Maria Gonzales
+玛丽亚·冈萨雷斯
+Posted 5 minutes ago
+5分钟前发布
+It is a long established fact that a reader will be
+众所周知，
+distracted by the readable content of a page.
+读者会因页面中可读的内容而分心。
+Nora Havisham
+诺拉·哈维沙姆
+Posted 27 minutes ago
+27分钟前发布
+The point of using Lorem Ipsum is that it has a
+马驴儿成功地用枪托在装甲车体上制造出一声巨大的响动，
+more-or-less normal distribution of letters.
+代价是枪托不知道飞到哪里去了。
+Write a comment
+评论
+Type a comment
+发表评论
+Latest activity
+最新活动
+Lorem ipsum represents a long-held tradition for
+他是望闻问切加摸心脏看舌头，主观加客观地乱用，
+designers, typographers and the like.
+可以说他用尽一切在无器械情况下能用的诊疗手段，但没有任何治疗手段。
+Sarah Ross
+莎拉·罗斯
+Sent you a message &middot; 3 days ago
+给你发了一条消息 &middot; 三天前
+Sed ut perspiciatis unde omnis iste natus error sit
+“我刚收到的消息，虞师座已经干过怒江啦，歼敌双万，正率精兵直扑密支那！”
+voluptatem accusantium doloremque laudantium.
+我们再一次面面相觑，看他像看神经病。
+Adam Jones
+亚当·琼斯
+Posted 5 photos &middot; 1 week ago
+发布了5张照片 &middot;  1周前
+>Pages
+>页面
+The warning, info and light outlines draw their text in a
+warning、info 和 light 这三种描边样式用的是浅色文字，
+light colour, which drops below the 4.5:1 contrast
+放在浅色背景上对比度会掉到 4.5:1 的最低要求以下。
+minimum on a light surface. Put them on a dark one:
+把它们放到深色背景上就行：
+Nav Tabs &amp; Pills
+导航标签页 &amp; 胶囊标签
+Home
+首页
+Tab panes are plain Bootstrap 5 — AdminLTE only styles
+标签面板本身用的就是原生的 Bootstrap 5——
+the surrounding card.
+AdminLTE 只负责给它外面那层卡片加点样式。
+Give every trigger a <code>data-bs-target</code> and the
+给每个触发按钮加上一个 <code>data-bs-target</code>，
+matching pane an <code>id</code>.
+再给对应的面板加上一个匹配的 <code>id</code>。
+Use <code>&lt;button&gt;</code> triggers rather than
+用 <code>&lt;button&gt;</code> 来做触发元素，
+links: they are focusable without a href and need no
+而不是用链接：按钮不需要 href 就能获得焦点，
+<code>preventDefault</code>.
+也不用调 <code>preventDefault</code>。
+Active
+活动
+Link
+链接
+Disabled
+禁用
+Pills use the same markup with
+胶囊导航使用，
+<code>data-bs-toggle="pill"</code>.
+<code>data-bs-toggle="pill"</code>。
+Add <code>.flex-column</code> to the list for a vertical
+给列表加上 <code>.flex-column</code>，
+pill nav.
+胶囊导航就变成垂直排列了。
+>Modal
+>模态框
+Default
+默认
+Scrollable
+可滚动
+Fullscreen below lg
+lg 以下全屏
+>Close
+>关闭
+Centered modal
+居中弹框
+centres the dialog in the viewport.
+让对话框居中。
+Scrollable body
+可滚动区域
+ With <code>.modal-dialog-scrollable</code> the body
+加上 <code>.modal-dialog-scrollable</code> 之后，
+scrolls instead of the page, so the header and
+滚动的是模态框的内容区而不是整个页面，
+ooter stay put.
+这样头部和底部就会固定不动。
+Lorem ipsum dolor sit amet, consectetur adipiscing
+“我刚收到的消息，虞师座已经干过怒江啦，歼敌双万，正率精兵直扑密支那！”
+elit. Integer posuere erat a ante.
+我们再一次面面相觑，看他像看神经病。
+Cras mattis consectetur purus sit amet fermentum.
+“……这个，不可能吧。”阿译很怀疑。
+Cras justo odio, dapibus ac facilisis in.
+“最好的都不信，干吗要信最坏的？”
+Aenean lacinia bibendum nulla sed consectetur.
+迷龙又拿回了他的机枪，这回是七点九二的捷克造，豆饼又背着大堆零件弹药在他身后连呼带喘。
+Praesent commodo cursus magna.
+郝兽医背了足三个医药箱。丧门星又背了砍刀。
+Donec ullamcorper nulla non metus auctor
+不辣像在南天门上时一样，连绳子带装具在自己身上绑满了长柄手榴弹
+fringilla. Nullam quis risus eget urna mollis.
+——不管愿与不愿，我们关于战争的记忆多少复苏。
+<code>.modal-fullscreen-lg-down</code> fills the
+<code>.modal-fullscreen-lg-down</code> 会让模态框在手机和平板上占满整个屏幕，
+screen on phones and tablets, then falls back to a
+而从 <code>lg</code> 断点往上就恢复成普通的对话框
+regular dialog from the <code>lg</code> breakpoint
+——对于字段密集的后台表单来说，
+up — a good default for dense admin forms.
+是个很不错的默认选择。
+>Offcanvas
+>侧边栏
+Offcanvas panels are useful for filters and detail views
+侧边栏面板很适合用来放筛选器和详情视图，
+that would otherwise crowd a dashboard. They are separate
+不然这些东西会把仪表盘挤得满满当当。
+from the AdminLTE sidebar, which has its own
+它跟 AdminLTE 的侧边栏是两回事
+<code>PushMenu</code> plugin.
+——侧边栏有自己专用的 <code>PushMenu</code> 插件。
+From the end
+右侧滑出
+From the bottom
+底部滑出
+Filters
+过滤
+Status
+状态
+>Any
+>任意
+>Open
+>打开
+>Closed
+>关闭
+Include archived
+包含归档
+Bottom placement
+底部位置
+Placement classes are
+位置类分别是
+Ribbons"
+丝带"
+// The corner banner takes its colour from a Bootstrap `.text-bg-*` utility.
+// 角落横幅的颜色来自 Bootstrap 的 `.text-bg-*` 工具类。
+// Labels are short on purpose: only about 64px of the band is visible at the
+// 标签故意做得很短：默认尺寸下只有大约 64px 的色带可见，
+// default size, so a long word is cut by the corner rather than ellipsised.
+// 所以词太长的话会直接被角落裁掉，而不是显示成省略号。
+A ribbon is pinned to the top corner of its nearest positioned
+丝带会固定在其最近的已定位祖先元素的顶部角落。
+ancestor. Cards are already positioned, so
+卡片本身就已经是定位元素了，
+<code>.ribbon-wrapper</code> works inside one as-is — on any
+所以 <code>.ribbon-wrapper</code> 直接放在卡片里就能用
+other element, add <code>.position-relative</code> to the
+——如果放在其他元素上，
+parent.
+就得给父元素加上 <code>.position-relative</code>。
+Keep labels short. The banner is clipped to the corner, so only
+标签要写短一点。
+about <code>64px</code> of it is readable at the default size —
+横幅是被裁剪到角落里的，
+roughly six characters. Step up to
+默认尺寸下大概只有 <code>64px</code> 能看得见——差不多六个字符。
+<code>.ribbon-lg</code> or <code>.ribbon-xl</code> for longer
+词比较长的话，就往上用
+words.
+<code>.ribbon-lg</code> 或 <code>.ribbon-xl</code>。
+Colors<
+颜色<
+Large<
+大号<
+Extra large
+特大号
+Outside a card
+卡片之外
+Any positioned element
+任何定位元素
+The wrapper only needs an ancestor with
+这个包裹元素只需要有个祖先元素带 <code>position: relative</code> 就行。
+<code>position: relative</code>. Add
+如果父元素是圆角的，
+<code>.overflow-hidden</code> as well when the parent is
+还要再加上 <code>.overflow-hidden</code>，
+rounded, so the banner is clipped to the corner radius.
+这样横幅才会被裁剪成跟圆角一致。
+Linked<
+链接<
+Interactive ribbon
+交互式丝带
+A ribbon can wrap a link. It inherits whatever contrast
+丝带里面可以包裹一个链接。
+colour the utility picked, so the label stays readable in
+它会继承工具类选好的对比色，所以不管在哪种颜色模式下，
+both colour modes.
+标签文字都能保持清晰可读。
+Ribbons<
+丝带<
+Start typing to filter the list; the &times; button clears the
+开始输入即可筛选列表；&times; 按钮
+selection (<code>clear_button</code>).
+用来清除选择（<code>clear_button</code>）。
+Remote data with pagination
+带分页的远程数据
+Backed by 72 records behind a stubbed endpoint. Typing is
+背后是一个模拟接口，挂着 72 条记录。
+debounced (<code>loadThrottle</code>), stale requests are
+输入做了防抖处理（<code>loadThrottle</code>），
+cancelled with <code>AbortController</code>, and scrolling to the
+过期的请求会用 <code>AbortController</code> 取消掉，
+bottom of the list pulls the next page
+滚动到列表底部时会自动加载下一页
+(<code>virtual_scroll</code>).
+（<code>virtual_scroll</code>）。
+Coming from Select2?
+来自 Select2？
+is still maintained, but it is still a jQuery plugin &mdash; there
+目前仍在维护，但它依然是个 jQuery 插件 &mdash; 没有不依赖 jQuery 的构建版本。
+is no jQuery-free build. Tom Select covers the same feature set in
+Tom Select 能覆盖同样的功能集，
+roughly <strong>20&nbsp;kB gzip</strong>, against Select2's
+体积大约只有 <strong>20&nbsp;kB gzip</strong>，
+<strong>~50&nbsp;kB</strong> once jQuery is counted. The API maps
+而 Select2 算上 jQuery 之后大约是 <strong>~50&nbsp;kB</strong>。
+across almost one-to-one:
+两者的 API 几乎可以一一对应：
+Select2 options and methods mapped to their Tom Select equivalents
+将 Select2 的选项和方法映射到其 Tom Select 对应的版本
+Not needed &mdash; the dropdown renders inline
+无需——下拉菜单以内联方式显示
+Locked into Select2 for now? AdminLTE ships a styling-only
+暂时还锁死在 Select2 上？AdminLTE 提供了一个纯样式的
+>Select2 compatibility theme</a>
+>Select2 兼容主题</a>，
+that makes it match Bootstrap 5.3 &mdash; including dark mode and
+让它看起来和 Bootstrap 5.3 一致 &mdash; 包括深色模式和模态框里的下拉菜单。
+dropdowns inside modals. No jQuery is added to AdminLTE itself; you
+AdminLTE 本身不会引入 jQuery；插件你自己带，
+bring the plugin, we style it.
+样式我们来搞定。
+Tom Select: single select with search and a clear button
+Tom Select：单选，带搜索和确定按钮
+Tom Select: multi-select with removable tags (type to add new ones)
+Tom 选择：可移除标签的多选（输入以添加新标签）
+// Tom Select: remote data, the way you'd wire a select backed by a table
+// Tom Select：远程数据，就是那种给一个背后有几千行数据的表绑定下拉框的写法。
+// with thousands of rows. Only the matching page is ever loaded.
+// 永远只加载匹配的那一页数据。
+"Olivia", "Liam", "Emma", "Noah", "Ava", "Ethan", "Sofia", "Lucas",
+"奥利维亚", "利亚姆", "艾玛", "诺亚", "艾娃", "伊桑", "索菲亚", "卢卡斯",
+"Mia", "Mateo", "Isla", "Arjun", "Nora", "Hugo", "Yuki", "Amara",
+"米娅", "马特奥", "艾拉", "阿尔琼", "诺拉", "雨果", "由纪", "阿玛拉",
+"Elena", "Omar", "Freya", "Diego", "Leila", "Jonas", "Priya", "Marek"
+"埃琳娜", "奥马尔", "芙蕾雅", "迭戈", "莱拉", "乔纳斯", "普里娅", "马雷克"
+Stands in for a database table.
+代表数据库表的占位符。
+// Stand-in for a real endpoint. To go live, replace the whole body with:
+// 这是一个真实接口的替身（模拟实现）。要上线对接真实接口的话，把整个函数体换成：
+// The { results, next } response shape is what the loader below expects
+// { results, next } 这种响应结构正是下面这个加载器所期望的
+// — and it's the same shape Select2's `ajax.processResults` users return.
+// —— 也是 Select2 用户在 `ajax.processResults` 里返回的同一种结构。
+Tom Select debounces `load` for you — no hand-rolled timer needed.
+Tom Select 为你自动处理 `load`，无需手动设置计时器。
+Pages in the next batch when the dropdown is scrolled to the bottom.
+下拉菜单滚动到底部时，下一组的页面。
+// Tom Select invokes `load` with the instance as `this`; that's how
+// Tom Select 调用 `load` 时会把实例作为 `this` 传进来；virtual_scroll 插件
+// the virtual_scroll plugin hands over getUrl() and setNextUrl().
+// 就是通过这种方式把 getUrl() 和 setNextUrl() 交到手里的。
+// Cancel the request already in flight, so a slow response for "an"
+// 把已经在请求中的那个取消掉，
+// can't land after the fast one for "anna".
+// 免得搜 "an" 的慢响应在搜 "anna" 的快响应之后才回来。
+// An aborted request was replaced by a newer one — let that one
+// 被中止的那个请求已经被更新的请求取代了——让新的那个去处理下拉框的结果，
+// resolve the dropdown instead of clearing it here.
+// 这里就别去清空它了。
+Loading more…
+加载更多...
+End of results
+没有更多结果了
+const table = new Tabulator("#users-table", {
+const table = new Tabulator("#users-table", { locale: "zh-cn", langs: { "zh-cn": { pagination: { page_size: "每页条数", first: "首页", first_title: "首页", last: "末页", last_title: "末页", prev: "上一页", prev_title: "上一页", next: "下一页", next_title: "下一页", all: "全部" }, headerFilters: { default: "过滤列..." } } },
+Gallery<
+画廊<
+Gallery"
+画廊"
+// The grid is plain Bootstrap — a ratio box plus `.object-fit-cover` — so the
+// 这个网格布局用的就是原生 Bootstrap —— 一个比例盒子加上 `.object-fit-cover` ——
+// page carries no image library at all. Categories drive the filter buttons.
+// 所以整个页面完全不依赖任何图片库。分类用来驱动筛选按钮。
+// Titles describe the bundled image each tile actually shows — the demo assets
+// 标题描述的是每个格子实际展示的那张内置图片 —— 演示素材包括一个产品
+// are one product (a hiking boot, shot from five angles), two streetscapes, an
+//（一只登山靴，从五个角度拍摄）、两张街景、
+// interior and a portrait.
+// 一张室内照和一张人像。
+{ file: "photo1.png", title: "Old town at dusk", category: "places", meta: "4.2 MB · 3840×2160" },
+{ file: "photo1.png", title: "黄昏下的老城", category: "风景", meta: "4.2 MB · 3840×2160" },
+{ file: "prod-1.jpg", title: "Trail boot, three-quarter", category: "products", meta: "1.1 MB · 1600×1600" },
+{ file: "prod-1.jpg", title: "登山靴，四分之三侧视", category: "产品", meta: "1.1 MB · 1600×1600" },
+{ file: "photo3.jpg", title: "Reading by lamplight", category: "people", meta: "3.8 MB · 3200×2133" },
+{ file: "photo3.jpg", title: "灯下阅读", category: "人物", meta: "3.8 MB · 3200×2133" },
+{ file: "prod-2.jpg", title: "Trail boot, profile", category: "products", meta: "980 KB · 1600×1600" },
+{ file: "prod-2.jpg", title: "登山靴，侧面", category: "产品", meta: "980 KB · 1600×1600" },
+{ file: "photo2.png", title: "Dining area, morning", category: "interiors", meta: "2.6 MB · 2560×1707" },
+{ file: "photo2.png", title: "用餐区，清晨", category: "室内", meta: "2.6 MB · 2560×1707" },
+{ file: "prod-3.jpg", title: "Trail boot, outsole", category: "products", meta: "1.4 MB · 1600×1600" },
+{ file: "prod-3.jpg", title: "登山靴，外底", category: "产品", meta: "1.4 MB · 1600×1600" },
+{ file: "photo4.jpg", title: "Canal at first light", category: "places", meta: "3.1 MB · 3000×2000" },
+{ file: "photo4.jpg", title: "晨光中的运河", category: "风景", meta: "3.1 MB · 3000×2000" },
+{ file: "prod-4.jpg", title: "Trail boot, heel detail", category: "products", meta: "1.2 MB · 1600×1600" },
+{ file: "prod-4.jpg", title: "登山靴，后跟细节", category: "产品", meta: "1.2 MB · 1600×1600" },
+{ file: "photo2.png", title: "Dining area, wide", category: "interiors", meta: "2.6 MB · 2560×1707" },
+{ file: "photo2.png", title: "用餐区，广角", category: "室内", meta: "2.6 MB · 2560×1707" },
+{ file: "prod-5.jpg", title: "Trail boot, upper", category: "products", meta: "1.0 MB · 1600×1600" },
+{ file: "prod-5.jpg", title: "登山靴，鞋面", category: "产品", meta: "1.0 MB · 1600×1600" },
+{ file: "photo1.png", title: "Narrow street", category: "places", meta: "4.2 MB · 3840×2160" },
+{ file: "photo1.png", title: "窄巷", category: "风景", meta: "4.2 MB · 3840×2160" },
+{ file: "photo4.jpg", title: "Canal, long exposure", category: "places", meta: "3.1 MB · 3000×2000" }
+{ file: "photo4.jpg", title: "运河，长曝光", category: "风景", meta: "3.1 MB · 3000×2000" }
+{ value: "all", label: "All" },
+{ value: "all", label: "全部" },
+{ value: "places", label: "Places" },
+{ value: "风景", label: "风景" },
+{ value: "products", label: "Products" },
+{ value: "产品", label: "产品" },
+{ value: "interiors", label: "Interiors" },
+{ value: "室内", label: "室内" },
+{ value: "people", label: "People" }
+{ value: "人物", label: "人物" }
+Media library
+媒体库
+Download<
+下载<
+Rename<
+改名<
+Delete
+删除
+Nothing in this category yet.
+此分类下尚无内容。
+ Upload
+ 上传
+Showing ${shown} of ${tiles.length} items
+显示 ${shown} / ${tiles.length} 项
+Search Results
+搜索结果
+// Results are typed, because an admin search returns more than documents —
+// 结果是有类型区分的，因为后台搜索返回的不只是文档——
+// the icon and the badge are what let someone scan the list.
+// 图标和徽章才是让人能快速扫一眼列表、找到目标的关键。
+"Updated
+"更新于
+"Invoice
+"发票编号
+Issued 2 August 2026 to Colorlib Ltd. Contains 4 line items totalling $2,310.00, due in 14 days.
+2026 年 8 月 2 日开具给 Colorlib 有限公司。包含 4 个明细项，共计 2,310.00 美元，14 天内到期。
+Invoice template settings
+发票模板设置
+Configure the default invoice footer, tax rate and payment terms applied to every new invoice.
+配置默认的发票页脚、税率和付款条件，这些设置会应用到每一张新发票上。
+Billing administrator · Raised 18 invoices this quarter · alexander.pierce@example.com
+账单管理员 · 本季度已开具 18 张发票 · alexander.pierce@example.com
+Active 12 minutes ago
+12 分钟前活跃
+Archive · 48.2 MB · Uploaded by Nadia Carmichael to Finance / Archive.
+归档 · 48.2 MB · 由 Nadia Carmichael 上传至 Finance / Archive。
+12 Jan 2026
+2026年1月12日
+Invoicing rebuild
+发票功能重构
+6 of 11 tasks complete. Blocked on the payment-provider migration; next milestone 30 September.
+11 项任务已完成 6 项。目前卡在支付服务商迁移上；下一个里程碑是 9 月 30 日。
+3 open tasks
+3 个待办任务
+"Pages"
+"页面"
+"Files"
+"文件"
+"Projects"
+"项目"
+Search
+搜索
+<strong>{tabs[0].count}</strong> results for
+<strong>&ldquo;{query}&rdquo;</strong> 有
+<strong>&ldquo;{query}&rdquo;</strong> &middot; 0.21 seconds
+<strong>{tabs[0].count}</strong> 条结果 &middot; 耗时 0.21 秒
+>Refine
+>搜索
+Date range
+日期范围
+Any time
+所有时间
+Past 24 hours
+近 24 小时
+Past week
+近一周
+Past month
+近一个月
+>Owner
+>所有者
+>Anyone
+>任何人
+>Me
+>我
+>My team
+>我的团队
+>Include
+>包含
+Archived items
+归档项目
+Trashed items
+已删除项目
+Apply
+应用
+Reset
+重置
+Related searches
+相关搜索
+invoice template
+发票模板
+overdue invoices
+逾期发票
+invoice pdf export
+PDF 发票导出
+tax rate
+税率
+No results state
+无结果
+Nothing matched &ldquo;quarterly forecast&rdquo;
+没有匹配到 &ldquo;季度预测&rdquo; 的结果
+Check the spelling, use fewer words, or clear the filters
+检查一下拼写，少输几个词，
+on the left.
+或者清空左侧的筛选条件。
+Clear filters
+清除条件
+You forgot your password? Here you can easily retrieve a new password.
+忘记密码了？在这里可以轻松重置一个新密码。
+Filter docs…
+筛选文档...
+<!--begin::Theme Init (prevents flash of incorrect theme on load, #6043)-->
+<!--begin::主题初始化（防止加载时闪现错误的主题，#6043）-->
+// Applications with their own theming opt out of AdminLTE's color mode
+// 自带主题系统的应用会完全退出 AdminLTE 的颜色模式，
+// entirely, here as well as in the bundle.
+// 这里如此，打包后的文件里也一样。
+localStorage may be unavailable (private mode, sandboxed iframe).
+localStorage 可能不可用（比如隐私模式、沙盒 iframe 里）。
+// Mirror the precedence in color-mode.ts: the visitor's stored choice
+// 和 color-mode.ts 里的优先级保持一致：访客存储的选择优先，
+// wins, then a theme this page declared itself, then the OS preference.
+// 其次是页面自己声明的主题，最后才是操作系统偏好。
+// Flag values computed here, so the bundle does not mistake them for a
+// 在这里标记一下这些值是动态计算出来的，免得打包后的代码把它们误当成
+// theme the page declared and stop following the OS preference.
+// 页面自己声明的主题，从而不再跟随操作系统偏好。
+Skip links will be dynamically added by accessibility.js
+跳转链接将由 accessibility.js 动态添加
+Card Component
+卡片组件
+Miscellaneous Components
+其他组件
+SidebarSearch Plugin
+侧边栏搜索插件
+Top Nav
+顶部导航
+Elizabeth Pierce
+伊丽莎白·皮尔斯
+Web Designer
+网页设计师
+infinite scroll
+无限滚动
+Settings"
+设置"
+Invoice"
+发票"
+Calendar"
+日历"
+Card<
+卡片<
+Miscellaneous<
+其他组件<
+Sidebar Search
+侧边栏搜索
+Deployment & Performance
+部署与性能
