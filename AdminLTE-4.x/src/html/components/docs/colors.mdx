@@ -1,10 +1,10 @@
 import PaletteWheel from "./_palette-wheel.astro"
 import SkinPreview from "../_skin-preview.astro"
-import { palette, sets, skinGroups, skins } from "../../../utils/palette.mjs"
+import { palette, paletteV3, sets, skinGroups, skinGroupsV3, skins, skinsV3 } from "../../../utils/palette.mjs"
 
 AdminLTE 4 只用了 Bootstrap 5.3 的主题色来给自己做样式 —— `primary`、`success`、`danger`、`warning`、`info`、`secondary`、`light`、`dark` —— 除此之外没别的。这让 `adminlte.css` 保持得很小，但仪表盘的一行组件里经常想要不止五种色调，而且 AdminLTE 3 的老用户还惦记着 `.bg-navy`、`.bg-teal` 和那些侧边栏皮肤。
 
-**`dist/css/adminlte-colors.css`** 就是答案，而且是按需启用的：多加载一个样式表（gzip 后约 5 kB），就会以 `--bs-*` token 的形式加入十四种颜色，外加 Bootstrap 为自己主题色生成的那一整套类系列。对于不加载它的项目来说，什么都不变。
+**`dist/css/adminlte-colors.css`** 就是答案，而且是按需启用的：多加载一个样式表（gzip 后约 5 kB），就会以 `--bs-*` token 的形式加入十四种颜色，外加 Bootstrap 为自己主题色生成的那一整套类系列。对于不加载它的项目来说，什么都不变。更喜欢 AdminLTE 3 原封不动的颜色？还有一个专门的样式表 —— 见下面的[两套调色板](#two-palettes)。
 
 <div class="d-flex flex-wrap gap-2 my-3">
   {palette.map(c => (
@@ -37,6 +37,79 @@ import "admin-lte/dist/css/adminlte-colors.min.css"
 ```
 
 或者你自己编译 —— Sass 入口是 `src/scss/adminlte-colors.scss`，添加自己的颜色也是走这个入口（见下文）。另外还生成了一个 RTL 版本（`adminlte-colors.rtl.css`），是为了跟其他 CSS 保持形式上的对称；这个样式表里没有任何依赖方向的规则，所以两个文件在哪个方向下都能用。
+
+##### 两种调色板
+
+你可以选择**为 4.4 重新设计过的**那套颜色（也就是本页面的默认值，见下文），或者**AdminLTE 3 原封不动的原版颜色**。它们以两个文件的形式发布，定义的是同一批类名、只是取值不同，所以只要在 `adminlte.css` 之后加载其中**一个**就行：
+
+| 文件 | 你能得到什么 | 文字颜色规则 |
+|---|---|---|
+| `dist/css/adminlte-colors.css` | 在 OKLCH 里设计的 14 种颜色 —— orange、amber、olive、teal、sky、indigo、violet、fuchsia、pink、navy、steel、slate、graphite、midnight —— 每一种配白色文字都清晰可读，排布时也考虑到了要跟 Bootstrap 的主题色相邻 | Bootstrap 5 的 `color-contrast()`，4.5:1 |
+| `dist/css/adminlte-colors-v3.css` | 18 种 AdminLTE 3 颜色 —— lightblue、navy、olive、lime、fuchsia、maroon、blue、indigo、purple、pink、red、orange、yellow、green、teal、cyan、gray、gray-dark —— 取值和 3.2 版本构建时一样 | AdminLTE 3 的规则（Bootstrap 4 YIQ）：lightblue、olive、teal、cyan 等配白色；lime、orange、yellow 配深色 |
+
+两者输出的类系列完全一样（`.bg-*`、`.text-bg-*`、`.text-*`、`.border-*`、`.link-*`、`.bg-gradient-*`、`.card-*`、`.callout-*`、`.direct-chat-*`，以及带深色模式变体的 token），所以本页面讲的任何内容对两者都适用。演示页面可以让你在两者之间实时切换：<a href="../UI/colors.html">颜色演示</a>和<a href="../generate/theme.html">主题自定义</a>都有一个调色板切换开关。
+
+```html
+<!-- either the designed palette … -->
+<link rel="stylesheet" href="css/adminlte-colors.css" />
+<!-- ……或者 AdminLTE 3 的原始版本，两者不要同时使用 -->
+<link rel="stylesheet" href="css/adminlte-colors-v3.css" />
+```
+
+AdminLTE 3 的原版颜色，以及每种颜色配白色文字能达到的对比度 —— 其中好几种都低于 WCAG AA 对正文要求的 4.5:1，跟 v3 里一模一样；这就是保持原样的代价：
+
+<div class="table-responsive">
+  <table class="table align-middle">
+    <thead>
+      <tr>
+        <th scope="col">名称</th>
+        <th scope="col">十六进制</th>
+        <th scope="col">文本（v3 规则）</th>
+        <th scope="col">白色文字</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {paletteV3.map(c => (
+        <tr>
+          <td class="text-nowrap">
+            <span class="badge me-2" style={`background:${c.hex}`}>&nbsp;&nbsp;&nbsp;</span>
+            <code>{c.name}</code>
+          </td>
+          <td><code>{c.hex}</code></td>
+          <td>{c.textColor === "white" ? "white" : "dark (#1f2d3d)"}</td>
+          <td class="text-nowrap">{c.contrastWhite.toFixed(1)}:1{c.textColor === "white" && c.contrastWhite < 4.5 ? " ⚠︎" : ""}</td>
+          <td class="text-body-secondary">{c.note}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+v3 那个样式表是用和设计版同一套 Sass 构建的 —— `src/scss/adminlte-colors-v3.scss` 把 `$lte-palette` 设成了 v3 的 map，并把 `$lte-palette-contrast` 设为 `"yiq"` —— 所以 `$lte-palette-custom`、`$lte-palette-aliases` 以及下面其余的那些对它也同样适用。它的皮肤预设来自 AdminLTE 2：彩色头部配 v3 的深色侧边栏（`text-bg-gray-dark`，也就是 `sidebar-dark-*` 那个确切的背景），或者配白色侧边栏：
+
+<div class="table-responsive">
+  <table class="table align-middle">
+    <thead>
+      <tr>
+        <th scope="col">皮肤</th>
+        <th scope="col">头部</th>
+        <th scope="col">侧边栏</th>
+        <th scope="col">v2/v3 name</th>
+      </tr>
+    </thead>
+    <tbody>
+      {skinsV3.map(s => (
+        <tr>
+          <td class="text-nowrap fw-semibold">{s.name}</td>
+          <td class="text-nowrap"><code>{s.header.cls}</code> · <code>{s.header.theme}</code></td>
+          <td class="text-nowrap"><code>{s.sidebar.cls}</code> · <code>{s.sidebar.theme}</code></td>
+          <td class="text-body-secondary">{s.note}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
 
 ##### 调色板
 
@@ -189,6 +262,7 @@ $lte-palette: (
 
 - `$lte-palette-aliases` —— 额外的名字，用来生成和某个已有条目相同的类。AdminLTE 3 的项目可以把旧类名找回来：`("lightblue": "sky", "maroon": "pink")`。
 - `$lte-palette-min-contrast-ratio` —— 当 Bootstrap 的 `color-contrast()` 为 `.text-bg-*`、`.bg-gradient-*` 和 `.card-*` 头部挑选自动文字颜色时，所要求的对比度。默认是 `4.5`（WCAG AA 对正文的要求）。如果某个自定义颜色配白色达不到这个值，文字就会翻成黑色；`3`（WCAG AA 对大号文字和 UI 组件的要求）是另一个站得住脚的设置。
+- `$lte-palette-contrast` —— 可选 `"wcag"`（默认）或 `"yiq"`，后者是 Bootstrap 4 / AdminLTE 3 用的亮度规则（`$lte-palette-yiq-threshold: 150`，深色文字为 `#1f2d3d`）。v3 那个样式表用的就是 `"yiq"`；如果你想让自定义调色板也按 v3 的方式来挑文字颜色，就把它设成 `"yiq"`。
 
 **怎么挑一个能用的品牌色。** 唯一要紧的一点，就是白色文字放在它上面能达到 4.5:1 —— 这才能保证 `.text-bg-brand`、小方盒和带品牌的侧边栏清晰可读，也是演示页面上的无障碍检查关卡所校验的东西。大多数品牌蓝、绿、紫都能过关；亮橙色、黄色和青色则不行。<a href="../UI/colors.html#brand-hex">演示页面上的检查器</a>会报出对比度，给出一个只调暗到刚好达标的同色相版本，当你的色相和已有颜色重叠时会提醒你，还会打印出对应的 Sass 代码片段。
 
@@ -257,4 +331,4 @@ v3 的扩展颜色有 `lightblue`、`navy`、`olive`、`lime`、`fuchsia`、`mar
 | `sidebar-dark-primary`, `navbar-light` … | `text-bg-*` + `data-bs-theme` | 见上文的<em>皮肤</em> |
 | `bg-gradient-*` | `bg-gradient-*` | 保留了，调色板和主题色都能用 |
 
-想在现有标记里继续用旧的类名，一行就能搞定：`$lte-palette-aliases: ("lightblue": "sky", "maroon": "pink");`。
+想让现有标记继续能用，有两种办法：加载 **`adminlte-colors-v3.css`**，这样每个 v3 名字都会带着原始取值回来（见[两套调色板](#两种调色板)）；或者用重新设计的那套调色板，加上一行别名配置 `$lte-palette-aliases: ("lightblue": "sky", "maroon": "pink");`。

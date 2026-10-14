@@ -16,7 +16,7 @@ type Section = { id: string; title: string; icon: string; tone: string; items: Q
 const sections: Section[] = [
   {
     id: "getting-started",
-    title: "入门指南",
+    title: "开始",
     icon: "rocket-takeoff",
     tone: "primary",
     items: [
@@ -85,7 +85,7 @@ const sections: Section[] = [
       {
         q: "v3 里那些颜色都去哪了 —— <code>bg-navy</code>、<code>bg-teal</code>，还有侧边栏皮肤？我能加自己的品牌色吗？",
         a: `<p>它们放在一个需要主动引入的样式表里，也就是 <code>dist/css/adminlte-colors.css</code>（gzip 后约 5 kB），所以只要你不加载它，就不会有任何额外开销：里面是十四种重新设计过的颜色 —— 每一种都能配白色文字清晰阅读 —— 并且带齐了 <code>.bg-*</code>、<code>.text-bg-*</code>、<code>.card-*</code>、<code>.callout-*</code>、<code>.bg-gradient-*</code> 这几整套系列。所谓侧边栏“皮肤”，其实就是 <code>&lt;aside class="app-sidebar text-bg-navy" data-bs-theme="dark"&gt;</code>。</p>
-<p class="mb-0">你自己的颜色，在 Sass 里一行就能搞定：<code>$lte-palette-custom: ("brand": #0f766e)</code>。所有东西 —— 调色板、预设、品牌色检查器 —— 都在 <a href="colors.html">颜色</a> 页面里；想现场试试皮肤，可以去 <a href="../UI/colors.html">颜色演示</a> 或 <a href="../generate/theme.html">主题自定义</a> 页面。`
+<p class="mb-0">想要 AdminLTE 3 原封不动的颜色？那就改为加载 <code>dist/css/adminlte-colors-v3.css</code> —— 18 种 v3 颜色，沿用原来的名字和取值，类系列相同。你自己的颜色在 Sass 里一行就能搞定：<code>$lte-palette-custom: ("brand": #0f766e)</code>。所有东西 —— 调色板、预设、品牌色检查器 —— 都在 <a href="colors.html">颜色</a> 页面里；想现场试试皮肤，可以去 <a href="../UI/colors.html">颜色演示</a> 或 <a href="../generate/theme.html">主题自定义</a> 页面。</p>`
       },
       {
         q: "如何添加日期选择器 / 多选 / 富文本编辑器？",

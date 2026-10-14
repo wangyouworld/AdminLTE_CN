@@ -24,7 +24,7 @@ describe('slate', '#566577', 'neutral', 'Mid neutral — a cool grey-blue.', 'He
 describe('slate', '#566577', 'neutral', '中度中性色 —— 一种冷调的灰蓝色。', '头部、柔和的卡片、次要侧边栏。'),
 describe('graphite', '#32363c', 'neutral', 'Near-black cool grey.', 'Quiet sidebars that let the widgets carry the colour.'),
 describe('graphite', '#32363c', 'neutral', '接近黑色的冷灰。', '安静的侧边栏，让组件去承担颜色的表现。'),
-describe('midnight', '#1e1d2d', 'neutral', 'Near-black with a violet cast.', 'Full-dark chrome (sidebar and header); pairs with vivid accents.'),
+describe('midnight', '#1e1d2d', 'neutral', 'Near-black with a violet cast.', 'Full-dark chrome (sidebar and header); pairs with vivid accents.')
 describe('midnight', '#1e1d2d', 'neutral', '接近黑色，带一点紫调。', '全深色界面（侧边栏和头部）；适合搭配鲜艳的强调色。')
 { name: 'Balanced', colors: ['indigo', 'teal', 'amber', 'pink'], why: 'Four hues roughly 90° apart (283 · 190 · 68 · 350) — maximum separation, no two widgets read as the same family. The default recommendation.' },
 { name: 'Balanced', colors: ['indigo', 'teal', 'amber', 'pink'], why: '四种色相大致相隔 90°（283 · 190 · 68 · 350）—— 间隔拉到最大，任意两个组件都不会让人读成同一类。默认推荐方案。' },
@@ -84,3 +84,55 @@ describe('midnight', '#1e1d2d', 'neutral', '接近黑色，带一点紫调。', 
 { name: 'Gradient indigo', group: 'Coloured & gradient', note: '品牌色侧边栏上带 v3 的渐变光泽，配白色头部。', header: { cls: 'bg-body', theme: 'light' }, sidebar: { cls: 'bg-gradient-indigo', theme: 'dark' }, boxes: ['indigo', 'teal'] },
 { name: 'Gradient teal', group: 'Coloured & gradient', note: 'Calm and fresh; teal sidebar with the gradient sheen.', header: { cls: 'bg-body', theme: 'light' }, sidebar: { cls: 'bg-gradient-teal', theme: 'dark' }, boxes: ['teal', 'amber'] }
 { name: 'Gradient teal', group: 'Coloured & gradient', note: '沉静清新；teal 侧边栏配上渐变光泽。', header: { cls: 'bg-body', theme: 'light' }, sidebar: { cls: 'bg-gradient-teal', theme: 'dark' }, boxes: ['teal', 'amber'] }
+The AdminLTE 3 palette, as it was (dist/css/adminlte-colors-v3.css)
+AdminLTE 3 的原版调色板（dist/css/adminlte-colors-v3.css）
+Bootstrap 4 / AdminLTE 3 text-colour rule: perceived brightness against a threshold.
+Bootstrap 4 / AdminLTE 3 的文字颜色规则：用感知亮度跟一个阈值作比较。
+* Values read from the AdminLTE 3.2.0 build, unchanged. Must match `$lte-palette`
+* 取值直接取自 AdminLTE 3.2.0 构建，未做改动。必须与 src/scss/adminlte-colors-v3.scss
+* in src/scss/adminlte-colors-v3.scss — the unit test enforces it.
+* 里的 `$lte-palette` 保持一致 —— 单元测试会强制校验这一点。
+describeV3('lightblue', '#3c8dbc', 'The AdminLTE 2/3 signature blue (skin-blue header)'),
+describeV3('lightblue', '#3c8dbc', 'AdminLTE 2/3 的标志性蓝色（skin-blue 头部）'),
+describeV3('lime', '#01ff70', 'Dark text'),
+describeV3('lime', '#01ff70', '深色文字'),
+describeV3('blue', '#007bff', 'Bootstrap 4 blue'),
+describeV3('blue', '#007bff', 'Bootstrap 4 的蓝色'),
+describeV3('indigo', '#6610f2', 'Bootstrap 4 indigo'),
+describeV3('indigo', '#6610f2', 'Bootstrap 4 的靛蓝色'),
+describeV3('purple', '#6f42c1', 'Bootstrap 4 purple'),
+describeV3('purple', '#6f42c1', 'Bootstrap 4 的紫色'),
+describeV3('pink', '#e83e8c', 'Bootstrap 4 pink'),
+describeV3('pink', '#e83e8c', 'Bootstrap 4 的粉色'),
+describeV3('red', '#dc3545', 'Bootstrap 4 red'),
+describeV3('red', '#dc3545', 'Bootstrap 4 的红色'),
+describeV3('orange', '#fd7e14', 'Bootstrap 4 orange — dark text'),
+describeV3('orange', '#fd7e14', 'Bootstrap 4 的橙色 —— 配深色文字'),
+describeV3('yellow', '#ffc107', 'Bootstrap 4 yellow — dark text'),
+describeV3('yellow', '#ffc107', 'Bootstrap 4 的黄色 —— 配深色文字'),
+describeV3('green', '#28a745', 'Bootstrap 4 green'),
+describeV3('green', '#28a745', 'Bootstrap 4 的绿色'),
+describeV3('teal', '#20c997', 'Bootstrap 4 teal'),
+describeV3('teal', '#20c997', 'Bootstrap 4 的青色'),
+describeV3('cyan', '#17a2b8', 'Bootstrap 4 cyan'),
+describeV3('cyan', '#17a2b8', 'Bootstrap 4 的青蓝色'),
+describeV3('gray-dark', '#343a40', 'The v3 dark sidebar (sidebar-dark-*) background')
+describeV3('gray-dark', '#343a40', 'v3 深色侧边栏（sidebar-dark-*）的背景色')
+* AdminLTE 2's skins, in AdminLTE 4 terms, for the v3 palette: a coloured header
+* AdminLTE 2 的那些皮肤，用 AdminLTE 4 的方式表达，搭配 v3 调色板：
+* over the v3 dark sidebar (`gray-dark`, the exact `sidebar-dark-*` background)
+* 彩色头部配 v3 的深色侧边栏（`gray-dark`，也就是 `sidebar-dark-*` 那个确切的背景），
+* or, for the "-light" family, over a white sidebar.
+* 或者对于 "-light" 那一类，配白色侧边栏。
+{ name: 'Dark sidebar', note: 'skin-blue, skin-purple, skin-green, skin-red, skin-yellow, skin-black — a coloured header over the v3 dark sidebar.' },
+{ name: 'Dark sidebar', note: 'skin-blue、skin-purple、skin-green、skin-red、skin-yellow、skin-black —— 彩色头部配 v3 的深色侧边栏。' },
+{ name: 'Light sidebar', note: 'The "-light" family: the same headers over a white sidebar.' }
+{ name: 'Light sidebar', note: '"-light" 那一类：同样的头部配白色侧边栏。' }
+v3Skin({ name: 'Blue', group: 'Dark sidebar', header: 'text-bg-lightblue', theme: 'dark', boxes: ['lightblue', 'green'], note: 'skin-blue — the classic AdminLTE look.' }),
+v3Skin({ name: 'Blue', group: 'Dark sidebar', header: 'text-bg-lightblue', theme: 'dark', boxes: ['lightblue', 'green'], note: 'skin-blue —— 经典的 AdminLTE 外观。' }),
+v3Skin({ name: 'Black', group: 'Dark sidebar', header: 'bg-body', theme: 'light', boxes: ['blue', 'red'], note: 'skin-black — white header, dark sidebar.' }),
+v3Skin({ name: 'Black', group: 'Dark sidebar', header: 'bg-body', theme: 'light', boxes: ['blue', 'red'], note: 'skin-black —— 白色头部，深色侧边栏。' }),
+v3Skin({ name: 'Yellow', group: 'Dark sidebar', header: 'text-bg-yellow', theme: 'light', boxes: ['yellow', 'navy'], note: 'skin-yellow — dark text on the header.' }),
+v3Skin({ name: 'Yellow', group: 'Dark sidebar', header: 'text-bg-yellow', theme: 'light', boxes: ['yellow', 'navy'], note: 'skin-yellow —— 头部配深色文字。' }),
+v3Skin({ name: 'Black light', group: 'Light sidebar', header: 'bg-body', theme: 'light', boxes: ['blue', 'red'], note: 'skin-black-light — all white chrome.' }),
+v3Skin({ name: 'Black light', group: 'Light sidebar', header: 'bg-body', theme: 'light', boxes: ['blue', 'red'], note: 'skin-black-light —— 整个界面全白。' }),

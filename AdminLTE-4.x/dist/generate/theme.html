@@ -104,7 +104,12 @@
     <!--end::Required Plugin(AdminLTE)-->
 
     <!--begin::可选样式表（扩展调色板 —— 下方“扩展调色板”选项需要用到它）-->
-    <link rel="stylesheet" href="../css/adminlte-colors.css" />
+    <link
+      rel="stylesheet"
+      href="../css/adminlte-colors.css"
+      id="palette-stylesheet"
+      data-css-dir="../css/"
+    />
     <!--end::Optional Stylesheet(Extended palette)-->
     <style>
       .lte-skin-preview[data-astro-cid-sxrfehrj] {
@@ -761,10 +766,48 @@
                   </div>
                   <div class="card-body" data-astro-cid-5q2uqagc>
                     <p data-astro-cid-5q2uqagc>
-                      后台仪表盘常见的四大类侧边栏 + 导航栏组合。 点一下即可应用到本页面，
+                      后台常见几大类里的侧边栏 + 导航栏组合 点一下即可应用到本页面，
                       并自动填入下方的取色器；然后再微调。
                     </p>
-                    <div id="theme-presets" data-astro-cid-5q2uqagc>
+                    <div
+                      class="d-flex flex-wrap align-items-center gap-3 mb-3"
+                      data-astro-cid-5q2uqagc
+                    >
+                      <span class="fw-semibold" data-astro-cid-5q2uqagc>Palette</span>
+                      <div
+                        class="btn-group"
+                        role="group"
+                        aria-label="Palette stylesheet"
+                        data-astro-cid-5q2uqagc
+                      >
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary btn-sm active"
+                          data-palette-switch="designed"
+                          aria-pressed="true"
+                          data-astro-cid-5q2uqagc
+                        >
+                          设计配色方案 (4.4)</button
+                        ><button
+                          type="button"
+                          class="btn btn-outline-secondary btn-sm"
+                          data-palette-switch="v3"
+                          aria-pressed="false"
+                          data-astro-cid-5q2uqagc
+                        >
+                          AdminLTE 3 原版
+                        </button>
+                      </div>
+                      <span class="text-body-secondary small" data-astro-cid-5q2uqagc>
+                        <span data-palette-set="designed" data-astro-cid-5q2uqagc
+                          >为 4.4 设计的十四种颜色 —— 每一种都配白色文字。</span
+                        >
+                        <span data-palette-set="v3" hidden data-astro-cid-5q2uqagc
+                          >十八种 AdminLTE 3 颜色，取值不变，沿用 v3 的文字颜色规则。</span
+                        >
+                      </span>
+                    </div>
+                    <div class="theme-presets" data-palette-set="designed" data-astro-cid-5q2uqagc>
                       <div class="mb-3" data-astro-cid-5q2uqagc>
                         <p class="fw-semibold mb-1" data-astro-cid-5q2uqagc>Light</p>
                         <p class="text-body-secondary small mb-2" data-astro-cid-5q2uqagc>
@@ -1841,6 +1884,759 @@
                         </div>
                       </div>
                     </div>
+                    <div class="theme-presets" data-palette-set="v3" hidden data-astro-cid-5q2uqagc>
+                      <div class="mb-3" data-astro-cid-5q2uqagc>
+                        <p class="fw-semibold mb-1" data-astro-cid-5q2uqagc>Dark sidebar</p>
+                        <p class="text-body-secondary small mb-2" data-astro-cid-5q2uqagc>
+                          skin-blue、skin-purple、skin-green、skin-red、skin-yellow、skin-black ——
+                          彩色头部配 v3 的深色侧边栏。
+                        </p>
+                        <div class="d-flex flex-wrap gap-2" data-astro-cid-5q2uqagc>
+                          <button
+                            type="button"
+                            class="lte-skin-btn"
+                            data-preset-sidebar="text-bg-gray-dark"
+                            data-preset-sidebar-theme="dark"
+                            data-preset-header="text-bg-lightblue"
+                            data-preset-header-theme="dark"
+                            title="skin-blue —— 经典的 AdminLTE 外观。"
+                            aria-pressed="false"
+                            data-astro-cid-5q2uqagc
+                          >
+                            <span
+                              class="lte-skin-preview lte-skin-preview-md bg-body-tertiary"
+                              aria-hidden="true"
+                              data-astro-cid-sxrfehrj
+                            >
+                              <span
+                                class="lte-skin-preview-sidebar text-bg-gray-dark"
+                                data-bs-theme="dark"
+                                data-astro-cid-sxrfehrj
+                              >
+                                <span class="lte-skin-preview-brand" data-astro-cid-sxrfehrj></span>
+                                <span
+                                  class="lte-skin-preview-item lte-skin-preview-active"
+                                  data-astro-cid-sxrfehrj
+                                ></span>
+                                <span class="lte-skin-preview-item" data-astro-cid-sxrfehrj></span>
+                                <span class="lte-skin-preview-item" data-astro-cid-sxrfehrj></span>
+                              </span>
+                              <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                <span
+                                  class="lte-skin-preview-header text-bg-lightblue"
+                                  data-bs-theme="dark"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-item"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-avatar"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                </span>
+                                <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                  <span
+                                    class="lte-skin-preview-box text-bg-lightblue"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-box text-bg-green"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-card"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                </span>
+                              </span>
+                            </span>
+                            <span data-astro-cid-5q2uqagc>Blue</span></button
+                          ><button
+                            type="button"
+                            class="lte-skin-btn"
+                            data-preset-sidebar="text-bg-gray-dark"
+                            data-preset-sidebar-theme="dark"
+                            data-preset-header="bg-body"
+                            data-preset-header-theme="light"
+                            title="skin-black —— 白色头部，深色侧边栏。"
+                            aria-pressed="false"
+                            data-astro-cid-5q2uqagc
+                          >
+                            <span
+                              class="lte-skin-preview lte-skin-preview-md bg-body-tertiary"
+                              aria-hidden="true"
+                              data-astro-cid-sxrfehrj
+                            >
+                              <span
+                                class="lte-skin-preview-sidebar text-bg-gray-dark"
+                                data-bs-theme="dark"
+                                data-astro-cid-sxrfehrj
+                              >
+                                <span class="lte-skin-preview-brand" data-astro-cid-sxrfehrj></span>
+                                <span
+                                  class="lte-skin-preview-item lte-skin-preview-active"
+                                  data-astro-cid-sxrfehrj
+                                ></span>
+                                <span class="lte-skin-preview-item" data-astro-cid-sxrfehrj></span>
+                                <span class="lte-skin-preview-item" data-astro-cid-sxrfehrj></span>
+                              </span>
+                              <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                <span
+                                  class="lte-skin-preview-header bg-body"
+                                  data-bs-theme="light"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-item"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-avatar"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                </span>
+                                <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                  <span
+                                    class="lte-skin-preview-box text-bg-blue"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-box text-bg-red"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-card"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                </span>
+                              </span>
+                            </span>
+                            <span data-astro-cid-5q2uqagc>Black</span></button
+                          ><button
+                            type="button"
+                            class="lte-skin-btn"
+                            data-preset-sidebar="text-bg-gray-dark"
+                            data-preset-sidebar-theme="dark"
+                            data-preset-header="text-bg-purple"
+                            data-preset-header-theme="dark"
+                            title="skin-purple."
+                            aria-pressed="false"
+                            data-astro-cid-5q2uqagc
+                          >
+                            <span
+                              class="lte-skin-preview lte-skin-preview-md bg-body-tertiary"
+                              aria-hidden="true"
+                              data-astro-cid-sxrfehrj
+                            >
+                              <span
+                                class="lte-skin-preview-sidebar text-bg-gray-dark"
+                                data-bs-theme="dark"
+                                data-astro-cid-sxrfehrj
+                              >
+                                <span class="lte-skin-preview-brand" data-astro-cid-sxrfehrj></span>
+                                <span
+                                  class="lte-skin-preview-item lte-skin-preview-active"
+                                  data-astro-cid-sxrfehrj
+                                ></span>
+                                <span class="lte-skin-preview-item" data-astro-cid-sxrfehrj></span>
+                                <span class="lte-skin-preview-item" data-astro-cid-sxrfehrj></span>
+                              </span>
+                              <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                <span
+                                  class="lte-skin-preview-header text-bg-purple"
+                                  data-bs-theme="dark"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-item"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-avatar"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                </span>
+                                <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                  <span
+                                    class="lte-skin-preview-box text-bg-purple"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-box text-bg-teal"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-card"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                </span>
+                              </span>
+                            </span>
+                            <span data-astro-cid-5q2uqagc>Purple</span></button
+                          ><button
+                            type="button"
+                            class="lte-skin-btn"
+                            data-preset-sidebar="text-bg-gray-dark"
+                            data-preset-sidebar-theme="dark"
+                            data-preset-header="text-bg-green"
+                            data-preset-header-theme="dark"
+                            title="skin-green."
+                            aria-pressed="false"
+                            data-astro-cid-5q2uqagc
+                          >
+                            <span
+                              class="lte-skin-preview lte-skin-preview-md bg-body-tertiary"
+                              aria-hidden="true"
+                              data-astro-cid-sxrfehrj
+                            >
+                              <span
+                                class="lte-skin-preview-sidebar text-bg-gray-dark"
+                                data-bs-theme="dark"
+                                data-astro-cid-sxrfehrj
+                              >
+                                <span class="lte-skin-preview-brand" data-astro-cid-sxrfehrj></span>
+                                <span
+                                  class="lte-skin-preview-item lte-skin-preview-active"
+                                  data-astro-cid-sxrfehrj
+                                ></span>
+                                <span class="lte-skin-preview-item" data-astro-cid-sxrfehrj></span>
+                                <span class="lte-skin-preview-item" data-astro-cid-sxrfehrj></span>
+                              </span>
+                              <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                <span
+                                  class="lte-skin-preview-header text-bg-green"
+                                  data-bs-theme="dark"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-item"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-avatar"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                </span>
+                                <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                  <span
+                                    class="lte-skin-preview-box text-bg-green"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-box text-bg-yellow"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-card"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                </span>
+                              </span>
+                            </span>
+                            <span data-astro-cid-5q2uqagc>Green</span></button
+                          ><button
+                            type="button"
+                            class="lte-skin-btn"
+                            data-preset-sidebar="text-bg-gray-dark"
+                            data-preset-sidebar-theme="dark"
+                            data-preset-header="text-bg-red"
+                            data-preset-header-theme="dark"
+                            title="skin-red."
+                            aria-pressed="false"
+                            data-astro-cid-5q2uqagc
+                          >
+                            <span
+                              class="lte-skin-preview lte-skin-preview-md bg-body-tertiary"
+                              aria-hidden="true"
+                              data-astro-cid-sxrfehrj
+                            >
+                              <span
+                                class="lte-skin-preview-sidebar text-bg-gray-dark"
+                                data-bs-theme="dark"
+                                data-astro-cid-sxrfehrj
+                              >
+                                <span class="lte-skin-preview-brand" data-astro-cid-sxrfehrj></span>
+                                <span
+                                  class="lte-skin-preview-item lte-skin-preview-active"
+                                  data-astro-cid-sxrfehrj
+                                ></span>
+                                <span class="lte-skin-preview-item" data-astro-cid-sxrfehrj></span>
+                                <span class="lte-skin-preview-item" data-astro-cid-sxrfehrj></span>
+                              </span>
+                              <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                <span
+                                  class="lte-skin-preview-header text-bg-red"
+                                  data-bs-theme="dark"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-item"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-avatar"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                </span>
+                                <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                  <span
+                                    class="lte-skin-preview-box text-bg-red"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-box text-bg-gray"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-card"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                </span>
+                              </span>
+                            </span>
+                            <span data-astro-cid-5q2uqagc>Red</span></button
+                          ><button
+                            type="button"
+                            class="lte-skin-btn"
+                            data-preset-sidebar="text-bg-gray-dark"
+                            data-preset-sidebar-theme="dark"
+                            data-preset-header="text-bg-yellow"
+                            data-preset-header-theme="light"
+                            title="skin-yellow —— 头部配深色文字。"
+                            aria-pressed="false"
+                            data-astro-cid-5q2uqagc
+                          >
+                            <span
+                              class="lte-skin-preview lte-skin-preview-md bg-body-tertiary"
+                              aria-hidden="true"
+                              data-astro-cid-sxrfehrj
+                            >
+                              <span
+                                class="lte-skin-preview-sidebar text-bg-gray-dark"
+                                data-bs-theme="dark"
+                                data-astro-cid-sxrfehrj
+                              >
+                                <span class="lte-skin-preview-brand" data-astro-cid-sxrfehrj></span>
+                                <span
+                                  class="lte-skin-preview-item lte-skin-preview-active"
+                                  data-astro-cid-sxrfehrj
+                                ></span>
+                                <span class="lte-skin-preview-item" data-astro-cid-sxrfehrj></span>
+                                <span class="lte-skin-preview-item" data-astro-cid-sxrfehrj></span>
+                              </span>
+                              <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                <span
+                                  class="lte-skin-preview-header text-bg-yellow"
+                                  data-bs-theme="light"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-item"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-avatar"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                </span>
+                                <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                  <span
+                                    class="lte-skin-preview-box text-bg-yellow"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-box text-bg-navy"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-card"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                </span>
+                              </span>
+                            </span>
+                            <span data-astro-cid-5q2uqagc>Yellow</span>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="mb-3" data-astro-cid-5q2uqagc>
+                        <p class="fw-semibold mb-1" data-astro-cid-5q2uqagc>Light sidebar</p>
+                        <p class="text-body-secondary small mb-2" data-astro-cid-5q2uqagc>
+                          &quot;-light&quot; 那一类：同样的头部配白色侧边栏。
+                        </p>
+                        <div class="d-flex flex-wrap gap-2" data-astro-cid-5q2uqagc>
+                          <button
+                            type="button"
+                            class="lte-skin-btn"
+                            data-preset-sidebar="bg-body"
+                            data-preset-sidebar-theme="light"
+                            data-preset-header="text-bg-lightblue"
+                            data-preset-header-theme="dark"
+                            title="skin-blue-light."
+                            aria-pressed="false"
+                            data-astro-cid-5q2uqagc
+                          >
+                            <span
+                              class="lte-skin-preview lte-skin-preview-md bg-body-tertiary"
+                              aria-hidden="true"
+                              data-astro-cid-sxrfehrj
+                            >
+                              <span
+                                class="lte-skin-preview-sidebar bg-body"
+                                data-bs-theme="light"
+                                data-astro-cid-sxrfehrj
+                              >
+                                <span class="lte-skin-preview-brand" data-astro-cid-sxrfehrj></span>
+                                <span
+                                  class="lte-skin-preview-item lte-skin-preview-active"
+                                  data-astro-cid-sxrfehrj
+                                ></span>
+                                <span class="lte-skin-preview-item" data-astro-cid-sxrfehrj></span>
+                                <span class="lte-skin-preview-item" data-astro-cid-sxrfehrj></span>
+                              </span>
+                              <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                <span
+                                  class="lte-skin-preview-header text-bg-lightblue"
+                                  data-bs-theme="dark"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-item"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-avatar"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                </span>
+                                <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                  <span
+                                    class="lte-skin-preview-box text-bg-lightblue"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-box text-bg-green"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-card"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                </span>
+                              </span>
+                            </span>
+                            <span data-astro-cid-5q2uqagc>Blue light</span></button
+                          ><button
+                            type="button"
+                            class="lte-skin-btn"
+                            data-preset-sidebar="bg-body"
+                            data-preset-sidebar-theme="light"
+                            data-preset-header="bg-body"
+                            data-preset-header-theme="light"
+                            title="skin-black-light —— 整个界面全白。"
+                            aria-pressed="false"
+                            data-astro-cid-5q2uqagc
+                          >
+                            <span
+                              class="lte-skin-preview lte-skin-preview-md bg-body-tertiary"
+                              aria-hidden="true"
+                              data-astro-cid-sxrfehrj
+                            >
+                              <span
+                                class="lte-skin-preview-sidebar bg-body"
+                                data-bs-theme="light"
+                                data-astro-cid-sxrfehrj
+                              >
+                                <span class="lte-skin-preview-brand" data-astro-cid-sxrfehrj></span>
+                                <span
+                                  class="lte-skin-preview-item lte-skin-preview-active"
+                                  data-astro-cid-sxrfehrj
+                                ></span>
+                                <span class="lte-skin-preview-item" data-astro-cid-sxrfehrj></span>
+                                <span class="lte-skin-preview-item" data-astro-cid-sxrfehrj></span>
+                              </span>
+                              <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                <span
+                                  class="lte-skin-preview-header bg-body"
+                                  data-bs-theme="light"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-item"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-avatar"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                </span>
+                                <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                  <span
+                                    class="lte-skin-preview-box text-bg-blue"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-box text-bg-red"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-card"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                </span>
+                              </span>
+                            </span>
+                            <span data-astro-cid-5q2uqagc>Black light</span></button
+                          ><button
+                            type="button"
+                            class="lte-skin-btn"
+                            data-preset-sidebar="bg-body"
+                            data-preset-sidebar-theme="light"
+                            data-preset-header="text-bg-purple"
+                            data-preset-header-theme="dark"
+                            title="skin-purple-light."
+                            aria-pressed="false"
+                            data-astro-cid-5q2uqagc
+                          >
+                            <span
+                              class="lte-skin-preview lte-skin-preview-md bg-body-tertiary"
+                              aria-hidden="true"
+                              data-astro-cid-sxrfehrj
+                            >
+                              <span
+                                class="lte-skin-preview-sidebar bg-body"
+                                data-bs-theme="light"
+                                data-astro-cid-sxrfehrj
+                              >
+                                <span class="lte-skin-preview-brand" data-astro-cid-sxrfehrj></span>
+                                <span
+                                  class="lte-skin-preview-item lte-skin-preview-active"
+                                  data-astro-cid-sxrfehrj
+                                ></span>
+                                <span class="lte-skin-preview-item" data-astro-cid-sxrfehrj></span>
+                                <span class="lte-skin-preview-item" data-astro-cid-sxrfehrj></span>
+                              </span>
+                              <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                <span
+                                  class="lte-skin-preview-header text-bg-purple"
+                                  data-bs-theme="dark"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-item"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-avatar"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                </span>
+                                <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                  <span
+                                    class="lte-skin-preview-box text-bg-purple"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-box text-bg-teal"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-card"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                </span>
+                              </span>
+                            </span>
+                            <span data-astro-cid-5q2uqagc>Purple light</span></button
+                          ><button
+                            type="button"
+                            class="lte-skin-btn"
+                            data-preset-sidebar="bg-body"
+                            data-preset-sidebar-theme="light"
+                            data-preset-header="text-bg-green"
+                            data-preset-header-theme="dark"
+                            title="skin-green-light."
+                            aria-pressed="false"
+                            data-astro-cid-5q2uqagc
+                          >
+                            <span
+                              class="lte-skin-preview lte-skin-preview-md bg-body-tertiary"
+                              aria-hidden="true"
+                              data-astro-cid-sxrfehrj
+                            >
+                              <span
+                                class="lte-skin-preview-sidebar bg-body"
+                                data-bs-theme="light"
+                                data-astro-cid-sxrfehrj
+                              >
+                                <span class="lte-skin-preview-brand" data-astro-cid-sxrfehrj></span>
+                                <span
+                                  class="lte-skin-preview-item lte-skin-preview-active"
+                                  data-astro-cid-sxrfehrj
+                                ></span>
+                                <span class="lte-skin-preview-item" data-astro-cid-sxrfehrj></span>
+                                <span class="lte-skin-preview-item" data-astro-cid-sxrfehrj></span>
+                              </span>
+                              <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                <span
+                                  class="lte-skin-preview-header text-bg-green"
+                                  data-bs-theme="dark"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-item"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-avatar"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                </span>
+                                <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                  <span
+                                    class="lte-skin-preview-box text-bg-green"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-box text-bg-yellow"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-card"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                </span>
+                              </span>
+                            </span>
+                            <span data-astro-cid-5q2uqagc>Green light</span></button
+                          ><button
+                            type="button"
+                            class="lte-skin-btn"
+                            data-preset-sidebar="bg-body"
+                            data-preset-sidebar-theme="light"
+                            data-preset-header="text-bg-red"
+                            data-preset-header-theme="dark"
+                            title="skin-red-light."
+                            aria-pressed="false"
+                            data-astro-cid-5q2uqagc
+                          >
+                            <span
+                              class="lte-skin-preview lte-skin-preview-md bg-body-tertiary"
+                              aria-hidden="true"
+                              data-astro-cid-sxrfehrj
+                            >
+                              <span
+                                class="lte-skin-preview-sidebar bg-body"
+                                data-bs-theme="light"
+                                data-astro-cid-sxrfehrj
+                              >
+                                <span class="lte-skin-preview-brand" data-astro-cid-sxrfehrj></span>
+                                <span
+                                  class="lte-skin-preview-item lte-skin-preview-active"
+                                  data-astro-cid-sxrfehrj
+                                ></span>
+                                <span class="lte-skin-preview-item" data-astro-cid-sxrfehrj></span>
+                                <span class="lte-skin-preview-item" data-astro-cid-sxrfehrj></span>
+                              </span>
+                              <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                <span
+                                  class="lte-skin-preview-header text-bg-red"
+                                  data-bs-theme="dark"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-item"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-avatar"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                </span>
+                                <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                  <span
+                                    class="lte-skin-preview-box text-bg-red"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-box text-bg-gray"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-card"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                </span>
+                              </span>
+                            </span>
+                            <span data-astro-cid-5q2uqagc>Red light</span></button
+                          ><button
+                            type="button"
+                            class="lte-skin-btn"
+                            data-preset-sidebar="bg-body"
+                            data-preset-sidebar-theme="light"
+                            data-preset-header="text-bg-yellow"
+                            data-preset-header-theme="light"
+                            title="skin-yellow-light."
+                            aria-pressed="false"
+                            data-astro-cid-5q2uqagc
+                          >
+                            <span
+                              class="lte-skin-preview lte-skin-preview-md bg-body-tertiary"
+                              aria-hidden="true"
+                              data-astro-cid-sxrfehrj
+                            >
+                              <span
+                                class="lte-skin-preview-sidebar bg-body"
+                                data-bs-theme="light"
+                                data-astro-cid-sxrfehrj
+                              >
+                                <span class="lte-skin-preview-brand" data-astro-cid-sxrfehrj></span>
+                                <span
+                                  class="lte-skin-preview-item lte-skin-preview-active"
+                                  data-astro-cid-sxrfehrj
+                                ></span>
+                                <span class="lte-skin-preview-item" data-astro-cid-sxrfehrj></span>
+                                <span class="lte-skin-preview-item" data-astro-cid-sxrfehrj></span>
+                              </span>
+                              <span class="lte-skin-preview-main" data-astro-cid-sxrfehrj>
+                                <span
+                                  class="lte-skin-preview-header text-bg-yellow"
+                                  data-bs-theme="light"
+                                  data-astro-cid-sxrfehrj
+                                >
+                                  <span
+                                    class="lte-skin-preview-item"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-avatar"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                </span>
+                                <span class="lte-skin-preview-body" data-astro-cid-sxrfehrj>
+                                  <span
+                                    class="lte-skin-preview-box text-bg-yellow"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-box text-bg-navy"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                  <span
+                                    class="lte-skin-preview-card"
+                                    data-astro-cid-sxrfehrj
+                                  ></span>
+                                </span>
+                              </span>
+                            </span>
+                            <span data-astro-cid-5q2uqagc>Yellow light</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <!--end::Card(Presets)-->
@@ -2243,21 +3039,87 @@
     <!--end::明暗模式切换-->
     <script>
       (function () {
-        const paletteClasses = [
-          'text-bg-orange',
-          'text-bg-amber',
-          'text-bg-olive',
-          'text-bg-teal',
-          'text-bg-sky',
-          'text-bg-indigo',
-          'text-bg-violet',
-          'text-bg-fuchsia',
-          'text-bg-pink',
-          'text-bg-navy',
-          'text-bg-steel',
-          'text-bg-slate',
-          'text-bg-graphite',
-          'text-bg-midnight',
+        const paletteSetsJson = [
+          {
+            key: 'designed',
+            file: 'adminlte-colors.css',
+            classes: [
+              'text-bg-orange',
+              'text-bg-amber',
+              'text-bg-olive',
+              'text-bg-teal',
+              'text-bg-sky',
+              'text-bg-indigo',
+              'text-bg-violet',
+              'text-bg-fuchsia',
+              'text-bg-pink',
+              'text-bg-navy',
+              'text-bg-steel',
+              'text-bg-slate',
+              'text-bg-graphite',
+              'text-bg-midnight',
+            ],
+            text: {
+              'text-bg-orange': 'white',
+              'text-bg-amber': 'white',
+              'text-bg-olive': 'white',
+              'text-bg-teal': 'white',
+              'text-bg-sky': 'white',
+              'text-bg-indigo': 'white',
+              'text-bg-violet': 'white',
+              'text-bg-fuchsia': 'white',
+              'text-bg-pink': 'white',
+              'text-bg-navy': 'white',
+              'text-bg-steel': 'white',
+              'text-bg-slate': 'white',
+              'text-bg-graphite': 'white',
+              'text-bg-midnight': 'white',
+            },
+          },
+          {
+            key: 'v3',
+            file: 'adminlte-colors-v3.css',
+            classes: [
+              'text-bg-lightblue',
+              'text-bg-navy',
+              'text-bg-olive',
+              'text-bg-lime',
+              'text-bg-fuchsia',
+              'text-bg-maroon',
+              'text-bg-blue',
+              'text-bg-indigo',
+              'text-bg-purple',
+              'text-bg-pink',
+              'text-bg-red',
+              'text-bg-orange',
+              'text-bg-yellow',
+              'text-bg-green',
+              'text-bg-teal',
+              'text-bg-cyan',
+              'text-bg-gray',
+              'text-bg-gray-dark',
+            ],
+            text: {
+              'text-bg-lightblue': 'white',
+              'text-bg-navy': 'white',
+              'text-bg-olive': 'white',
+              'text-bg-lime': 'black',
+              'text-bg-fuchsia': 'white',
+              'text-bg-maroon': 'white',
+              'text-bg-blue': 'white',
+              'text-bg-indigo': 'white',
+              'text-bg-purple': 'white',
+              'text-bg-pink': 'white',
+              'text-bg-red': 'white',
+              'text-bg-orange': 'black',
+              'text-bg-yellow': 'black',
+              'text-bg-green': 'white',
+              'text-bg-teal': 'white',
+              'text-bg-cyan': 'white',
+              'text-bg-gray': 'white',
+              'text-bg-gray-dark': 'white',
+            },
+          },
         ];
 
         // 主题自定义：用一个控制器统一管这三个区域。把选好的背景 + 颜色模式
@@ -2265,6 +3127,7 @@
         // 页面内的演示脚本 —— 不属于 adminlte.js 的一部分。
         const option = (bg) =>
           `<option value="${bg}" class="text-${bg.replace(/^(text-bg-|bg-gradient-)/, '')}">${bg}</option>`;
+        const gradients = (set) => set.classes.map((c) => c.replace('text-bg-', 'bg-gradient-'));
 
         document.addEventListener('DOMContentLoaded', () => {
           // Bootstrap 的背景工具类（全部来自 adminlte.css）……
@@ -2292,11 +3155,18 @@
             'bg-white',
             'bg-transparent',
           ];
-          // … plus the extended palette (opt-in css/adminlte-colors.css), as
-          // `.text-bg-*` so the contrast text comes with the background, and its
-          // `.bg-gradient-*` variants.
-          const paletteGradient = paletteClasses.map((c) => c.replace('text-bg-', 'bg-gradient-'));
-          const allBg = [...bootstrapBg, ...paletteClasses, ...paletteGradient];
+          // ……再加上扩展调色板（按需引入 css/adminlte-colors.css，或者 AdminLTE 3 原版的
+          // adminlte-colors-v3.css —— 两者只能选一个），以 `.text-bg-*` 的形式使用，
+          // 这样对比文字会跟着背景一起带上；
+          // 还有它的 `.bg-gradient-*` 变体。
+          const stylesheet = document.getElementById('palette-stylesheet');
+          let activeSet = paletteSetsJson[0];
+          // 列出任何调色板可能加到元素上的所有类 —— 这样切换调色板时才能清理干净。
+          const allBg = [
+            ...bootstrapBg,
+            ...paletteSetsJson.flatMap((set) => [...set.classes, ...gradients(set)]),
+          ];
+          const availableBg = () => [...bootstrapBg, ...activeSet.classes, ...gradients(activeSet)];
 
           const regions = [
             {
@@ -2326,7 +3196,7 @@
           ];
 
           const controllers = {};
-          const presetButtons = document.querySelectorAll('#theme-presets [data-preset-sidebar]');
+          const presetButtons = document.querySelectorAll('.theme-presets [data-preset-sidebar]');
           const markPresets = () => {
             const sidebar = controllers['.app-sidebar'];
             const header = controllers['.app-header'];
@@ -2352,11 +3222,14 @@
               continue;
             }
 
-            colorSelect.innerHTML =
-              '<option value="">---选择---</option>' +
-              `<optgroup label="Bootstrap">${bootstrapBg.map(option).join('')}</optgroup>` +
-              `<optgroup label="Extended palette (adminlte-colors.css)">${paletteClasses.map(option).join('')}</optgroup>` +
-              `<optgroup label="Extended palette · gradient">${paletteGradient.map(option).join('')}</optgroup>`;
+            const renderOptions = () => {
+              colorSelect.innerHTML =
+                '<option value="">---选择---</option>' +
+                `<optgroup label="Bootstrap">${bootstrapBg.map(option).join('')}</optgroup>` +
+                `<optgroup label="Extended palette (${activeSet.file})">${activeSet.classes.map(option).join('')}</optgroup>` +
+                `<optgroup label="Extended palette · gradient">${gradients(activeSet).map(option).join('')}</optgroup>`;
+            };
+            renderOptions();
 
             // 从页面当前显示的内容开始。
             let mode = element.getAttribute('data-bs-theme') || '';
@@ -2393,6 +3266,16 @@
                 modeSelect.value = mode;
                 render();
               },
+              // 切换调色板之后：重建选项；如果新调色板里没有某个颜色，
+              // 就回退到该区域朴素的背景。
+              refresh: () => {
+                renderOptions();
+                if (bg && !availableBg().includes(bg)) {
+                  applyBg('');
+                }
+                colorSelect.value = bg;
+                render();
+              },
             };
 
             modeSelect.addEventListener('input', (event) => {
@@ -2402,11 +3285,12 @@
 
             colorSelect.addEventListener('input', (event) => {
               applyBg(event.target.value);
-              // 每个调色板颜色都是为白色文字设计的：当用户挑了一个颜色、
-              // 但还没选颜色模式时，就把模式默认成深色。
+              // 当用户还没选颜色模式时，调色板的颜色会搭配与其文字颜色相匹配的模式
+              //（配白色文字的颜色就用深色模式）。
               if ((bg.startsWith('text-bg-') || bg.startsWith('bg-gradient-')) && !mode) {
-                mode = 'dark';
-                modeSelect.value = 'dark';
+                const text = activeSet.text[bg.replace('bg-gradient-', 'text-bg-')] || 'white';
+                mode = text === 'white' ? 'dark' : 'light';
+                modeSelect.value = mode;
               }
               render();
             });
@@ -2425,6 +3309,28 @@
                 button.getAttribute('data-preset-header'),
                 button.getAttribute('data-preset-header-theme'),
               );
+            });
+          }
+
+          // 调色板切换：替换样式表，显示对应调色板的预设，重建取色器。
+          for (const button of document.querySelectorAll('[data-palette-switch]')) {
+            button.addEventListener('click', () => {
+              activeSet =
+                paletteSetsJson.find(
+                  (set) => set.key === button.getAttribute('data-palette-switch'),
+                ) || paletteSetsJson[0];
+              stylesheet.href = stylesheet.getAttribute('data-css-dir') + activeSet.file;
+              for (const b of document.querySelectorAll('[data-palette-switch]')) {
+                const on = b === button;
+                b.classList.toggle('active', on);
+                b.setAttribute('aria-pressed', String(on));
+              }
+              for (const el of document.querySelectorAll('[data-palette-set]')) {
+                el.hidden = el.getAttribute('data-palette-set') !== activeSet.key;
+              }
+              for (const c of Object.values(controllers)) {
+                c.refresh();
+              }
             });
           }
           markPresets();

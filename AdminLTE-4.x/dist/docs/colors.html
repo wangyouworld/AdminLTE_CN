@@ -901,7 +901,11 @@
                       <strong><code>dist/css/adminlte-colors.css</code></strong>
                       就是答案，而且是按需启用的：多加载一个样式表（gzip 后约 5 kB），就会以
                       <code>--bs-*</code> token 的形式加入十四种颜色，外加 Bootstrap
-                      为自己主题色生成的那一整套类系列。对于不加载它的项目来说，什么都不变。
+                      为自己主题色生成的那一整套类系列。对于不加载它的项目来说，什么都不变。更喜欢
+                      AdminLTE 3 原封不动的颜色？还有一个专门的样式表 —— 见下面的<a
+                        href="#two-palettes"
+                        >两套调色板</a
+                      >。
                     </p>
                     <div class="d-flex flex-wrap gap-2 my-3">
                       <span class="badge text-bg-orange fs-6 fw-normal">orange</span
@@ -959,6 +963,397 @@
                       版本（<code>adminlte-colors.rtl.css</code>），是为了跟其他 CSS
                       保持形式上的对称；这个样式表里没有任何依赖方向的规则，所以两个文件在哪个方向下都能用。
                     </p>
+                    <h5 id="两种调色板">两种调色板</h5>
+                    <p>
+                      你可以选择<strong>为 4.4 重新设计过的</strong
+                      >那套颜色（也就是本页面的默认值，见下文），或者<strong
+                        >AdminLTE 3 原封不动的原版颜色</strong
+                      >。它们以两个文件的形式发布，定义的是同一批类名、只是取值不同，所以只要在
+                      <code>adminlte.css</code> 之后加载其中<strong>一个</strong>就行：
+                    </p>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>文件</th>
+                          <th>你能得到什么</th>
+                          <th>文字颜色规则</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><code>dist/css/adminlte-colors.css</code></td>
+                          <td>
+                            在 OKLCH 里设计的 14 种颜色 ——
+                            orange、amber、olive、teal、sky、indigo、violet、fuchsia、pink、navy、steel、slate、graphite、midnight
+                            —— 每一种配白色文字都清晰可读，排布时也考虑到了要跟 Bootstrap
+                            的主题色相邻
+                          </td>
+                          <td>Bootstrap 5 的 <code>color-contrast()</code>，4.5:1</td>
+                        </tr>
+                        <tr>
+                          <td><code>dist/css/adminlte-colors-v3.css</code></td>
+                          <td>
+                            18 种 AdminLTE 3 颜色 ——
+                            lightblue、navy、olive、lime、fuchsia、maroon、blue、indigo、purple、pink、red、orange、yellow、green、teal、cyan、gray、gray-dark
+                            —— 取值和 3.2 版本构建时一样
+                          </td>
+                          <td>
+                            AdminLTE 3 的规则（Bootstrap 4 YIQ）：lightblue、olive、teal、cyan
+                            等配白色；lime、orange、yellow 配深色
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <p>
+                      两者输出的类系列完全一样（<code>.bg-*</code>、<code>.text-bg-*</code>、<code>.text-*</code>、<code>.border-*</code>、<code>.link-*</code>、<code>.bg-gradient-*</code>、<code>.card-*</code>、<code>.callout-*</code>、<code>.direct-chat-*</code>，以及带深色模式变体的
+                      token），所以本页面讲的任何内容对两者都适用。演示页面可以让你在两者之间实时切换：<a
+                        href="../UI/colors.html"
+                        >颜色演示</a
+                      >和<a href="../generate/theme.html">主题自定义</a>都有一个调色板切换开关。
+                    </p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="html"
+                    ><code><span class="line"><span style="color:#6A9955">&lt;!-- either the designed palette … --&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;css/adminlte-colors.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
+<span class="line"><span style="color:#6A9955">&lt;!-- ……或者 AdminLTE 3 的原始版本，两者不要同时使用 --&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;css/adminlte-colors-v3.css&quot;</span><span style="color:#808080"> /&gt;</span></span></code></pre>
+                    <p>
+                      AdminLTE 3 的原版颜色，以及每种颜色配白色文字能达到的对比度 ——
+                      其中好几种都低于 WCAG AA 对正文要求的 4.5:1，跟 v3
+                      里一模一样；这就是保持原样的代价：
+                    </p>
+                    <div class="table-responsive">
+                      <table class="table align-middle">
+                        <thead>
+                          <tr>
+                            <th scope="col">名称</th>
+                            <th scope="col">十六进制</th>
+                            <th scope="col">文本（v3 规则）</th>
+                            <th scope="col">白色文字</th>
+                            <th scope="col"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge me-2" style="background: #3c8dbc">   </span
+                              ><code>lightblue</code>
+                            </td>
+                            <td><code>#3c8dbc</code></td>
+                            <td>white</td>
+                            <td class="text-nowrap">3.7:1 ⚠︎</td>
+                            <td class="text-body-secondary">
+                              AdminLTE 2/3 的标志性蓝色（skin-blue 头部）
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge me-2" style="background: #001f3f">   </span
+                              ><code>navy</code>
+                            </td>
+                            <td><code>#001f3f</code></td>
+                            <td>white</td>
+                            <td class="text-nowrap">16.6:1</td>
+                            <td class="text-body-secondary"></td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge me-2" style="background: #3d9970">   </span
+                              ><code>olive</code>
+                            </td>
+                            <td><code>#3d9970</code></td>
+                            <td>white</td>
+                            <td class="text-nowrap">3.5:1 ⚠︎</td>
+                            <td class="text-body-secondary"></td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge me-2" style="background: #01ff70">   </span
+                              ><code>lime</code>
+                            </td>
+                            <td><code>#01ff70</code></td>
+                            <td>dark (#1f2d3d)</td>
+                            <td class="text-nowrap">1.4:1</td>
+                            <td class="text-body-secondary">深色文字</td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge me-2" style="background: #f012be">   </span
+                              ><code>fuchsia</code>
+                            </td>
+                            <td><code>#f012be</code></td>
+                            <td>white</td>
+                            <td class="text-nowrap">3.8:1 ⚠︎</td>
+                            <td class="text-body-secondary"></td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge me-2" style="background: #d81b60">   </span
+                              ><code>maroon</code>
+                            </td>
+                            <td><code>#d81b60</code></td>
+                            <td>white</td>
+                            <td class="text-nowrap">4.9:1</td>
+                            <td class="text-body-secondary"></td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge me-2" style="background: #007bff">   </span
+                              ><code>blue</code>
+                            </td>
+                            <td><code>#007bff</code></td>
+                            <td>white</td>
+                            <td class="text-nowrap">4.0:1 ⚠︎</td>
+                            <td class="text-body-secondary">Bootstrap 4 的蓝色</td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge me-2" style="background: #6610f2">   </span
+                              ><code>indigo</code>
+                            </td>
+                            <td><code>#6610f2</code></td>
+                            <td>white</td>
+                            <td class="text-nowrap">7.2:1</td>
+                            <td class="text-body-secondary">Bootstrap 4 的靛蓝色</td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge me-2" style="background: #6f42c1">   </span
+                              ><code>purple</code>
+                            </td>
+                            <td><code>#6f42c1</code></td>
+                            <td>white</td>
+                            <td class="text-nowrap">6.5:1</td>
+                            <td class="text-body-secondary">Bootstrap 4 的紫色</td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge me-2" style="background: #e83e8c">   </span
+                              ><code>pink</code>
+                            </td>
+                            <td><code>#e83e8c</code></td>
+                            <td>white</td>
+                            <td class="text-nowrap">3.8:1 ⚠︎</td>
+                            <td class="text-body-secondary">Bootstrap 4 的粉色</td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge me-2" style="background: #dc3545">   </span
+                              ><code>red</code>
+                            </td>
+                            <td><code>#dc3545</code></td>
+                            <td>white</td>
+                            <td class="text-nowrap">4.5:1</td>
+                            <td class="text-body-secondary">Bootstrap 4 的红色</td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge me-2" style="background: #fd7e14">   </span
+                              ><code>orange</code>
+                            </td>
+                            <td><code>#fd7e14</code></td>
+                            <td>dark (#1f2d3d)</td>
+                            <td class="text-nowrap">2.6:1</td>
+                            <td class="text-body-secondary">Bootstrap 4 的橙色 —— 配深色文字</td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge me-2" style="background: #ffc107">   </span
+                              ><code>yellow</code>
+                            </td>
+                            <td><code>#ffc107</code></td>
+                            <td>dark (#1f2d3d)</td>
+                            <td class="text-nowrap">1.6:1</td>
+                            <td class="text-body-secondary">Bootstrap 4 的黄色 —— 配深色文字</td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge me-2" style="background: #28a745">   </span
+                              ><code>green</code>
+                            </td>
+                            <td><code>#28a745</code></td>
+                            <td>white</td>
+                            <td class="text-nowrap">3.1:1 ⚠︎</td>
+                            <td class="text-body-secondary">Bootstrap 4 的绿色</td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge me-2" style="background: #20c997">   </span
+                              ><code>teal</code>
+                            </td>
+                            <td><code>#20c997</code></td>
+                            <td>white</td>
+                            <td class="text-nowrap">2.1:1 ⚠︎</td>
+                            <td class="text-body-secondary">Bootstrap 4 的青色</td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge me-2" style="background: #17a2b8">   </span
+                              ><code>cyan</code>
+                            </td>
+                            <td><code>#17a2b8</code></td>
+                            <td>white</td>
+                            <td class="text-nowrap">3.0:1 ⚠︎</td>
+                            <td class="text-body-secondary">Bootstrap 4 的青蓝色</td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge me-2" style="background: #6c757d">   </span
+                              ><code>gray</code>
+                            </td>
+                            <td><code>#6c757d</code></td>
+                            <td>white</td>
+                            <td class="text-nowrap">4.7:1</td>
+                            <td class="text-body-secondary"></td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge me-2" style="background: #343a40">   </span
+                              ><code>gray-dark</code>
+                            </td>
+                            <td><code>#343a40</code></td>
+                            <td>white</td>
+                            <td class="text-nowrap">11.5:1</td>
+                            <td class="text-body-secondary">
+                              v3 深色侧边栏（sidebar-dark-*）的背景色
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <p>
+                      v3 那个样式表是用和设计版同一套 Sass 构建的 ——
+                      <code>src/scss/adminlte-colors-v3.scss</code> 把
+                      <code>$lte-palette</code> 设成了 v3 的 map，并把
+                      <code>$lte-palette-contrast</code> 设为 <code>&quot;yiq&quot;</code> —— 所以
+                      <code>$lte-palette-custom</code>、<code>$lte-palette-aliases</code>
+                      以及下面其余的那些对它也同样适用。它的皮肤预设来自 AdminLTE 2：彩色头部配 v3
+                      的深色侧边栏（<code>text-bg-gray-dark</code>，也就是
+                      <code>sidebar-dark-*</code> 那个确切的背景），或者配白色侧边栏：
+                    </p>
+                    <div class="table-responsive">
+                      <table class="table align-middle">
+                        <thead>
+                          <tr>
+                            <th scope="col">皮肤</th>
+                            <th scope="col">头部</th>
+                            <th scope="col">侧边栏</th>
+                            <th scope="col">v2/v3 name</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="text-nowrap fw-semibold">Blue</td>
+                            <td class="text-nowrap">
+                              <code>text-bg-lightblue</code> · <code>dark</code>
+                            </td>
+                            <td class="text-nowrap">
+                              <code>text-bg-gray-dark</code> · <code>dark</code>
+                            </td>
+                            <td class="text-body-secondary">skin-blue —— 经典的 AdminLTE 外观。</td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap fw-semibold">Black</td>
+                            <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
+                            <td class="text-nowrap">
+                              <code>text-bg-gray-dark</code> · <code>dark</code>
+                            </td>
+                            <td class="text-body-secondary">
+                              skin-black —— 白色头部，深色侧边栏。
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap fw-semibold">Purple</td>
+                            <td class="text-nowrap">
+                              <code>text-bg-purple</code> · <code>dark</code>
+                            </td>
+                            <td class="text-nowrap">
+                              <code>text-bg-gray-dark</code> · <code>dark</code>
+                            </td>
+                            <td class="text-body-secondary">skin-purple.</td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap fw-semibold">Green</td>
+                            <td class="text-nowrap">
+                              <code>text-bg-green</code> · <code>dark</code>
+                            </td>
+                            <td class="text-nowrap">
+                              <code>text-bg-gray-dark</code> · <code>dark</code>
+                            </td>
+                            <td class="text-body-secondary">skin-green.</td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap fw-semibold">Red</td>
+                            <td class="text-nowrap">
+                              <code>text-bg-red</code> · <code>dark</code>
+                            </td>
+                            <td class="text-nowrap">
+                              <code>text-bg-gray-dark</code> · <code>dark</code>
+                            </td>
+                            <td class="text-body-secondary">skin-red.</td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap fw-semibold">Yellow</td>
+                            <td class="text-nowrap">
+                              <code>text-bg-yellow</code> · <code>light</code>
+                            </td>
+                            <td class="text-nowrap">
+                              <code>text-bg-gray-dark</code> · <code>dark</code>
+                            </td>
+                            <td class="text-body-secondary">skin-yellow —— 头部配深色文字。</td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap fw-semibold">Blue light</td>
+                            <td class="text-nowrap">
+                              <code>text-bg-lightblue</code> · <code>dark</code>
+                            </td>
+                            <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
+                            <td class="text-body-secondary">skin-blue-light.</td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap fw-semibold">Black light</td>
+                            <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
+                            <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
+                            <td class="text-body-secondary">skin-black-light —— 整个界面全白。</td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap fw-semibold">Purple light</td>
+                            <td class="text-nowrap">
+                              <code>text-bg-purple</code> · <code>dark</code>
+                            </td>
+                            <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
+                            <td class="text-body-secondary">skin-purple-light.</td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap fw-semibold">Green light</td>
+                            <td class="text-nowrap">
+                              <code>text-bg-green</code> · <code>dark</code>
+                            </td>
+                            <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
+                            <td class="text-body-secondary">skin-green-light.</td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap fw-semibold">Red light</td>
+                            <td class="text-nowrap">
+                              <code>text-bg-red</code> · <code>dark</code>
+                            </td>
+                            <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
+                            <td class="text-body-secondary">skin-red-light.</td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap fw-semibold">Yellow light</td>
+                            <td class="text-nowrap">
+                              <code>text-bg-yellow</code> · <code>light</code>
+                            </td>
+                            <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
+                            <td class="text-body-secondary">skin-yellow-light.</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <h5 id="调色板">调色板</h5>
                     <p>
                       九种彩色加上五种中性色，用于界面外观。它们每一种配<strong>白色</strong>文字的对比度都能达到
@@ -1211,10 +1606,9 @@
                             </td>
                             <td class="text-nowrap">16.6:1</td>
                             <td>
-                              <span class="text-body-emphasis">Near-black with a violet cast.</span>
+                              <span class="text-body-emphasis">接近黑色，带一点紫调。</span>
                               <span class="text-body-secondary"
-                                >Full-dark chrome (sidebar and header); pairs with vivid
-                                accents.</span
+                                >全深色界面（侧边栏和头部）；适合搭配鲜艳的强调色。</span
                               >
                             </td>
                           </tr>
@@ -2734,6 +3128,15 @@
                         对正文的要求）。如果某个自定义颜色配白色达不到这个值，文字就会翻成黑色；<code>3</code>（WCAG
                         AA 对大号文字和 UI 组件的要求）是另一个站得住脚的设置。
                       </li>
+                      <li>
+                        <code>$lte-palette-contrast</code> —— 可选
+                        <code>&quot;wcag&quot;</code>（默认）或 <code>&quot;yiq&quot;</code>，后者是
+                        Bootstrap 4 / AdminLTE 3 用的亮度规则（<code
+                          >$lte-palette-yiq-threshold: 150</code
+                        >，深色文字为 <code>#1f2d3d</code>）。v3 那个样式表用的就是
+                        <code>&quot;yiq&quot;</code>；如果你想让自定义调色板也按 v3
+                        的方式来挑文字颜色，就把它设成 <code>&quot;yiq&quot;</code>。
+                      </li>
                     </ul>
                     <p>
                       <strong>怎么挑一个能用的品牌色。</strong>
@@ -3630,7 +4033,13 @@
                       </tbody>
                     </table>
                     <p>
-                      想在现有标记里继续用旧的类名，一行就能搞定：<code
+                      想让现有标记继续能用，有两种办法：加载
+                      <strong><code>adminlte-colors-v3.css</code></strong
+                      >，这样每个 v3 名字都会带着原始取值回来（见<a
+                        href="#%E4%B8%A4%E7%A7%8D%E8%B0%83%E8%89%B2%E6%9D%BF"
+                        >两套调色板</a
+                      >）；或者用重新设计的那套调色板，加上一行别名配置
+                      <code
                         >$lte-palette-aliases: (&quot;lightblue&quot;: &quot;sky&quot;,
                         &quot;maroon&quot;: &quot;pink&quot;);</code
                       >。

@@ -199,7 +199,7 @@ export const palette = [
   describe('steel', '#3a4860', 'neutral', '中深蓝灰 —— 很多后台套件默认用的侧边栏色调。', '想要看起来"深色"、但又不想接近黑色的侧边栏。'),
   describe('slate', '#566577', 'neutral', '中度中性色 —— 一种冷调的灰蓝色。', '头部、柔和的卡片、次要侧边栏。'),
   describe('graphite', '#32363c', 'neutral', '接近黑色的冷灰。', '安静的侧边栏，让组件去承担颜色的表现。'),
-  describe('midnight', '#1e1d2d', 'neutral', 'Near-black with a violet cast.', 'Full-dark chrome (sidebar and header); pairs with vivid accents.')
+  describe('midnight', '#1e1d2d', 'neutral', '接近黑色，带一点紫调。', '全深色界面（侧边栏和头部）；适合搭配鲜艳的强调色。')
 ]
 
 export const paletteByName = Object.fromEntries(palette.map(c => [c.name, c]))
@@ -250,4 +250,88 @@ export const skins = [
   { name: 'Violet mono', group: 'Coloured & gradient', note: '头部和侧边栏用同一个色相 —— 大胆的单一品牌外观。', header: { cls: 'text-bg-violet', theme: 'dark' }, sidebar: { cls: 'text-bg-violet', theme: 'dark' }, boxes: ['teal', 'amber'] },
   { name: 'Gradient indigo', group: 'Coloured & gradient', note: '品牌色侧边栏上带 v3 的渐变光泽，配白色头部。', header: { cls: 'bg-body', theme: 'light' }, sidebar: { cls: 'bg-gradient-indigo', theme: 'dark' }, boxes: ['indigo', 'teal'] },
   { name: 'Gradient teal', group: 'Coloured & gradient', note: '沉静清新；teal 侧边栏配上渐变光泽。', header: { cls: 'bg-body', theme: 'light' }, sidebar: { cls: 'bg-gradient-teal', theme: 'dark' }, boxes: ['teal', 'amber'] }
+]
+
+// ---------------------------------------------------------------------------
+// AdminLTE 3 的原版调色板（dist/css/adminlte-colors-v3.css）
+// ---------------------------------------------------------------------------
+
+/**
+Bootstrap 4 / AdminLTE 3 的文字颜色规则：用感知亮度跟一个阈值作比较。
+*/
+export const yiqTextColor = (hex, threshold = 150) => {
+  const [r, g, b] = hexToRgb(hex).map(v => v * 255)
+  return (r * 299 + g * 587 + b * 114) / 1000 >= threshold ? 'dark' : 'white'
+}
+
+const describeV3 = (name, hex, note) => {
+  const lch = hexToOklch(hex)
+  return {
+    name,
+    hex,
+    note,
+    oklch: { L: lch.L, C: lch.C, h: lch.h },
+    contrastWhite: contrastWhite(hex),
+    contrastBlack: contrastBlack(hex),
+    textColor: yiqTextColor(hex) === 'white' ? 'white' : 'black'
+  }
+}
+
+/**
+ * 取值直接取自 AdminLTE 3.2.0 构建，未做改动。必须与 src/scss/adminlte-colors-v3.scss
+ * 里的 `$lte-palette` 保持一致 —— 单元测试会强制校验这一点。
+ */
+export const paletteV3 = [
+  describeV3('lightblue', '#3c8dbc', 'AdminLTE 2/3 的标志性蓝色（skin-blue 头部）'),
+  describeV3('navy', '#001f3f', ''),
+  describeV3('olive', '#3d9970', ''),
+  describeV3('lime', '#01ff70', '深色文字'),
+  describeV3('fuchsia', '#f012be', ''),
+  describeV3('maroon', '#d81b60', ''),
+  describeV3('blue', '#007bff', 'Bootstrap 4 的蓝色'),
+  describeV3('indigo', '#6610f2', 'Bootstrap 4 的靛蓝色'),
+  describeV3('purple', '#6f42c1', 'Bootstrap 4 的紫色'),
+  describeV3('pink', '#e83e8c', 'Bootstrap 4 的粉色'),
+  describeV3('red', '#dc3545', 'Bootstrap 4 的红色'),
+  describeV3('orange', '#fd7e14', 'Bootstrap 4 的橙色 —— 配深色文字'),
+  describeV3('yellow', '#ffc107', 'Bootstrap 4 的黄色 —— 配深色文字'),
+  describeV3('green', '#28a745', 'Bootstrap 4 的绿色'),
+  describeV3('teal', '#20c997', 'Bootstrap 4 的青色'),
+  describeV3('cyan', '#17a2b8', 'Bootstrap 4 的青蓝色'),
+  describeV3('gray', '#6c757d', ''),
+  describeV3('gray-dark', '#343a40', 'v3 深色侧边栏（sidebar-dark-*）的背景色')
+]
+
+/**
+ * AdminLTE 2 的那些皮肤，用 AdminLTE 4 的方式表达，搭配 v3 调色板：
+ * 彩色头部配 v3 的深色侧边栏（`gray-dark`，也就是 `sidebar-dark-*` 那个确切的背景），
+ * 或者对于 "-light" 那一类，配白色侧边栏。
+ */
+export const skinGroupsV3 = [
+  { name: 'Dark sidebar', note: 'skin-blue、skin-purple、skin-green、skin-red、skin-yellow、skin-black —— 彩色头部配 v3 的深色侧边栏。' },
+  { name: 'Light sidebar', note: '"-light" 那一类：同样的头部配白色侧边栏。' }
+]
+
+const v3Skin = ({ name, group, header, theme, boxes, note }) => ({
+  name,
+  group,
+  note,
+  header: { cls: header, theme },
+  sidebar: group === 'Dark sidebar' ? { cls: 'text-bg-gray-dark', theme: 'dark' } : { cls: 'bg-body', theme: 'light' },
+  boxes
+})
+
+export const skinsV3 = [
+  v3Skin({ name: 'Blue', group: 'Dark sidebar', header: 'text-bg-lightblue', theme: 'dark', boxes: ['lightblue', 'green'], note: 'skin-blue —— 经典的 AdminLTE 外观。' }),
+  v3Skin({ name: 'Black', group: 'Dark sidebar', header: 'bg-body', theme: 'light', boxes: ['blue', 'red'], note: 'skin-black —— 白色头部，深色侧边栏。' }),
+  v3Skin({ name: 'Purple', group: 'Dark sidebar', header: 'text-bg-purple', theme: 'dark', boxes: ['purple', 'teal'], note: 'skin-purple.' }),
+  v3Skin({ name: 'Green', group: 'Dark sidebar', header: 'text-bg-green', theme: 'dark', boxes: ['green', 'yellow'], note: 'skin-green.' }),
+  v3Skin({ name: 'Red', group: 'Dark sidebar', header: 'text-bg-red', theme: 'dark', boxes: ['red', 'gray'], note: 'skin-red.' }),
+  v3Skin({ name: 'Yellow', group: 'Dark sidebar', header: 'text-bg-yellow', theme: 'light', boxes: ['yellow', 'navy'], note: 'skin-yellow —— 头部配深色文字。' }),
+  v3Skin({ name: 'Blue light', group: 'Light sidebar', header: 'text-bg-lightblue', theme: 'dark', boxes: ['lightblue', 'green'], note: 'skin-blue-light.' }),
+  v3Skin({ name: 'Black light', group: 'Light sidebar', header: 'bg-body', theme: 'light', boxes: ['blue', 'red'], note: 'skin-black-light —— 整个界面全白。' }),
+  v3Skin({ name: 'Purple light', group: 'Light sidebar', header: 'text-bg-purple', theme: 'dark', boxes: ['purple', 'teal'], note: 'skin-purple-light.' }),
+  v3Skin({ name: 'Green light', group: 'Light sidebar', header: 'text-bg-green', theme: 'dark', boxes: ['green', 'yellow'], note: 'skin-green-light.' }),
+  v3Skin({ name: 'Red light', group: 'Light sidebar', header: 'text-bg-red', theme: 'dark', boxes: ['red', 'gray'], note: 'skin-red-light.' }),
+  v3Skin({ name: 'Yellow light', group: 'Light sidebar', header: 'text-bg-yellow', theme: 'light', boxes: ['yellow', 'navy'], note: 'skin-yellow-light.' })
 ]

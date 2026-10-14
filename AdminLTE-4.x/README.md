@@ -131,10 +131,10 @@ v4 系列是在 Bootstrap 5.3 上完全重写的，**不再依赖 jQuery**：
 <details>
 <summary>亮点一览</summary>
 
-**18 个新的演示页面**
+**18 个新演示页面**
 
 - 应用程序：日历（FullCalendar）、看板（SortableJS）、聊天、文件管理器、项目、邮箱（收件箱/阅读/写信）
-- 表单：向导（4 步流程，含验证）
+- 表单：表单向导（4 步带校验）
 - 表格：数据表格（Tabulator — 无 jQuery）
 - 页面：个人资料、设置、发票、定价、常见问题
 - 错误页面：404、500、维护中
@@ -156,12 +156,12 @@ v4 系列是在 Bootstrap 5.3 上完全重写的，**不再依赖 jQuery**：
 <details>
 <summary>从 v3 升级的破坏性变更</summary>
 
-- 类名重命名：`.wrapper` → `.app-wrapper`、`.main-header` → `.app-header`、`.main-sidebar` → `.app-sidebar`、`.content-wrapper` → `.app-main`
-- 数据属性：`data-toggle` → `data-bs-toggle`、`data-widget="pushmenu"` → `data-lte-toggle="sidebar"`、`data-widget="treeview"` → `data-lte-toggle="treeview"`
-- 深色模式：body 类 `.dark-mode` → `data-bs-theme="dark"` 属性（Bootstrap 5.3 原生支持）
-- 不再需要 jQuery；插件都是用原生 TypeScript 写的
+- 类名重命名：`.wrapper` → `.app-wrapper`，`.main-header` → `.app-header`，`.main-sidebar` → `.app-sidebar`，`.content-wrapper` → `.app-main`
+- 数据属性：`data-toggle` → `data-bs-toggle`，`data-widget="pushmenu"` → `data-lte-toggle="sidebar"`，`data-widget="treeview"` → `data-lte-toggle="treeview"`
+- 深色模式：`<body>` 上的 `.dark-mode` 类 → `data-bs-theme="dark"` 属性（Bootstrap 5.3 原生支持）
+- 不再需要 jQuery；插件使用原生 TypeScript
 - 打包的 `plugins/` 文件夹没了 —— v3 里的每个 jQuery 组件都有了一个有文档记录的原生 JS 继任者（[替代对照表](https://adminlte.io/themes/v4/docs/migration.html#third-party-plugin-replacements)：Select2 → Tom Select、DataTables → Tabulator、Summernote → Quill……）
-- v3 里的那些额外颜色（`.bg-navy`、`.bg-teal`、侧边栏皮肤等等）放在一个按需启用的样式表里，也就是 `dist/css/adminlte-colors.css` —— 十四种重新设计过的颜色，每一种配白色文字都清晰可读，还有 17 个皮肤预设，外加一行钩子就能加入你的品牌色（[颜色文档](https://adminlte.io/themes/v4/docs/colors.html)、[在线演示](https://adminlte.io/themes/v4/UI/colors.html)）。`adminlte.css` 里什么都没加。
+- The v3 extra colours (`.bg-navy`, `.bg-teal`, the sidebar skins, …) live in opt-in stylesheets: `dist/css/adminlte-colors.css` — fourteen redesigned colours, every one readable with white text, 17 skin presets, plus a one-line hook for your brand colour — or `dist/css/adminlte-colors-v3.css`, the 18 AdminLTE 3 colours exactly as they were ([Colors docs](https://adminlte.io/themes/v4/docs/colors.html), [live demo](https://adminlte.io/themes/v4/UI/colors.html)). Nothing is added to `adminlte.css`.
 
 详见专门的[从 v3 迁移指南](https://adminlte.io/themes/v4/docs/migration.html)。
 

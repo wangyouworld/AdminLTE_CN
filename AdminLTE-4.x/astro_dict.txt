@@ -3744,8 +3744,8 @@ presets and how to add your brand colour:
 <a href={deploymentPath + "docs/colors.html"} class="callout-link">颜色文档</a>
 · <a href={deploymentPath + "UI/colors.html"} class="callout-link">Colors demo</a>.
 · <a href={deploymentPath + "UI/colors.html"} class="callout-link">颜色演示</a>。
-Sidebar + navbar combinations in the four families admin
-后台仪表盘常见的四大类侧边栏 + 导航栏组合。
+Sidebar + navbar combinations in the families admin
+后台常见几大类里的侧边栏 + 导航栏组合
 dashboards usually offer. Click one to apply it to this
 点一下即可应用到本页面，
 page and fill the pickers below; then fine-tune.
@@ -3760,18 +3760,18 @@ Bootstrap's background utilities (all of adminlte.css) …
 Bootstrap 的背景工具类（全部来自 adminlte.css）……
 Start from what the page is already showing.
 从页面当前显示的内容开始。
-// Every palette colour is designed for white text: default the
-// 每个调色板颜色都是为白色文字设计的：当用户挑了一个颜色、
-// mode to dark when one is picked and no mode was chosen yet.
-// 但还没选颜色模式时，就把模式默认成深色。
+// A palette colour pairs with the mode that matches its text colour
+// 当用户还没选颜色模式时，调色板的颜色会搭配与其文字颜色相匹配的模式
+// (dark for white-text colours) when no mode was chosen yet.
+//（配白色文字的颜色就用深色模式）。
 Presets: sidebar + navbar in one click; the footer is left as it is.
 预设：一次点击就搞定侧边栏 + 导航栏；页脚保持原样不动。
 q: "Where did the v3 colours go — <code>bg-navy</code>, <code>bg-teal</code>, the sidebar skins? Can I add my brand colour?",
 q: "v3 里那些颜色都去哪了 —— <code>bg-navy</code>、<code>bg-teal</code>，还有侧边栏皮肤？我能加自己的品牌色吗？",
 a: `<p>They live in an opt-in stylesheet, <code>dist/css/adminlte-colors.css</code> (≈ 5 kB gzipped), so they cost nothing unless you load it: fourteen redesigned colours — every one readable with white text — with the full <code>.bg-*</code>, <code>.text-bg-*</code>, <code>.card-*</code>, <code>.callout-*</code>, <code>.bg-gradient-*</code> families. A sidebar "skin" is just <code>&lt;aside class="app-sidebar text-bg-navy" data-bs-theme="dark"&gt;</code>.</p>
 a: `<p>它们放在一个需要主动引入的样式表里，也就是 <code>dist/css/adminlte-colors.css</code>（gzip 后约 5 kB），所以只要你不加载它，就不会有任何额外开销：里面是十四种重新设计过的颜色 —— 每一种都能配白色文字清晰阅读 —— 并且带齐了 <code>.bg-*</code>、<code>.text-bg-*</code>、<code>.card-*</code>、<code>.callout-*</code>、<code>.bg-gradient-*</code> 这几整套系列。所谓侧边栏“皮肤”，其实就是 <code>&lt;aside class="app-sidebar text-bg-navy" data-bs-theme="dark"&gt;</code>。</p>
-<p class="mb-0">Your own colour is a one-liner in Sass, <code>$lte-palette-custom: ("brand": #0f766e)</code>. Everything — palette, presets, the brand-colour checker — is on <a href="colors.html">Colors</a>; try skins live on the <a href="../UI/colors.html">Colors demo</a> or the <a href="../generate/theme.html">Theme Customize</a> page.`
-<p class="mb-0">你自己的颜色，在 Sass 里一行就能搞定：<code>$lte-palette-custom: ("brand": #0f766e)</code>。所有东西 —— 调色板、预设、品牌色检查器 —— 都在 <a href="colors.html">颜色</a> 页面里；想现场试试皮肤，可以去 <a href="../UI/colors.html">颜色演示</a> 或 <a href="../generate/theme.html">主题自定义</a> 页面。`
+<p class="mb-0">Want the AdminLTE 3 colours exactly as they were? Load <code>dist/css/adminlte-colors-v3.css</code> instead — the 18 v3 colours under their original names and values, same class families. Your own colour is a one-liner in Sass, <code>$lte-palette-custom: ("brand": #0f766e)</code>. Everything — palette, presets, the brand-colour checker — is on <a href="colors.html">Colors</a>; try skins live on the <a href="../UI/colors.html">Colors demo</a> or the <a href="../generate/theme.html">Theme Customize</a> page.`
+<p class="mb-0">想要 AdminLTE 3 原封不动的颜色？那就改为加载 <code>dist/css/adminlte-colors-v3.css</code> —— 18 种 v3 颜色，沿用原来的名字和取值，类系列相同。你自己的颜色在 Sass 里一行就能搞定：<code>$lte-palette-custom: ("brand": #0f766e)</code>。所有东西 —— 调色板、预设、品牌色检查器 —— 都在 <a href="colors.html">颜色</a> 页面里；想现场试试皮肤，可以去 <a href="../UI/colors.html">颜色演示</a> 或 <a href="../generate/theme.html">主题自定义</a> 页面。</p>`
 Colors |
 颜色 |
 Colors<
@@ -3816,8 +3816,12 @@ Every colour takes white text at 4.6:1 or better and was placed
 每一种颜色配白色文字都能达到 4.6:1 或更好，
 to sit next to Bootstrap's own theme colours without clashing.
 而且在排布时都考虑到了要跟 Bootstrap 自己的主题色相邻而不冲突。
-How and why is on the
-具体的做法和原因在
+Prefer the AdminLTE 3 colours exactly as they were? A second sheet,
+更喜欢 AdminLTE 3 原封不动的颜色？第二个样式表
+<code>dist/css/adminlte-colors-v3.css</code>, ships them under their
+<code>dist/css/adminlte-colors-v3.css</code> 会把它们以原来的名字提供出来 ——
+original names — switch this page to it below. How and why is on the
+在下面把本页面切换过去即可。具体的做法和原因在
 <a href={deploymentPath + "docs/colors.html"} class="callout-link">Colors documentation page</a>.
 <a href={deploymentPath + "docs/colors.html"} class="callout-link">颜色文档页面</a>上。
 Try a skin on this page
@@ -3916,10 +3920,10 @@ Preview on header
 在头部上预览
 Clear preview
 清除预览
-// Every palette colour is designed for white text, so a coloured
-// 每种调色板颜色都是为白色文字设计的，所以彩色的侧边栏或头部
-// sidebar or header always pairs with data-bs-theme="dark".
-// 总是搭配 data-bs-theme="dark" 来用。
+// A coloured sidebar or header pairs with data-bs-theme="dark" when the
+// 当某个颜色配的是白色文字时，彩色的侧边栏或头部就搭配 data-bs-theme="dark"
+// colour takes white text (every designed colour; most v3 colours).
+// 来用（设计版全部颜色都是如此；v3 里大多数颜色也是）。
 // ---- Brand colour checker
 // ---- 品牌色检查器
 // OKLCH + WCAG maths; a copy of src/utils/palette.mjs — keep in step.
@@ -3990,3 +3994,49 @@ notes.push(`它离 Bootstrap 的 <strong>${nearestBootstrap[0]}</strong> 只差 
 `<p class="mb-2">白色文字 <strong>${white.toFixed(2)}:1</strong> ${passes ? "✔ 通过 WCAG AA" : "✖ 低于 4.5:1"} · 黑色文字 ${black.toFixed(2)}:1</p>`,
 notes.length > 0 ? `<p class="mb-0 mt-2 small">Hue note: ${notes.join("; ")}.</p>` : ""
 notes.length > 0 ? `<p class="mb-0 mt-2 small">色相提示：${notes.join("; ")}。</p>` : ""
+// Two palettes can drive this page: the designed 4.4 palette (default) or the
+// 本页面可以由两套调色板来驱动：4.4 重新设计的那套（默认）或者 AdminLTE 3 的原版。
+// AdminLTE 3 originals. Both sheets define the same class names with different
+// 两个样式表定义的是同一批类名、只是取值不同，所以页面一次只加载一个，
+// values, so the page loads one at a time and swaps the <link>.
+// 通过替换 <link> 来切换。
+Designed palette
+设计配色方案
+AdminLTE 3 originals
+AdminLTE 3 原版
+// name → automatic text colour, per set (v3 uses the YIQ rule: some take dark text)
+// 名称 → 自动文字颜色，按套区分（v3 用的是 YIQ 规则：有些颜色配深色文字）
+<span data-palette-set="designed">Fourteen colours designed in OKLCH — every one takes white text and sits cleanly next to Bootstrap's theme colours.</span>
+<span data-palette-set="designed">在 OKLCH 里设计的十四种颜色 —— 每一种都配白色文字，并且能干净利落地和 Bootstrap 的主题色并排相处。</span>
+<span data-palette-set="v3" hidden>The eighteen AdminLTE 3 colours, values unchanged, with v3's text-colour rule (lime, orange and yellow take dark text). Same class families. Several fail WCAG AA with white text, as they did in v3.</span>
+<span data-palette-set="v3" hidden>十八种 AdminLTE 3 颜色，取值不变，沿用 v3 的文字颜色规则（lime、orange、yellow 配深色文字）。类系列相同。其中好几种配白色文字达不到 WCAG AA，跟 v3 里一样。</span>
+Utilities, components and the dashboard sets are demonstrated with the designed palette; the v3 sheet emits exactly the same class families for these eighteen names.
+工具类、组件和仪表盘配色组都是用重新设计的那套调色板来演示的；v3 那个样式表为这十八个名字输出的类系列完全一样。
+// Automatic text colour per palette (the v3 sheet gives some colours dark text)
+// 按调色板自动决定文字颜色（v3 那个样式表会给某些颜色配深色文字）
+Palette switch: swap the stylesheet, show that palette's tiles/presets/chips
+调色板切换：替换样式表，显示对应调色板的色块/预设/标签
+// The AdminLTE 3 originals (adminlte-colors-v3.css) are the alternative sheet;
+// AdminLTE 3 的原版颜色（adminlte-colors-v3.css）是那个备选样式表；
+// the two define the same class names, so the page loads one at a time.
+// 两者定义的是同一批类名，所以页面一次只加载一个。
+Fourteen colours designed for 4.4 — every one takes white text.
+为 4.4 设计的十四种颜色 —— 每一种都配白色文字。
+The eighteen AdminLTE 3 colours, values unchanged, with v3's text-colour rule.
+十八种 AdminLTE 3 颜色，取值不变，沿用 v3 的文字颜色规则。
+// … plus the extended palette (opt-in css/adminlte-colors.css or the
+// ……再加上扩展调色板（按需引入 css/adminlte-colors.css，或者 AdminLTE 3 原版的
+// AdminLTE 3 originals, adminlte-colors-v3.css — one at a time), as
+// adminlte-colors-v3.css —— 两者只能选一个），以 `.text-bg-*` 的形式使用，
+// `.text-bg-*` so the contrast text comes with the background, and its
+// 这样对比文字会跟着背景一起带上；
+// `.bg-gradient-*` variants.
+// 还有它的 `.bg-gradient-*` 变体。
+// Every class any palette can put on an element — so switching palettes cleans up.
+// 列出任何调色板可能加到元素上的所有类 —— 这样切换调色板时才能清理干净。
+// After a palette switch: rebuild the options; a colour the new
+// 切换调色板之后：重建选项；如果新调色板里没有某个颜色，
+// palette doesn't have falls back to the region's plain background.
+// 就回退到该区域朴素的背景。
+// Palette switch: swap the stylesheet, show that palette's presets, rebuild the pickers.
+// 调色板切换：替换样式表，显示对应调色板的预设，重建取色器。

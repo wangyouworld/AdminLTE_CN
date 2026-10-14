@@ -2312,8 +2312,8 @@ Optional stylesheets get the same treatment — the [Select2 compatibility theme
 可选的样式表也是同样的待遇 —— 比如 [Select2 兼容主题](integrations.html#select2-compatibility-theme)，除了 LTR 版本之外，还一并提供了 `adminlte-select2.rtl.css` / `.rtl.min.css`。
 AdminLTE 4 styles itself with Bootstrap 5.3's theme colours — `primary`, `success`, `danger`, `warning`, `info`, `secondary`, `light`, `dark` — and nothing else. That keeps `adminlte.css` small, but a dashboard often wants more than five hues on a widget row, and AdminLTE 3 users miss `.bg-navy`, `.bg-teal` and the sidebar skins.
 AdminLTE 4 只用了 Bootstrap 5.3 的主题色来给自己做样式 —— `primary`、`success`、`danger`、`warning`、`info`、`secondary`、`light`、`dark` —— 除此之外没别的。这让 `adminlte.css` 保持得很小，但仪表盘的一行组件里经常想要不止五种色调，而且 AdminLTE 3 的老用户还惦记着 `.bg-navy`、`.bg-teal` 和那些侧边栏皮肤。
-**`dist/css/adminlte-colors.css`** is the answer, and it is opt-in: one extra stylesheet (≈ 5 kB gzipped) that adds fourteen colours as `--bs-*` tokens plus every class family Bootstrap generates for its own theme colours. Nothing changes for projects that don't load it.
-**`dist/css/adminlte-colors.css`** 就是答案，而且是按需启用的：多加载一个样式表（gzip 后约 5 kB），就会以 `--bs-*` token 的形式加入十四种颜色，外加 Bootstrap 为自己主题色生成的那一整套类系列。对于不加载它的项目来说，什么都不变。
+**`dist/css/adminlte-colors.css`** is the answer, and it is opt-in: one extra stylesheet (≈ 5 kB gzipped) that adds fourteen colours as `--bs-*` tokens plus every class family Bootstrap generates for its own theme colours. Nothing changes for projects that don't load it. Prefer the AdminLTE 3 colours exactly as they were? There is a second sheet for that — see [Two palettes](#two-palettes) below.
+**`dist/css/adminlte-colors.css`** 就是答案，而且是按需启用的：多加载一个样式表（gzip 后约 5 kB），就会以 `--bs-*` token 的形式加入十四种颜色，外加 Bootstrap 为自己主题色生成的那一整套类系列。对于不加载它的项目来说，什么都不变。更喜欢 AdminLTE 3 原封不动的颜色？还有一个专门的样式表 —— 见下面的[两套调色板](#two-palettes)。
 Try every colour, skin and widget set live on the <a href="../UI/colors.html">Colors demo page</a> — it also has a checker for your own brand colours.
 所有颜色、皮肤和组件套装都能在 <a href="../UI/colors.html">颜色演示页面</a>上现场试用 —— 那里还有一个给你自己品牌色用的检查器。
 ##### Getting the stylesheet
@@ -2338,6 +2338,8 @@ Nine chromatic colours and five neutrals for chrome. Every one of them takes **w
 <th scope="col">白色文字</th>
 <th scope="col">Character &amp; use</th>
 <th scope="col">特点与用途</th>
+<th scope="col">Text (v3 rule)</th>
+<th scope="col">文本（v3 规则）</th>
 The colours are named for what they are, not for Bootstrap's `$colors` names (`blue`, `purple`, `red`, …). Those overlap the theme colours and are deliberately not generated; the `--bs-blue`, `--bs-purple` … variables Bootstrap defines are still there if you want the raw values.
 这些颜色是按它们本身是什么来命名的，而不是照搬 Bootstrap `$colors` 里的名字（`blue`、`purple`、`red`……）。那些名字和主题色有重叠，所以有意不生成对应的类；如果你想拿原始值，Bootstrap 定义的 `--bs-blue`、`--bs-purple`……这些变量依然还在。
 ##### What you get
@@ -2460,8 +2462,8 @@ v3 的扩展颜色有 `lightblue`、`navy`、`olive`、`lime`、`fuchsia`、`mar
 | `sidebar-dark-primary`, `navbar-light` … | `text-bg-*` + `data-bs-theme` | 见上文的<em>皮肤</em> |
 | `bg-gradient-*` | `bg-gradient-*` | Kept, for palette and theme colours |
 | `bg-gradient-*` | `bg-gradient-*` | 保留了，调色板和主题色都能用 |
-Keeping the old class names in existing markup is a one-liner: `$lte-palette-aliases: ("lightblue": "sky", "maroon": "pink");`.
-想在现有标记里继续用旧的类名，一行就能搞定：`$lte-palette-aliases: ("lightblue": "sky", "maroon": "pink");`。
+Two ways to keep existing markup working: load **`adminlte-colors-v3.css`** and every v3 name is back with its original value (see [Two palettes](#two-palettes)), or use the designed palette with the alias one-liner `$lte-palette-aliases: ("lightblue": "sky", "maroon": "pink");`.
+想让现有标记继续能用，有两种办法：加载 **`adminlte-colors-v3.css`**，这样每个 v3 名字都会带着原始取值回来（见[两套调色板](#两种调色板)）；或者用重新设计的那套调色板，加上一行别名配置 `$lte-palette-aliases: ("lightblue": "sky", "maroon": "pink");`。
 Search"
 搜索"
 Navbar search: a quiet pill, the icon is the submit button (md and up)
@@ -2480,3 +2482,25 @@ Give each chart an `id` so it is registered for the live update:
 给每个图表都加一个 `id`，这样它就会被注册进去，参与实时更新：
 If you prefer the ColorMode event to the attribute observer, `document.addEventListener("changed.lte.color-mode", e => …)` receives `e.detail.resolved` (`"light"` or `"dark"`); the observer above additionally covers OS-preference changes in auto mode and any code that sets the attribute directly. The same idea applies to other libraries — Chart.js reads `Chart.defaults.color` / `Chart.defaults.borderColor`, which you can set from `getComputedStyle(document.body)` and re-apply with `chart.update()` in the same observer.
 如果你更想用 ColorMode 事件，而不是监听属性变化，可以用 `document.addEventListener("changed.lte.color-mode", e => …)`，它会收到 `e.detail.resolved`（值为 `"light"` 或 `"dark"`）；而上面那个监听器还额外覆盖了 auto 模式下的系统偏好变化，以及任何直接设置这个属性的代码。同样的思路也适用于其他图表库 —— Chart.js 会读取 `Chart.defaults.color` / `Chart.defaults.borderColor`，你可以从 `getComputedStyle(document.body)` 里取值设置，然后在同一个监听器里用 `chart.update()` 重新应用。
+##### Two palettes
+##### 两种调色板
+You can have the colours **designed for 4.4** (this page's default, below) or the **AdminLTE 3 originals**, unchanged. They ship as two files that define the same class names with different values, so load **one** of them after `adminlte.css`:
+你可以选择**为 4.4 重新设计过的**那套颜色（也就是本页面的默认值，见下文），或者**AdminLTE 3 原封不动的原版颜色**。它们以两个文件的形式发布，定义的是同一批类名、只是取值不同，所以只要在 `adminlte.css` 之后加载其中**一个**就行：
+| File | What you get | Text colour rule |
+| 文件 | 你能得到什么 | 文字颜色规则 |
+| `dist/css/adminlte-colors.css` | 14 colours designed in OKLCH — orange, amber, olive, teal, sky, indigo, violet, fuchsia, pink, navy, steel, slate, graphite, midnight — every one readable with white text, placed to sit next to Bootstrap's theme colours | Bootstrap 5's `color-contrast()`, 4.5:1 |
+| `dist/css/adminlte-colors.css` | 在 OKLCH 里设计的 14 种颜色 —— orange、amber、olive、teal、sky、indigo、violet、fuchsia、pink、navy、steel、slate、graphite、midnight —— 每一种配白色文字都清晰可读，排布时也考虑到了要跟 Bootstrap 的主题色相邻 | Bootstrap 5 的 `color-contrast()`，4.5:1 |
+| `dist/css/adminlte-colors-v3.css` | the 18 AdminLTE 3 colours — lightblue, navy, olive, lime, fuchsia, maroon, blue, indigo, purple, pink, red, orange, yellow, green, teal, cyan, gray, gray-dark — values as they were in the 3.2 build | AdminLTE 3's rule (Bootstrap 4 YIQ): white on lightblue, olive, teal, cyan …; dark on lime, orange, yellow |
+| `dist/css/adminlte-colors-v3.css` | 18 种 AdminLTE 3 颜色 —— lightblue、navy、olive、lime、fuchsia、maroon、blue、indigo、purple、pink、red、orange、yellow、green、teal、cyan、gray、gray-dark —— 取值和 3.2 版本构建时一样 | AdminLTE 3 的规则（Bootstrap 4 YIQ）：lightblue、olive、teal、cyan 等配白色；lime、orange、yellow 配深色 |
+Both emit exactly the same class families (`.bg-*`, `.text-bg-*`, `.text-*`, `.border-*`, `.link-*`, `.bg-gradient-*`, `.card-*`, `.callout-*`, `.direct-chat-*`, tokens with dark-mode variants), so everything on this page applies to either. The demo pages let you switch between them live: the <a href="../UI/colors.html">Colors demo</a> and <a href="../generate/theme.html">Theme Customize</a> both have a palette toggle.
+两者输出的类系列完全一样（`.bg-*`、`.text-bg-*`、`.text-*`、`.border-*`、`.link-*`、`.bg-gradient-*`、`.card-*`、`.callout-*`、`.direct-chat-*`，以及带深色模式变体的 token），所以本页面讲的任何内容对两者都适用。演示页面可以让你在两者之间实时切换：<a href="../UI/colors.html">颜色演示</a>和<a href="../generate/theme.html">主题自定义</a>都有一个调色板切换开关。
+… or the AdminLTE 3 originals, not both
+……或者 AdminLTE 3 的原始版本，两者不要同时使用
+The AdminLTE 3 originals, with the contrast ratio white text reaches on each — several are below WCAG AA's 4.5:1 for normal text, exactly as they were in v3, which is the trade-off of keeping them as they were:
+AdminLTE 3 的原版颜色，以及每种颜色配白色文字能达到的对比度 —— 其中好几种都低于 WCAG AA 对正文要求的 4.5:1，跟 v3 里一模一样；这就是保持原样的代价：
+The v3 sheet is built from the same Sass as the designed one — `src/scss/adminlte-colors-v3.scss` sets `$lte-palette` to the v3 map and `$lte-palette-contrast: "yiq"` — so `$lte-palette-custom`, `$lte-palette-aliases` and the rest below apply to it too. Its skin presets are AdminLTE 2's: a coloured header over the v3 dark sidebar (`text-bg-gray-dark`, the exact `sidebar-dark-*` background) or over a white one:
+v3 那个样式表是用和设计版同一套 Sass 构建的 —— `src/scss/adminlte-colors-v3.scss` 把 `$lte-palette` 设成了 v3 的 map，并把 `$lte-palette-contrast` 设为 `"yiq"` —— 所以 `$lte-palette-custom`、`$lte-palette-aliases` 以及下面其余的那些对它也同样适用。它的皮肤预设来自 AdminLTE 2：彩色头部配 v3 的深色侧边栏（`text-bg-gray-dark`，也就是 `sidebar-dark-*` 那个确切的背景），或者配白色侧边栏：
+- `$lte-palette-contrast` — `"wcag"` (default) or `"yiq"`, the Bootstrap 4 / AdminLTE 3 brightness rule (`$lte-palette-yiq-threshold: 150`, dark text `#1f2d3d`). The v3 sheet uses `"yiq"`; set it if you want a custom palette to pick text colours the way v3 did.
+- `$lte-palette-contrast` —— 可选 `"wcag"`（默认）或 `"yiq"`，后者是 Bootstrap 4 / AdminLTE 3 用的亮度规则（`$lte-palette-yiq-threshold: 150`，深色文字为 `#1f2d3d`）。v3 那个样式表用的就是 `"yiq"`；如果你想让自定义调色板也按 v3 的方式来挑文字颜色，就把它设成 `"yiq"`。
+To ship only your colours (drop the fourteen), set `$lte-palette` itself instead:
+如果只想发布**你自己的**颜色（把那十四种丢掉），那就改为设置 `$lte-palette` 本身：
