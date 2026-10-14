@@ -202,7 +202,8 @@ dict.txt 为其字典文件。
 
 你可以在本项目分支中找到，也可以直接访问地址：
 
-https://gitee.com/3Vshej/AdminLTE_CN/releases
+> * https://github.com/wangyouworld/AdminLTE_CN/releases
+> * https://gitee.com/3Vshej/AdminLTE_CN/releases
 
 或者，线上查看：
 http://3vshej.cn/AdminLTE/
