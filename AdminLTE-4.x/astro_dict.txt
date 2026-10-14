@@ -3768,10 +3768,10 @@ Presets: sidebar + navbar in one click; the footer is left as it is.
 预设：一次点击就搞定侧边栏 + 导航栏；页脚保持原样不动。
 q: "Where did the v3 colours go — <code>bg-navy</code>, <code>bg-teal</code>, the sidebar skins? Can I add my brand colour?",
 q: "v3 里那些颜色都去哪了 —— <code>bg-navy</code>、<code>bg-teal</code>，还有侧边栏皮肤？我能加自己的品牌色吗？",
-a: `<p>They live in an opt-in stylesheet, <code>dist/css/adminlte-colors.css</code> (≈ 5 kB gzipped), so they cost nothing unless you load it: fourteen redesigned colours — every one readable with white text — with the full <code>.bg-*</code>, <code>.text-bg-*</code>, <code>.card-*</code>, <code>.callout-*</code>, <code>.bg-gradient-*</code> families. A sidebar "skin" is just <code>&lt;aside class="app-sidebar text-bg-navy" data-bs-theme="dark"&gt;</code>.</p>
-a: `<p>它们放在一个需要主动引入的样式表里，也就是 <code>dist/css/adminlte-colors.css</code>（gzip 后约 5 kB），所以只要你不加载它，就不会有任何额外开销：里面是十四种重新设计过的颜色 —— 每一种都能配白色文字清晰阅读 —— 并且带齐了 <code>.bg-*</code>、<code>.text-bg-*</code>、<code>.card-*</code>、<code>.callout-*</code>、<code>.bg-gradient-*</code> 这几整套系列。所谓侧边栏“皮肤”，其实就是 <code>&lt;aside class="app-sidebar text-bg-navy" data-bs-theme="dark"&gt;</code>。</p>
-<p class="mb-0">Want the AdminLTE 3 colours exactly as they were? Load <code>dist/css/adminlte-colors-v3.css</code> instead — the 18 v3 colours under their original names and values, same class families. Your own colour is a one-liner in Sass, <code>$lte-palette-custom: ("brand": #0f766e)</code>. Everything — palette, presets, the brand-colour checker — is on <a href="colors.html">Colors</a>; try skins live on the <a href="../UI/colors.html">Colors demo</a> or the <a href="../generate/theme.html">Theme Customize</a> page.`
-<p class="mb-0">想要 AdminLTE 3 原封不动的颜色？那就改为加载 <code>dist/css/adminlte-colors-v3.css</code> —— 18 种 v3 颜色，沿用原来的名字和取值，类系列相同。你自己的颜色在 Sass 里一行就能搞定：<code>$lte-palette-custom: ("brand": #0f766e)</code>。所有东西 —— 调色板、预设、品牌色检查器 —— 都在 <a href="colors.html">颜色</a> 页面里；想现场试试皮肤，可以去 <a href="../UI/colors.html">颜色演示</a> 或 <a href="../generate/theme.html">主题自定义</a> 页面。</p>`
+a: `<p>They live in an opt-in stylesheet, <code>dist/css/adminlte-colors.css</code> (≈ 8 kB gzipped), so they cost nothing unless you load it: fourteen redesigned colours — every one readable with white text — with the full <code>.bg-*</code>, <code>.text-bg-*</code>, <code>.card-*</code>, <code>.callout-*</code>, <code>.bg-gradient-*</code> families. A sidebar "skin" is just <code>&lt;aside class="app-sidebar text-bg-navy" data-bs-theme="dark"&gt;</code>.</p>
+a: `<p>它们放在一个需要主动引入的样式表里，也就是 <code>dist/css/adminlte-colors.css</code>（gzip 后约 8 kB），所以只要你不加载它，就不会有任何额外开销：里面是十四种重新设计过的颜色 —— 每一种都能配白色文字清晰阅读 —— 并且带齐了 <code>.bg-*</code>、<code>.text-bg-*</code>、<code>.card-*</code>、<code>.callout-*</code>、<code>.bg-gradient-*</code> 这几整套系列。所谓侧边栏“皮肤”，其实就是 <code>&lt;aside class="app-sidebar text-bg-navy" data-bs-theme="dark"&gt;</code>。</p>
+<p class="mb-0">Want the AdminLTE 3 colours exactly as they were? Load <code>dist/css/adminlte-colors-v3.css</code> instead — the 18 v3 colours under their original names and values, same class families. Your own colour is a one-liner in Sass, <code>$lte-palette-custom: ("brand": #0f766e)</code>. To make one of them Bootstrap's <code>primary</code> — buttons, links, pagination, form focus — add <code>data-lte-primary="teal"</code> to <code>&lt;html&gt;</code>. Everything — palette, presets, the brand-colour checker — is on <a href="colors.html">Colors</a>; try skins live on the <a href="../UI/colors.html">Colors demo</a> or the <a href="../generate/theme.html">Theme Customize</a> page.`
+<p class="mb-0">想要 AdminLTE 3 原封不动的颜色？那就改为加载 <code>dist/css/adminlte-colors-v3.css</code> —— 18 种 v3 颜色，沿用原来的名字和取值，类系列相同。你自己的颜色在 Sass 里一行就能搞定：<code>$lte-palette-custom: ("brand": #0f766e)</code>。想让其中某个颜色成为 Bootstrap 的 <code>primary</code> —— 影响按钮、链接、分页、表单聚焦态 —— 就在 <code>&lt;html&gt;</code> 上加上 <code>data-lte-primary="teal"</code>。所有东西 —— 调色板、预设、品牌色检查器 —— 都在 <a href="colors.html">颜色</a> 页面里；想现场试试皮肤，可以去 <a href="../UI/colors.html">颜色演示</a> 或 <a href="../generate/theme.html">主题自定义</a> 页面。</p>`
 Colors |
 颜色 |
 Colors<
@@ -3808,10 +3808,12 @@ This page loads the optional
 <code>dist/css/adminlte-colors.css</code> —— 十四种额外颜色
 navy, steel, slate, graphite, midnight) as <code>--bs-*</code> tokens plus the
 navy、steel、slate、graphite、midnight），以 <code>--bs-*</code> token 的形式提供，外加
-families. It is not part of <code>adminlte.css</code>; nothing else
-这几套类系列。它不属于 <code>adminlte.css</code> 的一部分；
-in the demo uses it.
-演示里也没有别的地方用到它。
+families — and <code>data-lte-primary</code>, which makes any of
+这几套类系列 —— 还有 <code>data-lte-primary</code>，
+them Bootstrap's <code>primary</code>, buttons and all. It is not
+它能让其中任意一个颜色成为 Bootstrap 的 <code>primary</code>，
+part of <code>adminlte.css</code>; nothing else in the demo uses it.
+按钮什么的全都跟着变。它不属于 <code>adminlte.css</code> 的一部分；演示里也没有别的地方用到它。
 Every colour takes white text at 4.6:1 or better and was placed
 每一种颜色配白色文字都能达到 4.6:1 或更好，
 to sit next to Bootstrap's own theme colours without clashing.
@@ -4040,3 +4042,77 @@ The eighteen AdminLTE 3 colours, values unchanged, with v3's text-colour rule.
 // 就回退到该区域朴素的背景。
 // Palette switch: swap the stylesheet, show that palette's presets, rebuild the pickers.
 // 调色板切换：替换样式表，显示对应调色板的预设，重建取色器。
+Bootstrap compiles <code>$primary</code> into its components,
+Bootstrap 会把 <code>$primary</code> 编译进它的组件里，
+so <code>.btn-primary</code> carries
+所以 <code>.btn-primary</code> 带的是
+<code>--bs-btn-bg: #0d6efd</code> rather than
+<code>--bs-btn-bg: #0d6efd</code>，而不是
+<code>var(--bs-primary)</code> — overriding the token alone
+<code>var(--bs-primary)</code> —— 光覆盖那个 token，
+leaves buttons blue. This sheet rewires those components and
+按钮还是蓝色的。这个样式表把这些组件重新接了线，并
+points them at a palette colour when you add
+在你给 <code>&lt;html&gt;</code> 加上
+<code>data-lte-primary</code> to <code>&lt;html&gt;</code>.
+<code>data-lte-primary</code> 时，让它们指向某个调色板颜色。
+Buttons, links, pagination, checkboxes, the focus ring,
+按钮、链接、分页、复选框、焦点圈、进度条、
+progress bars, active list items and dropdown items follow;
+激活的列表项和下拉项都会跟着变；
+nothing changes without the attribute.
+不加这个属性的话什么都不变。
+"Bootstrap default"
+"Bootstrap 默认"
+Primary button
+Primary 按钮
+Outline<
+描边<
+A link
+一个链接
+Badge<
+徽章<
+Checked<
+选中<
+Switch<
+开关<
+Focus this field
+聚焦此字段
+The focus ring follows too
+焦点圈也会跟着变
+`data-lte-primary` on <html>: "default" leaves the attribute off
+<html> 上的 `data-lte-primary`：选 "default" 就不加这个属性
+`data-lte-primary` values each sheet can offer (#6107)
+每个样式表能提供的 `data-lte-primary` 取值（#6107）
+Primary Color
+主色
+Bootstrap bakes <code>$primary</code> into its components,
+Bootstrap 把 <code>$primary</code> 直接烤进了它的组件里，
+so <code>.btn-primary</code> stays blue however you set
+所以不管你怎么设置 <code>--bs-primary</code>，
+<code>--bs-primary</code>. The palette sheet rewires them:
+<code>.btn-primary</code> 都还是蓝色的。调色板样式表把它们重新接了线：
+put <code>data-lte-primary</code> on <code>&lt;html&gt;</code>
+在 <code>&lt;html&gt;</code> 上加上 <code>data-lte-primary</code>，
+and buttons, links, pagination, checkboxes, progress bars
+按钮、链接、分页、复选框、进度条和焦点圈
+and the focus ring follow the colour you pick.
+就会跟着你选的颜色走。
+Needs <code>css/adminlte-colors.css</code> (or
+需要 <code>css/adminlte-colors.css</code>（或者
+<code>css/adminlte-colors-v3.css</code>) — see
+<code>css/adminlte-colors-v3.css</code>）—— 详见
+<a href={deploymentPath + "docs/colors.html"} class="link-primary">Colors</a>.
+<a href={deploymentPath + "docs/colors.html"} class="link-primary">颜色</a>。
+// `data-lte-primary` on <html>: makes Bootstrap's `primary` components
+// <html> 上的 `data-lte-primary`：让 Bootstrap 那些 `primary` 组件
+// (buttons, links, pagination, checkboxes, progress) take a palette
+//（按钮、链接、分页、复选框、进度条）采用某个调色板颜色。
+// colour. Empty value = no attribute = Bootstrap's blue.
+// 值为空 = 不加属性 = Bootstrap 原本的蓝色。
+Presets<
+预设<
+Palette on this page
+本页调色板
+Make one of them your
+选择其中一个成为你的

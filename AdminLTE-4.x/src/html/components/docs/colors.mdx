@@ -4,7 +4,7 @@ import { palette, paletteV3, sets, skinGroups, skinGroupsV3, skins, skinsV3 } fr
 
 AdminLTE 4 只用了 Bootstrap 5.3 的主题色来给自己做样式 —— `primary`、`success`、`danger`、`warning`、`info`、`secondary`、`light`、`dark` —— 除此之外没别的。这让 `adminlte.css` 保持得很小，但仪表盘的一行组件里经常想要不止五种色调，而且 AdminLTE 3 的老用户还惦记着 `.bg-navy`、`.bg-teal` 和那些侧边栏皮肤。
 
-**`dist/css/adminlte-colors.css`** 就是答案，而且是按需启用的：多加载一个样式表（gzip 后约 5 kB），就会以 `--bs-*` token 的形式加入十四种颜色，外加 Bootstrap 为自己主题色生成的那一整套类系列。对于不加载它的项目来说，什么都不变。更喜欢 AdminLTE 3 原封不动的颜色？还有一个专门的样式表 —— 见下面的[两套调色板](#two-palettes)。
+**`dist/css/adminlte-colors.css`** 就是答案，而且是按需启用的：多加载一个样式表（gzip 后约 8 kB），就会以 `--bs-*` token 的形式加入十四种颜色，外加 Bootstrap 为自己主题色生成的那一整套类系列 —— 而且还能让其中任意一个[成为你的 `primary`](#making-one-of-them-your-primary)。对于不加载它的项目来说，什么都不变。更喜欢 AdminLTE 3 原封不动的颜色？还有一个专门的样式表 —— 见下面的[两套调色板](#two-palettes)。
 
 <div class="d-flex flex-wrap gap-2 my-3">
   {palette.map(c => (
@@ -88,13 +88,14 @@ AdminLTE 3 的原版颜色，以及每种颜色配白色文字能达到的对比
 
 v3 那个样式表是用和设计版同一套 Sass 构建的 —— `src/scss/adminlte-colors-v3.scss` 把 `$lte-palette` 设成了 v3 的 map，并把 `$lte-palette-contrast` 设为 `"yiq"` —— 所以 `$lte-palette-custom`、`$lte-palette-aliases` 以及下面其余的那些对它也同样适用。它的皮肤预设来自 AdminLTE 2：彩色头部配 v3 的深色侧边栏（`text-bg-gray-dark`，也就是 `sidebar-dark-*` 那个确切的背景），或者配白色侧边栏：
 
-<div class="table-responsive">
+<div class="table-responsive" tabindex="0">
   <table class="table align-middle">
     <thead>
       <tr>
         <th scope="col">皮肤</th>
         <th scope="col">头部</th>
         <th scope="col">侧边栏</th>
+        <th scope="col">主色</th>
         <th scope="col">v2/v3 name</th>
       </tr>
     </thead>
@@ -104,6 +105,7 @@ v3 那个样式表是用和设计版同一套 Sass 构建的 —— `src/scss/ad
           <td class="text-nowrap fw-semibold">{s.name}</td>
           <td class="text-nowrap"><code>{s.header.cls}</code> · <code>{s.header.theme}</code></td>
           <td class="text-nowrap"><code>{s.sidebar.cls}</code> · <code>{s.sidebar.theme}</code></td>
+          <td class="text-nowrap"><code>{s.primary}</code></td>
           <td class="text-body-secondary">{s.note}</td>
         </tr>
       ))}
@@ -162,6 +164,47 @@ v3 那个样式表是用和设计版同一套 Sass 构建的 —— `src/scss/ad
 | 组件 | `.small-box.text-bg-teal`, `.info-box.text-bg-teal`, `.badge.text-bg-teal`, `.progress-bar.bg-teal` | 这些本来就能通过 `.text-bg-*` / `.bg-*` 自己上色，所以不用额外输出什么 |
 | 按钮 | `.btn.text-bg-teal`, `.btn.bg-gradient-teal` | 会带上悬停 / 激活状态的色阶，免得看起来像没反应的死按钮 |
 
+##### 让其中某个颜色成为你的 `primary`
+
+Bootstrap 在构建时会把 `$primary` 编译进它的组件里：`.btn-primary` 出厂时带的是 `--bs-btn-bg: #0d6efd`，而不是 `var(--bs-primary)`。所以光覆盖那个 token，只会重绘 `.text-primary` 和 `.bg-primary`，而每个按钮、分页和复选框还是蓝色的 —— 这就是过去皮肤看起来只应用了一半的原因（[#6107](https://github.com/ColorlibHQ/AdminLTE/issues/6107)）。
+
+两个颜色样式表都把这些组件重新接到变量上，只要一个属性就能让它们指向某个调色板颜色：
+
+```html
+<html lang="en" data-lte-primary="teal">
+```
+
+不加这个属性的话什么都不变，而且它对任何容器都有效 —— 页面的某一块区域也能拥有自己的 primary。跟着这个颜色一起变的还有：
+
+| 跟着变的 | 具体内容 |
+|---|---|
+| 按钮 | `.btn-primary`、`.btn-outline-primary`（悬停、激活和禁用状态的色阶和 Bootstrap 自己的完全一致）、`.btn-link` |
+| 链接 | `a`、`.link-primary`、`.btn-link`、分页链接 —— 在深色模式下带 Bootstrap 的深色模式色调 |
+| 工具类和 token | `--bs-primary`、`--bs-primary-rgb`、subtle / emphasis 那一组三个、`.text-primary`、`.bg-primary`、`.border-primary`、`.text-bg-primary`、`.alert-primary`、`.list-group-item-primary`、`.accordion` |
+| 表单 | `.form-control` / `.form-select` 的焦点圈和聚焦边框、`.form-check-input:checked`、不确定状态的复选框、`.form-range` 的滑块手柄 |
+| 组件 | `.nav-pills .nav-link.active`、`.pagination .active`、`.progress-bar`、`.list-group-item.active`、`.dropdown-item.active`、`--bs-focus-ring-color` |
+| AdminLTE | `.card-primary`（以及 `.card-outline`）、`.direct-chat-primary`、`.toast-primary`、带 `.bg-primary` 的 `.small-box`/`.info-box` |
+
+Bootstrap 自己的主题色也能用 —— `data-lte-primary="danger"` 完全不需要调色板颜色。有两样东西是故意保持 Bootstrap 蓝色的：`.table-primary` 的条纹和悬停色调，以及开关选中时那个以 data-URI 形式画出来的滑块。
+
+如果品牌色不在调色板里，就自己设置 token，同时保留那个属性：
+
+```css
+[data-lte-primary="brand"] {
+  --bs-primary: #7a5af8;
+  --bs-primary-rgb: 122, 90, 248;
+  /* 可选 —— 不设置的话，悬停色阶会用 color-mix() 计算出来 */
+  --lte-primary-hover: #6849e6;
+  --lte-primary-active: #5b3fd1;
+  /* 浅色品牌色配深色文字 */
+  --lte-primary-color: #fff;
+}
+```
+
+用 Sass 的话，一行就够了 —— `$lte-palette-custom: ("brand": #7a5af8)`（见[添加你的品牌色](#adding-your-brand-colours)）—— 然后 `data-lte-primary="brand"` 就会自动为你生成，色阶和对比文字都一并搞定。
+
+要挑一个配白色文字的颜色：Bootstrap 里选中复选框内的对勾是白色的，而且没法通过 CSS 改色。设计版调色板里每种颜色都符合要求；而 v3 调色板里，`lime`、`yellow` 和 `orange` 则不行。
+
 ##### 皮肤 —— 给侧边栏和头部上色
 
 在 AdminLTE 4 里，所谓“皮肤”并不是一个专门的类：它就是侧边栏和头部上的一个背景工具类加上 `data-bs-theme`。`data-bs-theme="dark"` 会给出浅色的导航链接和品牌文字；`"light"` 则给出深色的。由于每种调色板颜色都配白色文字，所以彩色的侧边栏或头部总是搭配 `dark` 来用：
@@ -174,13 +217,13 @@ v3 那个样式表是用和设计版同一套 Sass 构建的 —— `src/scss/ad
 <aside class="app-sidebar text-bg-navy shadow" data-bs-theme="dark">…</aside>
 ```
 
-后台仪表盘通常会把它们的外观分成四大类，这些预设就是照着这个来分的。每个缩略图都是真家伙的微缩版 —— 包括侧边栏、头部，以及与之搭配的两个点缀色。<a href="../UI/colors.html">颜色演示</a>页面点一下就能把任意预设应用到它自己身上；<a href="../generate/theme.html">主题自定义</a>页面也能做到同样的事，而且之后还能自由地混搭侧边栏、导航栏和页脚（它的取色器把调色板列在“Extended palette”下面）。
+每个预设还会写明它配套的 `data-lte-primary`，这样按钮的颜色就能和界面外观对上。后台仪表盘通常会把它们的外观分成四大类，这些预设就是照着这个来分的。每个缩略图都是真家伙的微缩版 —— 包括侧边栏、头部，以及与之搭配的两个点缀色。<a href="../UI/colors.html">颜色演示</a>页面点一下就能把任意预设应用到它自己身上；<a href="../generate/theme.html">主题自定义</a>页面也能做到同样的事，而且之后还能自由地混搭侧边栏、导航栏和页脚（它的取色器把调色板列在 "Extended palette" 下面）。
 
 {skinGroups.map(group => (
   <div class="mb-4">
     <h6 class="fw-semibold mb-1">{group.name}</h6>
     <p class="text-body-secondary mb-2">{group.note}</p>
-    <div class="table-responsive">
+    <div class="table-responsive" tabindex="0">
       <table class="table align-middle mb-0">
         <thead>
           <tr>
@@ -188,6 +231,7 @@ v3 那个样式表是用和设计版同一套 Sass 构建的 —— `src/scss/ad
             <th scope="col">皮肤</th>
             <th scope="col">头部</th>
             <th scope="col">侧边栏</th>
+            <th scope="col">主色</th>
             <th scope="col">说明 / 理由</th>
           </tr>
         </thead>
@@ -198,6 +242,7 @@ v3 那个样式表是用和设计版同一套 Sass 构建的 —— `src/scss/ad
               <td class="text-nowrap fw-semibold">{s.name}</td>
               <td class="text-nowrap"><code>{s.header.cls}</code> · <code>{s.header.theme}</code></td>
               <td class="text-nowrap"><code>{s.sidebar.cls}</code> · <code>{s.sidebar.theme}</code></td>
+              <td class="text-nowrap"><code>{s.primary}</code></td>
               <td>{s.note}</td>
             </tr>
           ))}
@@ -246,6 +291,8 @@ $lte-palette-custom: (
 );
 @import "admin-lte/src/scss/adminlte-colors";
 ```
+
+这还会生成 `data-lte-primary="brand"`，所以 `<html data-lte-primary="brand">` 就能把 Bootstrap 那些 `primary` 组件变成你的品牌色，并且带上正确的悬停色阶和对比文字。
 
 To ship **only** your colours (drop the fourteen), set `$lte-palette` itself instead:
 

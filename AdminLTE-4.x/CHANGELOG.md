@@ -5,6 +5,22 @@ AdminLTE 的所有显著变更都将记录在此文件中。
 格式基于 [记录变更日志](https://keepachangelog.com/en/1.0.0/)，
 本项目遵循 [语义化版本控制](https://semver.org/spec/v2.0.0.html)。
 
+## [4.6.0] - 2026-08-18
+
+### 新增
+
+- **让任意调色板颜色成为 Bootstrap 的 `primary` —— `data-lte-primary`。** Bootstrap 会把 `$primary` 编译进它的组件里，所以 `.btn-primary` 出厂时带的是 `--bs-btn-bg: #0d6efd` 而不是 `var(--bs-primary)`：光覆盖那个 token 只会重绘工具类，而每个按钮、分页、复选框和焦点圈都还是蓝色的 —— 这就是为什么彩色皮肤看起来只应用了一半。现在两个颜色样式表都把这些组件重新接到变量上，只要一个属性就能让它们指向某个颜色 —— `<html lang="en" data-lte-primary="teal">` —— 覆盖范围包括 `.btn-primary` / `.btn-outline-primary`（悬停、激活和禁用状态的色阶和 Bootstrap 自己的完全一致）、`.btn-link`、链接和 `.link-primary`、`--bs-primary` 那三个 token、`.nav-pills`、`.pagination`、`.progress-bar`、`.list-group-item.active`、`.dropdown-item.active`、`.accordion`、`.form-control` / `.form-select` 的聚焦态、复选框、单选框、开关、`.form-range`、`--bs-focus-ring-color`，以及 AdminLTE 的 `.card-primary`、`.direct-chat-primary` 和 `.toast-primary` —— 两种颜色模式下都生效，并且带 Bootstrap 深色模式下的链接色调。不加这个属性的话什么都不变，而且它对任何容器都有效，所以一个页面可以同时有多个 primary。Bootstrap 自己的主题色也是预设（`data-lte-primary="danger"`），调色板之外的品牌色只需要 `--bs-primary`（悬停色阶在有支持的情况下会用 `color-mix()` 推导出来），而 `$lte-palette-custom: ("brand": #hex)` 能在 Sass 里生成一整套预设。现在每个皮肤预设都会写明它配套的 primary，所以在 **UI → Colors** 或 **主题自定义** 上应用皮肤时，按钮的颜色也会跟着变；这两个页面都新增了一个取色器和实时预览，颜色文档页面也新增了一节（#6107，应 @johnnyq 的请求）。
+
+### 已修复
+
+- **`d-print-none` 在侧边栏和应用包裹元素上不起作用。** 4.0.0 里的打印布局修复给 `.app-wrapper` 设了 `display: grid !important`、给 `.app-sidebar` 设了 `display: block !important`，而这两条规则因为在层叠中更靠后、又同样是 `!important`，就压过了 Bootstrap 的 `.d-print-none`，导致这两个元素没法在打印时隐藏。现在两条规则都加上了 `:not(.d-print-none)` 限定：打印布局对标准布局依然生效，而在页面要求隐藏时，显示工具类说了算（#6106，由 @johnnyq 反馈）。
+- **跳转链接悬停时变得看不见了。** `.skip-link:hover` 用的是 `var(--bs-primary-emphasis)`，但 Bootstrap 并没有定义这个变量（它输出的是 `--bs-primary-text-emphasis`），所以背景计算出来是透明的，结果白色文字就落在了页面背景上。现在改用了那个 emphasis token —— 浅色模式下是深色，深色模式下是浅色 —— 文字则用页面主体背景色。
+
+### 维护
+
+- 两个调色板样式表里的计算颜色现在都以十六进制输出，而不是 Sass 的 `rgb(5.647%, 40.784%, 39.216%)` 这种写法（cleancss 不会去动自定义属性里的值），这省下来的空间正好抵掉了新功能的一大块开销：`adminlte-colors.css` 现在 gzip 后约 8 kB，`adminlte-colors-v3.css` 约 9.3 kB。`adminlte.css` 保持不变。
+- `npm run palette -- --check` 和单元测试现在还会校验：每个皮肤的 primary 是否存在于它自己的调色板里，以及两个样式表是否都输出了那些重新接线的规则和每种颜色对应的预设。
+
 ## [4.5.0] - 2026-08-18
 
 ### 新增

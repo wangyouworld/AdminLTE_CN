@@ -158,8 +158,9 @@ const smallBoxIcons = ["bi-people", "bi-cash-stack", "bi-chat-dots", "bi-check-l
                 <code>.bg-*</code>, <code>.text-bg-*</code>, <code>.text-*</code>,
                 <code>.border-*</code>, <code>.link-*</code>, <code>.bg-gradient-*</code>,
                 <code>.card-*</code>, <code>.callout-*</code> and <code>.direct-chat-*</code>
-                这几套类系列。它不属于 <code>adminlte.css</code> 的一部分；
-                演示里也没有别的地方用到它。
+                这几套类系列 —— 还有 <code>data-lte-primary</code>，
+                它能让其中任意一个颜色成为 Bootstrap 的 <code>primary</code>，
+                按钮什么的全都跟着变。它不属于 <code>adminlte.css</code> 的一部分；演示里也没有别的地方用到它。
               </p>
               <p class="mb-0">
                 每一种颜色配白色文字都能达到 4.6:1 或更好，
@@ -175,7 +176,7 @@ const smallBoxIcons = ["bi-people", "bi-cash-stack", "bi-chat-dots", "bi-check-l
             <div class="card mb-4">
               <div class="card-body d-flex flex-wrap align-items-center gap-3">
                 <div class="me-auto">
-                  <p class="fw-semibold mb-1">Palette on this page</p>
+                  <p class="fw-semibold mb-1">本页调色板</p>
                   <p class="text-body-secondary small mb-0">
                     <span data-palette-set="designed">在 OKLCH 里设计的十四种颜色 —— 每一种都配白色文字，并且能干净利落地和 Bootstrap 的主题色并排相处。</span>
                     <span data-palette-set="v3" hidden>十八种 AdminLTE 3 颜色，取值不变，沿用 v3 的文字颜色规则（lime、orange、yellow 配深色文字）。类系列相同。其中好几种配白色文字达不到 WCAG AA，跟 v3 里一样。</span>
@@ -227,6 +228,7 @@ const smallBoxIcons = ["bi-people", "bi-cash-stack", "bi-chat-dots", "bi-check-l
                                       data-skin-header-theme={skin.header.theme}
                                       data-skin-sidebar={skin.sidebar.cls}
                                       data-skin-sidebar-theme={skin.sidebar.theme}
+                                      data-skin-primary={skin.primary}
                                       title={skin.note}
                                       aria-pressed="false"
                                     >
@@ -285,6 +287,93 @@ const smallBoxIcons = ["bi-people", "bi-cash-stack", "bi-chat-dots", "bi-check-l
               </div>
             </div>
             <!--end::Skins-->
+
+            <!--begin::Primary-->
+            <h5 class="mb-3">选择其中一个成为你的 <code class="text-body-emphasis">primary</code></h5>
+            <div class="card mb-4">
+              <div class="card-body">
+                <p>
+                  Bootstrap 会把 <code>$primary</code> 编译进它的组件里，
+                  所以 <code>.btn-primary</code> 带的是
+                  <code>--bs-btn-bg: #0d6efd</code>，而不是
+                  <code>var(--bs-primary)</code> —— 光覆盖那个 token，
+                  按钮还是蓝色的。这个样式表把这些组件重新接了线，并
+                  在你给 <code>&lt;html&gt;</code> 加上
+                  <code>data-lte-primary</code> 时，让它们指向某个调色板颜色。
+                  按钮、链接、分页、复选框、焦点圈、进度条、
+                  激活的列表项和下拉项都会跟着变；
+                  不加这个属性的话什么都不变。
+                </p>
+                {
+                  paletteSets.map((set, i) => (
+                    <div data-palette-set={set.key} hidden={i !== 0}>
+                      <div class="d-flex flex-wrap gap-2" data-primary-picker role="group" aria-label="Primary colour">
+                        {
+                          set.choices.map(name => (
+                            <button
+                              type="button"
+                              class:list={["lte-chip", name !== "default" && `text-bg-${name}`]}
+                              data-color={name}
+                              style={name === "default" ? "background-color: #0d6efd" : undefined}
+                              title={name === "default" ? "Bootstrap's blue (no attribute)" : `data-lte-primary="${name}"`}
+                              aria-pressed={name === "default" ? "true" : "false"}
+                            >
+                              <span class="visually-hidden">{name === "default" ? "Bootstrap 默认" : name}</span>
+                            </button>
+                          ))
+                        }
+                      </div>
+                    </div>
+                  ))
+                }
+                <div class="row g-3 align-items-center mt-1">
+                  <div class="col-auto">
+                    <button type="button" class="btn btn-primary">Primary 按钮</button>
+                  </div>
+                  <div class="col-auto">
+                    <button type="button" class="btn btn-outline-primary">描边</button>
+                  </div>
+                  <div class="col-auto">
+                    <a href="#primary-preview">一个链接</a>
+                  </div>
+                  <div class="col-auto">
+                    <span class="badge text-bg-primary">徽章</span>
+                  </div>
+                  <div class="col-auto">
+                    <div class="form-check mb-0">
+                      <input class="form-check-input" type="checkbox" id="primary-check" checked />
+                      <label class="form-check-label" for="primary-check">选中</label>
+                    </div>
+                  </div>
+                  <div class="col-auto">
+                    <div class="form-check form-switch mb-0">
+                      <input class="form-check-input" type="checkbox" role="switch" id="primary-switch" checked />
+                      <label class="form-check-label" for="primary-switch">开关</label>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-5">
+                    <label for="primary-input" class="form-label small text-body-secondary mb-1">聚焦此字段</label>
+                    <input type="text" class="form-control" id="primary-input" placeholder="焦点圈也会跟着变" />
+                  </div>
+                  <div class="col-12 col-md-4">
+                    <div class="progress" role="progressbar" aria-label="Example progress" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100">
+                      <div class="progress-bar" style="width: 62%">62%</div>
+                    </div>
+                  </div>
+                  <div class="col-auto">
+                    <nav aria-label="Example pagination">
+                      <ul class="pagination mb-0">
+                        <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
+                        <li class="page-item"><a class="page-link" href="#primary-preview">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#primary-preview">3</a></li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+                <pre class="bg-body-tertiary rounded p-3 mt-4 mb-0 small overflow-auto" tabindex="0" id="primary-preview"><code id="primary-markup"></code></pre>
+              </div>
+            </div>
+            <!--end::Primary-->
 
             <!--begin::Palette-->
             <h5 class="mb-3">调色板</h5>
@@ -563,13 +652,17 @@ const smallBoxIcons = ["bi-people", "bi-cash-stack", "bi-chat-dots", "bi-check-l
         const header = document.querySelector(".app-header")
         const markup = document.getElementById("skin-markup")
         const pickers = document.querySelectorAll("[data-skin-picker]")
+        const primaryPickers = document.querySelectorAll("[data-primary-picker]")
+        const primaryMarkup = document.getElementById("primary-markup")
         // 按调色板自动决定文字颜色（v3 那个样式表会给某些颜色配深色文字）
         const PALETTE_TEXT = JSON.parse(document.getElementById("palette-text").textContent)
         const stylesheet = document.getElementById("palette-stylesheet")
         let activeSet = "designed"
         const state = {
           sidebar: { cls: "bg-body-secondary", theme: "dark" },
-          header: { cls: "bg-body", theme: "light" }
+          header: { cls: "bg-body", theme: "light" },
+          // <html> 上的 `data-lte-primary`：选 "default" 就不加这个属性
+          primary: "default"
         }
         const DEFAULTS = {
           sidebar: { cls: "bg-body-secondary", theme: "dark" },
@@ -588,6 +681,20 @@ const smallBoxIcons = ["bi-people", "bi-cash-stack", "bi-chat-dots", "bi-check-l
         const render = () => {
           paint(sidebar, "sidebar")
           paint(header, "header")
+          if (state.primary === "default") {
+            document.documentElement.removeAttribute("data-lte-primary")
+          } else {
+            document.documentElement.setAttribute("data-lte-primary", state.primary)
+          }
+          for (const picker of primaryPickers) {
+            for (const chip of picker.querySelectorAll("[data-color]")) {
+              chip.setAttribute("aria-pressed", String(chip.getAttribute("data-color") === state.primary))
+            }
+          }
+          primaryMarkup.textContent =
+            state.primary === "default" ?
+              '<html lang="zh-CN">   <!-- no attribute: Bootstrap\'s blue -->' :
+              `<html lang="en" data-lte-primary="${state.primary}">`
           for (const picker of pickers) {
             const role = picker.getAttribute("data-skin-picker")
             const cls = state[role].cls
@@ -598,6 +705,7 @@ const smallBoxIcons = ["bi-people", "bi-cash-stack", "bi-chat-dots", "bi-check-l
           }
           for (const button of document.querySelectorAll(".skin-presets [data-skin-sidebar]")) {
             const matches =
+              button.getAttribute("data-skin-primary") === state.primary &&
               button.getAttribute("data-skin-sidebar") === state.sidebar.cls &&
               button.getAttribute("data-skin-sidebar-theme") === state.sidebar.theme &&
               button.getAttribute("data-skin-header") === state.header.cls &&
@@ -625,6 +733,17 @@ const smallBoxIcons = ["bi-people", "bi-cash-stack", "bi-chat-dots", "bi-check-l
           })
         }
 
+        for (const picker of primaryPickers) {
+          picker.addEventListener("click", event => {
+            const chip = event.target.closest("[data-color]")
+            if (!chip) {
+              return
+            }
+            state.primary = chip.getAttribute("data-color")
+            render()
+          })
+        }
+
         for (const container of document.querySelectorAll(".skin-presets")) {
           container.addEventListener("click", event => {
             const button = event.target.closest("[data-skin-sidebar]")
@@ -633,6 +752,7 @@ const smallBoxIcons = ["bi-people", "bi-cash-stack", "bi-chat-dots", "bi-check-l
             }
             state.sidebar = { cls: button.getAttribute("data-skin-sidebar"), theme: button.getAttribute("data-skin-sidebar-theme") }
             state.header = { cls: button.getAttribute("data-skin-header"), theme: button.getAttribute("data-skin-header-theme") }
+            state.primary = button.getAttribute("data-skin-primary") || "default"
             render()
           })
         }
@@ -652,6 +772,7 @@ const smallBoxIcons = ["bi-people", "bi-cash-stack", "bi-chat-dots", "bi-check-l
             }
             state.sidebar = { ...DEFAULTS.sidebar }
             state.header = { ...DEFAULTS.header }
+            state.primary = "default"
             render()
           })
         }

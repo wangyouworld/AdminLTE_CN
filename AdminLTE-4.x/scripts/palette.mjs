@@ -26,7 +26,9 @@ import {
   oklchToHex,
   palette,
   paletteTargets,
-  paletteV3
+  paletteV3,
+  skins,
+  skinsV3
 } from '../src/utils/palette.mjs'
 
 const SCSS_FILE = new URL('../src/scss/colors/_variables.scss', import.meta.url)
@@ -148,6 +150,20 @@ function check() {
     }
   }
 
+  // 5. 每个皮肤的 `data-lte-primary` 都是该样式表里确实存在的颜色
+  //    （Bootstrap 自己的主题色始终可用）
+  const themeColors = new Set(['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'])
+  for (const [label, list, colors] of [['', skins, palette], ['v3 ', skinsV3, paletteV3]]) {
+    const known = new Set([...colors.map(c => c.name), ...themeColors])
+    for (const skin of list) {
+      if (!skin.primary) {
+        problems.push(`${label}skin "${skin.name}": no primary colour`)
+      } else if (!known.has(skin.primary)) {
+        problems.push(`${label}skin "${skin.name}": primary "${skin.primary}" 不在那个调色板中`)
+      }
+    }
+  }
+
   if (problems.length > 0) {
     console.error('palette check failed:')
     for (const p of problems) {
@@ -158,7 +174,7 @@ function check() {
     return
   }
 
-  console.log(`palette check passed: ${palette.length} colours, all ≥ ${MIN_WHITE_CONTRAST}:1 with white text, SCSS and JS in step; v3 sheet: ${paletteV3.length} colours in step.`)
+  console.log(`调色板检查通过：${palette.length} 种颜色，配白色文字全部 ≥ ${MIN_WHITE_CONTRAST}:1，SCSS 和 JS 保持同步；v3 样式表：${paletteV3.length} 种颜色已同步；${skins.length + skinsV3.length} 个皮肤指定的 primary 都存在。`)
   for (const c of palette) {
     console.log(`  ${c.name.padEnd(9)} ${c.hex}  ${fmt(hexToOklch(c.hex)).padEnd(24)} white ${contrastWhite(c.hex).toFixed(2)}:1`)
   }

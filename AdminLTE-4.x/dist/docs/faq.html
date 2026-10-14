@@ -802,7 +802,7 @@
             <nav class="faq-chips mb-4" aria-label="FAQ sections">
               <a href="#getting-started" class="faq-chip faq-chip-primary">
                 <i class="bi bi-rocket-takeoff" aria-hidden="true"></i>
-                <span>开始</span>
+                <span>入门指南</span>
                 <span class="faq-chip-count">5</span> </a
               ><a href="#framework-integrations" class="faq-chip faq-chip-info">
                 <i class="bi bi-puzzle" aria-hidden="true"></i>
@@ -835,7 +835,7 @@
                     <i class="bi bi-rocket-takeoff" aria-hidden="true"></i>
                   </span>
                   <div>
-                    <h2 class="faq-section-title">开始</h2>
+                    <h2 class="faq-section-title">入门指南</h2>
                     <p class="faq-section-count">5 个问题</p>
                   </div>
                 </header>
@@ -1077,7 +1077,7 @@
                     <div class="faq-answer">
                       <p>
                         它们放在一个需要主动引入的样式表里，也就是
-                        <code>dist/css/adminlte-colors.css</code>（gzip 后约 5
+                        <code>dist/css/adminlte-colors.css</code>（gzip 后约 8
                         kB），所以只要你不加载它，就不会有任何额外开销：里面是十四种重新设计过的颜色
                         —— 每一种都能配白色文字清晰阅读 —— 并且带齐了
                         <code>.bg-*</code
@@ -1094,8 +1094,10 @@
                         <code>dist/css/adminlte-colors-v3.css</code> —— 18 种 v3
                         颜色，沿用原来的名字和取值，类系列相同。你自己的颜色在 Sass
                         里一行就能搞定：<code>$lte-palette-custom: ("brand": #0f766e)</code
-                        >。所有东西 —— 调色板、预设、品牌色检查器 —— 都在
-                        <a href="colors.html">颜色</a> 页面里；想现场试试皮肤，可以去
+                        >。想让其中某个颜色成为 Bootstrap 的 <code>primary</code> ——
+                        影响按钮、链接、分页、表单聚焦态 —— 就在 <code>&lt;html&gt;</code> 上加上
+                        <code>data-lte-primary="teal"</code>。所有东西 —— 调色板、预设、品牌色检查器
+                        —— 都在 <a href="colors.html">颜色</a> 页面里；想现场试试皮肤，可以去
                         <a href="../UI/colors.html">颜色演示</a> 或
                         <a href="../generate/theme.html">主题自定义</a> 页面。
                       </p>

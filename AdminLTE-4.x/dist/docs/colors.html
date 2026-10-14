@@ -899,11 +899,13 @@
                     </p>
                     <p>
                       <strong><code>dist/css/adminlte-colors.css</code></strong>
-                      就是答案，而且是按需启用的：多加载一个样式表（gzip 后约 5 kB），就会以
+                      就是答案，而且是按需启用的：多加载一个样式表（gzip 后约 8 kB），就会以
                       <code>--bs-*</code> token 的形式加入十四种颜色，外加 Bootstrap
-                      为自己主题色生成的那一整套类系列。对于不加载它的项目来说，什么都不变。更喜欢
-                      AdminLTE 3 原封不动的颜色？还有一个专门的样式表 —— 见下面的<a
-                        href="#two-palettes"
+                      为自己主题色生成的那一整套类系列 —— 而且还能让其中任意一个<a
+                        href="#making-one-of-them-your-primary"
+                        >成为你的 <code>primary</code></a
+                      >。对于不加载它的项目来说，什么都不变。更喜欢 AdminLTE 3
+                      原封不动的颜色？还有一个专门的样式表 —— 见下面的<a href="#two-palettes"
                         >两套调色板</a
                       >。
                     </p>
@@ -1234,13 +1236,14 @@
                       的深色侧边栏（<code>text-bg-gray-dark</code>，也就是
                       <code>sidebar-dark-*</code> 那个确切的背景），或者配白色侧边栏：
                     </p>
-                    <div class="table-responsive">
+                    <div class="table-responsive" tabindex="0">
                       <table class="table align-middle">
                         <thead>
                           <tr>
                             <th scope="col">皮肤</th>
                             <th scope="col">头部</th>
                             <th scope="col">侧边栏</th>
+                            <th scope="col">主色</th>
                             <th scope="col">v2/v3 name</th>
                           </tr>
                         </thead>
@@ -1253,6 +1256,7 @@
                             <td class="text-nowrap">
                               <code>text-bg-gray-dark</code> · <code>dark</code>
                             </td>
+                            <td class="text-nowrap"><code>lightblue</code></td>
                             <td class="text-body-secondary">skin-blue —— 经典的 AdminLTE 外观。</td>
                           </tr>
                           <tr>
@@ -1261,6 +1265,7 @@
                             <td class="text-nowrap">
                               <code>text-bg-gray-dark</code> · <code>dark</code>
                             </td>
+                            <td class="text-nowrap"><code>blue</code></td>
                             <td class="text-body-secondary">
                               skin-black —— 白色头部，深色侧边栏。
                             </td>
@@ -1273,6 +1278,7 @@
                             <td class="text-nowrap">
                               <code>text-bg-gray-dark</code> · <code>dark</code>
                             </td>
+                            <td class="text-nowrap"><code>purple</code></td>
                             <td class="text-body-secondary">skin-purple.</td>
                           </tr>
                           <tr>
@@ -1283,6 +1289,7 @@
                             <td class="text-nowrap">
                               <code>text-bg-gray-dark</code> · <code>dark</code>
                             </td>
+                            <td class="text-nowrap"><code>green</code></td>
                             <td class="text-body-secondary">skin-green.</td>
                           </tr>
                           <tr>
@@ -1293,6 +1300,7 @@
                             <td class="text-nowrap">
                               <code>text-bg-gray-dark</code> · <code>dark</code>
                             </td>
+                            <td class="text-nowrap"><code>red</code></td>
                             <td class="text-body-secondary">skin-red.</td>
                           </tr>
                           <tr>
@@ -1303,6 +1311,7 @@
                             <td class="text-nowrap">
                               <code>text-bg-gray-dark</code> · <code>dark</code>
                             </td>
+                            <td class="text-nowrap"><code>yellow</code></td>
                             <td class="text-body-secondary">skin-yellow —— 头部配深色文字。</td>
                           </tr>
                           <tr>
@@ -1311,12 +1320,14 @@
                               <code>text-bg-lightblue</code> · <code>dark</code>
                             </td>
                             <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
+                            <td class="text-nowrap"><code>lightblue</code></td>
                             <td class="text-body-secondary">skin-blue-light.</td>
                           </tr>
                           <tr>
                             <td class="text-nowrap fw-semibold">Black light</td>
                             <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
                             <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
+                            <td class="text-nowrap"><code>blue</code></td>
                             <td class="text-body-secondary">skin-black-light —— 整个界面全白。</td>
                           </tr>
                           <tr>
@@ -1325,6 +1336,7 @@
                               <code>text-bg-purple</code> · <code>dark</code>
                             </td>
                             <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
+                            <td class="text-nowrap"><code>purple</code></td>
                             <td class="text-body-secondary">skin-purple-light.</td>
                           </tr>
                           <tr>
@@ -1333,6 +1345,7 @@
                               <code>text-bg-green</code> · <code>dark</code>
                             </td>
                             <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
+                            <td class="text-nowrap"><code>green</code></td>
                             <td class="text-body-secondary">skin-green-light.</td>
                           </tr>
                           <tr>
@@ -1341,6 +1354,7 @@
                               <code>text-bg-red</code> · <code>dark</code>
                             </td>
                             <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
+                            <td class="text-nowrap"><code>red</code></td>
                             <td class="text-body-secondary">skin-red-light.</td>
                           </tr>
                           <tr>
@@ -1349,6 +1363,7 @@
                               <code>text-bg-yellow</code> · <code>light</code>
                             </td>
                             <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
+                            <td class="text-nowrap"><code>yellow</code></td>
                             <td class="text-body-secondary">skin-yellow-light.</td>
                           </tr>
                         </tbody>
@@ -1717,6 +1732,141 @@
                         </tr>
                       </tbody>
                     </table>
+                    <h5 id="让其中某个颜色成为你的-primary">
+                      让其中某个颜色成为你的 <code>primary</code>
+                    </h5>
+                    <p>
+                      Bootstrap 在构建时会把 <code>$primary</code> 编译进它的组件里：<code
+                        >.btn-primary</code
+                      >
+                      出厂时带的是 <code>--bs-btn-bg: #0d6efd</code>，而不是
+                      <code>var(--bs-primary)</code>。所以光覆盖那个 token，只会重绘
+                      <code>.text-primary</code> 和
+                      <code>.bg-primary</code>，而每个按钮、分页和复选框还是蓝色的 ——
+                      这就是过去皮肤看起来只应用了一半的原因（<a
+                        href="https://github.com/ColorlibHQ/AdminLTE/issues/6107"
+                        >#6107</a
+                      >）。
+                    </p>
+                    <p>
+                      两个颜色样式表都把这些组件重新接到变量上，只要一个属性就能让它们指向某个调色板颜色：
+                    </p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="html"
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">html</span><span style="color:#9CDCFE"> lang</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;en&quot;</span><span style="color:#9CDCFE"> data-lte-primary</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;teal&quot;</span><span style="color:#808080">&gt;</span></span></code></pre>
+                    <p>
+                      不加这个属性的话什么都不变，而且它对任何容器都有效 ——
+                      页面的某一块区域也能拥有自己的 primary。跟着这个颜色一起变的还有：
+                    </p>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>跟着变的</th>
+                          <th>具体内容</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>按钮</td>
+                          <td>
+                            <code>.btn-primary</code
+                            >、<code>.btn-outline-primary</code>（悬停、激活和禁用状态的色阶和
+                            Bootstrap 自己的完全一致）、<code>.btn-link</code>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>链接</td>
+                          <td>
+                            <code>a</code
+                            >、<code>.link-primary</code>、<code>.btn-link</code>、分页链接 ——
+                            在深色模式下带 Bootstrap 的深色模式色调
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>工具类和 token</td>
+                          <td>
+                            <code>--bs-primary</code>、<code>--bs-primary-rgb</code>、subtle /
+                            emphasis
+                            那一组三个、<code>.text-primary</code>、<code>.bg-primary</code>、<code>.border-primary</code>、<code>.text-bg-primary</code>、<code>.alert-primary</code>、<code>.list-group-item-primary</code>、<code
+                              >.accordion</code
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>表单</td>
+                          <td>
+                            <code>.form-control</code> /
+                            <code>.form-select</code>
+                            的焦点圈和聚焦边框、<code>.form-check-input:checked</code>、不确定状态的复选框、<code
+                              >.form-range</code
+                            >
+                            的滑块手柄
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>组件</td>
+                          <td>
+                            <code>.nav-pills .nav-link.active</code>、<code
+                              >.pagination .active</code
+                            >、<code>.progress-bar</code>、<code>.list-group-item.active</code>、<code>.dropdown-item.active</code>、<code
+                              >--bs-focus-ring-color</code
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>AdminLTE</td>
+                          <td>
+                            <code>.card-primary</code>（以及
+                            <code>.card-outline</code
+                            >）、<code>.direct-chat-primary</code>、<code>.toast-primary</code>、带
+                            <code>.bg-primary</code> 的 <code>.small-box</code>/<code
+                              >.info-box</code
+                            >
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <p>
+                      Bootstrap 自己的主题色也能用 ——
+                      <code>data-lte-primary=&quot;danger&quot;</code>
+                      完全不需要调色板颜色。有两样东西是故意保持 Bootstrap 蓝色的：<code
+                        >.table-primary</code
+                      >
+                      的条纹和悬停色调，以及开关选中时那个以 data-URI 形式画出来的滑块。
+                    </p>
+                    <p>如果品牌色不在调色板里，就自己设置 token，同时保留那个属性：</p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="css"
+                    ><code><span class="line"><span style="color:#D4D4D4">[</span><span style="color:#9CDCFE">data-lte-primary</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;brand&quot;</span><span style="color:#D4D4D4">] {</span></span>
+<span class="line"><span style="color:#9CDCFE">  --bs-primary</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#7a5af8</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">  --bs-primary-rgb</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">122</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">90</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">248</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#6A9955">  /* 可选 —— 不设置的话，悬停色阶会用 color-mix() 计算出来 */</span></span>
+<span class="line"><span style="color:#9CDCFE">  --lte-primary-hover</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#6849e6</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">  --lte-primary-active</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#5b3fd1</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#6A9955">  /* 浅色品牌色配深色文字 */</span></span>
+<span class="line"><span style="color:#9CDCFE">  --lte-primary-color</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#fff</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">}</span></span></code></pre>
+                    <p>
+                      用 Sass 的话，一行就够了 ——
+                      <code>$lte-palette-custom: (&quot;brand&quot;: #7a5af8)</code>（见<a
+                        href="#adding-your-brand-colours"
+                        >添加你的品牌色</a
+                      >）—— 然后
+                      <code>data-lte-primary=&quot;brand&quot;</code>
+                      就会自动为你生成，色阶和对比文字都一并搞定。
+                    </p>
+                    <p>
+                      要挑一个配白色文字的颜色：Bootstrap 里选中复选框内的对勾是白色的，而且没法通过
+                      CSS 改色。设计版调色板里每种颜色都符合要求；而 v3
+                      调色板里，<code>lime</code>、<code>yellow</code> 和
+                      <code>orange</code> 则不行。
+                    </p>
                     <h5 id="皮肤--给侧边栏和头部上色">皮肤 —— 给侧边栏和头部上色</h5>
                     <p>
                       在 AdminLTE 4
@@ -1737,20 +1887,22 @@
 <span class="line"><span style="color:#6A9955">&lt;!-- sidebar --&gt;</span></span>
 <span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">aside</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;app-sidebar text-bg-navy shadow&quot;</span><span style="color:#9CDCFE"> data-bs-theme</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;dark&quot;</span><span style="color:#808080">&gt;</span><span style="color:#D4D4D4">…</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">aside</span><span style="color:#808080">&gt;</span></span></code></pre>
                     <p>
-                      后台仪表盘通常会把它们的外观分成四大类，这些预设就是照着这个来分的。每个缩略图都是真家伙的微缩版
+                      每个预设还会写明它配套的
+                      <code>data-lte-primary</code
+                      >，这样按钮的颜色就能和界面外观对上。后台仪表盘通常会把它们的外观分成四大类，这些预设就是照着这个来分的。每个缩略图都是真家伙的微缩版
                       —— 包括侧边栏、头部，以及与之搭配的两个点缀色。<a href="../UI/colors.html"
                         >颜色演示</a
                       >页面点一下就能把任意预设应用到它自己身上；<a href="../generate/theme.html"
                         >主题自定义</a
-                      >页面也能做到同样的事，而且之后还能自由地混搭侧边栏、导航栏和页脚（它的取色器把调色板列在“Extended
-                      palette”下面）。
+                      >页面也能做到同样的事，而且之后还能自由地混搭侧边栏、导航栏和页脚（它的取色器把调色板列在
+                      “Extended palette” 下面）。
                     </p>
                     <div class="mb-4">
                       <h6 class="fw-semibold mb-1">Light</h6>
                       <p class="text-body-secondary mb-2">
                         白色界面；颜色由组件和当前激活项来承担。
                       </p>
-                      <div class="table-responsive">
+                      <div class="table-responsive" tabindex="0">
                         <table class="table align-middle mb-0">
                           <thead>
                             <tr>
@@ -1758,6 +1910,7 @@
                               <th scope="col">皮肤</th>
                               <th scope="col">头部</th>
                               <th scope="col">侧边栏</th>
+                              <th scope="col">主色</th>
                               <th scope="col">说明 / 理由</th>
                             </tr>
                           </thead>
@@ -1826,6 +1979,7 @@
                               <td class="text-nowrap fw-semibold">Light</td>
                               <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
                               <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
+                              <td class="text-nowrap"><code>primary</code></td>
                               <td>白色侧边栏和头部；颜色只来自组件和徽章。</td>
                             </tr>
                             <tr>
@@ -1896,6 +2050,7 @@
                               <td class="text-nowrap">
                                 <code>bg-body-tertiary</code> · <code>light</code>
                               </td>
+                              <td class="text-nowrap"><code>indigo</code></td>
                               <td>“-light”那一类：彩色头部下面配白色侧边栏。</td>
                             </tr>
                             <tr>
@@ -1964,6 +2119,7 @@
                                 <code>text-bg-sky</code> · <code>dark</code>
                               </td>
                               <td class="text-nowrap"><code>bg-body</code> · <code>light</code></td>
+                              <td class="text-nowrap"><code>sky</code></td>
                               <td>v2 的 skin-blue-light：sky 头部配白色侧边栏。</td>
                             </tr>
                           </tbody>
@@ -1975,7 +2131,7 @@
                       <p class="text-body-secondary mb-2">
                         深色侧边栏、浅色头部 —— 最常见的后台布局，也是 AdminLTE 的默认布局。
                       </p>
-                      <div class="table-responsive">
+                      <div class="table-responsive" tabindex="0">
                         <table class="table align-middle mb-0">
                           <thead>
                             <tr>
@@ -1983,6 +2139,7 @@
                               <th scope="col">皮肤</th>
                               <th scope="col">头部</th>
                               <th scope="col">侧边栏</th>
+                              <th scope="col">主色</th>
                               <th scope="col">说明 / 理由</th>
                             </tr>
                           </thead>
@@ -2053,6 +2210,7 @@
                               <td class="text-nowrap">
                                 <code>bg-body-secondary</code> · <code>dark</code>
                               </td>
+                              <td class="text-nowrap"><code>primary</code></td>
                               <td>AdminLTE 4 的默认款：白色头部，深色中性侧边栏。</td>
                             </tr>
                             <tr>
@@ -2121,6 +2279,7 @@
                               <td class="text-nowrap">
                                 <code>text-bg-graphite</code> · <code>dark</code>
                               </td>
+                              <td class="text-nowrap"><code>indigo</code></td>
                               <td>安静的近黑色侧边栏；颜色由组件来承担。</td>
                             </tr>
                             <tr>
@@ -2189,6 +2348,7 @@
                               <td class="text-nowrap">
                                 <code>text-bg-navy</code> · <code>dark</code>
                               </td>
+                              <td class="text-nowrap"><code>teal</code></td>
                               <td>白色头部下面配深蓝侧边栏 —— 经典的深色侧边栏外观。</td>
                             </tr>
                             <tr>
@@ -2257,6 +2417,7 @@
                               <td class="text-nowrap">
                                 <code>text-bg-steel</code> · <code>dark</code>
                               </td>
+                              <td class="text-nowrap"><code>sky</code></td>
                               <td>中深蓝灰侧边栏 —— 看起来是深色，但又不会接近黑色。</td>
                             </tr>
                             <tr>
@@ -2325,6 +2486,7 @@
                               <td class="text-nowrap">
                                 <code>text-bg-midnight</code> · <code>dark</code>
                               </td>
+                              <td class="text-nowrap"><code>violet</code></td>
                               <td>接近黑色，带一点紫调；专为鲜艳的强调色而生。</td>
                             </tr>
                             <tr>
@@ -2393,6 +2555,7 @@
                               <td class="text-nowrap">
                                 <code>text-bg-indigo</code> · <code>dark</code>
                               </td>
+                              <td class="text-nowrap"><code>indigo</code></td>
                               <td>偏品牌感：侧边栏用一种强烈的色相，其余一切保持沉静。</td>
                             </tr>
                           </tbody>
@@ -2404,7 +2567,7 @@
                       <p class="text-body-secondary mb-2">
                         深色侧边栏加深色头部；除非访客自己选了深色模式，否则主体保持浅色。
                       </p>
-                      <div class="table-responsive">
+                      <div class="table-responsive" tabindex="0">
                         <table class="table align-middle mb-0">
                           <thead>
                             <tr>
@@ -2412,6 +2575,7 @@
                               <th scope="col">皮肤</th>
                               <th scope="col">头部</th>
                               <th scope="col">侧边栏</th>
+                              <th scope="col">主色</th>
                               <th scope="col">说明 / 理由</th>
                             </tr>
                           </thead>
@@ -2484,6 +2648,7 @@
                               <td class="text-nowrap">
                                 <code>text-bg-navy</code> · <code>dark</code>
                               </td>
+                              <td class="text-nowrap"><code>sky</code></td>
                               <td>经典 skin-blue 的现代版演绎。</td>
                             </tr>
                             <tr>
@@ -2554,6 +2719,7 @@
                               <td class="text-nowrap">
                                 <code>text-bg-midnight</code> · <code>dark</code>
                               </td>
+                              <td class="text-nowrap"><code>indigo</code></td>
                               <td>整个界面用同一种深色调 —— 也就是“深色头部”布局。</td>
                             </tr>
                             <tr>
@@ -2624,6 +2790,7 @@
                               <td class="text-nowrap">
                                 <code>text-bg-steel</code> · <code>dark</code>
                               </td>
+                              <td class="text-nowrap"><code>sky</code></td>
                               <td>整个界面都是蓝灰色；比 midnight 更柔和。</td>
                             </tr>
                             <tr>
@@ -2694,6 +2861,7 @@
                               <td class="text-nowrap">
                                 <code>text-bg-slate</code> · <code>dark</code>
                               </td>
+                              <td class="text-nowrap"><code>teal</code></td>
                               <td>中等分量的侧边栏配冷色头部 —— 比 navy 更柔和。</td>
                             </tr>
                             <tr>
@@ -2764,6 +2932,7 @@
                               <td class="text-nowrap">
                                 <code>text-bg-graphite</code> · <code>dark</code>
                               </td>
+                              <td class="text-nowrap"><code>orange</code></td>
                               <td>安静的侧边栏配暖色头部 —— v2 那些充满活力的皮肤，收敛版。</td>
                             </tr>
                           </tbody>
@@ -2775,7 +2944,7 @@
                       <p class="text-body-secondary mb-2">
                         偏品牌感的界面：用一种强烈的色相，或者用 v3 那种渐变光泽。
                       </p>
-                      <div class="table-responsive">
+                      <div class="table-responsive" tabindex="0">
                         <table class="table align-middle mb-0">
                           <thead>
                             <tr>
@@ -2783,6 +2952,7 @@
                               <th scope="col">皮肤</th>
                               <th scope="col">头部</th>
                               <th scope="col">侧边栏</th>
+                              <th scope="col">主色</th>
                               <th scope="col">说明 / 理由</th>
                             </tr>
                           </thead>
@@ -2855,6 +3025,7 @@
                               <td class="text-nowrap">
                                 <code>text-bg-violet</code> · <code>dark</code>
                               </td>
+                              <td class="text-nowrap"><code>violet</code></td>
                               <td>头部和侧边栏用同一个色相 —— 大胆的单一品牌外观。</td>
                             </tr>
                             <tr>
@@ -2923,6 +3094,7 @@
                               <td class="text-nowrap">
                                 <code>bg-gradient-indigo</code> · <code>dark</code>
                               </td>
+                              <td class="text-nowrap"><code>indigo</code></td>
                               <td>品牌色侧边栏上带 v3 的渐变光泽，配白色头部。</td>
                             </tr>
                             <tr>
@@ -2991,6 +3163,7 @@
                               <td class="text-nowrap">
                                 <code>bg-gradient-teal</code> · <code>dark</code>
                               </td>
+                              <td class="text-nowrap"><code>teal</code></td>
                               <td>沉静清新；teal 侧边栏配上渐变光泽。</td>
                             </tr>
                           </tbody>
@@ -3093,6 +3266,12 @@
 <span class="line"><span style="color:#CE9178">  &quot;sky&quot;</span><span style="color:#D4D4D4">:   </span><span style="color:#CE9178">#0369a1</span><span style="color:#6A9955">       // 将出厂颜色重新调至蓝色</span></span>
 <span class="line"><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#C586C0">@import</span><span style="color:#CE9178"> &quot;admin-lte/src/scss/adminlte-colors&quot;</span><span style="color:#D4D4D4">;</span></span></code></pre>
+                    <p>
+                      这还会生成 <code>data-lte-primary=&quot;brand&quot;</code>，所以
+                      <code>&lt;html data-lte-primary=&quot;brand&quot;&gt;</code> 就能把 Bootstrap
+                      那些
+                      <code>primary</code> 组件变成你的品牌色，并且带上正确的悬停色阶和对比文字。
+                    </p>
                     <p>
                       To ship <strong>only</strong> your colours (drop the fourteen), set
                       <code>$lte-palette</code> itself instead:

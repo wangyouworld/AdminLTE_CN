@@ -230,26 +230,26 @@ export const skinGroups = [
 
 export const skins = [
   // 亮色
-  { name: 'Light', group: 'Light', note: '白色侧边栏和头部；颜色只来自组件和徽章。', header: { cls: 'bg-body', theme: 'light' }, sidebar: { cls: 'bg-body', theme: 'light' }, boxes: ['primary', 'teal'] },
-  { name: 'Light & indigo', group: 'Light', note: '“-light”那一类：彩色头部下面配白色侧边栏。', header: { cls: 'text-bg-indigo', theme: 'dark' }, sidebar: { cls: 'bg-body-tertiary', theme: 'light' }, boxes: ['indigo', 'pink'] },
-  { name: 'Light & sky', group: 'Light', note: 'v2 的 skin-blue-light：sky 头部配白色侧边栏。', header: { cls: 'text-bg-sky', theme: 'dark' }, sidebar: { cls: 'bg-body', theme: 'light' }, boxes: ['sky', 'amber'] },
+  { name: 'Light', group: 'Light', note: '白色侧边栏和头部；颜色只来自组件和徽章。', header: { cls: 'bg-body', theme: 'light' }, sidebar: { cls: 'bg-body', theme: 'light' }, primary: 'primary', boxes: ['primary', 'teal'] },
+  { name: 'Light & indigo', group: 'Light', note: '“-light”那一类：彩色头部下面配白色侧边栏。', header: { cls: 'text-bg-indigo', theme: 'dark' }, sidebar: { cls: 'bg-body-tertiary', theme: 'light' }, primary: 'indigo', boxes: ['indigo', 'pink'] },
+  { name: 'Light & sky', group: 'Light', note: 'v2 的 skin-blue-light：sky 头部配白色侧边栏。', header: { cls: 'text-bg-sky', theme: 'dark' }, sidebar: { cls: 'bg-body', theme: 'light' }, primary: 'sky', boxes: ['sky', 'amber'] },
   // 暗色
-  { name: 'Default', group: 'Semi-dark', note: 'AdminLTE 4 的默认款：白色头部，深色中性侧边栏。', header: { cls: 'bg-body', theme: 'light' }, sidebar: { cls: 'bg-body-secondary', theme: 'dark' }, boxes: ['primary', 'teal'] },
-  { name: 'Graphite', group: 'Semi-dark', note: '安静的近黑色侧边栏；颜色由组件来承担。', header: { cls: 'bg-body', theme: 'light' }, sidebar: { cls: 'text-bg-graphite', theme: 'dark' }, boxes: ['indigo', 'amber'] },
-  { name: 'Navy', group: 'Semi-dark', note: '白色头部下面配深蓝侧边栏 —— 经典的深色侧边栏外观。', header: { cls: 'bg-body', theme: 'light' }, sidebar: { cls: 'text-bg-navy', theme: 'dark' }, boxes: ['teal', 'pink'] },
-  { name: 'Steel', group: 'Semi-dark', note: '中深蓝灰侧边栏 —— 看起来是深色，但又不会接近黑色。', header: { cls: 'bg-body', theme: 'light' }, sidebar: { cls: 'text-bg-steel', theme: 'dark' }, boxes: ['sky', 'orange'] },
-  { name: 'Midnight', group: 'Semi-dark', note: '接近黑色，带一点紫调；专为鲜艳的强调色而生。', header: { cls: 'bg-body', theme: 'light' }, sidebar: { cls: 'text-bg-midnight', theme: 'dark' }, boxes: ['violet', 'teal'] },
-  { name: 'Indigo', group: 'Semi-dark', note: '偏品牌感：侧边栏用一种强烈的色相，其余一切保持沉静。', header: { cls: 'bg-body', theme: 'light' }, sidebar: { cls: 'text-bg-indigo', theme: 'dark' }, boxes: ['teal', 'orange'] },
+  { name: 'Default', group: 'Semi-dark', note: 'AdminLTE 4 的默认款：白色头部，深色中性侧边栏。', header: { cls: 'bg-body', theme: 'light' }, sidebar: { cls: 'bg-body-secondary', theme: 'dark' }, primary: 'primary', boxes: ['primary', 'teal'] },
+  { name: 'Graphite', group: 'Semi-dark', note: '安静的近黑色侧边栏；颜色由组件来承担。', header: { cls: 'bg-body', theme: 'light' }, sidebar: { cls: 'text-bg-graphite', theme: 'dark' }, primary: 'indigo', boxes: ['indigo', 'amber'] },
+  { name: 'Navy', group: 'Semi-dark', note: '白色头部下面配深蓝侧边栏 —— 经典的深色侧边栏外观。', header: { cls: 'bg-body', theme: 'light' }, sidebar: { cls: 'text-bg-navy', theme: 'dark' }, primary: 'teal', boxes: ['teal', 'pink'] },
+  { name: 'Steel', group: 'Semi-dark', note: '中深蓝灰侧边栏 —— 看起来是深色，但又不会接近黑色。', header: { cls: 'bg-body', theme: 'light' }, sidebar: { cls: 'text-bg-steel', theme: 'dark' }, primary: 'sky', boxes: ['sky', 'orange'] },
+  { name: 'Midnight', group: 'Semi-dark', note: '接近黑色，带一点紫调；专为鲜艳的强调色而生。', header: { cls: 'bg-body', theme: 'light' }, sidebar: { cls: 'text-bg-midnight', theme: 'dark' }, primary: 'violet', boxes: ['violet', 'teal'] },
+  { name: 'Indigo', group: 'Semi-dark', note: '偏品牌感：侧边栏用一种强烈的色相，其余一切保持沉静。', header: { cls: 'bg-body', theme: 'light' }, sidebar: { cls: 'text-bg-indigo', theme: 'dark' }, primary: 'indigo', boxes: ['teal', 'orange'] },
   // 深色
-  { name: 'Navy & sky', group: 'Full dark', note: '经典 skin-blue 的现代版演绎。', header: { cls: 'text-bg-sky', theme: 'dark' }, sidebar: { cls: 'text-bg-navy', theme: 'dark' }, boxes: ['teal', 'pink'] },
-  { name: 'Midnight mono', group: 'Full dark', note: '整个界面用同一种深色调 —— 也就是“深色头部”布局。', header: { cls: 'text-bg-midnight', theme: 'dark' }, sidebar: { cls: 'text-bg-midnight', theme: 'dark' }, boxes: ['indigo', 'pink'] },
-  { name: 'Steel mono', group: 'Full dark', note: '整个界面都是蓝灰色；比 midnight 更柔和。', header: { cls: 'text-bg-steel', theme: 'dark' }, sidebar: { cls: 'text-bg-steel', theme: 'dark' }, boxes: ['sky', 'amber'] },
-  { name: 'Slate & teal', group: 'Full dark', note: '中等分量的侧边栏配冷色头部 —— 比 navy 更柔和。', header: { cls: 'text-bg-teal', theme: 'dark' }, sidebar: { cls: 'text-bg-slate', theme: 'dark' }, boxes: ['indigo', 'pink'] },
-  { name: 'Graphite & orange', group: 'Full dark', note: '安静的侧边栏配暖色头部 —— v2 那些充满活力的皮肤，收敛版。', header: { cls: 'text-bg-orange', theme: 'dark' }, sidebar: { cls: 'text-bg-graphite', theme: 'dark' }, boxes: ['orange', 'amber'] },
+  { name: 'Navy & sky', group: 'Full dark', note: '经典 skin-blue 的现代版演绎。', header: { cls: 'text-bg-sky', theme: 'dark' }, sidebar: { cls: 'text-bg-navy', theme: 'dark' }, primary: 'sky', boxes: ['teal', 'pink'] },
+  { name: 'Midnight mono', group: 'Full dark', note: '整个界面用同一种深色调 —— 也就是“深色头部”布局。', header: { cls: 'text-bg-midnight', theme: 'dark' }, sidebar: { cls: 'text-bg-midnight', theme: 'dark' }, primary: 'indigo', boxes: ['indigo', 'pink'] },
+  { name: 'Steel mono', group: 'Full dark', note: '整个界面都是蓝灰色；比 midnight 更柔和。', header: { cls: 'text-bg-steel', theme: 'dark' }, sidebar: { cls: 'text-bg-steel', theme: 'dark' }, primary: 'sky', boxes: ['sky', 'amber'] },
+  { name: 'Slate & teal', group: 'Full dark', note: '中等分量的侧边栏配冷色头部 —— 比 navy 更柔和。', header: { cls: 'text-bg-teal', theme: 'dark' }, sidebar: { cls: 'text-bg-slate', theme: 'dark' }, primary: 'teal', boxes: ['indigo', 'pink'] },
+  { name: 'Graphite & orange', group: 'Full dark', note: '安静的侧边栏配暖色头部 —— v2 那些充满活力的皮肤，收敛版。', header: { cls: 'text-bg-orange', theme: 'dark' }, sidebar: { cls: 'text-bg-graphite', theme: 'dark' }, primary: 'orange', boxes: ['orange', 'amber'] },
   // 颜色 & 渐变
-  { name: 'Violet mono', group: 'Coloured & gradient', note: '头部和侧边栏用同一个色相 —— 大胆的单一品牌外观。', header: { cls: 'text-bg-violet', theme: 'dark' }, sidebar: { cls: 'text-bg-violet', theme: 'dark' }, boxes: ['teal', 'amber'] },
-  { name: 'Gradient indigo', group: 'Coloured & gradient', note: '品牌色侧边栏上带 v3 的渐变光泽，配白色头部。', header: { cls: 'bg-body', theme: 'light' }, sidebar: { cls: 'bg-gradient-indigo', theme: 'dark' }, boxes: ['indigo', 'teal'] },
-  { name: 'Gradient teal', group: 'Coloured & gradient', note: '沉静清新；teal 侧边栏配上渐变光泽。', header: { cls: 'bg-body', theme: 'light' }, sidebar: { cls: 'bg-gradient-teal', theme: 'dark' }, boxes: ['teal', 'amber'] }
+  { name: 'Violet mono', group: 'Coloured & gradient', note: '头部和侧边栏用同一个色相 —— 大胆的单一品牌外观。', header: { cls: 'text-bg-violet', theme: 'dark' }, sidebar: { cls: 'text-bg-violet', theme: 'dark' }, primary: 'violet', boxes: ['teal', 'amber'] },
+  { name: 'Gradient indigo', group: 'Coloured & gradient', note: '品牌色侧边栏上带 v3 的渐变光泽，配白色头部。', header: { cls: 'bg-body', theme: 'light' }, sidebar: { cls: 'bg-gradient-indigo', theme: 'dark' }, primary: 'indigo', boxes: ['indigo', 'teal'] },
+  { name: 'Gradient teal', group: 'Coloured & gradient', note: '沉静清新；teal 侧边栏配上渐变光泽。', header: { cls: 'bg-body', theme: 'light' }, sidebar: { cls: 'bg-gradient-teal', theme: 'dark' }, primary: 'teal', boxes: ['teal', 'amber'] }
 ]
 
 // ---------------------------------------------------------------------------
@@ -312,13 +312,16 @@ export const skinGroupsV3 = [
   { name: 'Light sidebar', note: '"-light" 那一类：同样的头部配白色侧边栏。' }
 ]
 
-const v3Skin = ({ name, group, header, theme, boxes, note }) => ({
+const v3Skin = ({ name, group, header, theme, boxes, note, primary }) => ({
   name,
   group,
   note,
   header: { cls: header, theme },
   sidebar: group === 'Dark sidebar' ? { cls: 'text-bg-gray-dark', theme: 'dark' } : { cls: 'bg-body', theme: 'light' },
-  boxes
+  boxes,
+  // 这个皮肤对应的 `data-lte-primary` 该取什么值：也就是 v2/v3 皮肤
+  // 命名所依据的那个颜色，也正是它按钮用的颜色（#6107）。
+  primary: primary || boxes[0]
 })
 
 export const skinsV3 = [

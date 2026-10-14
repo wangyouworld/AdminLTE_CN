@@ -18,7 +18,12 @@ const paletteSets = [
   { key: "designed", label: "设计配色方案 (4.4)", file: "adminlte-colors.css", groups: skinGroups, skins, classes: paletteClasses, text: Object.fromEntries(palette.map(c => [`text-bg-${c.name}`, c.textColor])) },
   { key: "v3", label: "AdminLTE 3 原版", file: "adminlte-colors-v3.css", groups: skinGroupsV3, skins: skinsV3, classes: paletteV3.map(c => `text-bg-${c.name}`), text: Object.fromEntries(paletteV3.map(c => [`text-bg-${c.name}`, c.textColor])) }
 ]
-const paletteSetsJson = paletteSets.map(({ key, file, classes, text }) => ({ key, file, classes, text }))
+// 每个样式表能提供的 `data-lte-primary` 取值（#6107）
+const primaryChoices = {
+  designed: palette.map(c => c.name),
+  v3: paletteV3.map(c => c.name)
+}
+const paletteSetsJson = paletteSets.map(({ key, file, classes, text }) => ({ key, file, classes, text, primaries: primaryChoices[key] }))
 const path = "../../../dist"
 const htmlPath = convertPathToHtml(path);
 
@@ -236,7 +241,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                 <!--begin::Card(Presets)-->
                 <div class="card mb-4">
                   <div class="card-header">
-                    <h3 class="card-title">Presets</h3>
+                    <h3 class="card-title">预设</h3>
                   </div>
                   <div class="card-body">
                     <p>
@@ -278,6 +283,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                                         data-preset-sidebar-theme={skin.sidebar.theme}
                                         data-preset-header={skin.header.cls}
                                         data-preset-header-theme={skin.header.theme}
+                                        data-preset-primary={skin.primary}
                                         title={skin.note}
                                         aria-pressed="false"
                                       >
@@ -550,6 +556,78 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                   <!--end::Card Footer-->
                 </div>
                 <!--end::Card-->
+                <!--begin::Card(Primary colour)-->
+                <div class="card mt-4">
+                  <!--begin::Card Header-->
+                  <div class="card-header">
+                    <h3 class="card-title">主色</h3>
+                  </div>
+                  <!--end::Card Header-->
+                  <!--begin::Card Body-->
+                  <div class="card-body">
+                    <p>
+                      Bootstrap 把 <code>$primary</code> 直接烤进了它的组件里，
+                      所以不管你怎么设置 <code>--bs-primary</code>，
+                      <code>.btn-primary</code> 都还是蓝色的。调色板样式表把它们重新接了线：
+                      在 <code>&lt;html&gt;</code> 上加上 <code>data-lte-primary</code>，
+                      按钮、链接、分页、复选框、进度条和焦点圈
+                      就会跟着你选的颜色走。
+                    </p>
+                    <!--begin::Row-->
+                    <div class="row">
+                      <!--begin::Col-->
+                      <div class="col-md-3">
+                        <select
+                          id="primary-color"
+                          class="form-select form-select-lg"
+                          aria-label="主色 Select"
+                        >
+                          <option value="">---选择---</option>
+                        </select>
+                      </div>
+                      <!--end::Col-->
+                      <!--begin::Col-->
+                      <div class="col-md-9">
+                        <div id="primary-color-code" class="w-100"></div>
+                      </div>
+                      <!--end::Col-->
+                    </div>
+                    <!--end::Row-->
+                    <!--begin::Row(Preview)-->
+                    <div class="row g-3 align-items-center mt-1">
+                      <div class="col-auto">
+                        <button type="button" class="btn btn-primary">Primary 按钮</button>
+                      </div>
+                      <div class="col-auto">
+                        <button type="button" class="btn btn-outline-primary">描边</button>
+                      </div>
+                      <div class="col-auto">
+                        <span class="badge text-bg-primary">徽章</span>
+                      </div>
+                      <div class="col-auto">
+                        <div class="form-check mb-0">
+                          <input class="form-check-input" type="checkbox" id="primary-check" checked />
+                          <label class="form-check-label" for="primary-check">选中</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-4">
+                        <div class="progress" role="progressbar" aria-label="Example progress" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100">
+                          <div class="progress-bar" style="width: 62%">62%</div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--end::Row(Preview)-->
+                  </div>
+                  <!--end::Card Body-->
+                  <!--begin::Card Footer-->
+                  <div class="card-footer">
+                    需要 <code>css/adminlte-colors.css</code>（或者
+                    <code>css/adminlte-colors-v3.css</code>）—— 详见
+                    <a href={deploymentPath + "docs/colors.html"} class="link-primary">颜色</a>。
+                  </div>
+                  <!--end::Card Footer-->
+                </div>
+                <!--end::Card(Primary colour)-->
               </div>
               <!--end::Col-->
             </div>
@@ -604,6 +682,52 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
 
         const controllers = {}
         const presetButtons = document.querySelectorAll(".theme-presets [data-preset-sidebar]")
+
+        // <html> 上的 `data-lte-primary`：让 Bootstrap 那些 `primary` 组件
+        //（按钮、链接、分页、复选框、进度条）采用某个调色板颜色。
+        // 值为空 = 不加属性 = Bootstrap 原本的蓝色。
+        const primary = (() => {
+          const select = document.querySelector("#primary-color")
+          const code = document.querySelector("#primary-color-code")
+          if (!select || !code) {
+            return null
+          }
+          let value = ""
+          const render = () => {
+            if (value) {
+              document.documentElement.setAttribute("data-lte-primary", value)
+            } else {
+              document.documentElement.removeAttribute("data-lte-primary")
+            }
+            select.value = value
+            code.innerHTML = `<pre><code class="language-html">&lt;html lang="en"${value ? ` data-lte-primary="${value}"` : ""}&gt;</code></pre>`
+            markPresets()
+          }
+          const renderOptions = () => {
+            select.innerHTML =
+              '<option value="">---选择--- (Bootstrap blue)</option>' +
+              `<optgroup label="Extended palette (${activeSet.file})">${activeSet.primaries.map(name => `<option value="${name}" class="text-${name}">${name}</option>`).join("")}</optgroup>`
+          }
+          renderOptions()
+          select.addEventListener("input", event => {
+            value = event.target.value
+            render()
+          })
+          return {
+            get: () => value,
+            set: next => {
+              value = activeSet.primaries.includes(next) ? next : ""
+              render()
+            },
+            refresh: () => {
+              renderOptions()
+              if (value && !activeSet.primaries.includes(value)) {
+                value = ""
+              }
+              render()
+            }
+          }
+        })()
         const markPresets = () => {
           const sidebar = controllers[".app-sidebar"]
           const header = controllers[".app-header"]
@@ -612,6 +736,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
           }
           for (const button of presetButtons) {
             const matches =
+              (primary ? button.getAttribute("data-preset-primary") === (primary.get() || "primary") : true) &&
               button.getAttribute("data-preset-sidebar") === sidebar.get().bg &&
               button.getAttribute("data-preset-sidebar-theme") === sidebar.get().mode &&
               button.getAttribute("data-preset-header") === header.get().bg &&
@@ -710,6 +835,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
           button.addEventListener("click", () => {
             controllers[".app-sidebar"]?.set(button.getAttribute("data-preset-sidebar"), button.getAttribute("data-preset-sidebar-theme"))
             controllers[".app-header"]?.set(button.getAttribute("data-preset-header"), button.getAttribute("data-preset-header-theme"))
+            primary?.set(button.getAttribute("data-preset-primary"))
           })
         }
 
@@ -729,8 +855,10 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             for (const c of Object.values(controllers)) {
               c.refresh()
             }
+            primary?.refresh()
           })
         }
+        primary?.refresh()
         markPresets()
       })
     </script>
