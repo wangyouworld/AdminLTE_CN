@@ -2,7 +2,7 @@
 
 > * 翻译采用第三方翻译工具和人工复核的方式进行。
 > * 尽可能的信、达、雅； 但由于英文水平有限，翻译内容会偏离原内容。
-> * 目前已经完成，AdminLTE-2.3.11、2.4.x、3.1、4.0.x、4.1.x、4.2.x、4.3.x、4.4.x、4.5.x 翻译工作
+> * 目前已经完成，AdminLTE-2.3.11、2.4.x、3.1、4.0.x、4.1.x、4.2.x、4.3.x、4.4.x、4.5.x 翻译工作。
 
 ----------
 
@@ -26,6 +26,7 @@
 如果有需要本地配置的，参见 [astro 教程][5]。
 
 使用时很简单，只需要使用以下命令：
+
 
 ```bash
 # 安装依赖包
@@ -201,7 +202,8 @@ dict.txt 为其字典文件。
 
 你可以在本项目分支中找到，也可以直接访问地址：
 
-https://gitee.com/3Vshej/AdminLTE_CN/releases
+> * https://github.com/wangyouworld/AdminLTE_CN/releases
+> * https://gitee.com/3Vshej/AdminLTE_CN/releases
 
 或者，线上查看：
 http://3vshej.cn/AdminLTE/
@@ -216,7 +218,7 @@ Timeout  86400
 即，超时时间为 1天。
 
 
-[1]: https://github.com/wangyouworld/AdminLTE_CN/releases
+[1]: https://gitee.com/3Vshej/AdminLTE_CN/releases
 [2]: https://adminlte.io/
 [3]: https://3vshej.cn/AdminLTE/
 [4]: https://ramble.3vshej.cn/ruby-jekyll-install
