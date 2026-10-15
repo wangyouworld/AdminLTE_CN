@@ -2,7 +2,7 @@
 
 > * 翻译采用第三方翻译工具和人工复核的方式进行。
 > * 尽可能的信、达、雅； 但由于英文水平有限，翻译内容会偏离原内容。
-> * 目前已经完成，AdminLTE-2.3.11、2.4.x、3.1、4.0.x、4.1.x、4.2.x、4.3.x、4.4.x、4.5.x、4.6.x 翻译工作。
+> * 目前已经完成，AdminLTE-2.3.11、2.4.x、3.1、4.0.x、4.1.x、4.2.x、4.3.x、4.4.x、4.5.x、4.6.x、4.7.x 翻译工作。
 
 ----------
 
@@ -12,7 +12,7 @@
 ----------
 当然，你也可以参与其中（请邮件：ramble **AT** 3vshej.cn）：
 
-# 【4.0.x】
+# 【4.x】
 基于 Bootstrap 5，该版本使用 astro 管理页面和文档。但**字典格式与 2.x 一样**。
 
 | 字典文件名 | 说明     |
@@ -20,6 +20,7 @@
 | astro_dict.txt | 示例页面 |
 | md_dict.txt | readme.md 文件 |
 | mdx_dict.txt| 使用文档  |
+| mjs_dict.txt| 主题说明文档  |
 
 - AdminLTE 4 文档使用了 astro
 
@@ -218,8 +219,8 @@ Timeout  86400
 即，超时时间为 1天。
 
 
-  [1]: https://github.com/wangyouworld/AdminLTE_CN/releases
-  [2]: https://adminlte.io/
-  [3]: https://3vshej.cn/AdminLTE/
-  [4]: https://ramble.3vshej.cn/ruby-jekyll-install
-  [5]: https://docs.astro.build/zh-cn/getting-started/
+[1]: https://gitee.com/3Vshej/AdminLTE_CN/releases
+[2]: https://adminlte.io/
+[3]: https://3vshej.cn/AdminLTE/
+[4]: https://ramble.3vshej.cn/ruby-jekyll-install
+[5]: https://docs.astro.build/zh-cn/getting-started/
