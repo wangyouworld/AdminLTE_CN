@@ -90,7 +90,7 @@ composer require almasaeed2010/adminlte
 
 ### 开发 AdminLTE 本身
 
-1. **安装依赖：** `npm install`
+1. **安装依赖项**：执行 `npm install`
 2. **启动开发服务器：** `npm start` *（打开 http://localhost:3000，带热重载）*
 3. **构建：** `npm run build`——或者 `npm run production` 跑完整的 lint + 优化 + bundlewatch 流程
 
@@ -157,9 +157,9 @@ v4 系列是在 Bootstrap 5.3 上完全重写的，**不再依赖 jQuery**：
 <summary>从 v3 升级的破坏性变更</summary>
 
 - 类名重命名：`.wrapper` → `.app-wrapper`，`.main-header` → `.app-header`，`.main-sidebar` → `.app-sidebar`，`.content-wrapper` → `.app-main`
-- 数据属性：`data-toggle` → `data-bs-toggle`、`data-widget="pushmenu"` → `data-lte-toggle="sidebar"`、`data-widget="treeview"` → `data-lte-toggle="treeview"`
+- 数据属性：`data-toggle` → `data-bs-toggle`，`data-widget="pushmenu"` → `data-lte-toggle="sidebar"`，`data-widget="treeview"` → `data-lte-toggle="treeview"`
 - 深色模式：body 类 `.dark-mode` → `data-bs-theme="dark"` 属性（Bootstrap 5.3 原生支持）
-- 不再需要 jQuery；插件都是用原生 TypeScript 写的
+- 不再需要 jQuery；插件使用原生 TypeScript
 - 打包的 `plugins/` 文件夹没了 —— v3 里的每个 jQuery 组件都有了一个有文档记录的原生 JS 继任者（[替代对照表](https://adminlte.io/themes/v4/docs/migration.html#third-party-plugin-replacements)：Select2 → Tom Select、DataTables → Tabulator、Summernote → Quill……）
 - v3 里的那些额外颜色（`.bg-navy`、`.bg-teal`、侧边栏皮肤等等）放在按需启用的样式表里：`dist/css/adminlte-colors.css` —— 十四种重新设计过的颜色，每一种配白色文字都清晰可读，17 个皮肤预设，外加一行钩子就能加入你的品牌色 —— 或者 `dist/css/adminlte-colors-v3.css`，也就是 18 种 AdminLTE 3 颜色原封不动的版本。两个样式表里的任意一个，都能让你把其中某个颜色设成 Bootstrap 的 `primary` —— `<html data-lte-primary="teal">` 会重新给按钮、链接、分页和表单聚焦态上色（[颜色文档](https://adminlte.io/themes/v4/docs/colors.html)、[在线演示](https://adminlte.io/themes/v4/UI/colors.html)）。`adminlte.css` 里什么都没加。
 
@@ -275,7 +275,7 @@ AdminLTE 是一个 **UI 模板**。部署时只放编译好的生产环境资源
 </p>
 
 <p align="center">
-  <a href="https://github.com/sponsors/danny007in">想在这里放你的头像？成为赞助者吧</a>
+  <a href="https://github.com/sponsors/danny007in">您的头像在这里？成为赞助者</a>
 </p>
 
 ## 贡献

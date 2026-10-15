@@ -250,7 +250,7 @@ setActiveSidebarItem(window.location.pathname)
 
 时间线组件位于 `_timeline.scss` 中，并有多种变体。完整集合请参见 [`/UI/timeline.html`](../UI/timeline.html)。
 
-##### 直接聊天小部件
+##### 聊天小部件
 
 用于实时客户支持、团队聊天等的聊天风格卡片。包括联系人切换和消息气泡。
 
@@ -415,6 +415,38 @@ new ApexCharts(document.querySelector("#revenue-chart"), {
 ```
 
 如果你更想用 ColorMode 事件，而不是监听属性变化，可以用 `document.addEventListener("changed.lte.color-mode", e => …)`，它会收到 `e.detail.resolved`（值为 `"light"` 或 `"dark"`）；而上面那个监听器还额外覆盖了 auto 模式下的系统偏好变化，以及任何直接设置这个属性的代码。同样的思路也适用于其他图表库 —— Chart.js 会读取 `Chart.defaults.color` / `Chart.defaults.borderColor`，你可以从 `getComputedStyle(document.body)` 里取值设置，然后在同一个监听器里用 `chart.update()` 重新应用。
+
+##### 将页面作为文档打印
+
+AdminLTE 会打印完整布局——侧边栏、头部与内容区，采用适合复刻屏幕画面阅读的样式：外部链接会在文本后打印链接地址，按钮保留外轮廓，维持按钮的视觉识别效果，整体采用黑字白底，避免背景消耗墨水。
+
+对于需要作为**文档**打印的页面——例如提供给客户的发票、报价单、工单或装箱单——上述打印效果并不合适：没人希望纸质发票上出现 `在线支付 (https://pay.example.com/inv/12345?token=…)`，也不想要按钮外围的方框。在 `<html>`、`<body>` 或任意容器标签上添加 `data-lte-print="plain"` 属性，上述两项多余效果就会消失，同时依旧保持黑字白底的文本样式：
+
+```html
+<html lang="en" data-lte-print="plain">
+```
+
+当页面中仅有部分内容需要作为文档打印时，可将打印作用域限定到该部分：
+
+```html
+<div class="card" data-lte-print="plain">……发票……</div>
+```
+
+使用 Bootstrap 自带工具类隐藏打印时的界面组件——`.d-print-none` 可作用于任意元素，包括侧边栏和头部：
+
+```html
+<aside class="app-sidebar bg-body-secondary shadow d-print-none" data-bs-theme="dark">…</aside>
+<nav class="app-header navbar navbar-expand bg-body d-print-none">…</nav>
+```
+
+如果某页面始终都要以文档形式打印，可在打印时一次性设置该属性：
+
+```js
+document.querySelector("#print-invoice").addEventListener("click", () => {
+  document.documentElement.setAttribute("data-lte-print", "plain")
+  window.print()
+})
+```
 
 ##### 接下来去哪里
 

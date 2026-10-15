@@ -4116,3 +4116,15 @@ Palette on this page
 本页调色板
 Make one of them your
 选择其中一个成为你的
+a: `<p>Bootstrap compiles <code>$primary</code> into its components, so overriding <code>--bs-primary</code> alone repaints <code>.text-primary</code> and <code>.bg-primary</code> but leaves <code>.btn-primary</code>, pagination, checkboxes and the focus ring blue. Two things actually work:</p>
+a: `<p>Bootstrap 会把 <code>$primary</code> 编译进它的组件里，所以光覆盖 <code>--bs-primary</code>，只会重绘 <code>.text-primary</code> 和 <code>.bg-primary</code>，而 <code>.btn-primary</code>、分页、复选框和焦点圈还是蓝色的。真正管用的有两种办法：</p>
+<p><strong>With Sass</strong> — set <code>$primary</code> before importing AdminLTE and everything is compiled with it:</p>
+<p><strong>用 Sass</strong> —— 在导入 AdminLTE 之前设置 <code>$primary</code>，所有东西都会带着这个值一起编译：</p>
+<p><strong>Without a build step</strong> — load the opt-in palette sheet and name your colour on <code>&lt;html&gt;</code>; it rewires the components that bake the hex:</p>
+<p><strong>不用构建步骤</strong> —— 加载按需启用的调色板样式表，并在 <code>&lt;html&gt;</code> 上写明你要的颜色；它会把那些把十六进制值烤死进去的组件重新接线：</p>
+<p class="mb-0">A brand colour outside the palette needs only <code>--bs-primary</code> plus that attribute — see <a href="colors.html">Colors &amp; Skins</a>. For sidebar width, breakpoints and the spacing scale, see <a href="customization.html">Customization &amp; Theming</a>.</p>`
+<p class="mb-0">如果品牌色不在调色板里，只需要 <code>--bs-primary</code> 加上那个属性 —— 详见 <a href="colors.html">颜色与皮肤</a>。至于侧边栏宽度、断点和间距刻度，请见 <a href="customization.html">自定义与主题化</a>。</p>`
+q: "Printing adds the URL after every link and a box around buttons.",
+q: "打印的时候，每个链接后面都会多出 URL，按钮上还会多一个框。",
+a: `Those are AdminLTE's print defaults, which suit printing a copy of a screen. For a page that prints as a document — an invoice or work order that goes to a customer — add <code>&lt;html data-lte-print="plain"&gt;</code> (it works on any container too) and both go away, while text stays black on white. Hide the chrome with Bootstrap's <code>.d-print-none</code> on the sidebar and header. See the <a href="recipes.html">Recipes</a> page.`
+a: `那些是 AdminLTE 的打印默认行为，适合把屏幕内容打印成一份拷贝。如果某个页面要打印成正式文档 —— 比如发给客户的发票或工单 —— 就在 <code>&lt;html data-lte-print="plain"&gt;</code> 上加上这个属性（它对任何容器也有效），这两样就都没了，同时文字保持白底黑字。想隐藏界面部分，就用 Bootstrap 的 <code>.d-print-none</code> 加在侧边栏和头部上。详见 <a href="recipes.html">方案</a> 页面。`

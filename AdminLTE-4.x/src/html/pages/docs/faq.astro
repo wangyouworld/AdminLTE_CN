@@ -75,12 +75,14 @@ const sections: Section[] = [
     items: [
       {
         q: "如何更改主色？",
-        a: `<p>在 <code>:root</code> 中覆盖 <code>--bs-primary</code>（及其对应的 RGB 值）：</p>
-<pre class="astro-code"><code>:root {
-  --bs-primary: #6610f2;
-  --bs-primary-rgb: 102, 16, 242;
-}</code></pre>
-<p class="mb-0">如需更深层控制（侧边栏宽度、breakpoint、间距比例），请参阅<a href="customization.html">自定义与主题</a>。</p>`
+        a: `<p>Bootstrap 会把 <code>$primary</code> 编译进它的组件里，所以光覆盖 <code>--bs-primary</code>，只会重绘 <code>.text-primary</code> 和 <code>.bg-primary</code>，而 <code>.btn-primary</code>、分页、复选框和焦点圈还是蓝色的。真正管用的有两种办法：</p>
+<p><strong>用 Sass</strong> —— 在导入 AdminLTE 之前设置 <code>$primary</code>，所有东西都会带着这个值一起编译：</p>
+<pre class="astro-code"><code>$primary: #6610f2;
+@import "admin-lte/src/scss/adminlte";</code></pre>
+<p><strong>不用构建步骤</strong> —— 加载按需启用的调色板样式表，并在 <code>&lt;html&gt;</code> 上写明你要的颜色；它会把那些把十六进制值烤死进去的组件重新接线：</p>
+<pre class="astro-code"><code>&lt;link rel="stylesheet" href="css/adminlte-colors.css"&gt;
+&lt;html lang="en" data-lte-primary="indigo"&gt;</code></pre>
+<p class="mb-0">如果品牌色不在调色板里，只需要 <code>--bs-primary</code> 加上那个属性 —— 详见 <a href="colors.html">颜色与皮肤</a>。至于侧边栏宽度、断点和间距刻度，请见 <a href="customization.html">自定义与主题化</a>。</p>`
       },
       {
         q: "v3 里那些颜色都去哪了 —— <code>bg-navy</code>、<code>bg-teal</code>，还有侧边栏皮肤？我能加自己的品牌色吗？",
@@ -158,6 +160,10 @@ const sections: Section[] = [
       {
         q: "按 ESC 键时 Bootstrap 模态框关闭了，但 AdminLTE 的侧边栏也同时收起了。",
         a: `该问题已在 v4.0.0 中修复（#5993）。如果你仍然遇到此问题，说明你使用的是较旧的 RC 版本——请更新到最新版本。`
+      },
+      {
+        q: "打印的时候，每个链接后面都会多出 URL，按钮上还会多一个框。",
+        a: `那些是 AdminLTE 的打印默认行为，适合把屏幕内容打印成一份拷贝。如果某个页面要打印成正式文档 —— 比如发给客户的发票或工单 —— 就在 <code>&lt;html data-lte-print="plain"&gt;</code> 上加上这个属性（它对任何容器也有效），这两样就都没了，同时文字保持白底黑字。想隐藏界面部分，就用 Bootstrap 的 <code>.d-print-none</code> 加在侧边栏和头部上。详见 <a href="recipes.html">方案</a> 页面。`
       },
       {
         q: "我自定义的 SCSS 没有覆盖 AdminLTE 的默认值。",

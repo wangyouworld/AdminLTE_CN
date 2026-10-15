@@ -495,7 +495,7 @@ Read more
 The timeline component lives in `_timeline.scss` and has variants. See [`/UI/timeline.html`](../UI/timeline.html) for the full set.
 时间线组件位于 `_timeline.scss` 中，并有多种变体。完整集合请参见 [`/UI/timeline.html`](../UI/timeline.html)。
 ##### A direct-chat widget
-##### 直接聊天小部件
+##### 聊天小部件
 The chat-style card used for live customer support, team chat, etc. Includes contact toggle and message bubbles.
 用于实时客户支持、团队聊天等的聊天风格卡片。包括联系人切换和消息气泡。
 Hey, ready for the review?
@@ -2542,3 +2542,17 @@ Pick a colour that takes white text: the checkmark inside a checked checkbox is 
 要挑一个配白色文字的颜色：Bootstrap 里选中复选框内的对勾是白色的，而且没法通过 CSS 改色。设计版调色板里每种颜色都符合要求；而 v3 调色板里，`lime`、`yellow` 和 `orange` 则不行。
 That also generates `data-lte-primary="brand"`, so `<html data-lte-primary="brand">` turns Bootstrap's `primary` components into your brand colour with the right hover shades and contrast text.
 这还会生成 `data-lte-primary="brand"`，所以 `<html data-lte-primary="brand">` 就能把 Bootstrap 那些 `primary` 组件变成你的品牌色，并且带上正确的悬停色阶和对比文字。
+##### Printing a page as a document
+##### 将页面作为文档打印
+AdminLTE prints the whole layout — sidebar, header and content — with the styles you would want for reading a copy of a screen: the target of an external link is printed after it, buttons keep an outline so they still read as buttons, and everything goes black on white so backgrounds don't eat ink.
+AdminLTE 会打印完整布局——侧边栏、头部与内容区，采用适合复刻屏幕画面阅读的样式：外部链接会在文本后打印链接地址，按钮保留外轮廓，维持按钮的视觉识别效果，整体采用黑字白底，避免背景消耗墨水。
+For pages that print as *documents* — an invoice, quote, work order or packing slip that goes to a customer — that is the wrong output: nobody wants `Pay online (https://pay.example.com/inv/12345?token=…)` on a printed invoice, or a box drawn around a button. Put `data-lte-print="plain"` on `<html>`, `<body>` or any container and both go away, while the text stays black on white:
+对于需要作为**文档**打印的页面——例如提供给客户的发票、报价单、工单或装箱单——上述打印效果并不合适：没人希望纸质发票上出现 `在线支付 (https://pay.example.com/inv/12345?token=…)`，也不想要按钮外围的方框。在 `<html>`、`<body>` 或任意容器标签上添加 `data-lte-print="plain"` 属性，上述两项多余效果就会消失，同时依旧保持黑字白底的文本样式：
+Scope it to part of a page when only that part is the document:
+当页面中仅有部分内容需要作为文档打印时，可将打印作用域限定到该部分：
+Hide the chrome for that print with Bootstrap's own utility — `.d-print-none` works on any element, including the sidebar and the header:
+使用 Bootstrap 自带工具类隐藏打印时的界面组件——`.d-print-none` 可作用于任意元素，包括侧边栏和头部：
+…the invoice…
+……发票……
+And if a page only ever prints as a document, set the attribute once when you print:
+如果某页面始终都要以文档形式打印，可在打印时一次性设置该属性：
