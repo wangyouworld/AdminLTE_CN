@@ -136,15 +136,27 @@ v3Skin({ name: 'Yellow', group: 'Dark sidebar', header: 'text-bg-yellow', theme:
 v3Skin({ name: 'Yellow', group: 'Dark sidebar', header: 'text-bg-yellow', theme: 'light', boxes: ['yellow', 'navy'], note: 'skin-yellow —— 头部配深色文字。' }),
 v3Skin({ name: 'Black light', group: 'Light sidebar', header: 'bg-body', theme: 'light', boxes: ['blue', 'red'], note: 'skin-black-light — all white chrome.' }),
 v3Skin({ name: 'Black light', group: 'Light sidebar', header: 'bg-body', theme: 'light', boxes: ['blue', 'red'], note: 'skin-black-light —— 整个界面全白。' }),
-5. Every skin's `data-lte-primary` is a colour that sheet actually has
-5. 每个皮肤的 `data-lte-primary` 都是该样式表里确实存在的颜色
+// 5. `data-lte-contrast="aa"` has to leave every colour at or above AA
+// 5. `data-lte-contrast="aa"` 必须让每种颜色都保持在 AA 或以上
 (Bootstrap's own theme colours are always available)
 （Bootstrap 自己的主题色始终可用）
-console.log(`palette check passed: ${palette.length} colours, all ≥ ${MIN_WHITE_CONTRAST}:1 with white text, SCSS and JS in step; v3 sheet: ${paletteV3.length} colours in step; ${skins.length + skinsV3.length} skins name a primary that exists.`)
-console.log(`调色板检查通过：${palette.length} 种颜色，配白色文字全部 ≥ ${MIN_WHITE_CONTRAST}:1，SCSS 和 JS 保持同步；v3 样式表：${paletteV3.length} 种颜色已同步；${skins.length + skinsV3.length} 个皮肤指定的 primary 都存在。`)
+// 6. Every skin's `data-lte-primary` is a colour that sheet actually has
+// 6. 每个皮肤的 `data-lte-primary` 都是该样式表里确实存在的颜色
+console.log(`palette check passed: ${palette.length} colours, all ≥ ${MIN_WHITE_CONTRAST}:1 with white text, SCSS and JS in step; v3 sheet: ${paletteV3.length} colours in step; ${skins.length + skinsV3.length} skins name a primary that exists; every colour clears ${MIN_WHITE_CONTRAST}:1 under data-lte-contrast="aa".`)
+console.log(`调色板检查通过：${palette.length} 种颜色，配白色文字全部 ≥ ${MIN_WHITE_CONTRAST}:1，SCSS 和 JS 保持同步；v3 样式表：${paletteV3.length} 种颜色已同步；${skins.length + skinsV3.length} 个皮肤指定的 primary 都存在；在 data-lte-contrast="aa" 下每种颜色都能达到 ${MIN_WHITE_CONTRAST}:1。`)
 is not in that palette
 不在那个调色板中
 // What `data-lte-primary` should be for this skin: the colour the v2/v3 skin
 // 这个皮肤对应的 `data-lte-primary` 该取什么值：也就是 v2/v3 皮肤
 // was named after, which is the colour its buttons carried (#6107).
 // 命名所依据的那个颜色，也正是它按钮用的颜色（#6107）。
+// WCAG AA for normal text
+// WCAG AA 标准适用于普通文本
+// Same pick by construction: every designed colour clears AA with white
+// 同样由设计决定：每种指定颜色均用白色清除AA
+// What `data-lte-contrast="aa"` uses: the same pick unless it falls short of
+// `data-lte-contrast="aa"` 用的是哪套逻辑：正常情况下还是原来的选择，
+// WCAG AA for normal text, in which case the other one (#6110). Note v3's own
+// 除非它达不到 WCAG AA 对正文的要求，那就换成另一个（#6110）。注意 v3 自己的
+// dark ink (#1f2d3d) is not enough — it clears 4.5:1 on only two of the eight.
+// 深墨色（#1f2d3d）不够用 —— 它在这八种颜色里只有两种能达到 4.5:1。

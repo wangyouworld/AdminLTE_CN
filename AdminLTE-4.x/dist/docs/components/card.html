@@ -103,6 +103,8 @@
     <link rel="stylesheet" href="../../css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="../../css/adminlte-docs.css" />
+
+    <!--email_off-->
   </head>
   <!--end::Head-->
   <!--begin::Body-->
@@ -800,53 +802,56 @@
 <span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;card-body&quot;</span><span style="color:#808080">&gt;</span><span style="color:#D4D4D4">内容</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;card-footer&quot;</span><span style="color:#808080">&gt;</span><span style="color:#D4D4D4">底部</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span></code></pre>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>类名</th>
-                          <th>描述</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><code>.card</code></td>
-                          <td>容器。在 Bootstrap 卡片的基础上加上了 AdminLTE 的阴影。</td>
-                        </tr>
-                        <tr>
-                          <td><code>.card-header</code></td>
-                          <td>
-                            头部条。设置为相对定位，这样 <code>.card-tools</code> 就能在里面浮动。
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><code>.card-title</code></td>
-                          <td>
-                            头部文字。左浮动，字号
-                            <code>1.1rem</code
-                            >；它只是一种样式，并不是标题——该用什么元素由文档大纲结构决定。
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><code>.card-tools</code></td>
-                          <td>头部内右对齐的工具栏。会吸收头部的水平内边距，让按钮贴边对齐。</td>
-                        </tr>
-                        <tr>
-                          <td><code>.btn-tool</code></td>
-                          <td>
-                            柔和色调、无边框的图标按钮，专供 <code>.card-tools</code> 内使用。加上
-                            <code>.btn-tool-custom</code> 可以保留你自己的配色。
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><code>.card-body</code></td>
-                          <td>内容区。</td>
-                        </tr>
-                        <tr>
-                          <td><code>.card-footer</code></td>
-                          <td>底部条。</td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>类名</th>
+                            <th>描述</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>.card</code></td>
+                            <td>容器。在 Bootstrap 卡片的基础上加上了 AdminLTE 的阴影。</td>
+                          </tr>
+                          <tr>
+                            <td><code>.card-header</code></td>
+                            <td>
+                              头部条。设置为相对定位，这样 <code>.card-tools</code> 就能在里面浮动。
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><code>.card-title</code></td>
+                            <td>
+                              头部文字。左浮动，字号
+                              <code>1.1rem</code
+                              >；它只是一种样式，并不是标题——该用什么元素由文档大纲结构决定。
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><code>.card-tools</code></td>
+                            <td>头部内右对齐的工具栏。会吸收头部的水平内边距，让按钮贴边对齐。</td>
+                          </tr>
+                          <tr>
+                            <td><code>.btn-tool</code></td>
+                            <td>
+                              柔和色调、无边框的图标按钮，专供 <code>.card-tools</code> 内使用。加上
+                              <code>.btn-tool-custom</code> 可以保留你自己的配色。
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><code>.card-body</code></td>
+                            <td>内容区。</td>
+                          </tr>
+                          <tr>
+                            <td><code>.card-footer</code></td>
+                            <td>底部条。</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <h5 id="颜色变体">颜色变体</h5>
                     <p>
                       <code>$theme-colors</code> 里的每一个条目都会生成一个
@@ -881,38 +886,41 @@
                       <a href="../javascript/card-widget.html">CardWidget</a>
                       切换时对应的静止状态。在标记里设置其中一个，就能让卡片一开始就渲染成折叠状态。
                     </p>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>类名</th>
-                          <th>描述</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><code>.collapsed-card</code></td>
-                          <td>隐藏内容区和底部，并把折叠图标换成展开图标。</td>
-                        </tr>
-                        <tr>
-                          <td><code>.maximized-card</code></td>
-                          <td>
-                            让卡片以全尺寸固定在视口中。AdminLTE 还会把它加到
-                            <code>&lt;html&gt;</code> 上，以锁定页面滚动。
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><code>.was-collapsed</code></td>
-                          <td>
-                            由 CardWidget
-                            添加：如果卡片在最大化时本身是折叠状态，就给它加上这个类，这样还原时能回到折叠状态。
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><code>.expanding-card</code></td>
-                          <td>在展开动画执行期间存在。</td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>类名</th>
+                            <th>描述</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>.collapsed-card</code></td>
+                            <td>隐藏内容区和底部，并把折叠图标换成展开图标。</td>
+                          </tr>
+                          <tr>
+                            <td><code>.maximized-card</code></td>
+                            <td>
+                              让卡片以全尺寸固定在视口中。AdminLTE 还会把它加到
+                              <code>&lt;html&gt;</code> 上，以锁定页面滚动。
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><code>.was-collapsed</code></td>
+                            <td>
+                              由 CardWidget
+                              添加：如果卡片在最大化时本身是折叠状态，就给它加上这个类，这样还原时能回到折叠状态。
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><code>.expanding-card</code></td>
+                            <td>在展开动画执行期间存在。</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <p>
                       图标的显示会自动跟随状态变化：除非卡片是折叠状态，否则
                       <code>[data-lte-icon=&quot;expand&quot;]</code>
@@ -953,56 +961,62 @@
                       是同样的思路，只不过用在了描边卡片上：由激活的标签页以顶部边框的形式来体现强调色，而不是由卡片本身来承担。
                     </p>
                     <h5 id="工具类">工具类</h5>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>类名</th>
-                          <th>描述</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><code>.height-control</code></td>
-                          <td>把内容区的高度限制在 <code>300px</code>，超出部分可滚动。</td>
-                        </tr>
-                        <tr>
-                          <td><code>.card .nav.flex-column</code></td>
-                          <td>
-                            卡片内的垂直导航会在各项之间加上分隔线，最后一项之后不加。用于<a
-                              href="miscellaneous.html#social-and-post-widgets"
-                              >用户小部件</a
-                            >。
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>类名</th>
+                            <th>描述</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>.height-control</code></td>
+                            <td>把内容区的高度限制在 <code>300px</code>，超出部分可滚动。</td>
+                          </tr>
+                          <tr>
+                            <td><code>.card .nav.flex-column</code></td>
+                            <td>
+                              卡片内的垂直导航会在各项之间加上分隔线，最后一项之后不加。用于<a
+                                href="miscellaneous.html#social-and-post-widgets"
+                                >用户小部件</a
+                              >。
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <h5 id="sass-变量">Sass 变量</h5>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>变量</th>
-                          <th>默认值</th>
-                          <th>说明</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><code>$lte-card-shadow</code></td>
-                          <td>基于 <code>--bs-body-color-rgb</code> 的双层阴影</td>
-                          <td>应用到每个 <code>.card</code> 上的阴影。</td>
-                        </tr>
-                        <tr>
-                          <td><code>$lte-card-title-font-size</code></td>
-                          <td><code>1.1rem</code></td>
-                          <td><code>.card-title</code> 的字号。</td>
-                        </tr>
-                        <tr>
-                          <td><code>$lte-card-title-font-weight</code></td>
-                          <td><code>$font-weight-normal</code></td>
-                          <td><code>.card-title</code> 的字重。</td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>变量</th>
+                            <th>默认值</th>
+                            <th>说明</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>$lte-card-shadow</code></td>
+                            <td>基于 <code>--bs-body-color-rgb</code> 的双层阴影</td>
+                            <td>应用到每个 <code>.card</code> 上的阴影。</td>
+                          </tr>
+                          <tr>
+                            <td><code>$lte-card-title-font-size</code></td>
+                            <td><code>1.1rem</code></td>
+                            <td><code>.card-title</code> 的字号。</td>
+                          </tr>
+                          <tr>
+                            <td><code>$lte-card-title-font-weight</code></td>
+                            <td><code>$font-weight-normal</code></td>
+                            <td><code>.card-title</code> 的字重。</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <h5 id="注意事项">注意事项</h5>
                     <ul>
                       <li>
@@ -1131,6 +1145,8 @@
      —— 不需要页面脚本。只有 <head> 里那段防止闪烁的代码片段保持内联，
      因为它必须在首次绘制之前就运行。 -->
     <!--end::明暗模式切换-->
+
+    <!--email_on-->
     <!--end::Script-->
   </body>
   <!--end::Body-->

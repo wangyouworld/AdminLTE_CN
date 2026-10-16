@@ -102,6 +102,8 @@
     <link rel="stylesheet" href="../css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="../css/adminlte-docs.css" />
+
+    <!--email_off-->
   </head>
   <body class="layout-fixed sidebar-expand-lg bg-body-tertiary docs-page">
     <div class="app-wrapper">
@@ -764,7 +766,7 @@
                     <p>
                       每个 AdminLTE
                       页面都遵循相同的布局结构：一个包含页头、侧边栏、主内容区域和（可选）页脚的包装器。掌握这
-                      4 个类的用法，是区分“踩坑”和“高效开发”的关键。
+                      4 个类的用法，是区分”踩坑”和”高效开发”的关键。
                     </p>
                     <h5 id="4-个区域">4 个区域</h5>
                     <pre
@@ -905,56 +907,60 @@
                       布局行为主要由 <code>&lt;body&gt;</code> 上的类控制，而不是
                       <code>.app-wrapper</code>。支持的修饰符：
                     </p>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>类名</th>
-                          <th>作用</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><code>layout-fixed</code></td>
-                          <td>侧边栏拥有自己的滚动条；只有 <code>.app-main</code> 随页面滚动</td>
-                        </tr>
-                        <tr>
-                          <td><code>fixed-header</code></td>
-                          <td>
-                            将 <code>.app-header</code> 固定在顶部；侧边栏也会固定（自 v4.0.0 起）
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><code>fixed-footer</code></td>
-                          <td>将 <code>.app-footer</code> 固定在底部</td>
-                        </tr>
-                        <tr>
-                          <td><code>sidebar-expand-{sm,md,lg,xl,xxl}</code></td>
-                          <td>
-                            侧边栏从 off-canvas（移动端）切换为 inline（桌面端）的
-                            breakpoint。演示中默认使用 <code>lg</code>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><code>sidebar-mini</code></td>
-                          <td>将侧边栏折叠为仅图标的小型状态</td>
-                        </tr>
-                        <tr>
-                          <td><code>sidebar-mini sidebar-collapse</code></td>
-                          <td>页面加载时侧边栏已处于折叠的小型状态</td>
-                        </tr>
-                        <tr>
-                          <td><code>sidebar-without-hover</code></td>
-                          <td>禁用迷你侧边栏的悬停自动展开行为</td>
-                        </tr>
-                        <tr>
-                          <td><code>layout-rtl</code></td>
-                          <td>
-                            为从右到左的语言镜像布局（还需要 <code>.rtl.css</code> 和
-                            <code>dir=&quot;rtl&quot;</code>——参见 <a href="rtl.html">RTL 支持</a>）
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>类名</th>
+                            <th>作用</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>layout-fixed</code></td>
+                            <td>侧边栏拥有自己的滚动条；只有 <code>.app-main</code> 随页面滚动</td>
+                          </tr>
+                          <tr>
+                            <td><code>fixed-header</code></td>
+                            <td>
+                              将 <code>.app-header</code> 固定在顶部；侧边栏也会固定（自 v4.0.0 起）
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><code>fixed-footer</code></td>
+                            <td>将 <code>.app-footer</code> 固定在底部</td>
+                          </tr>
+                          <tr>
+                            <td><code>sidebar-expand-{sm,md,lg,xl,xxl}</code></td>
+                            <td>
+                              侧边栏从 off-canvas（移动端）切换为 inline（桌面端）的
+                              breakpoint。演示中默认使用 <code>lg</code>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><code>sidebar-mini</code></td>
+                            <td>将侧边栏折叠为仅图标的小型状态</td>
+                          </tr>
+                          <tr>
+                            <td><code>sidebar-mini sidebar-collapse</code></td>
+                            <td>页面加载时侧边栏已处于折叠的小型状态</td>
+                          </tr>
+                          <tr>
+                            <td><code>sidebar-without-hover</code></td>
+                            <td>禁用迷你侧边栏的悬停自动展开行为</td>
+                          </tr>
+                          <tr>
+                            <td><code>layout-rtl</code></td>
+                            <td>
+                              为从右到左的语言镜像布局（还需要 <code>.rtl.css</code> 和
+                              <code>dir=&quot;rtl&quot;</code>——参见
+                              <a href="rtl.html">RTL 支持</a>）
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <p>
                       这些类可以组合使用。演示仪表盘使用
                       <code>class=&quot;layout-fixed sidebar-expand-lg bg-body-tertiary&quot;</code
@@ -1000,27 +1006,30 @@
                       状态——默认隐藏，当用户点击汉堡菜单按钮时从左侧滑入。
                     </p>
                     <p>移动端专用类：</p>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>类名</th>
-                          <th>应用时机</th>
-                          <th>效果</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><code>sidebar-open</code></td>
-                          <td>Body——当用户主动打开移动端侧边栏时</td>
-                          <td>侧边栏带遮罩层从内容上方滑入</td>
-                        </tr>
-                        <tr>
-                          <td><code>sidebar-collapse</code></td>
-                          <td>Body——当用户关闭移动端侧边栏时自动设置</td>
-                          <td>隐藏侧边栏</td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>类名</th>
+                            <th>应用时机</th>
+                            <th>效果</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>sidebar-open</code></td>
+                            <td>Body——当用户主动打开移动端侧边栏时</td>
+                            <td>侧边栏带遮罩层从内容上方滑入</td>
+                          </tr>
+                          <tr>
+                            <td><code>sidebar-collapse</code></td>
+                            <td>Body——当用户关闭移动端侧边栏时自动设置</td>
+                            <td>隐藏侧边栏</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <p>
                       这些由
                       <a href="javascript/pushmenu.html">PushMenu 插件</a>管理——您无需自己编写。
@@ -1174,5 +1183,7 @@
      —— 不需要页面脚本。只有 <head> 里那段防止闪烁的代码片段保持内联，
      因为它必须在首次绘制之前就运行。 -->
     <!--end::明暗模式切换-->
+
+    <!--email_on-->
   </body>
 </html>

@@ -103,6 +103,8 @@
     <link rel="stylesheet" href="../../css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="../../css/adminlte-docs.css" />
+
+    <!--email_off-->
   </head>
   <!--end::Head-->
   <!--begin::Body-->
@@ -808,34 +810,37 @@
 <span class="line"><span style="color:#D4D4D4">    没有匹配到页面。</span></span>
 <span class="line"><span style="color:#808080">  &lt;/</span><span style="color:#569CD6">p</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span></code></pre>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>属性</th>
-                          <th>说明</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><code>data-lte-toggle=&quot;sidebar-search&quot;</code></td>
-                          <td>把这个输入框标记为菜单筛选器。</td>
-                        </tr>
-                        <tr>
-                          <td><code>data-lte-target</code></td>
-                          <td>
-                            要筛选的菜单的选择器。可选——不加的话，就用该输入框所在的
-                            <code>.app-sidebar</code> 里的 <code>.sidebar-menu</code>。
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><code>data-lte-search-empty</code></td>
-                          <td>
-                            可选元素，只在查询没有任何匹配时显示。给它加上
-                            <code>role=&quot;status&quot;</code>，这样结果会被播报出来。
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>属性</th>
+                            <th>说明</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>data-lte-toggle=&quot;sidebar-search&quot;</code></td>
+                            <td>把这个输入框标记为菜单筛选器。</td>
+                          </tr>
+                          <tr>
+                            <td><code>data-lte-target</code></td>
+                            <td>
+                              要筛选的菜单的选择器。可选——不加的话，就用该输入框所在的
+                              <code>.app-sidebar</code> 里的 <code>.sidebar-menu</code>。
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><code>data-lte-search-empty</code></td>
+                            <td>
+                              可选元素，只在查询没有任何匹配时显示。给它加上
+                              <code>role=&quot;status&quot;</code>，这样结果会被播报出来。
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <p>
                       用 <code>type=&quot;search&quot;</code> 是值得的：浏览器自带的清除按钮会触发
                       <code>input</code> 事件，所以能免费帮你把菜单恢复原状。在输入框里按
@@ -857,24 +862,27 @@
                       </li>
                     </ul>
                     <h5 id="事件">事件</h5>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>事件</th>
-                          <th>描述</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><code>filtered.lte.sidebar-search</code></td>
-                          <td>
-                            每次筛选执行完后，在输入框上触发。<code>event.detail</code> 是
-                            <code>{ query, matches }</code>；当筛选被清空时，<code>matches</code> 为
-                            <code>-1</code>。
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>事件</th>
+                            <th>描述</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>filtered.lte.sidebar-search</code></td>
+                            <td>
+                              每次筛选执行完后，在输入框上触发。<code>event.detail</code> 是
+                              <code>{ query, matches }</code>；当筛选被清空时，<code>matches</code>
+                              为 <code>-1</code>。
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <pre
                       class="astro-code dark-plus"
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
@@ -898,46 +906,49 @@
 <span class="line"><span style="color:#9CDCFE">search</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">clear</span><span style="color:#D4D4D4">()           </span><span style="color:#6A9955">// 恢复它</span></span>
 <span class="line"><span style="color:#9CDCFE">search</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">dispose</span><span style="color:#D4D4D4">()         </span><span style="color:#6A9955">// 恢复后，再删除该实例</span></span></code></pre>
                     <h6 id="方法">方法</h6>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>方法</th>
-                          <th>返回值</th>
-                          <th>描述</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><code>search(term)</code></td>
-                          <td><code>void</code></td>
-                          <td>
-                            把菜单筛选到只显示匹配
-                            <code>term</code> 的条目。传入空字符串或纯空白字符时，会自动调用
-                            <code>clear()</code>。
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><code>clear()</code></td>
-                          <td><code>void</code></td>
-                          <td>取消隐藏所有条目，并把每个子菜单恢复到搜索前的展开状态。</td>
-                        </tr>
-                        <tr>
-                          <td><code>dispose()</code></td>
-                          <td><code>void</code></td>
-                          <td>先清空筛选，再把该实例从注册表中移除。</td>
-                        </tr>
-                        <tr>
-                          <td><code>SidebarSearch.getInstance(el)</code></td>
-                          <td><code>SidebarSearch | null</code></td>
-                          <td>返回某个元素对应的现有实例，如果没有则返回 <code>null</code>。</td>
-                        </tr>
-                        <tr>
-                          <td><code>SidebarSearch.getOrCreateInstance(el)</code></td>
-                          <td><code>SidebarSearch</code></td>
-                          <td>返回现有实例，没有就新建一个。</td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>方法</th>
+                            <th>返回值</th>
+                            <th>描述</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>search(term)</code></td>
+                            <td><code>void</code></td>
+                            <td>
+                              把菜单筛选到只显示匹配
+                              <code>term</code> 的条目。传入空字符串或纯空白字符时，会自动调用
+                              <code>clear()</code>。
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><code>clear()</code></td>
+                            <td><code>void</code></td>
+                            <td>取消隐藏所有条目，并把每个子菜单恢复到搜索前的展开状态。</td>
+                          </tr>
+                          <tr>
+                            <td><code>dispose()</code></td>
+                            <td><code>void</code></td>
+                            <td>先清空筛选，再把该实例从注册表中移除。</td>
+                          </tr>
+                          <tr>
+                            <td><code>SidebarSearch.getInstance(el)</code></td>
+                            <td><code>SidebarSearch | null</code></td>
+                            <td>返回某个元素对应的现有实例，如果没有则返回 <code>null</code>。</td>
+                          </tr>
+                          <tr>
+                            <td><code>SidebarSearch.getOrCreateInstance(el)</code></td>
+                            <td><code>SidebarSearch</code></td>
+                            <td>返回现有实例，没有就新建一个。</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <p>构造函数不接受任何配置——目标菜单来自 <code>data-lte-target</code>。</p>
                     <h5 id="注意事项">注意事项</h5>
                     <ul>
@@ -1075,6 +1086,8 @@
      —— 不需要页面脚本。只有 <head> 里那段防止闪烁的代码片段保持内联，
      因为它必须在首次绘制之前就运行。 -->
     <!--end::明暗模式切换-->
+
+    <!--email_on-->
     <!--end::Script-->
   </body>
   <!--end::Body-->

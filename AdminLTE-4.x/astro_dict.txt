@@ -2000,6 +2000,8 @@ Smart path resolution: calculate relative path based on directory depth
 智能路径解析：根据目录深度计算相对路径
 Only count directories, not the filename itself
 仅统计目录，不包括文件名本身
+Closes the `email_off` region opened in _head.astro (docs pages only).
+关闭在 _head.astro 中打开的 `email_off` 区域（仅限文档页面）。
 Kanban Board
 看板
 "Backlog"
@@ -4006,8 +4008,26 @@ Designed palette
 设计配色方案
 AdminLTE 3 originals
 AdminLTE 3 原版
-// name → automatic text colour, per set (v3 uses the YIQ rule: some take dark text)
-// 名称 → 自动文字颜色，按套区分（v3 用的是 YIQ 规则：有些颜色配深色文字）
+// name → automatic text colour, per set and per contrast mode. v3 uses the YIQ
+// 名称 → 自动文字颜色，按套、按对比度模式区分。v3 用的是 YIQ 规则
+// rule (some colours take dark text); `data-lte-contrast="aa"` flips the ones
+//（有些颜色配深色文字）；`data-lte-contrast="aa"` 会把那些指定文字
+// whose assigned text misses WCAG AA (#6110).
+// 达不到 WCAG AA 的颜色翻转过来（#6110）。
+// Which colours `data-lte-contrast="aa"` actually changes, per palette
+// `data-lte-contrast="aa"` 实际会改动哪些颜色，按调色板区分
+// The automatic text colour for a palette colour, in the mode that is on:
+// 某个调色板颜色在当前生效模式下的自动文字颜色：
+// a coloured sidebar or header pairs with data-bs-theme="dark" only while
+// 彩色的侧边栏或头部只有在它的文字是白色时，
+// its text is white.
+// 才搭配 data-bs-theme="dark"。
+// Pair first, paint second: a colour whose text flipped to dark needs
+// 先配对，再上色：文字翻成深色的那种颜色，
+// the light colour mode on the region carrying it, so its nav links
+// 需要承载它的区域开启浅色模式，
+// follow the heading.
+// 这样它的导航链接才会跟着标题走。
 <span data-palette-set="designed">Fourteen colours designed in OKLCH — every one takes white text and sits cleanly next to Bootstrap's theme colours.</span>
 <span data-palette-set="designed">在 OKLCH 里设计的十四种颜色 —— 每一种都配白色文字，并且能干净利落地和 Bootstrap 的主题色并排相处。</span>
 <span data-palette-set="v3" hidden>The eighteen AdminLTE 3 colours, values unchanged, with v3's text-colour rule (lime, orange and yellow take dark text). Same class families. Several fail WCAG AA with white text, as they did in v3.</span>
@@ -4128,3 +4148,33 @@ q: "Printing adds the URL after every link and a box around buttons.",
 q: "打印的时候，每个链接后面都会多出 URL，按钮上还会多一个框。",
 a: `Those are AdminLTE's print defaults, which suit printing a copy of a screen. For a page that prints as a document — an invoice or work order that goes to a customer — add <code>&lt;html data-lte-print="plain"&gt;</code> (it works on any container too) and both go away, while text stays black on white. Hide the chrome with Bootstrap's <code>.d-print-none</code> on the sidebar and header. See the <a href="recipes.html">Recipes</a> page.`
 a: `那些是 AdminLTE 的打印默认行为，适合把屏幕内容打印成一份拷贝。如果某个页面要打印成正式文档 —— 比如发给客户的发票或工单 —— 就在 <code>&lt;html data-lte-print="plain"&gt;</code> 上加上这个属性（它对任何容器也有效），这两样就都没了，同时文字保持白底黑字。想隐藏界面部分，就用 Bootstrap 的 <code>.d-print-none</code> 加在侧边栏和头部上。详见 <a href="recipes.html">方案</a> 页面。`
+{/* Cloudflare's Email Obfuscation rewrites any `package@version` it finds in a
+{/* Cloudflare 的邮箱混淆功能会把文本节点里找到的任何 `package@version` 重写成一个
+text node into a "[email protected]" link, which silently breaks every
+"[email protected]" 链接，这会悄无声息地弄坏文档页面上每一个可复制粘贴的安装
+copy-paste install snippet on the docs pages — 31 of them on Integrations
+代码片段 —— 光 Integrations 一个页面就有 31 处。这些标记会为整个页面关掉这个
+alone. These markers switch it off for the page; the same fix docs.adminlte.io
+功能；docs.adminlte.io 用的也是同样的修复方式。只有文档页面才带锁定了版本的
+uses. Only docs pages carry version-pinned snippets, so only they need it. */}
+代码片段，所以也只有它们需要这个。 */}
+// `data-lte-contrast="aa"` text colours, and how many colours it changes (#6110)
+// `data-lte-contrast="aa"` 文本颜色，以及它会改变多少种颜色（#6110）
+nothing changes: every designed colour already clears 4.5:1.
+一切不变：每种设计颜色的对比度已达到4.5:1。
+flips the text on the 8 v3 colours whose assigned text misses 4.5:1; backgrounds keep their values.
+将8种v3颜色的文本翻转，其指定文本缺失4.5:1；背景保持原有数值。
+The automatic text colour of a background class, in the mode that is on
+背景类的自动文本颜色，处于开启模式下
+// WCAG AA text: `data-lte-contrast="aa"` on <html>. A region whose colour
+// WCAG AA 文本：`data-lte-contrast="aa"` 位于 <html> 元素上。
+// flips to dark text needs the light colour mode so its links follow.
+// 该区域的颜色会变为深色文本，因此需要启用浅色模式，以便其链接能够正确显示。
+Nothing changes for this palette: every colour already clears 4.5:1 with the text it is given.
+这个调色板没有任何变化：每个颜色在与所赋予的文本配合时，其对比度已达到4.5:1。
+Flips the text on {aaFlips[set.key].length} of {set.choices.length - 1} colours whose assigned text misses 4.5:1
+在 {set.choices.length - 1} 种颜色里，会把其中 {aaFlips[set.key].length} 种颜色上指定文字达不到 4.5:1 的文字翻转过来
+Backgrounds keep their exact values.
+背景色保持它们的确切取值不变。
+Force WCAG AA text
+强制使用 WCAG AA 文字

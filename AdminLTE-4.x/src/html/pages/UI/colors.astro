@@ -30,11 +30,24 @@ const paletteSets = [
   { key: "designed", label: "设计配色方案 (4.4)", file: "adminlte-colors.css", groups: skinGroups, skins, choices: ["default", ...palette.map(c => c.name)] },
   { key: "v3", label: "AdminLTE 3 原版", file: "adminlte-colors-v3.css", groups: skinGroupsV3, skins: skinsV3, choices: ["default", ...paletteV3.map(c => c.name)] }
 ]
-// 名称 → 自动文字颜色，按套区分（v3 用的是 YIQ 规则：有些颜色配深色文字）
+// 名称 → 自动文字颜色，按套、按对比度模式区分。v3 用的是 YIQ 规则
+//（有些颜色配深色文字）；`data-lte-contrast="aa"` 会把那些指定文字
+// 达不到 WCAG AA 的颜色翻转过来（#6110）。
 const paletteText = JSON.stringify({
-  designed: Object.fromEntries(palette.map(c => [c.name, c.textColor])),
-  v3: Object.fromEntries(paletteV3.map(c => [c.name, c.textColor]))
+  designed: {
+    default: Object.fromEntries(palette.map(c => [c.name, c.textColor])),
+    aa: Object.fromEntries(palette.map(c => [c.name, c.textColorAA]))
+  },
+  v3: {
+    default: Object.fromEntries(paletteV3.map(c => [c.name, c.textColor])),
+    aa: Object.fromEntries(paletteV3.map(c => [c.name, c.textColorAA]))
+  }
 })
+// `data-lte-contrast="aa"` 实际会改动哪些颜色，按调色板区分
+const aaFlips = {
+  designed: palette.filter(c => c.textColor !== c.textColorAA),
+  v3: paletteV3.filter(c => c.textColor !== c.textColorAA)
+}
 const utilityRows = [
   { label: ".bg-*", cell: (n: string) => `<div class="lte-swatch bg-${n}"></div>` },
   { label: ".text-bg-*", cell: (n: string) => `<div class="lte-swatch text-bg-${n}">Aa</div>` },
@@ -191,6 +204,29 @@ const smallBoxIcons = ["bi-people", "bi-cash-stack", "bi-chat-dots", "bi-check-l
                     ))
                   }
                 </div>
+              </div>
+              <div class="card-footer">
+                <div class="form-check form-switch mb-2">
+                  <input class="form-check-input" type="checkbox" role="switch" id="contrast-aa" />
+                  <label class="form-check-label" for="contrast-aa">
+                    强制使用 WCAG AA 文字 — <code class="text-body-emphasis">data-lte-contrast="aa"</code>
+                  </label>
+                </div>
+                {
+                  paletteSets.map((set, i) => (
+                    <p class="text-body-secondary small mb-0" data-palette-set={set.key} hidden={i !== 0}>
+                      {
+                        aaFlips[set.key].length === 0 ?
+                          "这个调色板没有任何变化：每个颜色在与所赋予的文本配合时，其对比度已达到4.5:1。" :
+                          <Fragment>
+                            在 {set.choices.length - 1} 种颜色里，会把其中 {aaFlips[set.key].length} 种颜色上指定文字达不到 4.5:1 的文字翻转过来 — {aaFlips[set.key].map((c, j) => (
+                              <Fragment>{j > 0 ? ", " : ""}<code>{c.name}</code> ({c.contrastWhite.toFixed(2)}:1 → {c.contrastBlack.toFixed(2)}:1)</Fragment>
+                            ))}. 背景色保持它们的确切取值不变。
+                          </Fragment>
+                      }
+                    </p>
+                  ))
+                }
               </div>
             </div>
             <!--end::Palette switch-->
@@ -653,6 +689,7 @@ const smallBoxIcons = ["bi-people", "bi-cash-stack", "bi-chat-dots", "bi-check-l
         const markup = document.getElementById("skin-markup")
         const pickers = document.querySelectorAll("[data-skin-picker]")
         const primaryPickers = document.querySelectorAll("[data-primary-picker]")
+        const contrastToggle = document.getElementById("contrast-aa")
         const primaryMarkup = document.getElementById("primary-markup")
         // 按调色板自动决定文字颜色（v3 那个样式表会给某些颜色配深色文字）
         const PALETTE_TEXT = JSON.parse(document.getElementById("palette-text").textContent)
@@ -662,13 +699,19 @@ const smallBoxIcons = ["bi-people", "bi-cash-stack", "bi-chat-dots", "bi-check-l
           sidebar: { cls: "bg-body-secondary", theme: "dark" },
           header: { cls: "bg-body", theme: "light" },
           // <html> 上的 `data-lte-primary`：选 "default" 就不加这个属性
-          primary: "default"
+          primary: "default",
+          // `data-lte-contrast="aa"`: flips the text on colours that miss AA
+          aa: false
         }
         const DEFAULTS = {
           sidebar: { cls: "bg-body-secondary", theme: "dark" },
           header: { cls: "bg-body", theme: "light" }
         }
         const isSkinClass = c => /^(text-bg-|bg-body|bg-gradient-)/.test(c)
+        // 某个调色板颜色在当前生效模式下的自动文字颜色：
+        // 彩色的侧边栏或头部只有在它的文字是白色时，
+        // 才搭配 data-bs-theme="dark"。
+        const textOf = color => ((PALETTE_TEXT[activeSet] || {})[state.aa ? "aa" : "default"] || {})[color] || "white"
 
         const paint = (el, role) => {
           const stale = [...el.classList].filter(c => isSkinClass(c))
@@ -679,6 +722,16 @@ const smallBoxIcons = ["bi-people", "bi-cash-stack", "bi-chat-dots", "bi-check-l
         }
 
         const render = () => {
+          // 先配对，再上色：文字翻成深色的那种颜色，
+          // 需要承载它的区域开启浅色模式，
+          // 这样它的导航链接才会跟着标题走。
+          for (const role of ["sidebar", "header"]) {
+            const cls = state[role].cls
+            if (cls.startsWith("text-bg-") || cls.startsWith("bg-gradient-")) {
+              state[role].theme = textOf(cls.replace(/^(text-bg-|bg-gradient-)/, "")) === "white" ? "dark" : "light"
+            }
+          }
+
           paint(sidebar, "sidebar")
           paint(header, "header")
           if (state.primary === "default") {
@@ -686,15 +739,21 @@ const smallBoxIcons = ["bi-people", "bi-cash-stack", "bi-chat-dots", "bi-check-l
           } else {
             document.documentElement.setAttribute("data-lte-primary", state.primary)
           }
+          if (state.aa) {
+            document.documentElement.setAttribute("data-lte-contrast", "aa")
+          } else {
+            document.documentElement.removeAttribute("data-lte-contrast")
+          }
           for (const picker of primaryPickers) {
             for (const chip of picker.querySelectorAll("[data-color]")) {
               chip.setAttribute("aria-pressed", String(chip.getAttribute("data-color") === state.primary))
             }
           }
           primaryMarkup.textContent =
-            state.primary === "default" ?
+            (state.aa && state.primary !== "default" ? '<!-- with data-lte-contrast="aa" the text on this colour flips -->\n' : "") +
+            (state.primary === "default" ?
               '<html lang="zh-CN">   <!-- no attribute: Bootstrap\'s blue -->' :
-              `<html lang="en" data-lte-primary="${state.primary}">`
+              `<html lang="en" data-lte-primary="${state.primary}"${state.aa ? ' data-lte-contrast="aa"' : ""}>`)
           for (const picker of pickers) {
             const role = picker.getAttribute("data-skin-picker")
             const cls = state[role].cls
@@ -713,6 +772,7 @@ const smallBoxIcons = ["bi-people", "bi-cash-stack", "bi-chat-dots", "bi-check-l
             button.setAttribute("aria-pressed", String(matches))
           }
           markup.textContent =
+            (state.aa ? '<html lang="en" data-lte-contrast="aa">\n' : "") +
             `<nav class="app-header navbar navbar-expand ${state.header.cls}" data-bs-theme="${state.header.theme}">\n` +
             `<aside class="app-sidebar ${state.sidebar.cls} shadow" data-bs-theme="${state.sidebar.theme}">`
         }
@@ -727,7 +787,7 @@ const smallBoxIcons = ["bi-people", "bi-cash-stack", "bi-chat-dots", "bi-check-l
             const color = chip.getAttribute("data-color")
             // 当某个颜色配的是白色文字时，彩色的侧边栏或头部就搭配 data-bs-theme="dark"
             // 来用（设计版全部颜色都是如此；v3 里大多数颜色也是）。
-            const text = (PALETTE_TEXT[activeSet] || {})[color] || "white"
+            const text = textOf(color)
             state[role] = color === "default" ? { ...DEFAULTS[role] } : { cls: `text-bg-${color}`, theme: text === "white" ? "dark" : "light" }
             render()
           })
@@ -743,6 +803,11 @@ const smallBoxIcons = ["bi-people", "bi-cash-stack", "bi-chat-dots", "bi-check-l
             render()
           })
         }
+
+        contrastToggle?.addEventListener("change", () => {
+          state.aa = contrastToggle.checked
+          render()
+        })
 
         for (const container of document.querySelectorAll(".skin-presets")) {
           container.addEventListener("click", event => {

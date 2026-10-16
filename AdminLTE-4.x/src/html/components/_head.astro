@@ -115,3 +115,10 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
 {isDocsPage && (
   <link rel="stylesheet" href={deploymentPath + "css/adminlte-docs" + cssPath + ".css"} />
 )}
+
+{/* Cloudflare 的邮箱混淆功能会把文本节点里找到的任何 `package@version` 重写成一个
+    "[email protected]" 链接，这会悄无声息地弄坏文档页面上每一个可复制粘贴的安装
+    代码片段 —— 光 Integrations 一个页面就有 31 处。这些标记会为整个页面关掉这个
+    功能；docs.adminlte.io 用的也是同样的修复方式。只有文档页面才带锁定了版本的
+    代码片段，所以也只有它们需要这个。 */}
+{isDocsPage && <Fragment set:html={"<!--email_off-->"} />}

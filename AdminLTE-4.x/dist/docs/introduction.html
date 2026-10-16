@@ -103,6 +103,8 @@
     <link rel="stylesheet" href="../css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="../css/adminlte-docs.css" />
+
+    <!--email_off-->
   </head>
   <!--end::Head-->
   <!--begin::Body-->
@@ -791,37 +793,40 @@
                     </p>
                     <h2 id="安装方式">安装方式</h2>
                     <p>有以下安装方式：</p>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>方式</th>
-                          <th>适用场景</th>
-                          <th>配置时间</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><strong>CDN</strong></td>
-                          <td>原型构建、演示、简单站点</td>
-                          <td>1 分钟</td>
-                        </tr>
-                        <tr>
-                          <td><strong>npm + 打包工具</strong></td>
-                          <td>生产应用、框架项目（Laravel、Symfony、Rails）</td>
-                          <td>5 分钟</td>
-                        </tr>
-                        <tr>
-                          <td><strong>从源码构建</strong></td>
-                          <td>需要自定义 SCSS 变量、侧边栏宽度、breakpoint</td>
-                          <td>10 分钟</td>
-                        </tr>
-                        <tr>
-                          <td><strong>Composer</strong></td>
-                          <td>偏好 Packagist 而非 npm 的 PHP 项目</td>
-                          <td>2 分钟</td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>方式</th>
+                            <th>适用场景</th>
+                            <th>配置时间</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><strong>CDN</strong></td>
+                            <td>原型构建、演示、简单站点</td>
+                            <td>1 分钟</td>
+                          </tr>
+                          <tr>
+                            <td><strong>npm + 打包工具</strong></td>
+                            <td>生产应用、框架项目（Laravel、Symfony、Rails）</td>
+                            <td>5 分钟</td>
+                          </tr>
+                          <tr>
+                            <td><strong>从源码构建</strong></td>
+                            <td>需要自定义 SCSS 变量、侧边栏宽度、breakpoint</td>
+                            <td>10 分钟</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Composer</strong></td>
+                            <td>偏好 Packagist 而非 npm 的 PHP 项目</td>
+                            <td>2 分钟</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <h3 id="cdn--最快">CDN — 最快</h3>
                     <p>
                       将以下 4 个 CSS 标签放入 <code>&lt;head&gt;</code> 中，将 4 个脚本标签放在
@@ -835,13 +840,13 @@
                     ><code><span class="line"><span style="color:#6A9955">&lt;!-- 在 &lt;head&gt; 中 --&gt;</span></span>
 <span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
 <span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
-<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/admin-lte@4.0.0/dist/css/adminlte.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/admin-lte@4.8.5/dist/css/adminlte.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#6A9955">&lt;!-- 在 &lt;/body&gt; 之前 --&gt;</span></span>
 <span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/admin-lte@4.0.0/dist/js/adminlte.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span></code></pre>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/admin-lte@4.8.5/dist/js/adminlte.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span></code></pre>
                     <p>
                       然后将任意<a href="https://github.com/ColorlibHQ/AdminLTE/tree/master/dist"
                         >演示页面</a
@@ -857,7 +862,7 @@
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="bash"
-                    ><code><span class="line"><span style="color:#DCDCAA">npm</span><span style="color:#CE9178"> install</span><span style="color:#CE9178"> admin-lte@4.0.0</span></span></code></pre>
+                    ><code><span class="line"><span style="color:#DCDCAA">npm</span><span style="color:#CE9178"> install</span><span style="color:#CE9178"> admin-lte@4.8.5</span></span></code></pre>
                     <p>然后在应用入口点中导入 CSS 和 JS：</p>
                     <pre
                       class="astro-code dark-plus"
@@ -910,32 +915,35 @@
                     ><code><span class="line"><span style="color:#DCDCAA">composer</span><span style="color:#CE9178"> require</span><span style="color:#CE9178"> &quot;almasaeed2010/adminlte=4.0.0&quot;</span></span></code></pre>
                     <p>该包从相同的源码树发布——您可以直接使用 <code>dist/</code> 文件夹。</p>
                     <h2 id="前置要求">前置要求</h2>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th></th>
-                          <th>最低要求</th>
-                          <th>推荐版本</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>Bootstrap</td>
-                          <td>5.3.0</td>
-                          <td>5.3.8 (锁定在 <code>package.json</code> 中)</td>
-                        </tr>
-                        <tr>
-                          <td>Node.js</td>
-                          <td>18 LTS</td>
-                          <td>22 LTS (CI 使用)</td>
-                        </tr>
-                        <tr>
-                          <td>浏览器</td>
-                          <td>现代浏览器</td>
-                          <td>最新稳定版 Chrome/Firefox/Safari/Edge</td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th></th>
+                            <th>最低要求</th>
+                            <th>推荐版本</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Bootstrap</td>
+                            <td>5.3.0</td>
+                            <td>5.3.8 (锁定在 <code>package.json</code> 中)</td>
+                          </tr>
+                          <tr>
+                            <td>Node.js</td>
+                            <td>18 LTS</td>
+                            <td>22 LTS (CI 使用)</td>
+                          </tr>
+                          <tr>
+                            <td>浏览器</td>
+                            <td>现代浏览器</td>
+                            <td>最新稳定版 Chrome/Firefox/Safari/Edge</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <p>
                       AdminLTE 4 <strong>不</strong>支持 Internet Explorer。如果您需要
                       IE11，请继续使用
@@ -1089,6 +1097,8 @@
      —— 不需要页面脚本。只有 <head> 里那段防止闪烁的代码片段保持内联，
      因为它必须在首次绘制之前就运行。 -->
     <!--end::明暗模式切换-->
+
+    <!--email_on-->
     <!--end::Script-->
   </body>
   <!--end::Body-->

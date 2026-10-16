@@ -102,6 +102,8 @@
     <link rel="stylesheet" href="../css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="../css/adminlte-docs.css" />
+
+    <!--email_off-->
   </head>
   <body class="layout-fixed sidebar-expand-lg bg-body-tertiary docs-page">
     <div class="app-wrapper">
@@ -867,49 +869,53 @@
 <span class="line"><span style="color:#9CDCFE">  margin-left</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">.5rem</span><span style="color:#D4D4D4">;   </span><span style="color:#6A9955">// 在左对齐和右对齐中都保持左缩进</span></span>
 <span class="line"><span style="color:#D4D4D4">}</span></span></code></pre>
                     <h5 id="自动翻转的内容">自动翻转的内容</h5>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>方向感知属性</th>
-                          <th>RTL 中的行为</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><code>margin-left</code> / <code>padding-left</code></td>
-                          <td>交换为右侧</td>
-                        </tr>
-                        <tr>
-                          <td><code>left</code>, <code>right</code> positioning</td>
-                          <td>交换</td>
-                        </tr>
-                        <tr>
-                          <td><code>text-align: left</code> / <code>right</code></td>
-                          <td>交换</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            Bootstrap
-                            <code>.ms-*</code>、<code>.me-*</code>、<code>.float-start</code>、<code
-                              >.float-end</code
-                            >
-                          </td>
-                          <td>通过 Bootstrap 的逻辑属性镜像</td>
-                        </tr>
-                        <tr>
-                          <td><code>transform: translateX()</code></td>
-                          <td>符号反转</td>
-                        </tr>
-                        <tr>
-                          <td>侧边栏位置</td>
-                          <td>靠右停靠</td>
-                        </tr>
-                        <tr>
-                          <td>下拉菜单展开方向</td>
-                          <td>自动翻转（由 Bootstrap 处理）</td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>方向感知属性</th>
+                            <th>RTL 中的行为</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>margin-left</code> / <code>padding-left</code></td>
+                            <td>交换为右侧</td>
+                          </tr>
+                          <tr>
+                            <td><code>left</code>, <code>right</code> positioning</td>
+                            <td>交换</td>
+                          </tr>
+                          <tr>
+                            <td><code>text-align: left</code> / <code>right</code></td>
+                            <td>交换</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              Bootstrap
+                              <code>.ms-*</code
+                              >、<code>.me-*</code>、<code>.float-start</code>、<code
+                                >.float-end</code
+                              >
+                            </td>
+                            <td>通过 Bootstrap 的逻辑属性镜像</td>
+                          </tr>
+                          <tr>
+                            <td><code>transform: translateX()</code></td>
+                            <td>符号反转</td>
+                          </tr>
+                          <tr>
+                            <td>侧边栏位置</td>
+                            <td>靠右停靠</td>
+                          </tr>
+                          <tr>
+                            <td>下拉菜单展开方向</td>
+                            <td>自动翻转（由 Bootstrap 处理）</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <h5 id="不翻转的内容">不翻转的内容</h5>
                     <ul>
                       <li>
@@ -1052,5 +1058,7 @@
      —— 不需要页面脚本。只有 <head> 里那段防止闪烁的代码片段保持内联，
      因为它必须在首次绘制之前就运行。 -->
     <!--end::明暗模式切换-->
+
+    <!--email_on-->
   </body>
 </html>

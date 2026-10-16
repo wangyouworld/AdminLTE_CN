@@ -103,6 +103,8 @@
     <link rel="stylesheet" href="../../css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="../../css/adminlte-docs.css" />
+
+    <!--email_off-->
   </head>
   <!--end::Head-->
   <!--begin::Body-->
@@ -794,27 +796,30 @@
                     ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">a</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;#&quot;</span><span style="color:#9CDCFE"> data-lte-toggle</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;sidebar&quot;</span><span style="color:#808080">&gt;</span><span style="color:#D4D4D4">切换侧边栏</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">a</span><span style="color:#808080">&gt;</span></span></code></pre>
                     <h5 id="配置">配置</h5>
                     <p>通过 <code>.app-sidebar</code> 元素上的 data 属性配置侧边栏：</p>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>属性</th>
-                          <th>默认值</th>
-                          <th>描述</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><code>data-sidebar-breakpoint</code></td>
-                          <td><code>991.98</code></td>
-                          <td>屏幕宽度（像素），低于此值时侧边栏被视为移动端模式。</td>
-                        </tr>
-                        <tr>
-                          <td><code>data-enable-persistence</code></td>
-                          <td><code>false</code></td>
-                          <td>将侧边栏状态保存到 localStorage，以便跨页面加载保持。</td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>属性</th>
+                            <th>默认值</th>
+                            <th>描述</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>data-sidebar-breakpoint</code></td>
+                            <td><code>991.98</code></td>
+                            <td>屏幕宽度（像素），低于此值时侧边栏被视为移动端模式。</td>
+                          </tr>
+                          <tr>
+                            <td><code>data-enable-persistence</code></td>
+                            <td><code>false</code></td>
+                            <td>将侧边栏状态保存到 localStorage，以便跨页面加载保持。</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <pre
                       class="astro-code dark-plus"
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
@@ -835,64 +840,70 @@
                       </li>
                     </ul>
                     <h5 id="css-类">CSS 类</h5>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>类名</th>
-                          <th>应用于</th>
-                          <th>描述</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><code>sidebar-collapse</code></td>
-                          <td><code>&lt;body&gt;</code></td>
-                          <td>侧边栏已折叠。</td>
-                        </tr>
-                        <tr>
-                          <td><code>sidebar-open</code></td>
-                          <td><code>&lt;body&gt;</code></td>
-                          <td>侧边栏在移动端已明确打开。</td>
-                        </tr>
-                        <tr>
-                          <td><code>sidebar-mini</code></td>
-                          <td><code>&lt;body&gt;</code></td>
-                          <td>启用迷你侧边栏模式（折叠时仅显示图标）。</td>
-                        </tr>
-                        <tr>
-                          <td><code>sidebar-without-hover</code></td>
-                          <td><code>&lt;body&gt;</code></td>
-                          <td>防止折叠的侧边栏在悬停时展开。</td>
-                        </tr>
-                        <tr>
-                          <td><code>sidebar-expand-{breakpoint}</code></td>
-                          <td><code>&lt;body&gt;</code></td>
-                          <td>
-                            设置响应式
-                            breakpoint（<code>sm</code>、<code>md</code>、<code>lg</code>、<code>xl</code>、<code>xxl</code>）。
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>类名</th>
+                            <th>应用于</th>
+                            <th>描述</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>sidebar-collapse</code></td>
+                            <td><code>&lt;body&gt;</code></td>
+                            <td>侧边栏已折叠。</td>
+                          </tr>
+                          <tr>
+                            <td><code>sidebar-open</code></td>
+                            <td><code>&lt;body&gt;</code></td>
+                            <td>侧边栏在移动端已明确打开。</td>
+                          </tr>
+                          <tr>
+                            <td><code>sidebar-mini</code></td>
+                            <td><code>&lt;body&gt;</code></td>
+                            <td>启用迷你侧边栏模式（折叠时仅显示图标）。</td>
+                          </tr>
+                          <tr>
+                            <td><code>sidebar-without-hover</code></td>
+                            <td><code>&lt;body&gt;</code></td>
+                            <td>防止折叠的侧边栏在悬停时展开。</td>
+                          </tr>
+                          <tr>
+                            <td><code>sidebar-expand-{breakpoint}</code></td>
+                            <td><code>&lt;body&gt;</code></td>
+                            <td>
+                              设置响应式
+                              breakpoint（<code>sm</code>、<code>md</code>、<code>lg</code>、<code>xl</code>、<code>xxl</code>）。
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <h5 id="事件">事件</h5>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>事件</th>
-                          <th>描述</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><code>open.lte.push-menu</code></td>
-                          <td>侧边栏展开时触发。</td>
-                        </tr>
-                        <tr>
-                          <td><code>collapse.lte.push-menu</code></td>
-                          <td>侧边栏折叠时触发。</td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>事件</th>
+                            <th>描述</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>open.lte.push-menu</code></td>
+                            <td>侧边栏展开时触发。</td>
+                          </tr>
+                          <tr>
+                            <td><code>collapse.lte.push-menu</code></td>
+                            <td>侧边栏折叠时触发。</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <p>两个事件都会冒泡。在 <code>document</code> 上监听以获取全局钩子：</p>
                     <pre
                       class="astro-code dark-plus"
@@ -919,93 +930,96 @@
 <span class="line"><span style="color:#9CDCFE">  enablePersistence:</span><span style="color:#569CD6"> false</span></span>
 <span class="line"><span style="color:#D4D4D4">})</span></span></code></pre>
                     <h6 id="方法">方法</h6>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>方法</th>
-                          <th>返回值</th>
-                          <th>描述</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><code>toggle()</code></td>
-                          <td><code>void</code></td>
-                          <td>
-                            根据当前状态展开或折叠侧边栏。如果 <code>enablePersistence</code> 为
-                            <code>true</code>，则持久化存储状态。
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><code>expand()</code></td>
-                          <td><code>void</code></td>
-                          <td>展开侧边栏。触发 <code>open.lte.push-menu</code> 事件。</td>
-                        </tr>
-                        <tr>
-                          <td><code>collapse()</code></td>
-                          <td><code>void</code></td>
-                          <td>折叠侧边栏。触发 <code>collapse.lte.push-menu</code> 事件。</td>
-                        </tr>
-                        <tr>
-                          <td><code>isCollapsed()</code></td>
-                          <td><code>boolean</code></td>
-                          <td>
-                            如果 <code>&lt;body&gt;</code> 包含
-                            <code>sidebar-collapse</code> 类，则返回 <code>true</code>。
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><code>isExplicitlyOpen()</code></td>
-                          <td><code>boolean</code></td>
-                          <td>
-                            如果 <code>&lt;body&gt;</code> 包含
-                            <code>sidebar-open</code>（移动端，用户主动打开），则返回
-                            <code>true</code>。
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><code>isMiniMode()</code></td>
-                          <td><code>boolean</code></td>
-                          <td>
-                            如果 <code>&lt;body&gt;</code> 包含 <code>sidebar-mini</code>，则返回
-                            <code>true</code>。
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><code>isMobileSize()</code></td>
-                          <td><code>boolean</code></td>
-                          <td>
-                            如果 <code>window.innerWidth ≤ sidebarBreakpoint</code>，则返回
-                            <code>true</code>。
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><code>saveSidebarState(state)</code></td>
-                          <td><code>void</code></td>
-                          <td>
-                            手动将状态保存到 localStorage（<code>&quot;sidebar-open&quot;</code> 或
-                            <code>&quot;sidebar-collapse&quot;</code>）。
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><code>loadSidebarState()</code></td>
-                          <td><code>void</code></td>
-                          <td>从 localStorage 读取状态并应用。</td>
-                        </tr>
-                        <tr>
-                          <td><code>clearSidebarState()</code></td>
-                          <td><code>void</code></td>
-                          <td>从 localStorage 中移除已保存的状态。</td>
-                        </tr>
-                        <tr>
-                          <td><code>updateStateByResponsiveLogic()</code></td>
-                          <td><code>void</code></td>
-                          <td>
-                            根据视口大小重新计算正确的状态（移动端折叠，桌面端展开，除非处于迷你模式）。在窗口调整大小时自动调用。
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>方法</th>
+                            <th>返回值</th>
+                            <th>描述</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>toggle()</code></td>
+                            <td><code>void</code></td>
+                            <td>
+                              根据当前状态展开或折叠侧边栏。如果 <code>enablePersistence</code> 为
+                              <code>true</code>，则持久化存储状态。
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><code>expand()</code></td>
+                            <td><code>void</code></td>
+                            <td>展开侧边栏。触发 <code>open.lte.push-menu</code> 事件。</td>
+                          </tr>
+                          <tr>
+                            <td><code>collapse()</code></td>
+                            <td><code>void</code></td>
+                            <td>折叠侧边栏。触发 <code>collapse.lte.push-menu</code> 事件。</td>
+                          </tr>
+                          <tr>
+                            <td><code>isCollapsed()</code></td>
+                            <td><code>boolean</code></td>
+                            <td>
+                              如果 <code>&lt;body&gt;</code> 包含
+                              <code>sidebar-collapse</code> 类，则返回 <code>true</code>。
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><code>isExplicitlyOpen()</code></td>
+                            <td><code>boolean</code></td>
+                            <td>
+                              如果 <code>&lt;body&gt;</code> 包含
+                              <code>sidebar-open</code>（移动端，用户主动打开），则返回
+                              <code>true</code>。
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><code>isMiniMode()</code></td>
+                            <td><code>boolean</code></td>
+                            <td>
+                              如果 <code>&lt;body&gt;</code> 包含 <code>sidebar-mini</code>，则返回
+                              <code>true</code>。
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><code>isMobileSize()</code></td>
+                            <td><code>boolean</code></td>
+                            <td>
+                              如果 <code>window.innerWidth ≤ sidebarBreakpoint</code>，则返回
+                              <code>true</code>。
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><code>saveSidebarState(state)</code></td>
+                            <td><code>void</code></td>
+                            <td>
+                              手动将状态保存到 localStorage（<code>&quot;sidebar-open&quot;</code>
+                              或 <code>&quot;sidebar-collapse&quot;</code>）。
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><code>loadSidebarState()</code></td>
+                            <td><code>void</code></td>
+                            <td>从 localStorage 读取状态并应用。</td>
+                          </tr>
+                          <tr>
+                            <td><code>clearSidebarState()</code></td>
+                            <td><code>void</code></td>
+                            <td>从 localStorage 中移除已保存的状态。</td>
+                          </tr>
+                          <tr>
+                            <td><code>updateStateByResponsiveLogic()</code></td>
+                            <td><code>void</code></td>
+                            <td>
+                              根据视口大小重新计算正确的状态（移动端折叠，桌面端展开，除非处于迷你模式）。在窗口调整大小时自动调用。
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <h6 id="存储键名">存储键名</h6>
                     <p>
                       当 <code>enablePersistence</code> 启用时，该插件读写
@@ -1125,6 +1139,8 @@
      —— 不需要页面脚本。只有 <head> 里那段防止闪烁的代码片段保持内联，
      因为它必须在首次绘制之前就运行。 -->
     <!--end::明暗模式切换-->
+
+    <!--email_on-->
     <!--end::Script-->
   </body>
   <!--end::Body-->

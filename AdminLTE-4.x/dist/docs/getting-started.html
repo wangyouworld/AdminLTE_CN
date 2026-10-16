@@ -102,6 +102,8 @@
     <link rel="stylesheet" href="../css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="../css/adminlte-docs.css" />
+
+    <!--email_off-->
   </head>
   <body class="layout-fixed sidebar-expand-lg bg-body-tertiary docs-page">
     <div class="app-wrapper">
@@ -784,7 +786,7 @@
                     ><code><span class="line"><span style="color:#6A9955">&lt;!-- AdminLTE 4 + Bootstrap 5.3 (CSS) --&gt;</span></span>
 <span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
 <span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
-<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/admin-lte@4.0.0/dist/css/adminlte.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span></code></pre>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/admin-lte@4.8.5/dist/css/adminlte.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span></code></pre>
                     <p>并将以下内容放在 <code>&lt;/body&gt;</code> 之前：</p>
                     <pre
                       class="astro-code dark-plus"
@@ -795,7 +797,7 @@
 <span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/admin-lte@4.0.0/dist/js/adminlte.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span></code></pre>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/admin-lte@4.8.5/dist/js/adminlte.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span></code></pre>
                     <h5 id="2-最小可用布局">2. 最小可用布局</h5>
                     <p>
                       这是最小的 AdminLTE 风格页面——包含头部、可折叠侧边栏和主内容区域。将其放在上述
@@ -877,35 +879,38 @@
                     </p>
                     <h5 id="3-实际原理">3. 实际原理</h5>
                     <p>承担主要工作的 4 个类：</p>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>类名</th>
-                          <th>作用</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><code>app-wrapper</code></td>
-                          <td>CSS 网格根容器——定义页头/侧边栏/主内容/页脚区域</td>
-                        </tr>
-                        <tr>
-                          <td><code>app-header</code></td>
-                          <td>当 body 上添加 <code>layout-fixed</code> 时，固定在页面顶部</td>
-                        </tr>
-                        <tr>
-                          <td><code>app-sidebar</code></td>
-                          <td>
-                            可折叠侧边栏。在 body 上添加
-                            <code>sidebar-expand-lg</code> 可控制不同屏幕下展开或折叠
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><code>app-main</code></td>
-                          <td>可滚动内容区域——内容部分都在这里</td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>类名</th>
+                            <th>作用</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>app-wrapper</code></td>
+                            <td>CSS 网格根容器——定义页头/侧边栏/主内容/页脚区域</td>
+                          </tr>
+                          <tr>
+                            <td><code>app-header</code></td>
+                            <td>当 body 上添加 <code>layout-fixed</code> 时，固定在页面顶部</td>
+                          </tr>
+                          <tr>
+                            <td><code>app-sidebar</code></td>
+                            <td>
+                              可折叠侧边栏。在 body 上添加
+                              <code>sidebar-expand-lg</code> 可控制不同屏幕下展开或折叠
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><code>app-main</code></td>
+                            <td>可滚动内容区域——内容部分都在这里</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <p><a href="layout.html">布局</a>页面涵盖了完整的包装器结构和响应式选项。</p>
                     <h5 id="4-添加一个可用的-javascript-小部件">
                       4. 添加一个可用的 JavaScript 小部件
@@ -1069,5 +1074,7 @@
      —— 不需要页面脚本。只有 <head> 里那段防止闪烁的代码片段保持内联，
      因为它必须在首次绘制之前就运行。 -->
     <!--end::明暗模式切换-->
+
+    <!--email_on-->
   </body>
 </html>

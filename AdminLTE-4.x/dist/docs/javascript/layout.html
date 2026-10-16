@@ -103,6 +103,8 @@
     <link rel="stylesheet" href="../../css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="../../css/adminlte-docs.css" />
+
+    <!--email_off-->
   </head>
   <!--end::Head-->
   <!--begin::Body-->
@@ -800,26 +802,30 @@
                       </li>
                     </ol>
                     <h5 id="css-类">CSS 类</h5>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>类名</th>
-                          <th>描述</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><code>hold-transition</code></td>
-                          <td>暂时禁用布局元素上的 CSS 过渡动画。在窗口大小调整时应用。</td>
-                        </tr>
-                        <tr>
-                          <td><code>app-loaded</code></td>
-                          <td>
-                            在初始布局准备就绪后添加到 <code>&lt;body&gt;</code> 上。用于进场动画。
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>类名</th>
+                            <th>描述</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>hold-transition</code></td>
+                            <td>暂时禁用布局元素上的 CSS 过渡动画。在窗口大小调整时应用。</td>
+                          </tr>
+                          <tr>
+                            <td><code>app-loaded</code></td>
+                            <td>
+                              在初始布局准备就绪后添加到
+                              <code>&lt;body&gt;</code> 上。用于进场动画。
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <h5 id="在-css-中的用法">在 CSS 中的用法</h5>
                     <pre
                       class="astro-code dark-plus"
@@ -855,26 +861,29 @@
 <span class="line"><span style="color:#6A9955">// ... 执行某些操作，否则这些操作会产生生硬的动画</span></span>
 <span class="line"><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">body</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">classList</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">toggle</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;sidebar-mini&quot;</span><span style="color:#D4D4D4">)</span></span></code></pre>
                     <h6 id="方法">方法</h6>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>方法</th>
-                          <th>返回值</th>
-                          <th>描述</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><code>holdTransition(time?)</code></td>
-                          <td><code>void</code></td>
-                          <td>
-                            在 <code>&lt;body&gt;</code> 上添加 <code>hold-transition</code>，在
-                            <code>time</code> 毫秒后移除（默认
-                            <code>100</code>）。用于在程序化布局更改期间抑制 CSS 过渡动画。
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>方法</th>
+                            <th>返回值</th>
+                            <th>描述</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>holdTransition(time?)</code></td>
+                            <td><code>void</code></td>
+                            <td>
+                              在 <code>&lt;body&gt;</code> 上添加 <code>hold-transition</code>，在
+                              <code>time</code> 毫秒后移除（默认
+                              <code>100</code>）。用于在程序化布局更改期间抑制 CSS 过渡动画。
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <h5 id="注意事项">注意事项</h5>
                     <ul>
                       <li><code>hold-transition</code> 类会在超时后自动移除。您无需手动清理。</li>
@@ -994,6 +1003,8 @@
      —— 不需要页面脚本。只有 <head> 里那段防止闪烁的代码片段保持内联，
      因为它必须在首次绘制之前就运行。 -->
     <!--end::明暗模式切换-->
+
+    <!--email_on-->
     <!--end::Script-->
   </body>
   <!--end::Body-->

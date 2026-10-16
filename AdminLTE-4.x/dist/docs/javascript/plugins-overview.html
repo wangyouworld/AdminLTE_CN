@@ -102,6 +102,8 @@
     <link rel="stylesheet" href="../../css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="../../css/adminlte-docs.css" />
+
+    <!--email_off-->
   </head>
   <body class="layout-fixed sidebar-expand-lg bg-body-tertiary docs-page">
     <div class="app-wrapper">
@@ -769,87 +771,90 @@
                       API，供代码驱动控制。
                     </p>
                     <h5 id="概览">概览</h5>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>插件</th>
-                          <th>Data 属性</th>
-                          <th>方法</th>
-                          <th>文档</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><strong>PushMenu</strong></td>
-                          <td><code>data-lte-toggle=&quot;sidebar&quot;</code></td>
-                          <td>
-                            <code>.toggle()</code> / <code>.expand()</code> /
-                            <code>.collapse()</code>
-                          </td>
-                          <td><a href="pushmenu.html">参考</a></td>
-                        </tr>
-                        <tr>
-                          <td><strong>Treeview</strong></td>
-                          <td><code>data-lte-toggle=&quot;treeview&quot;</code> 的父菜单上</td>
-                          <td>
-                            <code>.toggle()</code> / <code>.open()</code> / <code>.close()</code>
-                          </td>
-                          <td><a href="treeview.html">参考</a></td>
-                        </tr>
-                        <tr>
-                          <td><strong>CardWidget</strong></td>
-                          <td>
-                            <code>data-lte-toggle=&quot;card-collapse&quot;</code>,
-                            <code>card-remove</code>, <code>card-maximize</code>
-                          </td>
-                          <td>
-                            <code>.toggle()</code> / <code>.collapse()</code> /
-                            <code>.expand()</code> / <code>.remove()</code> /
-                            <code>.maximize()</code> / <code>.minimize()</code> /
-                            <code>.toggleMaximize()</code>
-                          </td>
-                          <td><a href="card-widget.html">参考</a></td>
-                        </tr>
-                        <tr>
-                          <td><strong>DirectChat</strong></td>
-                          <td><code>data-lte-toggle=&quot;chat-pane&quot;</code></td>
-                          <td><code>.toggle()</code></td>
-                          <td><a href="direct-chat.html">参考</a></td>
-                        </tr>
-                        <tr>
-                          <td><strong>FullScreen</strong></td>
-                          <td><code>data-lte-toggle=&quot;fullscreen&quot;</code></td>
-                          <td>
-                            <code>.toggleFullScreen()</code> / <code>.inFullScreen()</code> /
-                            <code>.outFullscreen()</code>
-                          </td>
-                          <td><a href="fullscreen.html">参考</a></td>
-                        </tr>
-                        <tr>
-                          <td><strong>SidebarSearch</strong></td>
-                          <td>
-                            <code>data-lte-toggle=&quot;sidebar-search&quot;</code> 在输入框上
-                          </td>
-                          <td><code>.search(term)</code> / <code>.clear()</code></td>
-                          <td><a href="sidebar-search.html">参考</a></td>
-                        </tr>
-                        <tr>
-                          <td><strong>Layout</strong></td>
-                          <td>(自动应用于 <code>&lt;body&gt;</code>)</td>
-                          <td><code>.holdTransition(time)</code></td>
-                          <td><a href="layout.html">参考</a></td>
-                        </tr>
-                        <tr>
-                          <td><strong>AccessibilityManager</strong></td>
-                          <td>(辅助函数： <code>initAccessibility()</code>)</td>
-                          <td>
-                            <code>.announce()</code> / <code>.focusElement()</code> /
-                            <code>.trapFocus()</code> / <code>.addLandmarks()</code>
-                          </td>
-                          <td><a href="accessibility.html">参考</a></td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>插件</th>
+                            <th>Data 属性</th>
+                            <th>方法</th>
+                            <th>文档</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><strong>PushMenu</strong></td>
+                            <td><code>data-lte-toggle=&quot;sidebar&quot;</code></td>
+                            <td>
+                              <code>.toggle()</code> / <code>.expand()</code> /
+                              <code>.collapse()</code>
+                            </td>
+                            <td><a href="pushmenu.html">参考</a></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Treeview</strong></td>
+                            <td><code>data-lte-toggle=&quot;treeview&quot;</code> 的父菜单上</td>
+                            <td>
+                              <code>.toggle()</code> / <code>.open()</code> / <code>.close()</code>
+                            </td>
+                            <td><a href="treeview.html">参考</a></td>
+                          </tr>
+                          <tr>
+                            <td><strong>CardWidget</strong></td>
+                            <td>
+                              <code>data-lte-toggle=&quot;card-collapse&quot;</code>,
+                              <code>card-remove</code>, <code>card-maximize</code>
+                            </td>
+                            <td>
+                              <code>.toggle()</code> / <code>.collapse()</code> /
+                              <code>.expand()</code> / <code>.remove()</code> /
+                              <code>.maximize()</code> / <code>.minimize()</code> /
+                              <code>.toggleMaximize()</code>
+                            </td>
+                            <td><a href="card-widget.html">参考</a></td>
+                          </tr>
+                          <tr>
+                            <td><strong>DirectChat</strong></td>
+                            <td><code>data-lte-toggle=&quot;chat-pane&quot;</code></td>
+                            <td><code>.toggle()</code></td>
+                            <td><a href="direct-chat.html">参考</a></td>
+                          </tr>
+                          <tr>
+                            <td><strong>FullScreen</strong></td>
+                            <td><code>data-lte-toggle=&quot;fullscreen&quot;</code></td>
+                            <td>
+                              <code>.toggleFullScreen()</code> / <code>.inFullScreen()</code> /
+                              <code>.outFullscreen()</code>
+                            </td>
+                            <td><a href="fullscreen.html">参考</a></td>
+                          </tr>
+                          <tr>
+                            <td><strong>SidebarSearch</strong></td>
+                            <td>
+                              <code>data-lte-toggle=&quot;sidebar-search&quot;</code> 在输入框上
+                            </td>
+                            <td><code>.search(term)</code> / <code>.clear()</code></td>
+                            <td><a href="sidebar-search.html">参考</a></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Layout</strong></td>
+                            <td>(自动应用于 <code>&lt;body&gt;</code>)</td>
+                            <td><code>.holdTransition(time)</code></td>
+                            <td><a href="layout.html">参考</a></td>
+                          </tr>
+                          <tr>
+                            <td><strong>AccessibilityManager</strong></td>
+                            <td>(辅助函数： <code>initAccessibility()</code>)</td>
+                            <td>
+                              <code>.announce()</code> / <code>.focusElement()</code> /
+                              <code>.trapFocus()</code> / <code>.addLandmarks()</code>
+                            </td>
+                            <td><a href="accessibility.html">参考</a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <h5 id="两种使用方式">两种使用方式</h5>
                     <h6 id="1-data-属性声明式">1. Data 属性（声明式）</h6>
                     <p>
@@ -963,120 +968,123 @@
 <span class="line"><span style="color:#D4D4D4">  }</span></span>
 <span class="line"><span style="color:#D4D4D4">})</span></span></code></pre>
                     <h6 id="事件名称参考">事件名称参考</h6>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>插件</th>
-                          <th>前置事件（可取消）</th>
-                          <th>后置事件</th>
-                          <th>触发对象</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>PushMenu</td>
-                          <td><code>open.lte.push-menu</code></td>
-                          <td><code>opened.lte.push-menu</code></td>
-                          <td>侧边栏展开</td>
-                        </tr>
-                        <tr>
-                          <td>PushMenu</td>
-                          <td><code>collapse.lte.push-menu</code></td>
-                          <td><code>collapsed.lte.push-menu</code></td>
-                          <td>侧边栏折叠</td>
-                        </tr>
-                        <tr>
-                          <td>Treeview</td>
-                          <td><code>expand.lte.treeview</code></td>
-                          <td><code>expanded.lte.treeview</code></td>
-                          <td>子菜单打开（动画结束后触发）</td>
-                        </tr>
-                        <tr>
-                          <td>Treeview</td>
-                          <td><code>collapse.lte.treeview</code></td>
-                          <td><code>collapsed.lte.treeview</code></td>
-                          <td>子菜单关闭（动画结束后触发）</td>
-                        </tr>
-                        <tr>
-                          <td>Treeview</td>
-                          <td>—</td>
-                          <td><code>load.lte.treeview</code></td>
-                          <td>页面加载时检测到预先打开的子菜单</td>
-                        </tr>
-                        <tr>
-                          <td>CardWidget</td>
-                          <td><code>expand.lte.card-widget</code></td>
-                          <td><code>expanded.lte.card-widget</code></td>
-                          <td>卡片展开（动画结束后触发）</td>
-                        </tr>
-                        <tr>
-                          <td>CardWidget</td>
-                          <td><code>collapse.lte.card-widget</code></td>
-                          <td><code>collapsed.lte.card-widget</code></td>
-                          <td>卡片折叠（动画结束后触发）</td>
-                        </tr>
-                        <tr>
-                          <td>CardWidget</td>
-                          <td><code>remove.lte.card-widget</code></td>
-                          <td><code>removed.lte.card-widget</code></td>
-                          <td>卡片移除 (卡片在 <code>removed</code> 事件后移出 DOM )</td>
-                        </tr>
-                        <tr>
-                          <td>CardWidget</td>
-                          <td>—</td>
-                          <td><code>maximized.lte.card-widget</code></td>
-                          <td>卡片最大化</td>
-                        </tr>
-                        <tr>
-                          <td>CardWidget</td>
-                          <td>—</td>
-                          <td><code>minimized.lte.card-widget</code></td>
-                          <td>卡片最小化</td>
-                        </tr>
-                        <tr>
-                          <td>DirectChat</td>
-                          <td>—</td>
-                          <td><code>expanded.lte.direct-chat</code></td>
-                          <td>联系人面板打开</td>
-                        </tr>
-                        <tr>
-                          <td>DirectChat</td>
-                          <td>—</td>
-                          <td><code>collapsed.lte.direct-chat</code></td>
-                          <td>联系人面板关闭</td>
-                        </tr>
-                        <tr>
-                          <td>FullScreen</td>
-                          <td>—</td>
-                          <td><code>maximized.lte.fullscreen</code></td>
-                          <td>进入全屏</td>
-                        </tr>
-                        <tr>
-                          <td>FullScreen</td>
-                          <td>—</td>
-                          <td><code>minimized.lte.fullscreen</code></td>
-                          <td>退出全屏</td>
-                        </tr>
-                        <tr>
-                          <td>SidebarSearch</td>
-                          <td>—</td>
-                          <td><code>filtered.lte.sidebar-search</code></td>
-                          <td>
-                            Menu filtered (<code>detail: { query, matches }</code>;
-                            <code>matches</code> is <code>-1</code> on clear)
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>ColorMode</td>
-                          <td>—</td>
-                          <td><code>changed.lte.color-mode</code></td>
-                          <td>
-                            主题已更改（<code>detail: { theme, resolved }</code>），在
-                            <code>document</code> 上触发
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>插件</th>
+                            <th>前置事件（可取消）</th>
+                            <th>后置事件</th>
+                            <th>触发对象</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>PushMenu</td>
+                            <td><code>open.lte.push-menu</code></td>
+                            <td><code>opened.lte.push-menu</code></td>
+                            <td>侧边栏展开</td>
+                          </tr>
+                          <tr>
+                            <td>PushMenu</td>
+                            <td><code>collapse.lte.push-menu</code></td>
+                            <td><code>collapsed.lte.push-menu</code></td>
+                            <td>侧边栏折叠</td>
+                          </tr>
+                          <tr>
+                            <td>Treeview</td>
+                            <td><code>expand.lte.treeview</code></td>
+                            <td><code>expanded.lte.treeview</code></td>
+                            <td>子菜单打开（动画结束后触发）</td>
+                          </tr>
+                          <tr>
+                            <td>Treeview</td>
+                            <td><code>collapse.lte.treeview</code></td>
+                            <td><code>collapsed.lte.treeview</code></td>
+                            <td>子菜单关闭（动画结束后触发）</td>
+                          </tr>
+                          <tr>
+                            <td>Treeview</td>
+                            <td>—</td>
+                            <td><code>load.lte.treeview</code></td>
+                            <td>页面加载时检测到预先打开的子菜单</td>
+                          </tr>
+                          <tr>
+                            <td>CardWidget</td>
+                            <td><code>expand.lte.card-widget</code></td>
+                            <td><code>expanded.lte.card-widget</code></td>
+                            <td>卡片展开（动画结束后触发）</td>
+                          </tr>
+                          <tr>
+                            <td>CardWidget</td>
+                            <td><code>collapse.lte.card-widget</code></td>
+                            <td><code>collapsed.lte.card-widget</code></td>
+                            <td>卡片折叠（动画结束后触发）</td>
+                          </tr>
+                          <tr>
+                            <td>CardWidget</td>
+                            <td><code>remove.lte.card-widget</code></td>
+                            <td><code>removed.lte.card-widget</code></td>
+                            <td>卡片移除 (卡片在 <code>removed</code> 事件后移出 DOM )</td>
+                          </tr>
+                          <tr>
+                            <td>CardWidget</td>
+                            <td>—</td>
+                            <td><code>maximized.lte.card-widget</code></td>
+                            <td>卡片最大化</td>
+                          </tr>
+                          <tr>
+                            <td>CardWidget</td>
+                            <td>—</td>
+                            <td><code>minimized.lte.card-widget</code></td>
+                            <td>卡片最小化</td>
+                          </tr>
+                          <tr>
+                            <td>DirectChat</td>
+                            <td>—</td>
+                            <td><code>expanded.lte.direct-chat</code></td>
+                            <td>联系人面板打开</td>
+                          </tr>
+                          <tr>
+                            <td>DirectChat</td>
+                            <td>—</td>
+                            <td><code>collapsed.lte.direct-chat</code></td>
+                            <td>联系人面板关闭</td>
+                          </tr>
+                          <tr>
+                            <td>FullScreen</td>
+                            <td>—</td>
+                            <td><code>maximized.lte.fullscreen</code></td>
+                            <td>进入全屏</td>
+                          </tr>
+                          <tr>
+                            <td>FullScreen</td>
+                            <td>—</td>
+                            <td><code>minimized.lte.fullscreen</code></td>
+                            <td>退出全屏</td>
+                          </tr>
+                          <tr>
+                            <td>SidebarSearch</td>
+                            <td>—</td>
+                            <td><code>filtered.lte.sidebar-search</code></td>
+                            <td>
+                              Menu filtered (<code>detail: { query, matches }</code>;
+                              <code>matches</code> is <code>-1</code> on clear)
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>ColorMode</td>
+                            <td>—</td>
+                            <td><code>changed.lte.color-mode</code></td>
+                            <td>
+                              主题已更改（<code>detail: { theme, resolved }</code>），在
+                              <code>document</code> 上触发
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <p>
                       所有事件都会在动画完成后触发（自4.1版本起）。动画动作的“后续”事件会在动画完成时执行，而不是在开始时。
                     </p>
@@ -1101,84 +1109,87 @@
                     <p>每个插件的参考页面都记录了其支持的属性。</p>
                     <h5 id="插件管理的-css-类">插件管理的 CSS 类</h5>
                     <p>插件会切换一小部分 CSS 类，您也可以对这些类进行样式设置或响应：</p>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>类名</th>
-                          <th>设置者</th>
-                          <th>位置</th>
-                          <th>含义</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><code>sidebar-collapse</code></td>
-                          <td>PushMenu</td>
-                          <td><code>&lt;body&gt;</code></td>
-                          <td>侧边栏已折叠（桌面迷你状态，或移动端关闭）</td>
-                        </tr>
-                        <tr>
-                          <td><code>sidebar-open</code></td>
-                          <td>PushMenu</td>
-                          <td><code>&lt;body&gt;</code></td>
-                          <td>用户明确打开了移动端侧边栏</td>
-                        </tr>
-                        <tr>
-                          <td><code>sidebar-mini</code></td>
-                          <td>PushMenu</td>
-                          <td><code>&lt;body&gt;</code></td>
-                          <td>迷你侧边栏模式已激活</td>
-                        </tr>
-                        <tr>
-                          <td><code>menu-open</code></td>
-                          <td>Treeview</td>
-                          <td><code>.nav-item</code></td>
-                          <td>子菜单当前已展开</td>
-                        </tr>
-                        <tr>
-                          <td><code>collapsed-card</code></td>
-                          <td>CardWidget</td>
-                          <td><code>.card</code></td>
-                          <td>卡片主体/页脚已折叠</td>
-                        </tr>
-                        <tr>
-                          <td><code>maximized-card</code></td>
-                          <td>CardWidget</td>
-                          <td><code>&lt;html&gt;</code> 和 <code>.card</code></td>
-                          <td>卡片处于全屏模式</td>
-                        </tr>
-                        <tr>
-                          <td><code>direct-chat-contacts-open</code></td>
-                          <td>DirectChat</td>
-                          <td><code>.direct-chat</code></td>
-                          <td>联系人面板可见</td>
-                        </tr>
-                        <tr>
-                          <td><code>hold-transition</code></td>
-                          <td>Layout</td>
-                          <td><code>&lt;body&gt;</code></td>
-                          <td>暂时禁用过渡动画（如调整大小时等）</td>
-                        </tr>
-                        <tr>
-                          <td><code>app-loaded</code></td>
-                          <td>Layout</td>
-                          <td><code>&lt;body&gt;</code></td>
-                          <td>初始页面加载动画已完成</td>
-                        </tr>
-                        <tr>
-                          <td><code>reduce-motion</code></td>
-                          <td>AccessibilityManager</td>
-                          <td><code>&lt;body&gt;</code></td>
-                          <td>检测到操作系统 <code>prefers-reduced-motion</code></td>
-                        </tr>
-                        <tr>
-                          <td><code>menu-open</code></td>
-                          <td>SidebarSearch</td>
-                          <td><code>.nav-item</code></td>
-                          <td>Submenu expanded to reveal a match (restored on clear)</td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>类名</th>
+                            <th>设置者</th>
+                            <th>位置</th>
+                            <th>含义</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>sidebar-collapse</code></td>
+                            <td>PushMenu</td>
+                            <td><code>&lt;body&gt;</code></td>
+                            <td>侧边栏已折叠（桌面迷你状态，或移动端关闭）</td>
+                          </tr>
+                          <tr>
+                            <td><code>sidebar-open</code></td>
+                            <td>PushMenu</td>
+                            <td><code>&lt;body&gt;</code></td>
+                            <td>用户明确打开了移动端侧边栏</td>
+                          </tr>
+                          <tr>
+                            <td><code>sidebar-mini</code></td>
+                            <td>PushMenu</td>
+                            <td><code>&lt;body&gt;</code></td>
+                            <td>迷你侧边栏模式已激活</td>
+                          </tr>
+                          <tr>
+                            <td><code>menu-open</code></td>
+                            <td>Treeview</td>
+                            <td><code>.nav-item</code></td>
+                            <td>子菜单当前已展开</td>
+                          </tr>
+                          <tr>
+                            <td><code>collapsed-card</code></td>
+                            <td>CardWidget</td>
+                            <td><code>.card</code></td>
+                            <td>卡片主体/页脚已折叠</td>
+                          </tr>
+                          <tr>
+                            <td><code>maximized-card</code></td>
+                            <td>CardWidget</td>
+                            <td><code>&lt;html&gt;</code> 和 <code>.card</code></td>
+                            <td>卡片处于全屏模式</td>
+                          </tr>
+                          <tr>
+                            <td><code>direct-chat-contacts-open</code></td>
+                            <td>DirectChat</td>
+                            <td><code>.direct-chat</code></td>
+                            <td>联系人面板可见</td>
+                          </tr>
+                          <tr>
+                            <td><code>hold-transition</code></td>
+                            <td>Layout</td>
+                            <td><code>&lt;body&gt;</code></td>
+                            <td>暂时禁用过渡动画（如调整大小时等）</td>
+                          </tr>
+                          <tr>
+                            <td><code>app-loaded</code></td>
+                            <td>Layout</td>
+                            <td><code>&lt;body&gt;</code></td>
+                            <td>初始页面加载动画已完成</td>
+                          </tr>
+                          <tr>
+                            <td><code>reduce-motion</code></td>
+                            <td>AccessibilityManager</td>
+                            <td><code>&lt;body&gt;</code></td>
+                            <td>检测到操作系统 <code>prefers-reduced-motion</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>menu-open</code></td>
+                            <td>SidebarSearch</td>
+                            <td><code>.nav-item</code></td>
+                            <td>Submenu expanded to reveal a match (restored on clear)</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <h5 id="生产环境-vs-源码">生产环境 vs 源码</h5>
                     <p>
                       这些插件以 TypeScript 模块的形式放在
@@ -1302,5 +1313,7 @@
      —— 不需要页面脚本。只有 <head> 里那段防止闪烁的代码片段保持内联，
      因为它必须在首次绘制之前就运行。 -->
     <!--end::明暗模式切换-->
+
+    <!--email_on-->
   </body>
 </html>

@@ -102,6 +102,8 @@
     <link rel="stylesheet" href="../css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="../css/adminlte-docs.css" />
+
+    <!--email_off-->
   </head>
   <body class="layout-fixed sidebar-expand-lg bg-body-tertiary docs-page">
     <div class="app-wrapper">
@@ -884,104 +886,109 @@
                       之后大约是 50 kB。
                     </p>
                     <p>两者的 API 可以直接对应过来：</p>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>Select2</th>
-                          <th>Tom Select</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><code>$(&quot;#x&quot;).select2()</code></td>
-                          <td><code>new TomSelect(&quot;#x&quot;)</code></td>
-                        </tr>
-                        <tr>
-                          <td><code>$(&quot;#x&quot;).select2({ tags: true })</code></td>
-                          <td><code>new TomSelect(&quot;#x&quot;, { create: true })</code></td>
-                        </tr>
-                        <tr>
-                          <td><code>allowClear: true</code></td>
-                          <td><code>插件： [&quot;clear_button&quot;]</code></td>
-                        </tr>
-                        <tr>
-                          <td><code>closeOnSelect: false</code></td>
-                          <td><code>closeAfterSelect: false</code></td>
-                        </tr>
-                        <tr>
-                          <td><code>maximumSelectionLength: 3</code></td>
-                          <td><code>maxItems: 3</code></td>
-                        </tr>
-                        <tr>
-                          <td><code>minimumInputLength: 2</code></td>
-                          <td><code>shouldLoad: (q) =&gt; q.length &gt;= 2</code></td>
-                        </tr>
-                        <tr>
-                          <td><code>ajax: { url, delay: 250 }</code></td>
-                          <td>
-                            <code>load(query, callback)</code> + <code>loadThrottle: 250</code>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><code>ajax: { …, processResults }</code></td>
-                          <td>
-                            <code>valueField</code> / <code>labelField</code> /
-                            <code>searchField</code>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>无限滚动 (<code>pagination.more</code>)</td>
-                          <td>
-                            <code>插件： [&quot;virtual_scroll&quot;]</code> +
-                            <code>setNextUrl()</code>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><code>templateResult</code> / <code>templateSelection</code></td>
-                          <td><code>render: { option, item }</code></td>
-                        </tr>
-                        <tr>
-                          <td><code>dropdownParent: $(&quot;#modal&quot;)</code></td>
-                          <td><em>(不需要 — 下拉菜单是内联的)</em></td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <code
-                              >$(&quot;#x&quot;).val(&quot;2&quot;).trigger(&quot;change&quot;)</code
-                            >
-                          </td>
-                          <td><code>ts.setValue(&quot;2&quot;)</code></td>
-                        </tr>
-                        <tr>
-                          <td><code>$(&quot;#x&quot;).val()</code></td>
-                          <td><code>ts.getValue()</code></td>
-                        </tr>
-                        <tr>
-                          <td><code>$(&quot;#x&quot;).on(&quot;select2:select&quot;, fn)</code></td>
-                          <td><code>ts.on(&quot;item_add&quot;, fn)</code></td>
-                        </tr>
-                        <tr>
-                          <td><code>$(&quot;#x&quot;).on(&quot;change&quot;, fn)</code></td>
-                          <td><code>ts.on(&quot;change&quot;, fn)</code></td>
-                        </tr>
-                        <tr>
-                          <td><code>$(&quot;#x&quot;).select2(&quot;open&quot;)</code></td>
-                          <td><code>ts.open()</code></td>
-                        </tr>
-                        <tr>
-                          <td><code>$(&quot;#x&quot;).prop(&quot;disabled&quot;, true)</code></td>
-                          <td><code>ts.disable()</code></td>
-                        </tr>
-                        <tr>
-                          <td><code>$(&quot;#x&quot;).select2(&quot;destroy&quot;)</code></td>
-                          <td><code>ts.destroy()</code></td>
-                        </tr>
-                        <tr>
-                          <td><code>$(&quot;#x&quot;).empty().select2({ data })</code></td>
-                          <td><code>ts.clearOptions(); ts.addOptions(data)</code></td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Select2</th>
+                            <th>Tom Select</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>$(&quot;#x&quot;).select2()</code></td>
+                            <td><code>new TomSelect(&quot;#x&quot;)</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>$(&quot;#x&quot;).select2({ tags: true })</code></td>
+                            <td><code>new TomSelect(&quot;#x&quot;, { create: true })</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>allowClear: true</code></td>
+                            <td><code>插件： [&quot;clear_button&quot;]</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>closeOnSelect: false</code></td>
+                            <td><code>closeAfterSelect: false</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>maximumSelectionLength: 3</code></td>
+                            <td><code>maxItems: 3</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>minimumInputLength: 2</code></td>
+                            <td><code>shouldLoad: (q) =&gt; q.length &gt;= 2</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>ajax: { url, delay: 250 }</code></td>
+                            <td>
+                              <code>load(query, callback)</code> + <code>loadThrottle: 250</code>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><code>ajax: { …, processResults }</code></td>
+                            <td>
+                              <code>valueField</code> / <code>labelField</code> /
+                              <code>searchField</code>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>无限滚动 (<code>pagination.more</code>)</td>
+                            <td>
+                              <code>插件： [&quot;virtual_scroll&quot;]</code> +
+                              <code>setNextUrl()</code>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><code>templateResult</code> / <code>templateSelection</code></td>
+                            <td><code>render: { option, item }</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>dropdownParent: $(&quot;#modal&quot;)</code></td>
+                            <td><em>(不需要 — 下拉菜单是内联的)</em></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <code
+                                >$(&quot;#x&quot;).val(&quot;2&quot;).trigger(&quot;change&quot;)</code
+                              >
+                            </td>
+                            <td><code>ts.setValue(&quot;2&quot;)</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>$(&quot;#x&quot;).val()</code></td>
+                            <td><code>ts.getValue()</code></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <code>$(&quot;#x&quot;).on(&quot;select2:select&quot;, fn)</code>
+                            </td>
+                            <td><code>ts.on(&quot;item_add&quot;, fn)</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>$(&quot;#x&quot;).on(&quot;change&quot;, fn)</code></td>
+                            <td><code>ts.on(&quot;change&quot;, fn)</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>$(&quot;#x&quot;).select2(&quot;open&quot;)</code></td>
+                            <td><code>ts.open()</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>$(&quot;#x&quot;).prop(&quot;disabled&quot;, true)</code></td>
+                            <td><code>ts.disable()</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>$(&quot;#x&quot;).select2(&quot;destroy&quot;)</code></td>
+                            <td><code>ts.destroy()</code></td>
+                          </tr>
+                          <tr>
+                            <td><code>$(&quot;#x&quot;).empty().select2({ data })</code></td>
+                            <td><code>ts.clearOptions(); ts.addOptions(data)</code></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <p>
                       这张表的并排对照版，配上可运行的代码，放在
                       <a href="../forms/advanced.html#select2">Advanced Elements</a> 演示页面里。
@@ -1032,62 +1039,65 @@
 <span class="line"><span style="color:#DCDCAA">  $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;#country&quot;</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">select2</span><span style="color:#D4D4D4">({ </span><span style="color:#9CDCFE">width:</span><span style="color:#CE9178"> &quot;100%&quot;</span><span style="color:#D4D4D4"> })</span></span>
 <span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span></code></pre>
                     <p>这个主题帮你处理了以下这些：</p>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th></th>
-                          <th></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>尺寸规范</td>
-                          <td>高度、内边距、字号和圆角都和 <code>.form-select</code> 完全一致</td>
-                        </tr>
-                        <tr>
-                          <td>尺寸大小</td>
-                          <td>
-                            原始 <code>&lt;select&gt;</code> 上的 <code>.form-select-sm</code> /
-                            <code>.form-select-lg</code> 会被正确识别并生效
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>聚焦</td>
-                          <td>用 Bootstrap 的焦点圈，而不是 Select2 那个黑色外框</td>
-                        </tr>
-                        <tr>
-                          <td>深色模式</td>
-                          <td>跟随 <code>data-bs-theme</code>——包括那个挂到 body 上的下拉面板</td>
-                        </tr>
-                        <tr>
-                          <td>校验状态</td>
-                          <td>
-                            原始 <code>&lt;select&gt;</code> 上的 <code>.is-invalid</code> /
-                            <code>.is-valid</code> 会给容器上色
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>多选</td>
-                          <td>已选项做成胶囊样式，跟 Bootstrap 的 secondary 徽章一致</td>
-                        </tr>
-                        <tr>
-                          <td>输入框组</td>
-                          <td>支持 <code>.input-group</code> 的圆角处理和 flex 尺寸计算</td>
-                        </tr>
-                        <tr>
-                          <td>模态框</td>
-                          <td>
-                            下拉面板的 <code>z-index</code> 被提到 <code>.modal</code> 之上——修掉了
-                            Select2 + Bootstrap 5 被反馈最多的那个 bug，所以不再需要
-                            <code>dropdownParent</code> 了
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>RTL</td>
-                          <td>和其他 CSS 一起自动生成</td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th></th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>尺寸规范</td>
+                            <td>高度、内边距、字号和圆角都和 <code>.form-select</code> 完全一致</td>
+                          </tr>
+                          <tr>
+                            <td>尺寸大小</td>
+                            <td>
+                              原始 <code>&lt;select&gt;</code> 上的 <code>.form-select-sm</code> /
+                              <code>.form-select-lg</code> 会被正确识别并生效
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>聚焦</td>
+                            <td>用 Bootstrap 的焦点圈，而不是 Select2 那个黑色外框</td>
+                          </tr>
+                          <tr>
+                            <td>深色模式</td>
+                            <td>跟随 <code>data-bs-theme</code>——包括那个挂到 body 上的下拉面板</td>
+                          </tr>
+                          <tr>
+                            <td>校验状态</td>
+                            <td>
+                              原始 <code>&lt;select&gt;</code> 上的 <code>.is-invalid</code> /
+                              <code>.is-valid</code> 会给容器上色
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>多选</td>
+                            <td>已选项做成胶囊样式，跟 Bootstrap 的 secondary 徽章一致</td>
+                          </tr>
+                          <tr>
+                            <td>输入框组</td>
+                            <td>支持 <code>.input-group</code> 的圆角处理和 flex 尺寸计算</td>
+                          </tr>
+                          <tr>
+                            <td>模态框</td>
+                            <td>
+                              下拉面板的 <code>z-index</code> 被提到
+                              <code>.modal</code> 之上——修掉了 Select2 + Bootstrap 5
+                              被反馈最多的那个 bug，所以不再需要 <code>dropdownParent</code> 了
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>RTL</td>
+                            <td>和其他 CSS 一起自动生成</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <p>
                       用打包工具？编译好的样式表可以通过包的
                       <code>exports</code> 映射引入——同样，要放在 Select2 自己的 CSS 之后：
@@ -1456,47 +1466,50 @@
                       的，约 1,900 个图标，并在整个演示中使用。如果你需要更多，以下库都可以与
                       AdminLTE 配合使用：
                     </p>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>库</th>
-                          <th>图标数量</th>
-                          <th>备注</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><a href="https://icons.getbootstrap.com/">Bootstrap Icons</a></td>
-                          <td>1,900+</td>
-                          <td>默认， SVG, MIT</td>
-                        </tr>
-                        <tr>
-                          <td><a href="https://lucide.dev/">Lucide</a></td>
-                          <td>1,500+</td>
-                          <td>现代， SVG, ISC, 风格非常统一</td>
-                        </tr>
-                        <tr>
-                          <td><a href="https://tabler.io/icons">Tabler Icons</a></td>
-                          <td>5,800+</td>
-                          <td>MIT, 可用的最广泛免费图标集</td>
-                        </tr>
-                        <tr>
-                          <td><a href="https://fonts.google.com/icons">Material Symbols</a></td>
-                          <td>3,500+</td>
-                          <td>Google, Apache 2.0, 可变字体</td>
-                        </tr>
-                        <tr>
-                          <td><a href="https://fontawesome.com/icons">FontAwesome Free</a></td>
-                          <td>2,000+ 免费</td>
-                          <td>最知名，基于字体</td>
-                        </tr>
-                        <tr>
-                          <td><a href="https://phosphoricons.com/">Phosphor</a></td>
-                          <td>6,000+</td>
-                          <td>MIT, 六种字体效果</td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>库</th>
+                            <th>图标数量</th>
+                            <th>备注</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><a href="https://icons.getbootstrap.com/">Bootstrap Icons</a></td>
+                            <td>1,900+</td>
+                            <td>默认， SVG, MIT</td>
+                          </tr>
+                          <tr>
+                            <td><a href="https://lucide.dev/">Lucide</a></td>
+                            <td>1,500+</td>
+                            <td>现代， SVG, ISC, 风格非常统一</td>
+                          </tr>
+                          <tr>
+                            <td><a href="https://tabler.io/icons">Tabler Icons</a></td>
+                            <td>5,800+</td>
+                            <td>MIT, 可用的最广泛免费图标集</td>
+                          </tr>
+                          <tr>
+                            <td><a href="https://fonts.google.com/icons">Material Symbols</a></td>
+                            <td>3,500+</td>
+                            <td>Google, Apache 2.0, 可变字体</td>
+                          </tr>
+                          <tr>
+                            <td><a href="https://fontawesome.com/icons">FontAwesome Free</a></td>
+                            <td>2,000+ 免费</td>
+                            <td>最知名，基于字体</td>
+                          </tr>
+                          <tr>
+                            <td><a href="https://phosphoricons.com/">Phosphor</a></td>
+                            <td>6,000+</td>
+                            <td>MIT, 六种字体效果</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <p>可以混用——它们都能共存。</p>
                     <h5 id="关于打包的说明">关于打包的说明</h5>
                     <p>以上示例使用 jsDelivr CDN 是为了方便复制粘贴。在生产环境中，建议：</p>
@@ -1616,5 +1629,7 @@
      —— 不需要页面脚本。只有 <head> 里那段防止闪烁的代码片段保持内联，
      因为它必须在首次绘制之前就运行。 -->
     <!--end::明暗模式切换-->
+
+    <!--email_on-->
   </body>
 </html>

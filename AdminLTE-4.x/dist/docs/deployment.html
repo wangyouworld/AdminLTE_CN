@@ -102,6 +102,8 @@
     <link rel="stylesheet" href="../css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="../css/adminlte-docs.css" />
+
+    <!--email_off-->
   </head>
   <body class="layout-fixed sidebar-expand-lg bg-body-tertiary docs-page">
     <div class="app-wrapper">
@@ -802,45 +804,48 @@
                       30%）。未压缩文件在开发环境中对于可读的 source-map
                       调试很有用——切勿将它们提供给用户。
                     </p>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>资源</th>
-                          <th>开发环境</th>
-                          <th>生产环境</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>样式表</td>
-                          <td><code>dist/css/adminlte.css</code></td>
-                          <td>
-                            <strong><code>dist/css/adminlte.min.css</code></strong>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>脚本</td>
-                          <td><code>dist/js/adminlte.js</code></td>
-                          <td>
-                            <strong><code>dist/js/adminlte.min.js</code></strong>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>RTL 样式表</td>
-                          <td><code>dist/css/adminlte.rtl.css</code></td>
-                          <td>
-                            <strong><code>dist/css/adminlte.rtl.min.css</code></strong>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Select2 theme <em>(可选)</em></td>
-                          <td><code>dist/css/adminlte-select2.css</code></td>
-                          <td>
-                            <strong><code>dist/css/adminlte-select2.min.css</code></strong>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>资源</th>
+                            <th>开发环境</th>
+                            <th>生产环境</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>样式表</td>
+                            <td><code>dist/css/adminlte.css</code></td>
+                            <td>
+                              <strong><code>dist/css/adminlte.min.css</code></strong>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>脚本</td>
+                            <td><code>dist/js/adminlte.js</code></td>
+                            <td>
+                              <strong><code>dist/js/adminlte.min.js</code></strong>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>RTL 样式表</td>
+                            <td><code>dist/css/adminlte.rtl.css</code></td>
+                            <td>
+                              <strong><code>dist/css/adminlte.rtl.min.css</code></strong>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Select2 theme <em>(可选)</em></td>
+                            <td><code>dist/css/adminlte-select2.css</code></td>
+                            <td>
+                              <strong><code>dist/css/adminlte-select2.min.css</code></strong>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <p>
                       <code>adminlte-select2.css</code> 是按需启用的，只有你的应用加载了
                       <a href="integrations.html#select2-compatibility-theme">Select2</a>
@@ -917,7 +922,7 @@
                       data-language="html"
                     ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span></span>
 <span class="line"><span style="color:#9CDCFE">  rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span></span>
-<span class="line"><span style="color:#9CDCFE">  href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/admin-lte@4.0.0/dist/css/adminlte.min.css&quot;</span></span>
+<span class="line"><span style="color:#9CDCFE">  href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/admin-lte@4.8.5/dist/css/adminlte.min.css&quot;</span></span>
 <span class="line"><span style="color:#9CDCFE">  integrity</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;sha384-PASTE_THE_HASH_HERE&quot;</span></span>
 <span class="line"><span style="color:#9CDCFE">  crossorigin</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;anonymous&quot;</span></span>
 <span class="line"><span style="color:#808080">/&gt;</span></span></code></pre>
@@ -950,7 +955,7 @@
 <span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#6A9955">  &lt;!-- 3. AdminLTE——通过其导入包含 Bootstrap CSS --&gt;</span></span>
-<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/admin-lte@4.0.0/dist/css/adminlte.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/admin-lte@4.8.5/dist/css/adminlte.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
 <span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">head</span><span style="color:#808080">&gt;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">body</span><span style="color:#808080">&gt;</span></span>
@@ -967,7 +972,7 @@
 <span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#6A9955">  &lt;!-- 7. AdminLTE——必须在 Bootstrap 之后加载 --&gt;</span></span>
-<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/admin-lte@4.0.0/dist/js/adminlte.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/admin-lte@4.8.5/dist/js/adminlte.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">body</span><span style="color:#808080">&gt;</span></span></code></pre>
                     <h5 id="defer-还是-async">Defer 还是 async？</h5>
                     <p>
@@ -1037,28 +1042,31 @@
 <span class="line"><span style="color:#569CD6">const</span><span style="color:#DCDCAA"> Calendar</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=&gt;</span><span style="color:#569CD6"> import</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;./Calendar.vue&quot;</span><span style="color:#D4D4D4">)</span></span></code></pre>
                     <h5 id="打包体积预算">打包体积预算</h5>
                     <p>当前发布的 <code>dist/</code> 产物 gzip 后的大小：</p>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>资源</th>
-                          <th>大小（gzip）</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><code>adminlte.min.css</code></td>
-                          <td>~40 KB</td>
-                        </tr>
-                        <tr>
-                          <td><code>adminlte.rtl.min.css</code></td>
-                          <td>~40 KB</td>
-                        </tr>
-                        <tr>
-                          <td><code>adminlte.min.js</code></td>
-                          <td>~5 KB</td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>资源</th>
+                            <th>大小（gzip）</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>adminlte.min.css</code></td>
+                            <td>~40 KB</td>
+                          </tr>
+                          <tr>
+                            <td><code>adminlte.rtl.min.css</code></td>
+                            <td>~40 KB</td>
+                          </tr>
+                          <tr>
+                            <td><code>adminlte.min.js</code></td>
+                            <td>~5 KB</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <p>
                       完整的首屏负载（HTML + Bootstrap + AdminLTE + Bootstrap Icons + Popper +
                       OverlayScrollbars）从 CDN 加载时约为 <strong>180 KB gzip</strong>。CI
@@ -1228,5 +1236,7 @@
      —— 不需要页面脚本。只有 <head> 里那段防止闪烁的代码片段保持内联，
      因为它必须在首次绘制之前就运行。 -->
     <!--end::明暗模式切换-->
+
+    <!--email_on-->
   </body>
 </html>

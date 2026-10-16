@@ -26,7 +26,7 @@ AdminLTE 4 只用了 Bootstrap 5.3 的主题色来给自己做样式 —— `pri
 来自 CDN（请注明在生产环境中测试的精确版本）：
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@4/dist/css/adminlte-colors.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@4.8.5/dist/css/adminlte-colors.min.css" />
 ```
 
 从 npm，使用打包工具：
@@ -45,7 +45,7 @@ import "admin-lte/dist/css/adminlte-colors.min.css"
 | 文件 | 你能得到什么 | 文字颜色规则 |
 |---|---|---|
 | `dist/css/adminlte-colors.css` | 在 OKLCH 里设计的 14 种颜色 —— orange、amber、olive、teal、sky、indigo、violet、fuchsia、pink、navy、steel、slate、graphite、midnight —— 每一种配白色文字都清晰可读，排布时也考虑到了要跟 Bootstrap 的主题色相邻 | Bootstrap 5 的 `color-contrast()`，4.5:1 |
-| `dist/css/adminlte-colors-v3.css` | 18 种 AdminLTE 3 颜色 —— lightblue、navy、olive、lime、fuchsia、maroon、blue、indigo、purple、pink、red、orange、yellow、green、teal、cyan、gray、gray-dark —— 取值和 3.2 版本构建时一样 | AdminLTE 3 的规则（Bootstrap 4 YIQ）：lightblue、olive、teal、cyan 等配白色；lime、orange、yellow 配深色 |
+| `dist/css/adminlte-colors-v3.css` | 18 种 AdminLTE 3 颜色 —— lightblue、navy、olive、lime、fuchsia、maroon、blue、indigo、purple、pink、red、orange、yellow、green、teal、cyan、gray、gray-dark —— 取值和 3.2 版本构建时一样 | AdminLTE 3 的规则（Bootstrap 4 YIQ）：lightblue、olive、teal、cyan 等配白色；lime、orange、yellow 配深色。有八种达不到 WCAG AA —— [`data-lte-contrast="aa"`](#making-the-v3-colours-pass-aa) 会把它们翻转过来 |
 
 两者输出的类系列完全一样（`.bg-*`、`.text-bg-*`、`.text-*`、`.border-*`、`.link-*`、`.bg-gradient-*`、`.card-*`、`.callout-*`、`.direct-chat-*`，以及带深色模式变体的 token），所以本页面讲的任何内容对两者都适用。演示页面可以让你在两者之间实时切换：<a href="../UI/colors.html">颜色演示</a>和<a href="../generate/theme.html">主题自定义</a>都有一个调色板切换开关。
 
@@ -85,6 +85,43 @@ AdminLTE 3 的原版颜色，以及每种颜色配白色文字能达到的对比
     </tbody>
   </table>
 </div>
+
+##### 让 v3 的颜色通过 AA
+
+**`data-lte-contrast="aa"` 能修好这八种颜色，而且一个取值都不用动。** v3 的规则给八种颜色配了白色文字，而这八种颜色对正文来说都达不到 WCAG AA 的 4.5:1。这个属性只把这八种翻成能达到标准的深色文字，每一个背景色都保持一个字节不变：
+
+```html
+<html lang="en" data-lte-contrast="aa">
+```
+
+<div class="table-responsive">
+  <table class="table align-middle">
+    <thead>
+      <tr>
+        <th scope="col">Colour</th>
+        <th scope="col">Default (v3 rule)</th>
+        <th scope="col">With <code>aa</code></th>
+      </tr>
+    </thead>
+    <tbody>
+      {paletteV3.filter(c => c.textColor !== c.textColorAA).map(c => (
+        <tr>
+          <td class="text-nowrap"><span class="badge me-2" style={`background:${c.hex}`}>&nbsp;&nbsp;&nbsp;</span><code>{c.name}</code> <span class="text-body-secondary">{c.hex}</span></td>
+          <td class="text-nowrap">white text — <span class="text-danger-emphasis fw-semibold">{c.contrastWhite.toFixed(2)}:1</span></td>
+          <td class="text-nowrap">black text — <span class="text-success-emphasis fw-semibold">{c.contrastBlack.toFixed(2)}:1</span></td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+这里只列出比值，而不是把它们渲染出来，因为把不达标的组合渲染出来，就等于在本页面上放了同样通不过这项检查的文字 —— 去 <a href="../UI/colors.html">颜色演示</a> 页面把开关打开，就能在真实组件上看到两者并排对比。它覆盖了调色板在自己颜色上绘制文字的所有地方：`.text-bg-*`、`.bg-gradient-*`、`.card-*` 头部、`.direct-chat-*`，以及 `data-lte-primary` 生成的按钮、徽章和胶囊文字。有三件事值得了解：
+
+- **必须用纯黑。** AdminLTE 3 自己的深墨色 `#1f2d3d` 在这八种颜色里只有两种能达到 4.5:1 —— `teal` 和 `cyan`。其余的都需要纯黑，也就是 `aa` 用的那个。本来就配深色文字的那些颜色（`lime`、`orange`、`yellow`）继续用 `#1f2d3d`，不动它们。
+- **翻转过的颜色要搭配 `data-bs-theme="light"`。** 承载这八种颜色之一的侧边栏或头部现在用的是深色文字，所以它的导航链接也应该跟着变：`<nav class="app-header navbar navbar-expand text-bg-lightblue" data-bs-theme="light">`。演示页面在开关打开时会帮你处理好这件事。
+- **`.text-lightblue` 和 `.link-lightblue` 是另一个问题。** 那些是把颜色*当作文字画在页面背景上*，而这八种颜色在那里同样也不够。改用 emphasis token 吧 —— `.text-lightblue-emphasis` 这类写法来自 `--bs-lightblue-text-emphasis`，也就是把这个颜色调暗 60% 之后的结果，在浅色背景上能看清。
+
+这个属性对两个样式表都有效；在重新设计的那套调色板上，它什么都不输出，因为那里的每种颜色按构造就配白色文字达到了 AA —— 所以把它留在你的标记里没有任何开销（[#6110](https://github.com/ColorlibHQ/AdminLTE/issues/6110)）。
 
 v3 那个样式表是用和设计版同一套 Sass 构建的 —— `src/scss/adminlte-colors-v3.scss` 把 `$lte-palette` 设成了 v3 的 map，并把 `$lte-palette-contrast` 设为 `"yiq"` —— 所以 `$lte-palette-custom`、`$lte-palette-aliases` 以及下面其余的那些对它也同样适用。它的皮肤预设来自 AdminLTE 2：彩色头部配 v3 的深色侧边栏（`text-bg-gray-dark`，也就是 `sidebar-dark-*` 那个确切的背景），或者配白色侧边栏：
 
@@ -360,7 +397,8 @@ $lte-palette: (
 
 ##### 无障碍与深色模式
 
-- 每一种内置颜色配白色文字都超过了 4.5:1（最低的是 4.6:1），所以 `.text-bg-*` 从不需要为某个颜色单独开例外，用到它们的演示页面也都能通过 axe 检查关卡。
+- **重新设计的**那套调色板里，每种颜色配白色文字都能达到 4.5:1（最低的是 4.6:1），所以 `.text-bg-*` 从不需要为某个颜色单独开例外，用到它们的演示页面也都能通过 axe 检查关卡。
+- **v3** 那套调色板是历史版本，它十八种颜色里有八种，配上 v3 当初给它们指定的文字颜色，达不到 4.5:1。`data-lte-contrast="aa"` 会把正好这八种翻过来 —— 见[让 v3 的颜色通过 AA](#making-the-v3-colours-pass-aa)。
 - 实色工具类（`.bg-*`、`.text-bg-*`）在两种颜色模式下都一样，Bootstrap 自己的那些也是如此。而 subtle 系列的 token —— 以及随之而来的 `.callout-*` —— 会针对 `data-bs-theme="dark"` 翻转，用的推导方式和 Bootstrap 给 `.alert-*` 用的是同一套。
 - 彩色背景上的 `.text-*` 和 `.link-*` 得你自己负责，跟用 Bootstrap 主题色时一模一样。
 

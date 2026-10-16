@@ -23,7 +23,18 @@ const primaryChoices = {
   designed: palette.map(c => c.name),
   v3: paletteV3.map(c => c.name)
 }
-const paletteSetsJson = paletteSets.map(({ key, file, classes, text }) => ({ key, file, classes, text, primaries: primaryChoices[key] }))
+// `data-lte-contrast="aa"` 文本颜色，以及它会改变多少种颜色（#6110）
+const paletteTextAA = {
+  designed: Object.fromEntries(palette.map(c => [`text-bg-${c.name}`, c.textColorAA])),
+  v3: Object.fromEntries(paletteV3.map(c => [`text-bg-${c.name}`, c.textColorAA]))
+}
+const aaFlipCount = {
+  designed: palette.filter(c => c.textColor !== c.textColorAA).length,
+  v3: paletteV3.filter(c => c.textColor !== c.textColorAA).length
+}
+const paletteSetsJson = paletteSets.map(({ key, file, classes, text }) => ({
+  key, file, classes, text, textAA: paletteTextAA[key], aaFlips: aaFlipCount[key], primaries: primaryChoices[key]
+}))
 const path = "../../../dist"
 const htmlPath = convertPathToHtml(path);
 
@@ -264,6 +275,16 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         <span data-palette-set="designed">为 4.4 设计的十四种颜色 —— 每一种都配白色文字。</span>
                         <span data-palette-set="v3" hidden>十八种 AdminLTE 3 颜色，取值不变，沿用 v3 的文字颜色规则。</span>
                       </span>
+                    </div>
+                    <div class="form-check form-switch mb-3">
+                      <input class="form-check-input" type="checkbox" role="switch" id="contrast-aa" />
+                      <label class="form-check-label" for="contrast-aa">
+                        强制使用 WCAG AA 文字 — <code class="text-body-emphasis">data-lte-contrast="aa"</code>
+                        <span class="text-body-secondary small ms-1">
+                          <span data-palette-set="designed">一切不变：每种设计颜色的对比度已达到4.5:1。</span>
+                          <span data-palette-set="v3" hidden>将8种v3颜色的文本翻转，其指定文本缺失4.5:1；背景保持原有数值。</span>
+                        </span>
+                      </label>
                     </div>
                     {
                       paletteSets.map((set, i) => (
@@ -669,7 +690,11 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
         // 这样对比文字会跟着背景一起带上；
         // 还有它的 `.bg-gradient-*` 变体。
         const stylesheet = document.getElementById("palette-stylesheet")
+        const contrastToggle = document.querySelector("#contrast-aa")
         let activeSet = paletteSetsJson[0]
+        let aaContrast = false
+        // 背景类的自动文本颜色，处于开启模式下
+        const textOf = bg => (aaContrast ? activeSet.textAA : activeSet.text)[bg.replace("bg-gradient-", "text-bg-")] || "white"
         // 列出任何调色板可能加到元素上的所有类 —— 这样切换调色板时才能清理干净。
         const allBg = [...bootstrapBg, ...paletteSetsJson.flatMap(set => [...set.classes, ...gradients(set)])]
         const availableBg = () => [...bootstrapBg, ...activeSet.classes, ...gradients(activeSet)]
@@ -820,8 +845,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             // 当用户还没选颜色模式时，调色板的颜色会搭配与其文字颜色相匹配的模式
             //（配白色文字的颜色就用深色模式）。
             if ((bg.startsWith("text-bg-") || bg.startsWith("bg-gradient-")) && !mode) {
-              const text = activeSet.text[bg.replace("bg-gradient-", "text-bg-")] || "white"
-              mode = text === "white" ? "dark" : "light"
+              mode = textOf(bg) === "white" ? "dark" : "light"
               modeSelect.value = mode
             }
             render()
@@ -838,6 +862,23 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             primary?.set(button.getAttribute("data-preset-primary"))
           })
         }
+
+        // WCAG AA 文本：`data-lte-contrast="aa"` 位于 <html> 元素上。
+        // 该区域的颜色会变为深色文本，因此需要启用浅色模式，以便其链接能够正确显示。
+        contrastToggle?.addEventListener("change", () => {
+          aaContrast = contrastToggle.checked
+          if (aaContrast) {
+            document.documentElement.setAttribute("data-lte-contrast", "aa")
+          } else {
+            document.documentElement.removeAttribute("data-lte-contrast")
+          }
+          for (const controller of Object.values(controllers)) {
+            const { bg } = controller.get()
+            if (bg && (bg.startsWith("text-bg-") || bg.startsWith("bg-gradient-"))) {
+              controller.set(bg, textOf(bg) === "white" ? "dark" : "light")
+            }
+          }
+        })
 
         // 调色板切换：替换样式表，显示对应调色板的预设，重建取色器。
         for (const button of document.querySelectorAll("[data-palette-switch]")) {

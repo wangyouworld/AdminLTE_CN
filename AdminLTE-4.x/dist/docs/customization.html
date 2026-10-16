@@ -102,6 +102,8 @@
     <link rel="stylesheet" href="../css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="../css/adminlte-docs.css" />
+
+    <!--email_off-->
   </head>
   <body class="layout-fixed sidebar-expand-lg bg-body-tertiary docs-page">
     <div class="app-wrapper">
@@ -801,52 +803,55 @@
                       的大部分界面元素）会自动应用这些更改。
                     </p>
                     <h6 id="值得了解的常用变量">值得了解的常用变量</h6>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>变量</th>
-                          <th>默认值</th>
-                          <th>控制内容</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><code>--bs-primary</code></td>
-                          <td><code>#0d6efd</code></td>
-                          <td>品牌色，用于激活的侧边栏项、主要按钮</td>
-                        </tr>
-                        <tr>
-                          <td><code>--bs-body-bg</code></td>
-                          <td><code>#fff</code>（亮色）/ <code>#212529</code>（暗色）</td>
-                          <td>页面背景</td>
-                        </tr>
-                        <tr>
-                          <td><code>--bs-body-color</code></td>
-                          <td><code>#212529</code></td>
-                          <td>默认文字颜色</td>
-                        </tr>
-                        <tr>
-                          <td><code>--bs-border-color</code></td>
-                          <td><code>#dee2e6</code></td>
-                          <td>所有细边框</td>
-                        </tr>
-                        <tr>
-                          <td><code>--bs-border-radius</code></td>
-                          <td><code>.375rem</code></td>
-                          <td>卡片、按钮、输入框的默认圆角</td>
-                        </tr>
-                        <tr>
-                          <td><code>--bs-border-radius-lg</code></td>
-                          <td><code>.5rem</code></td>
-                          <td>较大圆角，用于模态框</td>
-                        </tr>
-                        <tr>
-                          <td><code>--bs-font-sans-serif</code></td>
-                          <td><code>system-ui, ...</code></td>
-                          <td>默认字体栈</td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>变量</th>
+                            <th>默认值</th>
+                            <th>控制内容</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>--bs-primary</code></td>
+                            <td><code>#0d6efd</code></td>
+                            <td>品牌色，用于激活的侧边栏项、主要按钮</td>
+                          </tr>
+                          <tr>
+                            <td><code>--bs-body-bg</code></td>
+                            <td><code>#fff</code>（亮色）/ <code>#212529</code>（暗色）</td>
+                            <td>页面背景</td>
+                          </tr>
+                          <tr>
+                            <td><code>--bs-body-color</code></td>
+                            <td><code>#212529</code></td>
+                            <td>默认文字颜色</td>
+                          </tr>
+                          <tr>
+                            <td><code>--bs-border-color</code></td>
+                            <td><code>#dee2e6</code></td>
+                            <td>所有细边框</td>
+                          </tr>
+                          <tr>
+                            <td><code>--bs-border-radius</code></td>
+                            <td><code>.375rem</code></td>
+                            <td>卡片、按钮、输入框的默认圆角</td>
+                          </tr>
+                          <tr>
+                            <td><code>--bs-border-radius-lg</code></td>
+                            <td><code>.5rem</code></td>
+                            <td>较大圆角，用于模态框</td>
+                          </tr>
+                          <tr>
+                            <td><code>--bs-font-sans-serif</code></td>
+                            <td><code>system-ui, ...</code></td>
+                            <td>默认字体栈</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <p>
                       完整列表请参见
                       <a href="https://getbootstrap.com/docs/5.3/customize/css-variables/"
@@ -1035,52 +1040,55 @@
 <span class="line"><span style="color:#6A9955">  &lt;!-- 页眉、侧边栏和主要内容间距更紧密 --&gt;</span></span>
 <span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span></code></pre>
                     <h5 id="何时重新编译-vs-运行时覆盖">何时重新编译 vs. 运行时覆盖</h5>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>自定义项</th>
-                          <th>CSS 变量</th>
-                          <th>SCSS 重新编译</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>品牌色</td>
-                          <td>✅</td>
-                          <td>✅</td>
-                        </tr>
-                        <tr>
-                          <td>主体/文字颜色</td>
-                          <td>✅</td>
-                          <td>✅</td>
-                        </tr>
-                        <tr>
-                          <td>圆角</td>
-                          <td>✅</td>
-                          <td>✅</td>
-                        </tr>
-                        <tr>
-                          <td>侧边栏宽度</td>
-                          <td>❌ (不是 CSS 变量)</td>
-                          <td>✅</td>
-                        </tr>
-                        <tr>
-                          <td>breakpoint 更改</td>
-                          <td>❌</td>
-                          <td>✅</td>
-                        </tr>
-                        <tr>
-                          <td>间距比例</td>
-                          <td>❌</td>
-                          <td>✅</td>
-                        </tr>
-                        <tr>
-                          <td>字体大小</td>
-                          <td>部分支持</td>
-                          <td>✅（完全控制）</td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>自定义项</th>
+                            <th>CSS 变量</th>
+                            <th>SCSS 重新编译</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>品牌色</td>
+                            <td>✅</td>
+                            <td>✅</td>
+                          </tr>
+                          <tr>
+                            <td>主体/文字颜色</td>
+                            <td>✅</td>
+                            <td>✅</td>
+                          </tr>
+                          <tr>
+                            <td>圆角</td>
+                            <td>✅</td>
+                            <td>✅</td>
+                          </tr>
+                          <tr>
+                            <td>侧边栏宽度</td>
+                            <td>❌ (不是 CSS 变量)</td>
+                            <td>✅</td>
+                          </tr>
+                          <tr>
+                            <td>breakpoint 更改</td>
+                            <td>❌</td>
+                            <td>✅</td>
+                          </tr>
+                          <tr>
+                            <td>间距比例</td>
+                            <td>❌</td>
+                            <td>✅</td>
+                          </tr>
+                          <tr>
+                            <td>字体大小</td>
+                            <td>部分支持</td>
+                            <td>✅（完全控制）</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <p>
                       尽可能使用 CSS 变量进行所有自定义——这样可以在 AdminLTE 升级时避免合并冲突。将
                       SCSS 覆盖保留用于 CSS 变量无法覆盖的结构性更改（侧边栏宽度、breakpoint）。
@@ -1187,5 +1195,7 @@
      —— 不需要页面脚本。只有 <head> 里那段防止闪烁的代码片段保持内联，
      因为它必须在首次绘制之前就运行。 -->
     <!--end::明暗模式切换-->
+
+    <!--email_on-->
   </body>
 </html>

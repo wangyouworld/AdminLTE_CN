@@ -103,6 +103,8 @@
     <link rel="stylesheet" href="../../css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="../../css/adminlte-docs.css" />
+
+    <!--email_off-->
   </head>
   <!--end::Head-->
   <!--begin::Body-->
@@ -811,92 +813,101 @@
 <span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span></code></pre>
                     <h5 id="事件">事件</h5>
                     <p>该插件在触发元素上派发以下事件：</p>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>事件</th>
-                          <th>描述</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><code>collapsed.lte.card-widget</code></td>
-                          <td>当卡片主体被折叠时触发。</td>
-                        </tr>
-                        <tr>
-                          <td><code>expanded.lte.card-widget</code></td>
-                          <td>当卡片主体被展开时触发。</td>
-                        </tr>
-                        <tr>
-                          <td><code>remove.lte.card-widget</code></td>
-                          <td>当卡片被移除时触发。</td>
-                        </tr>
-                        <tr>
-                          <td><code>maximized.lte.card-widget</code></td>
-                          <td>当卡片被最大化时触发。</td>
-                        </tr>
-                        <tr>
-                          <td><code>minimized.lte.card-widget</code></td>
-                          <td>当卡片被最小化时（从最大化状态恢复）触发。</td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>事件</th>
+                            <th>描述</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>collapsed.lte.card-widget</code></td>
+                            <td>当卡片主体被折叠时触发。</td>
+                          </tr>
+                          <tr>
+                            <td><code>expanded.lte.card-widget</code></td>
+                            <td>当卡片主体被展开时触发。</td>
+                          </tr>
+                          <tr>
+                            <td><code>remove.lte.card-widget</code></td>
+                            <td>当卡片被移除时触发。</td>
+                          </tr>
+                          <tr>
+                            <td><code>maximized.lte.card-widget</code></td>
+                            <td>当卡片被最大化时触发。</td>
+                          </tr>
+                          <tr>
+                            <td><code>minimized.lte.card-widget</code></td>
+                            <td>当卡片被最小化时（从最大化状态恢复）触发。</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <h5 id="css-类">CSS 类</h5>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>类名</th>
-                          <th>描述</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><code>collapsed-card</code></td>
-                          <td>当卡片折叠时应用于卡片。</td>
-                        </tr>
-                        <tr>
-                          <td><code>maximized-card</code></td>
-                          <td>当卡片最大化时应用于卡片。</td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>类名</th>
+                            <th>描述</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>collapsed-card</code></td>
+                            <td>当卡片折叠时应用于卡片。</td>
+                          </tr>
+                          <tr>
+                            <td><code>maximized-card</code></td>
+                            <td>当卡片最大化时应用于卡片。</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <h5 id="配置">配置</h5>
                     <p>
                       该插件不读取
                       <code>data-*</code>
                       配置属性。要自定义行为，请通过编程方式实例化并传入配置对象：
                     </p>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>选项</th>
-                          <th>默认值</th>
-                          <th>描述</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><code>animationSpeed</code></td>
-                          <td><code>500</code></td>
-                          <td>滑动动画的持续时间（毫秒）。</td>
-                        </tr>
-                        <tr>
-                          <td><code>collapseTrigger</code></td>
-                          <td><code>[data-lte-toggle=&quot;card-collapse&quot;]</code></td>
-                          <td>折叠按钮的 CSS 选择器。</td>
-                        </tr>
-                        <tr>
-                          <td><code>removeTrigger</code></td>
-                          <td><code>[data-lte-toggle=&quot;card-remove&quot;]</code></td>
-                          <td>移除按钮的 CSS 选择器。</td>
-                        </tr>
-                        <tr>
-                          <td><code>maximizeTrigger</code></td>
-                          <td><code>[data-lte-toggle=&quot;card-maximize&quot;]</code></td>
-                          <td>最大化按钮的 CSS 选择器。</td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>选项</th>
+                            <th>默认值</th>
+                            <th>描述</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>animationSpeed</code></td>
+                            <td><code>500</code></td>
+                            <td>滑动动画的持续时间（毫秒）。</td>
+                          </tr>
+                          <tr>
+                            <td><code>collapseTrigger</code></td>
+                            <td><code>[data-lte-toggle=&quot;card-collapse&quot;]</code></td>
+                            <td>折叠按钮的 CSS 选择器。</td>
+                          </tr>
+                          <tr>
+                            <td><code>removeTrigger</code></td>
+                            <td><code>[data-lte-toggle=&quot;card-remove&quot;]</code></td>
+                            <td>移除按钮的 CSS 选择器。</td>
+                          </tr>
+                          <tr>
+                            <td><code>maximizeTrigger</code></td>
+                            <td><code>[data-lte-toggle=&quot;card-maximize&quot;]</code></td>
+                            <td>最大化按钮的 CSS 选择器。</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <h5 id="调用方式">调用方式</h5>
                     <pre
                       class="astro-code dark-plus"
@@ -915,73 +926,76 @@
 <span class="line"><span style="color:#9CDCFE">widget</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">toggle</span><span style="color:#D4D4D4">()       </span><span style="color:#6A9955">// 根据当前状态展开/折叠</span></span>
 <span class="line"><span style="color:#9CDCFE">widget</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">toggleMaximize</span><span style="color:#D4D4D4">()  </span><span style="color:#6A9955">// 根据当前状态最大化/最小化</span></span></code></pre>
                     <h6 id="方法">方法</h6>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>方法</th>
-                          <th>返回值</th>
-                          <th>描述</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><code>collapse()</code></td>
-                          <td><code>void</code></td>
-                          <td>
-                            向上滑动收起主体和页脚，添加 <code>collapsed-card</code> 类。触发
-                            <code>collapsed.lte.card-widget</code> 事件。
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><code>expand()</code></td>
-                          <td><code>void</code></td>
-                          <td>
-                            向下滑动展开主体和页脚，移除 <code>collapsed-card</code> 类。触发
-                            <code>expanded.lte.card-widget</code> 事件。
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><code>toggle()</code></td>
-                          <td><code>void</code></td>
-                          <td>
-                            根据 <code>collapsed-card</code> 类的存在情况调用
-                            <code>collapse()</code> 或 <code>expand()</code>。
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><code>maximize()</code></td>
-                          <td><code>void</code></td>
-                          <td>
-                            将卡片设置为固定全屏定位，添加 <code>maximized-card</code> 类。触发
-                            <code>maximized.lte.card-widget</code> 事件。
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><code>minimize()</code></td>
-                          <td><code>void</code></td>
-                          <td>
-                            恢复原始尺寸，移除 <code>maximized-card</code> 类。触发
-                            <code>minimized.lte.card-widget</code> 事件。
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><code>toggleMaximize()</code></td>
-                          <td><code>void</code></td>
-                          <td>
-                            根据 <code>maximized-card</code> 类的存在情况调用
-                            <code>maximize()</code> 或 <code>minimize()</code>。
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><code>remove()</code></td>
-                          <td><code>void</code></td>
-                          <td>
-                            以动画方式移除卡片并将其从 DOM 中删除。触发
-                            <code>remove.lte.card-widget</code> 事件。
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>方法</th>
+                            <th>返回值</th>
+                            <th>描述</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>collapse()</code></td>
+                            <td><code>void</code></td>
+                            <td>
+                              向上滑动收起主体和页脚，添加 <code>collapsed-card</code> 类。触发
+                              <code>collapsed.lte.card-widget</code> 事件。
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><code>expand()</code></td>
+                            <td><code>void</code></td>
+                            <td>
+                              向下滑动展开主体和页脚，移除 <code>collapsed-card</code> 类。触发
+                              <code>expanded.lte.card-widget</code> 事件。
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><code>toggle()</code></td>
+                            <td><code>void</code></td>
+                            <td>
+                              根据 <code>collapsed-card</code> 类的存在情况调用
+                              <code>collapse()</code> 或 <code>expand()</code>。
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><code>maximize()</code></td>
+                            <td><code>void</code></td>
+                            <td>
+                              将卡片设置为固定全屏定位，添加 <code>maximized-card</code> 类。触发
+                              <code>maximized.lte.card-widget</code> 事件。
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><code>minimize()</code></td>
+                            <td><code>void</code></td>
+                            <td>
+                              恢复原始尺寸，移除 <code>maximized-card</code> 类。触发
+                              <code>minimized.lte.card-widget</code> 事件。
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><code>toggleMaximize()</code></td>
+                            <td><code>void</code></td>
+                            <td>
+                              根据 <code>maximized-card</code> 类的存在情况调用
+                              <code>maximize()</code> 或 <code>minimize()</code>。
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><code>remove()</code></td>
+                            <td><code>void</code></td>
+                            <td>
+                              以动画方式移除卡片并将其从 DOM 中删除。触发
+                              <code>remove.lte.card-widget</code> 事件。
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <h5 id="注意事项">注意事项</h5>
                     <ul>
                       <li>嵌套卡片会被正确处理：折叠父级卡片不会影响子卡片。</li>
@@ -1101,6 +1115,8 @@
      —— 不需要页面脚本。只有 <head> 里那段防止闪烁的代码片段保持内联，
      因为它必须在首次绘制之前就运行。 -->
     <!--end::明暗模式切换-->
+
+    <!--email_on-->
     <!--end::Script-->
   </body>
   <!--end::Body-->

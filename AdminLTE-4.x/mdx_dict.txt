@@ -2440,8 +2440,10 @@ The fourteen values are generated, not picked. `scripts/palette.mjs` derives the
 `npm run palette` 会依据那些目标值重新生成这张图；`npm run palette -- --check`（以及单元测试）会校验对比度和色相间隔，并确认 Sass map 和演示数据是一致的。
 ##### Accessibility and dark mode
 ##### 无障碍与深色模式
-- Every shipped colour clears 4.5:1 with white text (the lowest is 4.6:1), so `.text-bg-*` never needs a per-colour exception and the demo pages using them pass the axe gate.
-- 每一种内置颜色配白色文字都超过了 4.5:1（最低的是 4.6:1），所以 `.text-bg-*` 从不需要为某个颜色单独开例外，用到它们的演示页面也都能通过 axe 检查关卡。
+- Every colour in the **designed** palette clears 4.5:1 with white text (the lowest is 4.6:1), so `.text-bg-*` never needs a per-colour exception and the demo pages using them pass the axe gate.
+- **重新设计的**那套调色板里，每种颜色配白色文字都能达到 4.5:1（最低的是 4.6:1），所以 `.text-bg-*` 从不需要为某个颜色单独开例外，用到它们的演示页面也都能通过 axe 检查关卡。
+- The **v3** palette is the historical set, and eight of its eighteen colours miss 4.5:1 with the text v3 assigned them. `data-lte-contrast="aa"` flips exactly those — see [Making the v3 colours pass AA](#making-the-v3-colours-pass-aa).
+- **v3** 那套调色板是历史版本，它十八种颜色里有八种，配上 v3 当初给它们指定的文字颜色，达不到 4.5:1。`data-lte-contrast="aa"` 会把正好这八种翻过来 —— 见[让 v3 的颜色通过 AA](#making-the-v3-colours-pass-aa)。
 - Solid utilities (`.bg-*`, `.text-bg-*`) are the same in both colour modes, as Bootstrap's own are. The subtle tokens — and with them `.callout-*` — flip for `data-bs-theme="dark"` using the same derivation Bootstrap applies to `.alert-*`.
 - 实色工具类（`.bg-*`、`.text-bg-*`）在两种颜色模式下都一样，Bootstrap 自己的那些也是如此。而 subtle 系列的 token —— 以及随之而来的 `.callout-*` —— 会针对 `data-bs-theme="dark"` 翻转，用的推导方式和 Bootstrap 给 `.alert-*` 用的是同一套。
 - `.text-*` and `.link-*` on a coloured background are your responsibility, exactly as with Bootstrap's theme colours.
@@ -2492,8 +2494,8 @@ You can have the colours **designed for 4.4** (this page's default, below) or th
 | 文件 | 你能得到什么 | 文字颜色规则 |
 | `dist/css/adminlte-colors.css` | 14 colours designed in OKLCH — orange, amber, olive, teal, sky, indigo, violet, fuchsia, pink, navy, steel, slate, graphite, midnight — every one readable with white text, placed to sit next to Bootstrap's theme colours | Bootstrap 5's `color-contrast()`, 4.5:1 |
 | `dist/css/adminlte-colors.css` | 在 OKLCH 里设计的 14 种颜色 —— orange、amber、olive、teal、sky、indigo、violet、fuchsia、pink、navy、steel、slate、graphite、midnight —— 每一种配白色文字都清晰可读，排布时也考虑到了要跟 Bootstrap 的主题色相邻 | Bootstrap 5 的 `color-contrast()`，4.5:1 |
-| `dist/css/adminlte-colors-v3.css` | the 18 AdminLTE 3 colours — lightblue, navy, olive, lime, fuchsia, maroon, blue, indigo, purple, pink, red, orange, yellow, green, teal, cyan, gray, gray-dark — values as they were in the 3.2 build | AdminLTE 3's rule (Bootstrap 4 YIQ): white on lightblue, olive, teal, cyan …; dark on lime, orange, yellow |
-| `dist/css/adminlte-colors-v3.css` | 18 种 AdminLTE 3 颜色 —— lightblue、navy、olive、lime、fuchsia、maroon、blue、indigo、purple、pink、red、orange、yellow、green、teal、cyan、gray、gray-dark —— 取值和 3.2 版本构建时一样 | AdminLTE 3 的规则（Bootstrap 4 YIQ）：lightblue、olive、teal、cyan 等配白色；lime、orange、yellow 配深色 |
+| `dist/css/adminlte-colors-v3.css` | the 18 AdminLTE 3 colours — lightblue, navy, olive, lime, fuchsia, maroon, blue, indigo, purple, pink, red, orange, yellow, green, teal, cyan, gray, gray-dark — values as they were in the 3.2 build | AdminLTE 3's rule (Bootstrap 4 YIQ): white on lightblue, olive, teal, cyan …; dark on lime, orange, yellow. Eight miss WCAG AA — [`data-lte-contrast="aa"`](#making-the-v3-colours-pass-aa) flips those |
+| `dist/css/adminlte-colors-v3.css` | 18 种 AdminLTE 3 颜色 —— lightblue、navy、olive、lime、fuchsia、maroon、blue、indigo、purple、pink、red、orange、yellow、green、teal、cyan、gray、gray-dark —— 取值和 3.2 版本构建时一样 | AdminLTE 3 的规则（Bootstrap 4 YIQ）：lightblue、olive、teal、cyan 等配白色；lime、orange、yellow 配深色。有八种达不到 WCAG AA —— [`data-lte-contrast="aa"`](#making-the-v3-colours-pass-aa) 会把它们翻转过来 |
 Both emit exactly the same class families (`.bg-*`, `.text-bg-*`, `.text-*`, `.border-*`, `.link-*`, `.bg-gradient-*`, `.card-*`, `.callout-*`, `.direct-chat-*`, tokens with dark-mode variants), so everything on this page applies to either. The demo pages let you switch between them live: the <a href="../UI/colors.html">Colors demo</a> and <a href="../generate/theme.html">Theme Customize</a> both have a palette toggle.
 两者输出的类系列完全一样（`.bg-*`、`.text-bg-*`、`.text-*`、`.border-*`、`.link-*`、`.bg-gradient-*`、`.card-*`、`.callout-*`、`.direct-chat-*`，以及带深色模式变体的 token），所以本页面讲的任何内容对两者都适用。演示页面可以让你在两者之间实时切换：<a href="../UI/colors.html">颜色演示</a>和<a href="../generate/theme.html">主题自定义</a>都有一个调色板切换开关。
 … or the AdminLTE 3 originals, not both
@@ -2556,3 +2558,17 @@ Hide the chrome for that print with Bootstrap's own utility — `.d-print-none` 
 ……发票……
 And if a page only ever prints as a document, set the attribute once when you print:
 如果某页面始终都要以文档形式打印，可在打印时一次性设置该属性：
+##### Making the v3 colours pass AA
+##### 让 v3 的颜色通过 AA
+**`data-lte-contrast="aa"` fixes the eight without touching a single value.** The v3 rule assigns white text to eight colours that do not reach WCAG AA's 4.5:1 for normal text. The attribute flips just those to the ink that does, leaving every background byte-identical:
+**`data-lte-contrast="aa"` 能修好这八种颜色，而且一个取值都不用动。** v3 的规则给八种颜色配了白色文字，而这八种颜色对正文来说都达不到 WCAG AA 的 4.5:1。这个属性只把这八种翻成能达到标准的深色文字，每一个背景色都保持一个字节不变：
+The ratios are stated rather than shown, because rendering the failing combination would put text on this page that fails the same check — flip the switch on the <a href="../UI/colors.html">Colors demo</a> to see both side by side on real components. It covers everywhere the palette paints text on its own colour: `.text-bg-*`, `.bg-gradient-*`, `.card-*` headers, `.direct-chat-*`, and the button, badge and pill text that `data-lte-primary` produces. Three things worth knowing:
+这里只列出比值，而不是把它们渲染出来，因为把不达标的组合渲染出来，就等于在本页面上放了同样通不过这项检查的文字 —— 去 <a href="../UI/colors.html">颜色演示</a> 页面把开关打开，就能在真实组件上看到两者并排对比。它覆盖了调色板在自己颜色上绘制文字的所有地方：`.text-bg-*`、`.bg-gradient-*`、`.card-*` 头部、`.direct-chat-*`，以及 `data-lte-primary` 生成的按钮、徽章和胶囊文字。有三件事值得了解：
+- **It has to be black.** AdminLTE 3's own dark ink, `#1f2d3d`, only clears 4.5:1 on two of the eight — `teal` and `cyan`. The others need true black, which is what `aa` uses. The colours that already take dark text (`lime`, `orange`, `yellow`) keep `#1f2d3d` and are not touched.
+- **必须用纯黑。** AdminLTE 3 自己的深墨色 `#1f2d3d` 在这八种颜色里只有两种能达到 4.5:1 —— `teal` 和 `cyan`。其余的都需要纯黑，也就是 `aa` 用的那个。本来就配深色文字的那些颜色（`lime`、`orange`、`yellow`）继续用 `#1f2d3d`，不动它们。
+- **Pair a flipped colour with `data-bs-theme="light"`.** A sidebar or header carrying one of the eight now has dark text, so its nav links should follow: `<nav class="app-header navbar navbar-expand text-bg-lightblue" data-bs-theme="light">`. The demo pages do this for you when the switch is on.
+- **翻转过的颜色要搭配 `data-bs-theme="light"`。** 承载这八种颜色之一的侧边栏或头部现在用的是深色文字，所以它的导航链接也应该跟着变：`<nav class="app-header navbar navbar-expand text-bg-lightblue" data-bs-theme="light">`。演示页面在开关打开时会帮你处理好这件事。
+- **`.text-lightblue` and `.link-lightblue` are a different question.** Those paint the colour *as text on the page background*, where the same eight are also thin. Use the emphasis token instead — `.text-lightblue-emphasis` equivalents come from `--bs-lightblue-text-emphasis`, which is the colour shaded 60% and readable on a light background.
+- **`.text-lightblue` 和 `.link-lightblue` 是另一个问题。** 那些是把颜色*当作文字画在页面背景上*，而这八种颜色在那里同样也不够。改用 emphasis token 吧 —— `.text-lightblue-emphasis` 这类写法来自 `--bs-lightblue-text-emphasis`，也就是把这个颜色调暗 60% 之后的结果，在浅色背景上能看清。
+The attribute works with either sheet; on the designed palette it emits nothing at all, because every colour there clears AA with white text by construction — so it costs nothing to leave in your markup ([#6110](https://github.com/ColorlibHQ/AdminLTE/issues/6110)).
+这个属性对两个样式表都有效；在重新设计的那套调色板上，它什么都不输出，因为那里的每种颜色按构造就配白色文字达到了 AA —— 所以把它留在你的标记里没有任何开销（[#6110](https://github.com/ColorlibHQ/AdminLTE/issues/6110)）。

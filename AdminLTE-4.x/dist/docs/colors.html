@@ -103,6 +103,8 @@
     <link rel="stylesheet" href="../css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="../css/adminlte-docs.css" />
+
+    <!--email_off-->
     <!--begin::Optional Stylesheet(Extended palette — documented on this page)-->
     <link rel="stylesheet" href="../css/adminlte-colors.css" />
     <!--end::Optional Stylesheet(Extended palette)-->
@@ -949,7 +951,7 @@
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="html"
-                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/admin-lte@4/dist/css/adminlte-colors.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span></code></pre>
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/admin-lte@4.8.5/dist/css/adminlte-colors.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span></code></pre>
                     <p>从 npm，使用打包工具：</p>
                     <pre
                       class="astro-code dark-plus"
@@ -973,39 +975,46 @@
                       >。它们以两个文件的形式发布，定义的是同一批类名、只是取值不同，所以只要在
                       <code>adminlte.css</code> 之后加载其中<strong>一个</strong>就行：
                     </p>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>文件</th>
-                          <th>你能得到什么</th>
-                          <th>文字颜色规则</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><code>dist/css/adminlte-colors.css</code></td>
-                          <td>
-                            在 OKLCH 里设计的 14 种颜色 ——
-                            orange、amber、olive、teal、sky、indigo、violet、fuchsia、pink、navy、steel、slate、graphite、midnight
-                            —— 每一种配白色文字都清晰可读，排布时也考虑到了要跟 Bootstrap
-                            的主题色相邻
-                          </td>
-                          <td>Bootstrap 5 的 <code>color-contrast()</code>，4.5:1</td>
-                        </tr>
-                        <tr>
-                          <td><code>dist/css/adminlte-colors-v3.css</code></td>
-                          <td>
-                            18 种 AdminLTE 3 颜色 ——
-                            lightblue、navy、olive、lime、fuchsia、maroon、blue、indigo、purple、pink、red、orange、yellow、green、teal、cyan、gray、gray-dark
-                            —— 取值和 3.2 版本构建时一样
-                          </td>
-                          <td>
-                            AdminLTE 3 的规则（Bootstrap 4 YIQ）：lightblue、olive、teal、cyan
-                            等配白色；lime、orange、yellow 配深色
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>文件</th>
+                            <th>你能得到什么</th>
+                            <th>文字颜色规则</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>dist/css/adminlte-colors.css</code></td>
+                            <td>
+                              在 OKLCH 里设计的 14 种颜色 ——
+                              orange、amber、olive、teal、sky、indigo、violet、fuchsia、pink、navy、steel、slate、graphite、midnight
+                              —— 每一种配白色文字都清晰可读，排布时也考虑到了要跟 Bootstrap
+                              的主题色相邻
+                            </td>
+                            <td>Bootstrap 5 的 <code>color-contrast()</code>，4.5:1</td>
+                          </tr>
+                          <tr>
+                            <td><code>dist/css/adminlte-colors-v3.css</code></td>
+                            <td>
+                              18 种 AdminLTE 3 颜色 ——
+                              lightblue、navy、olive、lime、fuchsia、maroon、blue、indigo、purple、pink、red、orange、yellow、green、teal、cyan、gray、gray-dark
+                              —— 取值和 3.2 版本构建时一样
+                            </td>
+                            <td>
+                              AdminLTE 3 的规则（Bootstrap 4 YIQ）：lightblue、olive、teal、cyan
+                              等配白色；lime、orange、yellow 配深色。有八种达不到 WCAG AA ——
+                              <a href="#making-the-v3-colours-pass-aa"
+                                ><code>data-lte-contrast=&quot;aa&quot;</code></a
+                              >
+                              会把它们翻转过来
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <p>
                       两者输出的类系列完全一样（<code>.bg-*</code>、<code>.text-bg-*</code>、<code>.text-*</code>、<code>.border-*</code>、<code>.link-*</code>、<code>.bg-gradient-*</code>、<code>.card-*</code>、<code>.callout-*</code>、<code>.direct-chat-*</code>，以及带深色模式变体的
                       token），所以本页面讲的任何内容对两者都适用。演示页面可以让你在两者之间实时切换：<a
@@ -1226,6 +1235,193 @@
                         </tbody>
                       </table>
                     </div>
+                    <h5 id="让-v3-的颜色通过-aa">让 v3 的颜色通过 AA</h5>
+                    <p>
+                      <strong
+                        ><code>data-lte-contrast=&quot;aa&quot;</code>
+                        能修好这八种颜色，而且一个取值都不用动。</strong
+                      >
+                      v3 的规则给八种颜色配了白色文字，而这八种颜色对正文来说都达不到 WCAG AA 的
+                      4.5:1。这个属性只把这八种翻成能达到标准的深色文字，每一个背景色都保持一个字节不变：
+                    </p>
+                    <pre
+                      class="astro-code dark-plus"
+                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
+                      tabindex="0"
+                      data-language="html"
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">html</span><span style="color:#9CDCFE"> lang</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;en&quot;</span><span style="color:#9CDCFE"> data-lte-contrast</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;aa&quot;</span><span style="color:#808080">&gt;</span></span></code></pre>
+                    <div class="table-responsive">
+                      <table class="table align-middle">
+                        <thead>
+                          <tr>
+                            <th scope="col">Colour</th>
+                            <th scope="col">Default (v3 rule)</th>
+                            <th scope="col">With <code>aa</code></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge me-2" style="background: #3c8dbc">   </span
+                              ><code>lightblue</code>
+                              <span class="text-body-secondary">#3c8dbc</span>
+                            </td>
+                            <td class="text-nowrap">
+                              white text —
+                              <span class="text-danger-emphasis fw-semibold">3.67:1</span>
+                            </td>
+                            <td class="text-nowrap">
+                              black text —
+                              <span class="text-success-emphasis fw-semibold">5.73:1</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge me-2" style="background: #3d9970">   </span
+                              ><code>olive</code> <span class="text-body-secondary">#3d9970</span>
+                            </td>
+                            <td class="text-nowrap">
+                              white text —
+                              <span class="text-danger-emphasis fw-semibold">3.51:1</span>
+                            </td>
+                            <td class="text-nowrap">
+                              black text —
+                              <span class="text-success-emphasis fw-semibold">5.99:1</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge me-2" style="background: #f012be">   </span
+                              ><code>fuchsia</code> <span class="text-body-secondary">#f012be</span>
+                            </td>
+                            <td class="text-nowrap">
+                              white text —
+                              <span class="text-danger-emphasis fw-semibold">3.79:1</span>
+                            </td>
+                            <td class="text-nowrap">
+                              black text —
+                              <span class="text-success-emphasis fw-semibold">5.54:1</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge me-2" style="background: #007bff">   </span
+                              ><code>blue</code> <span class="text-body-secondary">#007bff</span>
+                            </td>
+                            <td class="text-nowrap">
+                              white text —
+                              <span class="text-danger-emphasis fw-semibold">3.98:1</span>
+                            </td>
+                            <td class="text-nowrap">
+                              black text —
+                              <span class="text-success-emphasis fw-semibold">5.28:1</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge me-2" style="background: #e83e8c">   </span
+                              ><code>pink</code> <span class="text-body-secondary">#e83e8c</span>
+                            </td>
+                            <td class="text-nowrap">
+                              white text —
+                              <span class="text-danger-emphasis fw-semibold">3.82:1</span>
+                            </td>
+                            <td class="text-nowrap">
+                              black text —
+                              <span class="text-success-emphasis fw-semibold">5.50:1</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge me-2" style="background: #28a745">   </span
+                              ><code>green</code> <span class="text-body-secondary">#28a745</span>
+                            </td>
+                            <td class="text-nowrap">
+                              white text —
+                              <span class="text-danger-emphasis fw-semibold">3.13:1</span>
+                            </td>
+                            <td class="text-nowrap">
+                              black text —
+                              <span class="text-success-emphasis fw-semibold">6.70:1</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge me-2" style="background: #20c997">   </span
+                              ><code>teal</code> <span class="text-body-secondary">#20c997</span>
+                            </td>
+                            <td class="text-nowrap">
+                              white text —
+                              <span class="text-danger-emphasis fw-semibold">2.13:1</span>
+                            </td>
+                            <td class="text-nowrap">
+                              black text —
+                              <span class="text-success-emphasis fw-semibold">9.86:1</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="text-nowrap">
+                              <span class="badge me-2" style="background: #17a2b8">   </span
+                              ><code>cyan</code> <span class="text-body-secondary">#17a2b8</span>
+                            </td>
+                            <td class="text-nowrap">
+                              white text —
+                              <span class="text-danger-emphasis fw-semibold">3.04:1</span>
+                            </td>
+                            <td class="text-nowrap">
+                              black text —
+                              <span class="text-success-emphasis fw-semibold">6.90:1</span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <p>
+                      这里只列出比值，而不是把它们渲染出来，因为把不达标的组合渲染出来，就等于在本页面上放了同样通不过这项检查的文字
+                      —— 去
+                      <a href="../UI/colors.html">颜色演示</a>
+                      页面把开关打开，就能在真实组件上看到两者并排对比。它覆盖了调色板在自己颜色上绘制文字的所有地方：<code>.text-bg-*</code>、<code>.bg-gradient-*</code>、<code
+                        >.card-*</code
+                      >
+                      头部、<code>.direct-chat-*</code>，以及
+                      <code>data-lte-primary</code> 生成的按钮、徽章和胶囊文字。有三件事值得了解：
+                    </p>
+                    <ul>
+                      <li>
+                        <strong>必须用纯黑。</strong> AdminLTE 3 自己的深墨色
+                        <code>#1f2d3d</code> 在这八种颜色里只有两种能达到 4.5:1 ——
+                        <code>teal</code> 和 <code>cyan</code>。其余的都需要纯黑，也就是
+                        <code>aa</code>
+                        用的那个。本来就配深色文字的那些颜色（<code>lime</code>、<code>orange</code>、<code>yellow</code>）继续用
+                        <code>#1f2d3d</code>，不动它们。
+                      </li>
+                      <li>
+                        <strong
+                          >翻转过的颜色要搭配 <code>data-bs-theme=&quot;light&quot;</code>。</strong
+                        >
+                        承载这八种颜色之一的侧边栏或头部现在用的是深色文字，所以它的导航链接也应该跟着变：<code
+                          >&lt;nav class=&quot;app-header navbar navbar-expand
+                          text-bg-lightblue&quot; data-bs-theme=&quot;light&quot;&gt;</code
+                        >。演示页面在开关打开时会帮你处理好这件事。
+                      </li>
+                      <li>
+                        <strong
+                          ><code>.text-lightblue</code> 和
+                          <code>.link-lightblue</code> 是另一个问题。</strong
+                        >
+                        那些是把颜色<em>当作文字画在页面背景上</em>，而这八种颜色在那里同样也不够。改用
+                        emphasis token 吧 —— <code>.text-lightblue-emphasis</code> 这类写法来自
+                        <code>--bs-lightblue-text-emphasis</code>，也就是把这个颜色调暗 60%
+                        之后的结果，在浅色背景上能看清。
+                      </li>
+                    </ul>
+                    <p>
+                      这个属性对两个样式表都有效；在重新设计的那套调色板上，它什么都不输出，因为那里的每种颜色按构造就配白色文字达到了
+                      AA —— 所以把它留在你的标记里没有任何开销（<a
+                        href="https://github.com/ColorlibHQ/AdminLTE/issues/6110"
+                        >#6110</a
+                      >）。
+                    </p>
                     <p>
                       v3 那个样式表是用和设计版同一套 Sass 构建的 ——
                       <code>src/scss/adminlte-colors-v3.scss</code> 把
@@ -1641,97 +1837,100 @@
                       对于每一种颜色 <code>&lt;name&gt;</code>，这个样式表会输出跟 Bootstrap
                       为主题色输出的那套一模一样的形态，所以透明度修饰符和深色模式的表现完全如你所料：
                     </p>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>你能得到</th>
-                          <th>示例</th>
-                          <th>备注</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>Token</td>
-                          <td><code>--bs-teal</code>, <code>--bs-teal-rgb</code></td>
-                          <td>
-                            另外在两种颜色模式下都有
-                            <code>--bs-teal-bg-subtle</code
-                            >、<code>--bs-teal-border-subtle</code>、<code
-                              >--bs-teal-text-emphasis</code
-                            >
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>背景</td>
-                          <td><code>.bg-teal</code>, <code>.bg-teal.bg-opacity-25</code></td>
-                          <td>变量结构和 <code>.bg-primary</code> 一样</td>
-                        </tr>
-                        <tr>
-                          <td>背景 + 对比文字</td>
-                          <td><code>.text-bg-teal</code></td>
-                          <td>白色文字；组件用的就是这个</td>
-                        </tr>
-                        <tr>
-                          <td>渐变</td>
-                          <td><code>.bg-gradient-teal</code></td>
-                          <td>
-                            AdminLTE 3 里的那个类；8
-                            种主题色也会一并输出（<code>.bg-gradient-primary</code>……）。Bootstrap
-                            可组合的 <code>.bg-teal.bg-gradient</code> 效果完全一样
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>文字、边框、链接</td>
-                          <td>
-                            <code>.text-teal</code>, <code>.border-teal</code>,
-                            <code>.link-teal</code>
-                          </td>
-                          <td>
-                            可搭配
-                            <code>.text-opacity-*</code>、<code>.border-opacity-*</code>、<code
-                              >.link-underline-*</code
-                            >
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>卡片</td>
-                          <td>
-                            <code>.card-teal</code>, <code>.card-outline.card-teal</code>,
-                            <code>.card.text-bg-teal</code>
-                          </td>
-                          <td>喂的是和主题色卡片同一套 <code>--lte-card-variant-*</code> 变量</td>
-                        </tr>
-                        <tr>
-                          <td>标注块</td>
-                          <td><code>.callout-teal</code></td>
-                          <td>淡色背景、强调色文字 —— 深色模式下会翻转</td>
-                        </tr>
-                        <tr>
-                          <td>直聊</td>
-                          <td><code>.direct-chat-teal</code></td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td>组件</td>
-                          <td>
-                            <code>.small-box.text-bg-teal</code>,
-                            <code>.info-box.text-bg-teal</code>, <code>.badge.text-bg-teal</code>,
-                            <code>.progress-bar.bg-teal</code>
-                          </td>
-                          <td>
-                            这些本来就能通过 <code>.text-bg-*</code> /
-                            <code>.bg-*</code> 自己上色，所以不用额外输出什么
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>按钮</td>
-                          <td>
-                            <code>.btn.text-bg-teal</code>, <code>.btn.bg-gradient-teal</code>
-                          </td>
-                          <td>会带上悬停 / 激活状态的色阶，免得看起来像没反应的死按钮</td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>你能得到</th>
+                            <th>示例</th>
+                            <th>备注</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Token</td>
+                            <td><code>--bs-teal</code>, <code>--bs-teal-rgb</code></td>
+                            <td>
+                              另外在两种颜色模式下都有
+                              <code>--bs-teal-bg-subtle</code
+                              >、<code>--bs-teal-border-subtle</code>、<code
+                                >--bs-teal-text-emphasis</code
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>背景</td>
+                            <td><code>.bg-teal</code>, <code>.bg-teal.bg-opacity-25</code></td>
+                            <td>变量结构和 <code>.bg-primary</code> 一样</td>
+                          </tr>
+                          <tr>
+                            <td>背景 + 对比文字</td>
+                            <td><code>.text-bg-teal</code></td>
+                            <td>白色文字；组件用的就是这个</td>
+                          </tr>
+                          <tr>
+                            <td>渐变</td>
+                            <td><code>.bg-gradient-teal</code></td>
+                            <td>
+                              AdminLTE 3 里的那个类；8
+                              种主题色也会一并输出（<code>.bg-gradient-primary</code>……）。Bootstrap
+                              可组合的 <code>.bg-teal.bg-gradient</code> 效果完全一样
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>文字、边框、链接</td>
+                            <td>
+                              <code>.text-teal</code>, <code>.border-teal</code>,
+                              <code>.link-teal</code>
+                            </td>
+                            <td>
+                              可搭配
+                              <code>.text-opacity-*</code>、<code>.border-opacity-*</code>、<code
+                                >.link-underline-*</code
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>卡片</td>
+                            <td>
+                              <code>.card-teal</code>, <code>.card-outline.card-teal</code>,
+                              <code>.card.text-bg-teal</code>
+                            </td>
+                            <td>喂的是和主题色卡片同一套 <code>--lte-card-variant-*</code> 变量</td>
+                          </tr>
+                          <tr>
+                            <td>标注块</td>
+                            <td><code>.callout-teal</code></td>
+                            <td>淡色背景、强调色文字 —— 深色模式下会翻转</td>
+                          </tr>
+                          <tr>
+                            <td>直聊</td>
+                            <td><code>.direct-chat-teal</code></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>组件</td>
+                            <td>
+                              <code>.small-box.text-bg-teal</code>,
+                              <code>.info-box.text-bg-teal</code>, <code>.badge.text-bg-teal</code>,
+                              <code>.progress-bar.bg-teal</code>
+                            </td>
+                            <td>
+                              这些本来就能通过 <code>.text-bg-*</code> /
+                              <code>.bg-*</code> 自己上色，所以不用额外输出什么
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>按钮</td>
+                            <td>
+                              <code>.btn.text-bg-teal</code>, <code>.btn.bg-gradient-teal</code>
+                            </td>
+                            <td>会带上悬停 / 激活状态的色阶，免得看起来像没反应的死按钮</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <h5 id="让其中某个颜色成为你的-primary">
                       让其中某个颜色成为你的 <code>primary</code>
                     </h5>
@@ -1761,74 +1960,77 @@
                       不加这个属性的话什么都不变，而且它对任何容器都有效 ——
                       页面的某一块区域也能拥有自己的 primary。跟着这个颜色一起变的还有：
                     </p>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>跟着变的</th>
-                          <th>具体内容</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>按钮</td>
-                          <td>
-                            <code>.btn-primary</code
-                            >、<code>.btn-outline-primary</code>（悬停、激活和禁用状态的色阶和
-                            Bootstrap 自己的完全一致）、<code>.btn-link</code>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>链接</td>
-                          <td>
-                            <code>a</code
-                            >、<code>.link-primary</code>、<code>.btn-link</code>、分页链接 ——
-                            在深色模式下带 Bootstrap 的深色模式色调
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>工具类和 token</td>
-                          <td>
-                            <code>--bs-primary</code>、<code>--bs-primary-rgb</code>、subtle /
-                            emphasis
-                            那一组三个、<code>.text-primary</code>、<code>.bg-primary</code>、<code>.border-primary</code>、<code>.text-bg-primary</code>、<code>.alert-primary</code>、<code>.list-group-item-primary</code>、<code
-                              >.accordion</code
-                            >
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>表单</td>
-                          <td>
-                            <code>.form-control</code> /
-                            <code>.form-select</code>
-                            的焦点圈和聚焦边框、<code>.form-check-input:checked</code>、不确定状态的复选框、<code
-                              >.form-range</code
-                            >
-                            的滑块手柄
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>组件</td>
-                          <td>
-                            <code>.nav-pills .nav-link.active</code>、<code
-                              >.pagination .active</code
-                            >、<code>.progress-bar</code>、<code>.list-group-item.active</code>、<code>.dropdown-item.active</code>、<code
-                              >--bs-focus-ring-color</code
-                            >
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>AdminLTE</td>
-                          <td>
-                            <code>.card-primary</code>（以及
-                            <code>.card-outline</code
-                            >）、<code>.direct-chat-primary</code>、<code>.toast-primary</code>、带
-                            <code>.bg-primary</code> 的 <code>.small-box</code>/<code
-                              >.info-box</code
-                            >
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>跟着变的</th>
+                            <th>具体内容</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>按钮</td>
+                            <td>
+                              <code>.btn-primary</code
+                              >、<code>.btn-outline-primary</code>（悬停、激活和禁用状态的色阶和
+                              Bootstrap 自己的完全一致）、<code>.btn-link</code>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>链接</td>
+                            <td>
+                              <code>a</code
+                              >、<code>.link-primary</code>、<code>.btn-link</code>、分页链接 ——
+                              在深色模式下带 Bootstrap 的深色模式色调
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>工具类和 token</td>
+                            <td>
+                              <code>--bs-primary</code>、<code>--bs-primary-rgb</code>、subtle /
+                              emphasis
+                              那一组三个、<code>.text-primary</code>、<code>.bg-primary</code>、<code>.border-primary</code>、<code>.text-bg-primary</code>、<code>.alert-primary</code>、<code>.list-group-item-primary</code>、<code
+                                >.accordion</code
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>表单</td>
+                            <td>
+                              <code>.form-control</code> /
+                              <code>.form-select</code>
+                              的焦点圈和聚焦边框、<code>.form-check-input:checked</code>、不确定状态的复选框、<code
+                                >.form-range</code
+                              >
+                              的滑块手柄
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>组件</td>
+                            <td>
+                              <code>.nav-pills .nav-link.active</code>、<code
+                                >.pagination .active</code
+                              >、<code>.progress-bar</code>、<code>.list-group-item.active</code>、<code>.dropdown-item.active</code>、<code
+                                >--bs-focus-ring-color</code
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>AdminLTE</td>
+                            <td>
+                              <code>.card-primary</code>（以及
+                              <code>.card-outline</code
+                              >）、<code>.direct-chat-primary</code>、<code>.toast-primary</code>、带
+                              <code>.bg-primary</code> 的 <code>.small-box</code>/<code
+                                >.info-box</code
+                              >
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <p>
                       Bootstrap 自己的主题色也能用 ——
                       <code>data-lte-primary=&quot;danger&quot;</code>
@@ -4130,9 +4332,19 @@
                     <h5 id="无障碍与深色模式">无障碍与深色模式</h5>
                     <ul>
                       <li>
-                        每一种内置颜色配白色文字都超过了 4.5:1（最低的是 4.6:1），所以
+                        <strong>重新设计的</strong>那套调色板里，每种颜色配白色文字都能达到
+                        4.5:1（最低的是 4.6:1），所以
                         <code>.text-bg-*</code>
                         从不需要为某个颜色单独开例外，用到它们的演示页面也都能通过 axe 检查关卡。
+                      </li>
+                      <li>
+                        <strong>v3</strong> 那套调色板是历史版本，它十八种颜色里有八种，配上 v3
+                        当初给它们指定的文字颜色，达不到 4.5:1。<code
+                          >data-lte-contrast=&quot;aa&quot;</code
+                        >
+                        会把正好这八种翻过来 —— 见<a href="#making-the-v3-colours-pass-aa"
+                          >让 v3 的颜色通过 AA</a
+                        >。
                       </li>
                       <li>
                         实色工具类（<code>.bg-*</code>、<code>.text-bg-*</code>）在两种颜色模式下都一样，Bootstrap
@@ -4154,63 +4366,66 @@
                       Bootstrap 4 的那套命名调色板，其中好几种配白色文字的对比度都低于
                       4:1。新调色板保留了有用的那些名字（<code>navy</code>、<code>olive</code>、<code>fuchsia</code>），其余的则重做了：
                     </p>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>AdminLTE 3</th>
-                          <th>现在</th>
-                          <th></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><code>bg-lightblue</code></td>
-                          <td><code>text-bg-sky</code></td>
-                          <td>同一色相，取值调到白色文字能过关</td>
-                        </tr>
-                        <tr>
-                          <td><code>bg-maroon</code></td>
-                          <td><code>text-bg-pink</code></td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <code>bg-navy</code> / <code>bg-olive</code> / <code>bg-fuchsia</code>
-                          </td>
-                          <td>名字不变</td>
-                          <td>取值重新设计过</td>
-                        </tr>
-                        <tr>
-                          <td><code>bg-lime</code></td>
-                          <td>—</td>
-                          <td>
-                            不存在能配白色文字的 lime；改用 <code>text-bg-olive</code> 或 Bootstrap
-                            的 <code>text-bg-warning</code>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <code>bg-purple</code>, <code>bg-teal</code>, <code>bg-orange</code>,
-                            <code>bg-indigo</code> …
-                          </td>
-                          <td>
-                            <code>text-bg-violet</code>, <code>text-bg-teal</code>,
-                            <code>text-bg-orange</code>, <code>text-bg-indigo</code>
-                          </td>
-                          <td>见调色板表格</td>
-                        </tr>
-                        <tr>
-                          <td><code>sidebar-dark-primary</code>, <code>navbar-light</code> …</td>
-                          <td><code>text-bg-*</code> + <code>data-bs-theme</code></td>
-                          <td>见上文的<em>皮肤</em></td>
-                        </tr>
-                        <tr>
-                          <td><code>bg-gradient-*</code></td>
-                          <td><code>bg-gradient-*</code></td>
-                          <td>保留了，调色板和主题色都能用</td>
-                        </tr>
-                      </tbody>
-                    </table>
+
+                    <div class="table-responsive" tabindex="0">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>AdminLTE 3</th>
+                            <th>现在</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>bg-lightblue</code></td>
+                            <td><code>text-bg-sky</code></td>
+                            <td>同一色相，取值调到白色文字能过关</td>
+                          </tr>
+                          <tr>
+                            <td><code>bg-maroon</code></td>
+                            <td><code>text-bg-pink</code></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <code>bg-navy</code> / <code>bg-olive</code> / <code>bg-fuchsia</code>
+                            </td>
+                            <td>名字不变</td>
+                            <td>取值重新设计过</td>
+                          </tr>
+                          <tr>
+                            <td><code>bg-lime</code></td>
+                            <td>—</td>
+                            <td>
+                              不存在能配白色文字的 lime；改用 <code>text-bg-olive</code> 或
+                              Bootstrap 的 <code>text-bg-warning</code>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <code>bg-purple</code>, <code>bg-teal</code>, <code>bg-orange</code>,
+                              <code>bg-indigo</code> …
+                            </td>
+                            <td>
+                              <code>text-bg-violet</code>, <code>text-bg-teal</code>,
+                              <code>text-bg-orange</code>, <code>text-bg-indigo</code>
+                            </td>
+                            <td>见调色板表格</td>
+                          </tr>
+                          <tr>
+                            <td><code>sidebar-dark-primary</code>, <code>navbar-light</code> …</td>
+                            <td><code>text-bg-*</code> + <code>data-bs-theme</code></td>
+                            <td>见上文的<em>皮肤</em></td>
+                          </tr>
+                          <tr>
+                            <td><code>bg-gradient-*</code></td>
+                            <td><code>bg-gradient-*</code></td>
+                            <td>保留了，调色板和主题色都能用</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <p>
                       想让现有标记继续能用，有两种办法：加载
                       <strong><code>adminlte-colors-v3.css</code></strong
@@ -4331,6 +4546,8 @@
      —— 不需要页面脚本。只有 <head> 里那段防止闪烁的代码片段保持内联，
      因为它必须在首次绘制之前就运行。 -->
     <!--end::明暗模式切换-->
+
+    <!--email_on-->
   </body>
   <!--end::Body-->
 </html>

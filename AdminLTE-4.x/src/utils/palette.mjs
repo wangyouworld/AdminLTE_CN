@@ -153,6 +153,9 @@ export const bootstrapThemeColors = [
  * at (`designColor(hue)`); neutrals are given as explicit OKLCH.
  * `scripts/palette.mjs` regenerates the hexes from these.
  */
+// WCAG AA 标准适用于普通文本
+export const AA_RATIO = 4.5
+
 export const paletteTargets = {
   cap: 0.2,
   target: 4.6,
@@ -178,7 +181,9 @@ const describe = (name, hex, role, description, use) => {
     oklchLabel: `oklch(${lch.L.toFixed(2)} ${lch.C.toFixed(2)} ${lch.h.toFixed(0)})`,
     contrastWhite: contrastWhite(hex),
     contrastBlack: contrastBlack(hex),
-    textColor: contrastWhite(hex) >= 4.5 ? 'white' : 'black'
+    textColor: contrastWhite(hex) >= AA_RATIO ? 'white' : 'black',
+    // 同样由设计决定：每种指定颜色均用白色清除AA
+    textColorAA: contrastWhite(hex) >= AA_RATIO ? 'white' : 'black'
   }
 }
 
@@ -273,7 +278,11 @@ const describeV3 = (name, hex, note) => {
     oklch: { L: lch.L, C: lch.C, h: lch.h },
     contrastWhite: contrastWhite(hex),
     contrastBlack: contrastBlack(hex),
-    textColor: yiqTextColor(hex) === 'white' ? 'white' : 'black'
+    textColor: yiqTextColor(hex) === 'white' ? 'white' : 'black',
+    // `data-lte-contrast="aa"` 用的是哪套逻辑：正常情况下还是原来的选择，
+    // 除非它达不到 WCAG AA 对正文的要求，那就换成另一个（#6110）。注意 v3 自己的
+    // 深墨色（#1f2d3d）不够用 —— 它在这八种颜色里只有两种能达到 4.5:1。
+    textColorAA: contrastWhite(hex) >= AA_RATIO ? 'white' : 'black'
   }
 }
 

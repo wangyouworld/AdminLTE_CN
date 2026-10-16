@@ -113,40 +113,80 @@
     <script type="application/json" id="palette-text">
       {
         "designed": {
-          "orange": "white",
-          "amber": "white",
-          "olive": "white",
-          "teal": "white",
-          "sky": "white",
-          "indigo": "white",
-          "violet": "white",
-          "fuchsia": "white",
-          "pink": "white",
-          "navy": "white",
-          "steel": "white",
-          "slate": "white",
-          "graphite": "white",
-          "midnight": "white"
+          "default": {
+            "orange": "white",
+            "amber": "white",
+            "olive": "white",
+            "teal": "white",
+            "sky": "white",
+            "indigo": "white",
+            "violet": "white",
+            "fuchsia": "white",
+            "pink": "white",
+            "navy": "white",
+            "steel": "white",
+            "slate": "white",
+            "graphite": "white",
+            "midnight": "white"
+          },
+          "aa": {
+            "orange": "white",
+            "amber": "white",
+            "olive": "white",
+            "teal": "white",
+            "sky": "white",
+            "indigo": "white",
+            "violet": "white",
+            "fuchsia": "white",
+            "pink": "white",
+            "navy": "white",
+            "steel": "white",
+            "slate": "white",
+            "graphite": "white",
+            "midnight": "white"
+          }
         },
         "v3": {
-          "lightblue": "white",
-          "navy": "white",
-          "olive": "white",
-          "lime": "black",
-          "fuchsia": "white",
-          "maroon": "white",
-          "blue": "white",
-          "indigo": "white",
-          "purple": "white",
-          "pink": "white",
-          "red": "white",
-          "orange": "black",
-          "yellow": "black",
-          "green": "white",
-          "teal": "white",
-          "cyan": "white",
-          "gray": "white",
-          "gray-dark": "white"
+          "default": {
+            "lightblue": "white",
+            "navy": "white",
+            "olive": "white",
+            "lime": "black",
+            "fuchsia": "white",
+            "maroon": "white",
+            "blue": "white",
+            "indigo": "white",
+            "purple": "white",
+            "pink": "white",
+            "red": "white",
+            "orange": "black",
+            "yellow": "black",
+            "green": "white",
+            "teal": "white",
+            "cyan": "white",
+            "gray": "white",
+            "gray-dark": "white"
+          },
+          "aa": {
+            "lightblue": "black",
+            "navy": "white",
+            "olive": "black",
+            "lime": "black",
+            "fuchsia": "black",
+            "maroon": "white",
+            "blue": "black",
+            "indigo": "white",
+            "purple": "white",
+            "pink": "black",
+            "red": "white",
+            "orange": "black",
+            "yellow": "black",
+            "green": "black",
+            "teal": "black",
+            "cyan": "black",
+            "gray": "white",
+            "gray-dark": "white"
+          }
         }
       }
     </script>
@@ -1425,6 +1465,47 @@
                     AdminLTE 3 原版
                   </button>
                 </div>
+              </div>
+              <div class="card-footer" data-astro-cid-ghactkgv>
+                <div class="form-check form-switch mb-2" data-astro-cid-ghactkgv>
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="contrast-aa"
+                    data-astro-cid-ghactkgv
+                  />
+                  <label class="form-check-label" for="contrast-aa" data-astro-cid-ghactkgv>
+                    强制使用 WCAG AA 文字 —
+                    <code class="text-body-emphasis" data-astro-cid-ghactkgv
+                      >data-lte-contrast="aa"</code
+                    >
+                  </label>
+                </div>
+                <p
+                  class="text-body-secondary small mb-0"
+                  data-palette-set="designed"
+                  data-astro-cid-ghactkgv
+                >
+                  这个调色板没有任何变化：每个颜色在与所赋予的文本配合时，其对比度已达到4.5:1。
+                </p>
+                <p
+                  class="text-body-secondary small mb-0"
+                  data-palette-set="v3"
+                  hidden
+                  data-astro-cid-ghactkgv
+                >
+                  在 18 种颜色里，会把其中 8 种颜色上指定文字达不到 4.5:1 的文字翻转过来 —
+                  <code data-astro-cid-ghactkgv>lightblue</code> (3.67:1 → 5.73:1),
+                  <code data-astro-cid-ghactkgv>olive</code> (3.51:1 → 5.99:1),
+                  <code data-astro-cid-ghactkgv>fuchsia</code> (3.79:1 → 5.54:1),
+                  <code data-astro-cid-ghactkgv>blue</code> (3.98:1 → 5.28:1),
+                  <code data-astro-cid-ghactkgv>pink</code> (3.82:1 → 5.50:1),
+                  <code data-astro-cid-ghactkgv>green</code> (3.13:1 → 6.70:1),
+                  <code data-astro-cid-ghactkgv>teal</code> (2.13:1 → 9.86:1),
+                  <code data-astro-cid-ghactkgv>cyan</code> (3.04:1 → 6.90:1).
+                  背景色保持它们的确切取值不变。
+                </p>
               </div>
             </div>
             <!--end::Palette switch-->
@@ -6275,6 +6356,7 @@
      —— 不需要页面脚本。只有 <head> 里那段防止闪烁的代码片段保持内联，
      因为它必须在首次绘制之前就运行。 -->
     <!--end::明暗模式切换-->
+
     <!--begin::Page script (skin switcher + brand checker; page-local, not part of adminlte.js)-->
     <script>
       (() => {
@@ -6286,6 +6368,7 @@
         const markup = document.getElementById('skin-markup');
         const pickers = document.querySelectorAll('[data-skin-picker]');
         const primaryPickers = document.querySelectorAll('[data-primary-picker]');
+        const contrastToggle = document.getElementById('contrast-aa');
         const primaryMarkup = document.getElementById('primary-markup');
         // 按调色板自动决定文字颜色（v3 那个样式表会给某些颜色配深色文字）
         const PALETTE_TEXT = JSON.parse(document.getElementById('palette-text').textContent);
@@ -6296,12 +6379,19 @@
           header: { cls: 'bg-body', theme: 'light' },
           // <html> 上的 `data-lte-primary`：选 "default" 就不加这个属性
           primary: 'default',
+          // `data-lte-contrast="aa"`: flips the text on colours that miss AA
+          aa: false,
         };
         const DEFAULTS = {
           sidebar: { cls: 'bg-body-secondary', theme: 'dark' },
           header: { cls: 'bg-body', theme: 'light' },
         };
         const isSkinClass = (c) => /^(text-bg-|bg-body|bg-gradient-)/.test(c);
+        // 某个调色板颜色在当前生效模式下的自动文字颜色：
+        // 彩色的侧边栏或头部只有在它的文字是白色时，
+        // 才搭配 data-bs-theme="dark"。
+        const textOf = (color) =>
+          ((PALETTE_TEXT[activeSet] || {})[state.aa ? 'aa' : 'default'] || {})[color] || 'white';
 
         const paint = (el, role) => {
           const stale = [...el.classList].filter((c) => isSkinClass(c));
@@ -6312,12 +6402,28 @@
         };
 
         const render = () => {
+          // 先配对，再上色：文字翻成深色的那种颜色，
+          // 需要承载它的区域开启浅色模式，
+          // 这样它的导航链接才会跟着标题走。
+          for (const role of ['sidebar', 'header']) {
+            const cls = state[role].cls;
+            if (cls.startsWith('text-bg-') || cls.startsWith('bg-gradient-')) {
+              state[role].theme =
+                textOf(cls.replace(/^(text-bg-|bg-gradient-)/, '')) === 'white' ? 'dark' : 'light';
+            }
+          }
+
           paint(sidebar, 'sidebar');
           paint(header, 'header');
           if (state.primary === 'default') {
             document.documentElement.removeAttribute('data-lte-primary');
           } else {
             document.documentElement.setAttribute('data-lte-primary', state.primary);
+          }
+          if (state.aa) {
+            document.documentElement.setAttribute('data-lte-contrast', 'aa');
+          } else {
+            document.documentElement.removeAttribute('data-lte-contrast');
           }
           for (const picker of primaryPickers) {
             for (const chip of picker.querySelectorAll('[data-color]')) {
@@ -6328,9 +6434,12 @@
             }
           }
           primaryMarkup.textContent =
-            state.primary === 'default'
+            (state.aa && state.primary !== 'default'
+              ? '<!-- with data-lte-contrast="aa" the text on this colour flips -->\n'
+              : '') +
+            (state.primary === 'default'
               ? '<html lang="zh-CN">   <!-- no attribute: Bootstrap\'s blue -->'
-              : `<html lang="en" data-lte-primary="${state.primary}">`;
+              : `<html lang="en" data-lte-primary="${state.primary}"${state.aa ? ' data-lte-contrast="aa"' : ''}>`);
           for (const picker of pickers) {
             const role = picker.getAttribute('data-skin-picker');
             const cls = state[role].cls;
@@ -6356,6 +6465,7 @@
             button.setAttribute('aria-pressed', String(matches));
           }
           markup.textContent =
+            (state.aa ? '<html lang="en" data-lte-contrast="aa">\n' : '') +
             `<nav class="app-header navbar navbar-expand ${state.header.cls}" data-bs-theme="${state.header.theme}">\n` +
             `<aside class="app-sidebar ${state.sidebar.cls} shadow" data-bs-theme="${state.sidebar.theme}">`;
         };
@@ -6370,7 +6480,7 @@
             const color = chip.getAttribute('data-color');
             // 当某个颜色配的是白色文字时，彩色的侧边栏或头部就搭配 data-bs-theme="dark"
             // 来用（设计版全部颜色都是如此；v3 里大多数颜色也是）。
-            const text = (PALETTE_TEXT[activeSet] || {})[color] || 'white';
+            const text = textOf(color);
             state[role] =
               color === 'default'
                 ? { ...DEFAULTS[role] }
@@ -6389,6 +6499,11 @@
             render();
           });
         }
+
+        contrastToggle?.addEventListener('change', () => {
+          state.aa = contrastToggle.checked;
+          render();
+        });
 
         for (const container of document.querySelectorAll('.skin-presets')) {
           container.addEventListener('click', (event) => {

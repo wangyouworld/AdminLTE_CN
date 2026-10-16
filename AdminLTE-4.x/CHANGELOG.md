@@ -5,6 +5,66 @@ AdminLTE 的所有显著变更都将记录在此文件中。
 格式基于 [记录变更日志](https://keepachangelog.com/en/1.0.0/)，
 本项目遵循 [语义化版本控制](https://semver.org/spec/v2.0.0.html)。
 
+## [4.8.5] - 2026-08-20
+
+### 已修复
+
+- **`npm run production` 打印出了六条 Sass 弃用警告。** 调色板样式表在三处用到了三元 `if()` —— `colors/_variables.scss` 里的 `lte-needs-aa()`，以及 `colors/_primary.scss` 里挑选文字颜色的地方，用了两次 —— 而 Sass 1.95.0 弃用了这种语法，改为推荐 CSS 的 `if()`。`adminlte-colors.scss` 和 `adminlte-colors-v3.scss` 都会引入这两个文件，所以三处调用产生了六条警告。现在它们改成了普通的 `@if` 语句，而不是 Sass 建议的 `if(sass(...): ...; else: ...)` —— 后者会要求任何从源码编译 AdminLTE 的人至少用 Sass 1.95。编译产物一个字节都没变（#6111，由 @lfiorini 反馈）。
+
+  顺便说明一下，Bootstrap 自己的 `if()` 调用也会报警告 —— 在 `bootstrap/scss` 里一共有 82 处 —— 但 `css-compile` 已经带了 `--quiet-deps`，所以 `node_modules` 下面的任何东西都不会输出到控制台。那份报告里的每一条警告都是 AdminLTE 自己的。
+
+### 维护
+
+- **开发依赖都更新了** —— sass 1.102.0 -> 1.103.0、astro 7.2.3 -> 7.2.4、@astrojs/mdx 7.0.6 -> 7.0.7、happy-dom 20.11.2 -> 20.11.6。都在各自的大版本范围内；`dist/` 一个字节都没变，所以对使用者来说没有任何影响。
+- **文档构建不再使用 Astro 已弃用的 `markdown.rehypePlugins`。** Astro 7.2.4 弃用了顶层的 `remarkPlugins` / `rehypePlugins` / `remarkRehype` 这几个键，改为推荐显式的 `markdown.processor`，所以上面那次版本升级又给 #6111 讨论的那条命令添了一条新警告。响应式表格插件现在走 `@astrojs/markdown-remark` 里的 `unified()` —— 同一条 remark/rehype 流水线，现在成了直接的开发依赖。所有 90 个构建出来的页面都一个字节没变，包括 `.table-responsive` 的包裹。
+- **lockfile 里的 `nanoid` 升到了 3.3.18** —— GHSA-2v37-7h3g-55p8（高危），这是一个仅用于开发的间接依赖，问题在于自定义生成器遇到 `size: 0` 时可能陷入死循环。`npm audit` 现在报告零漏洞；`dist/` 里发布出去的东西从未受影响。
+- **TypeScript 保持在 6.0.3。** 7.0.2 已经发布了，但 `typescript-eslint` 仍然声明 `peerDependencies.typescript: ">=4.8.4 <6.1.0"`，而 `@astrojs/check` 接受 `^5 || ^6`，所以工具链还是动不了。
+
+## [4.8.4] - 2026-08-19
+
+### 已修复
+
+- **文档页面上的参考表格在手机上会把页面撑得横向滚动。** Markdown 的竖线表格渲染出来就是一个光秃秃的 `<table>`，没有滚动容器，所以只要超过三列就会溢出视口 —— 在颜色页面上溢出了 265px。现在它们都被包进了 `.table-responsive` 并带一个 Tab 停靠点，跟旁边的那些手写表格完全一样，这样表格就在列内滚动，而且键盘也能访问到。桌面端布局不变。
+
+## [4.8.3] - 2026-08-19
+
+### 已修复
+
+- **每个页面在手机上都会横向滚动。** 在 390px 宽度下，头部右侧那一排项目（消息、通知、全屏、用户菜单）在 Bootstrap 默认的 1rem 导航链接内边距下比视口稍微宽一点，所以所有 90 个演示页面的 `document.scrollWidth` 都比 `clientWidth` 多出 22px —— 每块屏幕上都有横向滚动条。`sm` 以下，头部现在把 `--bs-navbar-nav-link-padding-x` 减半；`sm` 往上则什么都不变（用户菜单保持它 182px 的宽度和它的文字标签）。改动前测出来是 412/390，改动后是 390/390，桌面端不受影响。
+
+  给那些想自己去检查这个问题的人提个醒：要量的是 `scrollWidth > clientWidth`，而不是 `> window.innerWidth` —— 布局视口会跟着溢出一起变大，所以用 `innerWidth` 比较会悄无声息地通过。
+
+## [4.8.2] - 2026-08-19
+
+### 已修复
+
+- **文档里的安装代码片段被当成 `[email protected]` 提供出去了。** Cloudflare 的邮箱混淆功能会把文本节点里任何 `package@version` 形式的写法当成邮箱地址，重写成 mailto 链接 —— 所以线上文档页面里每一个锁定了版本的代码片段都用不了：Integrations 页面有 31 处（Flatpickr、Tom Select、Quill、Chart.js……），Introduction 和 Deployment 各 8 处，Getting Started 有 7 处。文档页面现在加上了 `<!--email_off-->` 标记，跟 docs.adminlte.io 早就用过的修复方式一样。
+
+### 变更
+
+- **文档里的安装代码片段现在是从 `package.json` 提取生成的。** Introduction、Getting Started、Deployment 和 Colors 这几个页面还锁在 `admin-lte@4.0.0`，而那个版本已经过时八个版本了。`sync-version.mjs` 现在会在文档源码里标记 `admin-lte@X.Y.Z` 版本，跟 SCSS/TS 文件头部的横幅一起更新，这样 `npm version` 就能保证它们不会说谎。README 快速开始里那个故意不锁版本的 `admin-lte@4` 则原样保留。
+
+### 维护
+
+- **开发依赖都更新了** —— astro 7.1.6 → 7.2.3、@astrojs/mdx 7.0.5 → 7.0.6、eslint 10.8.0 → 10.8.1、typescript-eslint 三件套 8.66.0 → 8.67.0、vitest 4.1.10 → 4.1.11、happy-dom 20.11.1 → 20.11.2、axe-core 4.12.1 → 4.13.0、terser 5.49.2 → 5.50.0、postcss 8.5.25 → 8.5.26、globals 17.9.0 → 17.11.0、concurrently 10.0.4 → 10.0.5、lockfile-lint 5.0.0 → 5.0.1。都在各自的大版本范围内；`dist/` 一个字节都没变，所以对使用者来说没有任何影响。
+- **TypeScript 保持在 6.0.3。** 7.0.2 已经发布了，但 `typescript-eslint` 仍然声明 `peerDependencies.typescript: ">=4.8.4 <6.1.0"`，而 `@astrojs/check` 接受 `^5 || ^6`，所以工具链暂时还动不了。等这两者允许了再跟进。
+
+## [4.8.1] - 2026-08-19
+
+### 已修复
+
+- **在 `data-lte-primary` 下分页丢失了焦点圈。** 两个调色板样式表编译后的输出里都原样带了一个 `$pagination-focus-box-shadow-width`：Sass 不会去求值自定义属性值里的 `$variables` —— 它只是原样输出，而不会报错 —— 所以这个拼写错误干干净净地编译过去了，以文本形式到达浏览器，让那条声明变成了无效声明。于是 `--bs-pagination-focus-box-shadow` 解析出来什么都没有，`.page-link` 上的键盘焦点就变得看不见了，这是 4.6.0 引入的一个键盘无障碍回归。现在这个值是从 Bootstrap 的焦点圈 token 构建出来的（它写的那个变量压根不存在；正确的是 `$focus-ring-width`），并且会跟随主题色。现在有一个单元测试会扫描三个样式表的编译产物，查找未解析的 Sass 变量，因为编译本身抓不出这类拼写错误（#6109，由 @johnnyq 反馈）。
+
+## [4.8.0] - 2026-08-19
+
+### 新增
+
+- **`data-lte-contrast="aa"` —— 让 AdminLTE 3 调色板上的文字达到 WCAG AA，而且一个颜色都不用改。** v3 那个样式表忠实地复刻了 v3 的 YIQ 文字规则，而那条规则给八种颜色配了白色文字，这八种颜色对正文来说都达不到 4.5:1：`teal`（2.13:1）、`cyan`（3.04）、`green`（3.13）、`olive`（3.51）、`lightblue`（3.67）、`fuchsia`（3.79）、`pink`（3.82）和 `blue`（3.98）。这个属性 —— 可以加在 `<html>`、`<body>` 或任意容器上 —— 会把正好这八种颜色翻成能达标的深色墨水（5.28:1 到 9.86:1），而每一个背景色都保持一个字节不变，并且覆盖调色板在自己颜色上绘制文字的所有地方：`.text-bg-*`、`.bg-gradient-*`、`.card-*` 头部、`.direct-chat-*`，以及 `data-lte-primary` 生成的按钮、徽章和胶囊文字。它必须用纯黑：AdminLTE 3 自己的深色墨水 `#1f2d3d` 在这八种颜色里只有两种能达到 4.5:1，所以本来就配深色文字的那些颜色（`lime`、`orange`、`yellow`）继续用 `#1f2d3d`，不动它们。规则只在调色板自己的规则不达标的地方按颜色输出，所以重新设计的那套调色板 —— 每种颜色按构造就配白色达到 AA —— 什么都不输出，这个开关对它零开销。**UI → Colors** 和 **主题自定义** 新增了一个开关，它还会把翻转过的侧边栏或头部重新配上 `data-bs-theme="light"`，这样它的导航链接也能跟着变（#6110，由 @johnnyq 反馈）。
+
+### 已修复
+
+- **在 v3 样式表上，`data-lte-primary` 给 Bootstrap 的 `info` 配了白色文字。** 那些 primary 预设把当前样式表的对比度规则也应用到了 Bootstrap 自己的主题色上，而 v3 的 YIQ 测试算出来 `#0dcaf0` 是 149.8，阈值是 150 —— 就差十分之一点到深色文字 —— 所以 `data-lte-primary="info"` 生成了青色底配白色文字，对比度只有 1.96:1，而同一页面上 `.btn-info` 却还是黑色的。现在 Bootstrap 的主题色保持 Bootstrap 自己的对比度规则；调色板的颜色则保持该样式表的规则。
+
 ## [4.7.0] - 2026-08-18
 
 ### 新增

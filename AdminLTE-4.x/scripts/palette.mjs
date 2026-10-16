@@ -150,7 +150,17 @@ function check() {
     }
   }
 
-  // 5. 每个皮肤的 `data-lte-primary` 都是该样式表里确实存在的颜色
+  // 5. `data-lte-contrast="aa"` 必须让每种颜色都保持在 AA 或以上
+  for (const [label, colors] of [['', palette], ['v3 ', paletteV3]]) {
+    for (const c of colors) {
+      const ratio = c.textColorAA === 'white' ? c.contrastWhite : c.contrastBlack
+      if (ratio < MIN_WHITE_CONTRAST) {
+        problems.push(`${label}${c.name} ${c.hex}: still ${ratio.toFixed(2)}:1 with ${c.textColorAA} text under data-lte-contrast="aa"`)
+      }
+    }
+  }
+
+  // 6. 每个皮肤的 `data-lte-primary` 都是该样式表里确实存在的颜色
   //    （Bootstrap 自己的主题色始终可用）
   const themeColors = new Set(['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'])
   for (const [label, list, colors] of [['', skins, palette], ['v3 ', skinsV3, paletteV3]]) {
@@ -174,7 +184,7 @@ function check() {
     return
   }
 
-  console.log(`调色板检查通过：${palette.length} 种颜色，配白色文字全部 ≥ ${MIN_WHITE_CONTRAST}:1，SCSS 和 JS 保持同步；v3 样式表：${paletteV3.length} 种颜色已同步；${skins.length + skinsV3.length} 个皮肤指定的 primary 都存在。`)
+  console.log(`调色板检查通过：${palette.length} 种颜色，配白色文字全部 ≥ ${MIN_WHITE_CONTRAST}:1，SCSS 和 JS 保持同步；v3 样式表：${paletteV3.length} 种颜色已同步；${skins.length + skinsV3.length} 个皮肤指定的 primary 都存在；在 data-lte-contrast="aa" 下每种颜色都能达到 ${MIN_WHITE_CONTRAST}:1。`)
   for (const c of palette) {
     console.log(`  ${c.name.padEnd(9)} ${c.hex}  ${fmt(hexToOklch(c.hex)).padEnd(24)} white ${contrastWhite(c.hex).toFixed(2)}:1`)
   }
