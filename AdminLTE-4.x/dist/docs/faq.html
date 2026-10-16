@@ -767,7 +767,7 @@
               </span>
               <h1 class="faq-hero-title">需要帮忙吗？</h1>
               <p class="faq-hero-lead">
-                最常被问到的 25 个问题，快速解答。 使用搜索功能跳转至任意内容，或点击下方主题。
+                最常被问到的 26 个问题，快速解答。 使用搜索功能跳转至任意内容，或点击下方主题。
               </p>
               <form class="faq-search" role="search" onsubmit="return false;">
                 <i class="bi bi-search faq-search-icon" aria-hidden="true"></i>
@@ -825,7 +825,7 @@
               ><a href="#troubleshooting" class="faq-chip faq-chip-danger">
                 <i class="bi bi-wrench-adjustable" aria-hidden="true"></i>
                 <span>故障排除</span>
-                <span class="faq-chip-count">7</span>
+                <span class="faq-chip-count">8</span>
               </a>
             </nav>
 
@@ -1289,7 +1289,7 @@
                   </span>
                   <div>
                     <h2 class="faq-section-title">故障排除</h2>
-                    <p class="faq-section-count">7 个问题</p>
+                    <p class="faq-section-count">8 个问题</p>
                   </div>
                 </header>
                 <div class="faq-section-items">
@@ -1382,12 +1382,31 @@
                     </summary>
                     <div class="faq-answer">
                       那些是 AdminLTE
-                      的打印默认行为，适合把屏幕内容打印成一份拷贝。如果某个页面要打印成正式文档 ——
-                      比如发给客户的发票或工单 —— 就在
+                      的打印默认行为，是为了在纸上阅读页面内容而设计的。如果某个页面要打印成正式文档
+                      —— 比如发给客户的发票或工单 —— 就在
                       <code>&lt;html data-lte-print="plain"&gt;</code>
-                      上加上这个属性（它对任何容器也有效），这两样就都没了，同时文字保持白底黑字。想隐藏界面部分，就用
-                      Bootstrap 的 <code>.d-print-none</code> 加在侧边栏和头部上。详见
+                      上加上这个属性（它对任何容器也有效），这两样就都没了，同时文字保持白底黑字。详见
                       <a href="recipes.html">方案</a> 页面。
+                    </div>
+                  </details>
+                  <details class="faq-item" data-faq-item>
+                    <summary>
+                      <span class="faq-q-icon">
+                        <i class="bi bi-question-lg" aria-hidden="true"></i>
+                      </span>
+                      <span class="faq-q-text">侧边栏和头部不再打印。</span>
+                      <span class="faq-q-chevron">
+                        <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                      </span>
+                    </summary>
+                    <div class="faq-answer">
+                      这是有意为之：外壳 —— 头部、侧边栏和页脚 ——
+                      是导航用的，把它们打印出来，每张纸会有 200px
+                      花在一个菜单上，还会把内容挤到额外的页面上（#6113）。现在内容能占满整张纸的宽度，跟
+                      v3 里一样。加上
+                      <code>&lt;html data-lte-print="app"&gt;</code>
+                      就能把整个布局重新打印出来，或者用 Bootstrap 的 <code>.d-print-flex</code> /
+                      <code>.d-print-block</code> 恢复其中某一块。
                     </div>
                   </details>
                   <details class="faq-item" data-faq-item>

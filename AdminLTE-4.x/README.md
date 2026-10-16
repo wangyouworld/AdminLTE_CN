@@ -131,17 +131,17 @@ v4 系列是在 Bootstrap 5.3 上完全重写的，**不再依赖 jQuery**：
 <details>
 <summary>亮点一览</summary>
 
-**18 个新演示页面**
+**18 个新的演示页面**
 
-- 应用：日历（FullCalendar）、看板（SortableJS）、聊天、文件管理器、项目、邮箱（收件箱/阅读/写信）
-- 表单：向导（4 步流程，含验证）
+- 应用程序：日历（FullCalendar）、看板（SortableJS）、聊天、文件管理器、项目、邮箱（收件箱/阅读/写信）
+- 表单：表单向导（4 步带校验）
 - 表格：数据表格（Tabulator — 无 jQuery）
 - 页面：个人资料、设置、发票、定价、常见问题
 - 错误页：404、500、维护中
 
 **文档全面翻新**
 
-- 新增页面：快速上手、自定义与主题化、RTL 支持、从 v3 迁移、布局蓝图、实战技巧、部署与性能、推荐集成、JavaScript 插件概览
+- 新增页面：快速开始、自定义与主题、RTL 支持、从 v3 迁移、布局结构、实用方案、部署与性能、推荐集成、JavaScript 插件概览
 - 重写了介绍页面，明确标出四种安装方式（CDN / npm / 源码 / Composer）
 - FAQ rebuilt with hero, live search, section chips, and an accordion of 23 questions
 - 侧边栏导航拆开了：仪表盘演示和文档各用各的导航
@@ -156,9 +156,9 @@ v4 系列是在 Bootstrap 5.3 上完全重写的，**不再依赖 jQuery**：
 <details>
 <summary>从 v3 升级的破坏性变更</summary>
 
-- 类名重命名：`.wrapper` → `.app-wrapper`，`.main-header` → `.app-header`，`.main-sidebar` → `.app-sidebar`，`.content-wrapper` → `.app-main`
-- 数据属性：`data-toggle` → `data-bs-toggle`、`data-widget="pushmenu"` → `data-lte-toggle="sidebar"`、`data-widget="treeview"` → `data-lte-toggle="treeview"`
-- 深色模式：body 类 `.dark-mode` → `data-bs-theme="dark"` 属性（Bootstrap 5.3 原生支持）
+- 类名重命名：`.wrapper` → `.app-wrapper`、`.main-header` → `.app-header`、`.main-sidebar` → `.app-sidebar`、`.content-wrapper` → `.app-main`
+- 数据属性：`data-toggle` → `data-bs-toggle`，`data-widget="pushmenu"` → `data-lte-toggle="sidebar"`，`data-widget="treeview"` → `data-lte-toggle="treeview"`
+- 深色模式：`<body>` 上的 `.dark-mode` 类 → `data-bs-theme="dark"` 属性（Bootstrap 5.3 原生支持）
 - 不再需要 jQuery；插件使用原生 TypeScript
 - 打包的 `plugins/` 文件夹没了 —— v3 里的每个 jQuery 组件都有了一个有文档记录的原生 JS 继任者（[替代对照表](https://adminlte.io/themes/v4/docs/migration.html#third-party-plugin-replacements)：Select2 → Tom Select、DataTables → Tabulator、Summernote → Quill……）
 - v3 里的那些额外颜色（`.bg-navy`、`.bg-teal`、侧边栏皮肤等等）放在按需启用的样式表里：`dist/css/adminlte-colors.css` —— 十四种重新设计过的颜色，每一种配白色文字都清晰可读，17 个皮肤预设，外加一行钩子就能加入你的品牌色 —— 或者 `dist/css/adminlte-colors-v3.css`，也就是 18 种 AdminLTE 3 颜色原封不动的版本。两个样式表里的任意一个，都能让你把其中某个颜色设成 Bootstrap 的 `primary` —— `<html data-lte-primary="teal">` 会重新给按钮、链接、分页和表单聚焦态上色（[颜色文档](https://adminlte.io/themes/v4/docs/colors.html)、[在线演示](https://adminlte.io/themes/v4/UI/colors.html)）。`adminlte.css` 里什么都没加。
@@ -275,7 +275,7 @@ AdminLTE 是一个 **UI 模板**。部署时只放编译好的生产环境资源
 </p>
 
 <p align="center">
-  <a href="https://github.com/sponsors/danny007in">想在这里放你的头像？成为赞助者吧</a>
+  <a href="https://github.com/sponsors/danny007in">您的头像在这里？成为赞助者</a>
 </p>
 
 ## 贡献

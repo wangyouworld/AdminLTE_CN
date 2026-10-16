@@ -418,9 +418,9 @@ new ApexCharts(document.querySelector("#revenue-chart"), {
 
 ##### 将页面作为文档打印
 
-AdminLTE 会打印完整布局——侧边栏、头部与内容区，采用适合复刻屏幕画面阅读的样式：外部链接会在文本后打印链接地址，按钮保留外轮廓，维持按钮的视觉识别效果，整体采用黑字白底，避免背景消耗墨水。
+打印页面是一种文档，而非应用程序的截图，因此 AdminLTE 会将页面的外壳（页眉、侧边栏菜单和页脚）省略在纸上，而让内容占据整张纸的宽度。打印时的样式是为纸质阅读而设计的：外部链接的目标文本会被打印在后面，按钮保持轮廓以确保仍能识别为按钮，所有内容都采用黑白配色，避免背景遮盖墨迹。
 
-对于需要作为**文档**打印的页面——例如提供给客户的发票、报价单、工单或装箱单——上述打印效果并不合适：没人希望纸质发票上出现 `在线支付 (https://pay.example.com/inv/12345?token=…)`，也不想要按钮外围的方框。在 `<html>`、`<body>` 或任意容器标签上添加 `data-lte-print="plain"` 属性，上述两项多余效果就会消失，同时依旧保持黑字白底的文本样式：
+对于那些要打印成*文档*的页面 —— 比如发给客户的发票、报价单、工单或装箱单 —— 最后那两样就是错误的输出：没人希望打印出来的发票上带着 `在线支付 (https://pay.example.com/inv/12345?token=…)`，也没人希望按钮外面被画上一个框。把 `data-lte-print="plain"` 加在 `<html>`、`<body>` 或任意容器上，这两样就都没了，同时文字保持白底黑字：
 
 ```html
 <html lang="en" data-lte-print="plain">
@@ -432,14 +432,7 @@ AdminLTE 会打印完整布局——侧边栏、头部与内容区，采用适�
 <div class="card" data-lte-print="plain">……发票……</div>
 ```
 
-使用 Bootstrap 自带工具类隐藏打印时的界面组件——`.d-print-none` 可作用于任意元素，包括侧边栏和头部：
-
-```html
-<aside class="app-sidebar bg-body-secondary shadow d-print-none" data-bs-theme="dark">…</aside>
-<nav class="app-header navbar navbar-expand bg-body d-print-none">…</nav>
-```
-
-如果某页面始终都要以文档形式打印，可在打印时一次性设置该属性：
+如果页面仅以文档形式打印，请在打印时设置该属性：
 
 ```js
 document.querySelector("#print-invoice").addEventListener("click", () => {
@@ -447,6 +440,20 @@ document.querySelector("#print-invoice").addEventListener("click", () => {
   window.print()
 })
 ```
+
+反过来 —— 如果某个页面确实就是要按屏幕内容打印，连菜单一起 —— 在 `<html>` 或 `<body>` 上加 `data-lte-print="app"`，就会把整个外壳都打印出来：
+
+```html
+<html lang="en" data-lte-print="app">
+```
+
+如果想恢复其中某一块而不是全部三块，就用 Bootstrap 自带的显示工具类。头部（它是个 navbar）适合用 `.d-print-flex`，侧边栏和页脚则用 `.d-print-block`：
+
+```html
+<aside class="app-sidebar bg-body-secondary shadow d-print-block" data-bs-theme="dark">…</aside>
+```
+
+`.d-print-none` 在两种模式下都能隐藏任何你不想印在纸上的东西 —— 比如发票上方那一排按钮工具栏。
 
 ##### 接下来去哪里
 

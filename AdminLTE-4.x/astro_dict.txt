@@ -4146,8 +4146,8 @@ a: `<p>Bootstrap 会把 <code>$primary</code> 编译进它的组件里，所以�
 <p class="mb-0">如果品牌色不在调色板里，只需要 <code>--bs-primary</code> 加上那个属性 —— 详见 <a href="colors.html">颜色与皮肤</a>。至于侧边栏宽度、断点和间距刻度，请见 <a href="customization.html">自定义与主题化</a>。</p>`
 q: "Printing adds the URL after every link and a box around buttons.",
 q: "打印的时候，每个链接后面都会多出 URL，按钮上还会多一个框。",
-a: `Those are AdminLTE's print defaults, which suit printing a copy of a screen. For a page that prints as a document — an invoice or work order that goes to a customer — add <code>&lt;html data-lte-print="plain"&gt;</code> (it works on any container too) and both go away, while text stays black on white. Hide the chrome with Bootstrap's <code>.d-print-none</code> on the sidebar and header. See the <a href="recipes.html">Recipes</a> page.`
-a: `那些是 AdminLTE 的打印默认行为，适合把屏幕内容打印成一份拷贝。如果某个页面要打印成正式文档 —— 比如发给客户的发票或工单 —— 就在 <code>&lt;html data-lte-print="plain"&gt;</code> 上加上这个属性（它对任何容器也有效），这两样就都没了，同时文字保持白底黑字。想隐藏界面部分，就用 Bootstrap 的 <code>.d-print-none</code> 加在侧边栏和头部上。详见 <a href="recipes.html">方案</a> 页面。`
+a: `Those are AdminLTE's print defaults, meant for reading a page on paper. For a page that prints as a document — an invoice or work order that goes to a customer — add <code>&lt;html data-lte-print="plain"&gt;</code> (it works on any container too) and both go away, while text stays black on white. See the <a href="recipes.html">Recipes</a> page.`
+a: `那些是 AdminLTE 的打印默认行为，是为了在纸上阅读页面内容而设计的。如果某个页面要打印成正式文档 —— 比如发给客户的发票或工单 —— 就在 <code>&lt;html data-lte-print="plain"&gt;</code> 上加上这个属性（它对任何容器也有效），这两样就都没了，同时文字保持白底黑字。详见 <a href="recipes.html">方案</a> 页面。`
 {/* Cloudflare's Email Obfuscation rewrites any `package@version` it finds in a
 {/* Cloudflare 的邮箱混淆功能会把文本节点里找到的任何 `package@version` 重写成一个
 text node into a "[email protected]" link, which silently breaks every
@@ -4178,3 +4178,7 @@ Backgrounds keep their exact values.
 背景色保持它们的确切取值不变。
 Force WCAG AA text
 强制使用 WCAG AA 文字
+q: "The sidebar and header no longer print.",
+q: "侧边栏和头部不再打印。",
+a: `By design: the shell — header, sidebar and footer — is navigation, and printing it spent 200px of every sheet on a menu and pushed the content onto extra pages (#6113). The content now gets the full width of the paper, as it did in v3. Add <code>&lt;html data-lte-print="app"&gt;</code> to print the whole layout again, or Bootstrap's <code>.d-print-flex</code> / <code>.d-print-block</code> to bring back one piece of it.`
+a: `这是有意为之：外壳 —— 头部、侧边栏和页脚 —— 是导航用的，把它们打印出来，每张纸会有 200px 花在一个菜单上，还会把内容挤到额外的页面上（#6113）。现在内容能占满整张纸的宽度，跟 v3 里一样。加上 <code>&lt;html data-lte-print="app"&gt;</code> 就能把整个布局重新打印出来，或者用 Bootstrap 的 <code>.d-print-flex</code> / <code>.d-print-block</code> 恢复其中某一块。`

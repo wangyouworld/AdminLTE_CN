@@ -163,7 +163,11 @@ const sections: Section[] = [
       },
       {
         q: "打印的时候，每个链接后面都会多出 URL，按钮上还会多一个框。",
-        a: `那些是 AdminLTE 的打印默认行为，适合把屏幕内容打印成一份拷贝。如果某个页面要打印成正式文档 —— 比如发给客户的发票或工单 —— 就在 <code>&lt;html data-lte-print="plain"&gt;</code> 上加上这个属性（它对任何容器也有效），这两样就都没了，同时文字保持白底黑字。想隐藏界面部分，就用 Bootstrap 的 <code>.d-print-none</code> 加在侧边栏和头部上。详见 <a href="recipes.html">方案</a> 页面。`
+        a: `那些是 AdminLTE 的打印默认行为，是为了在纸上阅读页面内容而设计的。如果某个页面要打印成正式文档 —— 比如发给客户的发票或工单 —— 就在 <code>&lt;html data-lte-print="plain"&gt;</code> 上加上这个属性（它对任何容器也有效），这两样就都没了，同时文字保持白底黑字。详见 <a href="recipes.html">方案</a> 页面。`
+      },
+      {
+        q: "侧边栏和头部不再打印。",
+        a: `这是有意为之：外壳 —— 头部、侧边栏和页脚 —— 是导航用的，把它们打印出来，每张纸会有 200px 花在一个菜单上，还会把内容挤到额外的页面上（#6113）。现在内容能占满整张纸的宽度，跟 v3 里一样。加上 <code>&lt;html data-lte-print="app"&gt;</code> 就能把整个布局重新打印出来，或者用 Bootstrap 的 <code>.d-print-flex</code> / <code>.d-print-block</code> 恢复其中某一块。`
       },
       {
         q: "我自定义的 SCSS 没有覆盖 AdminLTE 的默认值。",
