@@ -1,5 +1,5 @@
 /*!
- * AdminLTE v4.9.1 (https://adminlte.io)
+ * AdminLTE v4.10.1 (https://adminlte.io)
  * Copyright 2014-2026 Colorlib <https://colorlib.com>
  * Licensed under MIT (https://github.com/ColorlibHQ/AdminLTE/blob/master/LICENSE)
  */
@@ -573,12 +573,18 @@ const EVENT_MINIMIZED = `minimized${EVENT_KEY$3}`;
 const SELECTOR_FULLSCREEN_TOGGLE = '[data-lte-toggle="fullscreen"]';
 const SELECTOR_MAXIMIZE_ICON = '[data-lte-icon="maximize"]';
 const SELECTOR_MINIMIZE_ICON = '[data-lte-icon="minimize"]';
-function syncFullScreenState() {
-    const iconMaximize = document.querySelector(SELECTOR_MAXIMIZE_ICON);
-    const iconMinimize = document.querySelector(SELECTOR_MINIMIZE_ICON);
+function syncFullScreenIcons() {
     const isFullScreen = Boolean(document.fullscreenElement);
-    iconMaximize?.classList.toggle('d-none', isFullScreen);
-    iconMinimize?.classList.toggle('d-none', !isFullScreen);
+    document.querySelectorAll(`${SELECTOR_FULLSCREEN_TOGGLE} ${SELECTOR_MAXIMIZE_ICON}`).forEach(icon => {
+        icon.classList.toggle('d-none', isFullScreen);
+    });
+    document.querySelectorAll(`${SELECTOR_FULLSCREEN_TOGGLE} ${SELECTOR_MINIMIZE_ICON}`).forEach(icon => {
+        icon.classList.toggle('d-none', !isFullScreen);
+    });
+    return isFullScreen;
+}
+function syncFullScreenState() {
+    const isFullScreen = syncFullScreenIcons();
     const eventName = isFullScreen ? EVENT_MAXIMIZED : EVENT_MINIMIZED;
     document.querySelectorAll(SELECTOR_FULLSCREEN_TOGGLE).forEach(button => {
         dispatchCustomEvent(button, eventName);
@@ -628,6 +634,7 @@ document.addEventListener('click', event => {
 });
 onDOMContentLoaded(() => {
     document.addEventListener('fullscreenchange', syncFullScreenState, { signal: getLifecycleSignal() });
+    syncFullScreenIcons();
 });
 
 const NAME$1 = 'push-menu';

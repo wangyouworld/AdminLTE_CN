@@ -331,7 +331,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                   <div class="card-footer text-body-secondary small">
                     暂时还锁死在 Select2 上？AdminLTE 提供了一个纯样式的
                     <a
-                      href="../docs/integrations.html#select2-compatibility-theme"
+                      href="../docs/integrations.html#select2-兼容主题"
                       class="link-body-emphasis"
                     >下拉菜单2 兼容主题</a>，
                     让它看起来和 Bootstrap 5.3 一致 &mdash; 包括深色模式和模态框里的下拉菜单。
@@ -349,11 +349,14 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
     <Scripts path={path} />
     <script
       src={deploymentPath + "assets/tom-select/tom-select.complete.min.js"}
-      integrity="sha384-OgdLxftmuTHirLYFRbvXsKJxgSVqpU4ZdZ07tRiBC+Z4GjtQ5Al0uika0gtMfeQw"
+      integrity="sha384-1mYKSrq1Nu5YJmWrIU9cvwWQlUyyukJJM9XMkAxY03nb/T69CK+Sn7rjFxVU3SSM"
       crossorigin="anonymous"></script>
     <script
       src={deploymentPath + "assets/flatpickr/flatpickr.min.js"}
       integrity="sha384-5JqMv4L/Xa0hfvtF06qboNdhvuYXUku9ZrhZh3bSk8VXF0A/RuSLHpLsSV9Zqhl6"
+      crossorigin="anonymous"></script>
+    <script
+      src={deploymentPath + "assets/flatpickr/l10n/zh.js"}
       crossorigin="anonymous"></script>
     <script is:inline>
       document.addEventListener("DOMContentLoaded", () => {
@@ -381,7 +384,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
         const TEAMS = ["前端", "后端", "设计"];
         // 代表数据库表的占位符。
         const REVIEWERS = FIRST_NAMES.flatMap((first, index) =>
-          ["Bennett", "Carter", "Dawson"].map((last, offset) => ({
+          ["贝内特", "卡特", "道森"].map((last, offset) => ({
             id: index * 3 + offset + 1,
             name: `${first} ${last}`,
             team: TEAMS[(index + offset) % TEAMS.length]
@@ -425,7 +428,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
           valueField: "id",
           labelField: "name",
           searchField: ["name", "team"],
-          placeholder: "Type to search 72 people…",
+          placeholder: "输入以搜索 72 人……",
           preload: "focus",
           // Tom Select 为你自动处理 `load`，无需手动设置计时器。
           loadThrottle: 300,
@@ -472,24 +475,24 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
         });
 
         // Flatpickr: date picker
-        flatpickr("#delivery-date", {"locale": "zh",
+        flatpickr("#delivery-date", { "locale": "zh",
           dateFormat: "Y-m-d"
         });
 
         // Flatpickr: date & time picker
-        flatpickr("#meeting-start", {"locale": "zh",
+        flatpickr("#meeting-start", { "locale": "zh",
           enableTime: true,
           dateFormat: "Y-m-d H:i"
         });
 
         // Flatpickr: range picker
-        flatpickr("#report-period", {"locale": "zh",
+        flatpickr("#report-period", { "locale": "zh",
           mode: "range",
           dateFormat: "Y-m-d"
         });
 
         // Flatpickr: time-only picker
-        flatpickr("#reminder-time", {"locale": "zh",
+        flatpickr("#reminder-time", { "locale": "zh",
           enableTime: true,
           noCalendar: true,
           dateFormat: "H:i",

@@ -261,6 +261,19 @@ fieldset {
 }
 
 /* Dark Mode Accessibility */
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    // Bootstrap's fixed outline colours can fall below 4.5:1 on a dark body.
+    // Theme emphasis tokens preserve brand overrides and nested light themes.
+    @each $name in primary, secondary, success, danger, dark {
+      .btn-outline-#{$name} {
+        --#{$prefix}btn-color: var(--#{$prefix}#{$name}-text-emphasis);
+        --#{$prefix}btn-border-color: var(--#{$prefix}#{$name}-text-emphasis);
+      }
+    }
+  }
+}
+
 [data-bs-theme="dark"] {
   .text-accessible-primary {
     color: #6ea8fe;

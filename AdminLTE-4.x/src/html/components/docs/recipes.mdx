@@ -305,22 +305,22 @@ setActiveSidebarItem(window.location.pathname)
 
 ##### 响应布局/侧边栏变更
 
-监听插件事件以与您自己的代码协调——例如，当侧边栏折叠时重新适配图表（使图表重新测量其容器宽度）：
+监听插件事件，好跟你自己的代码配合 —— 比如侧边栏收起时让某个组件重新适配（这样它就会重新测量容器的宽度）：
 
 ```js
-let chart = /* ApexCharts 实例 */
+let table = /* your Tabulator instance */
 
 document.addEventListener("collapse.lte.push-menu", () => {
   // wait for the transition to finish (~300ms by default)
-  setTimeout(() => chart.updateOptions({}), 350)
+  setTimeout(() => table.redraw(), 350)
 })
 
 document.addEventListener("open.lte.push-menu", () => {
-  setTimeout(() => chart.updateOptions({}), 350)
+  setTimeout(() => table.redraw(), 350)
 })
 ```
 
-同样的模式适用于 Tabulator、FullCalendar 以及任何其他在初始化时读取容器宽度的库。
+同样的套路也适用于 FullCalendar（`calendar.updateSize()`）以及任何其他在初始化时读取容器宽度的库。Chart.js 的图表在这里什么都不用做：它们用 `ResizeObserver` 监视自己的容器，会自动重绘。
 
 ##### 通过 fetch 将内容加载到卡片中
 
@@ -380,41 +380,47 @@ Bootstrap 模态框 + 一个简单的确认模式：
 </div>
 ```
 
-[颜色模式](color-mode.html)、[无障碍访问](javascript/accessibility.html)以及捆绑的 JS 会自动处理模态框内的 Escape 关闭、焦点陷阱和键盘导航。
+[颜色模式](color-mode.html)、[无障碍访问](javascript/accessibility.html)以及捆绑的 JS 会自动处理模态框内的 ESC 键关闭、焦点陷阱和键盘导航。
 
 ##### 会跟随深色模式的图表
 
-图表库会自己绘制文字和提示框，所以它们对 `data-bs-theme` 一无所知。比如 ApexCharts，默认会画出浅色的提示框和深灰色的坐标轴标签 —— 放在深色卡片上，提示框继承来的文字颜色接近白色，白底白字根本看不清。这个库其实有深色主题；你只需要告诉它该用哪一个，并且在模式变化时更新一下。
+图表库是基于画布绘制的，因此它们对 `data-bs-theme` 或其他 CSS 一无所知：Chart.js 会使用其自身固定的默认颜色来绘制坐标轴标签、网格线和数据工具提示，这些颜色适合浅色页面，但在深色卡片上几乎完全不可见。你需要手动为它提供颜色，并在模式更改时再次传递这些颜色。
 
-每个演示页面都带了这个辅助脚本（它是页面底部共享脚本的一部分）。它会在任何图表创建**之前**，根据 `<html data-bs-theme>` 设置 ApexCharts 的全局默认 `theme.mode`，让图表背景保持透明（否则深色模式会把它涂成灰色），并监听这个属性，这样每个带 `chart.id` 的图表都会跟随切换器、auto 模式下的系统偏好，或者你自己的代码：
+绘制图表的演示页面都带了一个小预设（`src/html/components/_chartjs.astro`，在每个页面上内联在 Chart.js 之后）。它把 AdminLTE 的 CSS 变量读进 `Chart.defaults` —— 字体族、文字颜色、网格线、跟界面其余部分风格一致的提示框和图例，以及在 `<html dir="rtl">` 时的 `rtl` 设置 —— 并监听 `<html>`，这样页面上的每张图表都会在模式变化时重新刷样式，不管变化是来自切换器、auto 模式下的系统偏好，还是你自己的代码。它的核心部分：
 
 ```html
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
 <script>
-  const mode = () => (document.documentElement.getAttribute("data-bs-theme") === "dark" ? "dark" : "light")
-  globalThis.Apex ||= {}                                   // ApexCharts' global options object
-  Apex.theme = { mode: mode() }
-  Apex.chart = Object.assign(Apex.chart || {}, { background: "transparent" })
+  const root = document.documentElement
+  const cssVar = (name) => getComputedStyle(root).getPropertyValue(name).trim()
+
+  const applyTheme = () => {
+    const grid = `rgba(${cssVar("--bs-emphasis-color-rgb")}, 0.08)`
+    Chart.defaults.font.family = cssVar("--bs-body-font-family")
+    Chart.defaults.color = cssVar("--bs-secondary-color")        // 标记与标题
+    Chart.defaults.borderColor = grid                            // 网格线和坐标轴线
+    Chart.defaults.plugins.legend.labels.color = cssVar("--bs-body-color")
+    Object.assign(Chart.defaults.plugins.tooltip, {
+      backgroundColor: cssVar("--bs-body-bg"),
+      borderColor: cssVar("--bs-border-color"),
+      borderWidth: 1,
+      titleColor: cssVar("--bs-emphasis-color"),
+      bodyColor: cssVar("--bs-body-color")
+    })
+    Chart.defaults.elements.arc.borderColor = cssVar("--bs-body-bg") // 甜甜圈切片间隙
+  }
+
+  applyTheme()
   new MutationObserver(() => {
-    const next = mode()
-    Apex.theme = { mode: next }
-    for (const { chart } of Apex._chartInstances || []) {
-      chart.updateOptions({ theme: { mode: next } }, false, false)
-    }
-  }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-bs-theme"] })
+    applyTheme()
+    for (const chart of Object.values(Chart.instances)) chart.update("none")
+  }).observe(root, { attributes: true, attributeFilter: ["data-bs-theme"] })
 </script>
-<script src="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.min.js"></script>
 ```
 
-给每个图表都加一个 `id`，这样它就会被注册进去，参与实时更新：
+在这个脚本之后创建的图表会默认采用这些颜色，而 `chart.update()` 会让已有的图表重新读一遍。你在数据集上自己设的颜色（`borderColor: "#0d6efd"`）归你自己所有，会保持原样；而需要跟随模式变化的颜色可以写成一个函数，Chart.js 会在每次更新时重新调用它 —— `backgroundColor: () => cssVar("--bs-secondary-bg")`。
 
-```js
-new ApexCharts(document.querySelector("#revenue-chart"), {
-  chart: { id: "revenue-chart", type: "区域", height: 300 },
-  // …
-}).render()
-```
-
-如果你更想用 ColorMode 事件，而不是监听属性变化，可以用 `document.addEventListener("changed.lte.color-mode", e => …)`，它会收到 `e.detail.resolved`（值为 `"light"` 或 `"dark"`）；而上面那个监听器还额外覆盖了 auto 模式下的系统偏好变化，以及任何直接设置这个属性的代码。同样的思路也适用于其他图表库 —— Chart.js 会读取 `Chart.defaults.color` / `Chart.defaults.borderColor`，你可以从 `getComputedStyle(document.body)` 里取值设置，然后在同一个监听器里用 `chart.update()` 重新应用。
+如果你更想用 ColorMode 事件，而不是监听属性变化，可以用 `document.addEventListener("changed.lte.color-mode", e => …)`，它会收到 `e.detail.resolved`（值为 `"light"` 或 `"dark"`）；而上面那个监听器还额外覆盖了 auto 模式下的系统偏好变化，以及任何直接设置这个属性的代码。同样的思路也适用于其他图表库：找到它们从哪里取文字、网格和提示框的颜色，把 CSS 变量喂给它们，然后在变化时重新应用一遍。
 
 ##### 将页面作为文档打印
 
@@ -455,7 +461,7 @@ document.querySelector("#print-invoice").addEventListener("click", () => {
 
 `.d-print-none` 在两种模式下都能隐藏任何你不想印在纸上的东西 —— 比如发票上方那一排按钮工具栏。
 
-##### 接下来去哪里
+##### 接下来
 
 - [JavaScript 插件概述](javascript/plugins-overview.html) —— 每个插件的事件名称和方法
 - [推荐集成](integrations.html) —— 当您需要的超出此列表时

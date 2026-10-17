@@ -15,8 +15,8 @@ const paletteClasses = palette.map(c => `text-bg-${c.name}`)
 // AdminLTE 3 的原版颜色（adminlte-colors-v3.css）是那个备选样式表；
 // 两者定义的是同一批类名，所以页面一次只加载一个。
 const paletteSets = [
-  { key: "designed", label: "设计配色方案 (4.4)", file: "adminlte-colors.css", groups: skinGroups, skins, classes: paletteClasses, text: Object.fromEntries(palette.map(c => [`text-bg-${c.name}`, c.textColor])) },
-  { key: "v3", label: "AdminLTE 3 原版", file: "adminlte-colors-v3.css", groups: skinGroupsV3, skins: skinsV3, classes: paletteV3.map(c => `text-bg-${c.name}`), text: Object.fromEntries(paletteV3.map(c => [`text-bg-${c.name}`, c.textColor])) }
+  { key: "designed" as const, label: "设计配色方案 (4.4)", file: "adminlte-colors.css", groups: skinGroups, skins, classes: paletteClasses, text: Object.fromEntries(palette.map(c => [`text-bg-${c.name}`, c.textColor])) },
+  { key: "v3" as const, label: "AdminLTE 3 原版", file: "adminlte-colors-v3.css", groups: skinGroupsV3, skins: skinsV3, classes: paletteV3.map(c => `text-bg-${c.name}`), text: Object.fromEntries(paletteV3.map(c => [`text-bg-${c.name}`, c.textColor])) }
 ]
 // 每个样式表能提供的 `data-lte-primary` 取值（#6107）
 const primaryChoices = {
@@ -261,7 +261,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                       并自动填入下方的取色器；然后再微调。
                     </p>
                     <div class="d-flex flex-wrap align-items-center gap-3 mb-3">
-                      <span class="fw-semibold">Palette</span>
+                      <span class="fw-semibold">调色板</span>
                       <div class="btn-group" role="group" aria-label="Palette stylesheet">
                         {
                           paletteSets.map((set, i) => (
@@ -337,7 +337,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-collapse"
-                        aria-label="Collapse card"
+                        aria-label="折叠卡片"
                       >
                         <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
                         <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
@@ -422,7 +422,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-collapse"
-                        aria-label="Collapse card"
+                        aria-label="折叠卡片"
                       >
                         <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
                         <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
@@ -507,7 +507,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-collapse"
-                        aria-label="Collapse card"
+                        aria-label="折叠卡片"
                       >
                         <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
                         <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>

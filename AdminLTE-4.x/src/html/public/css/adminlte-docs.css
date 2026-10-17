@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- *   AdminLTE v4.9.1 — documentation styles
+ *   AdminLTE v4.10.1 — documentation styles
  *   Styles for the documentation and FAQ pages only (body.docs-page /
  *   body.faq-page). Applications never need this file; it is loaded by the
  *   docs pages in addition to adminlte.css.
@@ -292,7 +292,7 @@
   background: rgba(0, 0, 0, 0.05);
 }
 .docs-page .card > .card-body a:not(.btn):not(.nav-link) {
-  color: var(--bs-primary);
+  color: var(--bs-link-color);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
@@ -358,7 +358,7 @@
   content: "";
 }
 .docs-page .card > .card-body details.faq-item summary:hover {
-  color: var(--bs-primary);
+  color: var(--bs-link-color);
 }
 .docs-page .card > .card-body details.faq-item summary::after {
   position: absolute;
@@ -381,7 +381,7 @@
   }
 }
 .docs-page .card > .card-body details.faq-item[open] > summary {
-  color: var(--bs-primary);
+  color: var(--bs-link-color);
   border-bottom: 1px solid var(--bs-border-color);
 }
 .docs-page .card > .card-body details.faq-item[open] > summary::after {
@@ -444,7 +444,7 @@
   margin-bottom: 1rem;
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--bs-primary);
+  color: var(--bs-link-color);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   background: var(--bs-primary-bg-subtle);
@@ -659,7 +659,7 @@
   width: 2.75rem;
   height: 2.75rem;
   font-size: 1.35rem;
-  color: var(--bs-primary);
+  color: var(--bs-link-color);
   background: var(--bs-primary-bg-subtle);
   border-radius: 0.375rem;
 }
@@ -769,7 +769,7 @@
   width: 1.75rem;
   height: 1.75rem;
   font-size: 0.85rem;
-  color: var(--bs-primary);
+  color: var(--bs-link-color);
   background: var(--bs-primary-bg-subtle);
   border-radius: 50%;
 }
@@ -787,11 +787,11 @@
   }
 }
 .faq-page .faq-section-items .faq-item[open] .faq-q-chevron {
-  color: var(--bs-primary);
+  color: var(--bs-link-color);
   transform: rotate(180deg);
 }
 .faq-page .faq-section-items .faq-item[open] summary {
-  color: var(--bs-primary);
+  color: var(--bs-link-color);
   border-bottom: 1px solid var(--bs-border-color);
 }
 .faq-page .faq-section-items .faq-item .faq-answer {
@@ -807,7 +807,7 @@
   margin-bottom: 0;
 }
 .faq-page .faq-section-items .faq-item .faq-answer a {
-  color: var(--bs-primary);
+  color: var(--bs-link-color);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -853,7 +853,7 @@
   height: 3.5rem;
   margin-bottom: 1rem;
   font-size: 1.6rem;
-  color: var(--bs-primary);
+  color: var(--bs-link-color);
   background: var(--bs-primary-bg-subtle);
   border-radius: 50%;
 }

@@ -26,7 +26,7 @@
 }
 
 // Navbar search: a quiet pill with the icon inside; the icon is the submit
-// button. Widens a little while it has focus. Below `md` the demo shows an
+// button. Widens a little while it has focus. Below `xl` the demo shows an
 // icon link to the search page instead (see the Topbar markup).
 .navbar-search {
   --#{$lte-prefix}search-field-width: #{$lte-search-field-width};

@@ -245,7 +245,7 @@
     // Prose links — stand out more than Bootstrap defaults.
     //
     a:not(.btn):not(.nav-link) {
-      color: var(--#{$prefix}primary);
+      color: var(--#{$prefix}link-color);
       text-decoration: underline;
       text-decoration-thickness: 1px;
       text-underline-offset: 3px;
@@ -321,7 +321,7 @@
         }
 
         &:hover {
-          color: var(--#{$prefix}primary);
+          color: var(--#{$prefix}link-color);
         }
 
         // Right-side chevron, rotates on open
@@ -343,7 +343,7 @@
       }
 
       &[open] > summary {
-        color: var(--#{$prefix}primary);
+        color: var(--#{$prefix}link-color);
         border-bottom: 1px solid var(--#{$prefix}border-color);
 
         &::after {
@@ -436,7 +436,7 @@
     margin-bottom: 1rem;
     font-size: .75rem;
     font-weight: 600;
-    color: var(--#{$prefix}primary);
+    color: var(--#{$prefix}link-color);
     text-transform: uppercase;
     letter-spacing: .08em;
     background: var(--#{$prefix}primary-bg-subtle);
@@ -616,7 +616,7 @@
     width: 2.75rem;
     height: 2.75rem;
     font-size: 1.35rem;
-    color: var(--#{$prefix}primary);
+    color: var(--#{$prefix}link-color);
     background: var(--#{$prefix}primary-bg-subtle);
     @include border-radius($border-radius);
   }
@@ -700,7 +700,7 @@
       width: 1.75rem;
       height: 1.75rem;
       font-size: .85rem;
-      color: var(--#{$prefix}primary);
+      color: var(--#{$prefix}link-color);
       background: var(--#{$prefix}primary-bg-subtle);
       @include border-radius(50%);
     }
@@ -716,12 +716,12 @@
     }
 
     &[open] .faq-q-chevron {
-      color: var(--#{$prefix}primary);
+      color: var(--#{$prefix}link-color);
       transform: rotate(180deg);
     }
 
     &[open] summary {
-      color: var(--#{$prefix}primary);
+      color: var(--#{$prefix}link-color);
       border-bottom: 1px solid var(--#{$prefix}border-color);
     }
 
@@ -739,7 +739,7 @@
       }
 
       a {
-        color: var(--#{$prefix}primary);
+        color: var(--#{$prefix}link-color);
         text-decoration: underline;
         text-underline-offset: 2px;
 
@@ -793,7 +793,7 @@
     height: 3.5rem;
     margin-bottom: 1rem;
     font-size: 1.6rem;
-    color: var(--#{$prefix}primary);
+    color: var(--#{$prefix}link-color);
     background: var(--#{$prefix}primary-bg-subtle);
     @include border-radius(50%);
   }

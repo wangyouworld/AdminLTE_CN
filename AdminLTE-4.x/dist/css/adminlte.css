@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- *   AdminLTE v4.9.1
+ *   AdminLTE v4.10.1
  *   Author: Colorlib
  *   Website: AdminLTE.io <https://adminlte.io>
  *   License: Open source - MIT <https://opensource.org/licenses/MIT>
@@ -13399,6 +13399,7 @@ textarea.form-control-lg {
 .sidebar-mini.sidebar-collapse .brand-text {
   display: inline-block;
   max-width: 0;
+  margin-left: 0;
   overflow: hidden;
 }
 .sidebar-mini.sidebar-collapse .sidebar-menu .nav-link p,
@@ -15959,6 +15960,27 @@ fieldset legend {
   }
 }
 /* Dark Mode Accessibility */
+[data-bs-theme=dark] .btn-outline-primary {
+  --bs-btn-color: var(--bs-primary-text-emphasis);
+  --bs-btn-border-color: var(--bs-primary-text-emphasis);
+}
+[data-bs-theme=dark] .btn-outline-secondary {
+  --bs-btn-color: var(--bs-secondary-text-emphasis);
+  --bs-btn-border-color: var(--bs-secondary-text-emphasis);
+}
+[data-bs-theme=dark] .btn-outline-success {
+  --bs-btn-color: var(--bs-success-text-emphasis);
+  --bs-btn-border-color: var(--bs-success-text-emphasis);
+}
+[data-bs-theme=dark] .btn-outline-danger {
+  --bs-btn-color: var(--bs-danger-text-emphasis);
+  --bs-btn-border-color: var(--bs-danger-text-emphasis);
+}
+[data-bs-theme=dark] .btn-outline-dark {
+  --bs-btn-color: var(--bs-dark-text-emphasis);
+  --bs-btn-border-color: var(--bs-dark-text-emphasis);
+}
+
 [data-bs-theme=dark] .text-accessible-primary {
   color: #6ea8fe;
 }

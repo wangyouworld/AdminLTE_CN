@@ -30,7 +30,7 @@ dist/
 | RTL 样式表 | `dist/css/adminlte.rtl.css` | **`dist/css/adminlte.rtl.min.css`** |
 | Select2 theme *(可选)* | `dist/css/adminlte-select2.css` | **`dist/css/adminlte-select2.min.css`** |
 
-`adminlte-select2.css` 是按需启用的，只有你的应用加载了 [Select2](integrations.html#select2-compatibility-theme) 时才需要它；它不属于 `adminlte.css` 的一部分。`adminlte-docs.css` 只用来给文档页面做样式——千万别把它发布到生产环境。
+`adminlte-select2.css` 是按需启用的，只有你的应用加载了 [Select2](integrations.html#select2-兼容主题) 时才需要它；它不属于 `adminlte.css` 的一部分。`adminlte-docs.css` 只用来给文档页面做样式——千万别把它发布到生产环境。
 
 ##### 边缘压缩
 
@@ -74,7 +74,7 @@ Cloudflare、Vercel、Netlify 以及大多数托管服务都会自动执行此�
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/admin-lte@4.9.1/dist/css/adminlte.min.css"
+  href="https://cdn.jsdelivr.net/npm/admin-lte@4.10.1/dist/css/adminlte.min.css"
   integrity="sha384-PASTE_THE_HASH_HERE"
   crossorigin="anonymous"
 />
@@ -98,10 +98,10 @@ openssl dgst -sha384 -binary dist/css/adminlte.min.css | openssl base64 -A
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
 
   <!-- 2. OverlayScrollbars（可选，用于侧边栏滚动） -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.16.0/styles/overlayscrollbars.min.css" />
 
   <!-- 3. AdminLTE——通过其导入包含 Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@4.9.1/dist/css/adminlte.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@4.10.1/dist/css/adminlte.min.css" />
 </head>
 
 <body>
@@ -115,10 +115,10 @@ openssl dgst -sha384 -binary dist/css/adminlte.min.css | openssl base64 -A
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"></script>
 
   <!-- 6. OverlayScrollbars -->
-  <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.16.0/browser/overlayscrollbars.browser.es6.min.js"></script>
 
   <!-- 7. AdminLTE——必须在 Bootstrap 之后加载 -->
-  <script src="https://cdn.jsdelivr.net/npm/admin-lte@4.9.1/dist/js/adminlte.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/admin-lte@4.10.1/dist/js/adminlte.min.js"></script>
 </body>
 ```
 
@@ -221,7 +221,7 @@ rsync -avz --delete \
 
 Cloudflare 的默认浏览器缓存 TTL 为 4 小时。如果你发布了新版本并希望用户立即看到，请从 Cloudflare 仪表板或 API [清除受影响的路径](https://developers.cloudflare.com/cache/how-to/purge-cache/)。否则，访问缓存页面的用户将在最多四小时内看到旧的 CSS/JS。
 
-##### 接下来去哪里
+##### 接下来
 
 - [定制](customization.html)——在部署前更改颜色、侧边栏宽度、breakpoint
 - [推荐集成](integrations.html)——为 AdminLTE 未打包的功能选择轻量级库

@@ -1,7 +1,7 @@
 {
   "name": "admin-lte",
   "description": "Responsive open source admin dashboard and control panel.",
-  "version": "4.9.1",
+  "version": "4.10.1",
   "type": "module",
   "license": "MIT",
   "author": "Colorlib <https://colorlib.com>",
@@ -32,6 +32,18 @@
   "engines": {
     "node": ">=20"
   },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "^22.22.3 || ^24.16.0 || >=26.3.0",
+      "onFail": "error"
+    },
+    "packageManager": {
+      "name": "npm",
+      "version": ">=10",
+      "onFail": "error"
+    }
+  },
   "scripts": {
     "start": "npm run dev",
     "dev": "npm-run-all --parallel watch docs-serve",
@@ -54,7 +66,7 @@
     "bundlewatch": "bundlewatch --config .bundlewatch.config.json",
     "lockfile-lint": "lockfile-lint --allowed-hosts npm --allowed-schemes https: --empty-hostname false --type npm --path package-lock.json",
     "docs-compile": "npm run copy-assets && astro --config src/config/astro.config.mjs build",
-    "docs-lint": "astro --config src/config/astro.config.mjs check",
+    "docs-lint": "astro --config src/config/astro.config.mjs check --tsconfig src/html/tsconfig.json",
     "docs-format": "prettier --write \"dist/**/*.html\"",
     "docs-serve": "npm run copy-assets && astro --config src/config/astro.config.mjs dev --open --port 3000",
     "copy-assets": "rimraf src/html/public && shx mkdir -p src/html/public && shx cp -r dist/css dist/js dist/assets src/html/public/",
@@ -68,12 +80,14 @@
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel js-lint css-lint docs-lint lockfile-lint",
     "clean": "rimraf dist",
     "compile": "npm-run-all css js assets copy-assets docs-compile docs-format flatten-build",
-    "production": "npm-run-all clean lint test compile bundlewatch",
+    "production": "npm-run-all clean lint test compile test-size",
     "watch": "concurrently \"npm:watch-*\"",
     "watch-css-main": "nodemon --watch src/scss/ --ext scss --exec \"npm-run-all css-lint css-compile css-prefix copy-assets\"",
     "watch-css-dist": "nodemon --watch dist/css/ --ext css --ignore \"dist/css/*.rtl.*\" --exec \"npm run css-rtl\"",
     "watch-js-main": "nodemon --watch src/ts/ --ext ts --exec \"npm-run-all js-lint js-compile copy-assets\"",
-    "watch-assets": "nodemon --watch src/assets/ --exec \"npm run assets\""
+    "watch-assets": "nodemon --watch src/assets/ --exec \"npm run assets\"",
+    "test-browser": "node tests/browser.mjs",
+    "test-size": "node scripts/check-size.mjs"
   },
   "keywords": [
     "css",
@@ -100,53 +114,56 @@
     "bootstrap": "^5.3.8"
   },
   "overrides": {
-    "axios": "^0.33.0",
-    "shell-quote": "^1.10.0",
+    "axios": "^1.20.0",
+    "shell-quote": "^1.12.0",
     "stylelint-config-twbs-bootstrap": {
       "stylelint": "$stylelint"
     },
-    "yaml": "^2.9.0"
+    "yaml": "^2.9.1",
+    "postcss-selector-parser": "^7.1.6"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
-    "@astrojs/markdown-remark": "^7.2.4",
-    "@astrojs/mdx": "^7.0.7",
+    "@astrojs/markdown-remark": "^7.3.2",
+    "@astrojs/mdx": "^8.0.3",
     "@eslint/js": "^10.0.1",
     "@rollup/plugin-typescript": "^12.3.0",
-    "@typescript-eslint/eslint-plugin": "^8.67.0",
-    "@typescript-eslint/parser": "^8.67.0",
-    "astro": "^7.2.4",
-    "autoprefixer": "^10.5.4",
-    "axe-core": "^4.13.0",
+    "@typescript-eslint/eslint-plugin": "^8.71.1",
+    "@typescript-eslint/parser": "^8.71.1",
+    "astro": "^7.3.7",
+    "autoprefixer": "^10.6.1",
+    "axe-core": "^4.14.0",
     "bootstrap": "^5.3.8",
     "bundlewatch": "^0.4.2",
     "clean-css-cli": "^5.6.3",
     "concurrently": "^10.0.5",
     "cross-env": "^10.1.0",
-    "eslint": "^10.8.1",
-    "eslint-plugin-astro": "^3.1.0",
-    "eslint-plugin-unicorn": "^73.0.0",
-    "fs-extra": "^11.4.0",
-    "globals": "^17.11.0",
-    "happy-dom": "^20.11.6",
+    "eslint": "^10.12.0",
+    "eslint-plugin-astro": "^3.2.1",
+    "eslint-plugin-unicorn": "^77.0.0",
+    "fs-extra": "^11.4.1",
+    "globals": "^17.13.0",
+    "happy-dom": "^20.14.5",
     "lockfile-lint": "^5.0.1",
     "nodemon": "^3.1.14",
-    "npm-run-all": "^4.1.5",
-    "postcss": "^8.5.26",
-    "postcss-cli": "^11.0.1",
-    "prettier": "^3.9.6",
-    "prettier-plugin-astro": "^0.14.1",
+    "npm-run-all2": "^9.0.3",
+    "playwright": "^1.64.0",
+    "postcss": "^8.5.29",
+    "postcss-cli": "^12.0.0",
+    "prettier": "^3.9.9",
+    "prettier-plugin-astro": "^1.1.0",
     "rimraf": "^6.1.3",
-    "rollup": "^4.62.4",
+    "rollup": "^4.64.2",
     "rtlcss": "^4.3.0",
-    "sass": "^1.103.0",
+    "sass": "^1.105.1",
     "shx": "^0.4.0",
-    "stylelint": "^17.14.1",
+    "stylelint": "^17.16.0",
     "stylelint-config-twbs-bootstrap": "^16.1.0",
-    "terser": "^5.50.0",
+    "terser": "^5.51.2",
     "tslib": "^2.8.1",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.67.0",
-    "vitest": "^4.1.11"
+    "typescript-eslint": "^8.71.1",
+    "unist-util-visit": "^5.1.0",
+    "vitest": "^5.0.3"
   }
 }

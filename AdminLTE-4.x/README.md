@@ -90,17 +90,21 @@ composer require almasaeed2010/adminlte
 
 ### 开发 AdminLTE 本身
 
-1. **安装依赖：** `npm install`
+1. **安装依赖**：使用 Node.js 22.22.3+、24.16.0+ 或 26.3.0+，以及 npm 10+，然后运行 `npm ci`
 2. **启动开发服务器：** `npm start` *（打开 http://localhost:3000，带热重载）*
-3. **构建：** `npm run build`——或者 `npm run production` 跑完整的 lint + 优化 + bundlewatch 流程
+3. **构建：** `npm run build` — 或使用 `npm run production` 执行完整的代码检查、测试、优化和打包流程
 
 <details>
 <summary>所有 npm 脚本</summary>
 
 - `npm start` —— 开发服务器，带文件监听
 - `npm run build` —— 构建所有开发环境资源
-- `npm run production` —— 完整的生产环境构建，含 lint 和 bundlewatch
+- `npm run production` — full production build with linting, unit tests, and local bundle-size budgets
 - `npm run lint` —— 运行所有代码检查工具（JS、CSS、文档、lockfile）
+- `npm test` —— 单元测试（Vitest）
+- `npm run test-browser` —— 构建页面、响应式、主题和插件的检查（用 `npx playwright install chromium` 安装 Chromium）
+- `npm run test-a11y` —— 对构建页面跑 axe 无障碍检查（也可以用 `A11Y_COLOR_SCHEME=dark` 测深色模式）
+- `npm run test-size` —— 检查 gzip 体积预算，不需要外部报告服务
 - `npm run css` —— 仅构建 CSS
 - `npm run js` —— 仅构建 JavaScript
 
@@ -135,7 +139,7 @@ v4 系列是在 Bootstrap 5.3 上完全重写的，**不再依赖 jQuery**：
 
 - 应用程序：日历（FullCalendar）、看板（SortableJS）、聊天、文件管理器、项目、邮箱（收件箱/阅读/写信）
 - 表单：表单向导（4 步带校验）
-- 表格：数据表格（Tabulator — 无 jQuery）
+- 表格：数据表格（Tabulator——无 jQuery）
 - 页面：个人资料、设置、发票、定价、常见问题
 - 错误页：404、500、维护中
 
@@ -156,9 +160,9 @@ v4 系列是在 Bootstrap 5.3 上完全重写的，**不再依赖 jQuery**：
 <details>
 <summary>从 v3 升级的破坏性变更</summary>
 
-- 类名重命名：`.wrapper` → `.app-wrapper`、`.main-header` → `.app-header`、`.main-sidebar` → `.app-sidebar`、`.content-wrapper` → `.app-main`
-- 数据属性：`data-toggle` → `data-bs-toggle`，`data-widget="pushmenu"` → `data-lte-toggle="sidebar"`，`data-widget="treeview"` → `data-lte-toggle="treeview"`
-- 深色模式：`<body>` 上的 `.dark-mode` 类 → `data-bs-theme="dark"` 属性（Bootstrap 5.3 原生支持）
+- 类名重命名：`.wrapper` → `.app-wrapper`，`.main-header` → `.app-header`，`.main-sidebar` → `.app-sidebar`，`.content-wrapper` → `.app-main`
+- 数据属性：`data-toggle` → `data-bs-toggle`、`data-widget="pushmenu"` → `data-lte-toggle="sidebar"`、`data-widget="treeview"` → `data-lte-toggle="treeview"`
+- 深色模式：body 类 `.dark-mode` → `data-bs-theme="dark"` 属性（Bootstrap 5.3 原生支持）
 - 不再需要 jQuery；插件使用原生 TypeScript
 - 打包的 `plugins/` 文件夹没了 —— v3 里的每个 jQuery 组件都有了一个有文档记录的原生 JS 继任者（[替代对照表](https://adminlte.io/themes/v4/docs/migration.html#third-party-plugin-replacements)：Select2 → Tom Select、DataTables → Tabulator、Summernote → Quill……）
 - v3 里的那些额外颜色（`.bg-navy`、`.bg-teal`、侧边栏皮肤等等）放在按需启用的样式表里：`dist/css/adminlte-colors.css` —— 十四种重新设计过的颜色，每一种配白色文字都清晰可读，17 个皮肤预设，外加一行钩子就能加入你的品牌色 —— 或者 `dist/css/adminlte-colors-v3.css`，也就是 18 种 AdminLTE 3 颜色原封不动的版本。两个样式表里的任意一个，都能让你把其中某个颜色设成 Bootstrap 的 `primary` —— `<html data-lte-primary="teal">` 会重新给按钮、链接、分页和表单聚焦态上色（[颜色文档](https://adminlte.io/themes/v4/docs/colors.html)、[在线演示](https://adminlte.io/themes/v4/UI/colors.html)）。`adminlte.css` 里什么都没加。
@@ -275,7 +279,7 @@ AdminLTE 是一个 **UI 模板**。部署时只放编译好的生产环境资源
 </p>
 
 <p align="center">
-  <a href="https://github.com/sponsors/danny007in">您的头像在这里？成为赞助者</a>
+  <a href="https://github.com/sponsors/danny007in">你的虚拟形象在这里吗？请成为赞助商吧</a>
 </p>
 
 ## 贡献
@@ -291,6 +295,9 @@ AdminLTE 是一个 **UI 模板**。部署时只放编译好的生产环境资源
 AdminLTE 是 [AdminLTE.io](https://adminlte.io) 的一个开源项目，
 采用 [MIT](https://opensource.org/licenses/MIT) 许可证。
 AdminLTE.io 保留更改未来版本许可证的权利。
+
+演示页面上的图表是用 [Chart.js](https://www.chartjs.org/)（MIT 许可）绘制的，
+只在用到它的页面上从 CDN 加载 —— 它不是 `admin-lte` 这个包的依赖。
 
 ## 图片来源
 

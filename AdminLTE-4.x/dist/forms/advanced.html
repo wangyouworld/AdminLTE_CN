@@ -75,7 +75,7 @@
     <link
       rel="stylesheet"
       href="../assets/fontsource/index.css"
-      integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
+      integrity="sha256-5UwXtC6TaPHCAbVQ59waEAqOssHyhn/twyuLRRWszzo="
       crossorigin="anonymous"
       media="print"
       onload="this.media = 'all'"
@@ -152,7 +152,7 @@
 
           <!--begin::Navbar Search-->
           <form
-            class="navbar-search d-none d-md-block ms-3"
+            class="navbar-search d-none d-xl-block ms-3"
             role="search"
             action="../pages/search-results.html"
           >
@@ -176,7 +176,7 @@
           <!--begin::End Navbar Links-->
           <ul class="navbar-nav ms-auto">
             <!--begin::Search （小屏幕上：上面的输入框是隐藏的，所以链接到搜索页面）-->
-            <li class="nav-item d-md-none">
+            <li class="nav-item d-xl-none">
               <a class="nav-link" href="../pages/search-results.html" aria-label="搜索">
                 <i class="bi bi-search" aria-hidden="true"></i>
               </a>
@@ -421,7 +421,7 @@
                   class="user-image rounded-circle shadow"
                   alt="亚历山大·皮尔斯"
                 />
-                <span class="d-none d-md-inline">亚历山大·皮尔斯</span>
+                <span class="d-none d-xl-inline">亚历山大·皮尔斯</span>
               </a>
               <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
                 <!--begin::用户头像-->
@@ -827,9 +827,9 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="../charts/apexcharts.html" class="nav-link">
+                    <a href="../charts/chartjs.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>ApexCharts</p>
+                      <p>Chart.js</p>
                     </a>
                   </li>
                 </ul>
@@ -1427,9 +1427,7 @@
                   </div>
                   <div class="card-footer text-body-secondary small">
                     暂时还锁死在 Select2 上？AdminLTE 提供了一个纯样式的
-                    <a
-                      href="../docs/integrations.html#select2-compatibility-theme"
-                      class="link-body-emphasis"
+                    <a href="../docs/integrations.html#select2-兼容主题" class="link-body-emphasis"
                       >下拉菜单2 兼容主题</a
                     >， 让它看起来和 Bootstrap 5.3 一致 &mdash; 包括深色模式和模态框里的下拉菜单。
                     AdminLTE 本身不会引入 jQuery；插件你自己带， 样式我们来搞定。
@@ -1483,7 +1481,7 @@
 
         if (
           sidebarWrapper &&
-          OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined &&
+          globalThis.OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined &&
           !isMobile
         ) {
           OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
@@ -1497,38 +1495,6 @@
       });
     </script>
     <!--end::OverlayScrollbars Configure-->
-    <!--begin::Charts follow the colour mode-->
-    <script>
-      // 如果不额外指定，ApexCharts 会按浅色主题来画提示框和坐标轴文字，
-      // 这在深色模式下根本看不清（#6105）。在任何图表创建之前，把页面的颜色模式
-      // 作为全局默认值交给它 —— 这段代码跑在图表页面自己的脚本之前 —— 并且在模式
-      // 发生变化时（ColorMode、auto 模式下的操作系统、或你自己的代码），
-      // 让每一个带 `chart.id` 的图表都跟着同步。
-      (() => {
-        'use strict';
-        const mode = () =>
-          document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'dark' : 'light';
-        // `Apex` 是 ApexCharts 的全局选项对象；它必须在库加载之前就存在。
-        // theme.mode 还会顺带设一个深色的图表背景 —— 这里保留卡片自己的背景。
-        // eslint-disable-next-line unicorn/no-global-object-property-assignment
-        globalThis.Apex ||= {};
-        const apex = globalThis.Apex;
-        apex.theme = { mode: mode() };
-        apex.chart = Object.assign(apex.chart || {}, { background: 'transparent' });
-        new MutationObserver(() => {
-          const next = mode();
-          apex.theme = { mode: next };
-          const instances = apex._chartInstances || [];
-          for (const { chart } of instances) {
-            chart.updateOptions({ theme: { mode: next } }, false, false);
-          }
-        }).observe(document.documentElement, {
-          attributes: true,
-          attributeFilter: ['data-bs-theme'],
-        });
-      })();
-    </script>
-    <!--end::Charts follow the colour mode-->
 
     <!--begin::明暗模式切换-->
     <!-- 浅色/深色/自动切换器从 4.1 起就作为 ColorMode 模块内置在 adminlte.js 里了
@@ -1538,7 +1504,7 @@
 
     <script
       src="../assets/tom-select/tom-select.complete.min.js"
-      integrity="sha384-OgdLxftmuTHirLYFRbvXsKJxgSVqpU4ZdZ07tRiBC+Z4GjtQ5Al0uika0gtMfeQw"
+      integrity="sha384-1mYKSrq1Nu5YJmWrIU9cvwWQlUyyukJJM9XMkAxY03nb/T69CK+Sn7rjFxVU3SSM"
       crossorigin="anonymous"
     ></script>
     <script
@@ -1546,6 +1512,7 @@
       integrity="sha384-5JqMv4L/Xa0hfvtF06qboNdhvuYXUku9ZrhZh3bSk8VXF0A/RuSLHpLsSV9Zqhl6"
       crossorigin="anonymous"
     ></script>
+    <script src="../assets/flatpickr/l10n/zh.js" crossorigin="anonymous"></script>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         // Tom Select：单选，带搜索和确定按钮
@@ -1593,7 +1560,7 @@
         const TEAMS = ['前端', '后端', '设计'];
         // 代表数据库表的占位符。
         const REVIEWERS = FIRST_NAMES.flatMap((first, index) =>
-          ['Bennett', 'Carter', 'Dawson'].map((last, offset) => ({
+          ['贝内特', '卡特', '道森'].map((last, offset) => ({
             id: index * 3 + offset + 1,
             name: `${first} ${last}`,
             team: TEAMS[(index + offset) % TEAMS.length],
@@ -1637,7 +1604,7 @@
           valueField: 'id',
           labelField: 'name',
           searchField: ['name', 'team'],
-          placeholder: 'Type to search 72 people…',
+          placeholder: '输入以搜索 72 人……',
           preload: 'focus',
           // Tom Select 为你自动处理 `load`，无需手动设置计时器。
           loadThrottle: 300,

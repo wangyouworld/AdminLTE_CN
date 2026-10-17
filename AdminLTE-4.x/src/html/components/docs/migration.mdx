@@ -11,7 +11,7 @@ AdminLTE 4 是一次从头开始的重写。它基于 Bootstrap 5.3，移除了 
 | 浏览器支持 | 提供 IE 11 兼容版本 | 仅支持现代浏览器 |
 | 构建工具 | Gulp | **Rollup + Sass + PostCSS** |
 | 图标库 | FontAwesome | **Bootstrap Icons** （Lucide / Tabler Icons 作为替代方案已文档化） |
-| 表单组件 | 在 `plugins/` 里打包了约 25 个 jQuery 插件 | **一个都不打包** —— 改为[文档化](#third-party-plugin-replacements)推荐的原生 JS 替代方案 |
+| 表单组件 | 在 `plugins/` 里打包了约 25 个 jQuery 插件 | **一个都不打包** —— 改为[文档](#第三方插件替代方案)推荐的原生 JS 替代方案 |
 
 如果你的项目依赖 jQuery 或 IE 11，请继续使用 AdminLTE 3——这些限制在 v4 中不可逆。
 
@@ -92,7 +92,7 @@ AdminLTE 3 打包了一个塞满 jQuery 组件的 `plugins/` 文件夹。AdminLT
 
 | AdminLTE 3 插件（jQuery） | AdminLTE 4 替代方案 | 备注 |
 |---|---|---|
-| [Select2](https://select2.org/) | **[Tom Select](https://tom-select.js.org/)** | 搜索、多选、打标签、远程数据、虚拟滚动。如果非要留着 Select2，见 [API 对照](../forms/advanced.html#select2) 和 [Select2 兼容主题](integrations.html#coming-from-select2)。 |
+| [Select2](https://select2.org/) | **[Tom Select](https://tom-select.js.org/)** | 搜索、多选、打标签、远程数据、虚拟滚动。如果非要留着 Select2，见 [API 对照](../forms/advanced.html#select2) 和 [Select2 兼容主题](integrations.html#select2-兼容主题)。 |
 | [Bootstrap4 Duallistbox](https://www.virtuosoft.eu/code/bootstrap-duallistbox/) | **[Tom Select](https://tom-select.js.org/)** | 一个 `multiple` 的 Tom Select 就能干同样的活，界面还更简洁。 |
 | [DataTables](https://datatables.net/) | **[Tabulator](https://tabulator.info/)** | 排序、筛选、分页、行内编辑、导出。用在了 `tables/data.html` 里。 |
 | [bootstrap-datepicker](https://github.com/uxsolutions/bootstrap-datepicker) | **[Flatpickr](https://flatpickr.js.org/)** | 一个库就顶替了 v3 里全部四个日期/时间插件。 |
@@ -106,11 +106,11 @@ AdminLTE 3 打包了一个塞满 jQuery 组件的 `plugins/` 文件夹。AdminLT
 | [iCheck / icheck-bootstrap](https://github.com/bantikyan/icheck-bootstrap) | **原生 `.form-check`** | Bootstrap 5.3 自带的复选框和开关压根不需要插件。 |
 | [bootstrap-colorpicker](https://itsjavi.com/bootstrap-colorpicker/) | **[Pickr](https://github.com/Simonwep/pickr)** | 或者用原生的 `<input type="color" class="form-control form-control-color">`。 |
 | [jQuery InputMask](https://github.com/RobinHerbots/Inputmask) | **[IMask](https://imask.js.org/)** | |
-| [jQuery Knob](https://github.com/aterrien/jQuery-Knob) | **[ApexCharts](https://apexcharts.com/)** 径向条形图 | |
+| [jQuery Knob](https://github.com/aterrien/jQuery-Knob) | **[Chart.js 4](https://www.chartjs.org/)** 圆环图 | 一个带 `circumference`/`cutout` 和中心标签的圆环图 —— 见 `charts/chartjs.html` 上的径向条形图。 |
 | [jQuery Mapael](https://www.vincentbroute.fr/mapael/) | **[jsVectorMap](https://github.com/themustafaomar/jsvectormap)** | |
 | [jQuery UI sortable](https://jqueryui.com/sortable/) | **[SortableJS](https://sortablejs.github.io/Sortable/)** | 看板演示就是靠它实现的。 |
-| [fullCalendar](https://fullcalendar.io/)（jQuery 版本） | **[FullCalendar 6](https://fullcalendar.io/)** | 同一个项目——v5 之后就不依赖 jQuery 了。用在了 `pages/calendar.html` 里。 |
-| [Chart.js 2](https://www.chartjs.org/) | **[Chart.js 4](https://www.chartjs.org/)** / **[ApexCharts](https://apexcharts.com/)** | Chart.js 本来就不依赖 jQuery；只是跨了个大版本。 |
+| [fullCalendar](https://fullcalendar.io/)（jQuery 版本） | **[FullCalendar 7](https://fullcalendar.io/)** | 同一个项目——v5 之后就不依赖 jQuery 了。用在了 `pages/calendar.html` 里。 |
+| [Chart.js 2](https://www.chartjs.org/) | **[Chart.js 4](https://www.chartjs.org/)** | Chart.js 从来就不依赖 jQuery；只是跨了个大版本。用在仪表盘和 `charts/chartjs.html` 里。 |
 | [dropzone](https://www.dropzone.dev/) | **[Dropzone 6](https://www.dropzone.dev/)** 或 **[FilePond](https://pqina.nl/filepond/)** | v6 是用纯 JS 重写的。 |
 | [Ekko Lightbox](https://github.com/ashleydw/lightbox) | **[GLightbox](https://biati-digital.github.io/glightbox/)** | |
 | [jQuery Overlay Scrollbars](https://kingsora.github.io/OverlayScrollbars/) | **原生 `scrollbar-*` CSS** | AdminLTE 4 用 CSS 给侧边栏的滚动条做了样式。 |
@@ -161,7 +161,7 @@ AdminLTE 3 演示使用 FontAwesome 6 免费版。AdminLTE 4 标准化使用 [Bo
 <i class="bi bi-house"></i>
 ```
 
-如果你更愿意继续使用 FontAwesome（或使用 Lucide、Tabler Icons、Material Symbols 等），AdminLTE 4 中没有任何内容强制使用 Bootstrap Icons——加载你喜欢的任何图标字体并替换 `<i>` 类即可。参见 [Recommended Integrations](integrations.html#icon-libraries) 的对比表。
+如果你更愿意继续使用 FontAwesome（或使用 Lucide、Tabler Icons、Material Symbols 等），AdminLTE 4 中没有任何内容强制使用 Bootstrap Icons——加载你喜欢的任何图标字体并替换 `<i>` 类即可。参见 [集成](integrations.html#图标库) 的对比表。
 
 ##### 尚未移植的页面
 
@@ -176,7 +176,7 @@ v3 演示中包含的页面尚未全部为 v4 重新创建。v4 发布说明中�
 3. **更新 `data-toggle` → `data-bs-toggle`** 等，覆盖所有模板。
 4. **将 `.dark-mode` 切换代码**替换为 `data-bs-theme` 属性写入。
 5. **审查 jQuery 调用。** 要么移除它们（使用 data 属性），要么直接导入插件类。
-6. **替换掉第三方插件**，参照上面的[替代方案对照表](#third-party-plugin-replacements)。一次换一个组件——这是最耗时的一步，而且每换一个都可以单独测试。
+6. **替换掉第三方插件**，参照上面的[替代方案对照表](#第三方插件替代方案)。一次换一个组件——这是最耗时的一步，而且每换一个都可以单独测试。
 7. **测试响应式 breakpoint**——Bootstrap 5 新增了 `xxl`。如果你使用了 breakpoint 特定的工具类，请仔细检查新的尺寸体系。
 8. **重新测试打印视图** —— 跟 v3 一样，打印时会略去头部、侧边栏和页脚，让内容占满整张纸；`data-lte-print="plain"` 会去掉打印出来的链接目标地址和按钮描边，适合那些要打印成正式文档的页面；而 `data-lte-print="app"` 则反过来，会把整个布局都打印出来。如果你之前写过自定义的打印 CSS，确认一下它还能正常工作。
 

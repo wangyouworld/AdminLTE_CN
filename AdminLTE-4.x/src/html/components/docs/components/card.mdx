@@ -1,4 +1,4 @@
-卡片是 AdminLTE 里的主要内容容器。它们本质上就是 [Bootstrap 卡片](https://getbootstrap.com/docs/5.3/components/card/)，额外加了一层阴影、一套颜色变体系统、一个头部工具栏，还有供 [CardWidget 插件](../javascript/card-widget.html) 使用的钩子——这个插件能让卡片折叠、移除和最大化。
+卡片是 AdminLTE 里的主要内容容器。它们本质上就是 [Bootstrap 卡片](https://getbootstrap.com/docs/5.3/components/card/)，额外加了一层阴影、一套颜色变体系统、一个头部工具栏，还有供 [卡片插件](../javascript/card-widget.html) 使用的钩子——这个插件能让卡片折叠、移除和最大化。
 
 ##### 结构
 
@@ -103,4 +103,4 @@
 
 - `.card-title` 是浮动的，所以如果 `.card-header` 里只放了一个标题和工具栏，它自身是撑不起高度的——头部上的 clearfix mixin 会把它撑回来。出于同样的原因，你在头部里再加自己的浮动元素也是安全的。
 - 嵌套卡片的作用域是正确的：折叠和展开的规则用的是 `> .card-header` 和 `> .card-body`，所以折叠外层卡片不会把里面那张卡片的图标也改掉。
-- 如果卡片是由页面上其他位置的按钮来切换的，请使用 CardWidget 的[编程 API](../javascript/card-widget.html#programmatic-api)，而不是手动增删那些状态类——它会触发对应的事件。
+- 如果卡片是由页面上其他位置的按钮来切换的，请使用 CardWidget 的[编程 API](../javascript/card-widget.html#调用方式)，而不是手动增删那些状态类——它会触发对应的事件。

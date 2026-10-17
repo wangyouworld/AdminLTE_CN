@@ -150,8 +150,8 @@ See the [CHANGELOG.md](CHANGELOG.md) for complete details.
 ### 开发指南
 To start developing with AdminLTE:
 开始使用 AdminLTE 进行开发的步骤：
-1. **Install dependencies:** `npm install`
-1. **安装依赖项**：执行 `npm install`
+1. **Install dependencies:** use Node.js 22.22.3+, 24.16.0+, or 26.3.0+ and npm 10+, then run `npm ci`
+1. **安装依赖**：使用 Node.js 22.22.3+、24.16.0+ 或 26.3.0+，以及 npm 10+，然后运行 `npm ci`
 2. **Start development server:** `npm start` *(opens browser at http://localhost:3000)*
 2. **启动开发服务器**：运行 `npm start` *(自动在浏览器打开 http://localhost:3000)*
 3. **Start coding!** Files auto-compile and refresh on changes
@@ -2142,8 +2142,8 @@ or copy one of the demo pages.
 1. **安装依赖：** `npm install`
 2. **Start the dev server:** `npm start` *(opens http://localhost:3000 with live reload)*
 2. **启动开发服务器：** `npm start` *（打开 http://localhost:3000，带热重载）*
-3. **Build:** `npm run build` — or `npm run production` for the full lint + optimize + bundlewatch pipeline
-3. **构建：** `npm run build`——或者 `npm run production` 跑完整的 lint + 优化 + bundlewatch 流程
+3. **Build:** `npm run build` — or `npm run production` for the full lint + test + optimize + bundle-size pipeline
+3. **构建：** `npm run build` — 或使用 `npm run production` 执行完整的代码检查、测试、优化和打包流程
 <summary>All npm scripts</summary>
 <summary>所有 npm 脚本</summary>
 - `npm start` — development server with file watching
@@ -2158,6 +2158,18 @@ or copy one of the demo pages.
 - `npm run css` —— 仅构建 CSS
 - `npm run js` — build JavaScript only
 - `npm run js` —— 仅构建 JavaScript
+- `npm test` — unit tests (Vitest)
+- `npm test` —— 单元测试（Vitest）
+- `npm run test-browser` — built-page, responsive, theme, and plugin checks (install Chromium with `npx playwright install chromium`)
+- `npm run test-browser` —— 构建页面、响应式、主题和插件的检查（用 `npx playwright install chromium` 安装 Chromium）
+- `npm run test-a11y` — axe accessibility checks on built pages (also test dark mode with `A11Y_COLOR_SCHEME=dark`)
+- `npm run test-a11y` —— 对构建页面跑 axe 无障碍检查（也可以用 `A11Y_COLOR_SCHEME=dark` 测深色模式）
+- `npm run test-size` — check gzip budgets without external reporting services
+- `npm run test-size` —— 检查 gzip 体积预算，不需要外部报告服务
+The charts on the demo pages are drawn with [Chart.js](https://www.chartjs.org/) (MIT),
+演示页面上的图表是用 [Chart.js](https://www.chartjs.org/)（MIT 许可）绘制的，
+loaded from a CDN on the pages that use it — it is not a dependency of the `admin-lte` package.
+只在用到它的页面上从 CDN 加载 —— 它不是 `admin-lte` 这个包的依赖。
 ## What's new in v4
 ## v4 版本新特性
 The v4 line is a ground-up rewrite on Bootstrap 5.3 with **no jQuery**: 18 new demo pages
@@ -2476,3 +2488,93 @@ For the record, Bootstrap's own `if()` calls warn too — 82 of them across `boo
 - **布局在打印时还保留着视口尺寸。** `.app-wrapper` 带着 `min-height: 100vh` 和 `max-width: 100vw`，而这两个在打印时都没被清除，尽管打印块明明重写了同一个元素的 grid 布局。纸上没有视口需要填满：不管页面多短，包裹元素都会占满一整张纸 —— 这就是为什么打印出来的发票把页脚放在了一整张空白灰纸的底部、内容却挤在上三分之一处，也是为什么包裹元素后面任何东西都会另起一页。现在这两个在打印时都被重置了，连同头部、主体和页脚上的 `max-width: 100vw` 一起（#6113，由 @johnnyq 反馈）。
 - **The print block set `display` on elements it did not need to.** Forcing `display: block` on `.app-sidebar` was what made `.d-print-none` unable to hide it before 4.6.0, and the same shape would have made `.d-print-*` unable to show it now. Printing the shell is a matter of *not* hiding it, so the rules that hide it are simply scoped out instead, and nothing in the print block forces a `display` value on the header, sidebar or footer any more.
 - **打印块给一些本来不需要的元素设了 `display`。** 强制给 `.app-sidebar` 设 `display: block`，正是 4.6.0 之前让 `.d-print-none` 没法隐藏它的原因；同样的写法放在现在，也会让 `.d-print-*` 没法把它显示出来。要打印外壳，关键在于*不要*把它隐藏，所以现在改成把那些隐藏它的规则直接排除掉，打印块里也不再对头部、侧边栏或页脚强制设任何 `display` 值了。
+# Contributing to AdminLTE
+# 为 AdminLTE 做贡献
+Contributions are always **welcome and recommended**! Here is how for beginner's: [Get started with open source click here](https://youtu.be/GbqSvJs-6W4)
+贡献永远都是**受欢迎、也鼓励大家来做的**！新手可以这样上手：[点这里开始接触开源](https://youtu.be/GbqSvJs-6W4)
+1. Contribution Requirements :
+1. 贡献要求：
+* When you contribute, you agree to give a non-exclusive license to AdminLTE.io to use that contribution in any context as we (AdminLTE.io) see appropriate.
+* 你做出贡献，即表示你同意授予 AdminLTE.io 一份非独占许可，允许我们（AdminLTE.io）在我们认为合适的任何场景下使用该贡献。
+* If you use content provided by another party, it must be appropriately licensed using an [open source](https://opensource.org/licenses) license.
+* 如果你使用了第三方提供的内容，它必须采用合适的[开源](https://opensource.org/licenses)许可证授权。
+* Contributions are only accepted through GitHub pull requests.
+* 贡献只通过 GitHub pull request 接受。
+* Finally, contributed code must work in all supported browsers (see above for browser support).
+* 最后，贡献的代码必须在所有受支持的浏览器里都能正常工作（浏览器支持情况见上文）。
+2. Installation :
+2. 安装：
+* Fork the repository ([here is the guide](https://help.github.com/articles/fork-a-repo/)).
+* Fork 这个仓库（[指南在这里](https://help.github.com/articles/fork-a-repo/)）。
+* Clone to your machine
+* 克隆到你自己的机器上
+* Create a new branch from `master`
+* 从 `master` 创建一个新分支
+3. Compile dist files (Development) :
+3. 编译 dist 文件（开发）：
+* To compile the dist files you need Node.js 22.22.3+, 24.16.0+, or 26.3.0+ and npm 10+
+* 要编译 dist 文件，你需要 Node.js 22.22.3+、24.16.0+ 或 26.3.0+，以及 npm 10+
+* `npm ci` (install the locked dependency tree)
+* `npm ci`（安装锁定版本的依赖树）
+* `npm run dev` (developer mode, asset watchers and Astro live demo at http://localhost:3000)
+* `npm run dev`（开发者模式，资源监听加 Astro 实时演示，地址是 http://localhost:3000）
+* Make your changes only in `./src` Folder OR `package.json` in any files which are necessary for contribution
+* 只在 `./src` 文件夹里做修改，或者在 `package.json` 里，以及其他对贡献来说必要的文件里
+* Do not make changes in `./dist/**` Because it contains compiled files and do not include in PR (Pull Request)
+* 不要在 `./dist/**` 里做修改，因为那里放的是编译产物，也不要把它包含进 PR（Pull Request）里
+* `npm test` (unit tests), then `npm run build` and `npm run test-browser` / `npm run test-a11y` (install browsers with `npx playwright install chromium`)
+* `npm test`（单元测试），然后 `npm run build` 和 `npm run test-browser` / `npm run test-a11y`（用 `npx playwright install chromium` 安装浏览器）
+* `npm run production` (lint, run unit tests, compile assets, and check gzip budgets before creating a pull request)
+* `npm run production`（创建 pull request 之前，跑 lint、单元测试、编译资源，并检查 gzip 体积预算）
+4. Create a pull request to `master` branch
+4. 向 `master` 分支创建一个 pull request
+## Online one-click setup for contributing
+## 在线一键配置，直接开始贡献
+You can use [Codespace](https://docs.github.com/en/codespaces) an online IDE which is free for Open Source for working on issues or making PRs (Pull Requests). With a single click it will launch a workspace and automatically:
+你可以使用 [Codespace](https://docs.github.com/en/codespaces) —— 一个对开源免费开放的在线 IDE，用来处理 issue 或提交 PR（Pull Request）。只要点一下，它就会启动一个工作区并自动：
+- clone the `AdminLTE` repo.
+- 克隆 `AdminLTE` 仓库。
+- Open with [Codespace](https://docs.github.com/en/codespaces) or [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
+- 用 [Codespace](https://docs.github.com/en/codespaces) 打开，或者 [![在 Gitpod 中打开](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
+- install the dependencies.
+- 安装依赖。
+- run `npm run dev` to start the server.
+- 运行 `npm run dev` 启动服务器。
+- Refresh build, lint, formatting, and testing dependencies to the latest compatible stable releases, including Astro 7.3.7, Rollup 4.64.2, Playwright 1.64.0, Vitest 5.0.3, Sass 1.105.1, and ESLint 10.12.0. Replace `npm-run-all` with the maintained `npm-run-all2` and declare the previously implicit `unist-util-visit` dependency.
+- 把构建、lint、格式化和测试相关的依赖都更新到了兼容的最新稳定版，包括 Astro 7.3.7、Rollup 4.64.2、Playwright 1.64.0、Vitest 5.0.3、Sass 1.105.1 和 ESLint 10.12.0。用仍在维护的 `npm-run-all2` 替换掉了 `npm-run-all`，并把之前隐含的 `unist-util-visit` 依赖显式声明出来。
+- Update pinned demo and integration libraries, including FullCalendar 7.1.1, Tabulator 6.6.1, OverlayScrollbars 2.16.0, jsVectorMap 1.7.0, and Tom Select 2.6.2. Migrate FullCalendar's stylesheet, Bootstrap theme, draggable, and event-colour APIs, and refresh existing CDN integrity hashes.
+- 更新了锁定版本的演示和集成库，包括 FullCalendar 7.1.1、Tabulator 6.6.1、OverlayScrollbars 2.16.0、jsVectorMap 1.7.0 和 Tom Select 2.6.2。迁移了 FullCalendar 的样式表、Bootstrap 主题、拖拽和事件颜色相关的 API，并刷新了现有的 CDN 完整性哈希。
+- Building from source requires Node.js 22.22.3+, 24.16.0+, or 26.3.0+ and npm 10+, declared through `devEngines`; the published package retains its existing Node.js engine requirement. TypeScript remains on 6.0.3 because the latest Astro checker and TypeScript ESLint releases do not yet support TypeScript 7.
+- 从源码构建需要 Node.js 22.22.3+、24.16.0+ 或 26.3.0+，以及 npm 10+，这些通过 `devEngines` 声明；发布出去的包则保留它原有的 Node.js 引擎要求。TypeScript 保持在 6.0.3，因为最新的 Astro 检查器和 TypeScript ESLint 都还不支持 TypeScript 7。
+- Synchronize every fullscreen control, including when initializing a layout already in fullscreen, without changing public events or component APIs. Scope icon updates to fullscreen controls so they do not interfere with card-maximize buttons.
+- 同步所有全屏控件，包括初始化一个已经处于全屏状态的布局时，同时不改动公开事件或组件 API。把图标更新限定在全屏控件范围内，这样就不会干扰卡片最大化按钮。
+- Prevent shared-header overflow at tablet widths, preserve local dates in calendar events, and tolerate an unavailable OverlayScrollbars CDN script.
+- 防止共享头部在平板宽度下溢出，保留日历事件里的本地日期，并容忍 OverlayScrollbars 的 CDN 脚本不可用的情况。
+- Improve demo filter labels, grid semantics, product-link names, calendar accessible names, and light/dark contrast. Dark-mode outline buttons and documentation links now use theme-aware colour tokens; fixed palette swatches retain a white demonstration background.
+- 改进演示滤镜标签、网格语义、产品链接名称、日历可访问名称以及亮/暗对比度。深色模式下的按钮轮廓和文档链接现在使用主题感知的配色令牌；固定调色板色块仍保留白色演示背景。
+- Check Astro source pages explicitly, fix previously hidden palette typing errors, and repair the ESM Prettier configuration and Unicorn recommended preset.
+- 显式检查了 Astro 源码页面，修复了之前被隐藏的调色板类型错误，并修好了 ESM 的 Prettier 配置和 Unicorn 推荐预设。
+- Playwright checks for every built HTML page, responsive light/dark layouts, RTL, and key plugin interactions, with Chromium, Firefox, and WebKit CI jobs.
+- 为每个构建出来的 HTML 页面、响应式浅色/深色布局、RTL 以及关键插件交互都加了 Playwright 检查，并配上 Chromium、Firefox 和 WebKit 的 CI 任务。
+- Node.js 22/24/26 unit-test CI, light/dark accessibility CI, and fullscreen regression tests. Missing Playwright now fails accessibility checks rather than silently skipping them.
+- Node.js 22/24/26 的单元测试 CI、浅色/深色无障碍 CI，以及全屏回归测试。现在缺少 Playwright 会让无障碍检查失败，而不是悄悄跳过。
+- `npm run test-size` enforces all existing gzip budgets locally without an external reporting service; `npm run production` uses this check. Bundlewatch remains available for CI reporting.
+- `npm run test-size` 会在本地强制校验所有现有的 gzip 体积预算，不需要外部报告服务；`npm run production` 用的就是这个检查。Bundlewatch 则保留下来用于 CI 报告。
+- Refresh security overrides, including a patched PostCSS selector parser. Production dependencies audit clean. Development tooling still includes `braces@3.0.3`, affected by [GHSA-vfj7-8cjw-p6xm](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm); no patched release is available. Its twenty propagated npm audit findings remain unresolved rather than downgrading the current toolchain.
+- 刷新了安全覆盖项，包括一个打了补丁的 PostCSS 选择器解析器。生产依赖审计干净。开发工具链里仍然有 `braces@3.0.3`，受 [GHSA-vfj7-8cjw-p6xm](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm) 影响；目前没有可用的补丁版本。它传播出来的二十条 npm audit 发现仍然留着不解决，而不是为此降级当前的工具链。
+- **The demo charts are drawn with Chart.js (MIT) instead of ApexCharts.** From 5.2.0 ApexCharts is published under its own commercial "ApexCharts License" rather than MIT, and a template that thousands of projects copy into their products cannot carry that on to them. Every chart on Dashboard v1, v2 and v3 and on the charts showcase is rebuilt on Chart.js 4.5.1 with the same data, colours and sizes: area and line charts (gradient fills), grouped columns, doughnuts, the radial bar (concentric doughnut rings with the average in the middle), the mixed bar-and-line chart with two value axes, and the dashboard sparklines. Chart.js is loaded from jsDelivr with an SRI hash, only on the pages that draw charts, exactly as ApexCharts was — the `admin-lte` npm package has never depended on a chart library and still does not. Gzipped chart JavaScript per charted page drops from 131.5 kB (ApexCharts 3.37.1 JS + CSS) to 72.8 kB (Chart.js 4.5.1 plus the 2.3 kB inline theme preset below).
+- **演示图表改用 Chart.js（MIT）来绘制，不再用 ApexCharts。** 从 5.2.0 起，ApexCharts 是按它自己的商业 "ApexCharts License" 发布的，不再是 MIT，而一个被成千上万个项目复制进自家产品的模板，不能把这个负担转嫁给他们。Dashboard v1、v2、v3 以及图表展示页上的每一张图表，都用同样的数据、颜色和尺寸在 Chart.js 4.5.1 上重建了：面积图和折线图（渐变填充）、分组柱状图、圆环图、径向条形图（同心圆环，中间放平均值）、带两条数值轴的柱线混合图，以及仪表盘上的迷你趋势图。Chart.js 从 jsDelivr 加载并带 SRI 哈希，只在绘制图表的页面上加载，跟原来 ApexCharts 的做法完全一样 —— `admin-lte` 这个 npm 包从来没有依赖过任何图表库，现在也依然没有。每个含图表的页面，图表 JavaScript 的 gzip 体积从 131.5 kB（ApexCharts 3.37.1 的 JS + CSS）降到了 72.8 kB（Chart.js 4.5.1 加上下面那个 2.3 kB 的内联主题预设）。
+The showcase page is now `charts/chartjs.html` and the sidebar entry reads "Chart.js". `charts/apexcharts.html` stays as a redirect so existing links keep working.
+展示页面现在是 `charts/chartjs.html`，侧边栏条目的文字是 "Chart.js"。`charts/apexcharts.html` 保留为一个重定向，这样现有的链接还能用。
+- **One chart theme preset, following the colour mode live.** The charted pages include a short preset (`src/html/components/_chartjs.astro`) that sets `Chart.defaults` from AdminLTE's CSS variables — body font, secondary text for ticks, 8% gridlines with no vertical grid on category axes, rounded bars, a tooltip and legend styled like a card — and restyles every chart on the page when `<html data-bs-theme>` changes (the ColorMode toggle, the OS in auto mode, or your own code) or when the web font finishes loading. Under `<html dir="rtl">` legends and tooltips are laid out right-to-left. The ApexCharts colour-mode helper that every demo page carried in its shared scripts (#6105) is gone with it, so the 85 pages without charts are 1.6 kB lighter too. The [dark-mode charts recipe](https://adminlte.io/themes/v4/docs/recipes.html#charts-that-follow-dark-mode), the Recommended Integrations, Migration and RTL docs are updated to match.
+- **一个图表主题预设，实时跟随颜色模式。** 含图表的页面都引入了一个简短的预设（`src/html/components/_chartjs.astro`），它根据 AdminLTE 的 CSS 变量设置 `Chart.defaults` —— 正文字体、刻度用次要文字色、8% 的网格线且分类轴上不画竖线、圆角柱子、提示框和图例做成卡片样式 —— 并且会在 `<html data-bs-theme>` 变化时（ColorMode 切换器、auto 模式下的系统偏好，或者你自己的代码）或网页字体加载完成时，把页面上每张图表的样式都重新刷一遍。在 `<html dir="rtl">` 下，图例和提示框按从右到左排布。每个演示页面共享脚本里都带着的那个 ApexCharts 颜色模式辅助脚本（#6105）也跟着一起删掉了，所以那 85 个没有图表的页面也轻了 1.6 kB。[深色模式图表实战指南](https://adminlte.io/themes/v4/docs/recipes.html#charts-that-follow-dark-mode)、推荐集成、迁移和 RTL 文档都做了相应更新。
+One Chart.js detail worth knowing if you adapt the preset: Chart.js copies the scale defaults into each chart's config when the chart is created, so changing `Chart.defaults` and calling `chart.update()` leaves existing axes in the old colours. The preset drops those copied colours before it updates; see the comment in the component.
+如果自定义预设，有一个 Chart.js 细节需要注意：当图表创建时，Chart.js 会将坐标轴的默认设置复制到每个图表的配置中。因此，修改 `Chart.defaults` 并调用 `chart.update()` 后，现有的坐标轴仍会保持原有颜色。该预设在更新前会移除这些已复制的颜色；详情请参见组件中的注释。
+- **The brand logo sat 4px left of centre in the collapsed mini sidebar.** `.brand-text` keeps its base `margin-left: .5rem` while `.sidebar-mini.sidebar-collapse` shrinks it to `max-width: 0`, so 8px of margin on a zero-width element pushed the logo off the rail's centre line. The margin is now cleared in that state — the hover rule that expands the rail already re-declared `margin-left: .5rem`, which is what the collapsed state should have mirrored all along (#6114, by @dfsmania).
+- **折叠的迷你侧边栏里，品牌 logo 偏离中心 4px。** `.brand-text` 保留着它基础的 `margin-left: .5rem`，而 `.sidebar-mini.sidebar-collapse` 把它压缩到了 `max-width: 0`，于是零宽元素上的 8px 外边距就把 logo 推离了窄栏的中心线。现在在这个状态下会清除该外边距 —— 展开窄栏的悬停规则本来就已经重新声明了 `margin-left: .5rem`，折叠状态本来就该跟它保持一致（#6114，由 @dfsmania 提交）。
+- **Dev dependencies refreshed** — eslint 10.8.1 -> 10.9.1, eslint-plugin-unicorn 73 -> 74, @typescript-eslint/* and typescript-eslint 8.67.0 -> 8.69.0, astro 7.2.4 -> 7.2.10, @astrojs/mdx 7.0.7 -> 8.0.0, @astrojs/markdown-remark 7.2.4 -> 7.3.0, rollup 4.62.4 -> 4.63.1, terser 5.50.0 -> 5.51.2, happy-dom 20.11.6 -> 20.12.0, sass 1.103.0 -> 1.103.1, globals 17.11.0 -> 17.12.0. Every one of the 114 built files in `dist/` is byte-identical afterwards, so this changes nothing for consumers.
+- **开发依赖都更新了** —— eslint 10.8.1 -> 10.9.1、eslint-plugin-unicorn 73 -> 74、@typescript-eslint/* 和 typescript-eslint 8.67.0 -> 8.69.0、astro 7.2.4 -> 7.2.10、@astrojs/mdx 7.0.7 -> 8.0.0、@astrojs/markdown-remark 7.2.4 -> 7.3.0、rollup 4.62.4 -> 4.63.1、terser 5.50.0 -> 5.51.2、happy-dom 20.11.6 -> 20.12.0、sass 1.103.0 -> 1.103.1、globals 17.11.0 -> 17.12.0。之后 `dist/` 里 114 个构建文件每一个都一个字节没变，所以对使用者来说没有任何影响。
+`@astrojs/mdx` 8.0.0 is a major but not an Astro 8 requirement — it peers `astro@^7.2.6` — and it flattens the tree rather than growing it: four nested duplicates of `@astrojs/markdown-remark` and `@astrojs/internal-helpers` go away and `@astrojs/markdown-satteri` is hoisted to the top level. `npm ci` from a clean checkout resolves with no peer warnings.
+`@astrojs/mdx` 8.0.0 是个大版本，但并不是要求 Astro 8 —— 它的 peer 依赖是 `astro@^7.2.6` —— 而且它把依赖树拍平了而不是变大了：四份嵌套重复的 `@astrojs/markdown-remark` 和 `@astrojs/internal-helpers` 都消失了，`@astrojs/markdown-satteri` 被提升到了顶层。从干净检出跑 `npm ci` 解析时没有任何 peer 警告。
+- **TypeScript stays on 6.0.3.** 7.0.2 is out and Dependabot proposes it monthly, but two peers still refuse it: `@astrojs/check@0.9.10` (the latest) declares `typescript@^5.0.0 || ^6.0.0`, and `typescript-eslint@8.69.0` declares `>=4.8.4 <6.1.0`. The upgrade fails at `npm ci` with `ERESOLVE`, so it cannot land until both move.
+- **TypeScript 保持在 6.0.3。** 7.0.2 已经发布了，Dependabot 每个月都在提议升级，但有两个 peer 依赖仍然不接受它：`@astrojs/check@0.9.10`（最新版）声明的是 `typescript@^5.0.0 || ^6.0.0`，而 `typescript-eslint@8.69.0` 声明的是 `>=4.8.4 <6.1.0`。这个升级会在 `npm ci` 阶段以 `ERESOLVE` 失败，所以在这两者都跟上之前，它落不了地。

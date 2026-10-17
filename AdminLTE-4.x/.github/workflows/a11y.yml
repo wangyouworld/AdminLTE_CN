@@ -16,14 +16,18 @@ permissions:
 jobs:
   axe:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        color-scheme: [light, dark]
     steps:
       - name: Clone repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           persist-credentials: false
 
       - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: "${{ env.NODE }}"
           cache: npm
@@ -32,14 +36,12 @@ jobs:
         run: npm ci
 
       - name: Install Playwright Chromium
-        # Kept out of devDependencies so the other workflows' npm ci stays
-        # lean; --no-save leaves package.json and the lockfile untouched.
-        run: |
-          npm install --no-save playwright
-          npx playwright install --with-deps chromium
+        run: npx playwright install --with-deps chromium
 
       - name: Build distribution files
         run: npm run build
 
       - name: Run axe accessibility checks
         run: npm run test-a11y
+        env:
+          A11Y_COLOR_SCHEME: ${{ matrix.color-scheme }}

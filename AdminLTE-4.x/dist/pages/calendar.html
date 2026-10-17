@@ -75,7 +75,7 @@
     <link
       rel="stylesheet"
       href="../assets/fontsource/index.css"
-      integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
+      integrity="sha256-5UwXtC6TaPHCAbVQ59waEAqOssHyhn/twyuLRRWszzo="
       crossorigin="anonymous"
       media="print"
       onload="this.media = 'all'"
@@ -102,9 +102,12 @@
     <link rel="stylesheet" href="../css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
 
+    <link rel="stylesheet" href="../assets/fullcalendar/skeleton.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../assets/fullcalendar/theme.css" crossorigin="anonymous" />
     <style>
-      .fc-event {
-        cursor: pointer;
+      /* 在 Bootstrap 的两种配色模式下，保持相邻月份的日期可读。 */
+      #calendar .text-body-tertiary {
+        color: var(--bs-secondary-color) !important;
       }
       .draggable-event {
         cursor: grab;
@@ -149,7 +152,7 @@
 
           <!--begin::Navbar Search-->
           <form
-            class="navbar-search d-none d-md-block ms-3"
+            class="navbar-search d-none d-xl-block ms-3"
             role="search"
             action="../pages/search-results.html"
           >
@@ -173,7 +176,7 @@
           <!--begin::End Navbar Links-->
           <ul class="navbar-nav ms-auto">
             <!--begin::Search （小屏幕上：上面的输入框是隐藏的，所以链接到搜索页面）-->
-            <li class="nav-item d-md-none">
+            <li class="nav-item d-xl-none">
               <a class="nav-link" href="../pages/search-results.html" aria-label="搜索">
                 <i class="bi bi-search" aria-hidden="true"></i>
               </a>
@@ -418,7 +421,7 @@
                   class="user-image rounded-circle shadow"
                   alt="亚历山大·皮尔斯"
                 />
-                <span class="d-none d-md-inline">亚历山大·皮尔斯</span>
+                <span class="d-none d-xl-inline">亚历山大·皮尔斯</span>
               </a>
               <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
                 <!--begin::用户头像-->
@@ -824,9 +827,9 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="../charts/apexcharts.html" class="nav-link">
+                    <a href="../charts/chartjs.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>ApexCharts</p>
+                      <p>Chart.js</p>
                     </a>
                   </li>
                 </ul>
@@ -1154,7 +1157,7 @@
                     <h3 class="card-title">可拖动事件</h3>
                   </div>
                   <div class="card-body">
-                    <p class="text-secondary small mb-3">将活动拖到日历中以安排它。</p>
+                    <p class="text-body-secondary small mb-3">将活动拖到日历中以安排它。</p>
                     <div id="external-events">
                       <div
                         class="draggable-event badge text-bg-primary p-2 mb-2 d-block text-start"
@@ -1213,10 +1216,10 @@
                   <div class="card-body">
                     <div id="calendar"></div>
                   </div>
-                  <div class="card-footer text-secondary small">
+                  <div class="card-footer bg-body text-body-secondary small">
                     由
                     <a href="https://fullcalendar.io/" target="_blank" rel="noopener"
-                      >FullCalendar 6</a
+                      >FullCalendar 7</a
                     >
                     驱动 &mdash; 采用 MIT 许可证，无 jQuery 依赖。
                   </div>
@@ -1269,7 +1272,7 @@
 
         if (
           sidebarWrapper &&
-          OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined &&
+          globalThis.OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined &&
           !isMobile
         ) {
           OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
@@ -1283,38 +1286,6 @@
       });
     </script>
     <!--end::OverlayScrollbars Configure-->
-    <!--begin::Charts follow the colour mode-->
-    <script>
-      // 如果不额外指定，ApexCharts 会按浅色主题来画提示框和坐标轴文字，
-      // 这在深色模式下根本看不清（#6105）。在任何图表创建之前，把页面的颜色模式
-      // 作为全局默认值交给它 —— 这段代码跑在图表页面自己的脚本之前 —— 并且在模式
-      // 发生变化时（ColorMode、auto 模式下的操作系统、或你自己的代码），
-      // 让每一个带 `chart.id` 的图表都跟着同步。
-      (() => {
-        'use strict';
-        const mode = () =>
-          document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'dark' : 'light';
-        // `Apex` 是 ApexCharts 的全局选项对象；它必须在库加载之前就存在。
-        // theme.mode 还会顺带设一个深色的图表背景 —— 这里保留卡片自己的背景。
-        // eslint-disable-next-line unicorn/no-global-object-property-assignment
-        globalThis.Apex ||= {};
-        const apex = globalThis.Apex;
-        apex.theme = { mode: mode() };
-        apex.chart = Object.assign(apex.chart || {}, { background: 'transparent' });
-        new MutationObserver(() => {
-          const next = mode();
-          apex.theme = { mode: next };
-          const instances = apex._chartInstances || [];
-          for (const { chart } of instances) {
-            chart.updateOptions({ theme: { mode: next } }, false, false);
-          }
-        }).observe(document.documentElement, {
-          attributes: true,
-          attributeFilter: ['data-bs-theme'],
-        });
-      })();
-    </script>
-    <!--end::Charts follow the colour mode-->
 
     <!--begin::明暗模式切换-->
     <!-- 浅色/深色/自动切换器从 4.1 起就作为 ColorMode 模块内置在 adminlte.js 里了
@@ -1322,21 +1293,29 @@
      因为它必须在首次绘制之前就运行。 -->
     <!--end::明暗模式切换-->
 
-    <script src="../assets/fullcalendar/index.global.min.js" crossorigin="anonymous"></script>
+    <script src="../assets/fullcalendar/global.min.js" crossorigin="anonymous"></script>
+    <script src="../assets/fullcalendar/bootstrap5.global.min.js" crossorigin="anonymous"></script>
+    <script src="../assets/fullcalendar/locales-all.global.min.js" crossorigin="anonymous"></script>
     <script>
-      const isoDate = (d) => d.toISOString().slice(0, 10);
+      // 请将所有日期设为本地时间；UTC转换可能会使日期偏移一天。
+      const isoDate = (d) =>
+        [
+          d.getFullYear(),
+          String(d.getMonth() + 1).padStart(2, '0'),
+          String(d.getDate()).padStart(2, '0'),
+        ].join('-');
 
       document.addEventListener('DOMContentLoaded', () => {
+        const cellObservers = new WeakMap();
         const calendarEl = document.getElementById('calendar');
         const externalEl = document.getElementById('external-events');
         const removeAfterDrop = document.getElementById('remove-after-drop');
 
-        new FullCalendar.Draggable(externalEl, {
+        new FullCalendar.Interaction.Draggable(externalEl, {
           itemSelector: '.draggable-event',
           eventData: (el) => ({
             title: el.textContent.trim(),
-            backgroundColor: el.dataset.color,
-            borderColor: el.dataset.color,
+            color: el.dataset.color,
           }),
         });
 
@@ -1350,6 +1329,24 @@
         const calendar = new FullCalendar.Calendar(calendarEl, {
           locale: 'zh-cn',
           initialView: 'dayGridMonth',
+          buttons: { today: { hint: '今天' } },
+          // 日期单元格也包含事件标题。请在可访问名称中包含这些可见文本，
+          // 包括拖动、编辑或导航后的情况。
+          dayCellDidMount: ({ el }) => {
+            const dateLabel = el.getAttribute('aria-label') || '';
+            const syncLabel = () => {
+              const visibleText = el.textContent.replace(/\s+/g, ' ').trim();
+              el.setAttribute('aria-label', `${dateLabel} ${visibleText}`.trim());
+            };
+            const observer = new MutationObserver(syncLabel);
+            observer.observe(el, { childList: true, subtree: true, characterData: true });
+            cellObservers.set(el, observer);
+            syncLabel();
+          },
+          dayCellWillUnmount: ({ el }) => {
+            cellObservers.get(el)?.disconnect();
+            cellObservers.delete(el);
+          },
           headerToolbar: {
             start: 'prev,next today',
             center: 'title',
@@ -1380,38 +1377,17 @@
             }
           },
           events: [
-            {
-              title: '季度规划',
-              start: offsetDay(-2),
-              backgroundColor: '#0d6efd',
-              borderColor: '#0d6efd',
-            },
-            {
-              title: '入职培训',
-              start: offsetDay(1),
-              backgroundColor: '#198754',
-              borderColor: '#198754',
-            },
+            { title: '季度规划', start: offsetDay(-2), color: '#0d6efd' },
+            { title: '入职培训', start: offsetDay(1), color: '#198754' },
             {
               title: '设计评审',
               start: offsetDay(3),
               end: offsetDay(4),
-              backgroundColor: '#ffc107',
-              borderColor: '#ffc107',
-              textColor: '#000',
+              color: '#ffc107',
+              contrastColor: '#000',
             },
-            {
-              title: '发布 v2.5',
-              start: offsetDay(7),
-              backgroundColor: '#dc3545',
-              borderColor: '#dc3545',
-            },
-            {
-              title: '全体成员',
-              start: offsetDay(10),
-              backgroundColor: '#6f42c1',
-              borderColor: '#6f42c1',
-            },
+            { title: '发布 v2.5', start: offsetDay(7), color: '#dc3545' },
+            { title: '全体成员', start: offsetDay(10), color: '#6f42c1' },
           ],
         });
 

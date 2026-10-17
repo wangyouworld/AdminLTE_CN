@@ -32,8 +32,8 @@ AdminLTE 有意保持精简的依赖树。我们不捆绑每一个表单组件�
 [Tom Select](https://tom-select.js.org/) 是 Selectize 的原生 JS 重写版本。非常适合可搜索下拉框、标签输入和远程数据自动完成。
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select@2.6.1/dist/css/tom-select.bootstrap5.min.css" />
-<script src="https://cdn.jsdelivr.net/npm/tom-select@2.6.1/dist/js/tom-select.complete.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select@2.6.2/dist/css/tom-select.bootstrap5.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.6.2/dist/js/tom-select.complete.min.js"></script>
 
 <select id="tags" class="form-control" multiple placeholder="选择标签">
   <option value="design">设计</option>
@@ -111,13 +111,13 @@ new TomSelect("#reviewer", {
 | `$("#x").select2("destroy")` | `ts.destroy()` |
 | `$("#x").empty().select2({ data })` | `ts.clearOptions(); ts.addOptions(data)` |
 
-这张表的并排对照版，配上可运行的代码，放在 [Advanced Elements](../forms/advanced.html#select2) 演示页面里。
+这张表的并排对照版，配上可运行的代码，放在 [高级元素](../forms/advanced.html#select2) 演示页面里。
 
-**如果你不得不继续用 Select2**，AdminLTE 提供了一个*纯样式*的兼容样式表——见下面的 [Select2 兼容主题](#select2-compatibility-theme)。
+**如果你不得不继续用 Select2**，AdminLTE 提供了一个*纯样式*的兼容样式表——见下面的 [Select2 兼容主题](#select2-兼容主题)。
 
 ###### Select2 兼容主题
 
-有些项目没法甩掉 Select2：比如一个带着几百个服务端渲染表单的 ERP 系统、一个会自动帮你初始化它的第三方插件，又或者团队压根还没准备好换。AdminLTE 不会把 Select2 或 jQuery 打包进来，但它确实提供了一个 **纯 CSS 的兼容主题**，这样你自己引入的 Select2 就能继承 Bootstrap 5.3 的表单尺寸、焦点圈、校验状态以及 `data-bs-theme` 深色模式。
+有些项目没法去掉 Select2：比如一个带着几百个服务端渲染表单的 ERP 系统、一个会自动帮你初始化它的第三方插件，又或者团队压根还没准备好换。AdminLTE 不会把 Select2 或 jQuery 打包进来，但它确实提供了一个 **纯 CSS 的兼容主题**，这样你自己引入的 Select2 就能继承 Bootstrap 5.3 的表单尺寸、焦点圈、校验状态以及 `data-bs-theme` 深色模式。
 
 - **`dist/css/adminlte-select2.css`**（以及 `.min.css`、`.rtl.css`、`.rtl.min.css`）
 - 没有 JavaScript，没有 jQuery，`adminlte.css` 里也没加任何东西——你只要额外加载一个样式表就能用上。
@@ -134,7 +134,7 @@ new TomSelect("#reviewer", {
   <option value="lv">拉脱维亚</option>
 </select>
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.min.js"></script>
 <script>
   $("#country").select2({ width: "100%" })
@@ -196,8 +196,8 @@ import "admin-lte/dist/css/adminlte-select2.min.css"
 [Pickr](https://github.com/Simonwep/pickr) 是一个扁平、现代的颜色选择器，支持多种主题。
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr@1.9.1/dist/themes/classic.min.css" />
-<script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr@1.9.1/dist/pickr.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr@1.10.2/dist/themes/classic.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr@1.10.2/dist/pickr.min.js"></script>
 
 <div id="color-picker"></div>
 
@@ -232,8 +232,8 @@ import "admin-lte/dist/css/adminlte-select2.min.css"
 [Dropzone](https://www.dropzone.dev/) 是事实上的拖拽上传器。v6 重写版是纯 JavaScript（旧版 v5 有与 jQuery 耦合的示例；v6+ 没有）。
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropzone@6.0.0-beta.2/dist/dropzone.css" />
-<script src="https://cdn.jsdelivr.net/npm/dropzone@6.0.0-beta.2/dist/dropzone-min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropzone@6.3.5/dist/dropzone.css" />
+<script src="https://cdn.jsdelivr.net/npm/dropzone@6.3.5/dist/dropzone-min.js"></script>
 
 <form action="/upload" class="dropzone" id="uploader"></form>
 
@@ -315,32 +315,17 @@ import "admin-lte/dist/css/adminlte-select2.min.css"
 
 ##### 图表
 
-###### ApexCharts
-
-[ApexCharts](https://apexcharts.com/) 是 AdminLTE 仪表板中使用的图表库。现代外观、带动画、MIT 许可。
-
-```html
-<script src="https://cdn.jsdelivr.net/npm/apexcharts@5.12.0/dist/apexcharts.min.js"></script>
-
-<div id="chart"></div>
-
-<script>
-  new ApexCharts(document.querySelector("#chart"), {
-    chart: { type: "区域", height: 300 },
-    series: [{ name: "访问量", data: [30, 40, 35, 50, 49, 60, 70] }],
-    xaxis: { categories: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"] }
-  }).render()
-</script>
-```
-
 ###### Chart.js
 
-[Chart.js](https://www.chartjs.org/) 是被问及最多的传统图表库。基于 Canvas，支持非常广泛的图表类型。
+[Chart.js](https://www.chartjs.org/)（MIT 许可）是 AdminLTE 仪表盘和 `charts/chartjs.html` 展示页里使用的图表库。基于 Canvas，带动画、响应式，内置折线图、面积图、柱状图、圆环图、饼图、极区图、雷达图、散点图和气泡图。
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
 
-<canvas id="bar-chart" height="120"></canvas>
+<!-- 为画布设置一个具有高度的父元素；图表会填充它并跟随其宽度。 -->
+<div style="position: relative; height: 300px">
+  <canvas id="bar-chart" role="img" aria-label="Revenue per quarter"></canvas>
+</div>
 
 <script>
   new Chart(document.getElementById("bar-chart"), {
@@ -348,10 +333,13 @@ import "admin-lte/dist/css/adminlte-select2.min.css"
     data: {
       labels: ["一季度", "二季度", "三季度", "四季度"],
       datasets: [{ label: "收入", data: [120, 190, 170, 230] }]
-    }
+    },
+    options: { maintainAspectRatio: false }
   })
 </script>
 ```
+
+演示页面用 AdminLTE 的 CSS 变量来给每张图表设定样式 —— 字体、文字和网格线颜色、提示框和图例 —— 并且在颜色模式变化时实时重新刷一遍样式。那个预设就是一小段内联脚本；想把它复制到你自己的页面里，见[方案](recipes.html#会跟随深色模式的图表。
 
 ##### 数据表格
 
@@ -360,8 +348,8 @@ import "admin-lte/dist/css/adminlte-select2.min.css"
 [Tabulator](https://tabulator.info/) 在 `tables/data.html` 中使用无需 jQuery 的 DataTables 替代方案。排序、筛选、分页、编辑、导出——全部内置。
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables@6.4.0/dist/css/tabulator_bootstrap5.min.css" />
-<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@6.4.0/dist/js/tabulator.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables@6.6.1/dist/css/tabulator_bootstrap5.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@6.6.1/dist/js/tabulator.min.js"></script>
 
 <div id="table"></div>
 
@@ -387,7 +375,10 @@ import "admin-lte/dist/css/adminlte-select2.min.css"
 [FullCalendar](https://fullcalendar.io/) 是 [`/pages/calendar.html`](../pages/calendar.html) 中使用的日历。拖拽调度、多视图、重复事件、MIT 许可。
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@7.1.1/skeleton.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fullcalendar/bootstrap5@7.1.1/theme.css" />
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@7.1.1/all/global.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/bootstrap5@7.1.1/global.min.js"></script>
 
 <div id="calendar"></div>
 
@@ -407,8 +398,8 @@ import "admin-lte/dist/css/adminlte-select2.min.css"
 [jsVectorMap](https://github.com/themustafaomar/jsvectormap) 是 jQuery Mapael / jVectorMap 的继任者，而且不依赖任何第三方库。它支持分级统计图（choropleth）、标记点、按区域绑定的点击处理器，还自带一张世界地图以及各个国家的数据文件。
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/css/jsvectormap.min.css" />
-<script src="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/js/jsvectormap.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/jsvectormap.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/jsvectormap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/maps/world.js"></script>
 
 <div id="map" style="height: 20rem;"></div>

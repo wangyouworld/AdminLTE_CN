@@ -105,14 +105,14 @@ const projects: Project[] = [
 const statusBadge: Record<Project["status"], string> = {
   "正常": "success",
   "风险": "warning",
-  Delayed: "danger",
-  Completed: "secondary"
+  "延期": "danger",
+  "完成": "secondary"
 };
 
 const priorityBadge: Record<Project["priority"], string> = {
-  Low: "secondary",
-  Medium: "info",
-  High: "danger"
+  "低": "secondary",
+  "中": "info",
+  "高": "danger"
 };
 
 const progressBar = (p: number) => {
@@ -213,7 +213,7 @@ const totals = {
                 <select
                   class="form-select form-select-sm"
                   style="width: 10rem;"
-                  aria-label="Filter by status"
+                  aria-label="按状态筛选"
                 >
                   <option value="">所有状态</option>
                   <option>正常</option>

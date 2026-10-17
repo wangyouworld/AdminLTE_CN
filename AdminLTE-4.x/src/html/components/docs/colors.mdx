@@ -4,7 +4,7 @@ import { palette, paletteV3, sets, skinGroups, skinGroupsV3, skins, skinsV3 } fr
 
 AdminLTE 4 只用了 Bootstrap 5.3 的主题色来给自己做样式 —— `primary`、`success`、`danger`、`warning`、`info`、`secondary`、`light`、`dark` —— 除此之外没别的。这让 `adminlte.css` 保持得很小，但仪表盘的一行组件里经常想要不止五种色调，而且 AdminLTE 3 的老用户还惦记着 `.bg-navy`、`.bg-teal` 和那些侧边栏皮肤。
 
-**`dist/css/adminlte-colors.css`** 就是答案，而且是按需启用的：多加载一个样式表（gzip 后约 8 kB），就会以 `--bs-*` token 的形式加入十四种颜色，外加 Bootstrap 为自己主题色生成的那一整套类系列 —— 而且还能让其中任意一个[成为你的 `primary`](#making-one-of-them-your-primary)。对于不加载它的项目来说，什么都不变。更喜欢 AdminLTE 3 原封不动的颜色？还有一个专门的样式表 —— 见下面的[两套调色板](#two-palettes)。
+**`dist/css/adminlte-colors.css`** 就是答案，而且是按需启用的：多加载一个样式表（gzip 后约 8 kB），就会以 `--bs-*` token 的形式加入十四种颜色，外加 Bootstrap 为自己主题色生成的那一整套类系列 —— 而且还能让其中任意一个[成为你的 `主题色`](#让其中某个颜色成为你的-主题色)。对于不加载它的项目来说，什么都不变。更喜欢 AdminLTE 3 原封不动的颜色？还有一个专门的样式表 —— 见下面的[两种调色板](#两种调色板)。
 
 <div class="d-flex flex-wrap gap-2 my-3">
   {palette.map(c => (
@@ -26,7 +26,7 @@ AdminLTE 4 只用了 Bootstrap 5.3 的主题色来给自己做样式 —— `pri
 来自 CDN（请注明在生产环境中测试的精确版本）：
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@4.9.1/dist/css/adminlte-colors.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@4.10.1/dist/css/adminlte-colors.min.css" />
 ```
 
 从 npm，使用打包工具：
@@ -98,9 +98,9 @@ AdminLTE 3 的原版颜色，以及每种颜色配白色文字能达到的对比
   <table class="table align-middle">
     <thead>
       <tr>
-        <th scope="col">Colour</th>
-        <th scope="col">Default (v3 rule)</th>
-        <th scope="col">With <code>aa</code></th>
+        <th scope="col">颜色</th>
+        <th scope="col">默认（v3 规则）</th>
+        <th scope="col">启用 <code>aa</code> 后</th>
       </tr>
     </thead>
     <tbody>
@@ -201,7 +201,7 @@ v3 那个样式表是用和设计版同一套 Sass 构建的 —— `src/scss/ad
 | 组件 | `.small-box.text-bg-teal`, `.info-box.text-bg-teal`, `.badge.text-bg-teal`, `.progress-bar.bg-teal` | 这些本来就能通过 `.text-bg-*` / `.bg-*` 自己上色，所以不用额外输出什么 |
 | 按钮 | `.btn.text-bg-teal`, `.btn.bg-gradient-teal` | 会带上悬停 / 激活状态的色阶，免得看起来像没反应的死按钮 |
 
-##### 让其中某个颜色成为你的 `primary`
+##### 让其中某个颜色成为你的 `主题色`
 
 Bootstrap 在构建时会把 `$primary` 编译进它的组件里：`.btn-primary` 出厂时带的是 `--bs-btn-bg: #0d6efd`，而不是 `var(--bs-primary)`。所以光覆盖那个 token，只会重绘 `.text-primary` 和 `.bg-primary`，而每个按钮、分页和复选框还是蓝色的 —— 这就是过去皮肤看起来只应用了一半的原因（[#6107](https://github.com/ColorlibHQ/AdminLTE/issues/6107)）。
 
@@ -331,7 +331,7 @@ $lte-palette-custom: (
 
 这还会生成 `data-lte-primary="brand"`，所以 `<html data-lte-primary="brand">` 就能把 Bootstrap 那些 `primary` 组件变成你的品牌色，并且带上正确的悬停色阶和对比文字。
 
-To ship **only** your colours (drop the fourteen), set `$lte-palette` itself instead:
+如果只想发布**你自己的**颜色（把那十四种丢掉），那就改为设置 `$lte-palette` 本身：
 
 ```scss
 $lte-palette: (
@@ -416,4 +416,4 @@ v3 的扩展颜色有 `lightblue`、`navy`、`olive`、`lime`、`fuchsia`、`mar
 | `sidebar-dark-primary`, `navbar-light` … | `text-bg-*` + `data-bs-theme` | 见上文的<em>皮肤</em> |
 | `bg-gradient-*` | `bg-gradient-*` | 保留了，调色板和主题色都能用 |
 
-想让现有标记继续能用，有两种办法：加载 **`adminlte-colors-v3.css`**，这样每个 v3 名字都会带着原始取值回来（见[两套调色板](#两种调色板)）；或者用重新设计的那套调色板，加上一行别名配置 `$lte-palette-aliases: ("lightblue": "sky", "maroon": "pink");`。
+想让现有标记继续能用，有两种办法：加载 **`adminlte-colors-v3.css`**，这样每个 v3 名字都会带着原始取值回来（见[两种调色板](#两种调色板)）；或者用重新设计的那套调色板，加上一行别名配置 `$lte-palette-aliases: ("lightblue": "sky", "maroon": "pink");`。

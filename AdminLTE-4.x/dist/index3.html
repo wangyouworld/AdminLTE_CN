@@ -76,7 +76,7 @@
     <link
       rel="stylesheet"
       href="./assets/fontsource/index.css"
-      integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
+      integrity="sha256-5UwXtC6TaPHCAbVQ59waEAqOssHyhn/twyuLRRWszzo="
       crossorigin="anonymous"
       media="print"
       onload="this.media = 'all'"
@@ -102,14 +102,6 @@
     <!--begin::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="./css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
-
-    <!-- apexcharts -->
-    <link
-      rel="stylesheet"
-      href="./assets/apexcharts/apexcharts.css"
-      integrity="sha256-4MX+61mt9NVvvuPjUWdUdyfZfxSB1/Rf9WtqRHgG5S0="
-      crossorigin="anonymous"
-    />
   </head>
 
   <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
@@ -150,7 +142,7 @@
 
           <!--begin::Navbar Search-->
           <form
-            class="navbar-search d-none d-md-block ms-3"
+            class="navbar-search d-none d-xl-block ms-3"
             role="search"
             action="./pages/search-results.html"
           >
@@ -174,7 +166,7 @@
           <!--begin::End Navbar Links-->
           <ul class="navbar-nav ms-auto">
             <!--begin::Search （小屏幕上：上面的输入框是隐藏的，所以链接到搜索页面）-->
-            <li class="nav-item d-md-none">
+            <li class="nav-item d-xl-none">
               <a class="nav-link" href="./pages/search-results.html" aria-label="搜索">
                 <i class="bi bi-search" aria-hidden="true"></i>
               </a>
@@ -419,7 +411,7 @@
                   class="user-image rounded-circle shadow"
                   alt="亚历山大·皮尔斯"
                 />
-                <span class="d-none d-md-inline">亚历山大·皮尔斯</span>
+                <span class="d-none d-xl-inline">亚历山大·皮尔斯</span>
               </a>
               <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
                 <!--begin::用户头像-->
@@ -825,9 +817,9 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="./charts/apexcharts.html" class="nav-link">
+                    <a href="./charts/chartjs.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>ApexCharts</p>
+                      <p>Chart.js</p>
                     </a>
                   </li>
                 </ul>
@@ -1163,7 +1155,7 @@
                       <h3 class="card-title">商城访客</h3>
                       <a
                         href="javascript:void(0);"
-                        class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                        class="link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
                         >查看报告</a
                       >
                     </div>
@@ -1175,14 +1167,20 @@
                         <span>近期访问</span>
                       </p>
                       <p class="ms-auto d-flex flex-column text-end">
-                        <span class="text-success"> <i class="bi bi-arrow-up"></i> 12.5% </span>
-                        <span class="text-secondary">自上周以来</span>
+                        <span class="text-success-emphasis">
+                          <i class="bi bi-arrow-up"></i> 12.5%
+                        </span>
+                        <span class="text-body-secondary">自上周以来</span>
                       </p>
                     </div>
                     <!-- /.d-flex -->
 
-                    <div class="position-relative mb-4">
-                      <div id="visitors-chart"></div>
+                    <div class="position-relative mb-4" style="height: 200px">
+                      <canvas
+                        id="visitors-chart"
+                        role="img"
+                        aria-label="本周与上周店铺访客折线图"
+                      ></canvas>
                     </div>
 
                     <div class="d-flex flex-row justify-content-end">
@@ -1190,7 +1188,7 @@
                         <i class="bi bi-square-fill text-primary"></i> 本周
                       </span>
 
-                      <span> <i class="bi bi-square-fill text-secondary"></i> 上周 </span>
+                      <span> <i class="bi bi-square-fill text-body-secondary"></i> 上周 </span>
                     </div>
                   </div>
                 </div>
@@ -1230,14 +1228,14 @@
                           </td>
                           <td>$13 USD</td>
                           <td>
-                            <small class="text-success me-1">
+                            <small class="text-success-emphasis me-1">
                               <i class="bi bi-arrow-up"></i>
                               12%
                             </small>
                             售出 12,000
                           </td>
                           <td>
-                            <a href="#" class="text-secondary">
+                            <a href="#" class="text-body-secondary" aria-label="查看产品详情">
                               <i class="bi bi-search"></i>
                             </a>
                           </td>
@@ -1253,14 +1251,14 @@
                           </td>
                           <td>$29 USD</td>
                           <td>
-                            <small class="text-info me-1">
+                            <small class="text-info-emphasis me-1">
                               <i class="bi bi-arrow-down"></i>
                               0.5%
                             </small>
                             售出 123,234
                           </td>
                           <td>
-                            <a href="#" class="text-secondary">
+                            <a href="#" class="text-body-secondary" aria-label="查看产品详情">
                               <i class="bi bi-search"></i>
                             </a>
                           </td>
@@ -1276,14 +1274,14 @@
                           </td>
                           <td>$1,230 USD</td>
                           <td>
-                            <small class="text-danger me-1">
+                            <small class="text-danger-emphasis me-1">
                               <i class="bi bi-arrow-down"></i>
                               3%
                             </small>
                             售出 198
                           </td>
                           <td>
-                            <a href="#" class="text-secondary">
+                            <a href="#" class="text-body-secondary" aria-label="查看产品详情">
                               <i class="bi bi-search"></i>
                             </a>
                           </td>
@@ -1300,14 +1298,14 @@
                           </td>
                           <td>$199 USD</td>
                           <td>
-                            <small class="text-success me-1">
+                            <small class="text-success-emphasis me-1">
                               <i class="bi bi-arrow-up"></i>
                               63%
                             </small>
                             售出 87
                           </td>
                           <td>
-                            <a href="#" class="text-secondary">
+                            <a href="#" class="text-body-secondary" aria-label="查看产品详情">
                               <i class="bi bi-search"></i>
                             </a>
                           </td>
@@ -1326,7 +1324,7 @@
                       <h3 class="card-title">销量</h3>
                       <a
                         href="javascript:void(0);"
-                        class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                        class="link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
                         >查看报告</a
                       >
                     </div>
@@ -1338,14 +1336,20 @@
                         <span>销量</span>
                       </p>
                       <p class="ms-auto d-flex flex-column text-end">
-                        <span class="text-success"> <i class="bi bi-arrow-up"></i> 33.1% </span>
-                        <span class="text-secondary">自去年以来</span>
+                        <span class="text-success-emphasis">
+                          <i class="bi bi-arrow-up"></i> 33.1%
+                        </span>
+                        <span class="text-body-secondary">自去年以来</span>
                       </p>
                     </div>
                     <!-- /.d-flex -->
 
-                    <div class="position-relative mb-4">
-                      <div id="sales-chart"></div>
+                    <div class="position-relative mb-4" style="height: 200px">
+                      <canvas
+                        id="sales-chart"
+                        role="img"
+                        aria-label="2月至10月净利润、收入和自由现金流柱状图"
+                      ></canvas>
                     </div>
 
                     <div class="d-flex flex-row justify-content-end">
@@ -1353,7 +1357,7 @@
                         <i class="bi bi-square-fill text-primary"></i> 今年
                       </span>
 
-                      <span> <i class="bi bi-square-fill text-secondary"></i> 去年 </span>
+                      <span> <i class="bi bi-square-fill text-body-secondary"></i> 去年 </span>
                     </div>
                   </div>
                 </div>
@@ -1375,7 +1379,7 @@
                     <div
                       class="d-flex justify-content-between align-items-center border-bottom mb-3"
                     >
-                      <p class="text-success fs-2">
+                      <p class="text-success-emphasis fs-2">
                         <svg
                           height="32"
                           fill="none"
@@ -1394,16 +1398,16 @@
                       </p>
                       <p class="d-flex flex-column text-end">
                         <span class="fw-bold">
-                          <i class="bi bi-graph-up-arrow text-success"></i> 12%
+                          <i class="bi bi-graph-up-arrow text-success-emphasis"></i> 12%
                         </span>
-                        <span class="text-secondary">转化率</span>
+                        <span class="text-body-secondary">转化率</span>
                       </p>
                     </div>
                     <!-- /.d-flex -->
                     <div
                       class="d-flex justify-content-between align-items-center border-bottom mb-3"
                     >
-                      <p class="text-info fs-2">
+                      <p class="text-info-emphasis fs-2">
                         <svg
                           height="32"
                           fill="none"
@@ -1422,14 +1426,14 @@
                       </p>
                       <p class="d-flex flex-column text-end">
                         <span class="fw-bold">
-                          <i class="bi bi-graph-up-arrow text-info"></i> 0.8%
+                          <i class="bi bi-graph-up-arrow text-info-emphasis"></i> 0.8%
                         </span>
-                        <span class="text-secondary">销售率</span>
+                        <span class="text-body-secondary">销售率</span>
                       </p>
                     </div>
                     <!-- /.d-flex -->
                     <div class="d-flex justify-content-between align-items-center mb-0">
-                      <p class="text-danger fs-2">
+                      <p class="text-danger-emphasis fs-2">
                         <svg
                           height="32"
                           fill="none"
@@ -1448,10 +1452,10 @@
                       </p>
                       <p class="d-flex flex-column text-end">
                         <span class="fw-bold">
-                          <i class="bi bi-graph-down-arrow text-danger"></i>
+                          <i class="bi bi-graph-down-arrow text-danger-emphasis"></i>
                           1%
                         </span>
-                        <span class="text-secondary">注册率</span>
+                        <span class="text-body-secondary">注册率</span>
                       </p>
                     </div>
                     <!-- /.d-flex -->
@@ -1512,7 +1516,7 @@
 
         if (
           sidebarWrapper &&
-          OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined &&
+          globalThis.OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined &&
           !isMobile
         ) {
           OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
@@ -1526,38 +1530,6 @@
       });
     </script>
     <!--end::OverlayScrollbars Configure-->
-    <!--begin::Charts follow the colour mode-->
-    <script>
-      // 如果不额外指定，ApexCharts 会按浅色主题来画提示框和坐标轴文字，
-      // 这在深色模式下根本看不清（#6105）。在任何图表创建之前，把页面的颜色模式
-      // 作为全局默认值交给它 —— 这段代码跑在图表页面自己的脚本之前 —— 并且在模式
-      // 发生变化时（ColorMode、auto 模式下的操作系统、或你自己的代码），
-      // 让每一个带 `chart.id` 的图表都跟着同步。
-      (() => {
-        'use strict';
-        const mode = () =>
-          document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'dark' : 'light';
-        // `Apex` 是 ApexCharts 的全局选项对象；它必须在库加载之前就存在。
-        // theme.mode 还会顺带设一个深色的图表背景 —— 这里保留卡片自己的背景。
-        // eslint-disable-next-line unicorn/no-global-object-property-assignment
-        globalThis.Apex ||= {};
-        const apex = globalThis.Apex;
-        apex.theme = { mode: mode() };
-        apex.chart = Object.assign(apex.chart || {}, { background: 'transparent' });
-        new MutationObserver(() => {
-          const next = mode();
-          apex.theme = { mode: next };
-          const instances = apex._chartInstances || [];
-          for (const { chart } of instances) {
-            chart.updateOptions({ theme: { mode: next } }, false, false);
-          }
-        }).observe(document.documentElement, {
-          attributes: true,
-          attributeFilter: ['data-bs-theme'],
-        });
-      })();
-    </script>
-    <!--end::Charts follow the colour mode-->
 
     <!--begin::明暗模式切换-->
     <!-- 浅色/深色/自动切换器从 4.1 起就作为 ColorMode 模块内置在 adminlte.js 里了
@@ -1567,123 +1539,247 @@
 
     <!-- 可选脚本 -->
 
-    <!-- apexcharts -->
+    <!-- Chart.js + AdminLTE 图表主题 -->
+    <!--begin::Third Party Plugin(Chart.js)-->
     <script
-      src="./assets/apexcharts/apexcharts.min.js"
-      integrity="sha256-+vh8GkaU7C9/wbSLIcwq82tQ2wTf44aOHA8HlBMwRI8="
+      src="./assets/chart.js/chart.umd.min.js"
+      integrity="sha256-SERKgtTty1vsDxll+qzd4Y2cF9swY9BCq62i9wXJ9Uo="
       crossorigin="anonymous"
     ></script>
+    <!--end::Third Party Plugin(Chart.js)-->
+    <!--begin::Chart.js theme preset-->
+    <script>
+      // 用 AdminLTE 的 CSS 变量给页面上每张 Chart.js 图表设定样式 ——
+      // 字体、文字、网格线、提示框和图例 —— 并让它们跟颜色模式
+      //（ColorMode、auto 模式下的系统偏好，或你自己的代码）以及
+      // `dir="rtl"` 保持同步。Canvas 读不了 CSS，所以这里把这些值解析出来，
+      // 每当 <html data-bs-theme> 或 dir 变化时，就重新应用到每张图表上。
+      (() => {
+        'use strict';
+        const { Chart } = globalThis;
+        if (!Chart) {
+          return;
+        }
+
+        const root = document.documentElement;
+        const cssVar = (name, fallback = '') =>
+          getComputedStyle(root).getPropertyValue(name).trim() || fallback;
+
+        // "#0d6efd" (or "#06f") + 0.3 -> "rgba(13, 110, 253, 0.3)"; 其他任何东西都原样返回。
+        const alpha = (color, opacity) => {
+          let hex = String(color).trim().replace(/^#/, '');
+          if (!/^[\da-f]{3}([\da-f]{3})?$/i.test(hex)) {
+            return color;
+          }
+
+          if (hex.length === 3) {
+            hex = [...hex].map((c) => c + c).join('');
+          }
+
+          const [r, g, b] = [0, 2, 4].map((i) => Number.parseInt(hex.slice(i, i + 2), 16));
+          return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+        };
+
+        // 面积图的脚本化 backgroundColor：让线条颜色渐隐到透明。
+        const areaFill =
+          (color, from = 0.35, to = 0) =>
+          (context) => {
+            const { ctx, chartArea } = context.chart;
+            if (!chartArea) {
+              return alpha(color, from);
+            }
+
+            const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+            gradient.addColorStop(0, alpha(color, from));
+            gradient.addColorStop(1, alpha(color, to));
+            return gradient;
+          };
+
+        // 当前 Chart.defaults 中的主题颜色。
+        let applied = [];
+
+        const apply = () => {
+          const text = cssVar('--bs-secondary-color', '#6c757d');
+          const body = cssVar('--bs-body-color', '#212529');
+          const surface = cssVar('--bs-body-bg', '#fff');
+          const grid = `rgba(${cssVar('--bs-emphasis-color-rgb', '0, 0, 0')}, 0.08)`;
+          const rtl = root.getAttribute('dir') === 'rtl';
+          const d = Chart.defaults;
+          applied = [text, grid];
+
+          d.font.family = cssVar('--bs-body-font-family', d.font.family);
+          d.font.size = 12;
+          d.color = text;
+          d.borderColor = grid;
+          d.maintainAspectRatio = false;
+
+          d.scale.grid.color = grid;
+          d.scale.border.color = grid;
+          d.scale.ticks.padding = 8;
+          // 数值轴保持浮动，分类轴仅保留其基线。
+          d.set('scales.linear', { border: { display: false } });
+          d.set('scales.category', { grid: { display: false } });
+
+          d.elements.line.borderWidth = 2;
+          d.elements.point.radius = 0;
+          d.elements.point.hoverRadius = 5;
+          d.elements.point.hitRadius = 8;
+          d.elements.point.hoverBorderWidth = 2;
+          d.elements.point.borderColor = surface;
+          d.elements.bar.borderRadius = 4;
+          d.elements.arc.borderColor = surface;
+          d.elements.arc.borderWidth = 2;
+
+          const { legend, tooltip } = d.plugins;
+          legend.position = 'bottom';
+          legend.rtl = rtl;
+          Object.assign(legend.labels, {
+            color: body,
+            usePointStyle: true,
+            pointStyle: 'circle',
+            boxWidth: 8,
+            boxHeight: 8,
+            padding: 16,
+          });
+
+          Object.assign(tooltip, {
+            rtl,
+            backgroundColor: surface,
+            borderColor: cssVar('--bs-border-color', '#dee2e6'),
+            borderWidth: 1,
+            titleColor: cssVar('--bs-emphasis-color', '#000'),
+            bodyColor: body,
+            titleFont: { weight: '600' },
+            padding: 10,
+            cornerRadius: 6,
+            caretSize: 5,
+            boxPadding: 4,
+            usePointStyle: true,
+          });
+
+          // 折线图和柱状图每个 x 值共享一个数据工具提示，就像仪表盘应该的那样。
+          for (const type of ['line', 'bar']) {
+            Chart.overrides[type].interaction = { mode: 'index', intersect: false };
+          }
+        };
+
+        // Chart.js 在创建图表时，会把刻度默认值（刻度、网格、边框和标题的颜色）
+        // 复制进每张图表的配置里，所以光改默认值，永远到不了已有图表的坐标轴上。
+        // 把那些还留着上一套主题颜色的副本丢掉；
+        // 这样 update() 就会把新的复制进去。
+        // 图表自己设的颜色则原样保留。
+        const forgetThemeColors = (options, stale) => {
+          for (const [key, value] of Object.entries(options)) {
+            if (value && typeof value === 'object' && !Array.isArray(value)) {
+              forgetThemeColors(value, stale);
+            } else if (/color$/i.test(key) && stale.includes(value)) {
+              delete options[key];
+            }
+          }
+        };
+
+        const refresh = () => {
+          const stale = applied;
+          apply();
+          for (const chart of Object.values(Chart.instances)) {
+            forgetThemeColors(chart.config.options.scales || {}, stale);
+            chart.update('none');
+          }
+        };
+
+        apply();
+        new MutationObserver(refresh).observe(root, {
+          attributes: true,
+          attributeFilter: ['data-bs-theme', 'dir'],
+        });
+        // 网页字体可能在首次绘制后才出现；请重新绘制以确保标签能使用它。
+        document.fonts?.addEventListener('loadingdone', refresh);
+
+        // 用于页面自身图表代码的辅助函数。
+        // eslint-disable-next-line unicorn/no-global-object-property-assignment
+        globalThis.lteChartTheme = { cssVar, alpha, areaFill, refresh };
+      })();
+    </script>
+    <!--end::Chart.js theme preset-->
+
     <script>
       // 请注意！！！不要使用任何 javascript
       // 它们是演示用的
       // ++++++++++++++++++++++++++++++++++++++++++
 
-      const visitors_chart_options = {
-        series: [
-          {
-            name: '高 - 2023',
-            data: [100, 120, 170, 167, 180, 177, 160],
-          },
-          {
-            name: '低 - 2023',
-            data: [60, 80, 70, 67, 80, 77, 100],
-          },
-        ],
-        chart: {
-          id: 'visitors-chart',
-          height: 200,
-          type: 'line',
-          toolbar: {
-            show: false,
-          },
+      new Chart(document.querySelector('#visitors-chart'), {
+        type: 'line',
+        data: {
+          labels: ['22 日', '23 日', '24 日', '25 日', '26 日', '27 日', '28 日'],
+          datasets: [
+            {
+              label: '高 - 2023',
+              data: [100, 120, 170, 167, 180, 177, 160],
+              borderColor: '#0d6efd',
+              backgroundColor: '#0d6efd',
+              pointRadius: 3,
+              tension: 0.4,
+            },
+            {
+              label: '低 - 2023',
+              data: [60, 80, 70, 67, 80, 77, 100],
+              borderColor: '#adb5bd',
+              backgroundColor: '#adb5bd',
+              pointRadius: 3,
+              tension: 0.4,
+            },
+          ],
         },
-        colors: ['#0d6efd', '#adb5bd'],
-        stroke: {
-          curve: 'smooth',
-        },
-        grid: {
-          borderColor: '#e7e7e7',
-          row: {
-            colors: ['#f3f3f3', 'transparent'], // 该数组将在列上重复出现
-            opacity: 0.5,
-          },
-        },
-        legend: {
-          show: false,
-        },
-        markers: {
-          size: 1,
-        },
-        xaxis: {
-          categories: ['22 日', '23 日', '24 日', '25 日', '26 日', '27 日', '28 日'],
-        },
-      };
-
-      const visitors_chart = new ApexCharts(
-        document.querySelector('#visitors-chart'),
-        visitors_chart_options,
-      );
-      visitors_chart.render();
-
-      const sales_chart_options = {
-        series: [
-          {
-            name: '净利润',
-            data: [44, 55, 57, 56, 61, 58, 63, 60, 66],
-          },
-          {
-            name: '收益',
-            data: [76, 85, 101, 98, 87, 105, 91, 114, 94],
-          },
-          {
-            name: '现金流',
-            data: [35, 41, 36, 26, 45, 48, 52, 53, 41],
-          },
-        ],
-        chart: {
-          id: 'sales-chart',
-          type: 'bar',
-          height: 200,
-        },
-        plotOptions: {
-          bar: {
-            horizontal: false,
-            columnWidth: '55%',
-            endingShape: 'rounded',
-          },
-        },
-        legend: {
-          show: false,
-        },
-        colors: ['#0d6efd', '#20c997', '#ffc107'],
-        dataLabels: {
-          enabled: false,
-        },
-        stroke: {
-          show: true,
-          width: 2,
-          colors: ['transparent'],
-        },
-        xaxis: {
-          categories: ['二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月'],
-        },
-        fill: {
-          opacity: 1,
-        },
-        tooltip: {
-          y: {
-            formatter: function (val) {
-              return '$ ' + val + ' 万';
+        options: {
+          plugins: {
+            legend: {
+              display: false,
             },
           },
         },
-      };
+      });
 
-      const sales_chart = new ApexCharts(
-        document.querySelector('#sales-chart'),
-        sales_chart_options,
-      );
-      sales_chart.render();
+      new Chart(document.querySelector('#sales-chart'), {
+        type: 'bar',
+        data: {
+          labels: ['二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月'],
+          datasets: [
+            {
+              label: '净利润',
+              data: [44, 55, 57, 56, 61, 58, 63, 60, 66],
+              backgroundColor: '#0d6efd',
+            },
+            {
+              label: '收益',
+              data: [76, 85, 101, 98, 87, 105, 91, 114, 94],
+              backgroundColor: '#20c997',
+            },
+            {
+              label: '现金流',
+              data: [35, 41, 36, 26, 45, 48, 52, 53, 41],
+              backgroundColor: '#ffc107',
+            },
+          ],
+        },
+        options: {
+          datasets: {
+            bar: {
+              categoryPercentage: 0.55,
+              barPercentage: 0.9,
+            },
+          },
+          plugins: {
+            legend: {
+              display: false,
+            },
+            tooltip: {
+              callbacks: {
+                label: (context) => ` ${context.dataset.label}: $ ${context.parsed.y} 万`,
+              },
+            },
+          },
+        },
+      });
     </script>
     <!--end::Script-->
   </body>

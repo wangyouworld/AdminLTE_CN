@@ -76,7 +76,7 @@
     <link
       rel="stylesheet"
       href="./assets/fontsource/index.css"
-      integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
+      integrity="sha256-5UwXtC6TaPHCAbVQ59waEAqOssHyhn/twyuLRRWszzo="
       crossorigin="anonymous"
       media="print"
       onload="this.media = 'all'"
@@ -103,19 +103,11 @@
     <link rel="stylesheet" href="./css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
 
-    <!-- apexcharts -->
-    <link
-      rel="stylesheet"
-      href="./assets/apexcharts/apexcharts.css"
-      integrity="sha256-4MX+61mt9NVvvuPjUWdUdyfZfxSB1/Rf9WtqRHgG5S0="
-      crossorigin="anonymous"
-    />
-
     <!-- jsvectormap -->
     <link
       rel="stylesheet"
       href="./assets/jsvectormap/jsvectormap.min.css"
-      integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4="
+      integrity="sha256-Zshqz6X+Rs2Rf5sPtiSba+rwLBL1ZTyLBppbYOstR9M="
       crossorigin="anonymous"
     />
   </head>
@@ -159,7 +151,7 @@
 
           <!--begin::Navbar Search-->
           <form
-            class="navbar-search d-none d-md-block ms-3"
+            class="navbar-search d-none d-xl-block ms-3"
             role="search"
             action="./pages/search-results.html"
           >
@@ -183,7 +175,7 @@
           <!--begin::End Navbar Links-->
           <ul class="navbar-nav ms-auto">
             <!--begin::Search （小屏幕上：上面的输入框是隐藏的，所以链接到搜索页面）-->
-            <li class="nav-item d-md-none">
+            <li class="nav-item d-xl-none">
               <a class="nav-link" href="./pages/search-results.html" aria-label="搜索">
                 <i class="bi bi-search" aria-hidden="true"></i>
               </a>
@@ -428,7 +420,7 @@
                   class="user-image rounded-circle shadow"
                   alt="亚历山大·皮尔斯"
                 />
-                <span class="d-none d-md-inline">亚历山大·皮尔斯</span>
+                <span class="d-none d-xl-inline">亚历山大·皮尔斯</span>
               </a>
               <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
                 <!--begin::用户头像-->
@@ -834,9 +826,9 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="./charts/apexcharts.html" class="nav-link">
+                    <a href="./charts/chartjs.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>ApexCharts</p>
+                      <p>Chart.js</p>
                     </a>
                   </li>
                 </ul>
@@ -1303,7 +1295,13 @@
                   </div>
 
                   <div class="card-body">
-                    <div id="revenue-chart"></div>
+                    <div class="position-relative" style="height: 300px">
+                      <canvas
+                        id="revenue-chart"
+                        role="img"
+                        aria-label="2023年1月至7月 数字产品和电子产品销售额区域图"
+                      ></canvas>
+                    </div>
                   </div>
                 </div>
                 <!-- /.card -->
@@ -1319,7 +1317,7 @@
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-collapse"
-                        aria-label="Collapse card"
+                        aria-label="折叠卡片"
                       >
                         <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
                         <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
@@ -1579,7 +1577,7 @@
                         type="button"
                         class="btn btn-primary btn-sm"
                         data-lte-toggle="card-collapse"
-                        aria-label="Collapse card"
+                        aria-label="折叠卡片"
                       >
                         <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
                         <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
@@ -1593,15 +1591,21 @@
                     <!--begin::Row-->
                     <div class="row">
                       <div class="col-4 text-center">
-                        <div id="sparkline-1" class="text-dark"></div>
+                        <div class="position-relative" style="height: 50px">
+                          <canvas id="sparkline-1" role="img" aria-label="访客趋势"></canvas>
+                        </div>
                         <div class="text-white">访客</div>
                       </div>
                       <div class="col-4 text-center">
-                        <div id="sparkline-2" class="text-dark"></div>
+                        <div class="position-relative" style="height: 50px">
+                          <canvas id="sparkline-2" role="img" aria-label="在线趋势"></canvas>
+                        </div>
                         <div class="text-white">在线</div>
                       </div>
                       <div class="col-4 text-center">
-                        <div id="sparkline-3" class="text-dark"></div>
+                        <div class="position-relative" style="height: 50px">
+                          <canvas id="sparkline-3" role="img" aria-label="销售趋势"></canvas>
+                        </div>
                         <div class="text-white">销量</div>
                       </div>
                     </div>
@@ -1663,7 +1667,7 @@
 
         if (
           sidebarWrapper &&
-          OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined &&
+          globalThis.OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined &&
           !isMobile
         ) {
           OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
@@ -1677,38 +1681,6 @@
       });
     </script>
     <!--end::OverlayScrollbars Configure-->
-    <!--begin::Charts follow the colour mode-->
-    <script>
-      // 如果不额外指定，ApexCharts 会按浅色主题来画提示框和坐标轴文字，
-      // 这在深色模式下根本看不清（#6105）。在任何图表创建之前，把页面的颜色模式
-      // 作为全局默认值交给它 —— 这段代码跑在图表页面自己的脚本之前 —— 并且在模式
-      // 发生变化时（ColorMode、auto 模式下的操作系统、或你自己的代码），
-      // 让每一个带 `chart.id` 的图表都跟着同步。
-      (() => {
-        'use strict';
-        const mode = () =>
-          document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'dark' : 'light';
-        // `Apex` 是 ApexCharts 的全局选项对象；它必须在库加载之前就存在。
-        // theme.mode 还会顺带设一个深色的图表背景 —— 这里保留卡片自己的背景。
-        // eslint-disable-next-line unicorn/no-global-object-property-assignment
-        globalThis.Apex ||= {};
-        const apex = globalThis.Apex;
-        apex.theme = { mode: mode() };
-        apex.chart = Object.assign(apex.chart || {}, { background: 'transparent' });
-        new MutationObserver(() => {
-          const next = mode();
-          apex.theme = { mode: next };
-          const instances = apex._chartInstances || [];
-          for (const { chart } of instances) {
-            chart.updateOptions({ theme: { mode: next } }, false, false);
-          }
-        }).observe(document.documentElement, {
-          attributes: true,
-          attributeFilter: ['data-bs-theme'],
-        });
-      })();
-    </script>
-    <!--end::Charts follow the colour mode-->
 
     <!--begin::明暗模式切换-->
     <!-- 浅色/深色/自动切换器从 4.1 起就作为 ColorMode 模块内置在 adminlte.js 里了
@@ -1732,81 +1704,231 @@
         cardHeader.style.cursor = 'move';
       });
     </script>
-    <!-- apexcharts -->
+    <!-- Chart.js + AdminLTE 图表主题 -->
+    <!--begin::Third Party Plugin(Chart.js)-->
     <script
-      src="./assets/apexcharts/apexcharts.min.js"
-      integrity="sha256-+vh8GkaU7C9/wbSLIcwq82tQ2wTf44aOHA8HlBMwRI8="
+      src="./assets/chart.js/chart.umd.min.js"
+      integrity="sha256-SERKgtTty1vsDxll+qzd4Y2cF9swY9BCq62i9wXJ9Uo="
       crossorigin="anonymous"
     ></script>
-    <!-- ChartJS -->
+    <!--end::Third Party Plugin(Chart.js)-->
+    <!--begin::Chart.js theme preset-->
+    <script>
+      // 用 AdminLTE 的 CSS 变量给页面上每张 Chart.js 图表设定样式 ——
+      // 字体、文字、网格线、提示框和图例 —— 并让它们跟颜色模式
+      //（ColorMode、auto 模式下的系统偏好，或你自己的代码）以及
+      // `dir="rtl"` 保持同步。Canvas 读不了 CSS，所以这里把这些值解析出来，
+      // 每当 <html data-bs-theme> 或 dir 变化时，就重新应用到每张图表上。
+      (() => {
+        'use strict';
+        const { Chart } = globalThis;
+        if (!Chart) {
+          return;
+        }
+
+        const root = document.documentElement;
+        const cssVar = (name, fallback = '') =>
+          getComputedStyle(root).getPropertyValue(name).trim() || fallback;
+
+        // "#0d6efd" (or "#06f") + 0.3 -> "rgba(13, 110, 253, 0.3)"; 其他任何东西都原样返回。
+        const alpha = (color, opacity) => {
+          let hex = String(color).trim().replace(/^#/, '');
+          if (!/^[\da-f]{3}([\da-f]{3})?$/i.test(hex)) {
+            return color;
+          }
+
+          if (hex.length === 3) {
+            hex = [...hex].map((c) => c + c).join('');
+          }
+
+          const [r, g, b] = [0, 2, 4].map((i) => Number.parseInt(hex.slice(i, i + 2), 16));
+          return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+        };
+
+        // 面积图的脚本化 backgroundColor：让线条颜色渐隐到透明。
+        const areaFill =
+          (color, from = 0.35, to = 0) =>
+          (context) => {
+            const { ctx, chartArea } = context.chart;
+            if (!chartArea) {
+              return alpha(color, from);
+            }
+
+            const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+            gradient.addColorStop(0, alpha(color, from));
+            gradient.addColorStop(1, alpha(color, to));
+            return gradient;
+          };
+
+        // 当前 Chart.defaults 中的主题颜色。
+        let applied = [];
+
+        const apply = () => {
+          const text = cssVar('--bs-secondary-color', '#6c757d');
+          const body = cssVar('--bs-body-color', '#212529');
+          const surface = cssVar('--bs-body-bg', '#fff');
+          const grid = `rgba(${cssVar('--bs-emphasis-color-rgb', '0, 0, 0')}, 0.08)`;
+          const rtl = root.getAttribute('dir') === 'rtl';
+          const d = Chart.defaults;
+          applied = [text, grid];
+
+          d.font.family = cssVar('--bs-body-font-family', d.font.family);
+          d.font.size = 12;
+          d.color = text;
+          d.borderColor = grid;
+          d.maintainAspectRatio = false;
+
+          d.scale.grid.color = grid;
+          d.scale.border.color = grid;
+          d.scale.ticks.padding = 8;
+          // 数值轴保持浮动，分类轴仅保留其基线。
+          d.set('scales.linear', { border: { display: false } });
+          d.set('scales.category', { grid: { display: false } });
+
+          d.elements.line.borderWidth = 2;
+          d.elements.point.radius = 0;
+          d.elements.point.hoverRadius = 5;
+          d.elements.point.hitRadius = 8;
+          d.elements.point.hoverBorderWidth = 2;
+          d.elements.point.borderColor = surface;
+          d.elements.bar.borderRadius = 4;
+          d.elements.arc.borderColor = surface;
+          d.elements.arc.borderWidth = 2;
+
+          const { legend, tooltip } = d.plugins;
+          legend.position = 'bottom';
+          legend.rtl = rtl;
+          Object.assign(legend.labels, {
+            color: body,
+            usePointStyle: true,
+            pointStyle: 'circle',
+            boxWidth: 8,
+            boxHeight: 8,
+            padding: 16,
+          });
+
+          Object.assign(tooltip, {
+            rtl,
+            backgroundColor: surface,
+            borderColor: cssVar('--bs-border-color', '#dee2e6'),
+            borderWidth: 1,
+            titleColor: cssVar('--bs-emphasis-color', '#000'),
+            bodyColor: body,
+            titleFont: { weight: '600' },
+            padding: 10,
+            cornerRadius: 6,
+            caretSize: 5,
+            boxPadding: 4,
+            usePointStyle: true,
+          });
+
+          // 折线图和柱状图每个 x 值共享一个数据工具提示，就像仪表盘应该的那样。
+          for (const type of ['line', 'bar']) {
+            Chart.overrides[type].interaction = { mode: 'index', intersect: false };
+          }
+        };
+
+        // Chart.js 在创建图表时，会把刻度默认值（刻度、网格、边框和标题的颜色）
+        // 复制进每张图表的配置里，所以光改默认值，永远到不了已有图表的坐标轴上。
+        // 把那些还留着上一套主题颜色的副本丢掉；
+        // 这样 update() 就会把新的复制进去。
+        // 图表自己设的颜色则原样保留。
+        const forgetThemeColors = (options, stale) => {
+          for (const [key, value] of Object.entries(options)) {
+            if (value && typeof value === 'object' && !Array.isArray(value)) {
+              forgetThemeColors(value, stale);
+            } else if (/color$/i.test(key) && stale.includes(value)) {
+              delete options[key];
+            }
+          }
+        };
+
+        const refresh = () => {
+          const stale = applied;
+          apply();
+          for (const chart of Object.values(Chart.instances)) {
+            forgetThemeColors(chart.config.options.scales || {}, stale);
+            chart.update('none');
+          }
+        };
+
+        apply();
+        new MutationObserver(refresh).observe(root, {
+          attributes: true,
+          attributeFilter: ['data-bs-theme', 'dir'],
+        });
+        // 网页字体可能在首次绘制后才出现；请重新绘制以确保标签能使用它。
+        document.fonts?.addEventListener('loadingdone', refresh);
+
+        // 用于页面自身图表代码的辅助函数。
+        // eslint-disable-next-line unicorn/no-global-object-property-assignment
+        globalThis.lteChartTheme = { cssVar, alpha, areaFill, refresh };
+      })();
+    </script>
+    <!--end::Chart.js theme preset-->
+
+    <!-- Chart.js -->
     <script>
       // 请注意！！！不要使用任何 javascript
       // 它们是演示用的
       // ++++++++++++++++++++++++++++++++++++++++++
 
-      const sales_chart_options = {
-        series: [
-          {
-            name: '数字产品',
-            data: [28, 48, 40, 19, 86, 27, 90],
-          },
-          {
-            name: '电子产品',
-            data: [65, 59, 80, 81, 56, 55, 40],
-          },
-        ],
-        chart: {
-          id: 'revenue-chart',
-          height: 300,
-          type: 'area',
-          toolbar: {
-            show: false,
-          },
-        },
-        legend: {
-          show: false,
-        },
-        colors: ['#0d6efd', '#20c997'],
-        dataLabels: {
-          enabled: false,
-        },
-        stroke: {
-          curve: 'smooth',
-        },
-        xaxis: {
-          type: 'datetime',
-          categories: [
-            '2023-01-01',
-            '2023-02-01',
-            '2023-03-01',
-            '2023-04-01',
-            '2023-05-01',
-            '2023-06-01',
-            '2023-07-01',
+      const { areaFill } = globalThis.lteChartTheme;
+
+      new Chart(document.querySelector('#revenue-chart'), {
+        type: 'line',
+        data: {
+          labels: ['23年1月', '23年2月', '23年3月', '23年4月', '23年5月', '23年6月', '23年7月'],
+          datasets: [
+            {
+              label: '数字产品',
+              data: [28, 48, 40, 19, 86, 27, 90],
+              borderColor: '#0d6efd',
+              backgroundColor: areaFill('#0d6efd'),
+              pointBackgroundColor: '#0d6efd',
+              fill: true,
+              tension: 0.4,
+            },
+            {
+              label: '电子产品',
+              data: [65, 59, 80, 81, 56, 55, 40],
+              borderColor: '#20c997',
+              backgroundColor: areaFill('#20c997'),
+              pointBackgroundColor: '#20c997',
+              fill: true,
+              tension: 0.4,
+            },
           ],
         },
-        tooltip: {
-          x: {
-            format: 'yyyy 年 MM 月',
+        options: {
+          plugins: {
+            legend: {
+              display: false,
+            },
+            tooltip: {
+              callbacks: {
+                title: ([item]) =>
+                  `2023 年 ${new Date(2023, item.dataIndex).toLocaleString('zh-CN', { month: 'long' })}`,
+              },
+            },
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
           },
         },
-      };
-
-      const sales_chart = new ApexCharts(
-        document.querySelector('#revenue-chart'),
-        sales_chart_options,
-      );
-      sales_chart.render();
+      });
     </script>
     <!-- jsvectormap -->
     <script
       src="./assets/jsvectormap/jsvectormap.min.js"
-      integrity="sha256-/t1nN2956BT869E6H4V1dnt0X5pAQHPytli+1nTZm2Y="
+      integrity="sha256-yjoBT8ZtgknE2gcA8yvWExzw8LsIAfj6/r/XAw889Qw="
       crossorigin="anonymous"
     ></script>
     <script
       src="./assets/jsvectormap/world.js"
-      integrity="sha256-2XHnPYmOYQ+xcqcji58Bb2ezmOuACyyt5diogW3lYjY="
+      integrity="sha256-ehebNYsyxFr2g6Mn9B7SaOzDfLtdoxEU1A67I7Laiyc="
       crossorigin="anonymous"
     ></script>
     <!-- jsvectormap -->
@@ -1818,92 +1940,40 @@
       });
 
       // 迷你图
-      const option_sparkline1 = {
-        series: [
-          {
-            data: [1000, 1200, 920, 927, 931, 1027, 819, 930, 1021],
+      const sparkline = (selector, data) =>
+        new Chart(document.querySelector(selector), {
+          type: 'line',
+          data: {
+            labels: data.map((value, index) => index + 1),
+            datasets: [
+              {
+                data,
+                borderColor: '#DCE6EC',
+                backgroundColor: 'rgba(220, 230, 236, 0.3)',
+                pointBackgroundColor: '#DCE6EC',
+                fill: true,
+              },
+            ],
           },
-        ],
-        chart: {
-          id: 'sparkline-1',
-          type: 'area',
-          height: 50,
-          sparkline: {
-            enabled: true,
+          options: {
+            layout: { padding: { top: 2 } },
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                displayColors: false,
+                callbacks: { title: () => '' },
+              },
+            },
+            scales: {
+              x: { display: false },
+              y: { display: false, min: 0 },
+            },
           },
-        },
-        stroke: {
-          curve: 'straight',
-        },
-        fill: {
-          opacity: 0.3,
-        },
-        yaxis: {
-          min: 0,
-        },
-        colors: ['#DCE6EC'],
-      };
+        });
 
-      const sparkline1 = new ApexCharts(document.querySelector('#sparkline-1'), option_sparkline1);
-      sparkline1.render();
-
-      const option_sparkline2 = {
-        series: [
-          {
-            data: [515, 519, 520, 522, 652, 810, 370, 627, 319, 630, 921],
-          },
-        ],
-        chart: {
-          id: 'sparkline-2',
-          type: 'area',
-          height: 50,
-          sparkline: {
-            enabled: true,
-          },
-        },
-        stroke: {
-          curve: 'straight',
-        },
-        fill: {
-          opacity: 0.3,
-        },
-        yaxis: {
-          min: 0,
-        },
-        colors: ['#DCE6EC'],
-      };
-
-      const sparkline2 = new ApexCharts(document.querySelector('#sparkline-2'), option_sparkline2);
-      sparkline2.render();
-
-      const option_sparkline3 = {
-        series: [
-          {
-            data: [15, 19, 20, 22, 33, 27, 31, 27, 19, 30, 21],
-          },
-        ],
-        chart: {
-          id: 'sparkline-3',
-          type: 'area',
-          height: 50,
-          sparkline: {
-            enabled: true,
-          },
-        },
-        stroke: {
-          curve: 'straight',
-        },
-        fill: {
-          opacity: 0.3,
-        },
-        yaxis: {
-          min: 0,
-        },
-        colors: ['#DCE6EC'],
-      };
-
-      const sparkline3 = new ApexCharts(document.querySelector('#sparkline-3'), option_sparkline3);
-      sparkline3.render();
+      sparkline('#sparkline-1', [1000, 1200, 920, 927, 931, 1027, 819, 930, 1021]);
+      sparkline('#sparkline-2', [515, 519, 520, 522, 652, 810, 370, 627, 319, 630, 921]);
+      sparkline('#sparkline-3', [15, 19, 20, 22, 33, 27, 31, 27, 19, 30, 21]);
     </script>
     <!--end::Script-->
   </body>

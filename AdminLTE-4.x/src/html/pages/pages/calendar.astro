@@ -21,9 +21,12 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
 <html lang="zh-CN">
   <head>
     <Head title={title} path={path} />
+    <link rel="stylesheet" href={deploymentPath + "assets/fullcalendar/skeleton.css"} crossorigin="anonymous" />
+    <link rel="stylesheet" href={deploymentPath + "assets/fullcalendar/theme.css"} crossorigin="anonymous" />
     <style is:inline>
-      .fc-event {
-        cursor: pointer;
+      /* 在 Bootstrap 的两种配色模式下，保持相邻月份的日期可读。 */
+      #calendar .text-body-tertiary {
+        color: var(--bs-secondary-color) !important;
       }
       .draggable-event {
         cursor: grab;
@@ -63,7 +66,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                     <h3 class="card-title">可拖动事件</h3>
                   </div>
                   <div class="card-body">
-                    <p class="text-secondary small mb-3">
+                    <p class="text-body-secondary small mb-3">
                       将活动拖到日历中以安排它。
                     </p>
                     <div id="external-events">
@@ -127,12 +130,12 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                   <div class="card-body">
                     <div id="calendar"></div>
                   </div>
-                  <div class="card-footer text-secondary small">
+                  <div class="card-footer bg-body text-body-secondary small">
                     由
                     <a
                       href="https://fullcalendar.io/"
                       target="_blank"
-                      rel="noopener">FullCalendar 6</a
+                      rel="noopener">FullCalendar 7</a
                     >
                     驱动 &mdash; 采用 MIT 许可证，无 jQuery 依赖。
                   </div>
@@ -146,22 +149,29 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
     </div>
     <Scripts path={path} />
     <script
-      src={deploymentPath + "assets/fullcalendar/index.global.min.js"}
+      src={deploymentPath + "assets/fullcalendar/global.min.js"}
+      crossorigin="anonymous"></script>
+    <script
+      src={deploymentPath + "assets/fullcalendar/bootstrap5.global.min.js"}
+      crossorigin="anonymous"></script>
+    <script
+      src={deploymentPath + "assets/fullcalendar/locales-all.global.min.js"}
       crossorigin="anonymous"></script>
     <script is:inline>
-      const isoDate = (d) => d.toISOString().slice(0, 10);
+      // 请将所有日期设为本地时间；UTC转换可能会使日期偏移一天。
+      const isoDate = (d) => [d.getFullYear(), String(d.getMonth() + 1).padStart(2, "0"), String(d.getDate()).padStart(2, "0")].join("-");
 
       document.addEventListener("DOMContentLoaded", () => {
+        const cellObservers = new WeakMap();
         const calendarEl = document.getElementById("calendar");
         const externalEl = document.getElementById("external-events");
         const removeAfterDrop = document.getElementById("remove-after-drop");
 
-        new FullCalendar.Draggable(externalEl, {
+        new FullCalendar.Interaction.Draggable(externalEl, {
           itemSelector: ".draggable-event",
           eventData: (el) => ({
             title: el.textContent.trim(),
-            backgroundColor: el.dataset.color,
-            borderColor: el.dataset.color
+            color: el.dataset.color
           })
         });
 
@@ -172,8 +182,26 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
           return isoDate(d);
         };
 
-        const calendar = new FullCalendar.Calendar(calendarEl, {locale: 'zh-cn',
+        const calendar = new FullCalendar.Calendar(calendarEl, { locale: 'zh-cn',
           initialView: "dayGridMonth",
+          buttons: { today: { hint: "今天" } },
+          // 日期单元格也包含事件标题。请在可访问名称中包含这些可见文本，
+          // 包括拖动、编辑或导航后的情况。
+          dayCellDidMount: ({ el }) => {
+            const dateLabel = el.getAttribute("aria-label") || "";
+            const syncLabel = () => {
+              const visibleText = el.textContent.replace(/\s+/g, " ").trim();
+              el.setAttribute("aria-label", `${dateLabel} ${visibleText}`.trim());
+            };
+            const observer = new MutationObserver(syncLabel);
+            observer.observe(el, { childList: true, subtree: true, characterData: true });
+            cellObservers.set(el, observer);
+            syncLabel();
+          },
+          dayCellWillUnmount: ({ el }) => {
+            cellObservers.get(el)?.disconnect();
+            cellObservers.delete(el);
+          },
           headerToolbar: {
             start: "prev,next today",
             center: "title",
@@ -204,11 +232,11 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
             }
           },
           events: [
-            { title: "季度规划", start: offsetDay(-2), backgroundColor: "#0d6efd", borderColor: "#0d6efd" },
-            { title: "入职培训", start: offsetDay(1), backgroundColor: "#198754", borderColor: "#198754" },
-            { title: "设计评审", start: offsetDay(3), end: offsetDay(4), backgroundColor: "#ffc107", borderColor: "#ffc107", textColor: "#000" },
-            { title: "发布 v2.5", start: offsetDay(7), backgroundColor: "#dc3545", borderColor: "#dc3545" },
-            { title: "全体成员", start: offsetDay(10), backgroundColor: "#6f42c1", borderColor: "#6f42c1" }
+            { title: "季度规划", start: offsetDay(-2), color: "#0d6efd" },
+            { title: "入职培训", start: offsetDay(1), color: "#198754" },
+            { title: "设计评审", start: offsetDay(3), end: offsetDay(4), color: "#ffc107", contrastColor: "#000" },
+            { title: "发布 v2.5", start: offsetDay(7), color: "#dc3545" },
+            { title: "全体成员", start: offsetDay(10), color: "#6f42c1" }
           ]
         });
 

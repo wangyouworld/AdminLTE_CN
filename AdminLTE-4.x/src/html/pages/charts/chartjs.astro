@@ -1,0 +1,574 @@
+---
+import Head from "@components/_head.astro"
+import Footer from "@components/dashboard/_footer.astro"
+import Topbar from "@components/dashboard/_topbar.astro"
+import Sidenav from "@components/dashboard/_sidenav.astro"
+import Scripts from "@components/_scripts.astro"
+import ChartJs from "@components/_chartjs.astro"
+
+const title = "AdminLTE 4 | Chart.js"
+const path = "../../../dist"
+const mainPage = "charts"
+const page = "chartjs";
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <!--begin::Head-->
+  <head>
+    <Head title={title} path={path} />
+  </head>
+  <!--end::Head-->
+  <!--begin::Body-->
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <!--begin::App Wrapper-->
+    <div class="app-wrapper">
+      <Topbar path={path} />
+      <Sidenav path={path} mainPage={mainPage} page={page} />
+      <!--begin::App Main-->
+      <main class="app-main">
+        <!--begin::App Content Header-->
+        <div class="app-content-header">
+          <!--begin::Container-->
+          <div class="container-fluid">
+            <!--begin::Row-->
+            <div class="row">
+              <div class="col-sm-6">
+                <h1 class="mb-0 fs-3">Chart.js</h1>
+              </div>
+              <div class="col-sm-6">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">首页</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                      Chart.js
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+            <!--end::Row-->
+          </div>
+          <!--end::Container-->
+        </div>
+        <!--end::App Content Header-->
+        <!--begin::App Content-->
+        <div class="app-content">
+          <!--begin::Container-->
+          <div class="container-fluid">
+            <!--begin::Row-->
+            <div class="row g-4">
+              <!--begin::Col-->
+              <div class="col-12 col-lg-6">
+                <!--begin::Card-->
+                <div class="card h-100">
+                  <div class="card-header">
+                    <h3 class="card-title">折线图</h3>
+
+                    <div class="card-tools">
+                      <button
+                        type="button"
+                        class="btn btn-tool"
+                        data-lte-toggle="card-collapse"
+                        aria-label="折叠卡片"
+                      >
+                        <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
+                        <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <div class="position-relative" style="height: 300px">
+                      <canvas id="line-chart" role="img" aria-label="1月至12月月度收入折线图"></canvas>
+                    </div>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+                <!--end::Card-->
+              </div>
+              <!--end::Col-->
+              <!--begin::Col-->
+              <div class="col-12 col-lg-6">
+                <!--begin::Card-->
+                <div class="card h-100">
+                  <div class="card-header">
+                    <h3 class="card-title">面积图</h3>
+
+                    <div class="card-tools">
+                      <button
+                        type="button"
+                        class="btn btn-tool"
+                        data-lte-toggle="card-collapse"
+                        aria-label="折叠卡片"
+                      >
+                        <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
+                        <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <div class="position-relative" style="height: 300px">
+                      <canvas id="area-chart" role="img" aria-label="2025年1月至7月新客与回头客区域图"></canvas>
+                    </div>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+                <!--end::Card-->
+              </div>
+              <!--end::Col-->
+              <!--begin::Col-->
+              <div class="col-12 col-lg-6">
+                <!--begin::Card-->
+                <div class="card h-100">
+                  <div class="card-header">
+                    <h3 class="card-title">柱状图</h3>
+
+                    <div class="card-tools">
+                      <button
+                        type="button"
+                        class="btn btn-tool"
+                        data-lte-toggle="card-collapse"
+                        aria-label="折叠卡片"
+                      >
+                        <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
+                        <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <div class="position-relative" style="height: 300px">
+                      <canvas id="column-chart" role="img" aria-label="2025年各季度线上店铺和零售店销售额柱状图"></canvas>
+                    </div>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+                <!--end::Card-->
+              </div>
+              <!--end::Col-->
+              <!--begin::Col-->
+              <div class="col-12 col-lg-6">
+                <!--begin::Card-->
+                <div class="card h-100">
+                  <div class="card-header">
+                    <h3 class="card-title">环形图</h3>
+
+                    <div class="card-tools">
+                      <button
+                        type="button"
+                        class="btn btn-tool"
+                        data-lte-toggle="card-collapse"
+                        aria-label="折叠卡片"
+                      >
+                        <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
+                        <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <div class="position-relative" style="height: 350px">
+                      <canvas id="donut-chart" role="img" aria-label="流量来源环形图"></canvas>
+                    </div>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+                <!--end::Card-->
+              </div>
+              <!--end::Col-->
+              <!--begin::Col-->
+              <div class="col-12 col-lg-6">
+                <!--begin::Card-->
+                <div class="card h-100">
+                  <div class="card-header">
+                    <h3 class="card-title">条形图</h3>
+
+                    <div class="card-tools">
+                      <button
+                        type="button"
+                        class="btn btn-tool"
+                        data-lte-toggle="card-collapse"
+                        aria-label="折叠卡片"
+                      >
+                        <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
+                        <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <div class="position-relative" style="height: 350px">
+                      <canvas id="radialbar-chart" role="img" aria-label="销售、市场和客服目标完成情况条形图"></canvas>
+                    </div>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+                <!--end::Card-->
+              </div>
+              <!--end::Col-->
+              <!--begin::Col-->
+              <div class="col-12 col-lg-6">
+                <!--begin::Card-->
+                <div class="card h-100">
+                  <div class="card-header">
+                    <h3 class="card-title">混合图</h3>
+
+                    <div class="card-tools">
+                      <button
+                        type="button"
+                        class="btn btn-tool"
+                        data-lte-toggle="card-collapse"
+                        aria-label="折叠卡片"
+                      >
+                        <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
+                        <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <div class="position-relative" style="height: 300px">
+                      <canvas id="mixed-chart" role="img" aria-label="月度订单与收入混合图表"></canvas>
+                    </div>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+                <!--end::Card-->
+              </div>
+              <!--end::Col-->
+            </div>
+            <!--end::Row-->
+          </div>
+          <!--end::Container-->
+        </div>
+        <!--end::App Content-->
+      </main>
+      <!--end::App Main-->
+      <Footer />
+    </div>
+    <!--end::App Wrapper-->
+    <!--begin::Script-->
+    <Scripts path={path} />
+
+    <!-- 可选脚本 -->
+
+    <!-- Chart.js + AdminLTE 图表主题 -->
+    <ChartJs />
+
+    <script is:inline>
+// 请注意！！！不要使用任何 javascript
+// 它们是演示用的
+// ++++++++++++++++++++++++++++++++++++++++++
+
+/* Chart.js
+ * --------
+ * 一个常见 Chart.js 图表类型的小型展示。
+ * 每个 canvas 都放在一个固定高度的包裹元素里；图表会填满它，
+ * 并跟随它的宽度（侧边栏切换时也一样）。
+ */
+
+const { cssVar, alpha, areaFill } = globalThis.lteChartTheme
+const months = [
+  "一月",
+  "二月",
+  "三月",
+  "四月",
+  "五月",
+  "六月",
+  "七月",
+  "八月",
+  "九月",
+  "十月",
+  "十一月",
+  "十二月"
+]
+const thousands = value => `$${Math.round(value / 1000)}k`
+const dollars = context => ` ${context.dataset.label}: $${context.parsed.y.toLocaleString()}`
+
+//--------------
+// - 折线图 -
+//--------------
+
+new Chart(document.querySelector("#line-chart"), {
+  type: "line",
+  data: {
+    labels: months,
+    datasets: [
+      {
+        label: "收益",
+        data: [
+          31200, 34800, 32600, 39400, 42100, 45800, 44300, 49700, 52400,
+          56900, 60200, 65800
+        ],
+        borderColor: "#0d6efd",
+        backgroundColor: "#0d6efd",
+        borderWidth: 3,
+        pointRadius: 4
+      }
+    ]
+  },
+  options: {
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: dollars } }
+    },
+    scales: {
+      y: { ticks: { callback: thousands } }
+    }
+  }
+})
+
+//------------------
+// - 折线图结束 -
+//------------------
+
+//--------------
+// - 面积图 -
+//--------------
+
+new Chart(document.querySelector("#area-chart"), {
+  type: "line",
+  data: {
+    labels: months.slice(0, 7).map(month => `${month} '25`),
+    datasets: [
+      {
+        label: "新访客",
+        data: [8100, 9300, 8700, 10400, 12200, 11600, 13900],
+        borderColor: "#0d6efd",
+        backgroundColor: areaFill("#0d6efd"),
+        pointBackgroundColor: "#0d6efd",
+        fill: true,
+        tension: 0.4
+      },
+      {
+        label: "回头客",
+        data: [4200, 4600, 5100, 4900, 5800, 6300, 6900],
+        borderColor: "#20c997",
+        backgroundColor: areaFill("#20c997"),
+        pointBackgroundColor: "#20c997",
+        fill: true,
+        tension: 0.4
+      }
+    ]
+  },
+  options: {
+    plugins: {
+      tooltip: {
+        callbacks: {
+          title: ([item]) => `2025 年 ${new Date(2025, item.dataIndex).toLocaleString('zh-CN', { month: 'long' })}`
+        }
+      }
+    },
+    scales: {
+      y: { beginAtZero: true }
+    }
+  }
+})
+
+//------------------
+// - 面积图结束 -
+//------------------
+
+//----------------
+// - 柱状图 -
+//----------------
+
+new Chart(document.querySelector("#column-chart"), {
+  type: "bar",
+  data: {
+    labels: ["Q1 2025", "Q2 2025", "Q3 2025", "Q4 2025"],
+    datasets: [
+      {
+        label: "网店",
+        data: [44300, 55600, 57200, 61400],
+        backgroundColor: "#6f42c1"
+      },
+      {
+        label: "零售",
+        data: [35100, 41200, 36800, 45300],
+        backgroundColor: "#20c997"
+      }
+    ]
+  },
+  options: {
+    datasets: {
+      bar: { categoryPercentage: 0.55, barPercentage: 0.9 }
+    },
+    plugins: {
+      tooltip: { callbacks: { label: dollars } }
+    },
+    scales: {
+      y: { ticks: { callback: thousands } }
+    }
+  }
+})
+
+//--------------------
+// - 柱状图结束 -
+//--------------------
+
+//---------------
+// - 环形图 -
+//---------------
+
+new Chart(document.querySelector("#donut-chart"), {
+  type: "doughnut",
+  data: {
+    labels: ["搜索引擎", "直接访问", "外部链接", "社交媒体", "邮箱"],
+    datasets: [
+      {
+        label: "会话",
+        data: [3450, 2210, 1160, 940, 620],
+        backgroundColor: ["#0d6efd", "#20c997", "#ffc107", "#d63384", "#6f42c1"]
+      }
+    ]
+  },
+  options: {
+    cutout: "65%",
+    plugins: {
+      legend: { position: "right" }
+    }
+  }
+})
+
+//-------------------
+// - 环形图结束 -
+//-------------------
+
+//--------------------
+// - 条形图 -
+//--------------------
+
+// 同心圆环，每个数值一圈，每一圈都画在一条轨道上。
+// 一个很小的内联插件把平均值写在正中间。
+const radial_values = [76, 67, 61]
+const radial_labels = ["销售", "市场营销", "客户服务"]
+const radial_colors = ["#0d6efd", "#20c997", "#ffc107"]
+const radial_track = () => cssVar("--bs-secondary-bg", "#e9ecef")
+
+const centerText = {
+  id: "centerText",
+  afterDatasetsDraw(chart, args, options) {
+    const { ctx, chartArea } = chart
+    const x = (chartArea.left + chartArea.right) / 2
+    const y = (chartArea.top + chartArea.bottom) / 2
+    ctx.save()
+    ctx.textAlign = "center"
+    ctx.textBaseline = "middle"
+    ctx.fillStyle = cssVar("--bs-secondary-color")
+    ctx.font = `14px ${Chart.defaults.font.family}`
+    ctx.fillText(options.label, x, y - 14)
+    ctx.fillStyle = cssVar("--bs-emphasis-color")
+    ctx.font = `600 24px ${Chart.defaults.font.family}`
+    ctx.fillText(options.value, x, y + 12)
+    ctx.restore()
+  }
+}
+
+new Chart(document.querySelector("#radialbar-chart"), {
+  type: "doughnut",
+  data: {
+    labels: ["value", "rest"],
+    datasets: radial_values.map((value, index) => ({
+      label: radial_labels[index],
+      data: [value, 100 - value],
+      // 写成函数，这样颜色模式变化时轨道颜色会被重新读取。
+      backgroundColor: context => context.dataIndex === 0 ? radial_colors[index] : radial_track(),
+      hoverBackgroundColor: context => context.dataIndex === 0 ? radial_colors[index] : radial_track(),
+      borderWidth: 4,
+      hoverBorderWidth: 4
+    }))
+  },
+  options: {
+    cutout: "50%",
+    plugins: {
+      legend: { display: false },
+      centerText: {
+        label: "平均",
+        value: `${Math.round(radial_values.reduce((sum, value) => sum + value, 0) / radial_values.length)}%`
+      },
+      tooltip: {
+        filter: item => item.dataIndex === 0,
+        callbacks: {
+          title: () => "",
+          label: item => ` ${item.dataset.label}: ${item.raw}%`,
+          labelColor: item => ({ backgroundColor: radial_colors[item.datasetIndex], borderColor: radial_colors[item.datasetIndex] })
+        }
+      }
+    }
+  },
+  plugins: [centerText]
+})
+
+//------------------------
+// - 条形图结束 -
+//------------------------
+
+//---------------
+// - 混合图 -
+//---------------
+
+new Chart(document.querySelector("#mixed-chart"), {
+  type: "bar",
+  data: {
+    labels: months.slice(0, 9),
+    datasets: [
+      {
+        label: "订单",
+        data: [440, 505, 414, 671, 227, 413, 201, 352, 752],
+        backgroundColor: alpha("#20c997", 0.85),
+        hoverBackgroundColor: "#20c997",
+        categoryPercentage: 0.55,
+        yAxisID: "y",
+        order: 1
+      },
+      {
+        type: "line",
+        label: "收益",
+        data: [23100, 26200, 22800, 34100, 18300, 24400, 15600, 21900, 38200],
+        borderColor: "#0d6efd",
+        backgroundColor: "#0d6efd",
+        borderWidth: 3,
+        tension: 0.4,
+        yAxisID: "y1",
+        order: 0
+      }
+    ]
+  },
+  options: {
+    plugins: {
+      // `order` 将行置于条形图的上方，并按数据集中的顺序列出。
+      legend: {
+        labels: { sort: (a, b) => a.datasetIndex - b.datasetIndex }
+      },
+      tooltip: {
+        itemSort: (a, b) => a.datasetIndex - b.datasetIndex,
+        callbacks: {
+          label: context => context.dataset.yAxisID === "y1" ? dollars(context) : ` ${context.dataset.label}: ${context.parsed.y}`
+        }
+      }
+    },
+    scales: {
+      y: {
+        position: "left",
+        title: { display: true, text: "订单" }
+      },
+      y1: {
+        position: "right",
+        title: { display: true, text: "收益" },
+        grid: { drawOnChartArea: false },
+        ticks: { callback: thousands }
+      }
+    }
+  }
+})
+
+//-------------------
+// - 混合图结束 -
+//-------------------
+    </script>
+    <!--end::Script-->
+  </body><!--end::Body-->
+</html>

@@ -34,17 +34,27 @@ const SELECTOR_MINIMIZE_ICON = '[data-lte-icon="minimize"]'
  * `allowfullscreen` on an iframe, lost user gesture) and an exit triggered by
  * the user pressing ESC or F11.
  */
-function syncFullScreenState(): void {
-  const iconMaximize = document.querySelector<HTMLElement>(SELECTOR_MAXIMIZE_ICON)
-  const iconMinimize = document.querySelector<HTMLElement>(SELECTOR_MINIMIZE_ICON)
+function syncFullScreenIcons(): boolean {
   const isFullScreen = Boolean(document.fullscreenElement)
 
   // Toggle Bootstrap's .d-none utility instead of hardcoding inline
   // display:block. The previous approach overrode the icon library's
   // natural display value (eg. some icon fonts use inline-block) and
   // caused the icon to shift its position. Fixes #6021.
-  iconMaximize?.classList.toggle('d-none', isFullScreen)
-  iconMinimize?.classList.toggle('d-none', !isFullScreen)
+  // Card-maximize controls use the same icon attributes; only touch icons
+  // belonging to actual fullscreen toggles.
+  document.querySelectorAll(`${SELECTOR_FULLSCREEN_TOGGLE} ${SELECTOR_MAXIMIZE_ICON}`).forEach(icon => {
+    icon.classList.toggle('d-none', isFullScreen)
+  })
+  document.querySelectorAll(`${SELECTOR_FULLSCREEN_TOGGLE} ${SELECTOR_MINIMIZE_ICON}`).forEach(icon => {
+    icon.classList.toggle('d-none', !isFullScreen)
+  })
+
+  return isFullScreen
+}
+
+function syncFullScreenState(): void {
+  const isFullScreen = syncFullScreenIcons()
 
   const eventName = isFullScreen ? EVENT_MAXIMIZED : EVENT_MINIMIZED
 
@@ -124,6 +134,8 @@ document.addEventListener('click', event => {
 
 onDOMContentLoaded(() => {
   document.addEventListener('fullscreenchange', syncFullScreenState, { signal: getLifecycleSignal() })
+  // A layout can be initialized while the browser is already in fullscreen.
+  syncFullScreenIcons()
 })
 
 export default FullScreen

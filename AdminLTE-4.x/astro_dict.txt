@@ -2,42 +2,56 @@
 <html lang="zh-CN">
 "https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css"
 {deploymentPath + "assets/apexcharts/apexcharts.css"}
-"https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css"
+"https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/css/jsvectormap.min.css"
 {deploymentPath + "assets/jsvectormap/jsvectormap.min.css"}
 "https://cdn.jsdelivr.net/npm/sortablejs@1.15.7/Sortable.min.js"
 {deploymentPath + "assets/sortablejs/Sortable.min.js"}
 "https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.min.js"
 {deploymentPath + "assets/apexcharts/apexcharts.min.js"}
-"https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/js/jsvectormap.min.js"
+"https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/jsvectormap.min.js"
 {deploymentPath + "assets/jsvectormap/jsvectormap.min.js"}
-"https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/maps/world.js"
+"https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/js/jsvectormap.min.js"
+{deploymentPath + "assets/jsvectormap/jsvectormap.min.js"}
+"https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/jsvectormap.min.css"
+{deploymentPath + "assets/jsvectormap/jsvectormap.min.css"}
+"https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/maps/world.js"
 {deploymentPath + "assets/jsvectormap/world.js"}
-"https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+integrity="sha256-3jwsIc9jvdlaTPxHelZqSxiVedrrJhV+jssQEAAiTt0="
+integrity="sha256-ehebNYsyxFr2g6Mn9B7SaOzDfLtdoxEU1A67I7Laiyc="
+"https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.3.0/index.css"
 {deploymentPath + "assets/fontsource/index.css"}
 "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
 {deploymentPath + "assets/bootstrap-icons/bootstrap-icons.min.css"}
-"https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
+"https://cdn.jsdelivr.net/npm/overlayscrollbars@2.16.0/browser/overlayscrollbars.browser.es6.min.js"
 {deploymentPath + "assets/overlayscrollbars/overlayscrollbars.browser.es6.min.js"}
-"https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css"
+"https://cdn.jsdelivr.net/npm/overlayscrollbars@2.16.0/styles/overlayscrollbars.min.css"
 {deploymentPath + "assets/overlayscrollbars/overlayscrollbars.min.css"}
 "https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
 {deploymentPath + "assets/bootstrap/bootstrap.min.js"}
 "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
 {deploymentPath + "assets/popperjs/popper.min.js"}
-"https://cdn.jsdelivr.net/npm/tabulator-tables@6.4.0/dist/js/tabulator.min.js"
+"https://cdn.jsdelivr.net/npm/tabulator-tables@6.6.1/dist/js/tabulator.min.js"
 {deploymentPath + "assets/tabulator-tables/tabulator.min.js"}
-"https://cdn.jsdelivr.net/npm/tabulator-tables@6.4.0/dist/css/tabulator_bootstrap5.min.css"
+"https://cdn.jsdelivr.net/npm/tabulator-tables@6.6.1/dist/css/tabulator_bootstrap5.min.css"
 {deploymentPath + "assets/tabulator-tables/tabulator_bootstrap5.min.css"}
-"https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js"
-{deploymentPath + "assets/fullcalendar/index.global.min.js"}
 "https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css"
 {deploymentPath + "assets/quill/quill.snow.css"}
 "https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.bubble.css"
 {deploymentPath + "assets/quill/quill.bubble.css"}
 "https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"
 {deploymentPath + "assets/quill/quill.js"}
-"https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.20/locales-all.global.min.js"
+"https://cdn.jsdelivr.net/npm/fullcalendar@7.1.1/all/global.min.js"
+{deploymentPath + "assets/fullcalendar/global.min.js"}
+"https://cdn.jsdelivr.net/npm/@fullcalendar/bootstrap5@7.1.1/global.min.js"
+{deploymentPath + "assets/fullcalendar/bootstrap5.global.min.js"}
+"https://cdn.jsdelivr.net/npm/fullcalendar@7.1.1/skeleton.css"
+{deploymentPath + "assets/fullcalendar/skeleton.css"}
+"https://cdn.jsdelivr.net/npm/@fullcalendar/bootstrap5@7.1.1/theme.css"
+{deploymentPath + "assets/fullcalendar/theme.css"}
+"https://cdn.jsdelivr.net/npm/fullcalendar@7.1.1/locales-all/global.min.js"
 {deploymentPath + "assets/fullcalendar/locales-all.global.min.js"}
+"https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"
+{deploymentPath + "assets/chart.js/chart.umd.min.js"}
 "AdminLTE v4 | Dashboard"
 "AdminLTE v4 | 仪表盘"
 Dashboard
@@ -286,8 +300,8 @@ PlayStation 4 500GB Console (PS4)
 PlayStation 4 500GB 主机（PS4）
 View All Products
 查看所有产品
-Here we will create a few charts using apexcharts
-这里我们将使用 apexcharts 创建一些图表
+Here we will create a few charts using Chart.js
+这里我们将使用 Chart.js 创建一些图表
 MONTHLY SALES CHART
 月度销售图表
 END MONTHLY SALES CHART
@@ -429,7 +443,7 @@ The <a href="/starter.html" target="_blank" rel="noopener noreferrer"  class="ca
 starter pages
 起始页
 are a good place to start building your app from scratch.
-是从零构建你的应用程序的好地方。
+是从零开始构建应用程序的好地方。
 </a> is a good place to start building your app if you’d like to
 </a>是一个开始构建
 start from scratch.
@@ -2192,6 +2206,16 @@ Folder
 "中"
 "High"
 "高"
+Low: "secondary",
+"低": "secondary",
+Medium: "info",
+"中": "info",
+High: "danger"
+"高": "danger"
+Delayed: "danger",
+"延期": "danger",
+Completed: "secondary"
+"完成": "secondary"
 AdminLTE 4 Release
 AdminLTE 4 发布
 "Internal"
@@ -2519,11 +2543,11 @@ a: `Bootstrap 5.3.x。当前 <code>package.json</code> 锁定为 5.3.8——更�
 q: "Can I use AdminLTE 4 with jQuery?",
 q: "我可以在 AdminLTE 4 中使用 jQuery 吗？",
 a: `You don't <em>need</em> jQuery — AdminLTE 4's JavaScript is vanilla. If your existing app already uses jQuery, it'll coexist fine. But none of AdminLTE 4's own plugins call into jQuery, and there are no <code>$.fn.xxx()</code> plugin shims.<br /><br />The v3 <code>plugins/</code> folder is gone too. Every widget it bundled has a vanilla-JS successor — see the <a href="migration.html#third-party-plugin-replacements">plugin replacement table</a> for the full mapping (Select2 → Tom Select, DataTables → Tabulator, Summernote → Quill, and so on).`
-a: `你<em>不需要</em> jQuery —— AdminLTE 4 的 JavaScript 是原生的。如果你现有的应用本来就在用 jQuery，两者可以和平共处。但 AdminLTE 4 自己的插件没有一个会调用 jQuery，也没有 <code>$.fn.xxx()</code> 这类插件挂载。<br /><br />v3 的 <code>plugins/</code> 文件夹同样没了。它当年打包的每个组件都有对应的原生 JS 继任者——完整的对应关系见<a href="migration.html#third-party-plugin-replacements">插件替代对照表</a>（Select2 → Tom Select、DataTables → Tabulator、Summernote → Quill，等等）。`
+a: `你<em>不需要</em> jQuery —— AdminLTE 4 的 JavaScript 是原生的。如果你现有的应用本来就在用 jQuery，两者可以和平共处。但 AdminLTE 4 自己的插件没有一个会调用 jQuery，也没有 <code>$.fn.xxx()</code> 这类插件挂载。<br /><br />v3 的 <code>plugins/</code> 文件夹同样没了。它当年打包的每个组件都有对应的原生 JS 继任者——完整的对应关系见<a href="migration.html#第三方插件替代方案">插件替代对照表</a>（Select2 → Tom Select、DataTables → Tabulator、Summernote → Quill，等等）。`
 q: "Does AdminLTE 4 support Select2?",
 q: "AdminLTE 4 支持 Select2 吗？",
 a: `AdminLTE 4 recommends <a href="https://tom-select.js.org/" target="_blank" rel="noopener">Tom Select</a> instead. It covers everything people reach for Select2 to do — searchable dropdowns, multi-select, tagging, clearable selections, AJAX-backed options, virtual scrolling over large datasets, keyboard navigation — in roughly <strong>20&nbsp;kB gzip</strong>, against Select2's <strong>~50&nbsp;kB</strong> once jQuery is counted. <code>forms/advanced.html</code> demos all of it, including a paginated remote-data field with request cancellation, and there's a <a href="../forms/advanced.html#select2">line-by-line API mapping</a> if you're porting existing code.<br /><br />Select2 itself is still maintained (4.1.0 shipped in 2026), but it is still a jQuery plugin — its UMD wrapper hard-requires jQuery and there is no jQuery-free build. Bundling it would put jQuery back into a framework whose entire v4 premise is not needing it, and none of the official Vue/React/Django/Laravel ports could consume it.<br /><br />If you're locked into Select2 anyway, AdminLTE ships an optional <strong>styling-only</strong> compatibility sheet — see <a href="integrations.html#select2-compatibility-theme">Select2 compatibility theme</a>. You bring the plugin; it makes Select2 match Bootstrap 5.3, dark mode and modals included. No jQuery is added to AdminLTE.`
-a: `AdminLTE 4 建议改用 <a href="https://tom-select.js.org/" target="_blank" rel="noopener">Tom Select</a>。大家平时用 Select2 想做的事，它全都能干 —— 可搜索下拉框、多选、打标签、可清除的选择项、AJAX 加载选项、大数据集下的虚拟滚动、键盘导航 —— 而体积大约只有 <strong>20&nbsp;kB gzip</strong>，Select2 算上 jQuery 之后大约是 <strong>~50&nbsp;kB</strong>。<code>forms/advanced.html</code> 把这些都演示了一遍，包括一个带请求取消的分页远程数据字段；如果你要移植现有代码，还有一份<a href="../forms/advanced.html#select2">逐行 API 对照</a>。<br /><br />Select2 本身仍在维护（4.1.0 于 2026 年发布），但它依然是个 jQuery 插件 —— 它的 UMD 包装强制依赖 jQuery，也没有不依赖 jQuery 的构建版本。把它打包进来，等于把 jQuery 又塞回一个整个 v4 前提就是“不需要 jQuery”的框架里，而且官方的 Vue/React/Django/Laravel 移植版没一个能用它。<br /><br />如果你就是被 Select2 锁死了，AdminLTE 提供了一个可选的 <strong>纯样式</strong>兼容样式表 —— 见 <a href="integrations.html#select2-compatibility-theme">Select2 兼容主题</a>。插件你自己带；它能让 Select2 跟 Bootstrap 5.3 保持一致，深色模式和模态框也都涵盖在内。AdminLTE 本身不会引入 jQuery。`
+a: `AdminLTE 4 建议改用 <a href="https://tom-select.js.org/" target="_blank" rel="noopener">Tom Select</a>。大家平时用 Select2 想做的事，它全都能干 —— 可搜索下拉框、多选、打标签、可清除的选择项、AJAX 加载选项、大数据集下的虚拟滚动、键盘导航 —— 而体积大约只有 <strong>20&nbsp;kB gzip</strong>，Select2 算上 jQuery 之后大约是 <strong>~50&nbsp;kB</strong>。<code>forms/advanced.html</code> 把这些都演示了一遍，包括一个带请求取消的分页远程数据字段；如果你要移植现有代码，还有一份<a href="../forms/advanced.html#select2">逐行 API 对照</a>。<br /><br />Select2 本身仍在维护（4.1.0 于 2026 年发布），但它依然是个 jQuery 插件 —— 它的 UMD 包装强制依赖 jQuery，也没有不依赖 jQuery 的构建版本。把它打包进来，等于把 jQuery 又塞回一个整个 v4 前提就是“不需要 jQuery”的框架里，而且官方的 Vue/React/Django/Laravel 移植版没一个能用它。<br /><br />如果你就是被 Select2 锁死了，AdminLTE 提供了一个可选的 <strong>纯样式</strong>兼容样式表 —— 见 <a href="integrations.html#select2-兼容主题">Select2 兼容主题</a>。插件你自己带；它能让 Select2 跟 Bootstrap 5.3 保持一致，深色模式和模态框也都涵盖在内。AdminLTE 本身不会引入 jQuery。`
 Framework integrations
 框架整合
 q: "Can AdminLTE be used with WordPress?",
@@ -2770,6 +2794,10 @@ Organic Search
 "外部链接"
 Social Media
 社交媒体
+"Email"]
+"邮箱"]
+"Sessions"
+"会话"
 END DONUT CHART
 环形图结束
 Donut Chart
@@ -2801,7 +2829,7 @@ Charts
 AdminLTE is a free Bootstrap 5 admin dashboard template with almost 50 example pages, built with vanilla JS and designed with accessibility in mind.
 AdminLTE 是一款免费的 Bootstrap 5 管理员仪表板模板，包含近 50 个示例页面，采用纯 JavaScript 构建，并注重可访问性设计。
 const calendar = new FullCalendar.Calendar(calendarEl, {
-const calendar = new FullCalendar.Calendar(calendarEl, {locale: 'zh-cn',
+const calendar = new FullCalendar.Calendar(calendarEl, { locale: 'zh-cn',
 Users"
 用户"
 Users
@@ -2916,11 +2944,11 @@ Advanced Elements
 高级元素
 Performance
 性能
-"https://cdn.jsdelivr.net/npm/tom-select@2.6.1/dist/css/tom-select.bootstrap5.min.css"
+"https://cdn.jsdelivr.net/npm/tom-select@2.6.2/dist/css/tom-select.bootstrap5.min.css"
 {deploymentPath + "assets/tom-select/tom-select.bootstrap5.min.css"}
 "https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css"
 {deploymentPath + "assets/flatpickr/flatpickr.min.css"}
-"https://cdn.jsdelivr.net/npm/tom-select@2.6.1/dist/js/tom-select.complete.min.js"
+"https://cdn.jsdelivr.net/npm/tom-select@2.6.2/dist/js/tom-select.complete.min.js"
 {deploymentPath + "assets/tom-select/tom-select.complete.min.js"}
 "https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"
 {deploymentPath + "assets/flatpickr/flatpickr.min.js"}
@@ -3004,9 +3032,9 @@ Three small differences from the default demo pages &mdash; no
 与默认演示页面有三处小差异 &mdash; 无需
 extra CSS or layout class required:
 额外的 CSS 或布局类：
-<code>&lt;aside class="app-sidebar"&gt;</code> element is
+The <code>&lt;aside class="app-sidebar"&gt;</code> element is
 省略了 `<code>&lt;aside class="app-sidebar"&gt;</code>` 元素。
-omitted. <code>app-wrapper</code> grid sizes its sidebar
+omitted. The <code>app-wrapper</code> grid sizes its sidebar
 <code>app-wrapper</code> 网格用 <code>auto</code> 来
 column with <code>auto</code>, so an empty column collapses to
 设置其侧边栏列的尺寸，因此空列会收缩为
@@ -3077,13 +3105,13 @@ Select a time
 "Backend"
 "后端"
 flatpickr("#delivery-date", {
-flatpickr("#delivery-date", {"locale": "zh",
+flatpickr("#delivery-date", { "locale": "zh",
 flatpickr("#meeting-start", {
-flatpickr("#meeting-start", {"locale": "zh",
+flatpickr("#meeting-start", { "locale": "zh",
 flatpickr("#report-period", {
-flatpickr("#report-period", {"locale": "zh",
+flatpickr("#report-period", { "locale": "zh",
 flatpickr("#reminder-time", {
-flatpickr("#reminder-time", {"locale": "zh",
+flatpickr("#reminder-time", { "locale": "zh",
 >Editors<
 >编辑器<
 | Editors
@@ -3661,7 +3689,7 @@ on the left.
 Clear filters
 清除条件
 You forgot your password? Here you can easily retrieve a new password.
-忘记密码了？在这里可以轻松重置一个新密码。
+忘记密码了？在这里重置一个新密码。
 Filter docs…
 筛选文档...
 <!--begin::Theme Init (prevents flash of incorrect theme on load, #6043)-->
@@ -3866,8 +3894,8 @@ Every family Bootstrap generates for its theme colours, generated
 Bootstrap 为自己的主题色生成的每一套类系列，
 for the palette — the same CSS-variable shape, so
 这里都为调色板生成了一份 —— CSS 变量的形态完全一样，
-<code>.bg-opacity-*</code>, <code>.link-underline-*</code> and friends compose.
-所以 <code>.bg-opacity-*</code>、<code>.link-underline-*</code> 之类的都能组合使用。
+<code>.bg-opacity-*</code>, <code>.link-underline-*</code> and friends compose. The raw text and link swatches use a white background to demonstrate fixed palette colours in either theme.
+<code>.bg-opacity-*</code>、<code>.link-underline-*</code> 之类的都能组合使用。纯文字和链接的色块用白色背景，以便在两种主题下都能演示固定的调色板颜色。
 Components<
 组件<
 AdminLTE's widgets colour themselves through <code class="text-body-emphasis">.text-bg-*</code>
@@ -4182,3 +4210,141 @@ q: "The sidebar and header no longer print.",
 q: "侧边栏和头部不再打印。",
 a: `By design: the shell — header, sidebar and footer — is navigation, and printing it spent 200px of every sheet on a menu and pushed the content onto extra pages (#6113). The content now gets the full width of the paper, as it did in v3. Add <code>&lt;html data-lte-print="app"&gt;</code> to print the whole layout again, or Bootstrap's <code>.d-print-flex</code> / <code>.d-print-block</code> to bring back one piece of it.`
 a: `这是有意为之：外壳 —— 头部、侧边栏和页脚 —— 是导航用的，把它们打印出来，每张纸会有 200px 花在一个菜单上，还会把内容挤到额外的页面上（#6113）。现在内容能占满整张纸的宽度，跟 v3 里一样。加上 <code>&lt;html data-lte-print="app"&gt;</code> 就能把整个布局重新打印出来，或者用 Bootstrap 的 <code>.d-print-flex</code> / <code>.d-print-block</code> 恢复其中某一块。`
+// The charts showcase moved to charts/chartjs.html in 4.10.0. This stub keeps
+// 图表展示页在 4.10.0 里挪到了 charts/chartjs.html。这个占位页是为了让旧链接和
+// old links and bookmarks working; it builds to dist/charts/ next to the page.
+// 书签还能用；它会构建到 dist/charts/ 下，跟那个页面放在一起。
+This page has moved. If the redirect does not work, please
+这个页面已经迁移。如果重定向没有生效，请
+<a href="./chartjs.html">click here for the Chart.js examples</a>.
+<a href="./chartjs.html">点这里查看 Chart.js 示例</a>。
+Area chart of digital goods and electronics sales, January to July 2023
+2023年1月至7月 数字产品和电子产品销售额区域图
+Visitors trend
+访客趋势
+Online trend
+在线趋势
+Sales trend
+销售趋势
+Chart.js + AdminLTE chart theme
+Chart.js + AdminLTE 图表主题
+"Jan '23", "Feb '23", "Mar '23", "Apr '23", "May '23", "Jun '23", "Jul '23"
+"23年1月", "23年2月", "23年3月", "23年4月", "23年5月", "23年6月", "23年7月"
+title: ([item]) => `${new Date(2023, item.dataIndex).toLocaleString('en', { month: 'long' })} 2023`
+title: ([item]) => `2023 年 ${new Date(2023, item.dataIndex).toLocaleString('zh-CN', { month: 'long' })}`
+title: ([item]) => `${new Date(2025, item.dataIndex).toLocaleString("en", { month: "long" })} 2025`
+title: ([item]) => `2025 年 ${new Date(2025, item.dataIndex).toLocaleString('zh-CN', { month: 'long' })}`
+Popularity trend
+流行趋势
+Donut chart of browser usage
+浏览器使用情况环形图
+title: ([item]) => `${new Date(2023, item.dataIndex).toLocaleString("en", { month: "long" })} 2023`
+title: ([item]) => `2023 年 ${new Date(2023, item.dataIndex).toLocaleString("zh-CN", { month: "long" })}`
+"Users"
+"用户"
+Line chart of online store visitors this week and last week
+本周与上周店铺访客折线图
+View product details
+查看产品详情
+Column chart of net profit, revenue and free cash flow, February to October
+2月至10月净利润、收入和自由现金流柱状图
+Keep adjacent-month dates readable in both Bootstrap color modes.
+在 Bootstrap 的两种配色模式下，保持相邻月份的日期可读。
+Keep all-day dates local; UTC conversion can shift them by a day.
+请将所有日期设为本地时间；UTC转换可能会使日期偏移一天。
+// Date cells also contain event titles. Include that visible text in
+// 日期单元格也包含事件标题。请在可访问名称中包含这些可见文本，
+// their accessible names, including after drag, edit, or navigation.
+// 包括拖动、编辑或导航后的情况。
+Filter by name
+按名称筛选
+Filter by email
+按邮箱筛选
+Filter by role
+按角色筛选
+Filter by status
+按状态筛选
+// Keep the scroll region keyboard reachable inside a valid grid.
+// 保持滚动区域键盘在有效网格内可使用。
+// Pagination lives outside the grid so its buttons are not grid rows.
+// 分页控件位于网格外部，因此其按钮不会是网格行。
+// Chart.js (MIT) plus AdminLTE's chart theme preset. Include it once, after
+// Chart.js（MIT）加上 AdminLTE 的图表主题预设。
+// <Scripts />, on any demo page that draws charts; the page's own chart code
+// 只需在任何绘制图表的演示页面中，于 <Scripts /> 之后包含一次即可；
+// goes after it.
+// 页面自身的图表代码应放在其后。
+// Styles every Chart.js chart on the page from AdminLTE's CSS variables —
+// 用 AdminLTE 的 CSS 变量给页面上每张 Chart.js 图表设定样式 ——
+// font, text, gridlines, tooltip and legend — and keeps them in step with the
+// 字体、文字、网格线、提示框和图例 —— 并让它们跟颜色模式
+// colour mode (ColorMode, the OS in auto mode, or your own code) and with
+//（ColorMode、auto 模式下的系统偏好，或你自己的代码）以及
+// `dir="rtl"`. Canvas can't read CSS, so the values are resolved here and
+// `dir="rtl"` 保持同步。Canvas 读不了 CSS，所以这里把这些值解析出来，
+// re-applied to every chart whenever <html data-bs-theme> or dir changes.
+// 每当 <html data-bs-theme> 或 dir 变化时，就重新应用到每张图表上。
+anything else is returned as is.
+其他任何东西都原样返回。
+Scriptable backgroundColor for area charts: the line colour fading to transparent.
+面积图的脚本化 backgroundColor：让线条颜色渐隐到透明。
+The theme colours currently in Chart.defaults.
+当前 Chart.defaults 中的主题颜色。
+Value axes float, category axes keep only their baseline.
+数值轴保持浮动，分类轴仅保留其基线。
+Line and bar charts share one tooltip per x value, like a dashboard should.
+折线图和柱状图每个 x 值共享一个数据工具提示，就像仪表盘应该的那样。
+// Chart.js copies the scale defaults (tick, grid, border and title colours)
+// Chart.js 在创建图表时，会把刻度默认值（刻度、网格、边框和标题的颜色）
+// into each chart's config when the chart is created, so new defaults alone
+// 复制进每张图表的配置里，所以光改默认值，永远到不了已有图表的坐标轴上。
+// never reach an existing chart's axes. Drop the copies that still hold the
+// 把那些还留着上一套主题颜色的副本丢掉；
+// previous theme's colours; update() then copies the new ones in. Colours a
+// 这样 update() 就会把新的复制进去。
+// chart set for itself are left alone.
+// 图表自己设的颜色则原样保留。
+The web font may arrive after the first draw; redraw so labels use it.
+网页字体可能在首次绘制后才出现；请重新绘制以确保标签能使用它。
+// Helpers for the page's own chart code.
+// 用于页面自身图表代码的辅助函数。
+Collapse card
+折叠卡片
+Line chart of monthly revenue, January to December
+1月至12月月度收入折线图
+Area chart of new and returning visitors, January to July 2025
+2025年1月至7月新客与回头客区域图
+Column chart of online store and retail store sales per quarter of 2025
+2025年各季度线上店铺和零售店销售额柱状图
+Donut chart of traffic sources
+流量来源环形图
+Radial bar chart of goal completion for sales, marketing and support
+销售、市场和客服目标完成情况条形图
+Mixed chart of monthly orders and revenue
+月度订单与收入混合图表
+* A small showcase of the most common Chart.js chart types.
+* 一个常见 Chart.js 图表类型的小型展示。
+* Each canvas sits in a wrapper with a fixed height; the charts
+* 每个 canvas 都放在一个固定高度的包裹元素里；图表会填满它，
+* fill it and follow its width (sidebar toggle included).
+* 并跟随它的宽度（侧边栏切换时也一样）。
+// Concentric doughnut rings, one per value, each drawn over a track.
+// 同心圆环，每个数值一圈，每一圈都画在一条轨道上。
+// A tiny inline plugin writes the average in the middle.
+// 一个很小的内联插件把平均值写在正中间。
+A function, so the track colour is re-read when the colour mode changes.
+写成函数，这样颜色模式变化时轨道颜色会被重新读取。
+`order` puts the line on top of the bars; list them in dataset order.
+`order` 将行置于条形图的上方，并按数据集中的顺序列出。
+Palette<
+调色板<
+thousands`
+万`
+Form Layout
+表单布局
+"Bennett", "Carter", "Dawson"
+"贝内特", "卡特", "道森"
+Type to search 72 people…
+输入以搜索 72 人……
+href="../docs/integrations.html#select2-compatibility-theme"
+href="../docs/integrations.html#select2-兼容主题"

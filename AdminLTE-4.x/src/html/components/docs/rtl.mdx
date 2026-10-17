@@ -11,7 +11,7 @@ dist/css/adminlte.min.css
 dist/css/adminlte.rtl.min.css
 ```
 
-可选的样式表也是同样的待遇 —— 比如 [Select2 兼容主题](integrations.html#select2-compatibility-theme)，除了 LTR 版本之外，还一并提供了 `adminlte-select2.rtl.css` / `.rtl.min.css`。
+可选的样式表也是同样的待遇 —— 比如 [Select2 兼容主题](integrations.html#select2-兼容主题)，除了 LTR 版本之外，还一并提供了 `adminlte-select2.rtl.css` / `.rtl.min.css`。
 
 要将页面切换为 RTL，请替换样式表并在 `<html>` 元素上设置 `dir="rtl"`：
 
@@ -84,7 +84,7 @@ npm run css-minify
 ##### 不翻转的内容
 
 - Bootstrap Icons（SVG 字形）——大多数图标是方向中性的；确实指示方向的箭头（`bi-arrow-right`、`bi-chevron-right` 等）需要手动替换为对应的 `-left` 版本。
-- 内联图片、图表和第三方小部件——它们的内部布局不会对 `dir` 做出响应。请检查每个集成（ApexCharts、FullCalendar、Tabulator）是否有 RTL 选项。
+- 内联图片、图表和第三方组件 —— 它们的内部布局不会响应 `dir` 属性。要逐个检查每个集成库（Chart.js、FullCalendar、Tabulator）有没有 RTL 选项。演示里的 Chart.js 预设会在 `<html dir="rtl">` 时给图例和提示框设置 `rtl: true`。
 - 数字——即使在 RTL 上下文中，数字仍然保持 LTR（这是标准的 Unicode 双向文本行为，不是 Bug）。
 
 ##### 常见问题

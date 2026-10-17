@@ -75,7 +75,7 @@
     <link
       rel="stylesheet"
       href="../assets/fontsource/index.css"
-      integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
+      integrity="sha256-5UwXtC6TaPHCAbVQ59waEAqOssHyhn/twyuLRRWszzo="
       crossorigin="anonymous"
       media="print"
       onload="this.media = 'all'"
@@ -142,7 +142,7 @@
 
           <!--begin::Navbar Search-->
           <form
-            class="navbar-search d-none d-md-block ms-3"
+            class="navbar-search d-none d-xl-block ms-3"
             role="search"
             action="../pages/search-results.html"
           >
@@ -166,7 +166,7 @@
           <!--begin::End Navbar Links-->
           <ul class="navbar-nav ms-auto">
             <!--begin::Search （小屏幕上：上面的输入框是隐藏的，所以链接到搜索页面）-->
-            <li class="nav-item d-md-none">
+            <li class="nav-item d-xl-none">
               <a class="nav-link" href="../pages/search-results.html" aria-label="搜索">
                 <i class="bi bi-search" aria-hidden="true"></i>
               </a>
@@ -411,7 +411,7 @@
                   class="user-image rounded-circle shadow"
                   alt="亚历山大·皮尔斯"
                 />
-                <span class="d-none d-md-inline">亚历山大·皮尔斯</span>
+                <span class="d-none d-xl-inline">亚历山大·皮尔斯</span>
               </a>
               <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
                 <!--begin::用户头像-->
@@ -817,8 +817,8 @@
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="html"
-                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/tom-select@2.6.1/dist/css/tom-select.bootstrap5.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
-<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/tom-select@2.6.1/dist/js/tom-select.complete.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/tom-select@2.6.2/dist/css/tom-select.bootstrap5.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/tom-select@2.6.2/dist/js/tom-select.complete.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">select</span><span style="color:#9CDCFE"> id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;tags&quot;</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;form-control&quot;</span><span style="color:#9CDCFE"> multiple</span><span style="color:#9CDCFE"> placeholder</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;选择标签&quot;</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">option</span><span style="color:#9CDCFE"> value</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;design&quot;</span><span style="color:#808080">&gt;</span><span style="color:#D4D4D4">设计</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">option</span><span style="color:#808080">&gt;</span></span>
@@ -991,16 +991,16 @@
                     </div>
                     <p>
                       这张表的并排对照版，配上可运行的代码，放在
-                      <a href="../forms/advanced.html#select2">Advanced Elements</a> 演示页面里。
+                      <a href="../forms/advanced.html#select2">高级元素</a> 演示页面里。
                     </p>
                     <p>
                       <strong>如果你不得不继续用 Select2</strong>，AdminLTE
                       提供了一个<em>纯样式</em>的兼容样式表——见下面的
-                      <a href="#select2-compatibility-theme">Select2 兼容主题</a>。
+                      <a href="#select2-%E5%85%BC%E5%AE%B9%E4%B8%BB%E9%A2%98">Select2 兼容主题</a>。
                     </p>
                     <h6 id="select2-兼容主题">Select2 兼容主题</h6>
                     <p>
-                      有些项目没法甩掉 Select2：比如一个带着几百个服务端渲染表单的 ERP
+                      有些项目没法去掉 Select2：比如一个带着几百个服务端渲染表单的 ERP
                       系统、一个会自动帮你初始化它的第三方插件，又或者团队压根还没准备好换。AdminLTE
                       不会把 Select2 或 jQuery 打包进来，但它确实提供了一个
                       <strong>纯 CSS 的兼容主题</strong>，这样你自己引入的 Select2 就能继承
@@ -1033,7 +1033,7 @@
 <span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">option</span><span style="color:#9CDCFE"> value</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;lv&quot;</span><span style="color:#808080">&gt;</span><span style="color:#D4D4D4">拉脱维亚</span><span style="color:#808080">&lt;/</span><span style="color:#569CD6">option</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">select</span><span style="color:#808080">&gt;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#DCDCAA">  $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;#country&quot;</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">select2</span><span style="color:#D4D4D4">({ </span><span style="color:#9CDCFE">width:</span><span style="color:#CE9178"> &quot;100%&quot;</span><span style="color:#D4D4D4"> })</span></span>
@@ -1159,8 +1159,8 @@
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="html"
-                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/@simonwep/pickr@1.9.1/dist/themes/classic.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
-<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/@simonwep/pickr@1.9.1/dist/pickr.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/@simonwep/pickr@1.10.2/dist/themes/classic.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/@simonwep/pickr@1.10.2/dist/pickr.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;color-picker&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
 <span class="line"></span>
@@ -1200,8 +1200,8 @@
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="html"
-                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/dropzone@6.0.0-beta.2/dist/dropzone.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
-<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/dropzone@6.0.0-beta.2/dist/dropzone-min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/dropzone@6.3.5/dist/dropzone.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/dropzone@6.3.5/dist/dropzone-min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">form</span><span style="color:#9CDCFE"> action</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;/upload&quot;</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;dropzone&quot;</span><span style="color:#9CDCFE"> id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;uploader&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">form</span><span style="color:#808080">&gt;</span></span>
 <span class="line"></span>
@@ -1294,40 +1294,23 @@
 <span class="line"><span style="color:#D4D4D4">  })</span></span>
 <span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span></code></pre>
                     <h5 id="图表">图表</h5>
-                    <h6 id="apexcharts">ApexCharts</h6>
-                    <p>
-                      <a href="https://apexcharts.com/">ApexCharts</a> 是 AdminLTE
-                      仪表板中使用的图表库。现代外观、带动画、MIT 许可。
-                    </p>
-                    <pre
-                      class="astro-code dark-plus"
-                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
-                      tabindex="0"
-                      data-language="html"
-                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/apexcharts@5.12.0/dist/apexcharts.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;chart&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#569CD6">  new</span><span style="color:#DCDCAA"> ApexCharts</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">querySelector</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;#chart&quot;</span><span style="color:#D4D4D4">), {</span></span>
-<span class="line"><span style="color:#9CDCFE">    chart:</span><span style="color:#D4D4D4"> { </span><span style="color:#9CDCFE">type:</span><span style="color:#CE9178"> &quot;区域&quot;</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">height:</span><span style="color:#B5CEA8"> 300</span><span style="color:#D4D4D4"> },</span></span>
-<span class="line"><span style="color:#9CDCFE">    series:</span><span style="color:#D4D4D4"> [{ </span><span style="color:#9CDCFE">name:</span><span style="color:#CE9178"> &quot;访问量&quot;</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">data:</span><span style="color:#D4D4D4"> [</span><span style="color:#B5CEA8">30</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">40</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">35</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">50</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">49</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">60</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">70</span><span style="color:#D4D4D4">] }],</span></span>
-<span class="line"><span style="color:#9CDCFE">    xaxis:</span><span style="color:#D4D4D4"> { </span><span style="color:#9CDCFE">categories:</span><span style="color:#D4D4D4"> [</span><span style="color:#CE9178">&quot;周一&quot;</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">&quot;周二&quot;</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">&quot;周三&quot;</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">&quot;周四&quot;</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">&quot;周五&quot;</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">&quot;周六&quot;</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">&quot;周日&quot;</span><span style="color:#D4D4D4">] }</span></span>
-<span class="line"><span style="color:#D4D4D4">  }).</span><span style="color:#DCDCAA">render</span><span style="color:#D4D4D4">()</span></span>
-<span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span></code></pre>
                     <h6 id="chartjs">Chart.js</h6>
                     <p>
-                      <a href="https://www.chartjs.org/">Chart.js</a> 是被问及最多的传统图表库。基于
-                      Canvas，支持非常广泛的图表类型。
+                      <a href="https://www.chartjs.org/">Chart.js</a>（MIT 许可）是 AdminLTE
+                      仪表盘和 <code>charts/chartjs.html</code> 展示页里使用的图表库。基于
+                      Canvas，带动画、响应式，内置折线图、面积图、柱状图、圆环图、饼图、极区图、雷达图、散点图和气泡图。
                     </p>
                     <pre
                       class="astro-code dark-plus"
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="html"
-                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/chart.js@4.5.1&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">canvas</span><span style="color:#9CDCFE"> id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;bar-chart&quot;</span><span style="color:#9CDCFE"> height</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;120&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">canvas</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#6A9955">&lt;!-- 为画布设置一个具有高度的父元素；图表会填充它并跟随其宽度。 --&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> style</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;position: relative; height: 300px&quot;</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">  &lt;</span><span style="color:#569CD6">canvas</span><span style="color:#9CDCFE"> id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;bar-chart&quot;</span><span style="color:#9CDCFE"> role</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;img&quot;</span><span style="color:#9CDCFE"> aria-label</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;Revenue per quarter&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">canvas</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#569CD6">  new</span><span style="color:#DCDCAA"> Chart</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">getElementById</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;bar-chart&quot;</span><span style="color:#D4D4D4">), {</span></span>
@@ -1335,9 +1318,15 @@
 <span class="line"><span style="color:#9CDCFE">    data:</span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"><span style="color:#9CDCFE">      labels:</span><span style="color:#D4D4D4"> [</span><span style="color:#CE9178">&quot;一季度&quot;</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">&quot;二季度&quot;</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">&quot;三季度&quot;</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">&quot;四季度&quot;</span><span style="color:#D4D4D4">],</span></span>
 <span class="line"><span style="color:#9CDCFE">      datasets:</span><span style="color:#D4D4D4"> [{ </span><span style="color:#9CDCFE">label:</span><span style="color:#CE9178"> &quot;收入&quot;</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">data:</span><span style="color:#D4D4D4"> [</span><span style="color:#B5CEA8">120</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">190</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">170</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">230</span><span style="color:#D4D4D4">] }]</span></span>
-<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"><span style="color:#D4D4D4">    },</span></span>
+<span class="line"><span style="color:#9CDCFE">    options:</span><span style="color:#D4D4D4"> { </span><span style="color:#9CDCFE">maintainAspectRatio:</span><span style="color:#569CD6"> false</span><span style="color:#D4D4D4"> }</span></span>
 <span class="line"><span style="color:#D4D4D4">  })</span></span>
 <span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span></code></pre>
+                    <p>
+                      演示页面用 AdminLTE 的 CSS 变量来给每张图表设定样式 ——
+                      字体、文字和网格线颜色、提示框和图例 ——
+                      并且在颜色模式变化时实时重新刷一遍样式。那个预设就是一小段内联脚本；想把它复制到你自己的页面里，见[方案](recipes.html#会跟随深色模式的图表。
+                    </p>
                     <h5 id="数据表格">数据表格</h5>
                     <h6 id="tabulator">Tabulator</h6>
                     <p>
@@ -1350,8 +1339,8 @@
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="html"
-                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/tabulator-tables@6.4.0/dist/css/tabulator_bootstrap5.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
-<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/tabulator-tables@6.4.0/dist/js/tabulator.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/tabulator-tables@6.6.1/dist/css/tabulator_bootstrap5.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/tabulator-tables@6.6.1/dist/js/tabulator.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;table&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
 <span class="line"></span>
@@ -1380,7 +1369,10 @@
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="html"
-                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/fullcalendar@7.1.1/skeleton.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/@fullcalendar/bootstrap5@7.1.1/theme.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/fullcalendar@7.1.1/all/global.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/@fullcalendar/bootstrap5@7.1.1/global.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;calendar&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
 <span class="line"></span>
@@ -1403,8 +1395,8 @@
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="html"
-                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/css/jsvectormap.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
-<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/js/jsvectormap.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">link</span><span style="color:#9CDCFE"> rel</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;stylesheet&quot;</span><span style="color:#9CDCFE"> href</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/jsvectormap.min.css&quot;</span><span style="color:#808080"> /&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/jsvectormap.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/maps/world.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;map&quot;</span><span style="color:#9CDCFE"> style</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;height: 20rem;&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">div</span><span style="color:#808080">&gt;</span></span>
@@ -1577,7 +1569,7 @@
 
         if (
           sidebarWrapper &&
-          OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined &&
+          globalThis.OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined &&
           !isMobile
         ) {
           OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
@@ -1591,38 +1583,6 @@
       });
     </script>
     <!--end::OverlayScrollbars Configure-->
-    <!--begin::Charts follow the colour mode-->
-    <script>
-      // 如果不额外指定，ApexCharts 会按浅色主题来画提示框和坐标轴文字，
-      // 这在深色模式下根本看不清（#6105）。在任何图表创建之前，把页面的颜色模式
-      // 作为全局默认值交给它 —— 这段代码跑在图表页面自己的脚本之前 —— 并且在模式
-      // 发生变化时（ColorMode、auto 模式下的操作系统、或你自己的代码），
-      // 让每一个带 `chart.id` 的图表都跟着同步。
-      (() => {
-        'use strict';
-        const mode = () =>
-          document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'dark' : 'light';
-        // `Apex` 是 ApexCharts 的全局选项对象；它必须在库加载之前就存在。
-        // theme.mode 还会顺带设一个深色的图表背景 —— 这里保留卡片自己的背景。
-        // eslint-disable-next-line unicorn/no-global-object-property-assignment
-        globalThis.Apex ||= {};
-        const apex = globalThis.Apex;
-        apex.theme = { mode: mode() };
-        apex.chart = Object.assign(apex.chart || {}, { background: 'transparent' });
-        new MutationObserver(() => {
-          const next = mode();
-          apex.theme = { mode: next };
-          const instances = apex._chartInstances || [];
-          for (const { chart } of instances) {
-            chart.updateOptions({ theme: { mode: next } }, false, false);
-          }
-        }).observe(document.documentElement, {
-          attributes: true,
-          attributeFilter: ['data-bs-theme'],
-        });
-      })();
-    </script>
-    <!--end::Charts follow the colour mode-->
 
     <!--begin::明暗模式切换-->
     <!-- 浅色/深色/自动切换器从 4.1 起就作为 ColorMode 模块内置在 adminlte.js 里了

@@ -97,9 +97,10 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
                     打印
                   </button>
                 </div>
-                <div id="users-table"></div>
+                <div id="users-table" aria-label="用户"></div>
+                <div id="table-pagination" class="d-flex flex-wrap gap-2 justify-content-end mt-2"></div>
               </div>
-              <div class="card-footer text-secondary small">
+              <div class="card-footer bg-body text-body-secondary small">
                 由
                 <a
                   href="https://tabulator.info/"
@@ -149,18 +150,19 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
           data: data,
           layout: "fitColumns",
           pagination: true,
+          paginationElement: document.getElementById("table-pagination"),
           paginationSize: 10,
           paginationSizeSelector: [10, 25, 50, 100],
           movableColumns: true,
           columns: [
             { title: "#", field: "id", width: 60, headerSort: true },
-            { title: "名字", field: "name", headerFilter: "input" },
-            { title: "邮箱", field: "email", headerFilter: "input" },
+            { title: "名字", field: "name", headerFilter: "input", headerFilterParams: { elementAttributes: { "aria-label": "按名称筛选" } } },
+            { title: "邮箱", field: "email", headerFilter: "input", headerFilterParams: { elementAttributes: { "aria-label": "按邮箱筛选" } } },
             {
               title: "规则",
               field: "role",
               headerFilter: "list",
-              headerFilterParams: { values: ["", "管理员", "编辑", "访客"] },
+              headerFilterParams: { values: ["", "管理员", "编辑", "访客"], elementAttributes: { "aria-label": "按角色筛选" } },
               width: 120
             },
             {
@@ -168,12 +170,27 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
               field: "status",
               formatter: statusBadge,
               headerFilter: "list",
-              headerFilterParams: { values: ["", "活跃", "已邀请", "已暂停"] },
+              headerFilterParams: { values: ["", "活跃", "已邀请", "已暂停"], elementAttributes: { "aria-label": "按状态筛选" } },
               width: 130,
               hozAlign: "center"
             },
             { title: "加入", field: "joined", sorter: (a, b) => {return new Date(a) - new Date(b);}, width: 130 }
           ]
+        });
+
+        table.on("tableBuilt", () => {
+          // 保持滚动区域键盘在有效网格内可使用。
+          // 分页控件位于网格外部，因此其按钮不会是网格行。
+          const grid = document.getElementById("users-table");
+          grid.removeAttribute("aria-owns");
+          grid.querySelector(".tabulator-tableholder").setAttribute("role", "rowgroup");
+          grid.querySelector(".tabulator-table").setAttribute("role", "presentation");
+        });
+
+        table.on("renderComplete", () => {
+          document.querySelectorAll("#table-pagination button").forEach(button => {
+            button.classList.add("btn", "btn-sm", "btn-outline-secondary");
+          });
         });
 
         document.getElementById("table-filter").addEventListener("input", (e) => {

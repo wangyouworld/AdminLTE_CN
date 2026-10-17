@@ -16,12 +16,13 @@
     ```
     * 从 `master` 分支创建一个新分支
 3. 编译 dist 文件（开发环境）：
-    * 编译 dist 文件需要 Node.js 18 或更高版本以及 npm（Node 包管理器）
-    * `npm install`（安装 npm 依赖）
-    * `npm run dev`（开发者模式，自动编译并支持 Browsersync 实时演示）
+    * 编译 dist 文件需要 Node.js 22.22.3+、24.16.0+ 或 26.3.0+，以及 npm 10+
+    * `npm ci`（安装锁定的依赖树）
+    * `npm run dev`（开发模式，资产监视器和 Astro 实时演示在 http://localhost:3000 ）
     * 请仅在 `./src` 文件夹或 `package.json` 中对贡献所需的文件进行修改
     * 请勿在 `./dist/**` 中进行修改，因为该目录包含编译后的文件，且不应包含在 PR（Pull Request）中
-    * `npm run production`（编译 CSS/JS 文件，并在创建 Pull Request 之前测试所有页面是否完全正常工作）
+    * `npm test`（单元测试），然后 `npm run build` 和 `npm run test-browser` / `npm run test-a11y`（用 `npx playwright install chromium` 安装浏览器）
+    * `npm run production`（创建 pull request 之前，跑 lint、单元测试、编译资源，并检查 gzip 体积预算）
 4. 向 `master` 分支发起 Pull Request
 
 ## 一键在线贡献环境搭建

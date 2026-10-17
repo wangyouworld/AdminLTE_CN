@@ -422,8 +422,8 @@ Swapped to right
 ##### 不翻转的内容
 - Bootstrap Icons (SVG glyphs) — most icons are direction-neutral; arrows that *do* indicate direction (`bi-arrow-right`, `bi-chevron-right`, etc.) need to be manually swapped to their `-left` siblings.
 - Bootstrap Icons（SVG 字形）——大多数图标是方向中性的；确实指示方向的箭头（`bi-arrow-right`、`bi-chevron-right` 等）需要手动替换为对应的 `-left` 版本。
-- Inline images, charts, and third-party widgets — their internal layout doesn't react to `dir`. Check each integration (ApexCharts, FullCalendar, Tabulator) for an RTL option.
-- 内联图片、图表和第三方小部件——它们的内部布局不会对 `dir` 做出响应。请检查每个集成（ApexCharts、FullCalendar、Tabulator）是否有 RTL 选项。
+- Inline images, charts, and third-party widgets — their internal layout doesn't react to `dir`. Check each integration (Chart.js, FullCalendar, Tabulator) for an RTL option. The demo's Chart.js preset sets `rtl: true` on legends and tooltips when `<html dir="rtl">`.
+- 内联图片、图表和第三方组件 —— 它们的内部布局不会响应 `dir` 属性。要逐个检查每个集成库（Chart.js、FullCalendar、Tabulator）有没有 RTL 选项。演示里的 Chart.js 预设会在 `<html dir="rtl">` 时给图例和提示框设置 `rtl: true`。
 - Numbers — digits stay LTR even in RTL contexts (this is standard Unicode bidi behaviour, not a bug).
 - 数字——即使在 RTL 上下文中，数字仍然保持 LTR（这是标准的 Unicode 双向文本行为，不是 Bug）。
 ##### Common gotchas
@@ -508,12 +508,12 @@ For a full-page chat application, see `/pages/chat.html` in the demo.
 如需完整的聊天页面应用，请参见演示中的 `/pages/chat.html`。
 ##### Reacting to layout/sidebar changes
 ##### 响应布局/侧边栏变更
-Listen for plugin events to coordinate with your own code — e.g., refit a chart when the sidebar collapses (so the chart re-measures its container width):
-监听插件事件以与您自己的代码协调——例如，当侧边栏折叠时重新适配图表（使图表重新测量其容器宽度）：
+Listen for plugin events to coordinate with your own code — e.g., refit a widget when the sidebar collapses (so it re-measures its container width):
+监听插件事件，好跟你自己的代码配合 —— 比如侧边栏收起时让某个组件重新适配（这样它就会重新测量容器的宽度）：
 your ApexCharts instance
 ApexCharts 实例
-The same pattern works for Tabulator, FullCalendar, and any other library that reads its container width on init.
-同样的模式适用于 Tabulator、FullCalendar 以及任何其他在初始化时读取容器宽度的库。
+The same pattern works for FullCalendar (`calendar.updateSize()`) and any other library that reads its container width on init. Chart.js charts need nothing here: they watch their container with a `ResizeObserver` and redraw on their own.
+同样的套路也适用于 FullCalendar（`calendar.updateSize()`）以及任何其他在初始化时读取容器宽度的库。Chart.js 的图表在这里什么都不用做：它们用 `ResizeObserver` 监视自己的容器，会自动重绘。
 ##### Loading content into a card via fetch
 ##### 通过 fetch 将内容加载到卡片中
 Loading&hellip;
@@ -529,7 +529,7 @@ This permanently deletes your account and all associated data. This cannot be un
 Yes, delete it
 是的，删除它！
 The [Color Mode](color-mode.html), [Accessibility](javascript/accessibility.html), and the bundled JS handle Escape-to-close, focus trap, and keyboard navigation inside the modal automatically.
-[颜色模式](color-mode.html)、[无障碍访问](javascript/accessibility.html)以及捆绑的 JS 会自动处理模态框内的 Escape 关闭、焦点陷阱和键盘导航。
+[颜色模式](color-mode.html)、[无障碍访问](javascript/accessibility.html)以及捆绑的 JS 会自动处理模态框内的 ESC 键关闭、焦点陷阱和键盘导航。
 ##### Where to next
 ##### 接下来去哪里
 - [JavaScript Plugins Overview](javascript/plugins-overview.html) — every plugin's event names and methods
@@ -654,6 +654,8 @@ Initial page-load animation finished
 初始页面加载动画已完成
 OS `prefers-reduced-motion` detected
 检测到操作系统 `prefers-reduced-motion`
+Submenu expanded to reveal a match (restored on clear)
+子菜单展开以显示匹配项（在清除后恢复）
 ##### Production vs source
 ##### 生产环境 vs 源码
 The plugins live in [`src/ts/`](https://github.com/ColorlibHQ/master/src/ts) as TypeScript modules. The published `dist/js/adminlte.js` is a Rollup bundle of all seven, exporting them under a single `adminlte` namespace (UMD) or named imports (ESM).
@@ -897,7 +899,7 @@ One level
 >Multilevel
 >多层级
 The CardWidget plugin provides collapse, expand, remove, and maximize functionality for card components.
-CardWidget 插件为卡片组件提供了折叠、展开、移除和最大化的功能。
+插件为卡片组件提供了折叠、展开、移除和最大化的功能。
 ##### Usage
 ##### 用法
 This plugin is activated via data attributes on buttons inside a `.card` element.
@@ -997,7 +999,7 @@ Animates the card out and removes it from the DOM. Fires `remove.lte.card-widget
 - A card that's collapsed when you maximize it remembers that — the `was-collapsed` class tracks this state.
 - 如果在最大化时卡片处于折叠状态，它会记住这一状态——`was-collapsed` 类用于跟踪此状态。
 The DirectChat plugin toggles the contacts pane in a direct chat widget.
-DirectChat 插件用于切换直接聊天小组件中的联系人面板。
+DirectChat 插件用于切换聊天小组件中的联系人面板。
 ##### Usage
 ##### 用法
 This plugin is activated via data attributes.
@@ -1085,7 +1087,7 @@ The constructor takes no config — pass only the trigger element.
 - The maximize icon is hidden via the `d-none` Bootstrap utility class (not inline `display`) so it doesn't override the icon library's natural display value — this works correctly with FontAwesome, Lucide, Tabler Icons, etc.
 - 最大化图标通过 Bootstrap 工具类 `d-none` 来隐藏（而非内联 `display` 样式），这样不会覆盖图标库的原生 display 值——这适用于 FontAwesome、Lucide、Tabler Icons 等图标库。
 - Fullscreen on `document.documentElement` (i.e. `<html>`) means the entire page goes fullscreen. To fullscreen just a card, use the [CardWidget `maximize()` method](card-widget.html#programmatic-api) instead.
-- 对 `document.documentElement`（即 `<html>`）应用全屏意味着整个页面进入全屏模式。如果只想全屏显示单个卡片，请改用 [CardWidget 的 `maximize()` 方法](card-widget.html#programmatic-api)。
+- 对 `document.documentElement`（即 `<html>`）应用全屏意味着整个页面进入全屏模式。如果只想全屏显示单个卡片，请改用 [CardWidget 的 `maximize()` 方法](card-widget.html#调用方式)。
 The Accessibility module provides WCAG 2.1 AA compliance features that are automatically initialized when AdminLTE loads.
 Accessibility 模块提供了 WCAG 2.1 AA 合规性功能，在 AdminLTE 加载时会自动初始化。
 ##### Features
@@ -1153,7 +1155,7 @@ ARIA live region for dynamic announcements.
 - The module integrates with Bootstrap's modal and dropdown events for focus management.
 - 该模块与 Bootstrap 的模态框和下拉菜单事件集成，用于焦点管理。
 - Modal Escape key handling is deferred to Bootstrap to respect `keyboard: false` and stacked modals.
-- 模态框的 Escape 键处理交由 Bootstrap 处理，以尊重 `keyboard: false` 设置和堆叠模态框。
+- 模态框的 ESC 键处理交由 Bootstrap 处理，以尊重 `keyboard: false` 设置和堆叠模态框。
 - Form validation announcements work automatically for any input with HTML5 validation attributes.
 - 表单验证通告会自动适用于任何带有 HTML5 验证属性的输入框。
 AdminLTE deliberately ships a lean dependency tree. Rather than bundling every form widget or chart library, we recommend best-in-class third-party libraries you can drop in when you need them. Every library below is **MIT-licensed**, **actively maintained**, and **jQuery-free**.
@@ -1232,8 +1234,12 @@ Write something fancy&hellip;
 "访问量"
 "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"
 "周一", "周二", "周三", "周四", "周五", "周六", "周日"
-[Chart.js](https://www.chartjs.org/) is the most-asked-for traditional chart library. Canvas-based, very wide chart-type support.
-[Chart.js](https://www.chartjs.org/) 是被问及最多的传统图表库。基于 Canvas，支持非常广泛的图表类型。
+[Chart.js](https://www.chartjs.org/) (MIT) is the chart library used in the AdminLTE dashboards and on the `charts/chartjs.html` showcase. Canvas-based, animated, responsive, with line, area, bar, doughnut, pie, polar-area, radar, scatter and bubble charts built in.
+[Chart.js](https://www.chartjs.org/)（MIT 许可）是 AdminLTE 仪表盘和 `charts/chartjs.html` 展示页里使用的图表库。基于 Canvas，带动画、响应式，内置折线图、面积图、柱状图、圆环图、饼图、极区图、雷达图、散点图和气泡图。
+Give the canvas a parent with a height; the chart fills it and follows its width.
+为画布设置一个具有高度的父元素；图表会填充它并跟随其宽度。
+The demo pages style every chart from AdminLTE's CSS variables — font, text and gridline colours, tooltip and legend — and restyle them live when the colour mode changes. That preset is a short inline script; see [Charts that follow dark mode](recipes.html#charts-that-follow-dark-mode) to copy it into your own pages.
+演示页面用 AdminLTE 的 CSS 变量来给每张图表设定样式 —— 字体、文字和网格线颜色、提示框和图例 —— 并且在颜色模式变化时实时重新刷一遍样式。那个预设就是一小段内联脚本；想把它复制到你自己的页面里，见[方案](recipes.html#会跟随深色模式的图表。
 "Q1", "Q2", "Q3", "Q4"
 "一季度", "二季度", "三季度", "四季度"
 "Revenue"
@@ -1369,7 +1375,7 @@ use Bootstrap utilities + CSS variables
 AdminLTE 3 demos used FontAwesome 6 free. AdminLTE 4 standardises on [Bootstrap Icons](https://icons.getbootstrap.com/) — they're SVG, lighter, MIT-licensed, and ship with Bootstrap's ecosystem.
 AdminLTE 3 演示使用 FontAwesome 6 免费版。AdminLTE 4 标准化使用 [Bootstrap Icons](https://icons.getbootstrap.com/)——它们是 SVG 格式、更轻量、MIT 许可，并与 Bootstrap 生态一同发布。
 If you'd rather stick with FontAwesome (or use Lucide, Tabler Icons, Material Symbols, etc.), nothing in AdminLTE 4 forces Bootstrap Icons — load whichever icon font you prefer and replace the `<i>` classes. See [Recommended Integrations](integrations.html#icon-libraries) for the comparison table.
-如果你更愿意继续使用 FontAwesome（或使用 Lucide、Tabler Icons、Material Symbols 等），AdminLTE 4 中没有任何内容强制使用 Bootstrap Icons——加载你喜欢的任何图标字体并替换 `<i>` 类即可。参见 [Recommended Integrations](integrations.html#icon-libraries) 的对比表。
+如果你更愿意继续使用 FontAwesome（或使用 Lucide、Tabler Icons、Material Symbols 等），AdminLTE 4 中没有任何内容强制使用 Bootstrap Icons——加载你喜欢的任何图标字体并替换 `<i>` 类即可。参见 [集成](integrations.html#图标库) 的对比表。
 ##### Pages we haven't ported yet
 ##### 尚未移植的页面
 The v3 demo includes pages that haven't all been recreated for v4. The v4 release notes cover the current page catalog. If you depend on a specific v3 page that hasn't been ported, please [open an issue](https://github.com/ColorlibHQ/AdminLTE/issues) — community contributions for missing pages are very welcome.
@@ -1541,7 +1547,7 @@ AdminLTE 拥有与 Bootstrap 5 相同的浏览器支持。
 > For more details [look here](https://getbootstrap.com/docs/5.0/getting-started/browsers-devices/#supported-browsers).
 > 更多详情请[查看此处](https://getbootstrap.com/docs/5.0/getting-started/browsers-devices/#supported-browsers)。
 You can find our supported range of browsers and their versions in [our .browserslistrc file](https://github.com/ColorlibHQ/AdminLTE/blob/master/.browserslistrc):
-您可以在[我们的 .browserslistrc 文件](https://github.com/ColorlibHQ/AdminLTE/blob/master/.browserslistrc)中找到我们支持的浏览器及其版本范围：
+你可以在[.browserslistrc 文件](https://github.com/ColorlibHQ/AdminLTE/blob/master/.browserslistrc)中找到我们支持的浏览器及其版本范围：
 last 2 major versions
 最近 2 个主要版本
 not dead
@@ -1572,18 +1578,20 @@ Contributions are always **welcome and recommended**! Here is how for beginner's
 * 从 `master` 分支创建一个新分支
 Compile dist files (Development) :
 编译 dist 文件（开发环境）：
-* To compile the dist files you need Node.js 18 or higher/npm (node package manager)
-* 编译 dist 文件需要 Node.js 18 或更高版本以及 npm（Node 包管理器）
-* `npm install` (install npm deps)
-* `npm install`（安装 npm 依赖）
-* `npm run dev` (developer mode, autocompile with browsersync support for live demo)
-* `npm run dev`（开发者模式，自动编译并支持 Browsersync 实时演示）
+* To compile the dist files you need Node.js 22.22.3+, 24.16.0+, or 26.3.0+ and npm 10+
+* 编译 dist 文件需要 Node.js 22.22.3+、24.16.0+ 或 26.3.0+，以及 npm 10+
+* `npm ci` (install the locked dependency tree)
+* `npm ci`（安装锁定的依赖树）
+* `npm run dev` (developer mode, asset watchers and Astro live demo at http://localhost:3000)
+* `npm run dev`（开发模式，资产监视器和 Astro 实时演示在 http://localhost:3000 ）
 * Make your changes only in `./src` Folder OR `package.json` in any files which are necessary for contribution
 * 请仅在 `./src` 文件夹或 `package.json` 中对贡献所需的文件进行修改
 * Do not make changes in `./dist/**` Because it contains compiled files and do not include in PR (Pull Request)
 * 请勿在 `./dist/**` 中进行修改，因为该目录包含编译后的文件，且不应包含在 PR（Pull Request）中
-* `npm run production` (compile css/js files and test all pages are perfectly working fine, before creating a pull request)
-* `npm run production`（编译 CSS/JS 文件，并在创建 Pull Request 之前测试所有页面是否完全正常工作）
+* `npm test` (unit tests), then `npm run build` and `npm run test-browser` / `npm run test-a11y` (install browsers with `npx playwright install chromium`)
+* `npm test`（单元测试），然后 `npm run build` 和 `npm run test-browser` / `npm run test-a11y`（用 `npx playwright install chromium` 安装浏览器）
+* `npm run production` (lint, run unit tests, compile assets, and check gzip budgets before creating a pull request)
+* `npm run production`（创建 pull request 之前，跑 lint、单元测试、编译资源，并检查 gzip 体积预算）
 Create a pull request to `master` branch
 向 `master` 分支发起 Pull Request
 ## Online one-click setup for contributing
@@ -1847,7 +1855,7 @@ Calls `document.exitFullscreen()`. The icon `.d-none` toggle and `minimized.lte.
 Focus Management |
 焦点管理 |
 Modal focus restoration to the triggering element and Escape handling. |
-模态框关闭后焦点恢复至触发元素，以及 Escape 键处理。 |
+模态框关闭后焦点恢复至触发元素，以及 ESC 键处理。 |
 helper function:
 辅助函数：
 Sidebar expanding
@@ -1907,7 +1915,7 @@ Rendered per request from the active locale
 For a client-rendered app, do the same work at the router level — change the locale, re-render, and swap the stylesheet `href` — rather than translating text nodes in place.
 对于客户端渲染的应用，要在路由层面做同样的事——切换语言区域、重新渲染、替换样式表的 `href`——而不是就地去翻译文本节点。
 Cards are the main content container in AdminLTE. They are [Bootstrap cards](https://getbootstrap.com/docs/5.3/components/card/) with an added shadow, a colour-variant system, a header toolbar, and hooks for the [CardWidget plugin](../javascript/card-widget.html) that collapses, removes and maximises them.
-卡片是 AdminLTE 里的主要内容容器。它们本质上就是 [Bootstrap 卡片](https://getbootstrap.com/docs/5.3/components/card/)，额外加了一层阴影、一套颜色变体系统、一个头部工具栏，还有供 [CardWidget 插件](../javascript/card-widget.html) 使用的钩子——这个插件能让卡片折叠、移除和最大化。
+卡片是 AdminLTE 里的主要内容容器。它们本质上就是 [Bootstrap 卡片](https://getbootstrap.com/docs/5.3/components/card/)，额外加了一层阴影、一套颜色变体系统、一个头部工具栏，还有供 [卡片插件](../javascript/card-widget.html) 使用的钩子——这个插件能让卡片折叠、移除和最大化。
 >Title
 >标题
 >Body
@@ -1977,7 +1985,7 @@ Cards with tabs
 - Nested cards are scoped correctly: the collapse and expand rules use `> .card-header` and `> .card-body`, so collapsing an outer card doesn't rewrite the icons of a card inside it.
 - 嵌套卡片的作用域是正确的：折叠和展开的规则用的是 `> .card-header` 和 `> .card-body`，所以折叠外层卡片不会把里面那张卡片的图标也改掉。
 - For a card that toggles from a button elsewhere on the page, use CardWidget's [programmatic API](../javascript/card-widget.html#programmatic-api) rather than adding and removing the state classes by hand — it fires the matching events.
-- 如果卡片是由页面上其他位置的按钮来切换的，请使用 CardWidget 的[编程 API](../javascript/card-widget.html#programmatic-api)，而不是手动增删那些状态类——它会触发对应的事件。
+- 如果卡片是由页面上其他位置的按钮来切换的，请使用 CardWidget 的[编程 API](../javascript/card-widget.html#调用方式)，而不是手动增删那些状态类——它会触发对应的事件。
 The components on this page are the ones AdminLTE adds on top of Bootstrap that aren't the header, the sidebar or the [card](card.html). Each is CSS-only unless noted.
 本页介绍的组件，是 AdminLTE 在 Bootstrap 之上额外添加的那些——不包括头部、侧边栏和[卡片](card.html)。除非特别说明，否则每个组件都是纯 CSS 实现的。
 ##### Callouts
@@ -2121,7 +2129,7 @@ Your changes have been saved.
 ##### Direct chat
 ##### 聊天
 The chat panel has its own page — see the [DirectChat plugin](../javascript/direct-chat.html) for its markup and the contacts-pane toggle.
-聊天面板有自己独立的页面——它的标记结构和联系人面板的切换方式，参见 [DirectChat 插件](../javascript/direct-chat.html)。
+聊天面板有自己独立的页面——它的标记结构和联系人面板的切换方式，参见 [聊天插件](../javascript/direct-chat.html)。
 AdminLTE ships eight JavaScript plugins as a single bundle (`adminlte.js`). Each one is exported from the package root, can be triggered via `data-lte-*` attributes for declarative use, and exposes a programmatic API for code-driven control.
 AdminLTE 以单个打包文件（`adminlte.js`）的形式提供了八个 JavaScript 插件。每个插件都从包的根入口导出，既可以通过 `data-lte-*` 属性以声明式的方式触发使用，也提供了编程 API，供代码驱动控制。
 on an input
@@ -2213,13 +2221,13 @@ not needed — the dropdown is inline
 plugins:
 插件：
 A side-by-side version of this table with runnable code lives on the [Advanced Elements](../forms/advanced.html#select2) demo page.
-这张表的并排对照版，配上可运行的代码，放在 [Advanced Elements](../forms/advanced.html#select2) 演示页面里。
+这张表的并排对照版，配上可运行的代码，放在 [高级元素](../forms/advanced.html#select2) 演示页面里。
 **If you have to keep Select2**, AdminLTE ships a *styling-only* compatibility sheet — see [Select2 compatibility theme](#select2-compatibility-theme) below.
-**如果你不得不继续用 Select2**，AdminLTE 提供了一个*纯样式*的兼容样式表——见下面的 [Select2 兼容主题](#select2-compatibility-theme)。
+**如果你不得不继续用 Select2**，AdminLTE 提供了一个*纯样式*的兼容样式表——见下面的 [Select2 兼容主题](#select2-兼容主题)。
 ###### Select2 compatibility theme
 ###### Select2 兼容主题
 Some projects can't drop Select2: an ERP with hundreds of server-rendered forms, a vendor plugin that initialises it for you, or a team that simply isn't ready. AdminLTE won't bundle Select2 or jQuery, but it does ship a **CSS-only compatibility theme** so a Select2 you bring yourself inherits Bootstrap 5.3's form metrics, focus ring, validation states and `data-bs-theme` dark mode.
-有些项目没法甩掉 Select2：比如一个带着几百个服务端渲染表单的 ERP 系统、一个会自动帮你初始化它的第三方插件，又或者团队压根还没准备好换。AdminLTE 不会把 Select2 或 jQuery 打包进来，但它确实提供了一个 **纯 CSS 的兼容主题**，这样你自己引入的 Select2 就能继承 Bootstrap 5.3 的表单尺寸、焦点圈、校验状态以及 `data-bs-theme` 深色模式。
+有些项目没法去掉 Select2：比如一个带着几百个服务端渲染表单的 ERP 系统、一个会自动帮你初始化它的第三方插件，又或者团队压根还没准备好换。AdminLTE 不会把 Select2 或 jQuery 打包进来，但它确实提供了一个 **纯 CSS 的兼容主题**，这样你自己引入的 Select2 就能继承 Bootstrap 5.3 的表单尺寸、焦点圈、校验状态以及 `data-bs-theme` 深色模式。
 - **`dist/css/adminlte-select2.css`** (+ `.min.css`, `.rtl.css`, `.rtl.min.css`)
 - **`dist/css/adminlte-select2.css`**（以及 `.min.css`、`.rtl.css`、`.rtl.min.css`）
 - No JavaScript, no jQuery, nothing added to `adminlte.css` — you opt in by loading one extra stylesheet.
@@ -2261,7 +2269,7 @@ The theme tracks Select2 4.1.x markup (it also covers the 4.0.x choice-remove ma
 [jsVectorMap](https://github.com/themustafaomar/jsvectormap) is the dependency-free successor to jQuery Mapael / jVectorMap. Choropleth maps, markers, per-region click handlers, and a world map plus per-country data files.
 [jsVectorMap](https://github.com/themustafaomar/jsvectormap) 是 jQuery Mapael / jVectorMap 的继任者，而且不依赖任何第三方库。它支持分级统计图（choropleth）、标记点、按区域绑定的点击处理器，还自带一张世界地图以及各个国家的数据文件。
 | Form widgets | ~25 jQuery plugins bundled in `plugins/` | **None bundled** — vanilla-JS equivalents [documented](#third-party-plugin-replacements) instead |
-| 表单组件 | 在 `plugins/` 里打包了约 25 个 jQuery 插件 | **一个都不打包** —— 改为[文档化](#third-party-plugin-replacements)推荐的原生 JS 替代方案 |
+| 表单组件 | 在 `plugins/` 里打包了约 25 个 jQuery 插件 | **一个都不打包** —— 改为[文档](#第三方插件替代方案)推荐的原生 JS 替代方案 |
 (inside `.main-sidebar`)
 (位于 `.main-sidebar`)
 ##### Third-party plugin replacements
@@ -2271,7 +2279,7 @@ AdminLTE 3 打包了一个塞满 jQuery 组件的 `plugins/` 文件夹。AdminLT
 | AdminLTE 3 plugin (jQuery) | AdminLTE 4 replacement | Notes |
 | AdminLTE 3 插件（jQuery） | AdminLTE 4 替代方案 | 备注 |
 | [Select2](https://select2.org/) | **[Tom Select](https://tom-select.js.org/)** | Search, multi-select, tagging, remote data, virtual scrolling. See the [API mapping](../forms/advanced.html#select2) and the [Select2 compatibility theme](integrations.html#coming-from-select2) if you must keep Select2. |
-| [Select2](https://select2.org/) | **[Tom Select](https://tom-select.js.org/)** | 搜索、多选、打标签、远程数据、虚拟滚动。如果非要留着 Select2，见 [API 对照](../forms/advanced.html#select2) 和 [Select2 兼容主题](integrations.html#coming-from-select2)。 |
+| [Select2](https://select2.org/) | **[Tom Select](https://tom-select.js.org/)** | 搜索、多选、打标签、远程数据、虚拟滚动。如果非要留着 Select2，见 [API 对照](../forms/advanced.html#select2) 和 [Select2 兼容主题](integrations.html#select2-兼容主题)。 |
 | [Bootstrap4 Duallistbox](https://www.virtuosoft.eu/code/bootstrap-duallistbox/) | **[Tom Select](https://tom-select.js.org/)** | A `multiple` Tom Select covers the same job with less UI. |
 | [Bootstrap4 Duallistbox](https://www.virtuosoft.eu/code/bootstrap-duallistbox/) | **[Tom Select](https://tom-select.js.org/)** | 一个 `multiple` 的 Tom Select 就能干同样的活，界面还更简洁。 |
 | [DataTables](https://datatables.net/) | **[Tabulator](https://tabulator.info/)** | Sorting, filtering, pagination, inline edit, export. Used in `tables/data.html`. |
@@ -2286,14 +2294,14 @@ AdminLTE 3 打包了一个塞满 jQuery 组件的 `plugins/` 文件夹。AdminLT
 | [iCheck / icheck-bootstrap](https://github.com/bantikyan/icheck-bootstrap) | **原生 `.form-check`** | Bootstrap 5.3 自带的复选框和开关压根不需要插件。 |
 | [bootstrap-colorpicker](https://itsjavi.com/bootstrap-colorpicker/) | **[Pickr](https://github.com/Simonwep/pickr)** | Or the native `<input type="color" class="form-control form-control-color">`. |
 | [bootstrap-colorpicker](https://itsjavi.com/bootstrap-colorpicker/) | **[Pickr](https://github.com/Simonwep/pickr)** | 或者用原生的 `<input type="color" class="form-control form-control-color">`。 |
-| [jQuery Knob](https://github.com/aterrien/jQuery-Knob) | **[ApexCharts](https://apexcharts.com/)** radial bar | |
-| [jQuery Knob](https://github.com/aterrien/jQuery-Knob) | **[ApexCharts](https://apexcharts.com/)** 径向条形图 | |
+| [jQuery Knob](https://github.com/aterrien/jQuery-Knob) | **[Chart.js 4](https://www.chartjs.org/)** doughnut | A doughnut with `circumference`/`cutout` and a centre label — see the radial bar on `charts/chartjs.html`. |
+| [jQuery Knob](https://github.com/aterrien/jQuery-Knob) | **[Chart.js 4](https://www.chartjs.org/)** 圆环图 | 一个带 `circumference`/`cutout` 和中心标签的圆环图 —— 见 `charts/chartjs.html` 上的径向条形图。 |
 | [jQuery UI sortable](https://jqueryui.com/sortable/) | **[SortableJS](https://sortablejs.github.io/Sortable/)** | Powers the kanban demo. |
 | [jQuery UI sortable](https://jqueryui.com/sortable/) | **[SortableJS](https://sortablejs.github.io/Sortable/)** | 看板演示就是靠它实现的。 |
-| [fullCalendar](https://fullcalendar.io/) (jQuery build) | **[FullCalendar 6](https://fullcalendar.io/)** | Same project — v5+ dropped jQuery. Used in `pages/calendar.html`. |
-| [fullCalendar](https://fullcalendar.io/)（jQuery 版本） | **[FullCalendar 6](https://fullcalendar.io/)** | 同一个项目——v5 之后就不依赖 jQuery 了。用在了 `pages/calendar.html` 里。 |
-| [Chart.js 2](https://www.chartjs.org/) | **[Chart.js 4](https://www.chartjs.org/)** / **[ApexCharts](https://apexcharts.com/)** | Chart.js was never jQuery-based; just a major bump. |
-| [Chart.js 2](https://www.chartjs.org/) | **[Chart.js 4](https://www.chartjs.org/)** / **[ApexCharts](https://apexcharts.com/)** | Chart.js 本来就不依赖 jQuery；只是跨了个大版本。 |
+| [fullCalendar](https://fullcalendar.io/) (jQuery build) | **[FullCalendar 7](https://fullcalendar.io/)** | Same project — v5+ dropped jQuery. Used in `pages/calendar.html`. |
+| [fullCalendar](https://fullcalendar.io/)（jQuery 版本） | **[FullCalendar 7](https://fullcalendar.io/)** | 同一个项目——v5 之后就不依赖 jQuery 了。用在了 `pages/calendar.html` 里。 |
+| [Chart.js 2](https://www.chartjs.org/) | **[Chart.js 4](https://www.chartjs.org/)** | Chart.js was never jQuery-based; just a major bump. Used in the dashboards and `charts/chartjs.html`. |
+| [Chart.js 2](https://www.chartjs.org/) | **[Chart.js 4](https://www.chartjs.org/)** | Chart.js 从来就不依赖 jQuery；只是跨了个大版本。用在仪表盘和 `charts/chartjs.html` 里。 |
 | [dropzone](https://www.dropzone.dev/) | **[Dropzone 6](https://www.dropzone.dev/)** or **[FilePond](https://pqina.nl/filepond/)** | v6 is a plain-JS rewrite. |
 | [dropzone](https://www.dropzone.dev/) | **[Dropzone 6](https://www.dropzone.dev/)** 或 **[FilePond](https://pqina.nl/filepond/)** | v6 是用纯 JS 重写的。 |
 | [jQuery Overlay Scrollbars](https://kingsora.github.io/OverlayScrollbars/) | **Native `scrollbar-*` CSS** | AdminLTE 4 styles the sidebar scrollbar in CSS. |
@@ -2303,17 +2311,17 @@ AdminLTE 3 打包了一个塞满 jQuery 组件的 `plugins/` 文件夹。AdminLT
 Install snippets and wiring code for each replacement live on the [Recommended Integrations](integrations.html) page.
 每个替代方案的安装代码片段和接线代码都在 [推荐集成](integrations.html) 页面里。
 **Swap the third-party plugins** using the [replacement table](#third-party-plugin-replacements) above. Do this one widget at a time — it's the longest step, and each swap is independently testable.
-**替换掉第三方插件**，参照上面的[替代方案对照表](#third-party-plugin-replacements)。一次换一个组件——这是最耗时的一步，而且每换一个都可以单独测试。
+**替换掉第三方插件**，参照上面的[替代方案对照表](#第三方插件替代方案)。一次换一个组件——这是最耗时的一步，而且每换一个都可以单独测试。
 `adminlte-select2.css` is opt-in and only needed if your app loads [Select2](integrations.html#select2-compatibility-theme); it is not part of `adminlte.css`. `adminlte-docs.css` styles the documentation pages only — never ship it.
-`adminlte-select2.css` 是按需启用的，只有你的应用加载了 [Select2](integrations.html#select2-compatibility-theme) 时才需要它；它不属于 `adminlte.css` 的一部分。`adminlte-docs.css` 只用来给文档页面做样式——千万别把它发布到生产环境。
+`adminlte-select2.css` 是按需启用的，只有你的应用加载了 [Select2](integrations.html#select2-兼容主题) 时才需要它；它不属于 `adminlte.css` 的一部分。`adminlte-docs.css` 只用来给文档页面做样式——千万别把它发布到生产环境。
 ##### Anatomy
 ##### 结构
 Optional stylesheets get the same treatment — the [Select2 compatibility theme](integrations.html#select2-compatibility-theme), for instance, ships as `adminlte-select2.rtl.css` / `.rtl.min.css` alongside its LTR build.
-可选的样式表也是同样的待遇 —— 比如 [Select2 兼容主题](integrations.html#select2-compatibility-theme)，除了 LTR 版本之外，还一并提供了 `adminlte-select2.rtl.css` / `.rtl.min.css`。
+可选的样式表也是同样的待遇 —— 比如 [Select2 兼容主题](integrations.html#select2-兼容主题)，除了 LTR 版本之外，还一并提供了 `adminlte-select2.rtl.css` / `.rtl.min.css`。
 AdminLTE 4 styles itself with Bootstrap 5.3's theme colours — `primary`, `success`, `danger`, `warning`, `info`, `secondary`, `light`, `dark` — and nothing else. That keeps `adminlte.css` small, but a dashboard often wants more than five hues on a widget row, and AdminLTE 3 users miss `.bg-navy`, `.bg-teal` and the sidebar skins.
 AdminLTE 4 只用了 Bootstrap 5.3 的主题色来给自己做样式 —— `primary`、`success`、`danger`、`warning`、`info`、`secondary`、`light`、`dark` —— 除此之外没别的。这让 `adminlte.css` 保持得很小，但仪表盘的一行组件里经常想要不止五种色调，而且 AdminLTE 3 的老用户还惦记着 `.bg-navy`、`.bg-teal` 和那些侧边栏皮肤。
 **`dist/css/adminlte-colors.css`** is the answer, and it is opt-in: one extra stylesheet (≈ 8 kB gzipped) that adds fourteen colours as `--bs-*` tokens plus every class family Bootstrap generates for its own theme colours — and lets any of them [become your `primary`](#making-one-of-them-your-primary). Nothing changes for projects that don't load it. Prefer the AdminLTE 3 colours exactly as they were? There is a second sheet for that — see [Two palettes](#two-palettes) below.
-**`dist/css/adminlte-colors.css`** 就是答案，而且是按需启用的：多加载一个样式表（gzip 后约 8 kB），就会以 `--bs-*` token 的形式加入十四种颜色，外加 Bootstrap 为自己主题色生成的那一整套类系列 —— 而且还能让其中任意一个[成为你的 `primary`](#making-one-of-them-your-primary)。对于不加载它的项目来说，什么都不变。更喜欢 AdminLTE 3 原封不动的颜色？还有一个专门的样式表 —— 见下面的[两套调色板](#two-palettes)。
+**`dist/css/adminlte-colors.css`** 就是答案，而且是按需启用的：多加载一个样式表（gzip 后约 8 kB），就会以 `--bs-*` token 的形式加入十四种颜色，外加 Bootstrap 为自己主题色生成的那一整套类系列 —— 而且还能让其中任意一个[成为你的 `主题色`](#让其中某个颜色成为你的-主题色)。对于不加载它的项目来说，什么都不变。更喜欢 AdminLTE 3 原封不动的颜色？还有一个专门的样式表 —— 见下面的[两种调色板](#两种调色板)。
 Try every colour, skin and widget set live on the <a href="../UI/colors.html">Colors demo page</a> — it also has a checker for your own brand colours.
 所有颜色、皮肤和组件套装都能在 <a href="../UI/colors.html">颜色演示页面</a>上现场试用 —— 那里还有一个给你自己品牌色用的检查器。
 ##### Getting the stylesheet
@@ -2406,7 +2414,7 @@ Picking four colours for a row of small boxes is where palettes usually fall apa
 // 新颜色
 // re-tune a shipped colour to your blue
 // 将出厂颜色重新调至蓝色
-To ship only your colours (drop the fourteen), set `$lte-palette` itself instead:
+To ship **only** your colours (drop the fourteen), set `$lte-palette` itself instead:
 如果只想发布**你自己的**颜色（把那十四种丢掉），那就改为设置 `$lte-palette` 本身：
 Two more knobs:
 还有两个可调项：
@@ -2467,7 +2475,7 @@ v3 的扩展颜色有 `lightblue`、`navy`、`olive`、`lime`、`fuchsia`、`mar
 | `bg-gradient-*` | `bg-gradient-*` | Kept, for palette and theme colours |
 | `bg-gradient-*` | `bg-gradient-*` | 保留了，调色板和主题色都能用 |
 Two ways to keep existing markup working: load **`adminlte-colors-v3.css`** and every v3 name is back with its original value (see [Two palettes](#two-palettes)), or use the designed palette with the alias one-liner `$lte-palette-aliases: ("lightblue": "sky", "maroon": "pink");`.
-想让现有标记继续能用，有两种办法：加载 **`adminlte-colors-v3.css`**，这样每个 v3 名字都会带着原始取值回来（见[两套调色板](#两种调色板)）；或者用重新设计的那套调色板，加上一行别名配置 `$lte-palette-aliases: ("lightblue": "sky", "maroon": "pink");`。
+想让现有标记继续能用，有两种办法：加载 **`adminlte-colors-v3.css`**，这样每个 v3 名字都会带着原始取值回来（见[两种调色板](#两种调色板)）；或者用重新设计的那套调色板，加上一行别名配置 `$lte-palette-aliases: ("lightblue": "sky", "maroon": "pink");`。
 Search"
 搜索"
 Navbar search: a quiet pill, the icon is the submit button (md and up)
@@ -2478,14 +2486,20 @@ Need more than Bootstrap's eight theme colours — a navy sidebar, a teal widget
 嫌 Bootstrap 那八种主题色不够用 —— 想要深蓝色侧边栏、青色的一行组件，或者把你的品牌蓝做成一个正经的 `.text-bg-brand`？这就是那个按需启用的[扩展调色板](colors.html)存在的意义：十二种精心设计的颜色，再加上一行 Sass 钩子（`$lte-palette-custom`）就能加入你自己的颜色；它放在一个独立的样式表里，所以只要你不加载它，就不会有任何开销。
 ##### Charts that follow dark mode
 ##### 会跟随深色模式的图表
-Charting libraries draw their own text and tooltips, so they know nothing about `data-bs-theme`. ApexCharts, for instance, renders a light tooltip and dark-grey axis labels by default — on a dark card the tooltip's inherited text colour is near-white on white and unreadable. The library has a dark theme; you just have to tell it which one to use, and update when the mode changes.
-图表库会自己绘制文字和提示框，所以它们对 `data-bs-theme` 一无所知。比如 ApexCharts，默认会画出浅色的提示框和深灰色的坐标轴标签 —— 放在深色卡片上，提示框继承来的文字颜色接近白色，白底白字根本看不清。这个库其实有深色主题；你只需要告诉它该用哪一个，并且在模式变化时更新一下。
-Every demo page ships this helper (it is part of the shared scripts at the bottom of the page). It sets ApexCharts' global default `theme.mode` from `<html data-bs-theme>` **before** any chart is created, keeps the chart background transparent (dark mode would otherwise paint it grey), and watches the attribute so every chart that has a `chart.id` follows the toggle, the OS preference in auto mode, or your own code:
-每个演示页面都带了这个辅助脚本（它是页面底部共享脚本的一部分）。它会在任何图表创建**之前**，根据 `<html data-bs-theme>` 设置 ApexCharts 的全局默认 `theme.mode`，让图表背景保持透明（否则深色模式会把它涂成灰色），并监听这个属性，这样每个带 `chart.id` 的图表都会跟随切换器、auto 模式下的系统偏好，或者你自己的代码：
-Give each chart an `id` so it is registered for the live update:
-给每个图表都加一个 `id`，这样它就会被注册进去，参与实时更新：
-If you prefer the ColorMode event to the attribute observer, `document.addEventListener("changed.lte.color-mode", e => …)` receives `e.detail.resolved` (`"light"` or `"dark"`); the observer above additionally covers OS-preference changes in auto mode and any code that sets the attribute directly. The same idea applies to other libraries — Chart.js reads `Chart.defaults.color` / `Chart.defaults.borderColor`, which you can set from `getComputedStyle(document.body)` and re-apply with `chart.update()` in the same observer.
-如果你更想用 ColorMode 事件，而不是监听属性变化，可以用 `document.addEventListener("changed.lte.color-mode", e => …)`，它会收到 `e.detail.resolved`（值为 `"light"` 或 `"dark"`）；而上面那个监听器还额外覆盖了 auto 模式下的系统偏好变化，以及任何直接设置这个属性的代码。同样的思路也适用于其他图表库 —— Chart.js 会读取 `Chart.defaults.color` / `Chart.defaults.borderColor`，你可以从 `getComputedStyle(document.body)` 里取值设置，然后在同一个监听器里用 `chart.update()` 重新应用。
+Charting libraries draw on a canvas, so they know nothing about `data-bs-theme` or any other CSS: Chart.js paints its axis labels, gridlines and tooltip in its own fixed default colours, which suit a light page and all but vanish on a dark card. You have to hand it the colours, and hand them over again when the mode changes.
+图表库是基于画布绘制的，因此它们对 `data-bs-theme` 或其他 CSS 一无所知：Chart.js 会使用其自身固定的默认颜色来绘制坐标轴标签、网格线和数据工具提示，这些颜色适合浅色页面，但在深色卡片上几乎完全不可见。你需要手动为它提供颜色，并在模式更改时再次传递这些颜色。
+The demo pages that draw charts ship a small preset for this (`src/html/components/_chartjs.astro`, inlined after Chart.js on each of those pages). It reads AdminLTE's CSS variables into `Chart.defaults` — font family, text colour, gridlines, a tooltip and legend styled like the rest of the UI, `rtl` when `<html dir="rtl">` — and watches `<html>` so every chart on the page is restyled when the mode changes, whether that comes from the toggle, the OS preference in auto mode, or your own code. The core of it:
+绘制图表的演示页面都带了一个小预设（`src/html/components/_chartjs.astro`，在每个页面上内联在 Chart.js 之后）。它把 AdminLTE 的 CSS 变量读进 `Chart.defaults` —— 字体族、文字颜色、网格线、跟界面其余部分风格一致的提示框和图例，以及在 `<html dir="rtl">` 时的 `rtl` 设置 —— 并监听 `<html>`，这样页面上的每张图表都会在模式变化时重新刷样式，不管变化是来自切换器、auto 模式下的系统偏好，还是你自己的代码。它的核心部分：
+Charts created after this script pick the colours up by default, and `chart.update()` makes existing ones re-read them. Colours you set on a dataset (`borderColor: "#0d6efd"`) are yours and stay as they are; a colour that should follow the mode can be a function, which Chart.js calls again on every update — `backgroundColor: () => cssVar("--bs-secondary-bg")`.
+在这个脚本之后创建的图表会默认采用这些颜色，而 `chart.update()` 会让已有的图表重新读一遍。你在数据集上自己设的颜色（`borderColor: "#0d6efd"`）归你自己所有，会保持原样；而需要跟随模式变化的颜色可以写成一个函数，Chart.js 会在每次更新时重新调用它 —— `backgroundColor: () => cssVar("--bs-secondary-bg")`。
+ticks and titles
+标记与标题
+gridlines and axis lines
+网格线和坐标轴线
+doughnut slice gaps
+甜甜圈切片间隙
+If you prefer the ColorMode event to the attribute observer, `document.addEventListener("changed.lte.color-mode", e => …)` receives `e.detail.resolved` (`"light"` or `"dark"`); the observer above additionally covers OS-preference changes in auto mode and any code that sets the attribute directly. The same idea applies to other chart libraries: find where they take their text, grid and tooltip colours, feed them the CSS variables, and re-apply on change.
+如果你更想用 ColorMode 事件，而不是监听属性变化，可以用 `document.addEventListener("changed.lte.color-mode", e => …)`，它会收到 `e.detail.resolved`（值为 `"light"` 或 `"dark"`）；而上面那个监听器还额外覆盖了 auto 模式下的系统偏好变化，以及任何直接设置这个属性的代码。同样的思路也适用于其他图表库：找到它们从哪里取文字、网格和提示框的颜色，把 CSS 变量喂给它们，然后在变化时重新应用一遍。
 ##### Two palettes
 ##### 两种调色板
 You can have the colours **designed for 4.4** (this page's default, below) or the **AdminLTE 3 originals**, unchanged. They ship as two files that define the same class names with different values, so load **one** of them after `adminlte.css`:
@@ -2509,7 +2523,7 @@ v3 那个样式表是用和设计版同一套 Sass 构建的 —— `src/scss/ad
 To ship only your colours (drop the fourteen), set `$lte-palette` itself instead:
 如果只想发布**你自己的**颜色（把那十四种丢掉），那就改为设置 `$lte-palette` 本身：
 ##### Making one of them your `primary`
-##### 让其中某个颜色成为你的 `primary`
+##### 让其中某个颜色成为你的 `主题色`
 Bootstrap compiles `$primary` into its components at build time: `.btn-primary` ships with `--bs-btn-bg: #0d6efd`, not `var(--bs-primary)`. So overriding the token repaints `.text-primary` and `.bg-primary` and leaves every button, pagination and checkbox blue — the reason a skin used to look half-applied ([#6107](https://github.com/ColorlibHQ/AdminLTE/issues/6107)).
 Bootstrap 在构建时会把 `$primary` 编译进它的组件里：`.btn-primary` 出厂时带的是 `--bs-btn-bg: #0d6efd`，而不是 `var(--bs-primary)`。所以光覆盖那个 token，只会重绘 `.text-primary` 和 `.bg-primary`，而每个按钮、分页和复选框还是蓝色的 —— 这就是过去皮肤看起来只应用了一半的原因（[#6107](https://github.com/ColorlibHQ/AdminLTE/issues/6107)）。
 Both colour sheets rewire those components to variables and point them at a palette colour with one attribute:
@@ -2576,3 +2590,9 @@ To bring back one part of it rather than all three, use Bootstrap's own display 
 如果想恢复其中某一块而不是全部三块，就用 Bootstrap 自带的显示工具类。头部（它是个 navbar）适合用 `.d-print-flex`，侧边栏和页脚则用 `.d-print-block`：
 `.d-print-none` still hides anything you don't want on paper, in either mode — a toolbar of buttons above the invoice, say.
 `.d-print-none` 在两种模式下都能隐藏任何你不想印在纸上的东西 —— 比如发票上方那一排按钮工具栏。
+<th scope="col">Colour</th>
+<th scope="col">颜色</th>
+<th scope="col">Default (v3 rule)</th>
+<th scope="col">默认（v3 规则）</th>
+<th scope="col">With <code>aa</code></th>
+<th scope="col">启用 <code>aa</code> 后</th>

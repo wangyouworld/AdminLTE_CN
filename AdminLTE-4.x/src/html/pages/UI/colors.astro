@@ -27,8 +27,8 @@ const names = palette.map(c => c.name)
 // 两个样式表定义的是同一批类名、只是取值不同，所以页面一次只加载一个，
 // 通过替换 <link> 来切换。
 const paletteSets = [
-  { key: "designed", label: "设计配色方案 (4.4)", file: "adminlte-colors.css", groups: skinGroups, skins, choices: ["default", ...palette.map(c => c.name)] },
-  { key: "v3", label: "AdminLTE 3 原版", file: "adminlte-colors-v3.css", groups: skinGroupsV3, skins: skinsV3, choices: ["default", ...paletteV3.map(c => c.name)] }
+  { key: "designed" as const, label: "设计配色方案 (4.4)", file: "adminlte-colors.css", groups: skinGroups, skins, choices: ["default", ...palette.map(c => c.name)] },
+  { key: "v3" as const, label: "AdminLTE 3 原版", file: "adminlte-colors-v3.css", groups: skinGroupsV3, skins: skinsV3, choices: ["default", ...paletteV3.map(c => c.name)] }
 ]
 // 名称 → 自动文字颜色，按套、按对比度模式区分。v3 用的是 YIQ 规则
 //（有些颜色配深色文字）；`data-lte-contrast="aa"` 会把那些指定文字
@@ -53,9 +53,9 @@ const utilityRows = [
   { label: ".text-bg-*", cell: (n: string) => `<div class="lte-swatch text-bg-${n}">Aa</div>` },
   { label: ".bg-* .bg-opacity-25", cell: (n: string) => `<div class="lte-swatch bg-${n} bg-opacity-25"></div>` },
   { label: ".bg-gradient-*", cell: (n: string) => `<div class="lte-swatch bg-gradient-${n}"></div>` },
-  { label: ".text-*", cell: (n: string) => `<div class="lte-swatch fw-semibold text-${n}">Aa</div>` },
+  { label: ".text-*", cell: (n: string) => `<div class="lte-swatch bg-white fw-semibold text-${n}">Aa</div>` },
   { label: ".border-*", cell: (n: string) => `<div class="lte-swatch border border-3 border-${n}"></div>` },
-  { label: ".link-*", cell: (n: string) => `<div class="lte-swatch"><a href="#" class="link-${n} link-underline-opacity-25 link-underline-opacity-100-hover">链接</a></div>` },
+  { label: ".link-*", cell: (n: string) => `<div class="lte-swatch bg-white"><a href="#" class="link-${n} link-underline-opacity-25 link-underline-opacity-100-hover">链接</a></div>` },
   { label: ".callout-*", cell: (n: string) => `<div class="callout callout-${n} py-2 px-2 mb-0 small text-center rounded-1">淡色</div>` }
 ]
 const smallBoxNumbers = ["2,341", "$18.4k", "318", "97%"]
@@ -523,7 +523,7 @@ const smallBoxIcons = ["bi-people", "bi-cash-stack", "bi-chat-dots", "bi-check-l
                 <p>
                   Bootstrap 为自己的主题色生成的每一套类系列，
                   这里都为调色板生成了一份 —— CSS 变量的形态完全一样，
-                  所以 <code>.bg-opacity-*</code>、<code>.link-underline-*</code> 之类的都能组合使用。
+                  <code>.bg-opacity-*</code>、<code>.link-underline-*</code> 之类的都能组合使用。纯文字和链接的色块用白色背景，以便在两种主题下都能演示固定的调色板颜色。
                 </p>
                 <div class="table-responsive">
                   <table class="table table-sm align-middle mb-0" style="min-width: 60rem;">
@@ -612,7 +612,7 @@ const smallBoxIcons = ["bi-people", "bi-cash-stack", "bi-chat-dots", "bi-check-l
                   <button type="button" class="btn text-bg-indigo">保存</button>
                   <button type="button" class="btn bg-gradient-pink">删除</button>
                   <button type="button" class="btn text-bg-teal">批准</button>
-                  <button type="button" class="btn btn-outline-secondary border-slate text-slate">用工具类实现描边</button>
+                  <button type="button" class="btn btn-outline-secondary bg-white border-slate text-slate">用工具类实现描边</button>
                 </div>
                 <div class="d-grid gap-2">
                   {

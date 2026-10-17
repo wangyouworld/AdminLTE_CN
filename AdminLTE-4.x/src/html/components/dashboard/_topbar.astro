@@ -64,7 +64,7 @@ const isDocsPage = pathname.includes("/docs/")
 
     <!--begin::Navbar Search-->
     <form
-      class="navbar-search d-none d-md-block ms-3"
+      class="navbar-search d-none d-xl-block ms-3"
       role="search"
       action={htmlPath + "/pages/search-results.html"}
     >
@@ -92,7 +92,7 @@ const isDocsPage = pathname.includes("/docs/")
     <!--begin::End Navbar Links-->
     <ul class="navbar-nav ms-auto">
       <!--begin::Search （小屏幕上：上面的输入框是隐藏的，所以链接到搜索页面）-->
-      <li class="nav-item d-md-none">
+      <li class="nav-item d-xl-none">
         <a
           class="nav-link"
           href={htmlPath + "/pages/search-results.html"}
@@ -343,7 +343,7 @@ const isDocsPage = pathname.includes("/docs/")
             class="user-image rounded-circle shadow"
             alt="亚历山大·皮尔斯"
           />
-          <span class="d-none d-md-inline">亚历山大·皮尔斯</span>
+          <span class="d-none d-xl-inline">亚历山大·皮尔斯</span>
         </a>
         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
           <!--begin::用户头像-->

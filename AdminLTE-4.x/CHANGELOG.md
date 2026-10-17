@@ -5,6 +5,55 @@ AdminLTE 的所有显著变更都将记录在此文件中。
 格式基于 [记录变更日志](https://keepachangelog.com/en/1.0.0/)，
 本项目遵循 [语义化版本控制](https://semver.org/spec/v2.0.0.html)。
 
+## [4.10.1] - 2026-10-08
+
+### 变更
+
+- 把构建、lint、格式化和测试相关的依赖都更新到了兼容的最新稳定版，包括 Astro 7.3.7、Rollup 4.64.2、Playwright 1.64.0、Vitest 5.0.3、Sass 1.105.1 和 ESLint 10.12.0。用仍在维护的 `npm-run-all2` 替换掉了 `npm-run-all`，并把之前隐含的 `unist-util-visit` 依赖显式声明出来。
+- 更新了锁定版本的演示和集成库，包括 FullCalendar 7.1.1、Tabulator 6.6.1、OverlayScrollbars 2.16.0、jsVectorMap 1.7.0 和 Tom Select 2.6.2。迁移了 FullCalendar 的样式表、Bootstrap 主题、拖拽和事件颜色相关的 API，并刷新了现有的 CDN 完整性哈希。
+- 从源码构建需要 Node.js 22.22.3+、24.16.0+ 或 26.3.0+，以及 npm 10+，这些通过 `devEngines` 声明；发布出去的包则保留它原有的 Node.js 引擎要求。TypeScript 保持在 6.0.3，因为最新的 Astro 检查器和 TypeScript ESLint 都还不支持 TypeScript 7。
+
+### 已修复
+
+- 同步所有全屏控件，包括初始化一个已经处于全屏状态的布局时，同时不改动公开事件或组件 API。把图标更新限定在全屏控件范围内，这样就不会干扰卡片最大化按钮。
+- 防止共享头部在平板宽度下溢出，保留日历事件里的本地日期，并容忍 OverlayScrollbars 的 CDN 脚本不可用的情况。
+- 改进演示滤镜标签、网格语义、产品链接名称、日历可访问名称以及亮/暗对比度。深色模式下的按钮轮廓和文档链接现在使用主题感知的配色令牌；固定调色板色块仍保留白色演示背景。
+- 显式检查了 Astro 源码页面，修复了之前被隐藏的调色板类型错误，并修好了 ESM 的 Prettier 配置和 Unicorn 推荐预设。
+
+### 新增
+
+- 为每个构建出来的 HTML 页面、响应式浅色/深色布局、RTL 以及关键插件交互都加了 Playwright 检查，并配上 Chromium、Firefox 和 WebKit 的 CI 任务。
+- Node.js 22/24/26 的单元测试 CI、浅色/深色无障碍 CI，以及全屏回归测试。现在缺少 Playwright 会让无障碍检查失败，而不是悄悄跳过。
+- `npm run test-size` 会在本地强制校验所有现有的 gzip 体积预算，不需要外部报告服务；`npm run production` 用的就是这个检查。Bundlewatch 则保留下来用于 CI 报告。
+
+### 安全
+
+- 刷新了安全覆盖项，包括一个打了补丁的 PostCSS 选择器解析器。生产依赖审计干净。开发工具链里仍然有 `braces@3.0.3`，受 [GHSA-vfj7-8cjw-p6xm](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm) 影响；目前没有可用的补丁版本。它传播出来的二十条 npm audit 发现仍然留着不解决，而不是为此降级当前的工具链。
+
+## [4.10.0] - 2026-10-01
+
+### 变更
+
+- **演示图表改用 Chart.js（MIT）来绘制，不再用 ApexCharts。** 从 5.2.0 起，ApexCharts 是按它自己的商业 "ApexCharts License" 发布的，不再是 MIT，而一个被成千上万个项目复制进自家产品的模板，不能把这个负担转嫁给他们。Dashboard v1、v2、v3 以及图表展示页上的每一张图表，都用同样的数据、颜色和尺寸在 Chart.js 4.5.1 上重建了：面积图和折线图（渐变填充）、分组柱状图、圆环图、径向条形图（同心圆环，中间放平均值）、带两条数值轴的柱线混合图，以及仪表盘上的迷你趋势图。Chart.js 从 jsDelivr 加载并带 SRI 哈希，只在绘制图表的页面上加载，跟原来 ApexCharts 的做法完全一样 —— `admin-lte` 这个 npm 包从来没有依赖过任何图表库，现在也依然没有。每个含图表的页面，图表 JavaScript 的 gzip 体积从 131.5 kB（ApexCharts 3.37.1 的 JS + CSS）降到了 72.8 kB（Chart.js 4.5.1 加上下面那个 2.3 kB 的内联主题预设）。
+
+  展示页面现在是 `charts/chartjs.html`，侧边栏条目的文字是 "Chart.js"。`charts/apexcharts.html` 保留为一个重定向，这样现有的链接还能用。
+
+- **一个图表主题预设，实时跟随颜色模式。** 含图表的页面都引入了一个简短的预设（`src/html/components/_chartjs.astro`），它根据 AdminLTE 的 CSS 变量设置 `Chart.defaults` —— 正文字体、刻度用次要文字色、8% 的网格线且分类轴上不画竖线、圆角柱子、提示框和图例做成卡片样式 —— 并且会在 `<html data-bs-theme>` 变化时（ColorMode 切换器、auto 模式下的系统偏好，或者你自己的代码）或网页字体加载完成时，把页面上每张图表的样式都重新刷一遍。在 `<html dir="rtl">` 下，图例和提示框按从右到左排布。每个演示页面共享脚本里都带着的那个 ApexCharts 颜色模式辅助脚本（#6105）也跟着一起删掉了，所以那 85 个没有图表的页面也轻了 1.6 kB。[深色模式图表实战指南](https://adminlte.io/themes/v4/docs/recipes.html#charts-that-follow-dark-mode)、推荐集成、迁移和 RTL 文档都做了相应更新。
+
+  如果自定义预设，有一个 Chart.js 细节需要注意：当图表创建时，Chart.js 会将坐标轴的默认设置复制到每个图表的配置中。因此，修改 `Chart.defaults` 并调用 `chart.update()` 后，现有的坐标轴仍会保持原有颜色。该预设在更新前会移除这些已复制的颜色；详情请参见组件中的注释。
+
+### 已修复
+
+- **折叠的迷你侧边栏里，品牌 logo 偏离中心 4px。** `.brand-text` 保留着它基础的 `margin-left: .5rem`，而 `.sidebar-mini.sidebar-collapse` 把它压缩到了 `max-width: 0`，于是零宽元素上的 8px 外边距就把 logo 推离了窄栏的中心线。现在在这个状态下会清除该外边距 —— 展开窄栏的悬停规则本来就已经重新声明了 `margin-left: .5rem`，折叠状态本来就该跟它保持一致（#6114，由 @dfsmania 提交）。
+
+### 维护
+
+- **开发依赖都更新了** —— eslint 10.8.1 -> 10.9.1、eslint-plugin-unicorn 73 -> 74、@typescript-eslint/* 和 typescript-eslint 8.67.0 -> 8.69.0、astro 7.2.4 -> 7.2.10、@astrojs/mdx 7.0.7 -> 8.0.0、@astrojs/markdown-remark 7.2.4 -> 7.3.0、rollup 4.62.4 -> 4.63.1、terser 5.50.0 -> 5.51.2、happy-dom 20.11.6 -> 20.12.0、sass 1.103.0 -> 1.103.1、globals 17.11.0 -> 17.12.0。之后 `dist/` 里 114 个构建文件每一个都一个字节没变，所以对使用者来说没有任何影响。
+
+  `@astrojs/mdx` 8.0.0 是个大版本，但并不是要求 Astro 8 —— 它的 peer 依赖是 `astro@^7.2.6` —— 而且它把依赖树拍平了而不是变大了：四份嵌套重复的 `@astrojs/markdown-remark` 和 `@astrojs/internal-helpers` 都消失了，`@astrojs/markdown-satteri` 被提升到了顶层。从干净检出跑 `npm ci` 解析时没有任何 peer 警告。
+
+- **TypeScript 保持在 6.0.3。** 7.0.2 已经发布了，Dependabot 每个月都在提议升级，但有两个 peer 依赖仍然不接受它：`@astrojs/check@0.9.10`（最新版）声明的是 `typescript@^5.0.0 || ^6.0.0`，而 `typescript-eslint@8.69.0` 声明的是 `>=4.8.4 <6.1.0`。这个升级会在 `npm ci` 阶段以 `ERESOLVE` 失败，所以在这两者都跟上之前，它落不了地。
+
 ## [4.9.1] - 2026-08-26
 
 ### 已修复
@@ -968,4 +1017,4 @@ a11y.addLandmarks();
 1. 运行 `npm install` 以获取最新依赖项
 2. 使用 `npm start` 进行开发
 3. 使用 `npm run production` 进行生产构建
-4. 检查任何自定义 ESLint 配置的兼容性 
+4. 检查任何自定义 ESLint 配置的兼容性

@@ -24,7 +24,7 @@ export default [
     ...tseslint.configs.recommended
   ),
   {
-    ...pluginUnicorn.configs['flat/recommended']
+    ...pluginUnicorn.configs.recommended
   },
   ...astroPlugin.configs['flat/recommended'],
   {
@@ -96,6 +96,14 @@ export default [
       'unicorn/prefer-scoped-selector': 'off',
       'unicorn/prefer-split-limit': 'off',
       'unicorn/require-css-escape': 'off',
+      // Keep established JSDoc and readable guard clauses when upgrading
+      // Unicorn's recommended preset (v75+).
+      'unicorn/no-asterisk-prefix-in-documentation-comments': 'off',
+      'unicorn/prefer-ternary': 'off',
+      'unicorn/prefer-continue': 'off',
+      'unicorn/no-unnecessary-parameters': 'off',
+      'unicorn/prefer-combined-guards': 'off',
+      'unicorn/prefer-logical-operator-over-ternary': 'off',
       'astro/no-set-html-directive': 'off'
     }
   },
@@ -111,4 +119,4 @@ export default [
       'unicorn/prefer-top-level-await': 'off'
     }
   }
-] 
+]

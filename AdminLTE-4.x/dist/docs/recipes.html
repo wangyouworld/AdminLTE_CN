@@ -75,7 +75,7 @@
     <link
       rel="stylesheet"
       href="../assets/fontsource/index.css"
-      integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
+      integrity="sha256-5UwXtC6TaPHCAbVQ59waEAqOssHyhn/twyuLRRWszzo="
       crossorigin="anonymous"
       media="print"
       onload="this.media = 'all'"
@@ -142,7 +142,7 @@
 
           <!--begin::Navbar Search-->
           <form
-            class="navbar-search d-none d-md-block ms-3"
+            class="navbar-search d-none d-xl-block ms-3"
             role="search"
             action="../pages/search-results.html"
           >
@@ -166,7 +166,7 @@
           <!--begin::End Navbar Links-->
           <ul class="navbar-nav ms-auto">
             <!--begin::Search （小屏幕上：上面的输入框是隐藏的，所以链接到搜索页面）-->
-            <li class="nav-item d-md-none">
+            <li class="nav-item d-xl-none">
               <a class="nav-link" href="../pages/search-results.html" aria-label="搜索">
                 <i class="bi bi-search" aria-hidden="true"></i>
               </a>
@@ -411,7 +411,7 @@
                   class="user-image rounded-circle shadow"
                   alt="亚历山大·皮尔斯"
                 />
-                <span class="d-none d-md-inline">亚历山大·皮尔斯</span>
+                <span class="d-none d-xl-inline">亚历山大·皮尔斯</span>
               </a>
               <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
                 <!--begin::用户头像-->
@@ -1133,26 +1133,29 @@
                     <p>如需完整的聊天页面应用，请参见演示中的 <code>/pages/chat.html</code>。</p>
                     <h5 id="响应布局侧边栏变更">响应布局/侧边栏变更</h5>
                     <p>
-                      监听插件事件以与您自己的代码协调——例如，当侧边栏折叠时重新适配图表（使图表重新测量其容器宽度）：
+                      监听插件事件，好跟你自己的代码配合 ——
+                      比如侧边栏收起时让某个组件重新适配（这样它就会重新测量容器的宽度）：
                     </p>
                     <pre
                       class="astro-code dark-plus"
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="js"
-                    ><code><span class="line"><span style="color:#569CD6">let</span><span style="color:#9CDCFE"> chart</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/* ApexCharts 实例 */</span></span>
+                    ><code><span class="line"><span style="color:#569CD6">let</span><span style="color:#9CDCFE"> table</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/* your Tabulator instance */</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addEventListener</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;collapse.lte.push-menu&quot;</span><span style="color:#D4D4D4">, () </span><span style="color:#569CD6">=&gt;</span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"><span style="color:#6A9955">  // wait for the transition to finish (~300ms by default)</span></span>
-<span class="line"><span style="color:#DCDCAA">  setTimeout</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=&gt;</span><span style="color:#9CDCFE"> chart</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">updateOptions</span><span style="color:#D4D4D4">({}), </span><span style="color:#B5CEA8">350</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#DCDCAA">  setTimeout</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=&gt;</span><span style="color:#9CDCFE"> table</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">redraw</span><span style="color:#D4D4D4">(), </span><span style="color:#B5CEA8">350</span><span style="color:#D4D4D4">)</span></span>
 <span class="line"><span style="color:#D4D4D4">})</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addEventListener</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;open.lte.push-menu&quot;</span><span style="color:#D4D4D4">, () </span><span style="color:#569CD6">=&gt;</span><span style="color:#D4D4D4"> {</span></span>
-<span class="line"><span style="color:#DCDCAA">  setTimeout</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=&gt;</span><span style="color:#9CDCFE"> chart</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">updateOptions</span><span style="color:#D4D4D4">({}), </span><span style="color:#B5CEA8">350</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#DCDCAA">  setTimeout</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=&gt;</span><span style="color:#9CDCFE"> table</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">redraw</span><span style="color:#D4D4D4">(), </span><span style="color:#B5CEA8">350</span><span style="color:#D4D4D4">)</span></span>
 <span class="line"><span style="color:#D4D4D4">})</span></span></code></pre>
                     <p>
-                      同样的模式适用于 Tabulator、FullCalendar
-                      以及任何其他在初始化时读取容器宽度的库。
+                      同样的套路也适用于
+                      FullCalendar（<code>calendar.updateSize()</code>）以及任何其他在初始化时读取容器宽度的库。Chart.js
+                      的图表在这里什么都不用做：它们用
+                      <code>ResizeObserver</code> 监视自己的容器，会自动重绘。
                     </p>
                     <h5 id="通过-fetch-将内容加载到卡片中">通过 fetch 将内容加载到卡片中</h5>
                     <pre
@@ -1217,52 +1220,65 @@
                       <a href="color-mode.html">颜色模式</a>、<a
                         href="javascript/accessibility.html"
                         >无障碍访问</a
-                      >以及捆绑的 JS 会自动处理模态框内的 Escape 关闭、焦点陷阱和键盘导航。
+                      >以及捆绑的 JS 会自动处理模态框内的 ESC 键关闭、焦点陷阱和键盘导航。
                     </p>
                     <h5 id="会跟随深色模式的图表">会跟随深色模式的图表</h5>
                     <p>
-                      图表库会自己绘制文字和提示框，所以它们对
-                      <code>data-bs-theme</code> 一无所知。比如
-                      ApexCharts，默认会画出浅色的提示框和深灰色的坐标轴标签 ——
-                      放在深色卡片上，提示框继承来的文字颜色接近白色，白底白字根本看不清。这个库其实有深色主题；你只需要告诉它该用哪一个，并且在模式变化时更新一下。
+                      图表库是基于画布绘制的，因此它们对 <code>data-bs-theme</code> 或其他 CSS
+                      一无所知：Chart.js
+                      会使用其自身固定的默认颜色来绘制坐标轴标签、网格线和数据工具提示，这些颜色适合浅色页面，但在深色卡片上几乎完全不可见。你需要手动为它提供颜色，并在模式更改时再次传递这些颜色。
                     </p>
                     <p>
-                      每个演示页面都带了这个辅助脚本（它是页面底部共享脚本的一部分）。它会在任何图表创建<strong>之前</strong>，根据
-                      <code>&lt;html data-bs-theme&gt;</code> 设置 ApexCharts 的全局默认
-                      <code>theme.mode</code
-                      >，让图表背景保持透明（否则深色模式会把它涂成灰色），并监听这个属性，这样每个带
-                      <code>chart.id</code> 的图表都会跟随切换器、auto
-                      模式下的系统偏好，或者你自己的代码：
+                      绘制图表的演示页面都带了一个小预设（<code>src/html/components/_chartjs.astro</code>，在每个页面上内联在
+                      Chart.js 之后）。它把 AdminLTE 的 CSS 变量读进 <code>Chart.defaults</code> ——
+                      字体族、文字颜色、网格线、跟界面其余部分风格一致的提示框和图例，以及在
+                      <code>&lt;html dir=&quot;rtl&quot;&gt;</code> 时的 <code>rtl</code> 设置 ——
+                      并监听
+                      <code>&lt;html&gt;</code
+                      >，这样页面上的每张图表都会在模式变化时重新刷样式，不管变化是来自切换器、auto
+                      模式下的系统偏好，还是你自己的代码。它的核心部分：
                     </p>
                     <pre
                       class="astro-code dark-plus"
                       style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
                       tabindex="0"
                       data-language="html"
-                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#569CD6">  const</span><span style="color:#DCDCAA"> mode</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=&gt;</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">documentElement</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">getAttribute</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;data-bs-theme&quot;</span><span style="color:#D4D4D4">) === </span><span style="color:#CE9178">&quot;dark&quot;</span><span style="color:#D4D4D4"> ? </span><span style="color:#CE9178">&quot;dark&quot;</span><span style="color:#D4D4D4"> : </span><span style="color:#CE9178">&quot;light&quot;</span><span style="color:#D4D4D4">)</span></span>
-<span class="line"><span style="color:#9CDCFE">  globalThis</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">Apex</span><span style="color:#D4D4D4"> ||= {}                                   </span><span style="color:#6A9955">// ApexCharts&#39; global options object</span></span>
-<span class="line"><span style="color:#9CDCFE">  Apex</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">theme</span><span style="color:#D4D4D4"> = { </span><span style="color:#9CDCFE">mode:</span><span style="color:#DCDCAA"> mode</span><span style="color:#D4D4D4">() }</span></span>
-<span class="line"><span style="color:#9CDCFE">  Apex</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">chart</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">Object</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">assign</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">Apex</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">chart</span><span style="color:#D4D4D4"> || {}, { </span><span style="color:#9CDCFE">background:</span><span style="color:#CE9178"> &quot;transparent&quot;</span><span style="color:#D4D4D4"> })</span></span>
+                    ><code><span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
+<span class="line"><span style="color:#569CD6">  const</span><span style="color:#4FC1FF"> root</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">documentElement</span></span>
+<span class="line"><span style="color:#569CD6">  const</span><span style="color:#DCDCAA"> cssVar</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">name</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=&gt;</span><span style="color:#DCDCAA"> getComputedStyle</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">root</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">getPropertyValue</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">name</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">trim</span><span style="color:#D4D4D4">()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">  const</span><span style="color:#DCDCAA"> applyTheme</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=&gt;</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> grid</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">`rgba(</span><span style="color:#569CD6">${</span><span style="color:#DCDCAA">cssVar</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;--bs-emphasis-color-rgb&quot;</span><span style="color:#D4D4D4">)</span><span style="color:#569CD6">}</span><span style="color:#CE9178">, 0.08)`</span></span>
+<span class="line"><span style="color:#9CDCFE">    Chart</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">defaults</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">font</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">family</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">cssVar</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;--bs-body-font-family&quot;</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#9CDCFE">    Chart</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">defaults</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">color</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">cssVar</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;--bs-secondary-color&quot;</span><span style="color:#D4D4D4">)        </span><span style="color:#6A9955">// 标记与标题</span></span>
+<span class="line"><span style="color:#9CDCFE">    Chart</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">defaults</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">borderColor</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">grid</span><span style="color:#6A9955">                            // 网格线和坐标轴线</span></span>
+<span class="line"><span style="color:#9CDCFE">    Chart</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">defaults</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">plugins</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">legend</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">labels</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">color</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">cssVar</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;--bs-body-color&quot;</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#9CDCFE">    Object</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">assign</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">Chart</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">defaults</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">plugins</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">tooltip</span><span style="color:#D4D4D4">, {</span></span>
+<span class="line"><span style="color:#9CDCFE">      backgroundColor:</span><span style="color:#DCDCAA"> cssVar</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;--bs-body-bg&quot;</span><span style="color:#D4D4D4">),</span></span>
+<span class="line"><span style="color:#9CDCFE">      borderColor:</span><span style="color:#DCDCAA"> cssVar</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;--bs-border-color&quot;</span><span style="color:#D4D4D4">),</span></span>
+<span class="line"><span style="color:#9CDCFE">      borderWidth:</span><span style="color:#B5CEA8"> 1</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">      titleColor:</span><span style="color:#DCDCAA"> cssVar</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;--bs-emphasis-color&quot;</span><span style="color:#D4D4D4">),</span></span>
+<span class="line"><span style="color:#9CDCFE">      bodyColor:</span><span style="color:#DCDCAA"> cssVar</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;--bs-body-color&quot;</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">    })</span></span>
+<span class="line"><span style="color:#9CDCFE">    Chart</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">defaults</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">elements</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">arc</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">borderColor</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">cssVar</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;--bs-body-bg&quot;</span><span style="color:#D4D4D4">) </span><span style="color:#6A9955">// 甜甜圈切片间隙</span></span>
+<span class="line"><span style="color:#D4D4D4">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">  applyTheme</span><span style="color:#D4D4D4">()</span></span>
 <span class="line"><span style="color:#569CD6">  new</span><span style="color:#DCDCAA"> MutationObserver</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=&gt;</span><span style="color:#D4D4D4"> {</span></span>
-<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> next</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">mode</span><span style="color:#D4D4D4">()</span></span>
-<span class="line"><span style="color:#9CDCFE">    Apex</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">theme</span><span style="color:#D4D4D4"> = { </span><span style="color:#9CDCFE">mode:</span><span style="color:#9CDCFE"> next</span><span style="color:#D4D4D4"> }</span></span>
-<span class="line"><span style="color:#C586C0">    for</span><span style="color:#D4D4D4"> (</span><span style="color:#569CD6">const</span><span style="color:#D4D4D4"> { </span><span style="color:#4FC1FF">chart</span><span style="color:#D4D4D4"> } </span><span style="color:#569CD6">of</span><span style="color:#9CDCFE"> Apex</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">_chartInstances</span><span style="color:#D4D4D4"> || []) {</span></span>
-<span class="line"><span style="color:#9CDCFE">      chart</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">updateOptions</span><span style="color:#D4D4D4">({ </span><span style="color:#9CDCFE">theme:</span><span style="color:#D4D4D4"> { </span><span style="color:#9CDCFE">mode:</span><span style="color:#9CDCFE"> next</span><span style="color:#D4D4D4"> } }, </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">)</span></span>
-<span class="line"><span style="color:#D4D4D4">    }</span></span>
-<span class="line"><span style="color:#D4D4D4">  }).</span><span style="color:#DCDCAA">observe</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">documentElement</span><span style="color:#D4D4D4">, { </span><span style="color:#9CDCFE">attributes:</span><span style="color:#569CD6"> true</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">attributeFilter:</span><span style="color:#D4D4D4"> [</span><span style="color:#CE9178">&quot;data-bs-theme&quot;</span><span style="color:#D4D4D4">] })</span></span>
-<span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span>
-<span class="line"><span style="color:#808080">&lt;</span><span style="color:#569CD6">script</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">&quot;https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.min.js&quot;</span><span style="color:#808080">&gt;&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span></code></pre>
-                    <p>给每个图表都加一个 <code>id</code>，这样它就会被注册进去，参与实时更新：</p>
-                    <pre
-                      class="astro-code dark-plus"
-                      style="background-color: #1e1e1e; color: #d4d4d4; overflow-x: auto"
-                      tabindex="0"
-                      data-language="js"
-                    ><code><span class="line"><span style="color:#569CD6">new</span><span style="color:#DCDCAA"> ApexCharts</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">querySelector</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;#revenue-chart&quot;</span><span style="color:#D4D4D4">), {</span></span>
-<span class="line"><span style="color:#9CDCFE">  chart:</span><span style="color:#D4D4D4"> { </span><span style="color:#9CDCFE">id:</span><span style="color:#CE9178"> &quot;revenue-chart&quot;</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">type:</span><span style="color:#CE9178"> &quot;区域&quot;</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">height:</span><span style="color:#B5CEA8"> 300</span><span style="color:#D4D4D4"> },</span></span>
-<span class="line"><span style="color:#6A9955">  // …</span></span>
-<span class="line"><span style="color:#D4D4D4">}).</span><span style="color:#DCDCAA">render</span><span style="color:#D4D4D4">()</span></span></code></pre>
+<span class="line"><span style="color:#DCDCAA">    applyTheme</span><span style="color:#D4D4D4">()</span></span>
+<span class="line"><span style="color:#C586C0">    for</span><span style="color:#D4D4D4"> (</span><span style="color:#569CD6">const</span><span style="color:#4FC1FF"> chart</span><span style="color:#569CD6"> of</span><span style="color:#9CDCFE"> Object</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">values</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">Chart</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">instances</span><span style="color:#D4D4D4">)) </span><span style="color:#9CDCFE">chart</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">update</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">&quot;none&quot;</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">  }).</span><span style="color:#DCDCAA">observe</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">root</span><span style="color:#D4D4D4">, { </span><span style="color:#9CDCFE">attributes:</span><span style="color:#569CD6"> true</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">attributeFilter:</span><span style="color:#D4D4D4"> [</span><span style="color:#CE9178">&quot;data-bs-theme&quot;</span><span style="color:#D4D4D4">] })</span></span>
+<span class="line"><span style="color:#808080">&lt;/</span><span style="color:#569CD6">script</span><span style="color:#808080">&gt;</span></span></code></pre>
+                    <p>
+                      在这个脚本之后创建的图表会默认采用这些颜色，而
+                      <code>chart.update()</code>
+                      会让已有的图表重新读一遍。你在数据集上自己设的颜色（<code
+                        >borderColor: &quot;#0d6efd&quot;</code
+                      >）归你自己所有，会保持原样；而需要跟随模式变化的颜色可以写成一个函数，Chart.js
+                      会在每次更新时重新调用它 ——
+                      <code>backgroundColor: () =&gt; cssVar(&quot;--bs-secondary-bg&quot;)</code>。
+                    </p>
                     <p>
                       如果你更想用 ColorMode 事件，而不是监听属性变化，可以用
                       <code
@@ -1271,11 +1287,8 @@
                       >，它会收到 <code>e.detail.resolved</code>（值为
                       <code>&quot;light&quot;</code> 或
                       <code>&quot;dark&quot;</code>）；而上面那个监听器还额外覆盖了 auto
-                      模式下的系统偏好变化，以及任何直接设置这个属性的代码。同样的思路也适用于其他图表库
-                      —— Chart.js 会读取 <code>Chart.defaults.color</code> /
-                      <code>Chart.defaults.borderColor</code>，你可以从
-                      <code>getComputedStyle(document.body)</code>
-                      里取值设置，然后在同一个监听器里用 <code>chart.update()</code> 重新应用。
+                      模式下的系统偏好变化，以及任何直接设置这个属性的代码。同样的思路也适用于其他图表库：找到它们从哪里取文字、网格和提示框的颜色，把
+                      CSS 变量喂给它们，然后在变化时重新应用一遍。
                     </p>
                     <h5 id="将页面作为文档打印">将页面作为文档打印</h5>
                     <p>
@@ -1341,7 +1354,7 @@
                       <code>.d-print-none</code> 在两种模式下都能隐藏任何你不想印在纸上的东西 ——
                       比如发票上方那一排按钮工具栏。
                     </p>
-                    <h5 id="接下来去哪里">接下来去哪里</h5>
+                    <h5 id="接下来">接下来</h5>
                     <ul>
                       <li>
                         <a href="javascript/plugins-overview.html">JavaScript 插件概述</a> ——
@@ -1402,7 +1415,7 @@
 
         if (
           sidebarWrapper &&
-          OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined &&
+          globalThis.OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined &&
           !isMobile
         ) {
           OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
@@ -1416,38 +1429,6 @@
       });
     </script>
     <!--end::OverlayScrollbars Configure-->
-    <!--begin::Charts follow the colour mode-->
-    <script>
-      // 如果不额外指定，ApexCharts 会按浅色主题来画提示框和坐标轴文字，
-      // 这在深色模式下根本看不清（#6105）。在任何图表创建之前，把页面的颜色模式
-      // 作为全局默认值交给它 —— 这段代码跑在图表页面自己的脚本之前 —— 并且在模式
-      // 发生变化时（ColorMode、auto 模式下的操作系统、或你自己的代码），
-      // 让每一个带 `chart.id` 的图表都跟着同步。
-      (() => {
-        'use strict';
-        const mode = () =>
-          document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'dark' : 'light';
-        // `Apex` 是 ApexCharts 的全局选项对象；它必须在库加载之前就存在。
-        // theme.mode 还会顺带设一个深色的图表背景 —— 这里保留卡片自己的背景。
-        // eslint-disable-next-line unicorn/no-global-object-property-assignment
-        globalThis.Apex ||= {};
-        const apex = globalThis.Apex;
-        apex.theme = { mode: mode() };
-        apex.chart = Object.assign(apex.chart || {}, { background: 'transparent' });
-        new MutationObserver(() => {
-          const next = mode();
-          apex.theme = { mode: next };
-          const instances = apex._chartInstances || [];
-          for (const { chart } of instances) {
-            chart.updateOptions({ theme: { mode: next } }, false, false);
-          }
-        }).observe(document.documentElement, {
-          attributes: true,
-          attributeFilter: ['data-bs-theme'],
-        });
-      })();
-    </script>
-    <!--end::Charts follow the colour mode-->
 
     <!--begin::明暗模式切换-->
     <!-- 浅色/深色/自动切换器从 4.1 起就作为 ColorMode 模块内置在 adminlte.js 里了

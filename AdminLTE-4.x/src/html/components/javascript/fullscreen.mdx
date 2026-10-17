@@ -50,4 +50,4 @@ fs.outFullscreen()     // 退出全屏
 - 需要浏览器支持 [Fullscreen API](https://developer.mozilla.org/docs/Web/API/Fullscreen_API)。在调用之前请检查 `document.fullscreenEnabled`。
 - 图标状态和事件由原生 `fullscreenchange` 事件同步驱动，因此当用户按 <kbd>ESC</kbd> 或 <kbd>F11</kbd> 退出全屏时，状态依然正确；若全屏请求被浏览器拒绝，图标则保持不变。
 - 最大化图标通过 Bootstrap 工具类 `d-none` 来隐藏（而非内联 `display` 样式），这样不会覆盖图标库的原生 display 值——这适用于 FontAwesome、Lucide、Tabler Icons 等图标库。
-- 对 `document.documentElement`（即 `<html>`）应用全屏意味着整个页面进入全屏模式。如果只想全屏显示单个卡片，请改用 [CardWidget 的 `maximize()` 方法](card-widget.html#programmatic-api)。
+- 对 `document.documentElement`（即 `<html>`）应用全屏意味着整个页面进入全屏模式。如果只想全屏显示单个卡片，请改用 [CardWidget 的 `maximize()` 方法](card-widget.html#调用方式)。

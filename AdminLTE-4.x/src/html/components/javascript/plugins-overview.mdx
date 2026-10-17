@@ -152,7 +152,7 @@ document.addEventListener("remove.lte.card-widget", (e) => {
 | `hold-transition` | Layout | `<body>` | 暂时禁用过渡动画（如调整大小时等） |
 | `app-loaded` | Layout | `<body>` | 初始页面加载动画已完成 |
 | `reduce-motion` | AccessibilityManager | `<body>` | 检测到操作系统 `prefers-reduced-motion` |
-| `menu-open` | SidebarSearch | `.nav-item` | Submenu expanded to reveal a match (restored on clear) |
+| `menu-open` | SidebarSearch | `.nav-item` | 子菜单展开以显示匹配项（在清除后恢复） |
 
 ##### 生产环境 vs 源码
 
@@ -160,7 +160,7 @@ document.addEventListener("remove.lte.card-widget", (e) => {
 
 如果您只需要其中一两个插件并且关注打包体积，从 `node_modules/admin-lte/src/ts/` 导入单个模块可以进行 tree-shake——但您的工具链中需要 TypeScript 支持。
 
-##### 接下来去哪里
+##### 接下来
 
 - 每个插件的详细参考（上表中的链接）
 - [布局结构](../layout-blueprint.html) —— 插件所操作的结构类
